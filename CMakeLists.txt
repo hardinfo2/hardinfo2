@@ -524,7 +524,7 @@ endif()
 if(HARDINFO2_GTK3)
     SET(PACKAGE_GTK "libgtk-3-0 (>=3.0)")
 else()
-    SET(PACKAGE_GTK "libgtk-2-0 (>=2.20)")
+    SET(PACKAGE_GTK "libgtk2.0-0 (>=2.20)")
 endif()
 SET(CPACK_RPM_PACKAGE_DEPENDS "libjson-glib-1.0-0, zlib, ${PACKAGE_LS}, ${PACKAGE_GTK}, libglib2.0-0 (>=2.10)")
 

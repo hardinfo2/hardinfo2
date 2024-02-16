@@ -426,7 +426,7 @@ detect_distro(void)
 {
     static const struct {
         const gchar *file;
-        const gchar *codename;
+        const gchar *id;
         const gchar *override;
     } distro_db[] = {
 #define DB_PREFIX "/etc/"
@@ -482,27 +482,27 @@ detect_distro(void)
         if (distro_db[i].override) {
             g_free(contents);
             return (Distro) { .distro = g_strdup(distro_db[i].override),
-                              .codename = g_strdup(distro_db[i].codename) };
+                              .id = g_strdup(distro_db[i].id) };
         }
 
-        if (g_str_equal(distro_db[i].codename, "debian")) {
+        if (g_str_equal(distro_db[i].id, "debian")) {
             /* HACK: Some Debian systems doesn't include the distribuition
              * name in /etc/debian_release, so add them here. */
             if (isdigit(contents[0]) || contents[0] != 'D')
                 return (Distro) {
                     .distro = g_strdup_printf("Debian GNU/Linux %s", (char*)idle_free(contents)),
-                    .codename = g_strdup(distro_db[i].codename)
+                    .id = g_strdup(distro_db[i].id)
                 };
         }
 
-        if (g_str_equal(distro_db[i].codename, "fatdog")) {
+        if (g_str_equal(distro_db[i].id, "fatdog")) {
             return (Distro) {
                 .distro = g_strdup_printf("Fatdog64 [%.10s]", (char*)idle_free(contents)),
-                .codename = g_strdup(distro_db[i].codename)
+                .id = g_strdup(distro_db[i].id)
             };
         }
 
-        return (Distro) { .distro = contents, .codename = g_strdup(distro_db[i].codename) };
+        return (Distro) { .distro = contents, .id = g_strdup(distro_db[i].id) };
     }
 
     return (Distro) { .distro = g_strdup(_("Unknown")) };
@@ -542,7 +542,7 @@ computer_get_os(void)
 
     os->entropy_avail = computer_get_entropy_avail();
 
-    if (g_strcmp0(os->distrocode, "ubuntu") == 0) {
+    if (g_strcmp0(os->distroid, "ubuntu") == 0) {
         GSList *flavs = ubuntu_flavors_scan();
         if (flavs) {
             /* just use the first one */

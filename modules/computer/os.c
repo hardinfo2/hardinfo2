@@ -369,8 +369,10 @@ parse_os_release(void)
     for (line = split; *line; line++) {
         if (!strncmp(*line, "ID=", sizeof("ID=") - 1)) {
             id = g_strdup(*line + strlen("ID="));
-        } else if (!strncmp(*line, "CODENAME=", sizeof("CODENAME=") - 1)) {
+        } else if (!strncmp(*line, "CODENAME=", sizeof("CODENAME=") - 1) && codename == NULL) {
             codename = g_strdup(*line + strlen("CODENAME="));
+        } else if (!strncmp(*line, "VERSION_CODENAME=", sizeof("VERSION_CODENAME=") - 1) && codename == NULL) {
+            codename = g_strdup(*line + strlen("VERSION_CODENAME="));
         } else if (!strncmp(*line, "PRETTY_NAME=", sizeof("PRETTY_NAME=") - 1)) {
             pretty_name = g_strdup(*line +
                                    strlen("PRETTY_NAME=\""));

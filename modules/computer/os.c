@@ -397,7 +397,7 @@ parse_lsb_release(void)
     gchar *codename = NULL;
     gchar **split, *contents, **line;
 
-    if (!hardinfo_spawn_command_line_sync("/usr/bin/lsb_release -di", &contents, NULL, NULL, NULL))
+    if (!hardinfo_spawn_command_line_sync("/usr/bin/lsb_release -dic", &contents, NULL, NULL, NULL))
         return (Distro) {};
 
     split = g_strsplit(idle_free(contents), "\n", 0);

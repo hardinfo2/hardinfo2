@@ -124,6 +124,7 @@ gboolean on_draw (GtkWidget *widget, GdkEventExpose *event, gpointer data) {
 double guibench(double *frameTime, int *frameCount)
 {
     GtkWindow * window;
+
     cairo_t *cr;
 
     frametime=frameTime;
@@ -142,6 +143,22 @@ double guibench(double *frameTime, int *frameCount)
     gtk_window_set_position     (window, GTK_WIN_POS_CENTER);
     gtk_window_set_title        (window, "GPU Benchmarking...");
     g_signal_connect(window, "destroy", gtk_main_quit, NULL);
+
+    // epilepsy warning
+    GtkWidget *dialog;
+    gint result;
+    dialog = gtk_message_dialog_new(GTK_WINDOW(window),
+                                    GTK_DIALOG_MODAL,
+                                    GTK_MESSAGE_WARNING,
+                                    GTK_BUTTONS_OK_CANCEL,
+                                    "This benchmark contains visual effects that may trigger seizures in individuals with photosensitive epilepsy. Viewer discretion is advised. If you have a history of epilepsy or are susceptible to seizures, exercise caution. Are you sure you want to proceed?"
+                                    );
+    gtk_window_set_title(GTK_WINDOW(dialog), "Epileptic Seizure Warning");
+    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+
+    if (result != GTK_RESPONSE_OK)
+        return 0;
 
     // create the are we can draw in
     GtkDrawingArea* drawingArea;

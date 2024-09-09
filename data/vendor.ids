@@ -1357,3 +1357,8 @@ name ZOTAC International
     ansi_color 0;90;43
     match_string ZOTAC
 
+name Sinker
+    name_short Sinker
+    url www.powev.com
+    ansi_color 0;31;107
+    match_string Sinker

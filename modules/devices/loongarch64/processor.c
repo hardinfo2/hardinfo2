@@ -53,7 +53,7 @@ processor_scan(void)
 
     fclose(cpuinfo);
 
-    return g_slist_append(NULL, processor);q
+    return g_slist_append(NULL, processor);
 }
 
 gchar *processor_name(GSList * processors) {
@@ -64,11 +64,11 @@ gchar *processor_name(GSList * processors) {
 
     if (compat != NULL) {
         //FIXME - Add table for incoming compatible DT info
-        ret= g_strdup_printf("Loongarch64 Processor (%s/%s)",processor_name_default(processors), compat);
+        ret = g_strdup_printf("Loongarch64 Processor (%s/%s)",processor_name_default(processors), compat);
         g_free(compat);
     }
 
-    if(!ret) ret=g_strdup("Loongarch64 Processor (%s/NoDT)",processor_name_default_(processors));
+    if(!ret) ret = g_strdup("Loongarch64 Processor (%s/NoDT)");
     return ret;
 }
 

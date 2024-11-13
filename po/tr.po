@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 01:42+0200\n"
+"POT-Creation-Date: 2024-11-13 22:49+0300\n"
 "PO-Revision-Date: 2023-05-24 21:01+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -64,15 +64,16 @@ msgid "Governor"
 msgstr "Yönetici"
 
 #: hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:217 modules/devices.c:842
-#: modules/devices/gpu.c:209 modules/devices/pci.c:148
+#: modules/devices/gpu.c:209 modules/devices/pci.c:169
 #: modules/devices/usb.c:139
 msgid "Driver"
 msgstr "Sürücü"
 
 #: hardinfo2/cpu_util.c:223 modules/computer.c:801
-#: modules/devices/arm/processor.c:255 modules/devices/e2k/processor.c:178
-#: modules/devices/x86/processor.c:283 modules/devices/x86/processor.c:387
-#: modules/devices/x86/processor.c:525
+#: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
+#: modules/devices/e2k/processor.c:178 modules/devices/riscv/processor.c:185
+#: modules/devices/riscv/processor.c:346 modules/devices/x86/processor.c:283
+#: modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
 msgid "(Not Available)"
 msgstr "(Mevcut değil)"
 
@@ -93,8 +94,8 @@ msgstr "Kitap"
 msgid "Drawer"
 msgstr "Çekmece"
 
-#: hardinfo2/cpu_util.c:249 modules/devices/arm/processor.c:480
-#: modules/devices/x86/processor.c:751
+#: hardinfo2/cpu_util.c:249 modules/devices/arm/processor.c:709
+#: modules/devices/riscv/processor.c:551 modules/devices/x86/processor.c:751
 msgid "Topology"
 msgstr "Topoloji"
 
@@ -119,13 +120,13 @@ msgid "Chassis"
 msgstr "Şasi"
 
 #: hardinfo2/dmi_util.c:29 modules/computer.c:580 modules/computer.c:1144
-#: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:340
+#: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563
 #: modules/devices.c:99 modules/devices/e2k/processor.c:357
 #: modules/devices/ia64/processor.c:159
 #: modules/devices/loongarch64/processor.c:93
 #: modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
 #: modules/devices/parisc/processor.c:154 modules/devices/ppc/processor.c:157
-#: modules/devices/riscv/processor.c:241 modules/devices/s390/processor.c:131
+#: modules/devices/riscv/processor.c:583 modules/devices/s390/processor.c:131
 #: modules/devices/sh/processor.c:83 modules/devices/sparc/processor.c:74
 #: modules/devices/x86/processor.c:647
 msgid "Processor"
@@ -139,8 +140,9 @@ msgstr "Bellek Denetleyici"
 msgid "Memory Module"
 msgstr "Hafıza modülü"
 
-#: hardinfo2/dmi_util.c:32 modules/devices/e2k/processor.c:366
-#: modules/devices/parisc/processor.c:163 modules/devices/x86/processor.c:663
+#: hardinfo2/dmi_util.c:32 modules/devices/arm/processor.c:572
+#: modules/devices/e2k/processor.c:366 modules/devices/parisc/processor.c:163
+#: modules/devices/riscv/processor.c:592 modules/devices/x86/processor.c:663
 msgid "Cache"
 msgstr "Önbellek"
 
@@ -438,14 +440,14 @@ msgid "Symbol Map"
 msgstr "Sembol Haritası"
 
 #. !/ %d will be latest year of copyright
-#: hardinfo2/hardinfo.c:104
+#: hardinfo2/hardinfo.c:108
 #, c-format
 msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:106
+#: hardinfo2/hardinfo.c:110
 #, c-format
 msgid ""
 "Compile-time options:\n"
@@ -457,16 +459,16 @@ msgid ""
 "  Compiled for   :  %s\n"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:114
+#: hardinfo2/hardinfo.c:118
 msgid "3.0"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:149
+#: hardinfo2/hardinfo.c:153
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:188
+#: hardinfo2/hardinfo.c:192
 msgid "Don't know what to do. Exiting."
 msgstr "Ne yapacağımı bilmiyorum. Çıkılıyor."
 
@@ -604,12 +606,12 @@ msgstr ""
 "Tanınmayan argümanlar.\n"
 "Daha fazla bilgi için ``%s --help '' deneyin.\n"
 
-#: hardinfo2/util.c:869
+#: hardinfo2/util.c:867
 #, c-format
 msgid "Scanning: %s..."
 msgstr "Taranıyor: %s..."
 
-#: hardinfo2/util.c:879 shell/shell.c:303 shell/shell.c:925 shell/shell.c:2163
+#: hardinfo2/util.c:877 shell/shell.c:303 shell/shell.c:877 shell/shell.c:2114
 msgid "Done."
 msgstr "Bitti."
 
@@ -622,9 +624,9 @@ msgid "Check Update Version"
 msgstr ""
 
 #: hardinfo2/vendor.c:391 modules/computer.c:630 modules/computer.c:829
-#: modules/computer/os.c:196 modules/computer/os.c:378
-#: modules/computer/os.c:413 modules/computer/os.c:741
-#: modules/computer/os.c:802 modules/devices.c:464 modules/devices.c:614
+#: modules/computer/os.c:197 modules/computer/os.c:379
+#: modules/computer/os.c:414 modules/computer/os.c:746
+#: modules/computer/os.c:807 modules/devices.c:464 modules/devices.c:614
 #: modules/devices/firmware.c:149 modules/devices/printers.c:106
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
@@ -633,11 +635,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: shell/callbacks.c:457 shell/shell.c:522
+#: shell/callbacks.c:457 shell/shell.c:531
 msgid "System Information and Benchmark"
 msgstr ""
 
-#: shell/callbacks.c:462
+#: shell/callbacks.c:461
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -653,151 +655,151 @@ msgid ""
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 
-#: shell/menu.c:43
+#: shell/menu.c:37
 msgid "_Information"
 msgstr "_Bilgi"
 
-#: shell/menu.c:44
+#: shell/menu.c:38
 msgid "_View"
 msgstr "_Görünüm"
 
-#: shell/menu.c:46
+#: shell/menu.c:40
 msgid "_Theme"
 msgstr ""
 
-#: shell/menu.c:48
+#: shell/menu.c:42
 msgid "_Help"
 msgstr "_Yardım"
 
-#: shell/menu.c:52
+#: shell/menu.c:46
 msgid "Generate _Report"
 msgstr "_Rapor Oluştur"
 
-#: shell/menu.c:53
+#: shell/menu.c:47
 msgid "Generates a report with detailed system information"
 msgstr "Ayrıntılı sistem bilgileri içeren bir rapor oluşturur"
 
-#: shell/menu.c:57 shell/syncmanager.c:692
+#: shell/menu.c:51 shell/syncmanager.c:692
 msgid "Synchronize"
 msgstr "Eşzamanla"
 
-#: shell/menu.c:58
+#: shell/menu.c:52
 msgid "Send benchmark results and receive updated data from the network"
 msgstr "Karşılaştırma sonuçları gönderin ve ağdan güncellenmiş veriler alın"
 
-#: shell/menu.c:73
+#: shell/menu.c:62
 msgid "_Refresh"
 msgstr "_Yenile"
 
-#: shell/menu.c:78
+#: shell/menu.c:67
 msgid "_Open HardInfo2 Web Site"
 msgstr "HardInfo2 Web Sitesini _Aç"
 
-#: shell/menu.c:83
+#: shell/menu.c:72
 msgid "_Report bug"
 msgstr "Hata _Bildir"
 
-#: shell/menu.c:88
+#: shell/menu.c:77
 msgid "_About HardInfo2"
 msgstr "HardInfo2 _Hakkında"
 
-#: shell/menu.c:89
+#: shell/menu.c:78
 msgid "Displays program version information"
 msgstr "Program sürüm bilgilerini görüntüler"
 
-#: shell/menu.c:93
+#: shell/menu.c:82
 msgid "_Quit"
 msgstr "_Çık"
 
-#: shell/menu.c:100
+#: shell/menu.c:89
 msgid "_Side Pane"
 msgstr "_Yan Panel"
 
-#: shell/menu.c:101
+#: shell/menu.c:90
 msgid "Toggles side pane visibility"
 msgstr "Yan bölmenin görünürlüğünü açar veya kapatır"
 
-#: shell/menu.c:104
+#: shell/menu.c:93
 msgid "_Toolbar"
 msgstr "_Araç Çubuğu"
 
-#: shell/menu.c:108
+#: shell/menu.c:97
 msgid "Synchronize on startup"
 msgstr ""
 
-#: shell/menu.c:113
+#: shell/menu.c:102
 msgid "Disable Theme"
 msgstr ""
 
-#: shell/menu.c:117
+#: shell/menu.c:106
 msgid "Theme Motherboard"
 msgstr ""
 
-#: shell/menu.c:121
+#: shell/menu.c:110
 msgid "Theme Graffiti"
 msgstr ""
 
-#: shell/menu.c:125
+#: shell/menu.c:114
 msgid "Theme Anime PC"
 msgstr ""
 
-#: shell/menu.c:129
+#: shell/menu.c:118
 msgid "Theme Tux Star"
 msgstr ""
 
-#: shell/menu.c:133
+#: shell/menu.c:122
 msgid "Theme PixArt"
 msgstr ""
 
-#: shell/menu.c:137
+#: shell/menu.c:126
 msgid "Theme Silicon"
 msgstr ""
 
-#: shell/report.c:772 shell/report.c:780
+#: shell/report.c:833 shell/report.c:841
 msgid "Save File"
 msgstr "Dosya Kaydet"
 
-#: shell/report.c:775 shell/report.c:1252 shell/syncmanager.c:780
+#: shell/report.c:836 shell/report.c:1315 shell/syncmanager.c:778
 msgid "_Cancel"
 msgstr "İ_ptal"
 
-#: shell/report.c:777
+#: shell/report.c:838
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: shell/report.c:952
+#: shell/report.c:1016
 msgid "Cannot create ReportContext. Programming bug?"
 msgstr "ReportContext oluşturulamıyor. Hatalı programlama mı?"
 
-#: shell/report.c:972
+#: shell/report.c:1036
 msgid "Open the report with your web browser?"
 msgstr "Raporu web tarayıcınızla açın?"
 
-#: shell/report.c:975
+#: shell/report.c:1039
 msgid "_No"
 msgstr "_Hayır"
 
-#: shell/report.c:976
+#: shell/report.c:1040
 msgid "_Open"
 msgstr "_Aç"
 
-#: shell/report.c:1007
+#: shell/report.c:1071
 msgid "Generating report..."
 msgstr "Rapor üretiliyor ..."
 
-#: shell/report.c:1017
+#: shell/report.c:1081
 msgid "Report saved."
 msgstr "Rapor kaydedildi."
 
-#: shell/report.c:1019
+#: shell/report.c:1083
 msgid "Error while creating the report."
 msgstr "Rapor oluşturulurken hata oluştu."
 
-#: shell/report.c:1121
+#: shell/report.c:1185
 msgid "Generate Report"
 msgstr "Rapor Oluştur"
 
-#: shell/report.c:1146
+#: shell/report.c:1211
 msgid ""
 "<big><b>Generate Report</b></big>\n"
 "Please choose the information that you wish to view in your report:"
@@ -805,45 +807,45 @@ msgstr ""
 "<big><b>Rapor Oluştur</b></big>\n"
 "Lütfen raporunuzda görmek istediğiniz bilgileri seçin:"
 
-#: shell/report.c:1218
+#: shell/report.c:1281
 msgid "Select _None"
 msgstr "Seçim _Yok"
 
-#: shell/report.c:1229
+#: shell/report.c:1292
 msgid "Select _All"
 msgstr "_Tümünü Seç"
 
-#: shell/report.c:1262
+#: shell/report.c:1325
 msgid "_Generate"
 msgstr "_Oluştur"
 
-#: shell/shell.c:517
+#: shell/shell.c:526
 #, c-format
 msgid "%s - System Information and Benchmark"
 msgstr ""
 
-#: shell/shell.c:910
+#: shell/shell.c:862
 msgid "Loading modules..."
 msgstr "Modüller yükleniyor..."
 
-#: shell/shell.c:1681
+#: shell/shell.c:1633
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:1688
+#: shell/shell.c:1640
 msgid "Support URL"
 msgstr "Destek URL"
 
-#: shell/shell.c:1699
+#: shell/shell.c:1651
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: shell/shell.c:2033
+#: shell/shell.c:1984
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Özet</b>"
 
-#: shell/shell.c:2139
+#: shell/shell.c:2090
 msgid "Updating..."
 msgstr "Güncelleniyor..."
 
@@ -872,104 +874,108 @@ msgstr "(iptal edildi)"
 msgid "(failed)"
 msgstr "(hatalı)"
 
-#: shell/syncmanager.c:658 modules/benchmark.c:932
+#: shell/syncmanager.c:658 modules/benchmark.c:923
 msgid "Send benchmark results"
 msgstr "Karşılaştırma sonucunu gönder"
 
-#: shell/syncmanager.c:767
+#: shell/syncmanager.c:765
 msgid "Privacy Policy"
 msgstr "Gizlilik İlkesi"
 
-#: shell/syncmanager.c:789
+#: shell/syncmanager.c:787
 msgid "_Synchronize"
 msgstr "_Eşzamanla"
 
-#: shell/syncmanager.c:838
+#: shell/syncmanager.c:836
 #, c-format
 msgid "Synchronizing: %s"
 msgstr ""
 
-#: modules/benchmark/benches.c:136
+#: modules/benchmark/benches.c:138
 msgid "CPU Blowfish (Single-thread)"
 msgstr "CPU Balon balığı (Tek iş parçacıklı)"
 
-#: modules/benchmark/benches.c:144
+#: modules/benchmark/benches.c:146
 msgid "CPU Blowfish (Multi-thread)"
 msgstr "CPU Balon balığı (Çok iş parçacıklı)"
 
-#: modules/benchmark/benches.c:152
+#: modules/benchmark/benches.c:154
 msgid "CPU Blowfish (Multi-core)"
 msgstr "CPU Balon balığı (Çok-çekirdekli)"
 
-#: modules/benchmark/benches.c:160
+#: modules/benchmark/benches.c:162
 msgid "CPU Zlib"
 msgstr "CPU Zlib Sıkıştırma gücü"
 
-#: modules/benchmark/benches.c:168
+#: modules/benchmark/benches.c:170
 msgid "CPU CryptoHash"
 msgstr "CPU CryptoHash Güvenliği"
 
-#: modules/benchmark/benches.c:176
+#: modules/benchmark/benches.c:178
 msgid "CPU Fibonacci"
 msgstr "CPU Fibonacci Hesaplama Gücü"
 
-#: modules/benchmark/benches.c:184
+#: modules/benchmark/benches.c:186
 msgid "CPU N-Queens"
 msgstr "CPU N-Queens İşleme Gücü"
 
-#: modules/benchmark/benches.c:192
+#: modules/benchmark/benches.c:194
 msgid "FPU FFT"
 msgstr "FPU FFT"
 
-#: modules/benchmark/benches.c:200
+#: modules/benchmark/benches.c:202
 msgid "FPU Raytracing (Single-thread)"
 msgstr ""
 
-#: modules/benchmark/benches.c:208
+#: modules/benchmark/benches.c:210
 msgid "Internal Network Speed"
 msgstr ""
 
-#: modules/benchmark/benches.c:216
+#: modules/benchmark/benches.c:218
 msgid "SysBench CPU (Single-thread)"
 msgstr "SisKıyaslama CPU (Tek iş parçacığı)"
 
-#: modules/benchmark/benches.c:224
+#: modules/benchmark/benches.c:226
 msgid "SysBench CPU (Multi-thread)"
 msgstr "SisKıyaslama CPU (Çoklu iş parçacığı)"
 
-#: modules/benchmark/benches.c:232
+#: modules/benchmark/benches.c:234
 msgid "SysBench CPU (Four threads)"
 msgstr "SisKıyaslama CPU (Dörtlü iş parçacığı)"
 
-#: modules/benchmark/benches.c:240
+#: modules/benchmark/benches.c:242
 msgid "SysBench Memory (Single-thread)"
 msgstr "SisKıyaslama Bellek (Tek iş parcacıklı)"
 
-#: modules/benchmark/benches.c:248
+#: modules/benchmark/benches.c:250
 msgid "SysBench Memory (Two threads)"
 msgstr "SisKıyaslama Bellek (Çift iş parcacıklı)"
 
-#: modules/benchmark/benches.c:256
+#: modules/benchmark/benches.c:258
 msgid "SysBench Memory (Quad threads)"
 msgstr ""
 
-#: modules/benchmark/benches.c:264
+#: modules/benchmark/benches.c:266
 msgid "SysBench Memory (Multi-thread)"
 msgstr ""
 
-#: modules/benchmark/benches.c:272
+#: modules/benchmark/benches.c:274
 msgid "GPU Drawing"
 msgstr "GPU Çizimi"
 
-#: modules/benchmark/benches.c:281
+#: modules/benchmark/benches.c:283
 msgid "GPU OpenGL Drawing"
 msgstr ""
 
-#: modules/benchmark/benches.c:290
+#: modules/benchmark/benches.c:292
 msgid "Storage R/W Speed"
 msgstr ""
 
-#: modules/benchmark/benches.c:304
+#: modules/benchmark/benches.c:300
+msgid "Cache/Memory"
+msgstr ""
+
+#: modules/benchmark/benches.c:314
 msgid ""
 "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
 "Results in events/second. Higher is better."
@@ -977,7 +983,7 @@ msgstr ""
 "Alexey Kopytov's <i><b>sysbench</b></i> gereklidir.\n"
 "Olay/saniye cinsinden sonuçlar. Daha yüksek, daha iyidir."
 
-#: modules/benchmark/benches.c:310
+#: modules/benchmark/benches.c:320
 msgid ""
 "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
 "Results in MiB/second. Higher is better."
@@ -985,27 +991,27 @@ msgstr ""
 "Alexey Kopytov's <i><b>sysbench</b></i> gereklidir.\n"
 "MB/saniye cinsinden sonuçlar. Daha yüksek, daha iyidir."
 
-#: modules/benchmark/benches.c:313
+#: modules/benchmark/benches.c:323
 msgid ""
 "<i><b>iperf3</b></i> is required.\n"
 "Results in Gbits/s. Higher is better."
 msgstr ""
 
-#: modules/benchmark/benches.c:324
+#: modules/benchmark/benches.c:334
 msgid "Results in HIMarks. Higher is better."
 msgstr "HIMark'larda sonuçlar. Daha yüksek, daha iyidir."
 
-#: modules/benchmark/benches.c:326
+#: modules/benchmark/benches.c:336
 msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
 
-#: modules/benchmark/benches.c:329
+#: modules/benchmark/benches.c:340
 msgid "Results in MB/s. Higher is better."
 msgstr ""
 
-#: modules/benchmark/benches.c:332
+#: modules/benchmark/benches.c:343
 msgid "Results in FPS. Higher is better."
 msgstr ""
 
@@ -1013,7 +1019,7 @@ msgstr ""
 #. * line references
 #: modules/benchmark/bench_results.c:34 modules/computer.c:41
 #: modules/computer/display.c:40 modules/computer/display.c:57
-#: modules/computer/os.c:400 modules/computer/os.c:457 modules/devices.c:596
+#: modules/computer/os.c:401 modules/computer/os.c:458 modules/devices.c:596
 #: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
 #: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
 #: modules/devices/gpu.c:130 modules/devices/gpu.c:210
@@ -1021,7 +1027,7 @@ msgstr ""
 #: modules/devices/inputdevices.c:51 modules/devices/monitors.c:28
 #: modules/devices/monitors.c:29 modules/devices/monitors.c:155
 #: modules/devices/monitors.c:164 modules/devices/pci.c:25
-#: modules/devices/pci.c:149 modules/devices/pci.c:150
+#: modules/devices/pci.c:170 modules/devices/pci.c:171
 #: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
 #: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
 #: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
@@ -1035,8 +1041,8 @@ msgid "(Unknown)"
 msgstr "(Bilinmeyen)"
 
 #: modules/benchmark/bench_results.c:261 modules/devices/alpha/processor.c:90
-#: modules/devices/arm/processor.c:289 modules/devices/arm/processor.c:302
-#: modules/devices/arm/processor.c:344 modules/devices/arm/processor.c:509
+#: modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524
+#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:742
 #: modules/devices.c:430 modules/devices.c:438 modules/devices.c:466
 #: modules/devices/e2k/processor.c:363 modules/devices/e2k/processor.c:400
 #: modules/devices/gpu.c:125 modules/devices/gpu.c:127
@@ -1047,12 +1053,13 @@ msgstr "(Bilinmeyen)"
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
 #: modules/devices/parisc/processor.c:158
 #: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
-#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:246
-#: modules/devices/riscv/processor.c:276 modules/devices/s390/processor.c:160
+#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:380
+#: modules/devices/riscv/processor.c:393 modules/devices/riscv/processor.c:588
+#: modules/devices/riscv/processor.c:623 modules/devices/s390/processor.c:160
 #: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
 #: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
 #: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
-#: modules/devices/x86/processor.c:790
+#: modules/devices/x86/processor.c:789
 msgid "MHz"
 msgstr "MHz"
 
@@ -1132,9 +1139,9 @@ msgid "seconds"
 msgstr "saniye"
 
 #: modules/benchmark/bench_results.c:419 modules/computer/languages.c:101
-#: modules/devices/arm/processor.c:354 modules/devices/e2k/processor.c:362
+#: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:362
 #: modules/devices/gpu.c:203 modules/devices/ia64/processor.c:166
-#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:146
+#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167
 #: modules/devices/ppc/processor.c:159
 msgid "Revision"
 msgstr "Revizyon"
@@ -1177,7 +1184,7 @@ msgid "CPU Description"
 msgstr "CPU Açıklaması"
 
 #: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:500
-#: modules/benchmark.c:601
+#: modules/benchmark.c:600
 msgid "CPU Config"
 msgstr "CPU Yapılandırması"
 
@@ -1186,7 +1193,7 @@ msgid "Threads Available"
 msgstr "Mevcut İş Parçacığı"
 
 #: modules/benchmark/bench_results.c:434 modules/benchmark/bench_results.c:501
-#: modules/benchmark.c:579
+#: modules/benchmark.c:578
 msgid "GPU"
 msgstr "GPU"
 
@@ -1196,7 +1203,7 @@ msgid "OpenGL Renderer"
 msgstr "OpenGL İşleyici"
 
 #: modules/benchmark/bench_results.c:436 modules/benchmark/bench_results.c:505
-#: modules/benchmark.c:590 modules/computer.c:1145 modules/devices.c:109
+#: modules/benchmark.c:589 modules/computer.c:1145 modules/devices.c:109
 msgid "Storage"
 msgstr "Depolama"
 
@@ -1244,42 +1251,47 @@ msgstr "orta"
 msgid "cfg_val"
 msgstr "cfg_val"
 
-#: modules/benchmark.c:352
+#: modules/benchmark.c:351
 msgid "This Machine"
 msgstr "Bu Makine"
 
-#: modules/benchmark.c:578 modules/benchmark.c:589 modules/benchmark.c:601
+#: modules/benchmark.c:577 modules/benchmark.c:588 modules/benchmark.c:600
 msgid "Results"
 msgstr "Sonuç"
 
-#: modules/benchmark.c:602 modules/devices/sparc/processor.c:75
+#: modules/benchmark.c:601 modules/devices/sparc/processor.c:75
 msgid "CPU"
 msgstr "İşlemci"
 
-#: modules/benchmark.c:678
+#: modules/benchmark.c:679
 #, c-format
 msgid "Benchmarking: <b>%s</b>."
 msgstr "Karşılaştırılıyor: <b>%s</b>."
 
-#: modules/benchmark.c:685
+#: modules/benchmark.c:683
+#, c-format
+msgid "Benchmarking: %s"
+msgstr ""
+
+#: modules/benchmark.c:687
 msgid "Stop"
 msgstr ""
 
-#: modules/benchmark.c:697
+#: modules/benchmark.c:700
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
 msgstr ""
 
-#: modules/benchmark.c:767
+#: modules/benchmark.c:759
 msgid "Benchmarks"
 msgstr "Kıyaslamalar"
 
-#: modules/benchmark.c:777
+#: modules/benchmark.c:769
 msgid "Perform tasks and compare with other systems"
 msgstr "Görevleri yerine getir ve diğer sistemler ile karşılaştır"
 
-#: modules/benchmark.c:938
+#: modules/benchmark.c:929
 msgid "Receive benchmark results"
 msgstr "Karşılaştırma sonuçlarını al"
 
@@ -1303,7 +1315,7 @@ msgstr "İşletim Sistemi"
 msgid "Security"
 msgstr "Güvenlik"
 
-#: modules/computer.c:99 modules/devices/gpu.c:211 modules/devices/pci.c:150
+#: modules/computer.c:99 modules/devices/gpu.c:211 modules/devices/pci.c:171
 msgid "Kernel Modules"
 msgstr "Çekirdek Modülleri"
 
@@ -1522,7 +1534,7 @@ msgid "Program"
 msgstr "Uygulama"
 
 #: modules/computer.c:366 modules/computer.c:629 modules/computer.c:631
-#: modules/computer.c:807 modules/computer/modules.c:372
+#: modules/computer.c:807 modules/computer/modules.c:371
 #: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
 #: modules/devices/dmi.c:57 modules/devices/firmware.c:75
 #: modules/devices/inputdevices.c:146 modules/devices/monitors.c:409
@@ -1533,8 +1545,9 @@ msgstr "Sürüm"
 msgid "Field"
 msgstr "Alan"
 
-#: modules/computer.c:385 modules/computer.c:730 modules/computer/modules.c:370
-#: modules/computer/modules.c:371 modules/devices/arm/processor.c:479
+#: modules/computer.c:385 modules/computer.c:730 modules/computer/modules.c:369
+#: modules/computer/modules.c:370 modules/devices/arm/processor.c:708
+#: modules/devices/riscv/processor.c:550
 msgid "Description"
 msgstr "Tanım"
 
@@ -1704,13 +1717,14 @@ msgid "Loaded Modules"
 msgstr "Yüklü Modüller"
 
 #: modules/computer.c:729 modules/computer.c:757 modules/computer.c:897
-#: modules/computer/languages.c:95 modules/computer/modules.c:370
-#: modules/devices/arm/processor.c:478 modules/devices/dmi.c:38
+#: modules/computer/languages.c:95 modules/computer/modules.c:369
+#: modules/devices/arm/processor.c:707 modules/devices/dmi.c:38
 #: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:358
 #: modules/devices/gpu.c:301 modules/devices/ia64/processor.c:160
 #: modules/devices/inputdevices.c:141 modules/devices/monitors.c:403
-#: modules/devices/monitors.c:505 modules/devices/sh/processor.c:84
-#: modules/devices/x86/processor.c:750 modules/network.c:333
+#: modules/devices/monitors.c:505 modules/devices/riscv/processor.c:549
+#: modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:750
+#: modules/network.c:333
 msgid "Name"
 msgstr "İsim"
 
@@ -1742,13 +1756,14 @@ msgstr "Bağlantı Noktası"
 msgid "Usage"
 msgstr "Kullanım"
 
-#: modules/computer.c:772 modules/devices.c:865 modules/devices.c:879
+#: modules/computer.c:772 modules/devices/arm/processor.c:759
+#: modules/devices.c:865 modules/devices.c:879
 #: modules/devices/e2k/processor.c:416 modules/devices/gpu.c:85
-#: modules/devices/gpu.c:93 modules/devices/gpu.c:293 modules/devices/pci.c:102
-#: modules/devices/pci.c:110 modules/devices/pci.c:154
-#: modules/devices/storage.c:48 modules/devices/storage.c:57
-#: modules/devices/usb.c:172 modules/devices/usb.c:184
-#: modules/devices/x86/processor.c:811
+#: modules/devices/gpu.c:93 modules/devices/gpu.c:293 modules/devices/pci.c:123
+#: modules/devices/pci.c:131 modules/devices/pci.c:175
+#: modules/devices/riscv/processor.c:640 modules/devices/storage.c:48
+#: modules/devices/storage.c:57 modules/devices/usb.c:172
+#: modules/devices/usb.c:184 modules/devices/x86/processor.c:810
 msgid "Device"
 msgstr "Aygıt"
 
@@ -1784,8 +1799,8 @@ msgstr "X Sunucusu"
 #: modules/devices/firmware.c:219 modules/devices/gpu.c:84
 #: modules/devices/gpu.c:92 modules/devices/gpu.c:292
 #: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:144
-#: modules/devices/monitors.c:402 modules/devices/pci.c:101
-#: modules/devices/pci.c:109 modules/devices/storage.c:47
+#: modules/devices/monitors.c:402 modules/devices/pci.c:122
+#: modules/devices/pci.c:130 modules/devices/storage.c:47
 #: modules/devices/storage.c:56 modules/devices/storage.c:282
 #: modules/devices/storage.c:572 modules/devices/storage.c:777
 #: modules/devices/usb.c:171 modules/devices/x86/processor.c:654
@@ -1833,15 +1848,15 @@ msgstr "Oluşturucu"
 msgid "Direct Rendering"
 msgstr "Doğrudan İşleme"
 
-#: modules/computer.c:849 modules/computer/modules.c:352
-#: modules/computer/modules.c:353 modules/devices/inputdevices.c:153
+#: modules/computer.c:849 modules/computer/modules.c:351
+#: modules/computer/modules.c:352 modules/devices/inputdevices.c:153
 #: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
 #: modules/devices/spd-decode.c:1100
 msgid "Yes"
 msgstr "Evet"
 
-#: modules/computer.c:849 modules/computer/modules.c:352
-#: modules/computer/modules.c:353 modules/devices/printers.c:145
+#: modules/computer.c:849 modules/computer/modules.c:351
+#: modules/computer/modules.c:352 modules/devices/printers.c:145
 #: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1097
 msgid "No"
 msgstr "Hayır"
@@ -1930,7 +1945,7 @@ msgid "GiB"
 msgstr "GB"
 
 #: modules/computer.c:1043 modules/computer/memory_usage.c:73
-#: modules/computer/modules.c:370
+#: modules/computer/modules.c:369
 msgid "KiB"
 msgstr "KB"
 
@@ -2288,150 +2303,150 @@ msgstr ""
 msgid "Update kernel module icon table"
 msgstr ""
 
-#: modules/computer/modules.c:338 modules/computer/modules.c:339
-#: modules/computer/modules.c:340 modules/computer/modules.c:341
-#: modules/computer/modules.c:342 modules/computer/modules.c:343
+#: modules/computer/modules.c:337 modules/computer/modules.c:338
+#: modules/computer/modules.c:339 modules/computer/modules.c:340
+#: modules/computer/modules.c:341 modules/computer/modules.c:342
 #: modules/devices/dmi.c:117 modules/devices/firmware.c:245
 #: modules/devices/x86/processor.c:694
 msgid "(Not available)"
 msgstr "(Mevcut değil)"
 
-#: modules/computer/modules.c:369
+#: modules/computer/modules.c:368
 msgid "Module Information"
 msgstr "Modül Bilgisi"
 
-#: modules/computer/modules.c:369 modules/devices/gpu.c:298
+#: modules/computer/modules.c:368 modules/devices/gpu.c:298
 msgid "Path"
 msgstr "Yol"
 
-#: modules/computer/modules.c:369
+#: modules/computer/modules.c:368
 msgid "Used Memory"
 msgstr "Kullanılan Hafıza"
 
-#: modules/computer/modules.c:371
+#: modules/computer/modules.c:370
 msgid "Version Magic"
 msgstr "Sürüm Büyü"
 
-#: modules/computer/modules.c:372
+#: modules/computer/modules.c:371
 msgid "In Linus' Tree"
 msgstr "Linus'un Ağacında"
 
-#: modules/computer/modules.c:373
+#: modules/computer/modules.c:372
 msgid "Retpoline Enabled"
 msgstr "Retpoline Etkin"
 
-#: modules/computer/modules.c:373
+#: modules/computer/modules.c:372
 msgid "Copyright"
 msgstr "Telif"
 
-#: modules/computer/modules.c:373
+#: modules/computer/modules.c:372
 msgid "Author"
 msgstr "Yazar"
 
-#: modules/computer/modules.c:374
+#: modules/computer/modules.c:373
 msgid "License"
 msgstr "Lisans"
 
-#: modules/computer/modules.c:380
+#: modules/computer/modules.c:379
 msgid "Dependencies"
 msgstr "Bağımlılıklar"
 
-#: modules/computer/os.c:153 modules/computer/os.c:154
-#: modules/computer/os.c:155 modules/computer/os.c:156
+#: modules/computer/os.c:154 modules/computer/os.c:155
+#: modules/computer/os.c:156 modules/computer/os.c:157
 msgid "GNU C Library"
 msgstr "GNU C Kütüphanesi"
 
-#: modules/computer/os.c:157
+#: modules/computer/os.c:158
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc veya uClibc-ng"
 
-#: modules/computer/os.c:158
+#: modules/computer/os.c:159
 msgid "diet libc"
 msgstr "diet libc"
 
-#: modules/computer/os.c:229 modules/computer/os.c:232
+#: modules/computer/os.c:230 modules/computer/os.c:233
 msgid "GNOME Shell "
 msgstr "GNOME Shell "
 
-#: modules/computer/os.c:240 modules/computer/os.c:243
+#: modules/computer/os.c:241 modules/computer/os.c:244
 msgid "Version: "
 msgstr "Sürüm: "
 
-#: modules/computer/os.c:261 modules/computer/os.c:264
+#: modules/computer/os.c:262 modules/computer/os.c:265
 msgid "MATE Desktop Environment "
 msgstr "MATE Masaüstü Ortamı "
 
-#: modules/computer/os.c:297
+#: modules/computer/os.c:298
 #, c-format
 msgid "Unknown (Window Manager: %s)"
 msgstr "Bilinmeyen (Pencere Yöneticisi: %s)"
 
 #. !/{desktop environment} on {session type}
-#: modules/computer/os.c:308
+#: modules/computer/os.c:309
 #, c-format
 msgid "%s on %s"
 msgstr "%s de %s"
 
-#: modules/computer/os.c:376
+#: modules/computer/os.c:377
 msgid "Terminal"
 msgstr "Uçbirim"
 
-#: modules/computer/os.c:392
+#: modules/computer/os.c:393
 msgid "User access allowed"
 msgstr "Kullanıcı erişimine izin verildi"
 
-#: modules/computer/os.c:394
+#: modules/computer/os.c:395
 msgid "User access forbidden"
 msgstr "Kullanıcı erişimi yasak"
 
-#: modules/computer/os.c:396
+#: modules/computer/os.c:397
 msgid "Access allowed (running as superuser)"
 msgstr "Erişime izin verildi (süper kullanıcı olarak çalışıyor)"
 
-#: modules/computer/os.c:398
+#: modules/computer/os.c:399
 msgid "Access forbidden? (running as superuser)"
 msgstr "Erişim Yasaklandı? (süper kullanıcı olarak çalışıyor)"
 
-#: modules/computer/os.c:407 modules/computer/os.c:793
+#: modules/computer/os.c:408 modules/computer/os.c:798
 msgid "Disabled"
 msgstr "Devre dışı"
 
-#: modules/computer/os.c:409
+#: modules/computer/os.c:410
 msgid "Partially enabled (mmap base+stack+VDSO base)"
 msgstr "Kısmen etkin (mmap tabanı+yığın+VDSO tabanı)"
 
-#: modules/computer/os.c:411
+#: modules/computer/os.c:412
 msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
 msgstr "Tamamen etkin (mmap tabanı+yığın+VDSO tabanı+yığın)"
 
 #. !/bits of entropy for rng (0)
-#: modules/computer/os.c:420
+#: modules/computer/os.c:421
 msgid "(None or not available)"
 msgstr "(Yok veya uygun değil)"
 
 #. !/bits of entropy for rng (low/poor value)
-#: modules/computer/os.c:421
+#: modules/computer/os.c:422
 #, c-format
 msgid "%d bits (low)"
 msgstr "%d bit (düşük)"
 
 #. !/bits of entropy for rng (medium value)
-#: modules/computer/os.c:422
+#: modules/computer/os.c:423
 #, c-format
 msgid "%d bits (medium)"
 msgstr "%d bit (orta)"
 
 #. !/bits of entropy for rng (high/good value)
-#: modules/computer/os.c:423
+#: modules/computer/os.c:424
 #, c-format
 msgid "%d bits (healthy)"
 msgstr "%d bit (yüksek)"
 
-#: modules/computer/os.c:788
+#: modules/computer/os.c:793
 msgid "Not installed"
 msgstr "Kurulu değil"
 
-#: modules/computer/os.c:791
+#: modules/computer/os.c:796
 msgid "Enabled"
 msgstr "Aktif"
 
@@ -2447,16 +2462,17 @@ msgstr "Kullanıcı Kimliği"
 msgid "Default Shell"
 msgstr "Varsayılan Shell"
 
-#: modules/devices/alpha/processor.c:88 modules/devices.c:865
-#: modules/devices/devicetree.c:162 modules/devices/devicetree.c:208
-#: modules/devices/devicetree/pmac_data.c:80
+#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:759
+#: modules/devices.c:865 modules/devices/devicetree.c:162
+#: modules/devices/devicetree.c:208 modules/devices/devicetree/pmac_data.c:80
 #: modules/devices/e2k/processor.c:361 modules/devices/e2k/processor.c:416
 #: modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165
 #: modules/devices/loongarch64/processor.c:96
 #: modules/devices/m68k/processor.c:84 modules/devices/mips/processor.c:75
 #: modules/devices/monitors.c:404 modules/devices/parisc/processor.c:155
-#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:242
-#: modules/devices/s390/processor.c:132 modules/devices/x86/processor.c:811
+#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:584
+#: modules/devices/riscv/processor.c:640 modules/devices/s390/processor.c:132
+#: modules/devices/x86/processor.c:810
 msgid "Model"
 msgstr "Model"
 
@@ -2464,18 +2480,19 @@ msgstr "Model"
 msgid "Platform String"
 msgstr "Platform Stringi"
 
-#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:344
-#: modules/devices/e2k/processor.c:363 modules/devices/e2k/processor.c:416
-#: modules/devices/ia64/processor.c:167
+#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
+#: modules/devices/arm/processor.c:759 modules/devices/e2k/processor.c:363
+#: modules/devices/e2k/processor.c:416 modules/devices/ia64/processor.c:167
 #: modules/devices/loongarch64/processor.c:98
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
 #: modules/devices/parisc/processor.c:158 modules/devices/ppc/processor.c:160
-#: modules/devices/riscv/processor.c:246 modules/devices/sh/processor.c:87
-#: modules/devices/x86/processor.c:658 modules/devices/x86/processor.c:811
+#: modules/devices/riscv/processor.c:588 modules/devices/riscv/processor.c:640
+#: modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
+#: modules/devices/x86/processor.c:810
 msgid "Frequency"
 msgstr "Frekans"
 
-#: modules/devices/alpha/processor.c:91 modules/devices/arm/processor.c:345
+#: modules/devices/alpha/processor.c:91 modules/devices/arm/processor.c:568
 #: modules/devices/e2k/processor.c:364 modules/devices/ia64/processor.c:168
 #: modules/devices/m68k/processor.c:88 modules/devices/mips/processor.c:78
 #: modules/devices/parisc/processor.c:159 modules/devices/ppc/processor.c:161
@@ -2484,12 +2501,12 @@ msgstr "Frekans"
 msgid "BogoMips"
 msgstr "BogoMips"
 
-#: modules/devices/alpha/processor.c:92 modules/devices/arm/processor.c:346
+#: modules/devices/alpha/processor.c:92 modules/devices/arm/processor.c:569
 #: modules/devices/e2k/processor.c:365 modules/devices/ia64/processor.c:169
 #: modules/devices/loongarch64/processor.c:101
 #: modules/devices/m68k/processor.c:89 modules/devices/mips/processor.c:79
 #: modules/devices/parisc/processor.c:160 modules/devices/ppc/processor.c:162
-#: modules/devices/riscv/processor.c:247 modules/devices/s390/processor.c:135
+#: modules/devices/riscv/processor.c:589 modules/devices/s390/processor.c:135
 #: modules/devices/sh/processor.c:91 modules/devices/sparc/processor.c:77
 #: modules/devices/x86/processor.c:660
 msgid "Byte Order"
@@ -2759,75 +2776,107 @@ msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
 msgstr ""
 
-#: modules/devices/arm/processor.c:143
+#: modules/devices/arm/processor.c:46 modules/devices/e2k/processor.c:30
+#: modules/devices/riscv/processor.c:36 modules/devices/x86/processor.c:149
+msgid "Cache information not available=\n"
+msgstr "Önbellek bilgisi yok=\n"
+
+#: modules/devices/arm/processor.c:52 modules/devices/e2k/processor.c:36
+#: modules/devices/riscv/processor.c:42 modules/devices/x86/processor.c:155
+#, c-format
+msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
+msgstr "Seviye %d (%s) =%d-yollu set-ilişkisel, %d set, %dKB boyutu\n"
+
+#: modules/devices/arm/processor.c:174 modules/devices/e2k/processor.c:157
+#: modules/devices/riscv/processor.c:164 modules/devices/x86/processor.c:366
+msgid "Caches"
+msgstr "Önbellekler"
+
+#: modules/devices/arm/processor.c:225 modules/devices/arm/processor.c:242
+#: modules/devices/e2k/processor.c:208 modules/devices/e2k/processor.c:225
+#: modules/devices/riscv/processor.c:215 modules/devices/riscv/processor.c:232
+#: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
+#, c-format
+msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
+msgstr "Seviye %d (%s)#%d=%dx %dKB (%dKB), %d-yollu set-ilişkisel, %d set\n"
+
+#: modules/devices/arm/processor.c:365
 msgid "ARM Processor"
 msgstr "ARM İşlemci"
 
-#: modules/devices/arm/processor.c:214 modules/devices/riscv/processor.c:211
+#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:522
 #: modules/devices/x86/processor.c:609
 msgid "Empty List"
 msgstr "Boş Liste"
 
-#: modules/devices/arm/processor.c:239 modules/devices/gpu.c:204
-#: modules/devices/gpu.c:294 modules/devices/x86/processor.c:267
+#: modules/devices/arm/processor.c:461 modules/devices/gpu.c:204
+#: modules/devices/gpu.c:294 modules/devices/riscv/processor.c:330
+#: modules/devices/x86/processor.c:267
 msgid "Clocks"
 msgstr "Saat"
 
-#: modules/devices/arm/processor.c:285 modules/devices/arm/processor.c:298
+#: modules/devices/arm/processor.c:507 modules/devices/arm/processor.c:520
+#: modules/devices/riscv/processor.c:376 modules/devices/riscv/processor.c:389
 #: modules/devices/x86/processor.c:313 modules/devices/x86/processor.c:326
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
 msgstr "%.2f-%.2f %s=%dx\n"
 
-#: modules/devices/arm/processor.c:341
+#: modules/devices/arm/processor.c:564
 msgid "Linux Name"
 msgstr "Linux Adı"
 
-#: modules/devices/arm/processor.c:342
+#: modules/devices/arm/processor.c:565
 msgid "Decoded Name"
 msgstr "Kodu Çözülmüş Ad"
 
-#: modules/devices/arm/processor.c:343 modules/network/net.c:476
+#: modules/devices/arm/processor.c:566 modules/network/net.c:476
 msgid "Mode"
 msgstr "Mod"
 
-#: modules/devices/arm/processor.c:349
+#: modules/devices/arm/processor.c:573
 msgid "ARM"
 msgstr "ARM"
 
-#: modules/devices/arm/processor.c:350
+#: modules/devices/arm/processor.c:574
 msgid "Implementer"
 msgstr "Uygulayıcı"
 
-#: modules/devices/arm/processor.c:351 modules/devices/dmi_memory.c:874
+#: modules/devices/arm/processor.c:575 modules/devices/dmi_memory.c:874
 msgid "Part"
 msgstr "Parça"
 
-#: modules/devices/arm/processor.c:352 modules/devices/ia64/processor.c:162
-#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:243
+#: modules/devices/arm/processor.c:576 modules/devices/ia64/processor.c:162
+#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:585
 msgid "Architecture"
 msgstr "Mimari"
 
-#: modules/devices/arm/processor.c:353
+#: modules/devices/arm/processor.c:577
 msgid "Variant"
 msgstr "Versiyon"
 
-#: modules/devices/arm/processor.c:355 modules/devices/riscv/processor.c:250
+#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:593
 #: modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
 msgid "Capabilities"
 msgstr "Yetenekler"
 
-#: modules/devices/arm/processor.c:477
+#: modules/devices/arm/processor.c:706 modules/devices/riscv/processor.c:548
 msgid "SOC/Package"
 msgstr "SOC/Paket"
 
-#: modules/devices/arm/processor.c:481 modules/devices/x86/processor.c:752
+#: modules/devices/arm/processor.c:710 modules/devices/riscv/processor.c:552
+#: modules/devices/x86/processor.c:752
 msgid "Logical CPU Config"
 msgstr "Mantıksal CPU Yapılandırması"
 
-#: modules/devices/arm/processor.c:498
+#: modules/devices/arm/processor.c:729 modules/devices/riscv/processor.c:608
 msgid "SOC/Package Information"
 msgstr "SOC/Paket Bilgileri"
+
+#: modules/devices/arm/processor.c:759 modules/devices/riscv/processor.c:640
+#: modules/devices/x86/processor.c:810
+msgid "Socket:Core"
+msgstr "Yuva:Çekirdek"
 
 #: modules/devices/battery.c:178
 #, c-format
@@ -2850,7 +2899,7 @@ msgstr ""
 "Model Numarası=%s\n"
 "Seri Numarası=%s\n"
 
-#: modules/devices/battery.c:257
+#: modules/devices/battery.c:260
 #, c-format
 msgid ""
 "\n"
@@ -2859,28 +2908,26 @@ msgid ""
 "AC Power Type=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:279
+#: modules/devices/battery.c:291
 #, c-format
 msgid ""
 "\n"
 "[Battery: %s]\n"
 "State=%s\n"
 "Capacity=%s / %s\n"
+"Battery Health=%.0f %%\n"
+"Design Full Energy=%.3f Wh\n"
+"Current Full Energy=%.3f Wh\n"
+"Design Full Capacity=%.3f Ah\n"
+"Current Full Capacity=%.3f Ah\n"
+"Voltage Design=%.3f V\n"
 "Battery Technology=%s\n"
 "Manufacturer=%s\n"
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
-"\n"
-"[Pil: %s]\n"
-"Durum=%s\n"
-"Kapasite=%s /%s\n"
-"Pil Teknolojisi=%s\n"
-"Üretici=%s\n"
-"Model Numarası=%s\n"
-"Seri Numarası=%s\n"
 
-#: modules/devices/battery.c:372
+#: modules/devices/battery.c:400
 #, c-format
 msgid ""
 "\n"
@@ -2899,7 +2946,7 @@ msgstr ""
 "APM sürücü sürümü =%s\n"
 "APM BIOS sürümü =%s\n"
 
-#: modules/devices/battery.c:384
+#: modules/devices/battery.c:412
 #, c-format
 msgid ""
 "\n"
@@ -2916,7 +2963,7 @@ msgstr ""
 "APM sürücü sürümü =%s\n"
 "APM BIOS sürümü =%s\n"
 
-#: modules/devices/battery.c:413
+#: modules/devices/battery.c:441
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"
@@ -2933,7 +2980,7 @@ msgstr "Ekran Kartı İşlemcisi"
 msgid "Monitors"
 msgstr "Ekranlar"
 
-#: modules/devices.c:102 modules/devices/pci.c:175
+#: modules/devices.c:102 modules/devices/pci.c:196
 msgid "PCI Devices"
 msgstr "PCI Aygıtlar"
 
@@ -3017,9 +3064,13 @@ msgstr "Sistemde bir <i><b>pci.ids</b></i> kopyası yok."
 msgid "A full <i><b>pci.ids</b></i> is not available on the system."
 msgstr "Sistemde eksiksiz bir <i><b>pci.ids</b></i> yok."
 
-#: modules/devices.c:1002
-msgid "Resource information requires superuser privileges"
-msgstr "Kaynak bilgileri süper kullanıcı ayrıcalıkları gerektirir"
+#: modules/devices.c:1002 modules/devices/dmi_memory.c:938
+msgid ""
+"Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
+"--now (SystemD distro)\n"
+"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"And Logout/Reboot for groups to be updated..."
+msgstr ""
 
 #: modules/devices.c:1008
 msgid ""
@@ -3308,15 +3359,6 @@ msgstr ""
 "\"Çoğu zaman, DMI tablolarında yer alan bilgiler yanlıştır,\n"
 "eksik veya basitçe yanlış. \"- <i><b>dmidecode</b></i> kılavuz sayfası"
 
-#: modules/devices/e2k/processor.c:30 modules/devices/x86/processor.c:149
-msgid "Cache information not available=\n"
-msgstr "Önbellek bilgisi yok=\n"
-
-#: modules/devices/e2k/processor.c:36 modules/devices/x86/processor.c:155
-#, c-format
-msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
-msgstr "Seviye %d (%s) =%d-yollu set-ilişkisel, %d set, %dKB boyutu\n"
-
 #: modules/devices/e2k/processor.c:51
 msgctxt "cache-type"
 msgid "Data"
@@ -3331,16 +3373,6 @@ msgstr "Talimat"
 msgctxt "cache-type"
 msgid "Unified"
 msgstr "Birleşik"
-
-#: modules/devices/e2k/processor.c:157 modules/devices/x86/processor.c:366
-msgid "Caches"
-msgstr "Önbellekler"
-
-#: modules/devices/e2k/processor.c:208 modules/devices/e2k/processor.c:225
-#: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
-#, c-format
-msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr "Seviye %d (%s)#%d=%dx %dKB (%dKB), %d-yollu set-ilişkisel, %d set\n"
 
 #: modules/devices/firmware.c:36
 msgid "Device cannot be removed easily"
@@ -3483,33 +3515,33 @@ msgstr "Yazılım Listesi"
 msgid "Requires the <i><b>fwupd</b></i> daemon."
 msgstr "<i><b>fwupd</b></i> arka plan hizmetine ihtiyaç duyar."
 
-#: modules/devices/gpu.c:94 modules/devices/pci.c:111
+#: modules/devices/gpu.c:94 modules/devices/pci.c:132
 #: modules/devices/storage.c:58
 msgid "SVendor"
 msgstr "SSatıcı"
 
-#: modules/devices/gpu.c:95 modules/devices/pci.c:112
+#: modules/devices/gpu.c:95 modules/devices/pci.c:133
 #: modules/devices/storage.c:59
 msgid "SDevice"
 msgstr "SAygıt"
 
-#: modules/devices/gpu.c:103 modules/devices/pci.c:122
+#: modules/devices/gpu.c:103 modules/devices/pci.c:143
 #: modules/devices/storage.c:68
 msgid "PCI Express"
 msgstr "PCI Express"
 
-#: modules/devices/gpu.c:104 modules/devices/pci.c:124
+#: modules/devices/gpu.c:104 modules/devices/pci.c:145
 #: modules/devices/storage.c:70
 msgid "Maximum Link Width"
 msgstr "Maksimum Bağlantı Genişliği"
 
-#: modules/devices/gpu.c:105 modules/devices/pci.c:126
+#: modules/devices/gpu.c:105 modules/devices/pci.c:147
 #: modules/devices/storage.c:71
 msgid "Maximum Link Speed"
 msgstr "Maksimum Bağlantı Hızı"
 
-#: modules/devices/gpu.c:105 modules/devices/pci.c:125
-#: modules/devices/pci.c:126 modules/devices/storage.c:71
+#: modules/devices/gpu.c:105 modules/devices/pci.c:146
+#: modules/devices/pci.c:147 modules/devices/storage.c:71
 msgid "GT/s"
 msgstr "GT/s"
 
@@ -3526,7 +3558,7 @@ msgid "UUID"
 msgstr "UUID"
 
 #: modules/devices/gpu.c:197 modules/devices/gpu.c:289
-#: modules/devices/inputdevices.c:140 modules/devices/pci.c:143
+#: modules/devices/inputdevices.c:140 modules/devices/pci.c:164
 #: modules/devices/usb.c:169
 msgid "Device Information"
 msgstr "Aygıt Bilgisi"
@@ -3540,12 +3572,12 @@ msgstr "Yerel"
 msgid "DRM Device"
 msgstr "DRM Aygıtı"
 
-#: modules/devices/gpu.c:201 modules/devices/pci.c:144
+#: modules/devices/gpu.c:201 modules/devices/pci.c:165
 #: modules/devices/usb.c:136 modules/devices/usb.c:177
 msgid "Class"
 msgstr "Sınıf"
 
-#: modules/devices/gpu.c:210 modules/devices/pci.c:149
+#: modules/devices/gpu.c:210 modules/devices/pci.c:170
 msgid "In Use"
 msgstr "Kullanımda"
 
@@ -3599,7 +3631,7 @@ msgstr "CPU kayıtları"
 msgid "Features"
 msgstr "Özellikler"
 
-#: modules/devices/inputdevices.c:143 modules/devices/pci.c:153
+#: modules/devices/inputdevices.c:143 modules/devices/pci.c:174
 #: modules/devices/usb.c:183
 msgid "Bus"
 msgstr "Veriyolu"
@@ -3621,7 +3653,7 @@ msgstr "Sistem Türü"
 msgid "BogoMIPS"
 msgstr "BogoMIPS"
 
-#: modules/devices/m68k/processor.c:85 modules/devices/riscv/processor.c:245
+#: modules/devices/m68k/processor.c:85 modules/devices/riscv/processor.c:587
 msgid "MMU"
 msgstr "MMU"
 
@@ -3773,7 +3805,7 @@ msgid "Data"
 msgstr "Veri"
 
 #: modules/devices/monitors.c:473 modules/devices/monitors.c:504
-#: modules/devices/pci.c:151 modules/devices/usb.c:182
+#: modules/devices/pci.c:172 modules/devices/usb.c:182
 msgid "Connection"
 msgstr "Bağlantı"
 
@@ -3793,23 +3825,23 @@ msgstr "HVersion"
 msgid "SVersion"
 msgstr "SVersion"
 
-#: modules/devices/pci.c:123
+#: modules/devices/pci.c:144
 msgid "Link Width"
 msgstr "Bağlantı Genişliği"
 
-#: modules/devices/pci.c:125
+#: modules/devices/pci.c:146
 msgid "Link Speed"
 msgstr "Bağlantı Hızı"
 
-#: modules/devices/pci.c:152
+#: modules/devices/pci.c:173
 msgid "Domain"
 msgstr "Etki Alanı"
 
-#: modules/devices/pci.c:155
+#: modules/devices/pci.c:176
 msgid "Function"
 msgstr "İşlev"
 
-#: modules/devices/pci.c:196
+#: modules/devices/pci.c:217
 msgid "No PCI devices found"
 msgstr "PCI aygıtı bulunamadı"
 
@@ -3881,7 +3913,7 @@ msgstr ""
 "[Yazıcılar]\n"
 "Yazıcı bulunamadı=\n"
 
-#: modules/devices/riscv/processor.c:244
+#: modules/devices/riscv/processor.c:586
 msgid "uarch"
 msgstr "uarch"
 
@@ -4724,10 +4756,6 @@ msgstr "En yüksek Frekans"
 #: modules/devices/x86/processor.c:749
 msgid "Package Information"
 msgstr "Paket Bilgisi"
-
-#: modules/devices/x86/processor.c:811
-msgid "Socket:Core"
-msgstr "Yuva:Çekirdek"
 
 #. !/flag:fpu
 #: modules/devices/x86/x86_data.c:48
@@ -6498,6 +6526,29 @@ msgstr "Yayın adresi"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr "RAM"
+
+#, c-format
+#~ msgid ""
+#~ "\n"
+#~ "[Battery: %s]\n"
+#~ "State=%s\n"
+#~ "Capacity=%s / %s\n"
+#~ "Battery Technology=%s\n"
+#~ "Manufacturer=%s\n"
+#~ "Model Number=%s\n"
+#~ "Serial Number=%s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "[Pil: %s]\n"
+#~ "Durum=%s\n"
+#~ "Kapasite=%s /%s\n"
+#~ "Pil Teknolojisi=%s\n"
+#~ "Üretici=%s\n"
+#~ "Model Numarası=%s\n"
+#~ "Seri Numarası=%s\n"
+
+#~ msgid "Resource information requires superuser privileges"
+#~ msgstr "Kaynak bilgileri süper kullanıcı ayrıcalıkları gerektirir"
 
 #, c-format
 #~ msgid "Module \"%s\" depends on module \"%s\", load it?"

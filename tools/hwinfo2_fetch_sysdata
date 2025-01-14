@@ -6,7 +6,7 @@ addgroup hardinfo2 2>/dev/null
 
 #Create runtime data directory
 mkdir /run/hardinfo2 2>/dev/null
-
+chmod 750 /run/hardinfo2
 
 #----Allow users in hardinfo2 group to get these hardware info----
 #iomem and ioport address - no need to show system/kernel addresses.
@@ -28,7 +28,6 @@ else
     chown -R root:hardinfo2 /run/hardinfo2
 fi
 #set rights
-chmod 750 /run/hardinfo2
 chmod 640 /run/hardinfo2/*
 
 

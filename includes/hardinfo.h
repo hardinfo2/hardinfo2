@@ -31,7 +31,7 @@
 #include "info.h"
 #include "format_early.h"
 
-#define HARDINFO2_COPYRIGHT_LATEST_YEAR 2024
+#define HARDINFO2_COPYRIGHT_LATEST_YEAR 2025
 
 typedef enum {
   MODULE_FLAG_NONE = 0,

@@ -77,10 +77,12 @@ Building and installing
 **openSUSE**: use zypper instead of yum, zypper --no-gpg-checks install ./hardinfo2-*
 libqt5-qtbase-devel instead of qt5-qtbase-devel
 
-**ArchLinux/Garuda/Manjaro/Endeavour - AUR Package**
- - git clone https://aur.archlinux.org/hardinfo2
+**ArchLinux/Garuda/Manjaro/Endeavour**
+ - git clone https://github.com/hardinfo2/hardinfo2
  - cd hardinfo2
- - makepkg -cis
+ - cp tools/PKGBUILD .
+ - cp tools/hardinfo2.install .
+ - makepkg -cis --noextract
  - hardinfo2
 
 Setting up addition tools

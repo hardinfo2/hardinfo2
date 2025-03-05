@@ -322,6 +322,7 @@ endif()
 
 #PCLinuxOS
 if(${distro} MATCHES "PCLinux")
+    SET(CPACK_RPM_PACKAGE_AUTOREQPROV "no")  
     SET(RPM_REQ "udisks2, lm_sensors, xdg-utils, xrandr, vulkan-tools,  glxinfo, iperf, gawk") #miss sysbench,fwupd
     set(HARDINFO2_SYSTEMV 1)
 endif()

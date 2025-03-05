@@ -23,7 +23,6 @@
 
 DisplayInfo *computer_get_display(void) {
     DisplayInfo *di = g_new0(DisplayInfo, 1);
-    memset(di,0,sizeof(DisplayInfo));
     di->wl = get_walyand_info();
     di->xi = xinfo_get_info();
 

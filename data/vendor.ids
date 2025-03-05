@@ -466,7 +466,7 @@ name Fedora Linux Asahi Remix
 name Fedora Linux
     name_short Fedora
     ansi_color 0;34;107
-    url www.fedoraproject.com
+    url www.fedoraproject.org
     match_string Fedora Linux
     match_string Fedora
 

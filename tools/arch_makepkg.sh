@@ -5,12 +5,7 @@ cd ..
 cp -f ./tools/PKGBUILD .
 cp -f ./tools/hardinfo2.install .
 
-#update package version
-VER=$(cat CMakeLists.txt |grep HARDINFO2_VERSION\ |grep -o -P '(?<=").*(?=")')
-VER="${VER}_ArchLinux"
-sed -i "/pkgver=/c\pkgver=$VER" PKGBUILD
-
-#build and install
+#build
 if [ $(id -u) -ne 0 ]; then
     makepkg -cs --noextract
 else

@@ -36,7 +36,7 @@ source=()
 sha256sums=('SKIP')
 
 build() {
-  cmake -B build -S "../../$pkgname" \
+  cmake -B build -S "../" \
     -DCMAKE_BUILD_TYPE='Release' \
     -DCMAKE_INSTALL_PREFIX='/usr' \
     -DCMAKE_INSTALL_LIBDIR='lib' \
@@ -45,12 +45,11 @@ build() {
 }
 
 check() {
-  cd ../..
-  desktop-file-validate "build/$pkgname.desktop"
-  appstreamcli validate --no-net "build/org.$pkgname.$pkgname.metainfo.xml"
+  cd $startdir/build
+  desktop-file-validate "$pkgname.desktop"
+  appstreamcli validate --no-net "org.$pkgname.$pkgname.metainfo.xml"
 }
 
 package() {
-  cd ..
   DESTDIR="$pkgdir" cmake --install build
 }

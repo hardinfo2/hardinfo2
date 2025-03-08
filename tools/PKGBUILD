@@ -45,7 +45,7 @@ build() {
 }
 
 check() {
-  cd $startdir/build
+  cd $srcdir/build
   desktop-file-validate "$pkgname.desktop"
   appstreamcli validate --no-net "org.$pkgname.$pkgname.metainfo.xml"
 }

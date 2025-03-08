@@ -14,7 +14,10 @@ else
     chown -R root ../hardinfo2
 fi
 
-#move result to build dir
+
+#rename and move result to build dir
+DISTRO=$(cat /etc/os-release |grep ^NAME=|awk '{sub(" ","");sub("NAME=","");sub("\"","");sub("\"","")}1')
+rename hardinfo2 hardinfo2-${DISTRO} *.zst
 mv *.zst ./build/
 
 #cleanup

@@ -36,9 +36,7 @@ source=()
 sha256sums=('SKIP')
 
 build() {
-  cd ../..
-#  cmake -B build -S "$pkgname-release-$pkgver" \
-  cmake -B build -S "$pkgname" \
+  cmake -B build -S "../../$pkgname" \
     -DCMAKE_BUILD_TYPE='Release' \
     -DCMAKE_INSTALL_PREFIX='/usr' \
     -DCMAKE_INSTALL_LIBDIR='lib' \
@@ -53,6 +51,6 @@ check() {
 }
 
 package() {
-  cd ../..
+  cd ..
   DESTDIR="$pkgdir" cmake --install build
 }

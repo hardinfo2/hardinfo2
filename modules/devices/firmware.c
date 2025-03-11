@@ -73,7 +73,8 @@ const char *find_translation(const char *str) {
     static const char *translatable[] = {
         N_("DeviceId"), N_("Guid"), N_("Summary"), N_("Plugin"), N_("Flags"),
         N_("Vendor"), N_("VendorId"), N_("Version"), N_("VersionBootloader"),
-        N_("Icon"), N_("InstallDuration"), N_("Created"),
+        N_("Icon"), N_("InstallDuration"), N_("Created"), N_("Checksum"),
+	N_("Protocol"),
         NULL
     };
     int i;
@@ -82,7 +83,8 @@ const char *find_translation(const char *str) {
         if (SEQ(str, translatable[i]))
             return _(translatable[i]);
     }
-    return str;
+    DEBUG("firmware.c - Translation missing %s",str);
+    return g_strdup(str);
 };
 
 /* map lvfs icon names to hardinfo icon names */

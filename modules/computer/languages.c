@@ -129,7 +129,7 @@ scan_languages(OperatingSystem * os)
     if (spawned) {
         ret = g_strdup("");
         p = out;
-        while(1) {
+        while(!last) {
             /* `locale -va` doesn't end the last locale block
              * with an \n, which makes this more complicated */
             next_nl = strchr(p, '\n');
@@ -142,24 +142,21 @@ scan_languages(OperatingSystem * os)
                 sscanf(p, "locale: %s", curr->name);
                 /* TODO: 'directory:' and 'archive:' */
             } else if (strchr(p, '|')) {
-                do {/* get_str() has a continue in it,
-                     * how fn frustrating that was to figure out */
-                    gchar **tmp = g_strsplit(p, "|", 2);
-                    tmp[0] = g_strstrip(tmp[0]);
-                    if (tmp[1]) {
-                        tmp[1] = g_strstrip(tmp[1]);
-                        get_str("title", curr->title);
-                        get_str("source", curr->source);
-                        get_str("address", curr->address);
-                        get_str("email", curr->email);
-                        get_str("language", curr->language);
-                        get_str("territory", curr->territory);
-                        get_str("revision", curr->revision);
-                        get_str("date", curr->date);
-                        get_str("codeset", curr->codeset);
-                    }
-                    g_strfreev(tmp);
-                } while (0);
+                gchar **tmp = g_strsplit(p, "|", 2);
+		tmp[0] = g_strstrip(tmp[0]);
+		if (tmp[1]) {
+		    tmp[1] = g_strstrip(tmp[1]);
+		    if (g_str_has_prefix(tmp[0], "title")) curr->title = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "source")) curr->source = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "address")) curr->address = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "email")) curr->email = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "language")) curr->language = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "territory")) curr->territory = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "revision")) curr->revision = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "date")) curr->date = g_strdup(tmp[1]);
+		    else if (g_str_has_prefix(tmp[0], "codeset")) curr->codeset = g_strdup(tmp[1]);
+		}
+		g_strfreev(tmp);
             } else if (strstr(p, "------")) {
                 /* do nothing */
             } else if (curr) {
@@ -172,7 +169,6 @@ scan_languages(OperatingSystem * os)
                 curr = NULL;
                 g_free(clean_title);
             }
-            if (last) break;
             p = next_nl + 1;
         }
         g_free(out);

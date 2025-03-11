@@ -19,6 +19,7 @@
 #include "hardinfo.h"
 #include "computer.h"
 
+
 MemoryInfo *
 computer_get_memory(void)
 {
@@ -40,9 +41,9 @@ computer_get_memory(void)
         tmp[0] = g_strstrip(tmp[0]);
         tmp[1] = g_strstrip(tmp[1]);
 
-        get_int("MemTotal", mi->total);
-        get_int("MemFree", mi->free);
-        get_int("Cached", mi->cached);
+        if (g_str_has_prefix(tmp[0], "MemTotal")) mi->total = atoi(tmp[1]);
+        else if (g_str_has_prefix(tmp[0], "MemFree")) mi->free = atoi(tmp[1]);
+        else if (g_str_has_prefix(tmp[0], "Cached")) mi->cached = atoi(tmp[1]);
 
         g_strfreev(tmp);
     }

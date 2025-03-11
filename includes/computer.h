@@ -123,24 +123,6 @@ struct _Distro {
     gchar *id;
 };
 
-#define get_str(field_name,ptr)               \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
-    ptr = g_strdup(tmp[1]);                   \
-    g_strfreev(tmp);                          \
-    continue;                                 \
-  }
-#define get_int(field_name,ptr)               \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
-    ptr = atoi(tmp[1]);                       \
-    g_strfreev(tmp);                          \
-    continue;                                 \
-  }
-#define get_float(field_name,ptr)             \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
-    ptr = atof(tmp[1]);                       \
-    g_strfreev(tmp);                          \
-    continue;                                 \
-  }
 
 extern gchar *users;
 extern gchar *groups;

@@ -1582,6 +1582,8 @@ static gboolean select_marked_or_first_item(gpointer data)
 		gtk_tree_path_free(path);
 
                 found_selection = TRUE;
+		g_free(datacol);
+		return FALSE;
             }
             g_free(datacol);
         }
@@ -1860,7 +1862,7 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
         break;
     }
 
-    if (!reload) {
+    /*if (!reload) {
         switch (shell->view_type) {
         case SHELL_VIEW_DUAL:
         case SHELL_VIEW_LOAD_GRAPH:
@@ -1869,8 +1871,13 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
         default:
             break;
         }
-    }
+    }*/
     shell_set_note_from_entry(entry);
+
+    //Scroll to selected item
+    g_idle_add(select_marked_or_first_item, NULL);
+    while (gtk_events_pending()) gtk_main_iteration();
+    g_idle_add(select_marked_or_first_item, NULL);
 }
 
 static void info_selected_show_extra(const gchar *tag)

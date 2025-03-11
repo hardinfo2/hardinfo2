@@ -575,7 +575,8 @@ static Distro parse_os_release(void)
     if(pretty_name && !g_str_equal(id, "alpine")  && g_file_get_contents("/etc/alpine-release", &contents , NULL, NULL) ) {
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
-        if(p) strend(p,' '); else p="";
+	strend(p,' ');
+        if(!p) p="";
         t=pretty_name; pretty_name=g_strdup_printf("%s - Alpine %s", t,p); g_free(t);
         g_free(contents);
     } else
@@ -583,7 +584,8 @@ static Distro parse_os_release(void)
     if(pretty_name && !g_str_equal(id, "fedora")  && g_file_get_contents("/etc/fedora-release", &contents , NULL, NULL) ) {
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
-        if(p) strend(p,' '); else p="";
+	strend(p,' ');
+        if(!p) p="";
         t=pretty_name; pretty_name=g_strdup_printf("%s - Fedora %s", t,p); g_free(t);
         g_free(contents);
     } else
@@ -591,7 +593,8 @@ static Distro parse_os_release(void)
     if(pretty_name && !g_str_equal(id, "rhel") && !g_str_equal(id, "fedora") && g_file_get_contents("/etc/redhat-release", &contents , NULL, NULL) ) {
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
-        if(p) strend(p,' '); else p="";
+	strend(p,' ');
+        if(!p) p="";
 	//FIXME: Add table RHEL->Fedora
 	//RHEL4=>FC3
 	//RHEL5=>FC6

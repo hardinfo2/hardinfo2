@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-11 22:31+0100\n"
+"POT-Creation-Date: 2025-03-11 22:49+0100\n"
 "PO-Revision-Date: 2024-10-24 00:14+0200\n"
 "Last-Translator: hwspeedy\n"
 "Language-Team: \n"
@@ -2926,6 +2926,27 @@ msgstr "SOC/pakkeoplysninger"
 msgid "Socket:Core"
 msgstr ""
 
+#: modules/devices/battery.c:178
+#, c-format
+msgid ""
+"\n"
+"[Battery: %s]\n"
+"State=%s (load: %s)\n"
+"Capacity=%s / %s (%.2f%%)\n"
+"Battery Technology=%s (%s)\n"
+"Manufacturer=%s\n"
+"Model Number=%s\n"
+"Serial Number=%s\n"
+msgstr ""
+"\n"
+"[Batteri: %s]\n"
+"Status=%s (forbrug: %s)\n"
+"Kapacitet=%s / %s (%.2f%%)\n"
+"Batteri Teknologi=%s (%s)\n"
+"Producent=%s\n"
+"Model Nummer=%s\n"
+"Serie Nummer=%s\n"
+
 #: modules/devices/battery.c:262
 #, c-format
 msgid ""
@@ -2934,6 +2955,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[AC Strømforsyning: %s]\n"
+"Tilsluttet=%s\n"
+"AC Power Type=%s\n"
 
 #: modules/devices/battery.c:299
 #, c-format

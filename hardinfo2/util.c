@@ -629,7 +629,7 @@ static ShellModule *module_load(gchar * filename)
 
     tmp = g_build_filename(params.path_lib, "modules", filename, NULL);
     module->dll = g_module_open(tmp, G_MODULE_BIND_LAZY);
-    DEBUG("gmodule resource for ``%s'' is %p (%s)", tmp, module->dll, g_module_error());
+    //DEBUG("gmodule resource for ``%s'' is %p (%s)", tmp, module->dll, g_module_error());
     g_free(tmp);
 
     if (module->dll) {
@@ -647,7 +647,7 @@ static ShellModule *module_load(gchar * filename)
 	}
 
 	if (g_module_symbol(module->dll, "hi_module_init", (gpointer) & init)) {
-	    DEBUG("initializing module ``%s''", filename);
+	    //DEBUG("initializing module ``%s''", filename);
 	    init();
 	}
 
@@ -691,7 +691,7 @@ static ShellModule *module_load(gchar * filename)
 	    i++;
 	}
 
-	DEBUG("registering methods for module ``%s''", filename);
+	//DEBUG("registering methods for module ``%s''", filename);
 	module_register_methods(module);
     } else {
     	DEBUG("cannot g_module_open(``%s''). permission problem?", filename);

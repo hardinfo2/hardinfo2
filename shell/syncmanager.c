@@ -109,7 +109,7 @@ gint sync_manager_count_entries(void)
 
 void sync_manager_add_entry(SyncEntry *entry)
 {
-    DEBUG("registering syncmanager entry ''%s''", entry->name);
+    //DEBUG("registering syncmanager entry ''%s''", entry->name);
 
     entry->selected = TRUE;
     entries = g_slist_append(entries, entry);
@@ -117,7 +117,7 @@ void sync_manager_add_entry(SyncEntry *entry)
 
 void sync_manager_clear_entries(void)
 {
-    DEBUG("clearing syncmanager entries");
+    //DEBUG("clearing syncmanager entries");
 
     g_slist_free(entries);
     entries = NULL;

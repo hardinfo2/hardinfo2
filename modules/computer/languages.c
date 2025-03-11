@@ -164,7 +164,7 @@ scan_languages(OperatingSystem * os)
                 gchar *li_str = locale_info_section(curr);
                 gchar *clean_title = hardinfo_clean_value(curr->title, 0); /* may contain & */
                 ret = h_strdup_cprintf("$%s$%s=%s\n", ret, curr->name, curr->name, clean_title);
-                moreinfo_add_with_prefix("COMP", g_strdup(curr->name), li_str); /* becomes owned by moreinfo */
+                moreinfo_add_with_prefix("COMP", curr->name, li_str); /* li_str becomes owned by moreinfo */
                 locale_info_free(curr);
                 curr = NULL;
                 g_free(clean_title);

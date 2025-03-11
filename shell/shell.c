@@ -408,12 +408,9 @@ static void stylechange3_me(void)
     if(settings && !newgnome) keys=g_settings_list_keys(settings);
     while(!newgnome && keys && (keys[i]!=NULL)){
         if(strcmp(keys[i],"color-scheme")==0) newgnome=1;
-	g_free(keys[i]);
         i++;
     }
-    //check Adwaita as new gnome uses it - but new mate/budgie does not
-    //theme = g_settings_get_string(settings, "gtk-theme");
-    //if(!strstr(theme,"Adwaita")) newgnome=0;
+    if(keys) g_strfreev(keys);
 
     //new gnome using only normal/dark mode
     if(settings){

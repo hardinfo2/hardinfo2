@@ -576,7 +576,6 @@ static Distro parse_os_release(void)
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
 	strend(p,' ');
-        if(!p) p="";
         t=pretty_name; pretty_name=g_strdup_printf("%s - Alpine %s", t,p); g_free(t);
         g_free(contents);
     } else
@@ -585,7 +584,6 @@ static Distro parse_os_release(void)
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
 	strend(p,' ');
-        if(!p) p="";
         t=pretty_name; pretty_name=g_strdup_printf("%s - Fedora %s", t,p); g_free(t);
         g_free(contents);
     } else
@@ -594,7 +592,6 @@ static Distro parse_os_release(void)
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
 	strend(p,' ');
-        if(!p) p="";
 	//FIXME: Add table RHEL->Fedora
 	//RHEL4=>FC3
 	//RHEL5=>FC6

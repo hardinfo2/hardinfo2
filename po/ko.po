@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-11 22:31+0100\n"
+"POT-Creation-Date: 2025-03-12 11:23+0100\n"
 "PO-Revision-Date: 2022-09-28\n"
 "Last-Translator: Yunji Lee<yunlisa96@gmail.com>\n"
 "Language-Team: \n"
@@ -564,8 +564,8 @@ msgstr "벤치마크 결과 형식([짧은], conf, 셸)"
 #: hardinfo2/util.c:361
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
-"50)"
-msgstr "포함할 최대 벤치마크 결과 수(무제한의 경우 -1, 기본값은 50)"
+"250)"
+msgstr "포함할 최대 벤치마크 결과 수(무제한의 경우 -1, 기본값은 250)"
 
 #: hardinfo2/util.c:367
 msgid "shows program version and quit"
@@ -597,7 +597,7 @@ msgstr ""
 msgid "Scanning: %s..."
 msgstr "스캔 중: %s..."
 
-#: hardinfo2/util.c:877 shell/shell.c:302 shell/shell.c:904 shell/shell.c:2141
+#: hardinfo2/util.c:877 shell/shell.c:302 shell/shell.c:904 shell/shell.c:2148
 msgid "Done."
 msgstr "완료."
 
@@ -741,51 +741,51 @@ msgstr ""
 msgid "Theme Silicon"
 msgstr ""
 
-#: shell/report.c:833 shell/report.c:841
+#: shell/report.c:850 shell/report.c:858
 msgid "Save File"
 msgstr "파일을 저장"
 
-#: shell/report.c:836 shell/report.c:1315 shell/syncmanager.c:779
+#: shell/report.c:853 shell/report.c:1332 shell/syncmanager.c:779
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: shell/report.c:838
+#: shell/report.c:855
 msgid "_Save"
 msgstr "저장(_S)"
 
-#: shell/report.c:1016
+#: shell/report.c:1033
 msgid "Cannot create ReportContext. Programming bug?"
 msgstr "ReportContext를 생성할 수 없습니다. 프로그래밍 버그?"
 
-#: shell/report.c:1036
+#: shell/report.c:1053
 msgid "Open the report with your web browser?"
 msgstr "웹 브라우저로 보고서를 여시겠습니까?"
 
-#: shell/report.c:1039
+#: shell/report.c:1056
 msgid "_No"
 msgstr "아니오(_N)"
 
-#: shell/report.c:1040
+#: shell/report.c:1057
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: shell/report.c:1071
+#: shell/report.c:1088
 msgid "Generating report..."
 msgstr "보고서 생성 중..."
 
-#: shell/report.c:1081
+#: shell/report.c:1098
 msgid "Report saved."
 msgstr "보고서가 저장되었습니다."
 
-#: shell/report.c:1083
+#: shell/report.c:1100
 msgid "Error while creating the report."
 msgstr "보고서를 만드는 동안 오류가 발생했습니다."
 
-#: shell/report.c:1185
+#: shell/report.c:1202
 msgid "Generate Report"
 msgstr "보고서 생성"
 
-#: shell/report.c:1211
+#: shell/report.c:1228
 msgid ""
 "<big><b>Generate Report</b></big>\n"
 "Please choose the information that you wish to view in your report:"
@@ -793,15 +793,15 @@ msgstr ""
 "<big><b>보고서 생성</b></big>\n"
 "보고서에서 보고 싶은 정보를 선택하십시오:"
 
-#: shell/report.c:1281
+#: shell/report.c:1298
 msgid "Select _None"
 msgstr "선택 안함(_N)"
 
-#: shell/report.c:1292
+#: shell/report.c:1309
 msgid "Select _All"
 msgstr "모두 선택(_A)"
 
-#: shell/report.c:1325
+#: shell/report.c:1342
 msgid "_Generate"
 msgstr "생성(_G)"
 
@@ -826,24 +826,24 @@ msgstr ""
 msgid "Loading modules..."
 msgstr "모듈 로드 중..."
 
-#: shell/shell.c:1660
+#: shell/shell.c:1662
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:1667
+#: shell/shell.c:1669
 msgid "Support URL"
 msgstr "지원 URL"
 
-#: shell/shell.c:1678
+#: shell/shell.c:1680
 msgid "Wikipedia"
 msgstr "위키피디아"
 
-#: shell/shell.c:2011
+#: shell/shell.c:2018
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → 요약</b>"
 
-#: shell/shell.c:2117
+#: shell/shell.c:2124
 msgid "Updating..."
 msgstr "업데이트 중..."
 

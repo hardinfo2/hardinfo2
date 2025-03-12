@@ -314,7 +314,7 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
     static gchar *run_benchmark = NULL;
     static gchar *result_format = NULL;
     static gchar *bench_user_note = NULL;
-    static gint max_bench_results = 50;
+    static gint max_bench_results = 250;
 
     static GOptionEntry options[] = {
 	{
@@ -358,7 +358,7 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 	 .short_name = 'n',
 	 .arg = G_OPTION_ARG_INT,
 	 .arg_data = &max_bench_results,
-	 .description = N_("maximum number of benchmark results to include (-1 for no limit, default is 50)")},
+	 .description = N_("maximum number of benchmark results to include (-1 for no limit, default is 250)")},
 	{
 	 .long_name = "version",
 	 .short_name = 'v',

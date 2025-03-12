@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-11 22:31+0100\n"
+"POT-Creation-Date: 2025-03-12 11:23+0100\n"
 "PO-Revision-Date: 2016-06-10 12:11+0200\n"
 "Last-Translator: Alexander Münch <git@thehacker.biz>\n"
 "Language-Team: German\n"
@@ -574,10 +574,10 @@ msgstr "Benchmarkergebnisformat ([short], conf, shell)"
 #: hardinfo2/util.c:361
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
-"50)"
+"250)"
 msgstr ""
 "Maximale Anzahl an Benchmark-Ergebnissen zum einbeziehen (-1 für kein Limit, "
-"Standard ist 50)"
+"Standard ist 250)"
 
 #: hardinfo2/util.c:367
 msgid "shows program version and quit"
@@ -609,7 +609,7 @@ msgstr ""
 msgid "Scanning: %s..."
 msgstr "Scanne: %s..."
 
-#: hardinfo2/util.c:877 shell/shell.c:302 shell/shell.c:904 shell/shell.c:2141
+#: hardinfo2/util.c:877 shell/shell.c:302 shell/shell.c:904 shell/shell.c:2148
 msgid "Done."
 msgstr "Fertig."
 
@@ -753,51 +753,51 @@ msgstr ""
 msgid "Theme Silicon"
 msgstr ""
 
-#: shell/report.c:833 shell/report.c:841
+#: shell/report.c:850 shell/report.c:858
 msgid "Save File"
 msgstr "Datei speichern"
 
-#: shell/report.c:836 shell/report.c:1315 shell/syncmanager.c:779
+#: shell/report.c:853 shell/report.c:1332 shell/syncmanager.c:779
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
-#: shell/report.c:838
+#: shell/report.c:855
 msgid "_Save"
 msgstr "_Speichern"
 
-#: shell/report.c:1016
+#: shell/report.c:1033
 msgid "Cannot create ReportContext. Programming bug?"
 msgstr "Kann 'ReportContext' nicht erstellen. Programmierbug?"
 
-#: shell/report.c:1036
+#: shell/report.c:1053
 msgid "Open the report with your web browser?"
 msgstr "Den Bericht in deinem Webbrowser öffnen?"
 
-#: shell/report.c:1039
+#: shell/report.c:1056
 msgid "_No"
 msgstr "_Nein"
 
-#: shell/report.c:1040
+#: shell/report.c:1057
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: shell/report.c:1071
+#: shell/report.c:1088
 msgid "Generating report..."
 msgstr "Generiere Bericht…"
 
-#: shell/report.c:1081
+#: shell/report.c:1098
 msgid "Report saved."
 msgstr "Bericht gespeichert."
 
-#: shell/report.c:1083
+#: shell/report.c:1100
 msgid "Error while creating the report."
 msgstr "Fehler beim Erzeugen des Berichts."
 
-#: shell/report.c:1185
+#: shell/report.c:1202
 msgid "Generate Report"
 msgstr "Bericht generieren"
 
-#: shell/report.c:1211
+#: shell/report.c:1228
 msgid ""
 "<big><b>Generate Report</b></big>\n"
 "Please choose the information that you wish to view in your report:"
@@ -805,15 +805,15 @@ msgstr ""
 "<big><b>Bericht generieren</b></big>\n"
 "Bitte wähle die Informationen, die du in deinen Bereich einbeziehen möchtest:"
 
-#: shell/report.c:1281
+#: shell/report.c:1298
 msgid "Select _None"
 msgstr "_Nichts auswählen"
 
-#: shell/report.c:1292
+#: shell/report.c:1309
 msgid "Select _All"
 msgstr "_Alles auswählen"
 
-#: shell/report.c:1325
+#: shell/report.c:1342
 msgid "_Generate"
 msgstr "_Generieren"
 
@@ -838,24 +838,24 @@ msgstr ""
 msgid "Loading modules..."
 msgstr "Lade Module..."
 
-#: shell/shell.c:1660
+#: shell/shell.c:1662
 msgid "URL"
 msgstr ""
 
-#: shell/shell.c:1667
+#: shell/shell.c:1669
 msgid "Support URL"
 msgstr ""
 
-#: shell/shell.c:1678
+#: shell/shell.c:1680
 msgid "Wikipedia"
 msgstr ""
 
-#: shell/shell.c:2011
+#: shell/shell.c:2018
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Zusammenfassung</b>"
 
-#: shell/shell.c:2117
+#: shell/shell.c:2124
 msgid "Updating..."
 msgstr "Aktualisiere…"
 

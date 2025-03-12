@@ -782,6 +782,9 @@ static GSList *report_create_module_list_from_dialog(ReportDialog * rd)
 static void
 report_create_inner_from_module_list(ReportContext * ctx, GSList * modules)
 {
+    int t=params.create_report;
+    params.create_report=1;
+
     for (; modules; modules = modules->next) {
 	ShellModule *module = (ShellModule *) modules->data;
 	GSList *entries;
@@ -796,8 +799,7 @@ report_create_inner_from_module_list(ReportContext * ctx, GSList * modules)
             if (entry->flags & MODULE_FLAG_HIDE) continue;
 
 	    if (!params.gui_running && !params.quiet)
-		fprintf(stderr, "\033[2K\033[40;32;1m %s\033[0m\n",
-			entry->name);
+		fprintf(stderr, "\033[2K\033[40;32;1m %s\033[0m\n", entry->name);
 
             if (entry->icon_file){
                 cache_icon(ctx, entry->icon_file);
@@ -805,10 +807,25 @@ report_create_inner_from_module_list(ReportContext * ctx, GSList * modules)
 
 	    ctx->entry = entry;
 	    report_subtitle(ctx, entry->name);
-	    module_entry_scan(entry);
-	    report_table(ctx, module_entry_function(entry));
+	    //Rescan Boots - filter for reports
+            if (strstr(entry->icon_file,"boot")) {
+		entry->scan_func(TRUE);
+	        report_table(ctx, module_entry_function(entry));
+	    //Filter benchmarkresults for reports
+	    } else if (!params.force_all_details && (entry->flags & MODULE_FLAG_BENCHMARK)) {
+	        int i=params.max_bench_results;
+	        params.max_bench_results=25;
+		entry->scan_func(FALSE);
+	        report_table(ctx, module_entry_function(entry));
+		params.max_bench_results=i;
+	    } else {
+	        module_entry_scan(entry);
+	        report_table(ctx, module_entry_function(entry));
+	    }
 	}
     }
+
+    params.create_report=t;
 }
 
 void report_module_list_free(GSList * modules)

@@ -23,8 +23,7 @@
 
 extern void scan_os(gboolean reload);
 
-void
-scan_boots_real(void)
+void scan_boots_real(void)
 {
     gchar **tmp;
     gboolean spawned;
@@ -34,10 +33,8 @@ scan_boots_real(void)
 
     scan_os(FALSE);
 
-    if (!computer->os->boots)
-      computer->os->boots = strdup("");
-    else
-      return;
+    if (computer->os->boots) g_free(computer->os->boots);
+    computer->os->boots = strdup("");
 
     spawned = hardinfo_spawn_command_line_sync("last -F -w", &out, &err, NULL, NULL);
 
@@ -45,7 +42,7 @@ scan_boots_real(void)
         p = out;
         while((next_nl = strchr(p, '\n'))) {
             strend(p, '\n');
-            if (strstr(p, "system boot") && (params.force_all_details || (cnt++<20))) {
+            if (strstr(p, "system boot") && (!params.create_report || params.force_all_details || (cnt++<25))) {
                 s = p;
                 while (*s) {
                   if (*s == ' ' && *(s + 1) == ' ') {

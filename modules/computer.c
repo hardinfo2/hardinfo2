@@ -132,8 +132,8 @@ gchar *hi_more_info(gchar * entry)
 
 gchar *hi_get_field(gchar * field)
 {
-    gchar *tag, *label;
-    key_get_components(field, NULL, &tag, NULL, &label, NULL, TRUE);
+    gchar *tag=NULL, *label=NULL;
+    key_get_components(field, NULL, &tag, NULL, &label, NULL);
 
     gchar *tmp;
 

@@ -245,9 +245,7 @@ const gchar *key_get_name(const gchar *key);        /* get the key's name, flagg
  * label = "Bar"      // the label displayed
  * dis = "7"
  */
-void key_get_components(const gchar *key,
-    gchar **flags, gchar **tag, gchar **name, gchar **label, gchar **dis,
-    gboolean null_empty);
+void key_get_components(const gchar *key, gchar **flags, gchar **tag, gchar **name, gchar **label, gchar **dis);
 
 #endif				/* __SHELL_H__ */
 

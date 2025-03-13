@@ -1310,8 +1310,8 @@ static void group_handle_special(GKeyFile *key_file,
             struct UpdateTableItem *item;
 
             const gchar *ikey = g_utf8_strchr(key, -1, '$');
-            gchar *tag, *name;
-            key_get_components(ikey, NULL, &tag, &name, NULL, NULL, TRUE);
+            gchar *tag=NULL, *name=NULL;
+            key_get_components(ikey, NULL, &tag, &name, NULL, NULL);
 
             if (tag)
                 item = g_hash_table_lookup(update_tbl, tag);
@@ -1421,8 +1421,8 @@ static void group_handle_normal(GKeyFile *key_file,
         struct UpdateTableItem *item = g_new0(struct UpdateTableItem, 1);
         item->is_iter = TRUE;
         item->iter = gtk_tree_iter_copy(&child);
-        gchar *flags, *tag, *name, *label;
-        key_get_components(key, &flags, &tag, &name, &label, NULL, TRUE);
+        gchar *flags=NULL, *tag=NULL, *name=NULL, *label=NULL;
+        key_get_components(key, &flags, &tag, &name, &label, NULL);
 
         if (flags) {
             //TODO: name was formerly used where label is here. Check all uses
@@ -1430,14 +1430,17 @@ static void group_handle_normal(GKeyFile *key_file,
             gtk_tree_store_set(store, &child, INFO_TREE_COL_NAME, label,
                                INFO_TREE_COL_DATA, flags, -1);
             g_hash_table_insert(update_tbl, tag, item);
-            g_free(label);
+	    g_free(name);
         } else {
             gtk_tree_store_set(store, &child, INFO_TREE_COL_NAME, key,
                                INFO_TREE_COL_DATA, NULL, -1);
             g_hash_table_insert(update_tbl, name, item);
-            g_free(tag);
+	    g_free(tag);
         }
+        //g_free(tag);
+        //g_free(name);
         g_free(flags);
+        g_free(label);
 
         g_strfreev(values);
     }
@@ -1724,8 +1727,8 @@ static void module_selected_show_info_detail(GKeyFile *key_file,
             for (j = 0; keys[j]; j++) {
                 gchar *key_markup;
                 gchar *value;
-                gchar *name, *label, *tag, *flags;
-                key_get_components(keys[j], &flags, &tag, &name, &label, NULL, TRUE);
+                gchar *name=NULL, *lbl=NULL, *tag=NULL, *flags=NULL;
+                key_get_components(keys[j], &flags, &tag, &name, &lbl, NULL);
 
                 value = g_key_file_get_string(key_file, groups[i], keys[j], NULL);
 
@@ -1738,9 +1741,9 @@ static void module_selected_show_info_detail(GKeyFile *key_file,
                 const Vendor *v = has_ven ? vendor_match(value, NULL) : NULL;
 
                 if(params.darkmode){
-                    key_markup = g_strdup_printf("<span color=\"#8af\">%s</span>", label);
+                    key_markup = g_strdup_printf("<span color=\"#8af\">%s</span>", lbl);
 		} else {
-                    key_markup = g_strdup_printf("<span color=\"#24f\">%s</span>", label);
+                    key_markup = g_strdup_printf("<span color=\"#24f\">%s</span>", lbl);
 		}
 
                 GtkWidget *key_label = gtk_label_new(key_markup);
@@ -1796,16 +1799,18 @@ static void module_selected_show_info_detail(GKeyFile *key_file,
 
                 if (tag) {
                     g_hash_table_insert(update_tbl, tag, item);
-                    g_free(name);
+		    g_free(name);
                 } else {
                     g_hash_table_insert(update_tbl, name, item);
-                    g_free(tag);
+		    g_free(tag);
                 }
 
+                //g_free(tag);
+                //g_free(name);
                 g_free(flags);
+                g_free(lbl);
                 g_free(value);
                 g_free(key_markup);
-                g_free(label);
             }
 
             gtk_widget_show(table);
@@ -2372,42 +2377,46 @@ gboolean key_is_flagged(const gchar *key) {
 }
 
 gboolean key_is_highlighted(const gchar *key) {
-    gchar *flags;
-    key_get_components(key, &flags, NULL, NULL, NULL, NULL, TRUE);
+    gchar *flags=NULL;
+    key_get_components(key, &flags, NULL, NULL, NULL, NULL);
     if (flags && strchr(flags, '*')) {
         g_free(flags);
         return TRUE;
     }
+    g_free(flags);
     return FALSE;
 }
 
 gboolean key_wants_details(const gchar *key) {
-    gchar *flags;
-    key_get_components(key, &flags, NULL, NULL, NULL, NULL, TRUE);
+    gchar *flags=NULL;
+    key_get_components(key, &flags, NULL, NULL, NULL, NULL);
     if (flags && strchr(flags, '!')) {
         g_free(flags);
         return TRUE;
     }
+    g_free(flags);
     return FALSE;
 }
 
 gboolean key_value_has_vendor_string(const gchar *key) {
-    gchar *flags;
-    key_get_components(key, &flags, NULL, NULL, NULL, NULL, TRUE);
+    gchar *flags=NULL;
+    key_get_components(key, &flags, NULL, NULL, NULL, NULL);
     if (flags && strchr(flags, '^')) {
         g_free(flags);
         return TRUE;
     }
+    g_free(flags);
     return FALSE;
 }
 
 gboolean key_label_is_escaped(const gchar *key) {
-    gchar *flags;
-    key_get_components(key, &flags, NULL, NULL, NULL, NULL, TRUE);
+    gchar *flags=NULL;
+    key_get_components(key, &flags, NULL, NULL, NULL, NULL);
     if (flags && strchr(flags, '@')) {
         g_free(flags);
         return TRUE;
     }
+    g_free(flags);
     return FALSE;
 }
 
@@ -2446,21 +2455,8 @@ const gchar *key_get_name(const gchar *key) {
  * label = "Bar"      // the label displayed
  * dis = "7"
  */
-void key_get_components(const gchar *key,
-    gchar **flags, gchar **tag, gchar **name, gchar **label, gchar **dis,
-    gboolean null_empty) {
-
-    if (null_empty) {
-#define K_NULL_EMPTY(f) if (f) { *f = NULL; }
-        K_NULL_EMPTY(flags);
-        K_NULL_EMPTY(tag);
-        K_NULL_EMPTY(name);
-        K_NULL_EMPTY(label);
-        K_NULL_EMPTY(dis);
-    }
-
-    if (!key || !*key)
-        return;
+void key_get_components(const gchar *key, gchar **flags, gchar **tag, gchar **name, gchar **label, gchar **dis) {
+    if (!key || !*key) return;
 
     const gchar *np = g_utf8_strchr(key+1, -1, '$') + 1;
     if (*key == '$' && np) {
@@ -2470,17 +2466,13 @@ void key_get_components(const gchar *key,
         if(s==NULL) {
 	    DEBUG("ERROR NOT FOUND");
         }else{
- /*            if((s-f+1)>strlen(key)) {
-	    DEBUG("ERROR TOO LATE");
-        }else{*/
 	  *(g_utf8_strchr(f+1, -1, '$') + 1) = 0;
 	  if (flags)
 	    *flags = g_strdup(f);
 	  if (tag)
 	    *tag = key_mi_tag(f);
-	  g_free(f);
-	  //}
 	}
+	g_free(f);
     } else
         np = key;
 

@@ -504,8 +504,8 @@ struct Info *info_unflatten(const gchar *str)
 
             for (k = 0; keys[k]; k++) {
                 struct InfoField field = {};
-                gchar *flags, *tag, *name, *label, *dis;
-                key_get_components(keys[k], &flags, &tag, &name, &label, &dis, TRUE);
+                gchar *flags=NULL, *tag=NULL, *name=NULL, *label=NULL, *dis=NULL;
+                key_get_components(keys[k], &flags, &tag, &name, &label, &dis);
                 gchar *value = g_key_file_get_value(key_file, group_name, keys[k], NULL);
 
                 field.tag = tag;

@@ -248,8 +248,8 @@ void report_details(ReportContext *ctx, gchar *key, gchar *value, gchar *details
 
         gsize longest_key = 0;
         for (j = 0; keys[j]; j++) {
-            gchar *lbl;
-            key_get_components(keys[j], NULL, NULL, NULL, &lbl, NULL, TRUE);
+            gchar *lbl=NULL;
+            key_get_components(keys[j], NULL, NULL, NULL, &lbl, NULL);
             longest_key = MAX(longest_key, strlen(lbl));
             g_free(lbl);
         }
@@ -375,8 +375,8 @@ void report_table(ReportContext * ctx, gchar * text)
 
         gsize longest_key = 0;
         for (j = 0; keys[j]; j++) {
-            gchar *lbl;
-            key_get_components(keys[j], NULL, NULL, NULL, &lbl, NULL, TRUE);
+            gchar *lbl=NULL;
+            key_get_components(keys[j], NULL, NULL, NULL, &lbl, NULL);
             longest_key = MAX(longest_key, strlen(lbl));
             g_free(lbl);
         }

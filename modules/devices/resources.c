@@ -28,7 +28,7 @@ static GRegex *_regex_pci = NULL,
 
 static gchar *_resource_obtain_name(gchar *name)
 {
-    gchar *temp;
+    gchar *temp,*p;
 
     if (!_regex_pci && !_regex_module) {
       _regex_pci = g_regex_new("^[0-9a-fA-F]{4}:[0-9a-fA-F]{2}:"
@@ -42,18 +42,28 @@ static gchar *_resource_obtain_name(gchar *name)
     if (g_regex_match(_regex_pci, name, 0, NULL)) {
       temp = module_call_method_param("devices::getPCIDeviceDescription", name);
       if (temp) {
-        if (params.markup_ok)
-          return g_strdup_printf("<b><small>PCI</small></b> %s", (gchar *)idle_free(temp));
-        else
-          return g_strdup_printf("PCI %s", (gchar *)idle_free(temp));
+        if (params.markup_ok) {
+	    p=g_strdup_printf("<b><small>PCI</small></b> %s", temp);
+	    g_free(temp);
+            return p;
+	} else {
+            p=g_strdup_printf("PCI %s", temp);
+	    g_free(temp);
+	    return p;
+	}
       }
     } else if (g_regex_match(_regex_module, name, 0, NULL)) {
       temp = module_call_method_param("computer::getKernelModuleDescription", name);
       if (temp) {
-        if (params.markup_ok)
-          return g_strdup_printf("<b><small>Module</small></b> %s", (gchar *)idle_free(temp));
-        else
-          return g_strdup_printf("Module %s", (gchar *)idle_free(temp));
+        if (params.markup_ok) {
+            p=g_strdup_printf("<b><small>Module</small></b> %s", temp);
+	    g_free(temp);
+	    return p;
+        } else {
+            p=g_strdup_printf("Module %s", temp);
+	    g_free(temp);
+	    return p;
+	}
       }
     }
 

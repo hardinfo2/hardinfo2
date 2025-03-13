@@ -386,21 +386,17 @@ gchar *vendor_get_link_from_vendor(const Vendor *v)
      * target that instead of url. There's usually much more
      * information there, plus easily click through to company url. */
     gboolean link_wikipedia = TRUE;
+    gchar *url = NULL, *p;
 
-    if (!v)
-        return g_strdup(_("Unknown"));
-
-    gchar *url = NULL;
+    if (!v) return g_strdup(_("Unknown"));
 
     if ( (link_ok && link_wikipedia && v->wikipedia) || (v->wikipedia && !v->url) )
         url = g_strdup_printf("http://wikipedia.com/wiki/%s", v->wikipedia);
     else if (v->url)
         url = g_strdup(v->url);
 
-    if (!url)
-        return g_strdup(v->name);
+    if (!url) return g_strdup(v->name);
 
-    auto_free(url);
 
     if (link_ok) {
         const gchar *prefix;
@@ -412,10 +408,14 @@ gchar *vendor_get_link_from_vendor(const Vendor *v)
             prefix = "http://";
         }
 
-        return g_strdup_printf("<a href=\"%s%s\">%s</a>", prefix, url, v->name);
+        p=g_strdup_printf("<a href=\"%s%s\">%s</a>", prefix, url, v->name);
+	g_free(url);
+	return p;
     }
 
-    return g_strdup_printf("%s (%s)", v->name, url);
+    p=g_strdup_printf("%s (%s)", v->name, url);
+    g_free(url);
+    return p;
 }
 
 vendor_list vendor_list_concat_va(int count, vendor_list vl, ...) {

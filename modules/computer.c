@@ -504,61 +504,55 @@ gchar *computer_get_machinetype(int english)
 gchar *callback_summary(void)
 {
     struct Info *info = info_new();
+    gchar *p,*p1,*p2,*p3,*p4,*p5,*p6;
 
     info_set_view_type(info, SHELL_VIEW_DETAIL);
 
+    p1=module_call_method("devices::getProcessorNameAndDesc");
     info_add_group(info, _("Computer"),
-        info_field(_("Processor"),
-            idle_free(module_call_method("devices::getProcessorNameAndDesc"))),
+        info_field(_("Processor"),p1),
         info_field_update(_("Memory"), 1000),
-        info_field_printf(_("Machine Type"), "%s",
-            computer_get_machinetype(0)),
+        info_field_printf(_("Machine Type"), "%s", computer_get_machinetype(0)),
         info_field(_("Operating System"), computer->os->distro),
         info_field(_("User Name"), computer->os->username),
         info_field_update(_("Date/Time"), 1000),
         info_field_last());
 
+    p2=module_call_method("devices::getGPUList");
     info_add_group(info, _("Display"),
         info_field_printf(_("Resolution"), _(/* label for resolution */ "%dx%d pixels"),
             computer->display->width, computer->display->height),
-        info_field(_("Display Adapter"),
-            idle_free(module_call_method("devices::getGPUList"))),
+        info_field(_("Display Adapter"),p2),
         info_field(_("OpenGL Renderer"), THISORUNK(computer->display->xi->glx->ogl_renderer)),
         info_field(_("Session Display Server"), THISORUNK(computer->display->display_server)),
         info_field_last());
 
-    info_add_computed_group(info, _("Audio Devices"),
-        idle_free(computer_get_alsacards(computer)));
-    info_add_computed_group_wo_extra(info, _("Input Devices"),
-        idle_free(module_call_method("devices::getInputDevices")));
-    info_add_computed_group(info, NULL, /* getPrinters provides group headers */
-        idle_free(module_call_method("devices::getPrinters")));
-    info_add_computed_group_wo_extra(info, NULL,  /* getStorageDevices provides group headers */
-        idle_free(module_call_method("devices::getStorageDevices")));
+    p3=computer_get_alsacards(computer); info_add_computed_group(info, _("Audio Devices"),p3);
+    p4=module_call_method("devices::getInputDevices"); info_add_computed_group_wo_extra(info, _("Input Devices"),p4);
+    p5=module_call_method("devices::getPrinters"); info_add_computed_group(info, NULL, p5); /* getPrinters provides group headers */
+    p6=module_call_method("devices::getStorageDevices"); info_add_computed_group_wo_extra(info, NULL, p6); /* getStorageDevices provides group headers */
 
-    return info_flatten(info);
+    p=info_flatten(info);
+    g_free(p1); g_free(p2); g_free(p3); g_free(p4); g_free(p5); g_free(p6);
+    return p;
 }
 
 
 gchar *callback_os(void)
 {
     struct Info *info = info_new();
-    gchar *distro_icon;
-    gchar *distro;
+    gchar *distro_icon=NULL, *distro=NULL, *p,*p1,*p2;
 
     info_set_view_type(info, SHELL_VIEW_DETAIL);
 
-    distro_icon = computer->os->distroid
-       ? idle_free(g_strdup_printf("LARGEdistros/%s.svg",computer->os->distroid))
-       : NULL;
-    distro = computer->os->distrocode
-       ? idle_free(g_strdup_printf("%s (%s)",
-         computer->os->distro, computer->os->distrocode))
-       : computer->os->distro;
+    if(computer->os->distroid) distro_icon = g_strdup_printf("LARGEdistros/%s.svg",computer->os->distroid);
+    if(computer->os->distrocode) distro = g_strdup_printf("%s (%s)", computer->os->distro, computer->os->distrocode); else distro=g_strdup(computer->os->distro);
 
+    p1=strwrap(computer->os->kcmdline,80,' ');
+    if(!p1) p1=g_strdup(_("Unknown"));
     info_add_group(
         info, _("Version"), info_field(_("Kernel"), computer->os->kernel),
-        info_field(_("Command Line"), idle_free(strwrap(computer->os->kcmdline,80,' ')) ?: _("Unknown")),
+        info_field(_("Command Line"), p1),
         info_field(_("Version"), computer->os->kernel_version),
         info_field(_("C Library"), computer->os->libc),
         info_field(_("Distribution"), distro,
@@ -566,10 +560,11 @@ gchar *callback_os(void)
                    .icon = distro_icon),
         info_field_last());
 
+    p2=strwrap(computer->os->language,80,';');
     info_add_group(info, _("Current Session"),
         info_field(_("Computer Name"), computer->os->hostname),
         info_field(_("User Name"), computer->os->username),
-        info_field(_("Language"), idle_free(strwrap(computer->os->language,80,';'))),
+        info_field(_("Language"), p2),
         info_field(_("Home Directory"), computer->os->homedir),
         info_field(_("Desktop Environment"), computer->os->desktop),
         info_field_last());
@@ -578,12 +573,18 @@ gchar *callback_os(void)
                    info_field_update(_("Load Average"), 10000),
                    info_field_last());
 
-    return info_flatten(info);
+    p=info_flatten(info);
+    g_free(distro);
+    g_free(distro_icon);
+    g_free(p1);
+    g_free(p2);
+    return p;
+
 }
 
 gchar *callback_security(void)
 {
-    gchar *st, buffer[100], *systype=NULL;
+  gchar *st=NULL, buffer[100], *systype=NULL,*p,*p1,*p2,*p3;
     FILE *io;
 
     if( (io = fopen("/run/hardinfo2/systype", "r")) ) {
@@ -602,7 +603,6 @@ gchar *callback_security(void)
         info_field(_("HardInfo2 running as"), (getuid() == 0) ? _("Superuser") : _("User")),
         info_field(_("User System Type"), (systype!=NULL) ? systype : _("Hardinfo2 Service not enabled/started")),
         info_field_last());
-    if(systype) idle_free(systype);
 
     info_add_group(
         info, _("Health"),
@@ -610,15 +610,18 @@ gchar *callback_security(void)
         info_field(_("Available entropy in /dev/random"), computer_get_entropy_avail() ),
         info_field_last());
 
+    p1=computer_get_aslr();
+    p2=computer_get_dmesg_status();
     info_add_group(
         info, _("Hardening Features"),
-        info_field(_("ASLR"), idle_free(computer_get_aslr())),
-        info_field(_("dmesg"), idle_free(computer_get_dmesg_status())),
+        info_field(_("ASLR"), p1),
+        info_field(_("dmesg"), p2),
         info_field_last());
 
+    p3=computer_get_lsm();
     info_add_group(
         info, _("Linux Security Modules"),
-        info_field(_("Modules available"), idle_free(computer_get_lsm())),
+        info_field(_("Modules available"), p3),
         info_field(_("SELinux status"), computer_get_selinux()),
         info_field_last());
 
@@ -651,7 +654,7 @@ gchar *callback_security(void)
 	    g_free(contents);
             info_group_add_fields(vulns,
                                   info_field(g_strdup(vuln),
-                                             idle_free(st), .icon = icon,
+                                             st, .icon = icon,
                                              .free_name_on_flatten = TRUE),
                                   info_field_last());
         }
@@ -659,7 +662,9 @@ gchar *callback_security(void)
         g_dir_close(dir);
     }
 
-    return info_flatten(info);
+    p=info_flatten(info);
+    g_free(systype); g_free(p1); g_free(p2); g_free(p3); g_free(st);
+    return p;
 }
 
 gchar *callback_modules(void)
@@ -1045,12 +1050,12 @@ gchar **hi_module_get_dependencies(void)
 
 gchar *hi_module_get_summary(void)
 {
+    gchar *ret;
     gchar *virt = computer_get_machinetype(0);
-    gchar *machine_type = g_strdup_printf("%s (%s)",
-                                          _("Motherboard"),
-                                          (char*)idle_free(virt));
+    gchar *machine_type = g_strdup_printf("%s (%s)", _("Motherboard"), virt);
+    g_free(virt);
 
-    return g_strdup_printf("[%s]\n"
+    ret=g_strdup_printf("[%s]\n"
                     "Icon=os.svg\n"
                     "Method=computer::getOSshort\n"
                     "[%s]\n"
@@ -1075,9 +1080,11 @@ gchar *hi_module_get_summary(void)
                     "Icon=audio.svg\n"
                     "Method=computer::getAudioCards\n",
                     _("Operating System"),
-                    _("Processor"), _("Memory"), (char*)idle_free(machine_type), _("Graphics"),
+                    _("Processor"), _("Memory"), machine_type, _("Graphics"),
                     _("Storage"), _("Printers"), _("Audio")
                     );
+    g_free(machine_type);
+    return ret;
 }
 
 void hi_module_deinit(void)

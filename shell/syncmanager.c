@@ -843,7 +843,6 @@ static gboolean sync_one(gpointer data)
 
 out:
     g_main_loop_unref(loop);
-    idle_free(sna);
     return FALSE;
 }
 

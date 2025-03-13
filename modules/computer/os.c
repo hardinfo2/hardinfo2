@@ -161,52 +161,48 @@ static gchar *get_libc_version(void)
         { "diet", "diet version", N_("diet libc"), TRUE, TRUE},
         { NULL }
     };
-    int i;
+    int i=0;
+    gboolean spawned;
+    gchar *out, *err, *p, *ret=NULL,*ver_str;
 
-    for (i = 0; libs[i].test_cmd; i++) {
-        gboolean spawned;
-        gchar *out, *err, *p;
+    while (!ret && libs[i].test_cmd) {
+        out=(err=NULL);
+        spawned = hardinfo_spawn_command_line_sync(libs[i].test_cmd, &out, &err, NULL, NULL);
+        if (spawned) {
 
-        spawned = hardinfo_spawn_command_line_sync(libs[i].test_cmd,
-            &out, &err, NULL, NULL);
-        if (!spawned)
-            continue;
+	    if (libs[i].use_stderr) {
+                if (strstr(err,"musl")) {p=strchr(err,'\n');*p=' ';} //combine musl arch and version
+		p = strend(err, '\n');
+	    } else {
+	        p = strend(out, '\n');
+	    }
 
+	    if (p && strstr(p, libs[i].match_str)) {
+	        if (libs[i].try_ver_str) {
+		    /* skip the first word, likely "ldconfig" or name of utility */
+		    if(strstr(p,"musl")) ver_str=p; else {ver_str=strchr(p, ' ');if(ver_str) ver_str++;}
 
-        if (libs[i].use_stderr) {
-	    //combine musl arch and version
-	    if (strstr(err,"musl")) {p=strchr(err,'\n');*p=' ';}
-            p = strend(idle_free(err), '\n');
-            g_free(out);
-        } else {
-            p = strend(idle_free(out), '\n');
-            g_free(err);
-        }
-
-        if (!p || !strstr(p, libs[i].match_str))
-            continue;
-
-        if (libs[i].try_ver_str) {
-            /* skip the first word, likely "ldconfig" or name of utility */
-            gchar *ver_str;
-	    if(strstr(p,"musl")) ver_str=p; else {ver_str=strchr(p, ' ');if(ver_str) ver_str++;}
-
-            if (ver_str) {
-                return g_strdup_printf("%s / %s", _(libs[i].lib_name), ver_str);
-            }
-        }
-
-	return g_strdup(_(libs[i].lib_name));
+		    if (ver_str) {
+		        ret=g_strdup_printf("%s / %s", _(libs[i].lib_name), ver_str);
+		    }
+		}
+		if(!ret) ret=g_strdup(_(libs[i].lib_name));
+	    }
+	}
+	g_free(err);
+	g_free(out);
+	i++;
     }
 
-    return g_strdup(_("Unknown"));
+    if(!ret) ret=g_strdup(_("Unknown"));
+    return ret;
 }
 
 static gchar *detect_kde_version(void)
 {
-    const gchar *cmd;
+  gchar *cmd,*ret=NULL;
     const gchar *tmp = g_getenv("KDE_SESSION_VERSION");
-    gchar *out;
+    gchar *out=NULL;
     gboolean spawned;
 
     if (tmp && tmp[0] == '4') {
@@ -216,39 +212,47 @@ static gchar *detect_kde_version(void)
     }
 
     spawned = hardinfo_spawn_command_line_sync(cmd, &out, NULL, NULL, NULL);
-    if (!spawned)
-        return NULL;
+    if (!spawned) return NULL;
 
-    tmp = strstr(idle_free(out), "KDE: ");
-    return tmp ? g_strdup(tmp + strlen("KDE: ")) : NULL;
+    tmp = strstr(out, "KDE: ");
+    if(tmp) ret=g_strdup(tmp + strlen("KDE: "));
+
+    g_free(out);
+
+    return ret;
 }
+
 
 static gchar *detect_gnome_version(void)
 {
     gchar *tmp;
-    gchar *out;
+    gchar *out,*ret=NULL;
     gboolean spawned;
 
-    spawned = hardinfo_spawn_command_line_sync(
-        "gnome-shell --version", &out, NULL, NULL, NULL);
+    spawned = hardinfo_spawn_command_line_sync("gnome-shell --version", &out, NULL, NULL, NULL);
     if (spawned) {
-        tmp = strstr(idle_free(out), _("GNOME Shell "));
+        tmp = strstr(out, _("GNOME Shell "));
 
         if (tmp) {
             tmp += strlen(_("GNOME Shell "));
-            return g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+            ret=g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+	    g_free(out);
+	    return ret;
         }
+        g_free(out);
     }
 
-    spawned = hardinfo_spawn_command_line_sync(
-        "gnome-about --gnome-version", &out, NULL, NULL, NULL);
+    spawned = hardinfo_spawn_command_line_sync("gnome-about --gnome-version", &out, NULL, NULL, NULL);
     if (spawned) {
-        tmp = strstr(idle_free(out), _("Version: "));
+        tmp = strstr(out, _("Version: "));
 
         if (tmp) {
             tmp += strlen(_("Version: "));
-            return g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+            ret=g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+            g_free(out);
+	    return ret;
         }
+        g_free(out);
     }
 
     return NULL;
@@ -258,18 +262,20 @@ static gchar *detect_gnome_version(void)
 static gchar *detect_mate_version(void)
 {
     gchar *tmp;
-    gchar *out;
+    gchar *out,*ret=NULL;
     gboolean spawned;
 
-    spawned = hardinfo_spawn_command_line_sync(
-        "mate-about --version", &out, NULL, NULL, NULL);
+    spawned = hardinfo_spawn_command_line_sync("mate-about --version", &out, NULL, NULL, NULL);
     if (spawned) {
-        tmp = strstr(idle_free(out), _("MATE Desktop Environment "));
+        tmp = strstr(out, _("MATE Desktop Environment "));
 
         if (tmp) {
             tmp += strlen(_("MATE Desktop Environment "));
-            return g_strdup_printf("MATE %s", strend(tmp, '\n'));
+	    ret=g_strdup_printf("MATE %s", strend(tmp, '\n'));
+	    g_free(out);
+            return ret;
         }
+        g_free(out);
     }
 
     return NULL;
@@ -353,11 +359,9 @@ static gchar *detect_desktop_environment(void)
     gchar *windowman;
 
     windowman = detect_xdg_environment("XDG_CURRENT_DESKTOP");
-    if (windowman)
-        return windowman;
+    if (windowman) return windowman;
     windowman = detect_xdg_environment("XDG_SESSION_DESKTOP");
-    if (windowman)
-        return windowman;
+    if (windowman) return windowman;
 
     tmp = g_getenv("KDE_FULL_SESSION");
     if (tmp) {
@@ -751,11 +755,11 @@ static Distro detect_distro(void)
     return (Distro) { .distro = g_strdup(_("Unknown")) };
 }
 
-OperatingSystem *
-computer_get_os(void)
+OperatingSystem *computer_get_os(void)
 {
     struct utsname utsbuf;
     OperatingSystem *os;
+    gchar *p=NULL;
 
     os = g_new0(OperatingSystem, 1);
 
@@ -779,8 +783,11 @@ computer_get_os(void)
     scan_languages(os);
 
     os->desktop = detect_desktop_environment();
-    if (os->desktop)
-        os->desktop = desktop_with_session_type(idle_free(os->desktop));
+    if (os->desktop){
+        p=os->desktop;
+        os->desktop=desktop_with_session_type(p);
+	g_free(p);
+    }
 
     os->entropy_avail = computer_get_entropy_avail();
 
@@ -791,8 +798,7 @@ const gchar *
 computer_get_selinux(void)
 {
     int r;
-    gboolean spawned = hardinfo_spawn_command_line_sync("selinuxenabled",
-                                                 NULL, NULL, &r, NULL);
+    gboolean spawned = hardinfo_spawn_command_line_sync("selinuxenabled", NULL, NULL, &r, NULL);
 
     if (!spawned)
         return _("Not installed");

@@ -120,8 +120,8 @@ gpointer  file_types_get_data_by_name(FileTypes *file_types, gchar *name);
 //#if !(RELEASE == 1)
 //#define DEBUG_AUTO_FREE 2
 //#endif
-#include "auto_free.h"
-#define idle_free(ptr) auto_free(ptr)
+//#include "auto_free.h"
+//#define idle_free(ptr) auto_free(ptr)
 
 gchar	     *find_program(gchar *program_name);
 gchar      *size_human_readable(gfloat size);

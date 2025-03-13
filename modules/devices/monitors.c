@@ -31,41 +31,36 @@ static const char monitor_icon[] = "monitor.svg";
 
 gboolean no_monitors = FALSE;
 
-gchar *edid_ids_file = NULL;
-gchar *ieee_oui_ids_file = NULL;
-
-void find_edid_ids_file() {
-    if (edid_ids_file) return;
+gchar *find_edid_ids_file() {
     char *file_search_order[] = {
         g_build_filename(g_get_user_config_dir(), "hardinfo2", "edid.ids", NULL),
         g_build_filename(params.path_data, "edid.ids", NULL),
         NULL
     };
-    int n;
-    for(n = 0; file_search_order[n]; n++) {
-        if (!edid_ids_file && !access(file_search_order[n], R_OK))
-            edid_ids_file = file_search_order[n];
-        else
-            g_free(file_search_order[n]);
+    int n=0;
+    gchar *ret=NULL;
+    while(!ret && file_search_order[n]) {
+        if (!access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+	n++;
     }
-    auto_free(edid_ids_file);
+    g_strfreev(file_search_order);
+    return ret;
 }
 
-void find_ieee_oui_ids_file() {
-    if (ieee_oui_ids_file) return;
+gchar *find_ieee_oui_ids_file() {
     char *file_search_order[] = {
         g_build_filename(g_get_user_config_dir(), "hardinfo2", "ieee_oui.ids", NULL),
         g_build_filename(params.path_data, "ieee_oui.ids", NULL),
         NULL
     };
-    int n;
-    for(n = 0; file_search_order[n]; n++) {
-        if (!ieee_oui_ids_file && !access(file_search_order[n], R_OK))
-            ieee_oui_ids_file = file_search_order[n];
-        else
-            g_free(file_search_order[n]);
+    int n=0;
+    gchar *ret=NULL;
+    while(!ret && file_search_order[n]) {
+        if (!access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+	n++;
     }
-    auto_free(ieee_oui_ids_file);
+    g_strfreev(file_search_order);
+    return ret;
 }
 
 typedef struct {
@@ -125,15 +120,14 @@ gchar *monitor_vendor_str(monitor *m, gboolean include_value, gboolean link_name
 
     if (!m->_vstr) {
         if (ven.type == VEN_TYPE_PNP) {
-            if (!edid_ids_file)
-                find_edid_ids_file();
+            gchar *edid_ids_file = find_edid_ids_file();
             scan_ids_file(edid_ids_file, v, &result, -1);
-            if (result.results[0])
-                m->_vstr = g_strdup(result.results[0]);
+	    g_free(edid_ids_file);
+            if (result.results[0])  m->_vstr = g_strdup(result.results[0]);
         } else if (ven.type == VEN_TYPE_OUI) {
-            if (!ieee_oui_ids_file)
-                find_ieee_oui_ids_file();
+            gchar *ieee_oui_ids_file = find_ieee_oui_ids_file();
             scan_ids_file(ieee_oui_ids_file, v, &result, -1);
+	    g_free(ieee_oui_ids_file);
             if (result.results[0])
                 m->_vstr = g_strdup(result.results[0]);
         }

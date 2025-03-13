@@ -933,7 +933,7 @@ const gchar *module_entry_get_note(ShellModuleEntry * module_entry)
 
 gchar *h_strdup_cprintf(const gchar * format, gchar * source, ...)
 {
-    gchar *buffer, *retn;
+    gchar *buffer, *ret;
     va_list args;
 
     va_start(args, source);
@@ -941,14 +941,14 @@ gchar *h_strdup_cprintf(const gchar * format, gchar * source, ...)
     va_end(args);
 
     if (source) {
-	retn = g_strconcat(source, buffer, NULL);
+	ret = g_strconcat(source, buffer, NULL);
 	g_free(buffer);
         g_free(source);
     } else {
-	retn = buffer;
+	ret = buffer;
     }
 
-    return retn;
+    return ret;
 }
 
 gchar *h_strconcat(gchar * string1, ...)

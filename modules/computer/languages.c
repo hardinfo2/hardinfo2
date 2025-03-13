@@ -114,8 +114,7 @@ gchar *locale_info_section(locale_info *s) {
     return ret;
 }
 
-void
-scan_languages(OperatingSystem * os)
+void scan_languages(OperatingSystem * os)
 {
     gboolean spawned;
     gchar *out, *err, *p, *next_nl;
@@ -124,8 +123,9 @@ scan_languages(OperatingSystem * os)
     locale_info *curr = NULL;
     int last = 0;
 
-    spawned = hardinfo_spawn_command_line_sync("locale -va",
-            &out, &err, NULL, NULL);
+    if(os->languages) g_free(os->languages);
+
+    spawned = hardinfo_spawn_command_line_sync("locale -va", &out, &err, NULL, NULL);
     if (spawned) {
         ret = g_strdup("");
         p = out;
@@ -165,8 +165,7 @@ scan_languages(OperatingSystem * os)
                 gchar *clean_title = hardinfo_clean_value(curr->title, 0); /* may contain & */
                 ret = h_strdup_cprintf("$%s$%s=%s\n", ret, curr->name, curr->name, clean_title);
                 moreinfo_add_with_prefix("COMP", curr->name, li_str); /* li_str becomes owned by moreinfo */
-                locale_info_free(curr);
-                curr = NULL;
+                locale_info_free(curr); curr = NULL;
                 g_free(clean_title);
             }
             p = next_nl + 1;

@@ -293,31 +293,25 @@ const Vendor *vendor_match(const gchar *id_str, ...) {
     Vendor *ret = NULL;
     va_list ap;
     gchar *tmp = NULL, *p = NULL;
-    int tl = 0, c = 0;
 
-    if (id_str) {
-        c++;
-        tl += strlen(id_str);
-        tmp = appfsp(tmp, "%s", id_str);
+    if (!id_str) return NULL;
 
-        va_start(ap, id_str);
+    tmp = appfsp(tmp, "%s", id_str);
+
+    va_start(ap, id_str);
+    p = va_arg(ap, gchar*);
+    while(p) {
+        tmp = appfsp(tmp, "%s", p);
         p = va_arg(ap, gchar*);
-        while(p) {
-            c++;
-            tl += strlen(p);
-            tmp = appfsp(tmp, "%s", p);
-            p = va_arg(ap, gchar*);
-        }
-        va_end(ap);
     }
-    if (!c || tl == 0)
-        return NULL;
+    va_end(ap);
 
     vendor_list vl = vendors_match_core(tmp, 1);
     if (vl) {
         ret = (Vendor*)vl->data;
         vendor_list_free(vl);
     }
+    g_free(tmp);
     return ret;
 }
 

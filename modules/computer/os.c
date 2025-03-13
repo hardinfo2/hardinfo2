@@ -154,6 +154,7 @@ static gchar *get_libc_version(void)
     } libs[] = {
         { "ldd --version", "GLIBC", N_("GNU C Library"), TRUE, FALSE},
         { "ldd --version", "GNU libc", N_("GNU C Library"), TRUE, FALSE},
+        { "ldd --version", "musl libc", N_("musl C Library"), TRUE, TRUE},
         { "ldconfig -V", "GLIBC", N_("GNU C Library"), TRUE, FALSE},
         { "ldconfig -V", "GNU libc", N_("GNU C Library"), TRUE, FALSE},
         { "ldconfig -v", "uClibc", N_("uClibc or uClibc-ng"), FALSE, FALSE},
@@ -171,7 +172,10 @@ static gchar *get_libc_version(void)
         if (!spawned)
             continue;
 
+
         if (libs[i].use_stderr) {
+	    //combine musl arch and version
+	    if (strstr(err,"musl")) {p=strchr(err,'\n');*p=' ';}
             p = strend(idle_free(err), '\n');
             g_free(out);
         } else {
@@ -184,11 +188,11 @@ static gchar *get_libc_version(void)
 
         if (libs[i].try_ver_str) {
             /* skip the first word, likely "ldconfig" or name of utility */
-            const gchar *ver_str = strchr(p, ' ');
+            gchar *ver_str;
+	    if(strstr(p,"musl")) ver_str=p; else {ver_str=strchr(p, ' ');if(ver_str) ver_str++;}
 
             if (ver_str) {
-                return g_strdup_printf("%s / %s", _(libs[i].lib_name),
-                    ver_str + 1);
+                return g_strdup_printf("%s / %s", _(libs[i].lib_name), ver_str);
             }
         }
 

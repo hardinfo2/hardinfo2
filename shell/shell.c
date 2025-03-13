@@ -987,8 +987,10 @@ static gboolean update_field(gpointer data)
     #define RANGE_SET_VALUE(tree,scrollbar,value) {while (gtk_events_pending()) gtk_main_iteration();gtk_range_set_value(GTK_RANGE(gtk_scrolled_window_get_##scrollbar(GTK_SCROLLED_WINDOW(shell->tree->scroll))), value);}
     #define RANGE_GET_VALUE(tree,scrollbar) gtk_range_get_value(GTK_RANGE(gtk_scrolled_window_get_##scrollbar(GTK_SCROLLED_WINDOW(shell->tree->scroll))))
 #else
+  #define _CONCAT(a,b) a ## b
+  #define CONCAT(a,b) _CONCAT(a,b)
   #define RANGE_SET_VALUE(tree, scrollbar, value)			       \
-    do {                                                                       \
+    do {								       \
         GtkRange CONCAT(*range, __LINE__) =                                    \
             GTK_RANGE(GTK_SCROLLED_WINDOW(shell->tree->scroll)->scrollbar);    \
         gtk_range_set_value(CONCAT(range, __LINE__), value);                   \

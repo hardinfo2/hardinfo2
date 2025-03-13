@@ -1,5 +1,5 @@
 /*
- *    HardInfo - Displays System Information
+ *    Hardinfo2 - System Information and benchmark
  *    Copyright (C) 2003-2007 L. A. F. Pereira <l@tia.mat.br>
  *
  *    This program is free software; you can redistribute it and/or modify
@@ -62,7 +62,6 @@ struct _ProgramParameters {
    */
   gint markup_ok;
   int fmt_opts;
-
   gint     report_format;
   gint     max_bench_results;
   gchar   *run_benchmark;
@@ -116,15 +115,8 @@ gchar    *file_chooser_build_filename(GtkWidget *chooser, gchar *extension);
 gpointer  file_types_get_data_by_name(FileTypes *file_types, gchar *name);
 
 /* Misc utility functions */
-//DISABLED DEBUG_AUTO_FREE as debian does not use Release
-//#if !(RELEASE == 1)
-//#define DEBUG_AUTO_FREE 2
-//#endif
-//#include "auto_free.h"
-//#define idle_free(ptr) auto_free(ptr)
-
 gchar	     *find_program(gchar *program_name);
-gchar      *size_human_readable(gfloat size);
+gchar        *size_human_readable(gfloat size);
 void          nonblock_sleep(guint msec);
 GSList	     *modules_get_list(void);
 GSList	     *modules_load_selected(void);
@@ -163,9 +155,6 @@ gchar	       *h_sysfs_read_string(const gchar *endpoint, const gchar *entry);
 
 #define SCAN_START()  static gboolean scanned = FALSE; if (reload) scanned = FALSE; if (scanned) {return;} else {DEBUG("SCAN_RELOAD");}
 #define SCAN_END()    scanned = TRUE;
-
-#define _CONCAT(a,b) a ## b
-#define CONCAT(a,b) _CONCAT(a,b)
 
 void moreinfo_init(void);
 void moreinfo_shutdown(void);
@@ -208,16 +197,12 @@ const char *problem_marker();
 
 /* a version of g_strescape() that allows escaping extra characters.
  * use with g_strcompress() as normal. */
-gchar *
-gg_strescape (const gchar *source,
-             const gchar *exceptions,
-             const gchar *extra);
+gchar *gg_strescape (const gchar *source, const gchar *exceptions, const gchar *extra);
 
 /* hinote helpers */
 #define note_max_len 1024
 #define note_printf(note_buff, fmt, ...)  \
-    snprintf((note_buff) + strlen(note_buff), note_max_len - strlen(note_buff) - 1, \
-        fmt, ##__VA_ARGS__)
+    snprintf((note_buff) + strlen(note_buff), note_max_len - strlen(note_buff) - 1, fmt, ##__VA_ARGS__)
 #define note_print(note_buff, str) note_printf((note_buff), "%s", str)
 gboolean note_cond_bullet(gboolean cond, gchar *note_buff, const gchar *desc_str);
 gboolean note_require_tool(const gchar *tool, gchar *note_buff, const gchar *desc_str);

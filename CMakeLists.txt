@@ -586,7 +586,6 @@ endif ()
 add_library(sysobj_early STATIC
 	deps/sysobj_early/src/gg_slist.c
 	deps/sysobj_early/src/strstr_word.c
-	deps/sysobj_early/src/auto_free.c
 	deps/sysobj_early/src/util_ids.c
 	deps/sysobj_early/src/util_sysobj.c
 	deps/sysobj_early/src/appf.c

@@ -59,7 +59,7 @@ gboolean fill_vk_info(vk_info *vk) {
     gchar *vk_cmd = g_strdup("vulkaninfo --summary");
 
 #define VK_MATCH_LINE(prefix_str, struct_member) \
-    if (l = simple_line_value(p, prefix_str)) { vk->struct_member = g_strdup(strreplace(l,"= ","")); goto vk_next_line; }
+    if (l = simple_line_value(p, prefix_str)) { vk->struct_member = g_strdup(strreplace(g_strdup(l),"= ","")); goto vk_next_line; }
 
   while(old<=1){
     spawned = hardinfo_spawn_command_line_sync(vk_cmd, &out, &err, NULL, NULL);

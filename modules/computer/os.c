@@ -115,8 +115,8 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
 		  strend(version,' ');
 		  strend(version,'_');
 		  //clean up version and allow zero length
-		  st=version; version=strreplace(version,"\"",""); g_free(st);
-		  st=version; version=strreplace(version,"\n",""); g_free(st);
+		  version=strreplace(version,"\"","");
+		  version=strreplace(version,"\n","");
 		  if(strlen(version)<1) {g_free(version); version=NULL;}
 		}
 	      }
@@ -507,47 +507,29 @@ static Distro parse_os_release(void)
 
     //remove ",/n,allow empty
     if(pretty_name){
-	contents=pretty_name;
         pretty_name=strreplace(pretty_name,"\"","");
-        g_free(contents);
 	//
-	contents=pretty_name;
         pretty_name=strreplace(pretty_name,"\n","");
-        g_free(contents);
         if(strlen(pretty_name)<1) {g_free(pretty_name);pretty_name=NULL;}
     }
     if(codename){
-	contents=codename;
         codename=strreplace(codename,"\"","");
-        g_free(contents);
 	//
-	contents=codename;
         codename=strreplace(codename,"\n","");
-        g_free(contents);
         if(strlen(codename)<1) {g_free(codename);codename=NULL;}
     }
     if(id){
-	contents=id;
         id=strreplace(id,"\"","");
-        g_free(contents);
 	//
-	contents=id;
         id=strreplace(id,"\n","");
-        g_free(contents);
 	//
-	contents=id;
         id=strreplace(id," ","");
-        g_free(contents);
         if(strlen(id)<1) {g_free(id);id=NULL;}
     }
     if(version){
-	contents=version;
         version=strreplace(version,"\"","");
-        g_free(contents);
 	//
-	contents=version;
         version=strreplace(version,"\n","");
-        g_free(contents);
         if(strlen(version)<1) {g_free(version);version=NULL;}
     }
 
@@ -557,25 +539,21 @@ static Distro parse_os_release(void)
 	//upper first letter
 	t=g_strdup_printf(" (%s)",codename);
 	t[2]=toupper(t[2]);
-	contents=pretty_name;
-        pretty_name=strreplace(contents,t,"");
-	g_free(t);g_free(contents);
+        pretty_name=strreplace(pretty_name,t,"");
+	g_free(t);
 	//normal
 	t=g_strdup_printf(" (%s)",codename);
-	contents=pretty_name;
-        pretty_name=strreplace(contents,t,"");
-	g_free(t);g_free(contents);
+        pretty_name=strreplace(pretty_name,t,"");
+	g_free(t);
 	//without brackets upper first letter
 	t=g_strdup_printf(" %s",codename);
 	t[1]=toupper(t[1]);
-	contents=pretty_name;
-        pretty_name=strreplace(contents,t,"");
-	g_free(t);g_free(contents);
+        pretty_name=strreplace(pretty_name,t,"");
+	g_free(t);
 	//without brackets normal
 	t=g_strdup_printf(" %s",codename);
-	contents=pretty_name;
-        pretty_name=strreplace(contents,t,"");
-	g_free(t);g_free(contents);
+        pretty_name=strreplace(pretty_name,t,"");
+	g_free(t);
 	g_strstrip(pretty_name);
     }
 
@@ -703,7 +681,7 @@ static Distro detect_distro(void)
     Distro distro;
     gchar *contents,*t;
     int i;
-    gchar *version=NULL, **split, **line, *st;
+    gchar *version=NULL, **split, **line;
 
     distro = parse_os_release();
     if (distro.distro) return distro;
@@ -736,8 +714,8 @@ static Distro detect_distro(void)
 	            strend(version,' ');
 	            strend(version,'_');
 	            //clean up version and allow zero length
-	            st=version; version=strreplace(version,"\"",""); g_free(st);
-	            st=version; version=strreplace(version,"\n",""); g_free(st);
+	            version=strreplace(version,"\"","");
+	            version=strreplace(version,"\n","");
 	            if(strlen(version)<1) {g_free(version);version=NULL;}
 	        }
 	    }

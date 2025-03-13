@@ -463,12 +463,13 @@ gchar *strreplacechr(gchar * string, gchar * replace, gchar new_char)
 
     return string;
 }
-
+//Note: frees incomming string - use like st=strreplace(st,"saa","ac");
 gchar *strreplace(gchar *string, gchar *replace, gchar *replacement)
 {
     gchar **tmp, *ret;
 
     tmp = g_strsplit(string, replace, 0);
+    g_free(string);
     ret = g_strjoinv(replacement, tmp);
     g_strfreev(tmp);
 
@@ -492,15 +493,13 @@ static void module_register_methods(ShellModule * module)
 
 	for (methods = get_methods(); methods->name; methods++) {
 	    ShellModuleMethod method = *methods;
-	    gchar *name = g_path_get_basename(g_module_name(module->dll));
-	    gchar *simple_name = strreplace(name, "lib", "");
+	    gchar *simple_name = strreplace(g_path_get_basename(g_module_name(module->dll)), "lib", "");
 
 	    strend(simple_name, '.');
 
 	    method_name = g_strdup_printf("%s::%s", simple_name, method.name);
 	    g_hash_table_insert(__module_methods, method_name,
 				method.function);
-	    g_free(name);
 	    g_free(simple_name);
 	}
     }
@@ -613,8 +612,8 @@ static ShellModule *module_load(gchar * filename)
 	gchar *tmpicon, *dot, *simple_name;
 
 	tmpicon = g_strdup(filename);
-	dot = g_strrstr(tmpicon, "." G_MODULE_SUFFIX);
 
+	dot = g_strrstr(tmpicon, "." G_MODULE_SUFFIX);
 	*dot = '\0';
 
 	simple_name = strreplace(tmpicon, "lib", "");
@@ -623,7 +622,6 @@ static ShellModule *module_load(gchar * filename)
 	module->icon = icon_cache_get_pixbuf(tmp);
 
 	g_free(tmp);
-	g_free(tmpicon);
 	g_free(simple_name);
     }
 

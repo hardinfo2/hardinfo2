@@ -25,13 +25,6 @@
 #include "cpu_util.h" /* for STRIFNULL() */
 #include "hardinfo.h"
 
-#define GET_STR(field_name, ptr)                                        \
-    if (!ptr && strstr(tmp[0], field_name)) {                           \
-        ptr = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1])); \
-        g_strfreev(tmp);                                                \
-        continue;                                                       \
-    }
-
 GHashTable *_module_hash_table = NULL;
 static gchar *kernel_modules_dir = NULL;
 
@@ -292,16 +285,16 @@ void scan_modules_do(void) {
         while (fgets(buffer, 1024, modi)) {
             gchar **tmp = g_strsplit(buffer, ":", 2);
 
-            GET_STR("author", author);
-            GET_STR("description", description);
-            GET_STR("license", license);
-            GET_STR("depends", deps);
-            GET_STR("vermagic", vermagic);
-            GET_STR("filename", filename);
-            GET_STR("srcversion", srcversion); /* so "version" doesn't catch */
-            GET_STR("version", version);
-            GET_STR("retpoline", retpoline);
-            GET_STR("intree", intree);
+	    if (!author && strstr(tmp[0], "author")) author = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!description && strstr(tmp[0], "description")) description = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!license && strstr(tmp[0], "license")) license = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!deps && strstr(tmp[0], "depends")) deps = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!vermagic && strstr(tmp[0], "vermagic")) vermagic = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!filename && strstr(tmp[0], "filename")) filename = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!srcversion && strstr(tmp[0], "srcversion")) srcversion = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!version && strstr(tmp[0], "version")) version = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!retpoline && strstr(tmp[0], "retpoline")) retpoline = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
+	    else if (!intree && strstr(tmp[0], "intree")) intree = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
 
             g_strfreev(tmp);
         }
@@ -375,19 +368,19 @@ void scan_modules_do(void) {
         /* if there are dependencies, append them to that string */
         if (deps && strlen(deps)) {
             gchar **tmp = g_strsplit(deps, ",", 0);
-
-            strmodule = h_strconcat(strmodule, "\n[", _("Dependencies"), "]\n",
-                                    g_strjoinv("=\n", tmp), "=\n", NULL);
+            gchar *p=g_strjoinv("=\n", tmp);
+            strmodule = h_strconcat(strmodule, "\n[", _("Dependencies"), "]\n", p, "=\n", NULL);
+	    g_free(p);
             g_strfreev(tmp);
-            g_free(deps);
         }
 
         moreinfo_add_with_prefix("COMP", hashkey, strmodule);
         g_free(hashkey);
 
-        g_free(license);
-        g_free(description);
         g_free(author);
+        g_free(description);
+        g_free(license);
+	g_free(deps);
         g_free(vermagic);
         g_free(filename);
         g_free(srcversion);

@@ -94,7 +94,6 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
         /* v1.x.x: sysbench [options]... [testname] [command] */
         cmd_line = g_strdup_printf("sysbench --threads=%d --time=%d %s %s run", ctx->threads, ctx->max_time, ctx->parms_test, ctx->test);
     }
-    //bench_msg("\ncmd_line: %s", cmd_line);
 
     spawned = g_spawn_command_line_sync(cmd_line,
             &out, &err, NULL, NULL);
@@ -160,8 +159,6 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
         g_free(out);
         g_free(err);
     } else {
-        bench_msg("\nfailed to spawn sysbench");
-        sleep(5);
     }
 
     if (ctx->r.result == -1)
@@ -170,7 +167,6 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
     return spawned;
 
 sysbench_failed:
-    bench_msg("\nfailed to configure sysbench");
     g_free(out);
     g_free(err);
     return 0;

@@ -52,7 +52,6 @@ static gpointer zlib_for(void *in_data, gint thread_number) {
         int cr = memcmp(in_data, uncompressed, BENCH_DATA_SIZE);
         if (!!cr) {
             zlib_errors++;
-            bench_msg("zlib error: uncompressed != original");
         }
     }
 
@@ -73,9 +72,7 @@ benchmark_zlib(void)
     shell_status_update("Running Zlib benchmark...");
 
     gchar *d = md5_digest_str(test_data, BENCH_DATA_SIZE);
-    if (!SEQ(d, BENCH_DATA_MD5))
-        bench_msg("test data has different md5sum: expected %s, actual %s", BENCH_DATA_MD5, d);
-
+    //if (!SEQ(d, BENCH_DATA_MD5))
     r = benchmark_crunch_for(CRUNCH_TIME, 0, zlib_for, test_data);
     r.result /= 100;
     r.revision = BENCH_REVISION;

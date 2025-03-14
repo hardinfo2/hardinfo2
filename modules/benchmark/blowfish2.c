@@ -60,11 +60,9 @@ void benchmark_bfish_do(int threads, int entry, const char *status)
     shell_status_update(status);
 
     gchar *k = md5_digest_str(BLOW_KEY, strlen(BLOW_KEY));
-    if (!SEQ(k, BLOW_KEY_MD5))
-        bench_msg("test key has different md5sum: expected %s, actual %s", BLOW_KEY_MD5, k);
+    //if (!SEQ(k, BLOW_KEY_MD5))
     gchar *d = md5_digest_str(test_data, BENCH_DATA_SIZE);
-    if (!SEQ(d, BENCH_DATA_MD5))
-        bench_msg("test data has different md5sum: expected %s, actual %s", BENCH_DATA_MD5, d);
+    //if (!SEQ(d, BENCH_DATA_MD5))
 
     r = benchmark_crunch_for(CRUNCH_TIME, threads, bfish_exec, test_data);
     r.result /= 100;

@@ -48,10 +48,9 @@ static gchar *benchmark_include_results(bench_value result,
 
 char *bench_value_to_str(bench_value r)
 {
-  gboolean has_rev = (r.revision >= 0);
-  gboolean has_extra = (*r.extra != 0);
-    char *ret = g_strdup_printf("%lf; %lf; %d", r.result, r.elapsed_time,
-                                r.threads_used);
+    gboolean has_rev = (r.revision >= 0);
+    gboolean has_extra = (r.extra[0] != 0);
+    char *ret = g_strdup_printf("%lf; %lf; %d", r.result, r.elapsed_time, r.threads_used);
     if (has_rev || has_extra)
         ret = appf(ret, "; ", "%d", r.revision);
     if (has_extra)

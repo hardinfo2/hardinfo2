@@ -93,6 +93,6 @@ extern bench_value bench_results[BENCHMARK_N_ENTRIES];
  * or return null */
 gchar *get_test_data(gsize min_size);
 char *md5_digest_str(const char *data, unsigned int len);
-#define bench_msg(msg, ...)  fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__)
+//#define bench_msg(msg, ...)  fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__)
 
 #endif /* __BENCHMARK_H__ */

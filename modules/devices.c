@@ -674,12 +674,10 @@ gchar *get_motherboard(void)
 
     if (board_part && product_part) {
         ret = g_strdup_printf("%s (%s)", board_part, product_part);
-        g_free(board_part);
-        g_free(product_part);
     } else if (board_part)
-        ret = board_part;
+        ret = g_strdup(board_part);
     else if (product_part)
-        ret = product_part;
+        ret = g_strdup(product_part);
     else {
         if(strstr(module_call_method("computer::getOSKernel"),"WSL2")){
 	    ret = g_strdup(_("WSL2"));
@@ -687,6 +685,9 @@ gchar *get_motherboard(void)
             ret = g_strdup(_("(Unknown)"));
 	}
     }
+    g_free(board_part);
+    g_free(product_part);
+
     g_free(board_name);
     g_free(board_vendor);
     g_free(board_version);

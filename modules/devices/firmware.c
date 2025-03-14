@@ -129,14 +129,14 @@ gchar *fwupdmgr_get_devices_info() {
     const gchar *key, *tmpstr;
 
     conn = g_bus_get_sync(G_BUS_TYPE_SYSTEM, NULL, NULL);
-    if (!conn)
-        return g_strdup("");
+    if (!conn) {g_free(info); return g_strdup("");}
 
     proxy = g_dbus_proxy_new_sync(conn, G_DBUS_PROXY_FLAGS_NONE, NULL,
                                   FWUPT_INTERFACE, "/", FWUPT_INTERFACE,
                                   NULL, NULL);
     if (!proxy) {
         g_object_unref(conn);
+	g_free(info);
         return g_strdup("");
     }
 
@@ -238,10 +238,9 @@ gchar *fwupdmgr_get_devices_info() {
     gchar *ret = NULL;
     if (info->groups->len) {
         info_set_view_type(info, SHELL_VIEW_DETAIL);
-        //fw_msg("flatten...");
         ret = info_flatten(info);
-        //fw_msg("ret: %s", ret);
     } else {
+        g_free(info);
         ret = g_strdup_printf("[%s]\n%s=%s\n" "[$ShellParam$]\nViewType=0\n",
                 _("Firmware List"),
                 _("Result"), _("(Not available)") );

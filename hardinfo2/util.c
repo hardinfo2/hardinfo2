@@ -36,6 +36,7 @@
 #include <hardinfo.h>
 #include <gtk/gtk.h>
 
+#include <stdbool.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 

@@ -113,6 +113,7 @@ static void _usb_dev(const usbd *u) {
     if (u->vendors) {
         gchar *ribbon = vendor_list_ribbon(u->vendors, params.fmt_opts);
         name = g_strdup_printf("%s %s", ribbon, u->product? product: device);
+	g_free(ribbon);
     } else {
         name = g_strdup_printf("%s %s", u->vendor? vendor: manufacturer, u->product? product: device);
     }
@@ -215,10 +216,11 @@ void __scan_usb(void) {
             _usb_dev(curr);
             curr=curr->next;
         }
-
-        usbd_list_free(list);
     } else {
         /* No USB? */
+        g_free(usb_list);
         usb_list = g_strconcat(usb_list, _("No USB devices found."), "=\n", NULL);
     }
+
+    usbd_list_free(list);
 }

@@ -84,6 +84,19 @@ gchar *find_program(gchar *program_name)
     return NULL;
 }
 
+
+gboolean check_program(gchar *program_name)
+{
+    gchar *temp=find_program(program_name);
+    if(temp){
+        g_free(temp);
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 gchar *seconds_to_string(unsigned int seconds)
 {
     unsigned int hours, minutes, days;

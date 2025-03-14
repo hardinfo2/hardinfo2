@@ -116,6 +116,7 @@ gpointer  file_types_get_data_by_name(FileTypes *file_types, gchar *name);
 
 /* Misc utility functions */
 gchar	     *find_program(gchar *program_name);
+gboolean     check_program(gchar *program_name);
 gchar        *size_human_readable(gfloat size);
 void          nonblock_sleep(guint msec);
 GSList	     *modules_get_list(void);

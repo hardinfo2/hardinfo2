@@ -39,11 +39,11 @@ gchar *find_edid_ids_file() {
     };
     int n=0;
     gchar *ret=NULL;
-    while(!ret && file_search_order[n]) {
-        if (!access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+    while(file_search_order[n]) {
+        if (!ret && !access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+        g_free(file_search_order[n]);
 	n++;
     }
-    g_strfreev(file_search_order);
     return ret;
 }
 
@@ -55,11 +55,11 @@ gchar *find_ieee_oui_ids_file() {
     };
     int n=0;
     gchar *ret=NULL;
-    while(!ret && file_search_order[n]) {
-        if (!access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+    while(file_search_order[n]) {
+        if (!ret && !access(file_search_order[n], R_OK)) ret=g_strdup(file_search_order[n]);
+	g_free(file_search_order[n]);
 	n++;
     }
-    g_strfreev(file_search_order);
     return ret;
 }
 

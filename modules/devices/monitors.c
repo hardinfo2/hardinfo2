@@ -98,6 +98,9 @@ void monitor_free(monitor *m) {
     if (m) {
         g_free(m->_vstr);
         g_free(m->drm_connection);
+        g_free(m->drm_enabled);
+        g_free(m->drm_status);
+        g_free(m->drm_path);
         edid_free(m->e);
         g_free(m);
     }

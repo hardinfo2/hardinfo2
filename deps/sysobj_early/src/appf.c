@@ -32,7 +32,7 @@ char *appf(char *str, const char *sep, const char *fmt, ...) {
     va_start(args, fmt);
     len = vasprintf(&buf, fmt, args);
     va_end(args);
-    if (len < 0) return str;
+    if (len < 1) {if(buf) free(buf); return str;}
     if (!str) return buf;
     inlen = strlen(str);
     seplen = (inlen && sep) ? strlen(sep) : 0;

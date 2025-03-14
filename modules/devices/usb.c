@@ -218,7 +218,6 @@ void __scan_usb(void) {
         }
     } else {
         /* No USB? */
-        g_free(usb_list);
         usb_list = g_strconcat(usb_list, _("No USB devices found."), "=\n", NULL);
     }
 

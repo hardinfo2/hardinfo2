@@ -406,7 +406,7 @@ ModuleEntry *hi_module_get_entries(void)
 
 gchar *hi_module_get_name(void)
 {
-    return g_strdup(_("Network"));
+    return _("Network");
 }
 
 guchar hi_module_get_weight(void)

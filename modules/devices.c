@@ -153,7 +153,7 @@ extern gchar *gpu_summary;
 const gchar *get_gpu_summary() {
     if (gpu_summary == NULL)
         scan_gpu(FALSE);
-    return gpu_summary;
+    return g_strdup(gpu_summary);
 }
 
 static gint proc_cmp_model_name(Processor *a, Processor *b) {
@@ -324,9 +324,9 @@ gchar *get_storage_home_models(void)
 {
     scan_storage(FALSE);
 
-    if (!storage_list) return "";
+    if (!storage_list) return g_strdup("");
 
-    gchar *p,*np,*tmp;
+    gchar *p,*np,*tmp,*p2;
     GRegex *regex;
     gchar *homepath=NULL,*out=NULL,*err=NULL;
     gboolean spawned;
@@ -374,7 +374,7 @@ gchar *get_storage_home_models(void)
     //printf("Homepath=%s (%u)\n",homepath,(unsigned int)strlen(homepath));
 
     regex = g_regex_new ("<.*?>", 0, 0, NULL);
-    p=g_strdup(storage_list);
+    p2=p=g_strdup(storage_list);
     while ( (np=strstr(p,"\n")) ){
       *np=0;
       //printf("name=%s\n",p);
@@ -387,6 +387,8 @@ gchar *get_storage_home_models(void)
 	  p++;
           g_regex_unref(regex);
           g_free(homepath);
+	  p=g_strdup(p);
+	  g_free(p2);
           //printf("Homepathmodel=%s\n",g_strdup_printf("%s (%s)",p,tmp));
 	  //return g_strdup_printf("%s (%s)",p,tmp);
           //printf("Homepathmodel=%s\n",p);
@@ -397,7 +399,7 @@ gchar *get_storage_home_models(void)
 
     g_regex_unref(regex);
     g_free(homepath);
-    g_free(p);
+    g_free(p2);
     return g_strdup("HomePathNotFound");
 }
 
@@ -992,7 +994,7 @@ ModuleEntry *hi_module_get_entries(void)
 
 gchar *hi_module_get_name(void)
 {
-    return g_strdup(_("Devices"));
+    return _("Devices");
 }
 
 guchar hi_module_get_weight(void)

@@ -755,7 +755,7 @@ static void do_benchmark(void (*benchmark_function)(void), int entry)
     setpriority(PRIO_PROCESS, 0, old_priority);
 }
 
-gchar *hi_module_get_name(void) { return g_strdup(_("Benchmarks")); }
+gchar *hi_module_get_name(void) { return _("Benchmarks"); }
 
 guchar hi_module_get_weight(void) { return 240; }
 

@@ -509,26 +509,36 @@ static void module_register_methods(ShellModule * module)
 gchar *module_call_method(gchar * method)
 {
     gchar *(*function) (void);
+    gchar *f=NULL,*ret;
 
     if (__module_methods == NULL) {
 	return NULL;
     }
 
     function = g_hash_table_lookup(__module_methods, method);
-    return function ? g_strdup(function()) : NULL;
+    if(function) f=function();
+    ret=g_strdup(f);
+    g_free(f);
+
+    return ret;
 }
 
 /* FIXME: varargs? */
 gchar *module_call_method_param(gchar * method, gchar * parameter)
 {
     gchar *(*function) (gchar *param);
+    gchar *f=NULL,*ret;
 
     if (__module_methods == NULL) {
 	return NULL;
     }
 
     function = g_hash_table_lookup(__module_methods, method);
-    return function ? g_strdup(function(parameter)) : NULL;
+    if(function) f=function(parameter);
+    ret=g_strdup(f);
+    g_free(f);
+
+    return ret;
 }
 
 static gboolean remove_module_methods(gpointer key, gpointer value, gpointer data)

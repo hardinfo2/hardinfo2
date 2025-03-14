@@ -393,6 +393,7 @@ gchar *computer_get_machinetype(int english)
     GDir *dir;
     gchar *chassis;
 
+
     if(g_file_test("/proc/xen", G_FILE_TEST_EXISTS)) {
         DEBUG("/proc/xen found; assuming Xen");
 	if(english)
@@ -965,7 +966,7 @@ gchar *get_audio_cards(void)
 gchar *get_memory_total(void)
 {
     scan_memory_usage(FALSE);
-    return moreinfo_lookup ("DEV:MemTotal");
+    return g_strdup(moreinfo_lookup ("DEV:MemTotal"));
 }
 
 gchar *get_memory_desc(void)

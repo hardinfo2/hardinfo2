@@ -1,5 +1,5 @@
 /*
- *    HardInfo - Displays System Information
+ *    Hardinfo2 - System information and benchmark
  *    Copyright (C) 2003-2007 L. A. F. Pereira <l@tia.mat.br>
  *
  *    This program is free software; you can redistribute it and/or modify
@@ -287,7 +287,7 @@ gchar *get_storage_devices_simple(void)
 
     struct Info *info = info_unflatten(storage_list);
     if (!info) {
-        return "";
+        return g_strdup("");
     }
 
     guint i, fi;
@@ -407,7 +407,7 @@ gchar *get_storage_devices_models(void)
 
     struct Info *info = info_unflatten(storage_list);
     if (!info) {
-        return "";
+      return g_strdup("");
     }
 
     guint i, fi;
@@ -448,28 +448,24 @@ gchar *get_storage_devices_models(void)
 gchar *get_storage_devices(void)
 {
     scan_storage(FALSE);
-
-    return storage_list;
+    return g_strdup(storage_list);
 }
 
 gchar *get_printers(void)
 {
     scan_printers(FALSE);
-
-    return printer_list;
+    return g_strdup(printer_list);
 }
 
 gchar *get_input_devices(void)
 {
     scan_input(FALSE);
-
-    return input_list;
+    return g_strdup(input_list);
 }
 
 gchar *get_processor_count(void)
 {
     scan_processors(FALSE);
-
     return g_strdup_printf("%d", g_slist_length(processors));
 }
 

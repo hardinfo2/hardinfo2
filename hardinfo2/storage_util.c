@@ -202,7 +202,8 @@ GSList* get_udisks2_drives_ext(void){
 
         check_sdcard_vendor(extdrive);
 
-        extdrive->vendors = vendor_list_append(extdrive->vendors, vendor_match(extdrive->d->vendor, NULL));
+	if(extdrive->vendors)
+            extdrive->vendors = vendor_list_append(extdrive->vendors, vendor_match(extdrive->d->vendor, NULL));
 
         // get OUI from WWID
         if (extdrive->d->wwid) {

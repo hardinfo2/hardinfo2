@@ -23,15 +23,14 @@
 gint comparUsers (gpointer a, gpointer b) {return strcmp( (char*)a, (char*)b );}
 
 gchar *users = NULL;
-void
-scan_users_do(void)
+
+void scan_users_do(void)
 {
     struct passwd *passwd_;
     GList *list=NULL, *a;
 
     passwd_ = getpwent();
-    if (!passwd_)
-        return;
+    if (!passwd_) return;
 
     if (users) {
         g_free(users);
@@ -57,6 +56,7 @@ scan_users_do(void)
         list = g_list_prepend(list, g_strdup_printf("%s,%s,%s,%s", key, passwd_->pw_name, passwd_->pw_gecos, val));
         passwd_ = getpwent();
         g_free(key);
+        g_free(val);
     }
 
     endpwent();
@@ -67,14 +67,11 @@ scan_users_do(void)
 
     while (list) {
         char **datas = g_strsplit(list->data,",",4);
-        if (!datas[0]) {
-            g_strfreev(datas);
-            break;
-        }
-
-        moreinfo_add_with_prefix("COMP", datas[0], datas[3]);
-
-        users = h_strdup_cprintf("$%s$%s=%s\n", users, datas[0], datas[1], datas[2]);
+        if (datas[0]) {
+	    users = h_strdup_cprintf("$%s$%s=%s\n", users, datas[0], datas[1], datas[2]);
+	    moreinfo_add_with_prefix("COMP", datas[0], g_strdup(datas[3]));
+	}
+	g_strfreev(datas);
 
         //next and free
         a=list;

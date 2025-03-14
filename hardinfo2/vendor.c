@@ -495,10 +495,11 @@ vendor_list vendors_match(const gchar *id_str, ...) {
         }
         va_end(ap);
     }
-    if (!c || tl == 0)
-        return NULL;
+    if (!c || tl == 0) { g_free(tmp); return NULL; }
 
-    return vendors_match_core(tmp, -1);
+    p=vendors_match_core(tmp, -1);
+    g_free(tmp);
+    return p;
 }
 
 vendor_list vendors_match_core(const gchar *str, int limit) {

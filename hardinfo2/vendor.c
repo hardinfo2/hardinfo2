@@ -479,6 +479,7 @@ vendor_list vendors_match(const gchar *id_str, ...) {
     va_list ap;
     gchar *tmp = NULL, *p = NULL;
     int tl = 0, c = 0;
+    vendor_list vl;
 
     if (id_str) {
         c++;
@@ -497,9 +498,9 @@ vendor_list vendors_match(const gchar *id_str, ...) {
     }
     if (!c || tl == 0) { g_free(tmp); return NULL; }
 
-    p=vendors_match_core(tmp, -1);
+    vl=vendors_match_core(tmp, -1);
     g_free(tmp);
-    return p;
+    return vl;
 }
 
 vendor_list vendors_match_core(const gchar *str, int limit) {

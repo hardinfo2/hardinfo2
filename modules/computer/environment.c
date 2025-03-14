@@ -37,6 +37,9 @@ void scan_env_var(gboolean reload)
     _env = g_strdup_printf("[%s]\n", _("Environment Variables") );
     for (i = 0, envlist = g_listenv(); envlist[i]; i++) {
         st=strwrap(g_getenv(envlist[i]),80,':');
+	//remove curly braces
+	st=strreplace(st,"{","");
+	st=strreplace(st,"}","");
         list = g_list_prepend(list, g_strdup_printf("%s=%s\n", envlist[i], st));
         g_free(st);
     }

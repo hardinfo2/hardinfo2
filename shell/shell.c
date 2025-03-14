@@ -888,7 +888,7 @@ void shell_init(GSList * modules)
     shell_status_set_enabled(TRUE);
     shell_status_update(_("Loading modules..."));
 
-    shell->tree->modules = modules ? modules : modules_load_all();
+    shell->tree->modules = modules;
 
     check_for_updates();
 

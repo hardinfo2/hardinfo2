@@ -8,26 +8,27 @@ needs to be updated
 
 When done the .po files are ready to be changed, thanx for helping with translation.
 
+
 Status
 ------
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1312 strings (-1), with 62 c-format strings
-- [ ] da.po : (377 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (836 / 1312 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (434 / 1312 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (851 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1146 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (208 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (337 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (197 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] ru.po : (151 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] tr.po : (150 / 1312 remain untranslated, needs work/fuzzy: 0)
-- [ ] zh_CN.po : (968 / 1312 remain untranslated, needs work/fuzzy: 0)
-
+hardinfo2.pot now has 1319 strings (+1), with 63 c-format strings
+- [ ] da.po : (382 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (843 / 1319 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (441 / 1319 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (858 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1153 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (215 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (344 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (204 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] tr.po : (157 / 1319 remain untranslated, needs work/fuzzy: 0)
+- [ ] zh_CN.po : (975 / 1319 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
+
 
 Editing
 -------

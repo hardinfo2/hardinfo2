@@ -141,7 +141,7 @@ void find_arm_ids_file() {
     int n;
     for(n = 0; file_search_order[n]; n++) {
         if (!arm_ids_file && !access(file_search_order[n], R_OK))
-            arm_ids_file = (gchar*) auto_free_on_exit( file_search_order[n] );
+            arm_ids_file = file_search_order[n];
         else
             g_free(file_search_order[n]);
     }

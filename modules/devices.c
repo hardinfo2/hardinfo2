@@ -768,6 +768,7 @@ void scan_dmi_mem(gboolean reload)
     gchar *st=memory_devices_get_system_memory_str();
     if(st) {
         memory_devices_desc = g_strdup_printf("%s %s",st,memory_devices_get_system_memory_types_str());
+	g_free(st);
     } else {
         memory_devices_desc = NULL;
     }

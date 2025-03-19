@@ -143,8 +143,9 @@ static void _gpu_pci_dev(gpud* gpu) {
 	g=strreplace(g,"(R)","");
 	g=strreplace(g,"(TM)","");
 	g=strreplace(g,"(tm)","");
-	if( strstr(module_call_method("computer::getMachineTypeEnglish"),"irtual") ){//virtual
-	    gpuname=g_strdup_printf("GPU=%s\n",module_call_method("computer::getMachineTypeEnglish"));
+	char *p1=NULL,*p2=NULL;
+	if( strstr(p1=module_call_method("computer::getMachineTypeEnglish"),"irtual") ){//virtual
+	    gpuname=g_strdup_printf("GPU=%s\n",p2=module_call_method("computer::getMachineTypeEnglish"));
 	} else if(strlen(g)>7 && g[0]=='l' && g[1]=='l' && g[2]=='v' && g[3]=='m' && g[4]=='p' && g[5]=='i' && g[6]=='p' && g[7]=='e'){
 	    //Software - no hw accelleration drivers
 	    if(strstr(vendor_device_str,"ntegrat")){//Integrated
@@ -171,12 +172,17 @@ static void _gpu_pci_dev(gpud* gpu) {
             gpuname=g_strdup_printf("GPU=%s\n",g);
 	}
         g_free(g);
+	g_free(p1);
+	g_free(p2);
     } else {//unknown as no renderer, try pcie
-	if( strstr(module_call_method("computer::getMachineTypeEnglish"),"irtual") ){//virtual
-	    gpuname=g_strdup_printf("GPU=%s\n",module_call_method("computer::getMachineTypeEnglish"));
+        char *p1=NULL,*p2=NULL;
+	if( strstr(p1=module_call_method("computer::getMachineTypeEnglish"),"irtual") ){//virtual
+	    gpuname=g_strdup_printf("GPU=%s\n",p2=module_call_method("computer::getMachineTypeEnglish"));
 	} else {
             gpuname=g_strdup_printf("GPU=%s\n",((gpu->nice_name) ? gpu->nice_name : name));
 	}
+	g_free(p1);
+	g_free(p2);
     }
 
     str = g_strdup_printf("[%s]\n"

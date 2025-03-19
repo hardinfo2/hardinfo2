@@ -65,6 +65,7 @@ static void add_to_moreinfo(const char *group, const char *key, char *value)
 {
   char *new_key = g_strconcat("DMI:", group, ":", key, NULL);
   moreinfo_add_with_prefix("DEV", new_key, g_strdup(g_strstrip(value)));
+  g_free(new_key);
 }
 
 gboolean dmi_get_info(void)

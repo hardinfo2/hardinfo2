@@ -90,25 +90,27 @@ Setting up addition tools
 Most hardware is detected automatically by Hardinfo2, but some might need manual set up.
 
 **Package installs these**
-- **sysbench**: is needed to run standard sysbench benchmarks. <br>
-RiscV: The package is not ready yet - build by using the ./tools/build_and_install_sysbench_riscv.sh script from building hardinfo2.
-- **udisks2**: is needed to provide NVME++ informations.
-- **dmi-decode**: is needed to provide DMI informations.
-- **mesa-utils**: is needed to provide opengl and run standard sysbench benchmarks.
+- Depends:
+- **gawk**: Used by hardinfo2 service to determine System Type
+- **dmidecode**: is needed to provide DMI information.
+- **sysbench**: ver 1.0.20 - is needed to run standard sysbench benchmarks.
+- **udisks2**: is needed to provide storage information.
+- **mesa-utils**: glxinfo is needed to get OpenGL info.
 - **lm-sensors**: is needed to provide sensors values.
 - **xdg-utils**: xdg_open is used to open your browser for bugs, homepage & links.
 - **iperf3**: iperf3 is used to benchmark internal network speed.
-- **fwupd**: fwupd is used to read and display information about firmware in system.
-- **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
-- **xrandr/x11-xserver-utils**: xrandr is used to read monitor setup
 - **vulkan-tools**: vulkaninfo is used to display vulcan information.
-- **gawk**: Used by hardinfo2 service to determine System Type
+- **qt5-base**: QT5 Framework for QT5 OpenGL GPU Benchmark
+- **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
+- Recommends/Depends/Optional: (distro choice - prefer installed)
+- **xrandr/x11-xserver-utils**: xrandr is used to read monitor setup
+- **fwupd**: fwupd is used to read and display information about firmware in system.
 
 **User can install/setup these depending on hardware**
 - **hddtemp**: To obtain the hard disk drive temperature, be sure to run hddtemp
 in daemon mode, using the default port.
-- **apcaccess**: apcaccess is used for battery information.
-- **pciutils/usbutils**: is only used on old kernels without sysfs.
+- **apcaccess**: apcaccess is used for ups/battery information.
+- **pciutils/usbutils**: is only used on very old kernels without sysfs.
 
 License
 ------

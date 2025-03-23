@@ -26,7 +26,7 @@
 #include <stdlib.h>
 
 /* if anything changes in this block, increment revision */
-#define BENCH_REVISION 2
+#define BENCH_REVISION 3
 
 #define SZ 128L*1024*1024
 #define ALIGN (1024*1024)
@@ -37,18 +37,22 @@ void cachemem_do_benchmark(char *dst, char *src, long sz, double *res){
     double sec;
     unsigned long long repeat;
     repeat=1;
-    while(repeat<=(1LL<<60)){
+    while(repeat && (repeat<=(1LL<<60))){
         unsigned long long i=0;
         clock_t start = clock();
 	while(i<repeat){ mcpy(dst, src, sz);i++;}
         sec = (clock() - start) / (double)CLOCKS_PER_SEC;
-	if(sec>0.01) break;
-	if(sec<0.00001) repeat<<=10; else
-	  if(sec<0.0001) repeat<<=7; else
-	    if(sec<0.001) repeat<<=4; else
+	if(sec>0.02) break;
+	  if(sec<0.0001) repeat<<=8; else
+	    if(sec<0.001) repeat<<=5; else
 	      repeat<<=1;
-    }    
-    *res=(sz)/(sec*1024*1024*1024)*repeat;
+	//printf("%llu ",repeat);
+    }
+    if(!sec)
+        *res=-1;
+    else
+        *res=((sz)/(sec*1024*1024*1024))*repeat;
+    //printf("- sec=%2.6f\n",sec);
 }
 
 static bench_value cacchemem_runtest(){
@@ -81,7 +85,7 @@ static bench_value cacchemem_runtest(){
     i=1;while(i<30) res[i++]=0;
 
     i=1;sz=4;
-    while((sz <= SZ) && (((clock()-start)/(double)CLOCKS_PER_SEC)<5) ) {
+    while((sz <= SZ) && (((clock()-start)/(double)CLOCKS_PER_SEC)<10) ) {
         cachemem_do_benchmark(bar, foo, sz, &res[i]);
         i++;
 	sz<<=1;

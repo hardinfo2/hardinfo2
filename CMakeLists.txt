@@ -16,9 +16,9 @@ endif()
 project(hardinfo2)
 
 #Release settings
-set(HARDINFO2_VERSION "2.2.10")
+set(HARDINFO2_VERSION "2.2.11")
 set(HARDINFO2_RELEASE_DATE "2025-03-29")
-set(HARDINFO2_RELEASE_NOTE_HTML "<p>Release</p><p>\nImprovements\nLots of minor fixes/maintenance/updates/cleanup\nFor details see homepage news.</p>")
+set(HARDINFO2_RELEASE_NOTE_HTML "<p>Development</p><p>\nImprovements\nLots of minor fixes/maintenance/updates/cleanup\nFor details see homepage news.</p>")
 
 #Build settings
 option(HARDINFO2_SERVICE "Build with service support" 1)

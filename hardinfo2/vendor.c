@@ -294,7 +294,7 @@ const Vendor *vendor_match(const gchar *id_str, ...) {
     va_list ap;
     gchar *tmp = NULL, *p = NULL;
 
-    if (!id_str) return NULL;
+    if (!id_str || (strlen(id_str)<1)) return NULL;
 
     tmp = appfsp(tmp, "%s", id_str);
 

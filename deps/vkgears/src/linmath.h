@@ -1,3 +1,9 @@
+/* Hardinfo2 - System information and benchmark
+   copyright: hardinfo2 project
+   License: GPL2+
+
+   datenwolf - Public domain
+ */
 #ifndef LINMATH_H
 #define LINMATH_H
 

@@ -3,9 +3,6 @@
  *    Copyright (C) 2025 hardinfo2 project
  *    License: GPL2+
  *
- *    Based on qgears2 by Zack Rusin (Public Domain)
- *    Based on cairogears by David Reveman & Peter Nilsson (Public Domain)
- *
  *    This program is free software; you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License v2.0 or later.
  *

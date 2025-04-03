@@ -39,14 +39,15 @@ Dependencies
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
-- GLFW3
-- vulkan-headers (vulkan-swrast software vulkan for non hardware systems)
+- glfw3
+- glslang-tools
+- vulkan-headers (vulkan-swrast = software vulkan for non hardware systems)
 
 Building and installing
 -----------------------
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
-- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libglfw3-dev
+- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libglfw3-dev glslang-tools
 - sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2

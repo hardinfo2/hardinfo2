@@ -24,7 +24,8 @@ set(HARDINFO2_RELEASE_NOTE_HTML "<p>Development</p><p>\nImprovements\nLots of mi
 option(HARDINFO2_SERVICE "Build with service support" 1)
 option(HARDINFO2_GTK3 "Build for GTK3 (0/off for GTK2)" 1)
 option(HARDINFO2_LIBSOUP3 "Build for libsoup-3.0 (0/off for libsoup-2.4)" 1)
-option(HARDINFO2_QT5 "Build opengl benchmark for QT5 " 1)
+option(HARDINFO2_QT5 "Build opengl benchmark for QT5" 1)
+option(HARDINFO2_VK "Build vulkan benchmark" 1)
 
 SET(CMAKE_INSTALL_PREFIX "/usr")
 SET(HARDINFO2_SYSTEMV 0)
@@ -352,6 +353,8 @@ endif()
 
 if(${distro} MATCHES "Alpine")
     set(HARDINFO2_SYSTEMV 1)
+#cannot find vulkan libraries on alpine  
+    set(HARDINFO2_VK 0)
 endif()
 
 if(${distro} MATCHES "Puppy")
@@ -506,31 +509,15 @@ set(MODULE_network_SOURCES
 	modules/network/samba.c
 )
 if(HARDINFO2_QT5)
-set(MODULE_benchmark_SOURCES
-	modules/benchmark.c
-	modules/benchmark/bench_util.c
-	modules/benchmark/blowfish.c
-	modules/benchmark/blowfish2.c
-	modules/benchmark/cryptohash.c
-	modules/benchmark/fbench.c
-	modules/benchmark/fftbench.c
-	modules/benchmark/fft.c
-	modules/benchmark/fib.c
-	modules/benchmark/md5.c
-	modules/benchmark/nqueens.c
-	modules/benchmark/raytrace.c
-	modules/benchmark/sha1.c
-	modules/benchmark/zlib.c
-	modules/benchmark/sysbench.c
-	modules/benchmark/iperf3.c
-	modules/benchmark/opengl.c
-	modules/benchmark/vulkan.c
-	modules/benchmark/storage.c
-	modules/benchmark/cachemem.c
-	modules/benchmark/drawing.c
-	modules/benchmark/guibench.c
-)
+  set(HARDINFO2_QT5_FILE "modules/benchmark/opengl.c")
 else()
+  set(HARDINFO2_QT5_FILE "")
+endif()
+if(HARDINFO2_VK)
+  set(HARDINFO2_VK_FILE "modules/benchmark/vulkan.c")
+else()
+  set(HARDINFO2_VK_FILE "")
+endif()
 set(MODULE_benchmark_SOURCES
 	modules/benchmark.c
 	modules/benchmark/bench_util.c
@@ -548,12 +535,13 @@ set(MODULE_benchmark_SOURCES
 	modules/benchmark/zlib.c
 	modules/benchmark/sysbench.c
 	modules/benchmark/iperf3.c
+	${HARDINFO2_QT5_FILE}
+	${HARDINFO2_VK_FILE}
 	modules/benchmark/storage.c
 	modules/benchmark/cachemem.c
 	modules/benchmark/drawing.c
 	modules/benchmark/guibench.c
 )
-endif()
 
 set_source_files_properties(
 	modules/benchmark/blowfish.c

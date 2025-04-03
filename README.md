@@ -40,6 +40,7 @@ Dependencies
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
 - GLFW3
+- vulkan-headers (vulkan-swrast software vulkan for non hardware systems)
 
 Building and installing
 -----------------------

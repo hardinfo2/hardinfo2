@@ -20,6 +20,7 @@
 #cmakedefine CMAKE_BUILD_TYPE 	@CMAKE_BUILD_TYPE@
 #cmakedefine HARDINFO2_LIBSOUP3 @HARDINFO2_LIBSOUP3@
 #cmakedefine HARDINFO2_QT5      @HARDINFO2_QT5@
+#cmakedefine HARDINFO2_VK      @HARDINFO2_VK@
 
 #define Release 1
 #define ON 1

@@ -402,13 +402,12 @@ static void gears_glfw_key( GLFWwindow* window, int k, int s, int action, int mo
     }
 }
 
-static void gears_init_app(gears_app *app, const char *app_name,
-    uint32_t app_width_default, uint32_t app_height_default)
+static void gears_init_app(gears_app *app, const char *app_name)
 {
     memset(app, 0, sizeof(gears_app));
     app->name = "Vulkan Benchmark";
-    app->width = 1024;//app_width_default;
-    app->height = 800;//app_height_default;
+    app->width = 1024;
+    app->height = 800;
 
     app->view_dist = -40.0;
     app->rotation.rotx = 20.f;
@@ -529,7 +528,7 @@ static void gears_create_window(gears_app *app)
 {
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwSetErrorCallback(gears_glfw_error);
-    app->window = glfwCreateWindow(app->width, app->height, "VK1 Gears",
+    app->window = glfwCreateWindow(app->width, app->height, "Vulkan Benchmark",
         NULL, NULL);
     if (!app->window) {
         panic("glfwCreateWindow failed\n");
@@ -1919,8 +1918,8 @@ static void gears_record_command_buffers(gears_app *app, size_t j)
 
 static void gears_init(gears_app *app, const int argc, const char **argv)
 {
-    gears_init_app(app, argv[0], 512, 512);
-    gears_parse_options(app, argc, argv);
+    gears_init_app(app, argv[0]);
+    //FIXME gears_parse_options(app, argc, argv);
     gears_init_glfw(app);
     gears_create_window(app);
     gears_create_instance(app);

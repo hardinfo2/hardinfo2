@@ -190,6 +190,7 @@ endif()
 if(${disversion} LESS 7.99)
   if((${distro} MATCHES "Red*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "openSUSE*" OR ${distro} MATCHES "SUSE*"))
       SET(RPM_REQ "dmidecode, sysbench, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, xrandr, gawk") #miss vulkan-tools
+      set(HARDINFO2_VK 0)
   endif()
 endif()
 
@@ -207,6 +208,7 @@ if(${disversion} LESS 6.99)
     message("RPM EL6 - no QT5 - Disabling opengl benchmarks")
     set(HARDINFO2_QT5 0)
     SET(RPM_REQ "dmidecode, sysbench, glx-utils, lm_sensors, xdg-utils, xrandr, gawk") #miss vulkan-tools, udisks2, fwupd, iperf3
+    set(HARDINFO2_VK 0)
   endif()
 endif()
 
@@ -239,6 +241,7 @@ if(${distro}${disversion} MATCHES "DebianGNULinux7")
     set(PACKAGE_LIBSOUP2_MINVERSION 2.34.3)
     set(HARDINFO2_SYSTEMV 1)
     set(HARDINFO2_QT5 0)
+    set(HARDINFO2_VK 0)
     SET(DEB_REQ "dmidecode, sysbench, mesa-utils, lm-sensors, xdg-utils, x11-xserver-utils, libsigsegv2, gawk") #miss vulkan-tools,fwupd, udisks2, iperf3 +libsigsegv2 for gawk
 endif()
 
@@ -247,6 +250,7 @@ if(${distro}${disversion} MATCHES "DebianGNULinux8")
     message("DEB 8 - GTK3 version 3.14.5 is low - Themes disabled")
     message("DEB 8 - no QT5 - Disabling opengl benchmarks")
     set(HARDINFO2_QT5 0)
+    set(HARDINFO2_VK 0)
     SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, x11-xserver-utils, libsigsegv2, gawk") #miss vulkan-tools,fwupd +libsigsegv2 for gawk
 endif()
 
@@ -256,6 +260,7 @@ else()
     if(${distro}${disversion} MATCHES "DebianGNULinux9")
         message("DEB 9 - QT5 too low - Disabling opengl benchmarks")
         set(HARDINFO2_QT5 0)
+        set(HARDINFO2_VK 0)
 	SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, fwupd, x11-xserver-utils, gawk") #miss vulkan-tools
     endif()
 endif()

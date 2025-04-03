@@ -235,11 +235,12 @@ static uint32_t memory_type_index(VkMemoryRequirements *memory_reqs,
     VkFlags mask, VkPhysicalDeviceMemoryProperties *memory_props)
 {
     uint32_t type_bits = memory_reqs->memoryTypeBits;
-    for (uint32_t i = 0; i < VK_MAX_MEMORY_TYPES; i++) {
+    uint32_t i = 0; while(i < VK_MAX_MEMORY_TYPES) {
         if ((type_bits & 1) &&
             (memory_props->memoryTypes[i].propertyFlags & mask) == mask)
                 return i;
         type_bits >>= 1;
+	i++;
     }
     return 0;
 }
@@ -334,8 +335,9 @@ static void gears_buffer_add_indices(gears_buffer *vb,
         vb->data = realloc(vb->data,
             vb->size * vb->total);
     }
-    for (uint32_t i = 0; i < count; i++) {
+    uint32_t i = 0;while (i < count) {
         ((uint32_t*)vb->data)[vb->count++] = indices[i] + addend;
+	i++;
     }
 }
 
@@ -345,31 +347,36 @@ static void gears_buffer_add_indices_primitves(gears_buffer *vb,
     static const uint tri[] = {0,1,2};
     static const uint tri_strip[] = {0,1,2,2,1,3};
     static const uint quads[] = {0,1,2,0,2,3};
-
+    size_t i=0;
+    
     switch (type) {
     case gears_topology_triangles:
-        for (size_t i = 0; i < count; i++) {
+	while(i < count) {
             gears_buffer_add_indices(vb, tri, 3, addend);
             addend += 3;
+	    i++;
         }
         break;
     case gears_topology_triangle_strip:
         assert((count&1) == 0);
-        for (size_t i = 0; i < count; i += 2) {
+	while (i < count) {
             gears_buffer_add_indices(vb, tri_strip, 6, addend);
             addend += 2;
+	    i += 2;
         }
         break;
     case gears_topology_quads:
-        for (size_t i = 0; i < count; i++) {
+	while ( i < count) {
             gears_buffer_add_indices(vb, quads, 6, addend);
             addend += 4;
+	    i++;
         }
         break;
     case gears_topology_quad_strip:
-        for (size_t i = 0; i < count; i++) {
+	while ( i < count) {
             gears_buffer_add_indices(vb, tri_strip, 6, addend);
             addend += 2;
+	    i++;
         }
         break;
     }
@@ -455,7 +462,7 @@ static void gears_parse_options(gears_app *app, const int argc, const char **arg
 
     while(v < argc) {
         int opt_idx = -1, bool_val = VK_TRUE;
-        for (uint32_t i = 0; i < sizeof(options)/sizeof(options[0]); i++) {
+        uint32_t i = 0; while (i < sizeof(options)/sizeof(options[0])) {
             size_t optlen = strlen(options[i].name);
             if (strlen(argv[v]) == optlen + 1 &&
                 memcmp(argv[v], "-", 1) == 0 &&
@@ -470,6 +477,7 @@ static void gears_parse_options(gears_app *app, const int argc, const char **arg
                 bool_val = VK_FALSE;
                 break;
             }
+	    i++;
         }
         if (opt_idx == -1) {
             fprintf(stderr, "*** error: %s: option unknown\n\n", argv[v]);
@@ -494,7 +502,7 @@ static void gears_parse_options(gears_app *app, const int argc, const char **arg
     if (print_help) {
         fprintf(stderr, "usage: %s [options]\n\n", argv[0]);
         fprintf(stderr, "Options\n\n");
-        for (uint32_t i = 0; i < sizeof(options)/sizeof(options[0]); i++) {
+        uint32_t i = 0; while(i < sizeof(options)/sizeof(options[0])) {
             const char * spaces = some_spaces + strlen(options[i].name);
             if (options[i].ptr_boolean) {
                 fprintf(stderr, "-[no-]%s %s  enable or disable %s\n",
@@ -503,6 +511,7 @@ static void gears_parse_options(gears_app *app, const int argc, const char **arg
                 fprintf(stderr, "-%s <int> %s specify %s\n",
                     options[i].name, spaces, options[i].name);
             }
+	    i++;
         }
         exit(0);
     }
@@ -548,14 +557,16 @@ static int check_layers(VkLayerProperties *instance_layers,
     size_t instance_count, const char **check_layers, size_t check_count)
 {
     size_t found = 0;
-    for (size_t i = 0; i < check_count; i++) {
-        for (size_t j = 0; j < instance_count; j++) {
+    size_t i = 0;while(i < check_count) {
+        size_t j = 0;while (j < instance_count) {
             if (!strcmp(check_layers[i], instance_layers[j].layerName))
             {
                 found++;
                 break;
             }
+	    j++;
         }
+	i++;
     }
     return found == check_count;
 }
@@ -589,14 +600,16 @@ static void gears_create_instance(gears_app *app)
                 instance_layers));
         if (app->api_dump_enable && check_layers(instance_layers,
             instance_count, api_dump_layers, array_size(api_dump_layers))) {
-            for (size_t i = 0; i < array_size(api_dump_layers); i++) {
+            size_t i = 0; while(i < array_size(api_dump_layers)) {
                 layer_names[enabled_layer_count++] = api_dump_layers[i];
+		i++;
             }
         }
         if (app->validation_enable && check_layers(instance_layers,
             instance_count, validation_layers, array_size(validation_layers))) {
-            for (size_t i = 0; i < array_size(validation_layers); i++) {
+            size_t i = 0; while(i < array_size(validation_layers)) {
                 layer_names[enabled_layer_count++] = validation_layers[i];
+		i++;
             }
         }
         free(instance_layers);
@@ -607,9 +620,10 @@ static void gears_create_instance(gears_app *app)
     if (!required_extensions) {
         panic("glfwGetRequiredInstanceExtensions failed\n");
     }
-    for (size_t i = 0; i < required_extension_count; i++) {
+    size_t i = 0; while(i < required_extension_count) {
         extension_names[enabled_extensions_count++] = required_extensions[i];
         assert(enabled_extensions_count < 64);
+	i++;
     }
 
     const VkApplicationInfo ai = {
@@ -677,7 +691,7 @@ static void gears_find_physical_device_queue(gears_app *app)
 
     /* find physical device queue index */
     app->queue_family_index = UINT32_MAX;
-    for (uint32_t i = 0; i < queue_count; i++) {
+    uint32_t i = 0; while(i < queue_count) {
         VkBool32 qsupports_present = VK_FALSE;
         vkGetPhysicalDeviceSurfaceSupportKHR(app->physdev, i, app->surface,
                                              &qsupports_present);
@@ -687,6 +701,7 @@ static void gears_find_physical_device_queue(gears_app *app)
             app->queue_family_index = i;
             break;
         }
+	i++;
     }
     if (app->queue_family_index == UINT32_MAX) {
         panic("vkGetPhysicalDeviceSurfaceSupportKHR: incompatible queue\n");
@@ -755,11 +770,12 @@ static void gears_find_surface_format(gears_app *app)
          app->color_space = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR;
     } else {
         uint32_t format_idx = 0;
-        for (uint32_t i = 0; i < format_count; i++) {
+        uint32_t i = 0; while(i < format_count) {
             if (surface_formats[i].format == VK_FORMAT_B8G8R8A8_UNORM) {
                 format_idx = i;
                 break;
             }
+	    i++;
         }
         app->format = surface_formats[format_idx].format;
         app->color_space = surface_formats[format_idx].colorSpace;
@@ -839,10 +855,11 @@ static void gears_create_swapchain(gears_app *app)
 
 static void gears_destroy_swapchain_buffers(gears_app *app)
 {
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
         app->swapchain_buffers[i].image = VK_NULL_HANDLE;
         vkDestroyImageView(app->device, app->swapchain_buffers[i].view, NULL);
+	i++;
     }
     free(app->swapchain_buffers);
     app->swapchain_buffers = NULL;
@@ -866,7 +883,7 @@ static void gears_create_swapchain_buffers(gears_app *app)
         app->swapchain_image_count);
     memset(app->swapchain_buffers, 0, sizeof(gears_swapchain_buffer) *
         app->swapchain_image_count);
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
          VkImageViewCreateInfo cav = {
             .sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
@@ -891,6 +908,7 @@ static void gears_create_swapchain_buffers(gears_app *app)
         };
         VK_CALL(vkCreateImageView
             (app->device, &cav, NULL, &app->swapchain_buffers[i].view));
+	i++;
     }
     free(swapchain_images);
 }
@@ -1067,10 +1085,11 @@ static void gears_create_command_buffers(gears_app *app)
 
 static void gears_destroy_semaphores(gears_app *app)
 {
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
         vkDestroySemaphore(app->device, app->image_available_semaphores[i], NULL);
         vkDestroySemaphore(app->device, app->render_complete_semaphores[i], NULL);
+	i++;
     }
     free(app->image_available_semaphores);
     free(app->render_complete_semaphores);
@@ -1089,18 +1108,20 @@ static void gears_create_semaphores(gears_app *app)
     app->render_complete_semaphores = malloc(sizeof(VkSemaphore) * app->swapchain_image_count);
     assert(app->image_available_semaphores != NULL);
     assert(app->render_complete_semaphores != NULL);
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
         VK_CALL(vkCreateSemaphore(app->device, &sci, NULL, &app->image_available_semaphores[i]));
         VK_CALL(vkCreateSemaphore(app->device, &sci, NULL, &app->render_complete_semaphores[i]));
+	i++;
     }
 }
 
 static void gears_destroy_fences(gears_app *app)
 {
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
         vkDestroyFence(app->device, app->swapchain_fences[i], NULL);
+	i++;
     }
     free(app->swapchain_fences);
     app->swapchain_fences = NULL;
@@ -1115,9 +1136,10 @@ static void gears_create_fences(gears_app *app)
     };
     app->swapchain_fences = malloc(sizeof(VkFence) * app->swapchain_image_count);
     assert(app->swapchain_fences != NULL);
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++)
+    uint32_t i = 0; while(i < app->swapchain_image_count)
     {
         VK_CALL(vkCreateFence(app->device, &fci, NULL, &app->swapchain_fences[i]));
+	i++;
     }
 }
 
@@ -1204,10 +1226,11 @@ static void gears_create_render_pass(gears_app *app)
 
 static void gears_destroy_frame_buffers(gears_app *app)
 {
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++) {
+    uint32_t i = 0; while(i < app->swapchain_image_count) {
         vkDestroyFramebuffer(app->device,
             app->swapchain_buffers[i].framebuffer, NULL);
         app->swapchain_buffers[i].framebuffer = VK_NULL_HANDLE;
+	i++;
     }
 }
 
@@ -1229,11 +1252,12 @@ static void gears_create_frame_buffers(gears_app *app)
     };
 
     uint32_t color_idx = app->multisampling_enable ? 2 : 0;
-    for (uint32_t i = 0; i < app->swapchain_image_count; i++) {
+    uint32_t i = 0; while(i < app->swapchain_image_count) {
         attachments[color_idx] = app->swapchain_buffers[i].view;
         VK_CALL(vkCreateFramebuffer(app->device,
             &framebuffer_create_info, NULL,
             &app->swapchain_buffers[i].framebuffer));
+	i++;
     }
 }
 
@@ -1366,8 +1390,9 @@ static void gears_create_desc_sets(gears_app *app)
 
     layouts = malloc(sizeof(VkDescriptorSetLayout) * app->desc_set_count);
     assert(layouts != NULL);
-    for (size_t i = 0; i < app->desc_set_count; i++) {
+    size_t i = 0; while(i < app->desc_set_count) {
         layouts[i] = app->desc_set_layout;
+	i++;
     }
     app->desc_sets = malloc(sizeof(VkDescriptorSet) * app->desc_set_count);
     assert(app->desc_sets != NULL);
@@ -1632,7 +1657,7 @@ gear(gears_buffer *vb, gears_buffer *ib,
 
     /* draw front face */
     idx = gears_buffer_count(vb);
-    for (i = 0; i <= teeth; i++) {
+    i = 0; while(i <= teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         vertex_3f(r0*cosf(angle), r0*sinf(angle), width*0.5f);
         vertex_3f(r1*cosf(angle), r1*sinf(angle), width*0.5f);
@@ -1640,18 +1665,20 @@ gear(gears_buffer *vb, gears_buffer *ib,
             vertex_3f(r0*cosf(angle), r0*sinf(angle), width*0.5f);
             vertex_3f(r1*cosf(angle+3*da), r1*sinf(angle+3*da), width*0.5f);
         }
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quad_strip, teeth*2, idx);
 
     /* draw front sides of teeth */
     da = 2.f*(float) M_PI / teeth / 4.f;
     idx = gears_buffer_count(vb);
-    for (i = 0; i < teeth; i++) {
+    i = 0; while(i < teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         vertex_3f(r1*cosf(angle), r1*sinf(angle), width*0.5f);
         vertex_3f(r2*cosf(angle+1*da), r2*sinf(angle+1*da), width*0.5f);
         vertex_3f(r2*cosf(angle+2*da), r2*sinf(angle+2*da), width*0.5f);
         vertex_3f(r1*cosf(angle+3*da), r1*sinf(angle+3*da), width*0.5f);
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quads, teeth, idx);
 
@@ -1659,7 +1686,7 @@ gear(gears_buffer *vb, gears_buffer *ib,
 
     /* draw back face */
     idx = gears_buffer_count(vb);
-    for (i = 0; i <= teeth; i++) {
+    i = 0; while(i <= teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         vertex_3f(r1*cosf(angle), r1*sinf(angle), -width*0.5f);
         vertex_3f(r0*cosf(angle), r0*sinf(angle), -width*0.5f);
@@ -1667,24 +1694,26 @@ gear(gears_buffer *vb, gears_buffer *ib,
             vertex_3f(r1*cosf(angle+3*da), r1*sinf(angle+3*da), -width*0.5f);
             vertex_3f(r0*cosf(angle), r0*sinf(angle), -width*0.5f);
         }
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quad_strip, teeth*2, idx);
 
     /* draw back sides of teeth */
     da = 2.f*(float) M_PI / teeth / 4.f;
     idx = gears_buffer_count(vb);
-    for (i = 0; i < teeth; i++) {
+    i = 0; while(i < teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         vertex_3f(r1*cosf(angle+3*da), r1*sinf(angle+3*da), -width*0.5f);
         vertex_3f(r2*cosf(angle+2*da), r2*sinf(angle+2*da), -width*0.5f);
         vertex_3f(r2*cosf(angle+1*da), r2*sinf(angle+1*da), -width*0.5f);
         vertex_3f(r1*cosf(angle), r1*sinf(angle), -width*0.5f);
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quads, teeth, idx);
 
     /* draw outward faces of teeth */
     idx = gears_buffer_count(vb);
-    for (i = 0; i < teeth; i++) {
+    i = 0; while(i < teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         tmp[0] = r2*cosf(angle+1*da) - r1*cosf(angle);
         tmp[1] = r2*sinf(angle+1*da) - r1*sinf(angle);
@@ -1712,25 +1741,28 @@ gear(gears_buffer *vb, gears_buffer *ib,
         vertex_3f(r1*cosf(angle+3*da), r1*sinf(angle+3*da), -width*0.5f);
         vertex_3f(r1*cosf(angle+4*da), r1*sinf(angle+4*da), -width*0.5f);
         vertex_3f(r1*cosf(angle+4*da), r1*sinf(angle+4*da), width*0.5f);
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quads, teeth*4, idx);
 
     /* draw inside radius cylinder */
     idx = gears_buffer_count(vb);
-    for (i = 0; i <= teeth; i++) {
+    i = 0; while(i <= teeth) {
         angle = i*2.f*(float) M_PI / teeth;
         normal_3f(-cosf(angle), -sinf(angle), 0.f);
         vertex_3f(r0*cosf(angle), r0*sinf(angle), -width*0.5f);
         vertex_3f(r0*cosf(angle), r0*sinf(angle), width*0.5f);
+	i++;
     }
     gears_buffer_add_indices_primitves(ib, gears_topology_quad_strip, teeth, idx);
 }
 
 static void gears_destroy_vertex_buffers(gears_app *app)
 {
-    for (size_t g = 0; g < 3; g++) {
+    size_t g = 0; while(g < 3) {
         gears_buffer_destroy(app, &app->gear[g].vb);
         gears_buffer_destroy(app, &app->gear[g].ib);
+	g++;
     }
 }
 
@@ -1740,32 +1772,40 @@ static void gears_create_vertex_buffers(gears_app *app)
     static const vec4f green = {0.f, 0.8f, 0.2f, 1.f};
     static const vec4f blue = {0.2f, 0.2f, 1.f, 1.f};
 
-    for (size_t g = 0; g < 3; g++) {
+    size_t g = 0;
+    while(g < 3) {
         gears_buffer_init(&app->gear[g].vb, sizeof(gears_vertex),
             GEARS_VERTEX_INITIAL_COUNT);
         gears_buffer_init(&app->gear[g].ib, sizeof(uint32_t),
             GEARS_INDEX_INITIAL_COUNT);
+	g++;
     }
 
     gear(&app->gear[0].vb, &app->gear[0].ib, 1.f, 4.f, 1.f, 20, 0.7f, red);
     gear(&app->gear[1].vb, &app->gear[1].ib, 0.5f, 2.f, 2.f, 10, 0.7f, green);
     gear(&app->gear[2].vb, &app->gear[2].ib, 1.3f, 2.f, 0.5f, 10, 0.7f, blue);
 
-    for (size_t g = 0; g < 3; g++) {
+    g = 0;
+    while(g < 3) {
         gears_buffer_freeze(app, &app->gear[g].vb, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
         gears_buffer_freeze(app, &app->gear[g].ib, VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
+	g++;
     }
 }
 
 static void gears_destroy_uniform_buffers(gears_app *app)
 {
-    for (size_t g = 0; g < 3; g++) {
-        for (uint j = 0; j < app->swapchain_image_count; j++) {
+    size_t g = 0;
+    while(g < 3) {
+        uint j = 0;
+        while(j < app->swapchain_image_count) {
             vkDestroyBuffer(app->device, app->gear[g].ub.mem[j].buffer, NULL);
             app->gear[g].ub.mem[j].buffer = VK_NULL_HANDLE;
             vkFreeMemory(app->device, app->gear[g].ub.mem[j].memory, NULL);
             app->gear[g].ub.mem[j].memory = VK_NULL_HANDLE;
+	    j++;
         }
+	g++;
     }
 }
 
@@ -1793,8 +1833,8 @@ static void gears_update_uniform_buffer(gears_app *app, size_t j)
 
     mat4x4_translate(m[2], -3.1f, 4.2f, 0.f);
     mat4x4_rotate_Z(m[2], m[2], ((-2.f * app->rotation.angle - 25.f) / 180) * M_PI);
-
-    for (size_t g = 0; g < 3; g++) {
+    size_t g = 0;
+    while(g < 3) {
         memcpy(app->gear[g].ub.data.model, m[g], sizeof(m[g]));
         memcpy(app->gear[g].ub.data.view, v, sizeof(v));
         memcpy(app->gear[g].ub.data.projection, p, sizeof(p));
@@ -1824,34 +1864,44 @@ static void gears_update_uniform_buffer(gears_app *app, size_t j)
             .pTexelBufferView = NULL,
         };
         vkUpdateDescriptorSets(app->device, 1, &wds, 0, NULL);
+	g++;
     }
 }
 
 static void gears_create_uniform_buffer(gears_app *app)
 {
-    for (size_t g = 0; g < 3; g++) {
+    size_t g = 0;
+    uint j = 0;
+    while(g < 3) {
         app->gear[g].ub.mem = malloc(sizeof(gears_uniform_memory) *
             app->swapchain_image_count);
         assert(app->gear[g].ub.mem != NULL);
-        for (uint j = 0; j < app->swapchain_image_count; j++) {
+        j = 0;
+	while(j < app->swapchain_image_count) {
             gears_buffer_alloc(app, &app->gear[g].ub.mem[j].buffer,
                 &app->gear[g].ub.mem[j].memory,
                 sizeof(gears_uniform_buffer),
                 VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT);
+	    j++;
         }
+	g++;
     }
-    for (uint j = 0; j < app->swapchain_image_count; j++) {
+    j=0;
+    while(j < app->swapchain_image_count) {
         gears_update_uniform_buffer(app, j);
+	j++;
     }
 }
 
 static void gears_reset_command_buffers(gears_app *app)
 {
-    for (size_t j = 0; j < app->swapchain_image_count; j++) {
+    size_t j = 0;
+    while(j < app->swapchain_image_count) {
         VK_CALL(vkWaitForFences(app->device, 1,
             &app->swapchain_fences[j], VK_TRUE, UINT64_MAX));
         VK_CALL(vkResetCommandBuffer(app->cmd_buffers[j],
             VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT));
+	j++;
     }
 }
 
@@ -1899,7 +1949,8 @@ static void gears_record_command_buffers(gears_app *app, size_t j)
     vkCmdSetScissor(app->cmd_buffers[j], 0, 1, &scissor);
     vkCmdBindPipeline(app->cmd_buffers[j],
         VK_PIPELINE_BIND_POINT_GRAPHICS, app->pipeline);
-    for (size_t g = 0; g < 3; g++) {
+    size_t g = 0;
+    while(g < 3) {
         VkDeviceSize offset = 0;
         vkCmdBindDescriptorSets(app->cmd_buffers[j],
             VK_PIPELINE_BIND_POINT_GRAPHICS, app->pipeline_layout, 0, 1,
@@ -1910,6 +1961,7 @@ static void gears_record_command_buffers(gears_app *app, size_t j)
             app->gear[g].ib.buffer, 0, VK_INDEX_TYPE_UINT32);
         vkCmdDrawIndexed(app->cmd_buffers[j],
             app->gear[g].ib.count, 1, 0, 0, 0);
+	g++;
     }
     vkCmdEndRenderPass(app->cmd_buffers[j]);
 

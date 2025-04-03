@@ -30,6 +30,7 @@ enum BenchmarkEntries {
 #if(HARDINFO2_QT5)
     BENCHMARK_OPENGL,
 #endif
+    BENCHMARK_VULKAN,
     BENCHMARK_STORAGE,
     BENCHMARK_CACHEMEM,
     BENCHMARK_N_ENTRIES
@@ -57,6 +58,7 @@ void benchmark_iperf3_single(void);
 #if(HARDINFO2_QT5)
 void benchmark_opengl(void);
 #endif
+void benchmark_vulkan(void);
 void benchmark_storage(void);
 void benchmark_cachemem(void);
 

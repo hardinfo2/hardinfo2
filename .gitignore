@@ -1,5 +1,6 @@
 Makefile
 config.h
+*.spv
 *.so
 *.o
 *~

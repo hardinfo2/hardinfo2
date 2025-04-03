@@ -71,6 +71,7 @@ BENCH_SIMPLE(BENCHMARK_IPERF3_SINGLE, "Internal Network Speed", benchmark_iperf3
 #if(HARDINFO2_QT5)
 BENCH_SIMPLE(BENCHMARK_OPENGL, "GPU OpenGL Drawing", benchmark_opengl, 1);
 #endif
+BENCH_SIMPLE(BENCHMARK_VULKAN, "GPU Vulkan Drawing", benchmark_vulkan, 1);
 BENCH_SIMPLE(BENCHMARK_SBCPU_SINGLE, "SysBench CPU (Single-thread)", benchmark_sbcpu_single, 1);
 BENCH_SIMPLE(BENCHMARK_SBCPU_ALL, "SysBench CPU (Multi-thread)", benchmark_sbcpu_all, 1);
 BENCH_SIMPLE(BENCHMARK_SBCPU_QUAD, "SysBench CPU (Four threads)", benchmark_sbcpu_quad, 1);
@@ -127,6 +128,7 @@ static char *entries_english_name[] = {
 #if(HARDINFO2_QT5)
 	    ,"GPU OpenGL Drawing"
 #endif
+	    ,"GPU Vulkan Drawing"
 	    ,"Storage R/W Speed"
 	    ,"Cache/Memory"
 };
@@ -287,6 +289,14 @@ static ModuleEntry entries[] = {
             MODULE_FLAG_BENCHMARK|MODULE_FLAG_NO_REMOTE,
         },
 #endif
+    [BENCHMARK_VULKAN] =
+        {
+            N_("GPU Vulkan Drawing"),
+            "gpu.svg",
+            callback_benchmark_vulkan,
+            scan_benchmark_vulkan,
+            MODULE_FLAG_BENCHMARK|MODULE_FLAG_NO_REMOTE,
+        },
     [BENCHMARK_STORAGE] =
         {
             N_("Storage R/W Speed"),
@@ -342,6 +352,8 @@ const gchar *hi_note_func(gint entry)
     case BENCHMARK_OPENGL:
         return _("Results in FPS. Higher is better.");
 #endif
+    case BENCHMARK_VULKAN:
+        return _("Results in FPS. Higher is better.");
     }
 
     return NULL;

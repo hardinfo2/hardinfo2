@@ -397,6 +397,7 @@ add_subdirectory(po)
 if(HARDINFO2_QT5)
   add_subdirectory(deps/qgears2)
 endif()
+  add_subdirectory(deps/vkgears)
 
 include(FindPkgConfig)
 if (HARDINFO2_GTK3)
@@ -523,6 +524,7 @@ set(MODULE_benchmark_SOURCES
 	modules/benchmark/sysbench.c
 	modules/benchmark/iperf3.c
 	modules/benchmark/opengl.c
+	modules/benchmark/vulkan.c
 	modules/benchmark/storage.c
 	modules/benchmark/cachemem.c
 	modules/benchmark/drawing.c

@@ -25,7 +25,7 @@ jobs:
     - name: Install system dependencies
       run: |
           sudo apt update
-          sudo apt install -y libjson-glib-dev zlib1g-dev libsoup2.4-dev libsoup-3.0-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev gettext wayland-dev libdecor-0-dev libxkbcommon-x11-dev glslang-tools
+          sudo apt install -y libjson-glib-dev zlib1g-dev libsoup2.4-dev libsoup-3.0-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev gettext libdecor-0-dev libxkbcommon-x11-dev glslang-tools
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.

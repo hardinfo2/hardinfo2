@@ -63,7 +63,7 @@ Building and installing
 * NOTE: CentOS 7 needs epel-release and cmake3 instead of cmake - use cmake3 instead of cmake
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl
-- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel 
+- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel libxkbcommon-x11-devel libdecor-devel wayland-devel glslang
 - sudo yum install libsoup3-devel  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2

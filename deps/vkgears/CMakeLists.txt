@@ -25,6 +25,8 @@ find_library(EGL_LIBRARY NAMES wayland-egl)
 find_library(XKBCOMMON_LIBRARY NAMES xkbcommon)
 find_library(XKBCOMMONX11_LIBRARY NAMES xkbcommon-x11)
 find_library(XCB_LIBRARY NAMES xcb)
+find_library(LIBDECOR_LIBRARY NAMES libdecor-0.so)
+find_path(LIBDECOR_INCLUDE PATH_SUFFIXES libdecor-0 NAMES libdecor.h )
 
 # Find Vulkan library
 include(FindVulkan)
@@ -45,10 +47,10 @@ foreach(shader ${SHADER_SOURCE})
   list(APPEND SHADERS ${shader}.spv.h)
 endforeach(shader)
 
-include_directories(${CMAKE_BINARY_DIR} ${Vulkan_INCLUDE_DIRS} /usr/include/libdecor-0/)
+include_directories(${CMAKE_BINARY_DIR} ${Vulkan_INCLUDE_DIRS} ${LIBDECOR_INCLUDE})
 
 add_executable(vkgears vkgears.c matrix.c wsi/wsi.c wsi/wayland.c wsi/xcb.c ${SHADERS})
-target_link_libraries(vkgears ${Vulkan_LIBRARIES} ${EXTRA_LIBS} /usr/lib/x86_64-linux-gnu/libdecor-0.so ${WAYLAND_CLIENT_LIBRARY} ${XKBCOMMON_LIBRARY} ${XKBCOMMONX11_LIBRARY} ${EGL_LIBRARY} ${XCB_LIBRARY})
+target_link_libraries(vkgears ${Vulkan_LIBRARIES} ${EXTRA_LIBS} ${LIBDECOR_LIBRARY} ${WAYLAND_CLIENT_LIBRARY} ${XKBCOMMON_LIBRARY} ${XKBCOMMONX11_LIBRARY} ${EGL_LIBRARY} ${XCB_LIBRARY})
 
 install(FILES ${CMAKE_BINARY_DIR}/deps/vkgears/vkgears DESTINATION ${CMAKE_INSTALL_LIBDIR}/hardinfo2/modules
            PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE

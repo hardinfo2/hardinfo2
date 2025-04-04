@@ -28,7 +28,8 @@ gchar *CN() { \
     return benchmark_include_results(bench_results[BID], BN); \
 }
 
-#if(HARDINFO2_QT5)
+static ModuleEntry entries[];
+
 #define BENCH_SCAN_SIMPLE(SN, BF, BID, BN)	\
 void SN(gboolean reload) { \
     static gboolean scanned=FALSE; \
@@ -36,22 +37,10 @@ void SN(gboolean reload) { \
     if(reload || bench_results[BID].result<=0.0) scanned = FALSE; \
     if(reload){DEBUG("BENCH SCAN RELOAD %s\n",BN);} else if(scanned) {DEBUG("BENCH SCAN OK %s\n",BN);}else{DEBUG("BENCH SCAN %s\n",BN);} \
     if(scanned) return; \
-    if(BID!=BENCHMARK_OPENGL || params.gui_running || params.run_benchmark) \
+    if(!(entries[BID].flags & MODULE_FLAG_NO_REMOTE) || params.gui_running || params.run_benchmark) \
         do_benchmark(BF, BID); \
     scanned = TRUE; \
 }
-#else
-#define BENCH_SCAN_SIMPLE(SN, BF, BID, BN)	\
-void SN(gboolean reload) { \
-    static gboolean scanned=FALSE; \
-    if(params.aborting_benchmarks) return; \
-    if(reload || bench_results[BID].result<=0.0) scanned = FALSE; \
-    if(reload){DEBUG("BENCH SCAN RELOAD %s\n",BN);} else if(scanned) {DEBUG("BENCH SCAN OK %s\n",BN);}else{DEBUG("BENCH SCAN %s\n",BN);} \
-    if(scanned) return; \
-    do_benchmark(BF, BID); \
-    scanned = TRUE; \
-}
-#endif
 
 #define BENCH_SIMPLE(BID, BN, BF, R) \
     BENCH_CALLBACK(callback_##BF, BN, BID, R); \

@@ -46,7 +46,7 @@ Building and installing
 -----------------------
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
-- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libxkbcommon-x11-dev wayland-dev glslang-tools
+- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libxkbcommon-x11-dev libdecor-0-dev wayland-dev glslang-tools
 - sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -103,8 +103,8 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **iperf3**: iperf3 is used to benchmark internal network speed.
 - **vulkan-tools**: vulkaninfo is used to display vulcan information.
 - **qt5-base**: QT5 Framework for QT5 OpenGL GPU Benchmark
-- **xcb xkbcommon-x11 wayland** : WSI Framework for Vulkan Benchmark
-- **vulkan** : Vulkan Framework for Vulkan Benchmark
+- **xcb xkbcommon-x11-dev wayland-dev libdecor-0-dev** : WSI Framework for Vulkan Benchmark
+- **vulkan glslang-tools** : Vulkan Framework/Shader Tool for Vulkan Benchmark
 - **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
 - Recommends/Depends/Optional: (distro choice - prefer installed)
 - **xrandr/x11-xserver-utils**: xrandr is used to read monitor setup

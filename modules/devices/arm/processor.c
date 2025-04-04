@@ -621,6 +621,7 @@ gchar *processor_name(GSList *processors) {
         { "brcm,bcm2837", "Broadcom", "BCM2837 (RPi3)" }, // RPi 3
         { "brcm,bcm2836", "Broadcom", "BCM2836 (RPi2)" }, // RPi 2
         { "brcm,bcm2835", "Broadcom", "BCM2835 (RPi1)" }, // RPi 1
+        { "friendlyelec,nanopi-k1-plus", "Allwinner", "SUN50I-H5 (K1+)" }, // K1+
         { "hardkernel,odroid-c2", "Amlogic", "S905 (C2)" }, // C2
         { "hardkernel,odroid-n2", "Amlogic", "S922x (N2)" }, // N2
         { "mediatek,mt8173", "MediaTek", "MT8173" },

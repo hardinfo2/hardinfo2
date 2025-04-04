@@ -47,9 +47,9 @@ mat4_rotate(float *m, float angle, float x, float y, float z)
    c = cos(angle);
 #endif
    float r[16] = {
-      x * x * (1 - c) + c,     y * x * (1 - c) + z * s, x * z * (1 - c) - y * s, 0,
-      x * y * (1 - c) - z * s, y * y * (1 - c) + c,     y * z * (1 - c) + x * s, 0,
-      x * z * (1 - c) + y * s, y * z * (1 - c) - x * s, z * z * (1 - c) + c,     0,
+      (double)x * x * (1 - c) + c,     (double)y * x * (1 - c) + z * s, (double)x * z * (1 - c) - y * s, 0,
+      (double)x * y * (1 - c) - z * s, (double)y * y * (1 - c) + c,     (double)y * z * (1 - c) + x * s, 0,
+      (double)x * z * (1 - c) + y * s, (double)y * z * (1 - c) - x * s, (double)z * z * (1 - c) + c,     0,
       0, 0, 0, 1
    };
 
@@ -176,7 +176,7 @@ mat4_perspective_gl(float *m, float fovy, float aspect,
    tmp[5] = cotangent;
    tmp[10] = -(zFar + zNear) / deltaZ;
    tmp[11] = -1;
-   tmp[14] = -2 * zNear * zFar / deltaZ;
+   tmp[14] = -2 * (double)zNear * zFar / deltaZ;
    tmp[15] = 0;
 
    memcpy(m, tmp, sizeof(tmp));

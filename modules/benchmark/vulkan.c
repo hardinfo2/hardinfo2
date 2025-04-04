@@ -33,7 +33,7 @@ static bench_value vulkan_bench(int darkmode) {
     char *cmd_line;
 
     darkmode=0;//FIXME
-    cmd_line=g_strdup_printf("%s/modules/vk1_gears %s",params.path_lib, (darkmode ? "-dark" : ""));
+    cmd_line=g_strdup_printf("%s/modules/vkgears %s",params.path_lib, (darkmode ? "-dark" : ""));
 
     spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
     g_free(cmd_line);

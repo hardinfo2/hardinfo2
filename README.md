@@ -39,15 +39,14 @@ Dependencies
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
-- glfw3
-- glslang-tools
-- vulkan-headers (vulkan-swrast = software vulkan for non hardware systems)
+- xcb, xcbcommon, xcbcommon-x11
+- vulkan, wayland-client, glslang-tools
 
 Building and installing
 -----------------------
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
-- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libglfw3-dev glslang-tools
+- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libxkbcommon-x11-dev wayland-dev glslang-tools
 - sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -64,7 +63,7 @@ Building and installing
 * NOTE: CentOS 7 needs epel-release and cmake3 instead of cmake - use cmake3 instead of cmake
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl
-- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel glfw-devel
+- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel 
 - sudo yum install libsoup3-devel  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -104,7 +103,8 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **iperf3**: iperf3 is used to benchmark internal network speed.
 - **vulkan-tools**: vulkaninfo is used to display vulcan information.
 - **qt5-base**: QT5 Framework for QT5 OpenGL GPU Benchmark
-- **glfw3** : GLFW OpenGL/Vulkan+ Framework for Vulkan Benchmark
+- **xcb xkbcommon-x11 wayland** : WSI Framework for Vulkan Benchmark
+- **vulkan** : Vulkan Framework for Vulkan Benchmark
 - **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
 - Recommends/Depends/Optional: (distro choice - prefer installed)
 - **xrandr/x11-xserver-utils**: xrandr is used to read monitor setup

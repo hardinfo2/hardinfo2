@@ -172,7 +172,7 @@ init_vk(const char *wsi_extension)
       error("Failed to get instance extensions properties");
 
    uint32_t count = 0;
-   /*FIXME*/
+#ifdef VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME
    for (uint32_t i = 0; i < inst_ext_props_count; ++i) {
       if (!strcmp(inst_ext_props[i].extensionName,
                   VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME)) {
@@ -180,7 +180,8 @@ init_vk(const char *wsi_extension)
             VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME;
          instance_flags |= VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
       }
-   }/**/
+   }
+#endif
 
    free(inst_ext_props);
 

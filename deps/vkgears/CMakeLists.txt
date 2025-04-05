@@ -19,7 +19,7 @@ find_package(Threads REQUIRED)
 
 
 if(${HARDINFO2_VK_WAYLAND})
-  message("-- CK_WAYLAND")
+  message("-- VK_WAYLAND")
   find_path(WAYLAND_CLIENT_INCLUDE_DIR NAMES wayland-client.h )
   find_path(LIBDECOR_INCLUDE PATH_SUFFIXES libdecor-0 NAMES libdecor.h )
   find_library(WAYLAND_CLIENT_LIBRARY NAMES wayland-client libwayland-client)

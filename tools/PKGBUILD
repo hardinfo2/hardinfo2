@@ -21,12 +21,10 @@ depends=(
   'xorg-xrandr'
   'fwupd'
   'qt5-base'
-  'glfw'
 )
 makedepends=(
   'cmake'
   'qt5-base'
-  'glfw'
 )
 checkdepends=('appstream')
 provides=('hardinfo')

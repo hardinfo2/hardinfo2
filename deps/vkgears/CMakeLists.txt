@@ -18,15 +18,15 @@ find_package(PkgConfig)
 pkg_check_modules(VULKAN vulkan)
 find_package(Threads REQUIRED)
 
-#include(FindWayland)
 find_path(WAYLAND_CLIENT_INCLUDE_DIR NAMES wayland-client.h )
+find_path(LIBDECOR_INCLUDE PATH_SUFFIXES libdecor-0 NAMES libdecor.h )
+
 find_library(WAYLAND_CLIENT_LIBRARY NAMES wayland-client libwayland-client)
+find_library(LIBDECOR_LIBRARY NAMES libdecor-0.so)
 find_library(EGL_LIBRARY NAMES wayland-egl)
 find_library(XKBCOMMON_LIBRARY NAMES xkbcommon)
 find_library(XKBCOMMONX11_LIBRARY NAMES xkbcommon-x11)
 find_library(XCB_LIBRARY NAMES xcb)
-find_library(LIBDECOR_LIBRARY NAMES libdecor-0.so)
-find_path(LIBDECOR_INCLUDE PATH_SUFFIXES libdecor-0 NAMES libdecor.h )
 
 # Find Vulkan library
 include(FindVulkan)
@@ -48,6 +48,13 @@ foreach(shader ${SHADER_SOURCE})
 endforeach(shader)
 
 include_directories(${CMAKE_BINARY_DIR} ${Vulkan_INCLUDE_DIRS} ${LIBDECOR_INCLUDE})
+
+#message(STATUS "Vulkanlib======${Vulkan_LIBRARIES}")
+
+#devenv.set('VK_LOADER_LAYERS_ENABLE', 'VK_LAYER_KHRONOS_validation')
+#devenv.set('VK_LAYER_SETTINGS_PATH', meson.current_source_dir())
+set(VK_LOADER_LAYERS_ENABLE "VK_LAYER_KHRONOS_validation")
+set(VK_LAYER_SETTINGS_PATH "${CMAKE_SOURCE_DIR}")
 
 add_executable(vkgears vkgears.c matrix.c wsi/wsi.c wsi/wayland.c wsi/xcb.c ${SHADERS})
 target_link_libraries(vkgears ${Vulkan_LIBRARIES} ${EXTRA_LIBS} ${LIBDECOR_LIBRARY} ${WAYLAND_CLIENT_LIBRARY} ${XKBCOMMON_LIBRARY} ${XKBCOMMONX11_LIBRARY} ${EGL_LIBRARY} ${XCB_LIBRARY})

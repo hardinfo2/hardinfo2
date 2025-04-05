@@ -90,8 +90,11 @@ init_display()
 
    keyboard_data.xkb_context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
    int32_t keyboard_dev_id = xkb_x11_get_core_keyboard_device_id(connection);
-   keyboard_data.xkb_keymap = xkb_x11_keymap_new_from_device(keyboard_data.xkb_context, connection, keyboard_dev_id, XKB_KEYMAP_COMPILE_NO_FLAGS);
-   keyboard_data.xkb_state = xkb_x11_state_new_from_device(keyboard_data.xkb_keymap, connection, keyboard_dev_id);
+   if (keyboard_dev_id >= 0) {
+      keyboard_data.xkb_keymap = xkb_x11_keymap_new_from_device(keyboard_data.xkb_context, connection, keyboard_dev_id, XKB_KEYMAP_COMPILE_NO_FLAGS);
+
+      keyboard_data.xkb_state = xkb_x11_state_new_from_device(keyboard_data.xkb_keymap, connection, keyboard_dev_id);
+   }
 }
 
 static void

@@ -78,34 +78,10 @@ int floating_width;
 int floating_height;
 
 static void
-registry_handle_global(void *data, struct wl_registry *registry, uint32_t id,
-                       const char *interface, uint32_t version)
-{
-   if (strcmp(interface, wl_compositor_interface.name) == 0) {
-      assert(!compositor);
-      compositor =
-         wl_registry_bind(registry, id, &wl_compositor_interface, 1);
-   } else if (strcmp(interface, wl_seat_interface.name) == 0) {
-      keyboard_data.seat =
-         wl_registry_bind(registry, id, &wl_seat_interface, 4);
-   }
-}
-
-static void
-registry_handle_global_remove(void *data, struct wl_registry *registry,
-                              uint32_t name)
-{
-}
-
-static const struct wl_registry_listener registry_listener = {
-   registry_handle_global,
-   registry_handle_global_remove
-};
-
-static void
 dispatch_key(xkb_keycode_t xkb_key, enum wl_keyboard_key_state state)
 {
-   xkb_keysym_t sym = xkb_state_key_get_one_sym(keyboard_data.xkb_state, xkb_key);
+   xkb_keysym_t
+      sym = xkb_state_key_get_one_sym(keyboard_data.xkb_state, xkb_key);
    enum wsi_key wsi_key = WSI_KEY_OTHER;
    switch (sym) {
    case XKB_KEY_Escape:
@@ -132,7 +108,7 @@ dispatch_key(xkb_keycode_t xkb_key, enum wl_keyboard_key_state state)
 }
 
 static void
-handle_key(uint key, enum wl_keyboard_key_state state)
+handle_key(unsigned key, enum wl_keyboard_key_state state)
 {
    xkb_keycode_t xkb_key = key + 8;
    struct itimerspec timer = {0};
@@ -155,15 +131,16 @@ handle_key(uint key, enum wl_keyboard_key_state state)
 }
 
 static void
-key(void *data, struct wl_keyboard *keyboard, uint serial,
-    uint time, uint key, enum wl_keyboard_key_state state)
+key(void *data, struct wl_keyboard *keyboard, unsigned serial,
+    unsigned time, unsigned key, enum wl_keyboard_key_state state)
 {
    handle_key(key, state);
 }
 
 static void
-modifiers(void *data, struct wl_keyboard *keyboard, uint serial,
-    uint mods_depressed, uint mods_latched, uint mods_locked, uint group)
+modifiers(void *data, struct wl_keyboard *keyboard, unsigned serial,
+          unsigned mods_depressed, unsigned mods_latched, unsigned mods_locked,
+          unsigned group)
 {
    xkb_state_update_mask(keyboard_data.xkb_state, mods_depressed, mods_latched,
                          mods_locked, 0, 0, group);
@@ -188,7 +165,7 @@ keymap(void *data, struct wl_keyboard *keyboard,
 }
 
 static void
-enter(void *data, struct wl_keyboard *keyboard, uint serial,
+enter(void *data, struct wl_keyboard *keyboard, unsigned serial,
       struct wl_surface *surface, struct wl_array *keys)
 {
    uint32_t *key;
@@ -198,7 +175,7 @@ enter(void *data, struct wl_keyboard *keyboard, uint serial,
 }
 
 static void
-leave(void *data, struct wl_keyboard *keyboard, uint serial,
+leave(void *data, struct wl_keyboard *keyboard, unsigned serial,
       struct wl_surface *surface)
 {
    struct itimerspec timer = {0};
@@ -223,6 +200,59 @@ static const struct wl_keyboard_listener keyboard_listener = {
    .repeat_info = repeat_info_callback,
 };
 
+static void
+seat_capabilities(void *data, struct wl_seat *seat,
+                  enum wl_seat_capability caps)
+{
+   if (caps & WL_SEAT_CAPABILITY_KEYBOARD) {
+      keyboard_data.keyboard = wl_seat_get_keyboard(seat);
+      wl_keyboard_add_listener(keyboard_data.keyboard, &keyboard_listener,
+                               data);
+      keyboard_data.keyboard_timer_fd =
+         timerfd_create(CLOCK_MONOTONIC, TFD_CLOEXEC | TFD_NONBLOCK);
+   } else if (!(caps & WL_SEAT_CAPABILITY_KEYBOARD)) {
+      wl_keyboard_destroy(keyboard_data.keyboard);
+      keyboard_data.keyboard = NULL;
+   }
+}
+
+static void
+seat_name(void* data, struct wl_seat* wl_seat,
+          const char* name)
+{
+}
+
+static const struct wl_seat_listener seat_listener = {
+   seat_capabilities,
+   seat_name,
+};
+
+static void
+registry_handle_global(void *data, struct wl_registry *registry, uint32_t id,
+                       const char *interface, uint32_t version)
+{
+   if (strcmp(interface, wl_compositor_interface.name) == 0) {
+      assert(!compositor);
+      compositor =
+         wl_registry_bind(registry, id, &wl_compositor_interface, 1);
+   } else if (strcmp(interface, wl_seat_interface.name) == 0) {
+      keyboard_data.seat =
+         wl_registry_bind(registry, id, &wl_seat_interface, 4);
+      wl_seat_add_listener(keyboard_data.seat, &seat_listener, data);
+   }
+}
+
+static void
+registry_handle_global_remove(void *data, struct wl_registry *registry,
+                              uint32_t name)
+{
+}
+
+static const struct wl_registry_listener registry_listener = {
+   registry_handle_global,
+   registry_handle_global_remove
+};
+
 static void init_display()
 {
    assert(!display);
@@ -237,11 +267,6 @@ static void init_display()
    wl_display_roundtrip(display);
    wl_registry_destroy(registry);
 
-   keyboard_data.keyboard = wl_seat_get_keyboard(keyboard_data.seat);
-   keyboard_data.keyboard_timer_fd = timerfd_create(CLOCK_MONOTONIC, TFD_CLOEXEC | TFD_NONBLOCK);
-
-   wl_keyboard_add_listener(keyboard_data.keyboard, &keyboard_listener, NULL);
-
    if (!compositor) {
       fprintf(stderr, "failed to bind compositor");
       abort();
@@ -253,6 +278,9 @@ static void init_display()
 static void
 fini_display()
 {
+   if (keyboard_data.keyboard)
+      wl_keyboard_destroy(keyboard_data.keyboard);
+
    wl_seat_destroy(keyboard_data.seat);
    xkb_context_unref(keyboard_data.xkb_context);
    wl_compositor_destroy(compositor);
@@ -319,7 +347,8 @@ static struct libdecor_frame_interface frame_interface = {
    .commit = frame_commit,
 };
 
-static void init_window(const char *title, int width, int height, bool fullscreen)
+static void
+init_window(const char *title, int width, int height, bool fullscreen)
 {
    assert(compositor);
 
@@ -336,6 +365,8 @@ static void init_window(const char *title, int width, int height, bool fullscree
    libdecor_frame_set_app_id(frame, title);
    libdecor_frame_set_title(frame, title);
    libdecor_frame_map(frame);
+
+   libdecor_frame_set_min_content_size(frame, 1, 1);
 
    wl_surface_commit(surface);
 
@@ -425,7 +456,7 @@ static bool update_window()
 
       if (pollfds[2].revents & POLLIN) {
          uint64_t repeats;
-         if(read(keyboard_data.keyboard_timer_fd, &repeats, sizeof(repeats)) == 8) {
+         if (read(keyboard_data.keyboard_timer_fd, &repeats, sizeof(repeats)) == 8) {
             for(uint64_t i = 0; i < repeats; i++) {
                dispatch_key(keyboard_data.repeat_scancode, 1);
             }

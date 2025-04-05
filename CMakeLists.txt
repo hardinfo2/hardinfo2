@@ -26,6 +26,8 @@ option(HARDINFO2_GTK3 "Build for GTK3 (0/off for GTK2)" 1)
 option(HARDINFO2_LIBSOUP3 "Build for libsoup-3.0 (0/off for libsoup-2.4)" 1)
 option(HARDINFO2_QT5 "Build opengl benchmark for QT5" 1)
 option(HARDINFO2_VK "Build vulkan benchmark" 1)
+option(HARDINFO2_VK_WAYLAND "Build Vulkan with wayland support" 1)
+option(HARDINFO2_VK_X11 "Build Vulkan with X11 support" 1)
 
 SET(CMAKE_INSTALL_PREFIX "/usr")
 SET(HARDINFO2_SYSTEMV 0)

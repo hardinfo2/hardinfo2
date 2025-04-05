@@ -24,12 +24,17 @@
 #define WSI_H_
 
 #include <stdbool.h>
+#include "config.h"
 
 #include <vulkan/vulkan.h>
 
+#ifdef HARDINFO2_VK_WAYLAND
 struct wsi_interface wayland_wsi_interface(void);
+#endif
 
+#ifdef HARDINFO2_VK_X11
 struct wsi_interface xcb_wsi_interface(void);
+#endif
 
 struct wsi_interface
 get_wsi_interface(void);

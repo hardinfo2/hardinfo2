@@ -41,7 +41,7 @@
 #include "wsi/wsi.h"
 
 /*Change this version on any changes to benchmark*/
-#define VERSION 1
+#define VKBENCH_VERSION 2
 
 #ifndef VK_API_VERSION_MAJOR
 /* retain compatibility with old vulkan headers */
@@ -1791,7 +1791,7 @@ main(int argc, char *argv[])
       if (t - tRate0 >= 3.0) {
          float seconds = t - tRate0;
          float fps = frames / seconds;
-         printf("Ver=%d, Result:%6.3f\n", VERSION, fps);
+         printf("Ver=%d, Result:%6.3f\n", VKBENCH_VERSION, fps);
          fflush(stdout);
          tRate0 = t;
          frames = 0;

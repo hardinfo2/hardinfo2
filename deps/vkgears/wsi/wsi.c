@@ -25,15 +25,28 @@
  */
 
 #include "wsi.h"
+#include "config.h"
 
 #include <stdlib.h>
 
 struct wsi_interface
 get_wsi_interface(void)
 {
+#ifdef HARDINFO2_VK_WAYLAND
+  #ifdef HARDINFO2_VK_X11
     if(getenv("WAYLAND_DISPLAY")) {
         return wayland_wsi_interface();
     } else {
         return xcb_wsi_interface();
     }
+  #else
+    return wayland_wsi_interface();
+  #endif
+#else
+  #ifdef HARDINFO2_VK_X11
+    return xcb_wsi_interface();
+  #else
+    #error NO Wayland or X11
+  #endif
+#endif
 }

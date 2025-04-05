@@ -39,14 +39,14 @@ Dependencies
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
-- xcb, xcbcommon, xcbcommon-x11
-- vulkan, glslang-tools
+- Vulkan, xcb, xcbcommon, xcbcommon-x11, glslang (disable Vulkan: cmake -DHARDINFO2_VK=0 ..)
 
 Building and installing
 -----------------------
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
-- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev libxkbcommon-x11-dev libdecor-0-dev glslang-tools
+- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev
+- sudo apt install libxkbcommon-x11-dev libdecor-0-dev glslang-tools (vulkan for newer distros)
 - sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -61,9 +61,11 @@ Building and installing
 
 **Fedora/CentOS/RedHat/Rocky/Alma/Oracle**
 * NOTE: CentOS 7 needs epel-release and cmake3 instead of cmake - use cmake3 instead of cmake
+* NOTE: libxkb.. + libdecor.. can be in CRB repo
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl
-- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel libxkbcommon-x11-devel libdecor-devel wayland-devel glslang
+- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel
+- sudo yum install libxkbcommon-x11-devel libdecor-devel wayland-devel glslang (vulkan for newer distros)
 - sudo yum install libsoup3-devel  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2

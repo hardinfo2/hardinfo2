@@ -39,7 +39,7 @@ Dependencies
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
-- Vulkan, xcb, xcbcommon, xcbcommon-x11, glslang (disable Vulkan: cmake -DHARDINFO2_VK=0 ..)
+- Vulkan(headers), xcb, glslang (disable Vulkan: cmake -DHARDINFO2_VK=0 ..)
 
 Building and installing
 -----------------------

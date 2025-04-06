@@ -36,9 +36,9 @@
 #include <vulkan/vulkan_xcb.h>
 #include <xcb/xproto.h>
 
-#include <xkbcommon/xkbcommon-keysyms.h>
-#include <xkbcommon/xkbcommon.h>
-#include <xkbcommon/xkbcommon-x11.h>
+//#include <xkbcommon/xkbcommon-keysyms.h>
+//#include <xkbcommon/xkbcommon.h>
+//#include <xkbcommon/xkbcommon-x11.h>
 
 #include "wsi.h"
 
@@ -47,11 +47,11 @@ static struct wsi_callbacks wsi_callbacks;
 static xcb_connection_t *connection;
 static xcb_screen_iterator_t screen_iterator;
 static xcb_window_t window;
-static struct {
+/*static struct {
    struct xkb_context *xkb_context;
    struct xkb_keymap *xkb_keymap;
    struct xkb_state *xkb_state;
-} keyboard_data;
+} keyboard_data;*/
 
 static xcb_atom_t wm_protocols_atom, delete_atom;
 
@@ -81,7 +81,7 @@ init_display()
 
    wm_protocols_atom = get_atom(connection, "WM_PROTOCOLS");
    delete_atom = get_atom(connection, "WM_DELETE_WINDOW");
-   uint8_t base_event_out, base_error_out;
+   /*uint8_t base_event_out, base_error_out;
    xkb_x11_setup_xkb_extension(connection,
                                XKB_X11_MIN_MAJOR_XKB_VERSION,
                                XKB_X11_MIN_MINOR_XKB_VERSION,
@@ -94,7 +94,7 @@ init_display()
       keyboard_data.xkb_keymap = xkb_x11_keymap_new_from_device(keyboard_data.xkb_context, connection, keyboard_dev_id, XKB_KEYMAP_COMPILE_NO_FLAGS);
 
       keyboard_data.xkb_state = xkb_x11_state_new_from_device(keyboard_data.xkb_keymap, connection, keyboard_dev_id);
-   }
+   }*/
 }
 
 static void
@@ -118,8 +118,8 @@ init_window(const char *title, int width, int height, bool fullscreen)
                      XCB_CW_EVENT_MASK,
                      (uint32_t[]){
                          XCB_EVENT_MASK_EXPOSURE |
-                         XCB_EVENT_MASK_STRUCTURE_NOTIFY |
-                         XCB_EVENT_MASK_KEY_PRESS
+                         XCB_EVENT_MASK_STRUCTURE_NOTIFY /*|
+			 XCB_EVENT_MASK_KEY_PRESS*/
                      });
 
    xcb_change_property(connection,
@@ -160,7 +160,7 @@ update_window()
       xcb_generic_event_t *generic;
       xcb_configure_notify_event_t *configure_event;
       xcb_client_message_event_t *client_message;
-      xcb_key_press_event_t *key_press;
+      //xcb_key_press_event_t *key_press;
    } event;
 
    event.generic = xcb_wait_for_event(connection);
@@ -176,7 +176,7 @@ update_window()
              event.client_message->data.data32[0] == delete_atom)
             wsi_callbacks.exit();
          break;
-      case XCB_KEY_PRESS:
+      /*case XCB_KEY_PRESS:
       case XCB_KEY_RELEASE: {
          xkb_keysym_t sym = xkb_state_key_get_one_sym(keyboard_data.xkb_state, event.key_press->detail);
          enum wsi_key wsi_key = WSI_KEY_OTHER;
@@ -203,7 +203,7 @@ update_window()
          }
          wsi_callbacks.key_press(event.generic->response_type == XCB_KEY_PRESS, wsi_key);
          break;
-      }
+      }*/
       break;
       }
 

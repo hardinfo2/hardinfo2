@@ -46,7 +46,7 @@ Building and installing
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
 - sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev
-- sudo apt install libxkbcommon-x11-dev libdecor-0-dev glslang-tools (vulkan for newer distros)
+- sudo apt install libdecor-0-dev glslang-tools (vulkan for newer distros)
 - sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -61,11 +61,11 @@ Building and installing
 
 **Fedora/CentOS/RedHat/Rocky/Alma/Oracle**
 * NOTE: CentOS 7 needs epel-release and cmake3 instead of cmake - use cmake3 instead of cmake
-* NOTE: libxkb.. + libdecor.. can be in CRB repo
+* NOTE: libdecor.. can be in CRB repo
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl
 - sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel
-- sudo yum install libxkbcommon-x11-devel libdecor-devel wayland-devel glslang (vulkan for newer distros)
+- sudo yum install libdecor-devel wayland-devel glslang (vulkan for newer distros)
 - sudo yum install libsoup3-devel  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
@@ -105,7 +105,7 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **iperf3**: iperf3 is used to benchmark internal network speed.
 - **vulkan-tools**: vulkaninfo is used to display vulcan information.
 - **qt5-base**: QT5 Framework for QT5 OpenGL GPU Benchmark
-- **xcb xkbcommon-x11-dev wayland-dev libdecor-0-dev** : WSI Framework for Vulkan Benchmark
+- **xcb wayland-dev libdecor-0-dev** : WSI Framework for Vulkan Benchmark
 - **vulkan glslang-tools** : Vulkan Framework/Shader Tool for Vulkan Benchmark
 - **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
 - Recommends/Depends/Optional: (distro choice - prefer installed)

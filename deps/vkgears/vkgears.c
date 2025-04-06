@@ -1515,7 +1515,7 @@ wsi_resize(int p_new_width, int p_new_height)
 
 static void
 wsi_key_press(bool down, enum wsi_key key) {
-   if (!down)
+  /*if (!down)
       return;
    switch (key) {
       case WSI_KEY_ESC:
@@ -1537,7 +1537,7 @@ wsi_key_press(bool down, enum wsi_key key) {
          break;
       default:
          break;
-   }
+    }*/
 }
 
 static void

@@ -49,15 +49,15 @@
 #include <vulkan/vulkan.h>
 #include <vulkan/vulkan_wayland.h>
 
-#include <xkbcommon/xkbcommon-keysyms.h>
-#include <xkbcommon/xkbcommon.h>
+//#include <xkbcommon/xkbcommon-keysyms.h>
+//#include <xkbcommon/xkbcommon.h>
 
 #include "wsi.h"
 
 static struct wsi_callbacks wsi_callbacks;
 
 static struct wl_display *display;
-static struct {
+/*static struct {
    struct wl_seat *seat;
    struct wl_keyboard *keyboard;
    struct xkb_context *xkb_context;
@@ -66,7 +66,7 @@ static struct {
    int32_t rate, delay;
    int keyboard_timer_fd;
    xkb_keycode_t repeat_scancode;
-} keyboard_data;
+} keyboard_data;*/
 static struct wl_compositor *compositor;
 static struct libdecor *decor_context;
 static struct libdecor_frame *frame;
@@ -77,7 +77,7 @@ bool configured;
 int floating_width;
 int floating_height;
 
-static void
+/*static void
 dispatch_key(xkb_keycode_t xkb_key, enum wl_keyboard_key_state state)
 {
    xkb_keysym_t
@@ -105,9 +105,9 @@ dispatch_key(xkb_keycode_t xkb_key, enum wl_keyboard_key_state state)
       break;
    }
    wsi_callbacks.key_press(state, wsi_key);
-}
+}*/
 
-static void
+/*static void
 handle_key(unsigned key, enum wl_keyboard_key_state state)
 {
    xkb_keycode_t xkb_key = key + 8;
@@ -128,25 +128,25 @@ handle_key(unsigned key, enum wl_keyboard_key_state state)
    timerfd_settime(keyboard_data.keyboard_timer_fd, 0, &timer, NULL);
 
    dispatch_key(xkb_key, state);
-}
+}*/
 
-static void
+/*static void
 key(void *data, struct wl_keyboard *keyboard, unsigned serial,
     unsigned time, unsigned key, enum wl_keyboard_key_state state)
 {
    handle_key(key, state);
-}
+}*/
 
-static void
+/*static void
 modifiers(void *data, struct wl_keyboard *keyboard, unsigned serial,
           unsigned mods_depressed, unsigned mods_latched, unsigned mods_locked,
           unsigned group)
 {
    xkb_state_update_mask(keyboard_data.xkb_state, mods_depressed, mods_latched,
                          mods_locked, 0, 0, group);
-}
+}*/
 
-static void
+/*static void
 keymap(void *data, struct wl_keyboard *keyboard,
        enum wl_keyboard_keymap_format format, int32_t fd, uint32_t size)
 {
@@ -162,9 +162,9 @@ keymap(void *data, struct wl_keyboard *keyboard,
    close(fd);
 
    keyboard_data.xkb_state = xkb_state_new(keyboard_data.xkb_keymap);
-}
+}*/
 
-static void
+/*static void
 enter(void *data, struct wl_keyboard *keyboard, unsigned serial,
       struct wl_surface *surface, struct wl_array *keys)
 {
@@ -172,26 +172,26 @@ enter(void *data, struct wl_keyboard *keyboard, unsigned serial,
    wl_array_for_each(key, keys)
       handle_key(*key, WL_KEYBOARD_KEY_STATE_PRESSED);
 
-}
+}*/
 
-static void
+/*static void
 leave(void *data, struct wl_keyboard *keyboard, unsigned serial,
       struct wl_surface *surface)
 {
    struct itimerspec timer = {0};
    timerfd_settime(keyboard_data.keyboard_timer_fd, 0, &timer, NULL);
-}
+}*/
 
-static void
+/*static void
 repeat_info_callback(void *data, struct wl_keyboard *wl_keyboard,
                         int32_t rate, int32_t delay)
 {
    keyboard_data.rate = rate;
    keyboard_data.delay = delay;
-}
+}*/
 
 
-static const struct wl_keyboard_listener keyboard_listener = {
+/*static const struct wl_keyboard_listener keyboard_listener = {
    .key = key,
    .modifiers = modifiers,
    .keymap = keymap,
@@ -214,18 +214,18 @@ seat_capabilities(void *data, struct wl_seat *seat,
       wl_keyboard_destroy(keyboard_data.keyboard);
       keyboard_data.keyboard = NULL;
    }
-}
+}*/
 
-static void
+/*static void
 seat_name(void* data, struct wl_seat* wl_seat,
           const char* name)
 {
-}
+}*/
 
-static const struct wl_seat_listener seat_listener = {
-   seat_capabilities,
+/*static const struct wl_seat_listener seat_listener = {
+  seat_capabilities,
    seat_name,
-};
+};*/
 
 static void
 registry_handle_global(void *data, struct wl_registry *registry, uint32_t id,
@@ -236,9 +236,9 @@ registry_handle_global(void *data, struct wl_registry *registry, uint32_t id,
       compositor =
          wl_registry_bind(registry, id, &wl_compositor_interface, 1);
    } else if (strcmp(interface, wl_seat_interface.name) == 0) {
-      keyboard_data.seat =
+     /*keyboard_data.seat =
          wl_registry_bind(registry, id, &wl_seat_interface, 4);
-      wl_seat_add_listener(keyboard_data.seat, &seat_listener, data);
+	 wl_seat_add_listener(keyboard_data.seat, &seat_listener, data);*/
    }
 }
 
@@ -272,17 +272,17 @@ static void init_display()
       abort();
    }
 
-   keyboard_data.xkb_context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
+   //keyboard_data.xkb_context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
 }
 
 static void
 fini_display()
 {
-   if (keyboard_data.keyboard)
+  /*if (keyboard_data.keyboard)
       wl_keyboard_destroy(keyboard_data.keyboard);
 
    wl_seat_destroy(keyboard_data.seat);
-   xkb_context_unref(keyboard_data.xkb_context);
+   xkb_context_unref(keyboard_data.xkb_context);*/
    wl_compositor_destroy(compositor);
    wl_display_flush(display);
    wl_display_disconnect(display);
@@ -400,10 +400,10 @@ static bool update_window()
          .fd = libdecor_get_fd(decor_context),
          .events = POLLIN,
       },
-      {
+      /*{
          .fd = keyboard_data.keyboard_timer_fd,
          .events = POLLIN
-      },
+      },*/
    };
 
    while (1) {
@@ -420,7 +420,7 @@ static bool update_window()
       else
          pollfds[0].events &= ~POLLOUT; /* successfully flushed */
 
-      unsigned poll_count = 2 + (keyboard_data.rate > 0);
+      unsigned poll_count = 2;// + (keyboard_data.rate > 0);
       if (poll(pollfds, poll_count, 0.0) == -1)
          break;
 
@@ -455,12 +455,12 @@ static bool update_window()
       }
 
       if (pollfds[2].revents & POLLIN) {
-         uint64_t repeats;
+	/*uint64_t repeats;
          if (read(keyboard_data.keyboard_timer_fd, &repeats, sizeof(repeats)) == 8) {
             for(uint64_t i = 0; i < repeats; i++) {
                dispatch_key(keyboard_data.repeat_scancode, 1);
             }
-         }
+	    }*/
       }
 
       if (!(pollfds[0].events & POLLOUT))

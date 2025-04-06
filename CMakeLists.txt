@@ -175,7 +175,8 @@ endif()
 #centos/redhat/oracle/opensuse/suse ->8
 if(${disversion} LESS 8.99)
   if(${distro} MATCHES "Red*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "openSUSE*" OR ${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*")
-    message("Centos/Redhat/oracle/opensuse/suse/rocky/alma ->8 - Old Appstream metainfo")
+    message("Centos/Redhat/oracle/opensuse/suse/rocky/alma ->8 - Old Appstream metainfo VK_WAYLAND=0")
+    SET(HARDINFO2_VK_WAYLAND 0)
     string(REPLACE "<url type=\"contact\">https://github.com/hardinfo2/hardinfo2/discussions</url>" "" METAINFO_CONTENT "${METAINFO_CONTENT}" )
   endif()
 endif()
@@ -226,6 +227,7 @@ endif()
 if(${distro}${disversion} MATCHES "Fedora23")
     message("FC23 - no QT5 - Disabling opengl benchmarks")
     set(HARDINFO2_QT5 0)
+    set(HARDINFO2_VK 0)
     SET(RPM_REQ "dmidecode, sysbench, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, xrandr, gawk") #miss vulkan-tools
     message("Fedora 23 - Too Old for Appstream metainfo")
     string(REPLACE "<component type=\"desktop-application\">" "<component>" METAINFO_CONTENT "${METAINFO_CONTENT}" )
@@ -275,12 +277,14 @@ endif()
 #debian ->11
 if(${disversion} LESS 11.99)
   if(${distro} MATCHES "DebianGNULinux")
-    message("DEB ->11 - LS24")
+    message("DEB ->11 - LS24 VK_WAYLAND=0")
     set(HARDINFO2_LIBSOUP3 0)
+    set(HARDINFO2_VK_WAYLAND 0)
   endif()
   if(${distro} MATCHES "RaspbianGNULinux")
-    message("DEB ->11 - LS24")
+    message("DEB ->11 - LS24 VK_WAYLAND=0")
     set(HARDINFO2_LIBSOUP3 0)
+    set(HARDINFO2_VK_WAYLAND 0)
   endif()
 endif()
 
@@ -294,7 +298,8 @@ endif()
 
 #ubuntu 16
 if(${distro}${disversion} MATCHES "Ubuntu16")
-    message("Ubuntu 16 - no QT5 - Disabling opengl benchmarks")
+    message("Ubuntu 16 - no QT5 - Disabling opengl+vulkan benchmarks")
+    set(HARDINFO2_VK 0)
     set(HARDINFO2_QT5 0)
     SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, fwupd, x11-xserver-utils, gawk") #miss vulkan-tools
     message("ubuntu 16 - Old Appstream metainfo")
@@ -305,14 +310,16 @@ endif()
 #ubuntu 18
 if(${distro}${disversion} MATCHES "Ubuntu18")
     SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, fwupd, x11-xserver-utils, gawk") #miss vulkan-tools
-    message("ubuntu 18 - Old Appstream metainfo")
+    message("ubuntu 18 - Old Appstream metainfo + noVulkan")
+    set(HARDINFO2_VK 0)
     string(REPLACE "<url type=\"contact\">https://github.com/hardinfo2/hardinfo2/discussions</url>" "" METAINFO_CONTENT "${METAINFO_CONTENT}" )
 endif()
 
 #ubuntu ->20.xx
 if(${disversion} LESS 20.99)
   if(${distro} MATCHES "Ubuntu")
-    message("Ubuntu ->20.xx - LS24")
+    message("Ubuntu ->20.xx - LS24 VK_WAYLAND=0")
+    set(HARDINFO2_VK_WAYLAND 0)
     set(HARDINFO2_LIBSOUP3 0)
   endif()
 endif()
@@ -321,6 +328,8 @@ endif()
 if(${distro} MATCHES "Slackware")
     message("Slackware - LS24")
     set(HARDINFO2_LIBSOUP3 0)
+    set(HARDINFO2_VK_WAYLAND 0)
+    message("FIXME: cannot find libdecor in slackware!")
 endif()
 
 #OpenMandriva
@@ -356,12 +365,21 @@ endif()
 #Void
 if(${distro} MATCHES "Void")
     set(HARDINFO2_RUNIT 1)
+    set(HARDINFO2_VK 0)
+  message("FIXME: cannot find vulkan on void linux")
 endif()
 
 if(${distro} MATCHES "Alpine")
     set(HARDINFO2_SYSTEMV 1)
-#cannot find vulkan libraries on alpine  
-    set(HARDINFO2_VK 0)
+endif()
+
+if(${distro} MATCHES "ClearLinux*")
+  set(HARDINFO2_VK 0)
+  message("FIXME: cannot find vulkan on clear linux")
+endif()
+
+if(${distro} MATCHES "SystemRescue*")
+  set(HARDINFO2_VK 0)
 endif()
 
 if(${distro} MATCHES "Puppy")

@@ -328,10 +328,17 @@ endif()
 
 #slackware
 if(${distro} MATCHES "Slackware")
-    message("Slackware - LS24")
+    message("Slackware - LS24 VK_WAYLAND=0")
     set(HARDINFO2_LIBSOUP3 0)
     set(HARDINFO2_VK_WAYLAND 0)
     message("FIXME: cannot find libdecor in slackware!")
+endif()
+
+#slint
+if(${distro} MATCHES "Slint")
+    message("Slint VK_WAYLAND=0")
+    set(HARDINFO2_VK_WAYLAND 0)
+    message("FIXME: cannot find libdecor in slint!")
 endif()
 
 #OpenMandriva

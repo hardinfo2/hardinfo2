@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the hardinfo2 package.
 #
 # Cihan Alkan <cihanalk@gmail.com>, 2020.
-# Serkan Önder <serkanonder@outlook.com>, 2021.
+# Serkan Önder <serkanonder@outlook.com>, 2021 2025.
 # Sabri Ünal <libreajans@gmail.com>, 2023.
 #
 msgid ""
@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-12 11:23+0100\n"
-"PO-Revision-Date: 2023-05-24 21:01+0300\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"PO-Revision-Date: 2025-04-08 10:53+0300\n"
+"Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
-"X-Poedit-Basepath: ../\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: hardinfo2/cpu_util.c:29
 msgid "Little Endian"
@@ -446,6 +446,8 @@ msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
 msgstr ""
+"Telif Hakkı (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Projesi.\n"
+"\n"
 
 #: hardinfo2/hardinfo.c:110
 #, c-format
@@ -458,15 +460,22 @@ msgid ""
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
+"Derleme zamanı seçenekleri:\n"
+"  Yayın sürümü      :   %s (%s)\n"
+"  LibSoup sürümü:   %s\n"
+"  Veri                         :   %s\n"
+"  Kütüphane           :   %s\n"
+"  Yerel                        :   %s\n"
+"  Derlendiği tarih   :   %s\n"
 
 #: hardinfo2/hardinfo.c:118
 msgid "3.0"
-msgstr ""
+msgstr "3.0"
 
 #: hardinfo2/hardinfo.c:153
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
-msgstr ""
+msgstr "Bilinmeyen kıyaslama ``%s''\n"
 
 #: hardinfo2/hardinfo.c:192
 msgid "Don't know what to do. Exiting."
@@ -483,28 +492,28 @@ msgstr "(Yok)"
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d gün"
-msgstr[1] "%d günler"
+msgstr[1] "%d gün"
 
 #: hardinfo2/util.c:101 modules/computer/uptime.c:55
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d saat"
-msgstr[1] "%d saatler"
+msgstr[1] "%d saat"
 
 #: hardinfo2/util.c:102 modules/computer/uptime.c:56
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d dakika"
-msgstr[1] "%d dakikalar"
+msgstr[1] "%d dakika"
 
 #: hardinfo2/util.c:103
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d saniye"
-msgstr[1] "%d saniyeler"
+msgstr[1] "%d saniye"
 
 #: hardinfo2/util.c:124
 #, c-format
@@ -563,11 +572,15 @@ msgstr "bir rapor biçimi seçer ([metin], html)"
 #: hardinfo2/util.c:343
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr ""
+"tek bir kıyaslama çalıştır örneğin -b 'FPU FFT' (Varsayılan olarak tüm "
+"Kıyaslamalar çalışır)"
 
 #: hardinfo2/util.c:349
 msgid ""
 "user note attached to benchmark results. (updating/synchronize with server)"
 msgstr ""
+"kıyaslama sonuçlarına eklenen kullanıcı notu. (sunucuyla güncelleniyor/"
+"senkronize ediliyor)"
 
 #: hardinfo2/util.c:355
 msgid "benchmark result format ([short], conf, shell)"
@@ -595,7 +608,7 @@ msgstr "tüm detayları göster"
 
 #: hardinfo2/util.c:384
 msgid "- System Information and Benchmark"
-msgstr ""
+msgstr "- Sistem Bilgisi ve Karşılaştırma"
 
 #: hardinfo2/util.c:394
 #, c-format
@@ -621,7 +634,7 @@ msgstr "Satıcı listesini güncelleyin"
 
 #: hardinfo2/vendor.c:218
 msgid "Check Update Version"
-msgstr ""
+msgstr "Güncelleme Sürümünü Kontrol Edin"
 
 #: hardinfo2/vendor.c:391 modules/computer.c:561 modules/computer.c:771
 #: modules/computer/os.c:198 modules/computer/os.c:380
@@ -637,7 +650,7 @@ msgstr "Bilinmeyen"
 
 #: shell/callbacks.c:457 shell/shell.c:527
 msgid "System Information and Benchmark"
-msgstr ""
+msgstr "Sistem Bilgileri ve Karşılaştırma"
 
 #: shell/callbacks.c:461
 msgid ""
@@ -654,6 +667,18 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"HardInfo2 özgür bir yazılımdır; onu, Özgür Yazılım Vakfı tarafından "
+"yayınlanan GNU Genel Kamu Lisansı'nın 2. veya sonraki sürümlerindeki "
+"koşullar uyarınca yeniden dağıtabilir ve/veya değiştirebilirsiniz.\n"
+"\n"
+"Bu program yararlı olacağı umuduyla dağıtılmaktadır, ancak HERHANGİ BİR "
+"GARANTİ OLMADAN; hatta TİCARİ ELVERİŞLİLİK veya BELİRLİ BİR AMACA UYGUNLUK "
+"konusunda ima edilen bir garanti bile olmadan. Daha fazla ayrıntı için GNU "
+"Genel Kamu Lisansı'na bakın.\n"
+"\n"
+"Bu programla birlikte GNU Genel Kamu Lisansı'nın bir kopyasını almış olmanız "
+"gerekir; eğer almadıysanız, Free Software Foundation, Inc., 51 Franklin St, "
+"Fifth Floor, Boston, MA 02110-1301 USA adresine yazın"
 
 #: shell/menu.c:37
 msgid "_Information"
@@ -665,7 +690,7 @@ msgstr "_Görünüm"
 
 #: shell/menu.c:40
 msgid "_Theme"
-msgstr ""
+msgstr "_Tema"
 
 #: shell/menu.c:42
 msgid "_Help"
@@ -725,35 +750,35 @@ msgstr "_Araç Çubuğu"
 
 #: shell/menu.c:97
 msgid "Synchronize on startup"
-msgstr ""
+msgstr "Başlangıçta senkronize et"
 
 #: shell/menu.c:102
 msgid "Disable Theme"
-msgstr ""
+msgstr "Temayı Devre Dışı Bırak"
 
 #: shell/menu.c:106
 msgid "Theme Motherboard"
-msgstr ""
+msgstr "Tema Anakart"
 
 #: shell/menu.c:110
 msgid "Theme Graffiti"
-msgstr ""
+msgstr "Tema Grafiti"
 
 #: shell/menu.c:114
 msgid "Theme Anime PC"
-msgstr ""
+msgstr "Tema Anime Bilgisayar"
 
 #: shell/menu.c:118
 msgid "Theme Tux Star"
-msgstr ""
+msgstr "Tema Tux Yıldızı"
 
 #: shell/menu.c:122
 msgid "Theme PixArt"
-msgstr ""
+msgstr "Tema PixArt"
 
 #: shell/menu.c:126
 msgid "Theme Silicon"
-msgstr ""
+msgstr "Tema Silikon"
 
 #: shell/report.c:850 shell/report.c:858
 msgid "Save File"
@@ -822,7 +847,7 @@ msgstr "_Oluştur"
 #: shell/shell.c:522
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""
+msgstr "%s - Sistem Bilgileri ve Karşılaştırma"
 
 #: shell/shell.c:667
 #, c-format
@@ -835,6 +860,13 @@ msgid ""
 "\n"
 "Please fix by installing manually"
 msgstr ""
+"<b>Hardinfo2 doğru şekilde paketlenmemiş</b>\n"
+"\n"
+"Eksik paketler:\n"
+"\n"
+"%s\n"
+"\n"
+"Lütfen manuel olarak yükleyerek düzeltin"
 
 #: shell/shell.c:889
 msgid "Loading modules..."
@@ -901,7 +933,7 @@ msgstr "_Eşzamanla"
 #: shell/syncmanager.c:837
 #, c-format
 msgid "Synchronizing: %s"
-msgstr ""
+msgstr "Eşitleniyor: %s"
 
 #: modules/benchmark/benches.c:138
 msgid "CPU Blowfish (Single-thread)"
@@ -937,11 +969,11 @@ msgstr "FPU FFT"
 
 #: modules/benchmark/benches.c:202
 msgid "FPU Raytracing (Single-thread)"
-msgstr ""
+msgstr "FPU Işın İzleme (Tek iş parçacığı)"
 
 #: modules/benchmark/benches.c:210
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "Dahili Ağ Hızı"
 
 #: modules/benchmark/benches.c:218
 msgid "SysBench CPU (Single-thread)"
@@ -965,11 +997,11 @@ msgstr "SisKıyaslama Bellek (Çift iş parcacıklı)"
 
 #: modules/benchmark/benches.c:258
 msgid "SysBench Memory (Quad threads)"
-msgstr ""
+msgstr "SysBench Bellek (Dörtlü iş parçacıkları)"
 
 #: modules/benchmark/benches.c:266
 msgid "SysBench Memory (Multi-thread)"
-msgstr ""
+msgstr "SysBench Belleği (Çoklu iş parçacığı)"
 
 #: modules/benchmark/benches.c:274
 msgid "GPU Drawing"
@@ -977,15 +1009,15 @@ msgstr "GPU Çizimi"
 
 #: modules/benchmark/benches.c:283
 msgid "GPU OpenGL Drawing"
-msgstr ""
+msgstr "GPU OpenGL Çizimi"
 
 #: modules/benchmark/benches.c:292
 msgid "Storage R/W Speed"
-msgstr ""
+msgstr "Depolama Okuma/Yazma Hızı"
 
 #: modules/benchmark/benches.c:300
 msgid "Cache/Memory"
-msgstr ""
+msgstr "Önbellek/Bellek"
 
 #: modules/benchmark/benches.c:314
 msgid ""
@@ -1008,6 +1040,8 @@ msgid ""
 "<i><b>iperf3</b></i> is required.\n"
 "Results in Gbits/s. Higher is better."
 msgstr ""
+"<i><b>iperf3</b></i> gereklidir.\n"
+"Gbit/s cinsinden sonuçlar. Daha yüksek daha iyidir."
 
 #: modules/benchmark/benches.c:334
 msgid "Results in HIMarks. Higher is better."
@@ -1018,14 +1052,16 @@ msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
+"HIMarks'taki sonuçlar. Daha yüksek daha iyidir.\n"
+"Birçok Masaüstü Ortamı yalnızca yazılım kullanır."
 
 #: modules/benchmark/benches.c:340
 msgid "Results in MB/s. Higher is better."
-msgstr ""
+msgstr "MB/s cinsinden sonuçlar. Daha yüksek daha iyidir."
 
 #: modules/benchmark/benches.c:343
 msgid "Results in FPS. Higher is better."
-msgstr ""
+msgstr "FPS olarak sonuçlar. Daha yüksek daha iyidir."
 
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
@@ -1080,7 +1116,7 @@ msgstr "MHz"
 msgid "%d physical processor"
 msgid_plural "%d physical processors"
 msgstr[0] "%d fiziksel işlemci"
-msgstr[1] "%d fiziksel işlemciler"
+msgstr[1] "%d fiziksel işlemci"
 
 #: modules/benchmark/bench_results.c:295 modules/devices.c:181
 #, c-format
@@ -1101,7 +1137,7 @@ msgstr[1] "%d iş parçacığı"
 msgid "%d NUMA node"
 msgid_plural "%d NUMA nodes"
 msgstr[0] "%d NUMA düğümü"
-msgstr[1] "%d NUMA nodes"
+msgstr[1] "%d NUMA düğümü"
 
 #. !/NP procs; NC cores across NN nodes; NT threads
 #: modules/benchmark/bench_results.c:305
@@ -1171,6 +1207,8 @@ msgid ""
 "This result is from an old version of HardInfo. Results might not be "
 "comparable to current version. Some details are missing."
 msgstr ""
+"Bu sonuç HardInfo'nun eski bir sürümündendir. Sonuçlar güncel sürümle "
+"karşılaştırılabilir olmayabilir. Bazı ayrıntılar eksik."
 
 #: modules/benchmark/bench_results.c:428 modules/benchmark/bench_results.c:493
 #: modules/devices/devicetree/pmac_data.c:81 modules/devices/sh/processor.c:85
@@ -1241,11 +1279,11 @@ msgstr "Sonuç"
 
 #: modules/benchmark/bench_results.c:496
 msgid "Linux Kernel"
-msgstr ""
+msgstr "Linux Çekirdeği"
 
 #: modules/benchmark/bench_results.c:497
 msgid "Linux OS"
-msgstr ""
+msgstr "Linux OS"
 
 #: modules/benchmark/bench_results.c:508
 msgid "Physical Memory"
@@ -1283,17 +1321,19 @@ msgstr "Karşılaştırılıyor: <b>%s</b>."
 #: modules/benchmark.c:683
 #, c-format
 msgid "Benchmarking: %s"
-msgstr ""
+msgstr "Karşılaştırma: %s"
 
 #: modules/benchmark.c:687
 msgid "Stop"
-msgstr ""
+msgstr "Durdur"
 
 #: modules/benchmark.c:700
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
 msgstr ""
+"Lütfen farenizi hareket ettirmeyin\n"
+"veya herhangi bir tuşa basmayın."
 
 #: modules/benchmark.c:759
 msgid "Benchmarks"
@@ -1410,7 +1450,7 @@ msgstr "Perl"
 
 #: modules/computer.c:272
 msgid "Rakudo (Perl6)"
-msgstr ""
+msgstr "Rakudo (Perl6)"
 
 #: modules/computer.c:273
 msgid "PHP"
@@ -1458,7 +1498,7 @@ msgstr "Java"
 
 #: modules/computer.c:284
 msgid ".NET"
-msgstr ""
+msgstr ".NET"
 
 #: modules/computer.c:285
 msgid "Vala"
@@ -1662,15 +1702,15 @@ msgstr "Çeşitli"
 
 #: modules/computer.c:591
 msgid "Root Only System"
-msgstr ""
+msgstr "Sadece Root Sistemi"
 
 #: modules/computer.c:592
 msgid "Single User System"
-msgstr ""
+msgstr "Tek Kullanıcı Sistemi"
 
 #: modules/computer.c:593
 msgid "Multi User System"
-msgstr ""
+msgstr "Çok Kullanıcılı Sistem"
 
 #: modules/computer.c:601
 msgid "HardInfo2"
@@ -1690,11 +1730,11 @@ msgstr "Kullanıcı"
 
 #: modules/computer.c:603
 msgid "User System Type"
-msgstr ""
+msgstr "Kullanıcı Sistem Türü"
 
 #: modules/computer.c:603
 msgid "Hardinfo2 Service not enabled/started"
-msgstr ""
+msgstr "Hardinfo2 Hizmeti etkinleştirilmedi/başlatılmadı"
 
 #: modules/computer.c:608
 msgid "Health"
@@ -1911,39 +1951,39 @@ msgstr "GLX Sürümü"
 
 #: modules/computer.c:806
 msgid "Vulkan"
-msgstr ""
+msgstr "Vulkan"
 
 #: modules/computer.c:807
 msgid "Instance Version"
-msgstr ""
+msgstr "Örnek Sürüm"
 
 #: modules/computer.c:809
 msgid "Api Version"
-msgstr ""
+msgstr "API Sürümü"
 
 #: modules/computer.c:810
 msgid "Driver Version"
-msgstr ""
+msgstr "Sürücü Sürümü"
 
 #: modules/computer.c:812
 msgid "Device Type"
-msgstr ""
+msgstr "Aygıt Türü"
 
 #: modules/computer.c:813
 msgid "Device Name"
-msgstr ""
+msgstr "Aygıt Adı"
 
 #: modules/computer.c:814
 msgid "Driver Name"
-msgstr ""
+msgstr "Sürücü Adı"
 
 #: modules/computer.c:815
 msgid "Driver Info"
-msgstr ""
+msgstr "Sürücü Bilgileri"
 
 #: modules/computer.c:816
 msgid "Conformance Version"
-msgstr ""
+msgstr "Uygunluk Sürümü"
 
 #: modules/computer.c:837
 msgid "Group"
@@ -2010,6 +2050,8 @@ msgstr "Mesa <i><b>glxinfo</b></i> OpenGL bilgisi için gerekli."
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
+"Vulkan bilgileri için Vulkan'ın <i><b>vulkaninfo</b></i> yardımcı programı "
+"gereklidir."
 
 #: modules/computer/filesystem.c:87
 msgid "Filesystem"
@@ -2077,251 +2119,269 @@ msgstr "Yük ortalaması alınamadı"
 
 #: modules/computer/memory_usage.c:131
 msgid "Total physical memory usable by the system"
-msgstr ""
+msgstr "Sistem tarafından kullanılabilen toplam fiziksel bellek"
 
 #: modules/computer/memory_usage.c:132
 msgid "Free memory which is not used for anything"
-msgstr ""
+msgstr "Hiçbir şey için kullanılmayan boş bellek"
 
 #: modules/computer/memory_usage.c:133
 msgid "Virtual memory, total swap space available"
-msgstr ""
+msgstr "Sanal bellek, toplam takas alanı kullanılabilir"
 
 #: modules/computer/memory_usage.c:134
 msgid "Virtual memory, remaining swap space available"
-msgstr ""
+msgstr "Sanal bellek, kalan takas alanı kullanılabilir"
 
 #: modules/computer/memory_usage.c:135
 msgid "Memory present within main memory and in the swapfile"
-msgstr ""
+msgstr "Ana bellekte ve takas dosyasında bulunan bellek"
 
 #: modules/computer/memory_usage.c:136
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "Yüksek Toplam değer, kullanılan çekirdek türüne göre değişebilir"
 
 #: modules/computer/memory_usage.c:137
 msgid "Amount of memory that is not directly mapped into kernel space"
-msgstr ""
+msgstr "Çekirdek alanına doğrudan eşlenmeyen bellek miktarı"
 
 #: modules/computer/memory_usage.c:138
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "Düşük Toplam değer, kullanılan çekirdek türüne göre değişebilir"
 
 #: modules/computer/memory_usage.c:139
 msgid "Total and free memory directly mapped into kernel space"
-msgstr ""
+msgstr "Toplam ve boş bellek doğrudan çekirdek alanına eşlenir"
 
 #: modules/computer/memory_usage.c:140
 msgid "Available memory for allocation to any process, without swapping"
 msgstr ""
+"Takas belleği olmadan herhangi bir işleme tahsis edilebilecek kullanılabilir "
+"bellek"
 
 #: modules/computer/memory_usage.c:141
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
 msgstr ""
+"Arabellek önbelleğindeki bellek, ham disk blokları için geçici depolama"
 
 #: modules/computer/memory_usage.c:142
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
 msgstr ""
+"Sayfa önbelleğindeki bellek (disk önbellek, paylaşımlı bellek, tmpfs ve "
+"shmem)"
 
 #: modules/computer/memory_usage.c:143
 msgid "Memory used more recently and not swapped out or reclaimed"
 msgstr ""
+"Daha yakın zamanda kullanılan ve değiştirilmeyen veya geri kazanılmayan "
+"bellek"
 
 #: modules/computer/memory_usage.c:144
 msgid "Memory not been used recently and can be swapped out or reclaimed"
 msgstr ""
+"Son zamanlarda kullanılmamış ve değiştirilebilir veya geri kazanılabilir "
+"bellek"
 
 #: modules/computer/memory_usage.c:145
 msgid "Anonymous memory used more recently and not swapped out"
-msgstr ""
+msgstr "Daha yakın zamanda kullanılan ve değiştirilmeyen anonim bellek"
 
 #: modules/computer/memory_usage.c:146
 msgid "Anonymous memory not been used and can be swapped out"
-msgstr ""
+msgstr "Anonim bellek kullanılmamıştır ve değiştirilebilir"
 
 #: modules/computer/memory_usage.c:147
 msgid "Pagecache memory been used more recently and not reclaimed"
 msgstr ""
+"Sayfa önbellek belleği daha yakın zamanda kullanılmış ve geri kazanılmamış"
 
 #: modules/computer/memory_usage.c:148
 msgid "Pagecache memory reclaimable without huge performance impact"
 msgstr ""
+"Sayfa önbellek belleği, büyük bir performans etkisi olmadan geri "
+"kazanılabilir"
 
 #: modules/computer/memory_usage.c:149
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
-msgstr ""
+msgstr "Çeşitli nedenlerden dolayı kurtarılamayan sayfalar değiştirilemez"
 
 #: modules/computer/memory_usage.c:150
 msgid "Pages locked to memory using the mlock() system call"
-msgstr ""
+msgstr "mlock() sistem çağrısı kullanılarak belleğe kilitlenen sayfalar"
 
 #: modules/computer/memory_usage.c:151
 msgid "Memory consumed by the zswap backend (compressed size)"
-msgstr ""
+msgstr "Z takas arka ucu tarafından tüketilen bellek (sıkıştırılmış boyut)"
 
 #: modules/computer/memory_usage.c:152
 msgid "Amount of anonymous memory stored in zswap (original size)"
-msgstr ""
+msgstr "Z takasında depolanan anonim bellek miktarı (orijinal boyut)"
 
 #: modules/computer/memory_usage.c:153
 msgid "Memory waiting to be written back to disk"
-msgstr ""
+msgstr "Diske geri yazılmayı bekleyen bellek"
 
 #: modules/computer/memory_usage.c:154
 msgid "Memory which is actively being written back to disk"
-msgstr ""
+msgstr "Aktif olarak diske geri yazılan bellek"
 
 #: modules/computer/memory_usage.c:155
 msgid "Non-file backed pages mapped into userspace page tables"
 msgstr ""
+"Dosya dışı desteklenen sayfalar kullanıcı alanı sayfa tablolarına eşlendi"
 
 #: modules/computer/memory_usage.c:156
 msgid "Files which have been mmapped, such as libraries"
-msgstr ""
+msgstr "Kitaplıklar gibi m eşlenmiş dosyalar"
 
 #: modules/computer/memory_usage.c:157
 msgid "Total memory used by shared memory (shmem) and tmpfs"
-msgstr ""
+msgstr "Paylaşımlı bellek (shmem) ve tmpfs tarafından kullanılan toplam bellek"
 
 #: modules/computer/memory_usage.c:158
 msgid "Kernel allocations reclaimable under memory pressure"
-msgstr ""
+msgstr "Çekirdek tahsisleri bellek baskısı altında geri alınabilir"
 
 #: modules/computer/memory_usage.c:159
 msgid "In-kernel data structures cache"
-msgstr ""
+msgstr "Çekirdek içi veri yapıları önbelleği"
 
 #: modules/computer/memory_usage.c:160
 msgid "Part of Slab, that might be reclaimed, such as caches"
-msgstr ""
+msgstr "Slab'ın geri kazanılabilecek bir kısmı, örneğin önbellekler"
 
 #: modules/computer/memory_usage.c:161
 msgid "Part of Slab, that cannot be reclaimed on memory pressure"
-msgstr ""
+msgstr "Slab'ın hafıza baskısı altında geri alınamayan bir parçası"
 
 #: modules/computer/memory_usage.c:162
 msgid "Memory consumed by the kernel stacks of all tasks"
-msgstr ""
+msgstr "Tüm görevlerin çekirdek yığınları tarafından tüketilen bellek"
 
 #: modules/computer/memory_usage.c:163
 msgid "Memory consumed by userspace page tables"
-msgstr ""
+msgstr "Kullanıcı alanı sayfa tabloları tarafından tüketilen bellek"
 
 #: modules/computer/memory_usage.c:164
 msgid "Memory consumed by secondary page tables"
-msgstr ""
+msgstr "İkincil sayfa tabloları tarafından tüketilen bellek"
 
 #: modules/computer/memory_usage.c:165
 msgid "Previous counted pages which had been written to the server"
-msgstr ""
+msgstr "Sunucuya yazılmış olan önceki sayılan sayfalar"
 
 #: modules/computer/memory_usage.c:166
 msgid "Memory used for block device bounce buffers"
-msgstr ""
+msgstr "Blok aygıtı sıçrama tamponları için kullanılan bellek"
 
 #: modules/computer/memory_usage.c:167
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr ""
+msgstr "FUSE tarafından geçici geri yazma önbelleği için kullanılan bellek"
 
 #: modules/computer/memory_usage.c:168
 msgid "Total memory currently available to be allocated on the system"
-msgstr ""
+msgstr "Sistemde tahsis edilebilecek toplam bellek miktarı"
 
 #: modules/computer/memory_usage.c:169
 msgid "The amount of memory presently allocated on the system"
-msgstr ""
+msgstr "Sistemde şu anda tahsis edilen bellek miktarı"
 
 #: modules/computer/memory_usage.c:170
 msgid "Total size of vmalloc virtual address space"
-msgstr ""
+msgstr "Vmalloc sanal adres alanının toplam boyutu"
 
 #: modules/computer/memory_usage.c:171
 msgid "Amount of vmalloc area which is used"
-msgstr ""
+msgstr "Kullanılan vmalloc alanının miktarı"
 
 #: modules/computer/memory_usage.c:172
 msgid "Largest contiguous block of vmalloc area which is free"
-msgstr ""
+msgstr "Boş olan vmalloc alanının en büyük bitişik bloğu"
 
 #: modules/computer/memory_usage.c:173
 msgid "Memory allocated to the percpu allocator"
-msgstr ""
+msgstr "CPU başına tahsis edilen bellek"
 
 #: modules/computer/memory_usage.c:174
 msgid "Amount of memory the kernel identifies as corrupted"
-msgstr ""
+msgstr "Çekirdeğin bozuk olarak tanımladığı bellek miktarı"
 
 #: modules/computer/memory_usage.c:175
 msgid "Non-file backed huge pages mapped into userspace page tables"
 msgstr ""
+"Dosya dışı desteklenen büyük sayfalar kullanıcı alanı sayfa tablolarına "
+"eşlendi"
 
 #: modules/computer/memory_usage.c:176
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
 msgstr ""
+"Shmem ve tmpfs tarafından kullanılan bellek büyük sayfalarla tahsis edildi"
 
 #: modules/computer/memory_usage.c:177
 msgid "Shared memory mapped into userspace with huge pages"
-msgstr ""
+msgstr "Kullanıcı alanına büyük sayfalarla eşlenen paylaşımlı bellek"
 
 #: modules/computer/memory_usage.c:178
 msgid "Memory used for fs data (page cache) allocated with huge pages"
 msgstr ""
+"Büyük sayfalarla tahsis edilen fs verileri (sayfa önbelleği) için kullanılan "
+"bellek"
 
 #: modules/computer/memory_usage.c:179
 msgid "Page cache mapped into userspace with huge pages"
-msgstr ""
+msgstr "Sayfa önbelleği, büyük sayfalara sahip kullanıcı alanına eşlendi"
 
 #: modules/computer/memory_usage.c:180
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
-msgstr ""
+msgstr "Bitişik Bellek Tahsis Edicisi (CMA) için ayrılmış bellek"
 
 #: modules/computer/memory_usage.c:181
 msgid "Free remaining memory in the CMA reserves"
-msgstr ""
+msgstr "CMA rezervlerinde kalan boş hafıza"
 
 #: modules/computer/memory_usage.c:182
 msgid "Amount of unaccepted memory usable by the kernel"
-msgstr ""
+msgstr "Çekirdek tarafından kullanılabilen kabul edilmeyen bellek miktarı"
 
 #: modules/computer/memory_usage.c:183
 msgid "Size of the pool of huge pages"
-msgstr ""
+msgstr "Büyük sayfaların havuzunun boyutu"
 
 #: modules/computer/memory_usage.c:184
 msgid "Number of huge pages available"
-msgstr ""
+msgstr "Mevcut çok sayıda sayfa sayısı"
 
 #: modules/computer/memory_usage.c:185
 msgid "Number of huge pages reserved"
-msgstr ""
+msgstr "Ayrılan büyük sayfa sayısı"
 
 #: modules/computer/memory_usage.c:186
 msgid "Number of huge pages surplus"
-msgstr ""
+msgstr "Çok büyük sayfa fazlası sayısı"
 
 #: modules/computer/memory_usage.c:187
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr ""
+msgstr "Büyük sayfa boyutu, hugepages parametresiyle birlikte kullanılır"
 
 #: modules/computer/memory_usage.c:188
 msgid "Total amount of memory consumed by huge pages of all sizes"
-msgstr ""
+msgstr "Her boyuttaki büyük sayfaların tükettiği toplam bellek miktarı"
 
 #: modules/computer/memory_usage.c:189
 msgid "Breakdown of page table sizes of 4k size"
-msgstr ""
+msgstr "4k boyutundaki sayfa tablosu boyutlarının dökümü"
 
 #: modules/computer/memory_usage.c:190
 msgid "Breakdown of page table sizes of 2M size"
-msgstr ""
+msgstr "2M boyutundaki sayfa tablosu boyutlarının dökümü"
 
 #: modules/computer/memory_usage.c:191
 msgid "Breakdown of page table sizes of 1G size"
-msgstr ""
+msgstr "1G boyutundaki sayfa tablosu boyutlarının dökümü"
 
 #: modules/computer/modules.c:168
 msgid "Update kernel module icon table"
-msgstr ""
+msgstr "Çekirdek modülü simge tablosunu güncelle"
 
 #: modules/computer/modules.c:337 modules/computer/modules.c:338
 #: modules/computer/modules.c:339 modules/computer/modules.c:340
@@ -2698,7 +2758,7 @@ msgstr "CRC32 sağlama toplamı talimatları (arch> 8)"
 #: modules/devices/arm/arm_data.c:71
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64'te kayan nokta (arch>=8)"
 
 #. !/flag:asimd
 #: modules/devices/arm/arm_data.c:72
@@ -2710,91 +2770,92 @@ msgstr "AArch64'te gelişmiş SIMD / NEON (arch> 8)"
 #: modules/devices/arm/arm_data.c:73
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerindeki atomik talimatlar"
 
 #. !/flag:fphp
 #: modules/devices/arm/arm_data.c:74
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64'te (arch>=8) yarı hassasiyetli kayan nokta"
 
 #. !/flag:asimdhp
 #: modules/devices/arm/arm_data.c:75
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerinde BFloat16 ile Gelişmiş SIMD"
 
 #. !/flag:cpuid
 #: modules/devices/arm/arm_data.c:76
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
-msgstr ""
+msgstr "CPU özellikleri AArch64 (arch>=8) üzerinde okunabilir"
 
 #. !/flag:asimdrdm
 #: modules/devices/arm/arm_data.c:77
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Gelişmiş SIMD yuvarlama AArch64'te Double MulAcc (arch>=8)"
 
 #. !/flag:jscvt
 #: modules/devices/arm/arm_data.c:78
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerinde JavaScript dönüşümü"
 
 #. !/flag:fcma
 #: modules/devices/arm/arm_data.c:79
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 üzerinde karmaşık sayı SIMD (arch>=8)"
 
 #. !/flag:lrcpc
 #: modules/devices/arm/arm_data.c:80
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64'te (arch>=8) zayıf sürüm tutarlılığı"
 
 #. !/flag:dcpop
 #: modules/devices/arm/arm_data.c:81
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
 msgstr ""
+"AArch64 (arch>=8) üzerinde Kalıcılık Noktasına kadar veri önbelleği temizliği"
 
 #. !/flag:sha3
 #: modules/devices/arm/arm_data.c:82
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerindeki SHA-3 talimatları"
 
 #. !/flag:sm3
 #: modules/devices/arm/arm_data.c:83
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerindeki SM3 talimatları"
 
 #. !/flag:sm4
 #: modules/devices/arm/arm_data.c:84
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerindeki SM4 talimatları"
 
 #. !/flag:asimddp
 #: modules/devices/arm/arm_data.c:85
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerinde SIMD Nokta Ürünü"
 
 #. !/flag:sha512
 #: modules/devices/arm/arm_data.c:86
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 (arch>=8) üzerindeki SHA512 talimatları"
 
 #. !/flag:sve
 #: modules/devices/arm/arm_data.c:87
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64'te Ölçeklenebilir Vektör Uzantısı (arch>=8)"
 
 #: modules/devices/arm/processor.c:46 modules/devices/e2k/processor.c:30
 #: modules/devices/riscv/processor.c:36 modules/devices/x86/processor.c:149
@@ -2927,6 +2988,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[AC Güç Kaynağı: %s]\n"
+"Çevrimiçi=%s\n"
+"AC Güç Türü=%s\n"
 
 #: modules/devices/battery.c:299
 #, c-format
@@ -2947,6 +3012,21 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[Pil: %s]\n"
+"Durum=%s\n"
+"Kapasite=%s %% / %s\n"
+"Pil Kullanımı=%.0f ​​W\n"
+"Pil Sağlığı=%.0f ​​%%\n"
+"Tasarım Tam Enerjisi=%.3f Wh\n"
+"Mevcut Tam Enerji=%.3f Wh\n"
+"Tasarım Tam Kapasitesi=%.3f Ah\n"
+"Mevcut Tam Kapasite=%.3f Ah\n"
+"Voltaj Tasarımı=%.3f V\n"
+"Pil Teknolojisi=%s\n"
+"Üretici=%s\n"
+"Model Numarası=%s\n"
+"Seri Numarası=%s\n"
 
 #: modules/devices/battery.c:412
 #, c-format
@@ -3039,7 +3119,7 @@ msgstr "Kaynaklar"
 
 #: modules/devices.c:687
 msgid "WSL2"
-msgstr ""
+msgstr "WSL2"
 
 #: modules/devices.c:941
 msgid "Sensor"
@@ -3092,12 +3172,19 @@ msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
 "And Logout/Reboot for groups to be updated..."
 msgstr ""
+"hardinfo2 servisinin etkinleştirildiğinden ve başlatıldığından emin olun: "
+"sudo systemctl enable hardinfo2 --now (SystemD distro)\n"
+"Kendinizi hardinfo2 grubuna ekleyin: sudo usermod -a -G hardinfo2 "
+"YOUR_LOGIN\n"
+"Ve grupların güncellenmesi için Çıkış yapın/Yeniden başlatın..."
 
 #: modules/devices.c:1108
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
+"Mevcut herhangi bir NVMe depolama aygıtı listelenmemiştir.\n"
+"NVMe aygıtları için <b><i>udisks2</i></b> gereklidir."
 
 #: modules/devices/devicetree.c:51
 msgid "Properties"
@@ -3357,19 +3444,19 @@ msgstr "Seri Durum Algılama (SPD) Özeti"
 
 #: modules/devices/dmi_memory.c:860
 msgid "(Not available - See hint box below)"
-msgstr ""
+msgstr "(Mevcut değil - Aşağıdaki ipucu kutusuna bakın)"
 
 #: modules/devices/dmi_memory.c:932
 msgid "No DMI available"
-msgstr ""
+msgstr "DMI mevcut değil"
 
 #: modules/devices/dmi_memory.c:937
 msgid "<b><i>dmidecode</i></b> package installed"
-msgstr ""
+msgstr "<b><i>dmidecode</i></b> paketi kuruldu"
 
 #: modules/devices/dmi_memory.c:948
 msgid "Memory Information requires more Setup:"
-msgstr ""
+msgstr "Bellek Bilgileri daha fazla Kurulum gerektirir:"
 
 #: modules/devices/dmi_memory.c:976
 msgid ""
@@ -4011,47 +4098,47 @@ msgstr "Vektör işlemleri"
 #: modules/devices/riscv/riscv_data.c:50
 msgctxt "rv-ext"
 msgid "Scalar Cryptography"
-msgstr ""
+msgstr "Skaler Kriptografi"
 
 #: modules/devices/riscv/riscv_data.c:51
 msgctxt "rv-ext"
 msgid "Base Counters and Timers"
-msgstr ""
+msgstr "Temel Sayıcılar ve Zamanlayıcılar"
 
 #: modules/devices/riscv/riscv_data.c:52
 msgctxt "rv-ext"
 msgid "Control and Status Register"
-msgstr ""
+msgstr "Kontrol ve Durum Kaydı"
 
 #: modules/devices/riscv/riscv_data.c:53
 msgctxt "rv-ext"
 msgid "Instruction-Fetch Fence"
-msgstr ""
+msgstr "Talimat-Getirme Çiti"
 
 #: modules/devices/riscv/riscv_data.c:54
 msgctxt "rv-ext"
 msgid "Hardware performance counters"
-msgstr ""
+msgstr "Donanım performans sayaçları"
 
 #: modules/devices/riscv/riscv_data.c:55
 msgctxt "rv-ext"
 msgid "Accell Index addresses"
-msgstr ""
+msgstr "Accell Endeksi adresleri"
 
 #: modules/devices/riscv/riscv_data.c:56
 msgctxt "rv-ext"
 msgid "Basic bit-manipulation"
-msgstr ""
+msgstr "Temel bit manipülasyonu"
 
 #: modules/devices/riscv/riscv_data.c:57
 msgctxt "rv-ext"
 msgid "Supervisor-level Instructions"
-msgstr ""
+msgstr "Süpervizör düzeyindeki talimatlar"
 
 #: modules/devices/riscv/riscv_data.c:58
 msgctxt "rv-ext"
 msgid "User Mode"
-msgstr ""
+msgstr "Kullanıcı Modu"
 
 #: modules/devices/riscv/riscv_data.c:59
 msgctxt "rv-ext"
@@ -4100,7 +4187,7 @@ msgstr "Modül Frekansı"
 
 #: modules/devices/spd-decode.c:128 modules/devices/spd-decode.c:144
 msgid "Unspecified"
-msgstr ""
+msgstr "Belirtilmemiş"
 
 #: modules/devices/spd-decode.c:130 modules/devices/spd-decode.c:146
 msgid "Invalid"
@@ -4217,7 +4304,7 @@ msgstr "DRAM Satıcısı"
 
 #: modules/devices/spd-decode.c:1385
 msgid "Manufacturing Date (Year / Week)"
-msgstr ""
+msgstr "Üretim Tarihi (Yıl / Hafta)"
 
 #: modules/devices/storage.c:46 modules/devices/storage.c:55
 msgid "NVMe Controller"
@@ -4762,6 +4849,7 @@ msgstr "Yuva Bilgileri"
 #: modules/devices/x86/processor.c:695
 msgid "(Not available; Perhaps try running hardinfo2 as root.)"
 msgstr ""
+"(Mevcut değil; hardinfo2'yi root olarak çalıştırmayı deneyebilirsiniz.)"
 
 #: modules/devices/x86/processor.c:713
 msgid "CPU Socket"
@@ -5148,7 +5236,7 @@ msgstr "TSC, C bölgelerinde durmuyor"
 #: modules/devices/x86/x86_data.c:111
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
-msgstr "APICID'yi (8 bit) genişletti"
+msgstr "genişletilmiş APICID (8 bit)"
 
 #. !/flag:amd_dcm
 #: modules/devices/x86/x86_data.c:112

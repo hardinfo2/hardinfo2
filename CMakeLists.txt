@@ -220,7 +220,7 @@ if(${disversion} GREATER 20000101)
   if(${distro} MATCHES "openSUSE*")
     SET(RPM_REQ "dmidecode, sysbench, udisks2, xdg-utils, fwupd, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk")
     message("FIXME - cannot find libwayland-client-core")
-    SET(HARDINFO2_VK_WAYLAND 0)
+    SET(HARDINFO2_VK_WAYLAND 1)
   endif()
 endif()
 

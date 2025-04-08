@@ -21,6 +21,7 @@ find_package(Threads REQUIRED)
 if(${HARDINFO2_VK_WAYLAND})
   message("-- VK_WAYLAND")
   find_path(WAYLAND_CLIENT_INCLUDE_DIR NAMES wayland-client.h )
+  find_path(WAYLAND_INCLUDE PATH_SUFFIXES wayland NAMES wayland-client.h )
   find_path(LIBDECOR_INCLUDE PATH_SUFFIXES libdecor-0 NAMES libdecor.h )
   find_library(WAYLAND_CLIENT_LIBRARY NAMES wayland-client libwayland-client)
   find_library(LIBDECOR_LIBRARY NAMES libdecor-0.so)
@@ -54,7 +55,7 @@ foreach(shader ${SHADER_SOURCE})
   list(APPEND SHADERS ${shader}.spv.h)
 endforeach(shader)
 
-include_directories(${CMAKE_BINARY_DIR} ${Vulkan_INCLUDE_DIRS} ${LIBDECOR_INCLUDE})
+include_directories(${CMAKE_BINARY_DIR} ${WAYLAND_INCLUDE} ${Vulkan_INCLUDE_DIRS} ${LIBDECOR_INCLUDE})
 
 #message(STATUS "Vulkanlib======${Vulkan_LIBRARIES}")
 

@@ -1,14 +1,14 @@
 /*
  * Hardinfo2 - System Information & Benchmark
  * Copyright hardinfo2 project, hwspeedy 2025
- * License: MIT
+ * License: GPL2+
  *
  * Copyright (C) 1999-2001  Brian Paul
  * Copyright (C) 2010  Kristian Høgsberg
  * Copyright (C) 2010  Chia-I Wu
  * Copyright (C) 2023  Collabora Ltd
  *
- * SPDX-License-Identifier: MIT
+ * was original MIT - but is relicensed
  */
 
 #include "matrix.h"

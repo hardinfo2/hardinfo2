@@ -368,9 +368,8 @@ void cb_about()
         "Vendor list based on GtkSysInfo by Pissens Sebastien",
         "DMI support based on code by Stewart Adam",
         "SCSI support based on code by Pascal F. Martin",
-	"OpenGL benchmark based on code by Zack Rusin",
-	"OpenGL benchmark based on code by David Reveman",
-	"OpenGL benchmark based on code by Peter Nilsson",
+	"OpenGL code by Zack Rusin,David Reveman,Peter Nilsson",
+	"Vulkan code by Collabora Ltd",
 	"",
 	"Translated by:",
 	"Alexander Münch",
@@ -386,6 +385,7 @@ void cb_about()
 	"hwspeedy (Danish)",
 	"tutralex (Russian)",
 	"thiagodalsoto (Brazilian)",
+	"serkan-maker (Turkish)",
         "",
 	"Artwork by:",
         "Jakub Szypulka",
@@ -413,6 +413,7 @@ void cb_about()
 	"DidierSpaier (Slint)",
 	"B. Watson (Slackbuild packages)",
 	"K1ngfish3r (Clear Linux)",
+	"adamthiede (Alpine branches)",
 	"",
         NULL
     };

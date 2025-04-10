@@ -215,10 +215,16 @@ if(${disversion} LESS 6.99)
   endif()
 endif()
 
-#opensuse tumbeweed
-if(${disversion} GREATER 20000101)
-  if(${distro} MATCHES "openSUSE*")
-    SET(RPM_REQ "dmidecode, sysbench, udisks2, xdg-utils, fwupd, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk")
+#opensuse
+if(${distro} MATCHES "openSUSE*")
+  SET(RPM_REQ "dmidecode, sysbench, udisks2, xdg-utils, fwupd, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk")
+  #opensuse tumbeweed
+  if(${disversion} GREATER 20000101)
+  else()
+    #opensuse leap 16
+    if(${disversion} GREATER 15.99)
+      SET(RPM_REQ "dmidecode, udisks2, xdg-utils, fwupd, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk") #miss sysbench
+    endif()
   endif()
 endif()
 

@@ -116,7 +116,6 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **hddtemp**: To obtain the hard disk drive temperature, be sure to run hddtemp
 in daemon mode, using the default port.
 - **apcaccess**: apcaccess is used for ups/battery information.
-- **pciutils/usbutils**: is only used on very old kernels without sysfs.
 
 License
 ------

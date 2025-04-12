@@ -24,7 +24,7 @@
 
 gchar *pci_ids_file = NULL;
 GTimer *pci_ids_timer = NULL;
-const gboolean nolspci = FALSE; /* true for testing */
+gboolean nolspci = TRUE; /*Only very old distros=>disable lspci*/
 
 /* Two pieces of info still only from lspci:
  * - kernel driver in use

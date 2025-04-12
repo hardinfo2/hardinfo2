@@ -26,6 +26,7 @@
 #define SYSFS_DIR_USB_DEVICES "/sys/bus/usb/devices"
 
 gchar *usb_ids_file = NULL;
+gboolean nolsusb = TRUE; /*Only very old distros=>disable lsusb*/
 
 usbi *usbi_new() {
     return g_new0(usbi, 1);
@@ -158,6 +159,7 @@ int usbd_list_count(usbd *s) {
 }
 
 static char *lsusb_line_value(char *line, const char *prefix) {
+    if( nolsusb ) return NULL;
     if (g_str_has_prefix(line, prefix)) {
         line += strlen(prefix) + 1;
         return g_strstrip(line);
@@ -166,6 +168,7 @@ static char *lsusb_line_value(char *line, const char *prefix) {
 }
 
 static gboolean usb_get_device_lsusb(int bus, int dev, usbd *s) {
+    if( nolsusb ) return FALSE;
     gboolean spawned;
     gchar *out, *err, *p, *l, *t, *next_nl;
     gchar *lsusb_cmd = g_strdup_printf("lsusb -s %d:%d -v", bus, dev);

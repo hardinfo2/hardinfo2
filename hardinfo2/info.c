@@ -137,10 +137,12 @@ void info_add_computed_group(struct Info *info, const gchar *name, const gchar *
     struct InfoGroup donor = {};
     gchar *tmp_str = NULL;
 
-    if (name)
+    if (name && (strlen(name)>0))
         tmp_str = g_strdup_printf("[%s]\n%s", name, value);
-    else
+    else if(value && (strlen(value)>0))
         tmp_str = g_strdup(value);
+
+    if(!tmp_str) return;
 
     tmp_info = info_unflatten(tmp_str);
     if (tmp_info->groups->len != 1) {

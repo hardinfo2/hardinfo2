@@ -197,7 +197,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     sysfs = fopen(buf, "r");
     netinfo->carrier=0;
     if (sysfs && (fgets(buf, sizeof(buf), sysfs)!=NULL)) sscanf(buf,"%d",&netinfo->carrier);
-    fclose(sysfs);
+    if(sysfs) fclose(sysfs);
 
     /* Speed */
     netinfo->speed[0]=0;
@@ -211,7 +211,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
           sprintf(netinfo->speed,"Not Specified"); else
             if(s<1000) sprintf(netinfo->speed,"%d Mbit",s); else
 	       sprintf(netinfo->speed,"%g Gbit",(float)s/1000);
-    fclose(sysfs);
+    if(sysfs) fclose(sysfs);
 
     /* HW Address */
     strcpy(ifr.ifr_name, if_name);

@@ -380,8 +380,6 @@ endif()
 #Void
 if(${distro} MATCHES "Void")
     set(HARDINFO2_RUNIT 1)
-    set(HARDINFO2_VK 0)
-  message("FIXME: cannot find vulkan on void linux")
 endif()
 
 if(${distro} MATCHES "Alpine")

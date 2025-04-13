@@ -389,8 +389,8 @@ if(${distro} MATCHES "Alpine")
 endif()
 
 if(${distro} MATCHES "ClearLinux*")
-  set(HARDINFO2_VK 0)
-  message("FIXME: cannot find vulkan on clear linux")
+  set(HARDINFO2_VK_WAYLAND 0)
+  message("FIXME: libdecor for wayland on clear linux")
 endif()
 
 if(${distro} MATCHES "SystemRescue*")

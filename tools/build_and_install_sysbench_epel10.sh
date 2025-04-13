@@ -5,7 +5,7 @@ echo ""
 ARCH=$( uname -m )
 echo $ARCH;
 echo "needs additional packages to hardinfo2: libtool automake"
-yum install libtool automake
+sudo yum install libtool automake
 
 #Latest release 1.0.20
 git clone https://github.com/akopytov/sysbench --branch 1.0
@@ -20,6 +20,8 @@ git clone https://github.com/akopytov/sysbench --branch 1.0
 #rm -rf ck
 #git clone https://github.com/concurrencykit/ck ck
 #cd ../../
+
+cd sysbench
 
 #build
 ./autogen.sh

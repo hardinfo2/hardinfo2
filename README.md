@@ -29,7 +29,9 @@ Packaging status
 --------------
 [![Packaging status](https://hardinfo2.org/repology.svg)](https://hardinfo2.org/repology.svg)
 
-Prebuilds: [Downloads](https://hardinfo2.org/github?latest_prerelease)
+Download
+--------
+[Download](https://hardinfo2.org/download)
 
 Dependencies
 ------------

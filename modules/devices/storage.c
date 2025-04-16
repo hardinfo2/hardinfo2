@@ -598,8 +598,8 @@ void __scan_scsi_devices(void)
         }
         if (otype == 1)
             fclose(proc_scsi);
-        else if (otype == 2)
-            pclose(proc_scsi);
+        /*else if (otype == 2)
+	    pclose(proc_scsi);*/
     }
 
     if (n) {

@@ -649,6 +649,7 @@ gchar *processor_name(GSList *processors) {
         { "qcom,sm8550", "Qualcomm", "SM8550 (SD8g2)"},
         { "qcom,msm8939", "Qualcomm", "Snapdragon 615"},
         { "qcom,msm", "Qualcomm", "Snapdragon-family"},
+        { "qcom,x1e80100", "Qualcomm", "Snapdragon X Elite"},
         { "rockchip,rk3288", "Rockchip", "RK3288" }, // Asus Tinkerboard
         { "rockchip,rk3328", "Rockchip", "RK3328" }, // Firefly Renegade
         { "rockchip,rk3399", "Rockchip", "RK3399" }, // Firefly Renegade Elite

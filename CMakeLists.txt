@@ -223,7 +223,6 @@ if(${distro} MATCHES "openSUSE*")
   else()
     #opensuse leap 16
     if(${disversion} GREATER 15.99)
-      SET(RPM_REQ "dmidecode, udisks2, xdg-utils, fwupd, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk") #miss sysbench
     endif()
   endif()
 endif()

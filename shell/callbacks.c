@@ -386,6 +386,7 @@ void cb_about()
 	"tutralex (Russian)",
 	"thiagodalsoto (Brazilian)",
 	"serkan-maker (Turkish)",
+	"ReVe1uv (Chinese)",
         "",
 	"Artwork by:",
         "Jakub Szypulka",

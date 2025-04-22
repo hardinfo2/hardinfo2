@@ -1,15 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# yetist <yetist@gmail.com>, 2018.
+# Kane Wang <wangqiang1@kylinos.cn>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-12 11:23+0100\n"
-"PO-Revision-Date: 2018-06-22 16:23+0800\n"
-"Last-Translator: yetist <yetist@gmail.com>\n"
+"PO-Revision-Date: 2025-04-22 14:27+0800\n"
+"Last-Translator: Kane Wang <wangqiang1@kylinos.cn>\n"
 "Language-Team: Chinese\n"
 "Language: zh_CN\n"
 "X-Poedit-Basepath: ../\n"
@@ -30,7 +31,7 @@ msgstr "大端序"
 
 #: hardinfo2/cpu_util.c:209 hardinfo2/cpu_util.c:220 modules/devices/gpu.c:262
 msgid "Frequency Scaling"
-msgstr ""
+msgstr "频率调整"
 
 #: hardinfo2/cpu_util.c:210 modules/devices/gpu.c:263
 msgid "Minimum"
@@ -51,7 +52,7 @@ msgstr "当前设置"
 
 #: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:265
 msgid "Transition Latency"
-msgstr ""
+msgstr "切换延迟"
 
 #: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:265
 msgid "ns"
@@ -59,7 +60,7 @@ msgstr "ns"
 
 #: hardinfo2/cpu_util.c:214
 msgid "Governor"
-msgstr ""
+msgstr "调速器"
 
 #: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:942
 #: modules/devices/gpu.c:209 modules/devices/pci.c:169
@@ -73,7 +74,7 @@ msgstr "驱动"
 #: modules/devices/riscv/processor.c:346 modules/devices/x86/processor.c:283
 #: modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
 msgid "(Not Available)"
-msgstr ""
+msgstr "(不可用)"
 
 #: hardinfo2/cpu_util.c:235 hardinfo2/cpu_util.c:237
 msgid "Socket"
@@ -103,7 +104,7 @@ msgstr "ID"
 
 #: hardinfo2/dmi_util.c:25
 msgid "BIOS Information"
-msgstr ""
+msgstr "BIOS 信息"
 
 #: hardinfo2/dmi_util.c:26 modules/devices/parisc/processor.c:157
 msgid "System"
@@ -132,7 +133,7 @@ msgstr "处理器"
 
 #: hardinfo2/dmi_util.c:30
 msgid "Memory Controller"
-msgstr ""
+msgstr "内存控制器"
 
 #: hardinfo2/dmi_util.c:31
 msgid "Memory Module"
@@ -166,7 +167,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:38
 msgid "BIOS Language"
-msgstr ""
+msgstr "BIOS 语言"
 
 #: hardinfo2/dmi_util.c:39
 msgid "Group Associations"
@@ -174,7 +175,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:40
 msgid "System Event Log"
-msgstr ""
+msgstr "系统事件日志"
 
 #: hardinfo2/dmi_util.c:41
 msgid "Physical Memory Array"
@@ -182,11 +183,11 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:42
 msgid "Memory Device"
-msgstr ""
+msgstr "内存设备"
 
 #: hardinfo2/dmi_util.c:43
 msgid "32-bit Memory Error"
-msgstr ""
+msgstr "32位内存错误"
 
 #: hardinfo2/dmi_util.c:44
 msgid "Memory Array Mapped Address"
@@ -202,15 +203,15 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:47
 msgid "Portable Battery"
-msgstr ""
+msgstr "可拆卸式电池"
 
 #: hardinfo2/dmi_util.c:48
 msgid "System Reset"
-msgstr ""
+msgstr "系统重置"
 
 #: hardinfo2/dmi_util.c:49
 msgid "Hardware Security"
-msgstr ""
+msgstr "硬件安全"
 
 #: hardinfo2/dmi_util.c:50
 msgid "System Power Controls"
@@ -222,7 +223,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:52
 msgid "Cooling Device"
-msgstr ""
+msgstr "冷却设备"
 
 #: hardinfo2/dmi_util.c:53
 msgid "Temperature Probe"
@@ -242,11 +243,11 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:57
 msgid "System Boot"
-msgstr ""
+msgstr "系统引导"
 
 #: hardinfo2/dmi_util.c:58
 msgid "64-bit Memory Error"
-msgstr ""
+msgstr "64位内存错误"
 
 #: hardinfo2/dmi_util.c:59
 msgid "Management Device"
@@ -262,15 +263,15 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:62
 msgid "Memory Channel"
-msgstr ""
+msgstr "内存通道"
 
 #: hardinfo2/dmi_util.c:63
 msgid "IPMI Device"
-msgstr ""
+msgstr "IPMI 设备"
 
 #: hardinfo2/dmi_util.c:64
 msgid "Power Supply"
-msgstr ""
+msgstr "电源"
 
 #: hardinfo2/dmi_util.c:65
 msgid "Additional Information"
@@ -278,7 +279,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:66
 msgid "Onboard Device"
-msgstr ""
+msgstr "板载设备"
 
 #: hardinfo2/dmi_util.c:233
 msgid "Invalid chassis type (0)"
@@ -498,7 +499,7 @@ msgstr[0] "%d 分钟"
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
+msgstr[0] "%d 秒"
 
 #: hardinfo2/util.c:124
 #, c-format
@@ -552,7 +553,7 @@ msgstr ""
 
 #: hardinfo2/util.c:337
 msgid "chooses a report format ([text], html)"
-msgstr ""
+msgstr "选择报告格式([text], html)"
 
 #: hardinfo2/util.c:343
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
@@ -719,7 +720,7 @@ msgstr ""
 
 #: shell/menu.c:102
 msgid "Disable Theme"
-msgstr ""
+msgstr "禁用主题"
 
 #: shell/menu.c:106
 msgid "Theme Motherboard"
@@ -830,15 +831,15 @@ msgstr "正在加载模块..."
 
 #: shell/shell.c:1662
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: shell/shell.c:1669
 msgid "Support URL"
-msgstr ""
+msgstr "支持 URL"
 
 #: shell/shell.c:1680
 msgid "Wikipedia"
-msgstr ""
+msgstr "维基百科"
 
 #: shell/shell.c:2018
 #, c-format
@@ -876,7 +877,7 @@ msgstr ""
 
 #: shell/syncmanager.c:766
 msgid "Privacy Policy"
-msgstr ""
+msgstr "隐私政策"
 
 #: shell/syncmanager.c:788
 msgid "_Synchronize"
@@ -965,11 +966,11 @@ msgstr ""
 
 #: modules/benchmark/benches.c:292
 msgid "Storage R/W Speed"
-msgstr ""
+msgstr "存储读写速度"
 
 #: modules/benchmark/benches.c:300
 msgid "Cache/Memory"
-msgstr ""
+msgstr "缓存/内存"
 
 #: modules/benchmark/benches.c:314
 msgid ""
@@ -1059,13 +1060,13 @@ msgstr "MHz"
 #, c-format
 msgid "%d physical processor"
 msgid_plural "%d physical processors"
-msgstr[0] ""
+msgstr[0] "%d 物理处理器"
 
 #: modules/benchmark/bench_results.c:295 modules/devices.c:181
 #, c-format
 msgid "%d core"
 msgid_plural "%d cores"
-msgstr[0] ""
+msgstr[0] "%d 核心"
 
 #: modules/benchmark/bench_results.c:296 modules/devices.c:182
 #, c-format
@@ -1077,7 +1078,7 @@ msgstr[0] "%d 线程"
 #, c-format
 msgid "%d NUMA node"
 msgid_plural "%d NUMA nodes"
-msgstr[0] ""
+msgstr[0] "%d NUMA 节点"
 
 #. !/NP procs; NC cores across NN nodes; NT threads
 #: modules/benchmark/bench_results.c:305
@@ -1120,11 +1121,11 @@ msgstr "线程"
 
 #: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:485
 msgid "Elapsed Time"
-msgstr ""
+msgstr "用时"
 
 #: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:485
 msgid "seconds"
-msgstr ""
+msgstr "秒"
 
 #: modules/benchmark/bench_results.c:420 modules/computer/languages.c:101
 #: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:362
@@ -1151,7 +1152,7 @@ msgstr ""
 #: modules/benchmark/bench_results.c:428 modules/benchmark/bench_results.c:493
 #: modules/devices/devicetree/pmac_data.c:81 modules/devices/sh/processor.c:85
 msgid "Machine"
-msgstr ""
+msgstr "机器"
 
 #: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:493
 #: modules/devices/devicetree.c:207 modules/devices/dmi.c:48
@@ -1217,15 +1218,15 @@ msgstr "结果"
 
 #: modules/benchmark/bench_results.c:496
 msgid "Linux Kernel"
-msgstr ""
+msgstr "Linux 内核"
 
 #: modules/benchmark/bench_results.c:497
 msgid "Linux OS"
-msgstr ""
+msgstr "Linux 操作系统"
 
 #: modules/benchmark/bench_results.c:508
 msgid "Physical Memory"
-msgstr ""
+msgstr "物理内存"
 
 #: modules/benchmark/bench_results.c:512
 msgid "Handles"
@@ -1263,7 +1264,7 @@ msgstr ""
 
 #: modules/benchmark.c:687
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: modules/benchmark.c:700
 msgid ""
@@ -1301,7 +1302,7 @@ msgstr "操作系统"
 
 #: modules/computer.c:98
 msgid "Security"
-msgstr ""
+msgstr "安全"
 
 #: modules/computer.c:99 modules/devices/gpu.c:211 modules/devices/pci.c:171
 msgid "Kernel Modules"
@@ -1317,7 +1318,7 @@ msgstr "语言"
 
 #: modules/computer.c:102
 msgid "Memory Usage"
-msgstr ""
+msgstr "内存占用 "
 
 #: modules/computer.c:103
 msgid "Filesystems"
@@ -1586,7 +1587,7 @@ msgstr ""
 
 #: modules/computer.c:524
 msgid "Display Adapter"
-msgstr ""
+msgstr "显示适配器"
 
 #: modules/computer.c:527
 msgid "Session Display Server"
@@ -1642,11 +1643,11 @@ msgstr ""
 
 #: modules/computer.c:592
 msgid "Single User System"
-msgstr ""
+msgstr "单用户系统"
 
 #: modules/computer.c:593
 msgid "Multi User System"
-msgstr ""
+msgstr "多用户系统"
 
 #: modules/computer.c:601
 msgid "HardInfo2"
@@ -1658,15 +1659,15 @@ msgstr ""
 
 #: modules/computer.c:602
 msgid "Superuser"
-msgstr ""
+msgstr "超级用户"
 
 #: modules/computer.c:602
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: modules/computer.c:603
 msgid "User System Type"
-msgstr ""
+msgstr "用户系统类型"
 
 #: modules/computer.c:603
 msgid "Hardinfo2 Service not enabled/started"
@@ -1702,7 +1703,7 @@ msgstr ""
 
 #: modules/computer.c:622
 msgid "SELinux status"
-msgstr ""
+msgstr "SElinux 状态"
 
 #: modules/computer.c:628
 msgid "CPU Vulnerabilities"
@@ -1875,7 +1876,7 @@ msgstr ""
 
 #: modules/computer.c:796
 msgid "Version (ES)"
-msgstr ""
+msgstr "版本 (ES)"
 
 #: modules/computer.c:797
 msgid "Shading Language Version (ES)"
@@ -1895,27 +1896,27 @@ msgstr ""
 
 #: modules/computer.c:809
 msgid "Api Version"
-msgstr ""
+msgstr "Api 版本"
 
 #: modules/computer.c:810
 msgid "Driver Version"
-msgstr ""
+msgstr "驱动版本"
 
 #: modules/computer.c:812
 msgid "Device Type"
-msgstr ""
+msgstr "设备类型"
 
 #: modules/computer.c:813
 msgid "Device Name"
-msgstr ""
+msgstr "设备名称"
 
 #: modules/computer.c:814
 msgid "Driver Name"
-msgstr ""
+msgstr "驱动名称"
 
 #: modules/computer.c:815
 msgid "Driver Info"
-msgstr ""
+msgstr "驱动信息"
 
 #: modules/computer.c:816
 msgid "Conformance Version"
@@ -6341,7 +6342,7 @@ msgstr ""
 #: modules/network/net.c:301
 msgctxt "net-if-type"
 msgid "(Unknown)"
-msgstr ""
+msgstr "(未知)"
 
 #: modules/network/net.c:364 modules/network/net.c:374
 msgid "Network Interfaces"
@@ -6406,7 +6407,7 @@ msgstr ""
 
 #: modules/network/net.c:478
 msgid "Link Quality"
-msgstr ""
+msgstr "连接质量"
 
 #: modules/network/net.c:479
 msgid "Signal / Noise"

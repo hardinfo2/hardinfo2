@@ -26,9 +26,8 @@
 #include <stdlib.h>
 
 /* if anything changes in this block, increment revision */
-#define BENCH_REVISION 3
+#define BENCH_REVISION 4
 
-#define SZ 128L*1024*1024
 #define ALIGN (1024*1024)
 
 void __attribute__ ((noinline)) mcpy(void *dst, void *src, size_t sz) {memcpy(dst, src, sz);}
@@ -55,12 +54,12 @@ void cachemem_do_benchmark(char *dst, char *src, long sz, double *res){
     //printf("- sec=%2.6f\n",sec);
 }
 
-static bench_value cacchemem_runtest(){
+static bench_value cacchemem_runtest(unsigned long SZ){
     bench_value ret = EMPTY_BENCH_VALUE;
     char *buf;
     int i,cachespeed;
     double res[30];
-    long sz, l=0;
+    unsigned long sz, l=0;
     clock_t start=clock();
 
     buf=g_malloc(SZ+SZ+ALIGN);
@@ -96,6 +95,7 @@ static bench_value cacchemem_runtest(){
     ret.elapsed_time = ((clock()-start)/(double)CLOCKS_PER_SEC);
     cachespeed=(res[8]+res[10]+res[12]+res[14])/4;
     ret.result = (cachespeed+((res[16]+res[18]+res[20]+res[22])/4-cachespeed)/2)*1024;
+    if(SZ<128L*1024*1024) {res[26]=res[24];res[25]=res[24];}
     sprintf(ret.extra,"%0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf", res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26]);
     ret.threads_used = 1;
     ret.revision = BENCH_REVISION;
@@ -108,7 +108,14 @@ void benchmark_cachemem(void) {
     shell_view_set_enabled(FALSE);
     shell_status_update("Performing Cache/Memory Benchmark...");
 
-    r = cacchemem_runtest();
+    gchar *tmp=module_call_method("computer::getMemoryTotal");
+    unsigned long memory_kiB = strtoul(tmp, NULL, 10);
+    free(tmp);
+    //low memory devices have less than 64MB cache, so lower test for low memory machines to could run it.
+    if( memory_kiB <= 512L*1024)
+        r = cacchemem_runtest(32L*1024*1024);
+    else
+        r = cacchemem_runtest(128L*1024*1024);
     
     bench_results[BENCHMARK_CACHEMEM] = r;
 }

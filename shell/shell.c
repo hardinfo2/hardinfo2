@@ -1862,8 +1862,8 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
     //Scroll to selected item or first
     if(entry->flags & MODULE_FLAG_BENCHMARK){
 	select_marked_or_first_item(NULL);
-        g_idle_add(select_first_tree_item, NULL);
-        g_idle_add(select_first_tree_item, NULL);
+        g_idle_add(select_marked_or_first_item, NULL);
+        g_idle_add(select_marked_or_first_item, NULL);
     } else {
         if((shell->view_type==SHELL_VIEW_DUAL)||(shell->view_type==SHELL_VIEW_LOAD_GRAPH)||(shell->view_type==SHELL_VIEW_PROGRESS_DUAL)){
 	    select_marked_or_first_item(NULL);

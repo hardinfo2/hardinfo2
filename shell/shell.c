@@ -1044,8 +1044,9 @@ static void detail_view_clear(DetailView *detail_view)
 {
     gtk_container_forall(GTK_CONTAINER(shell->detail_view->view),
                          destroy_widget, NULL);
-    RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
-    RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
+    while (gtk_events_pending()) gtk_main_iteration();
+    //RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
+    //RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
 }
 
 static gboolean reload_section(gpointer data)

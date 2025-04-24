@@ -248,8 +248,6 @@ void shell_status_set_percentage(gint percentage)
 {
     if (params.gui_running) {
 	if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(shell->progress), (float) percentage / 100.0);
-	while (gtk_events_pending())
-	    gtk_main_iteration();
     } else if (!params.quiet) {
 	if (percentage < 1 || percentage >= 100) {
 	    fprintf(stderr, "\033[2K");
@@ -277,7 +275,7 @@ void shell_view_set_enabled(gboolean setting)
 	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
     }
 
-    gtk_widget_set_sensitive(shell->hbox, setting);
+    //gtk_widget_set_sensitive(shell->hbox, setting);
     shell_action_set_enabled("ViewMenuAction", setting);
     shell_action_set_enabled("RefreshAction", setting);
     //shell_action_set_enabled("CopyAction", setting);
@@ -330,15 +328,7 @@ void shell_status_update(const gchar * message)
 {
     //DEBUG("Shell_status_update %s",message);
     if (params.gui_running) {
-	gtk_label_set_markup(GTK_LABEL(shell->status), message);
-	gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(shell->progress),1);
-	//gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
-        //gtk_widget_set_sensitive(shell->window, TRUE);
-	//gtk_window_set_focus(shell->window,);
-	//gtk_widget_grab_focus(shell->window);
-	//gtk_widget_activate(shell->window);
-	//gtk_window_get_focus_visible(shell->window);
-	//while (gtk_events_pending()) gtk_main_iteration();
+        if(gtk_widget_get_visible(shell->status)) gtk_label_set_markup(GTK_LABEL(shell->status), message);
     } else if (!params.quiet) {
 	fprintf(stderr, "\033[2K\033[40;37;1m %s\033[0m\r", message);
     }
@@ -572,6 +562,7 @@ static void create_window(void)
 #else
     gtk_misc_set_alignment(GTK_MISC(shell->progress), 0.0, 0.5);
 #endif
+    gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(shell->progress),0.10);
     gtk_widget_hide(shell->progress);
     gtk_box_pack_end(GTK_BOX(hbox), shell->progress, FALSE, FALSE, 5);
 

@@ -63,41 +63,43 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
     gchar **split, *contents=NULL, **line;
     gint exit_status;
     const AptFlavor *f = NULL;
-    gchar *cmd_line = g_strdup("apt-cache policy");
+    gchar *cmdline;
     int i = 0, found=0;
 
     while(apt_flavors[i].name){
-        if(apt_flavors[i].aptname[0]!='/') cmd_line = appfsp(cmd_line, "%s", apt_flavors[i].aptname);
-	if((apt_flavors[i].aptname[0]=='/') && g_file_get_contents(apt_flavors[i].aptname, &contents, NULL, NULL)) {found=1;break;}
-	i++;
-    }
-    if(found){
-        f = &apt_flavors[i];
-	g_free(contents);
-    } else {
-        spawned = hardinfo_spawn_command_line_sync(cmd_line, &out, &err, &exit_status, NULL);
-        if (spawned) {
-            p = out;
-            while((next_nl = strchr(p, '\n'))) {
-                strend(p, '\n');
-                int mc = 0;
-		char pkg[32] = "";
-		if (*p != ' ' && *p != '\t')
-		  mc = sscanf(p, "%31s", pkg);
-		if (mc == 1) {
-		  strend(pkg, ':');
-		  int i=0;
-		  while(apt_flavors[i].name && !SEQ(apt_flavors[i].aptname, pkg)) i++;
-		  if(apt_flavors[i].name) f = &apt_flavors[i]; else f=NULL;
-		} else if(g_strstr_len(p, -1, "Installed:") && !g_strstr_len(p, -1, "(none)") ) {
-		  found=1;
-		  break;
-		}
-		p = next_nl + 1;
+       if((apt_flavors[i].aptname[0]=='/') && g_file_get_contents(apt_flavors[i].aptname, &contents, NULL, NULL)) {
+	   found=1;
+           f = &apt_flavors[i];
+	   g_free(contents);
+	   break;
+       } else if(apt_flavors[i].aptname[0]!='/') {
+	   cmdline = g_strconcat("sh -c 'LC_ALL=C apt-cache policy ", apt_flavors[i].aptname,"'",NULL);
+           spawned = hardinfo_spawn_command_line_sync(cmdline, &out, &err, &exit_status, NULL);
+	   g_free(cmdline);
+           if (spawned) {
+                p = out;
+                while((next_nl = strchr(p, '\n'))) {
+                    strend(p, '\n');
+                    int mc = 0;
+		    char pkg[32] = "";
+		    if (*p != ' ' && *p != '\t')
+		       mc = sscanf(p, "%31s", pkg);
+		    if (mc == 1) {
+		       strend(pkg, ':');
+		       int i=0;
+		       while(apt_flavors[i].name && !SEQ(apt_flavors[i].aptname, pkg)) i++;
+		       if(apt_flavors[i].name) f = &apt_flavors[i]; else f=NULL;
+		    } else if(g_strstr_len(p, -1, "Installed:") && !g_strstr_len(p, -1, "(none)") ) {
+		        found=1;
+		        break;
+		    }
+                    p = next_nl + 1;
+	        }
+	        g_free(out);
+	        g_free(err);
 	    }
-	    g_free(out);
-	    g_free(err);
-	}
+        }
+        i++;
     }
 
     if(found){
@@ -139,7 +141,6 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
 	}
         if(*orig_name) g_free(*orig_name);
     }
-    g_free(cmd_line);
 }
 
 

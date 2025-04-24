@@ -271,12 +271,12 @@ void shell_view_set_enabled(gboolean setting)
     //DEBUG("SHELL_VIEW=%s\n",setting?"Normal":"Busy");
     if (!params.gui_running)
 	return;
-
+    //Note below cursor choice is slow on trixie riscv
     if (setting) {
 	shell->_pulses = 0;
-	widget_set_cursor(shell->window, GDK_LEFT_PTR);
+	widget_set_cursor(GTK_WIDGET(shell->window), GDK_LEFT_PTR);
     } else {
-        widget_set_cursor(shell->window, GDK_WATCH);
+	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
     }
 
     gtk_widget_set_sensitive(shell->hbox, setting);
@@ -1044,9 +1044,6 @@ static void detail_view_clear(DetailView *detail_view)
 {
     gtk_container_forall(GTK_CONTAINER(shell->detail_view->view),
                          destroy_widget, NULL);
-    while (gtk_events_pending()) gtk_main_iteration();
-    //RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
-    //RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
 }
 
 static gboolean reload_section(gpointer data)
@@ -1864,12 +1861,10 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
 
     //Scroll to selected item or first
     if(entry->flags & MODULE_FLAG_BENCHMARK){
-        g_idle_add(select_marked_or_first_item, NULL);
-        while (gtk_events_pending()) gtk_main_iteration();
-        g_idle_add(select_marked_or_first_item, NULL);
+	select_marked_or_first_item(NULL);
     } else {
         if((shell->view_type==SHELL_VIEW_DUAL)||(shell->view_type==SHELL_VIEW_LOAD_GRAPH)||(shell->view_type==SHELL_VIEW_PROGRESS_DUAL)){
-            g_idle_add(select_marked_or_first_item, NULL);
+	    select_marked_or_first_item(NULL);
 	}
     }
 }
@@ -2140,7 +2135,6 @@ static void module_selected(gpointer data)
 
         shell_action_set_enabled("RefreshAction", TRUE);
         //shell_action_set_enabled("CopyAction", TRUE);
-
         shell_status_set_enabled(FALSE);
     } else {
         shell_set_title(shell, NULL);

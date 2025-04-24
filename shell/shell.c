@@ -284,7 +284,7 @@ void shell_view_set_enabled(gboolean setting)
     shell_action_set_enabled("RefreshAction", setting);
     //shell_action_set_enabled("CopyAction", setting);
     shell_action_set_enabled("ReportAction", setting);
-    shell_action_set_enabled("SyncManagerAction", setting && sync_manager_count_entries() > 0);
+    shell_action_set_enabled("SyncManagerAction", setting);
 }
 
 void shell_status_set_enabled(gboolean setting)
@@ -298,7 +298,6 @@ void shell_status_set_enabled(gboolean setting)
     else {
         gtk_widget_hide(shell->progress);
 	shell_view_set_enabled(TRUE);
-
 	shell_status_update(_("Done."));
     }
 }
@@ -319,7 +318,6 @@ void shell_do_reload(gboolean reload)
     if(!params.aborting_benchmarks) {
         module_selected(NULL);
     } else {
-        shell_status_update("Ready.");
         shell_status_set_enabled(FALSE);
     }
 
@@ -342,7 +340,7 @@ void shell_status_update(const gchar * message)
 	//gtk_widget_grab_focus(shell->window);
 	//gtk_widget_activate(shell->window);
 	//gtk_window_get_focus_visible(shell->window);
-	while (gtk_events_pending()) gtk_main_iteration();
+	//while (gtk_events_pending()) gtk_main_iteration();
     } else if (!params.quiet) {
 	fprintf(stderr, "\033[2K\033[40;37;1m %s\033[0m\r", message);
     }
@@ -936,7 +934,6 @@ void shell_init(GSList * modules)
     gtk_widget_hide(shell->notebook);
     gtk_widget_hide(shell->note->event_box);
 
-    shell_status_update(_("Done."));
     shell_status_set_enabled(FALSE);
 
     shell_action_set_enabled("RefreshAction", FALSE);
@@ -944,7 +941,7 @@ void shell_init(GSList * modules)
     shell_action_set_active("SidePaneAction", TRUE);
     shell_action_set_active("ToolbarAction", TRUE);
 
-    shell_action_set_enabled("SyncManagerAction", sync_manager_count_entries() > 0);
+    shell_action_set_enabled("SyncManagerAction", TRUE);
 
     /* Should select Computer Summary (note: not Computer/Summary) */
     g_idle_add(select_first_tree_item, NULL);
@@ -1019,7 +1016,7 @@ static gboolean update_field(gpointer data)
 }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-    #define RANGE_SET_VALUE(tree,scrollbar,value) {while (gtk_events_pending()) gtk_main_iteration();gtk_range_set_value(GTK_RANGE(gtk_scrolled_window_get_##scrollbar(GTK_SCROLLED_WINDOW(shell->tree->scroll))), value);}
+    #define RANGE_SET_VALUE(tree,scrollbar,value) {gtk_range_set_value(GTK_RANGE(gtk_scrolled_window_get_##scrollbar(GTK_SCROLLED_WINDOW(shell->tree->scroll))), value);}
     #define RANGE_GET_VALUE(tree,scrollbar) gtk_range_get_value(GTK_RANGE(gtk_scrolled_window_get_##scrollbar(GTK_SCROLLED_WINDOW(shell->tree->scroll))))
 #else
   #define _CONCAT(a,b) a ## b
@@ -2118,7 +2115,6 @@ static void module_selected(gpointer data)
 
         shell_status_set_enabled(TRUE);
         shell_status_update(_("Updating..."));
-
         entry->selected = TRUE;
         shell->selected = entry;
         module_selected_show_info(entry, FALSE);
@@ -2131,8 +2127,11 @@ static void module_selected(gpointer data)
             RANGE_SET_VALUE(info_tree, vscrollbar, 0.0);
 	}
         RANGE_SET_VALUE(info_tree, hscrollbar, 0.0);
-        RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
-        RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
+
+        if (shell->view_type == SHELL_VIEW_DETAIL) {
+            RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
+            RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
+        }
 
         title = g_strdup_printf("%s - %s", shell->selected_module->name, entry->name);
         shell_set_title(shell, title);
@@ -2141,7 +2140,6 @@ static void module_selected(gpointer data)
         shell_action_set_enabled("RefreshAction", TRUE);
         //shell_action_set_enabled("CopyAction", TRUE);
 
-        shell_status_update(_("Done."));
         shell_status_set_enabled(FALSE);
     } else {
         shell_set_title(shell, NULL);

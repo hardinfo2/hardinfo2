@@ -234,9 +234,8 @@ void shell_status_pulse(void)
 	       to a hourglass */
 	    shell_view_set_enabled(FALSE);
 	}
+	if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
 
-	gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
-	while (gtk_events_pending()) gtk_main_iteration();
     } else if (!params.quiet) {
 	static gint counter = 0;
 
@@ -248,8 +247,7 @@ void shell_status_pulse(void)
 void shell_status_set_percentage(gint percentage)
 {
     if (params.gui_running) {
-	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(shell->progress),
-				      (float) percentage / 100.0);
+	if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(shell->progress), (float) percentage / 100.0);
 	while (gtk_events_pending())
 	    gtk_main_iteration();
     } else if (!params.quiet) {
@@ -334,7 +332,7 @@ void shell_status_update(const gchar * message)
     if (params.gui_running) {
 	gtk_label_set_markup(GTK_LABEL(shell->status), message);
 	gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(shell->progress),1);
-	gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
+	//gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
         //gtk_widget_set_sensitive(shell->window, TRUE);
 	//gtk_window_set_focus(shell->window,);
 	//gtk_widget_grab_focus(shell->window);

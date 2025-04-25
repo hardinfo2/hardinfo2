@@ -1072,7 +1072,12 @@ static gboolean reload_section(gpointer data)
         }
 
         /* restore position */
-        if(pos_info_scroll) RANGE_SET_VALUE(info_tree, vscrollbar, pos_info_scroll);
+        if(pos_info_scroll) {
+	    if(strcmp(shell->selected_module->name,_("Network"))==0) {
+	       while(gtk_events_pending()) gtk_main_iteration();
+	    }
+	    RANGE_SET_VALUE(info_tree, vscrollbar, pos_info_scroll);
+	}
         if(pos_detail_scroll) RANGE_SET_VALUE(detail_view, vscrollbar, pos_detail_scroll);
 
 	/*UnFreeze widget updates*/

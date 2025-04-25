@@ -68,7 +68,7 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
 
     while(!found && apt_flavors[i].name){
        if((apt_flavors[i].aptname[0]=='/') && g_file_get_contents(apt_flavors[i].aptname, &contents, NULL, NULL)) {
-	   found=i;
+	   found=1;
            f = &apt_flavors[i];
 	   g_free(contents);
        } else if(apt_flavors[i].aptname[0]!='/') {
@@ -89,7 +89,7 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
 		       while(apt_flavors[i].name && !SEQ(apt_flavors[i].aptname, pkg)) i++;
 		       if(apt_flavors[i].name) f = &apt_flavors[i]; else f=NULL;
 		    } else if(g_strstr_len(p, -1, "Installed:") && !g_strstr_len(p, -1, "(none)") ) {
-		        found=i;
+		        found=1;
 		        break;
 		    }
                     p = next_nl + 1;

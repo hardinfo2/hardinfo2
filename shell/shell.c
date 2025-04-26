@@ -270,6 +270,7 @@ gboolean set_cursor(gpointer data)
     } else {
 	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
     }
+    return FALSE;
 }
 
 void shell_view_set_enabled(gboolean setting)
@@ -278,14 +279,14 @@ void shell_view_set_enabled(gboolean setting)
     if (!params.gui_running)
 	return;
     //Note below cursor choice is slow on trixie riscv
-    //So moved to above set_cursor on idle_event
+    //So moved to above set_cursor on timer event
     if (setting) {
 	shell->_pulses = 0;
 	shellview_enabled=1;
     } else {
 	shellview_enabled=0;
     }
-    g_idle_add(set_cursor,NULL);
+    g_timeout_add(200,set_cursor,NULL);
 
     //gtk_widget_set_sensitive(shell->hbox, setting);
     shell_action_set_enabled("ViewMenuAction", setting);

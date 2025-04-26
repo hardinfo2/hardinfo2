@@ -262,31 +262,17 @@ void shell_status_set_percentage(gint percentage)
     }
 }
 
-int shellview_enabled=1;
-gboolean set_cursor(gpointer data)
-{
-    if (shellview_enabled) {
-	widget_set_cursor(GTK_WIDGET(shell->window), GDK_LEFT_PTR);
-    } else {
-	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
-    }
-    return FALSE;
-}
-
 void shell_view_set_enabled(gboolean setting)
 {
     //DEBUG("SHELL_VIEW=%s\n",setting?"Normal":"Busy");
     if (!params.gui_running)
 	return;
-    //Note below cursor choice is slow on trixie riscv
-    //So moved to above set_cursor on timer event
     if (setting) {
 	shell->_pulses = 0;
-	shellview_enabled=1;
+	widget_set_cursor(GTK_WIDGET(shell->window), GDK_LEFT_PTR);
     } else {
-	shellview_enabled=0;
+	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
     }
-    g_timeout_add(200,set_cursor,NULL);
 
     //gtk_widget_set_sensitive(shell->hbox, setting);
     shell_action_set_enabled("ViewMenuAction", setting);

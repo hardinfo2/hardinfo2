@@ -194,9 +194,6 @@ void widget_set_cursor(GtkWidget * widget, GdkCursorType cursor_type)
         gdk_cursor_unref(cursor);
 #endif
     }
-
-    while (gtk_events_pending())
-        gtk_main_iteration();
 }
 
 static gboolean __nonblock_cb(gpointer data)

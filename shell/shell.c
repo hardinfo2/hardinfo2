@@ -909,9 +909,6 @@ void shell_init(GSList * modules)
     gtk_notebook_set_show_tabs(GTK_NOTEBOOK(shell->notebook), FALSE);
     gtk_notebook_set_show_border(GTK_NOTEBOOK(shell->notebook), FALSE);
 
-    shell_status_set_enabled(TRUE);
-    shell_status_update(_("Loading modules..."));
-
     shell->tree->modules = modules;
 
     check_for_updates();
@@ -924,15 +921,6 @@ void shell_init(GSList * modules)
     load_graph_configure_expose(shell->loadgraph);
     gtk_widget_hide(shell->notebook);
     gtk_widget_hide(shell->note->event_box);
-
-    shell_status_set_enabled(FALSE);
-
-    shell_action_set_enabled("RefreshAction", FALSE);
-    //shell_action_set_enabled("CopyAction", FALSE);
-    shell_action_set_active("SidePaneAction", TRUE);
-    shell_action_set_active("ToolbarAction", TRUE);
-
-    shell_action_set_enabled("SyncManagerAction", TRUE);
 
     /* Should select Computer Summary (note: not Computer/Summary) */
     g_idle_add(select_first_tree_item, NULL);
@@ -2101,7 +2089,6 @@ static void module_selected(gpointer data)
     }
 
     gtk_tree_model_get(model, &parent, TREE_COL_MODULE, &shell->selected_module, -1);
-
     /* Get the current selection and shows its related info */
     gtk_tree_model_get(model, &iter, TREE_COL_MODULE_ENTRY, &entry, -1);
     if (entry && !entry->selected) {
@@ -2135,6 +2122,7 @@ static void module_selected(gpointer data)
         //shell_action_set_enabled("CopyAction", TRUE);
         shell_status_set_enabled(FALSE);
     } else {
+        shell_status_set_enabled(TRUE);
         shell_set_title(shell, NULL);
         shell_action_set_enabled("RefreshAction", FALSE);
         //shell_action_set_enabled("CopyAction", FALSE);
@@ -2145,6 +2133,7 @@ static void module_selected(gpointer data)
         if (shell->selected_module->summaryfunc) {
 	    shell_show_detail_view();
         }
+        shell_status_set_enabled(FALSE);
     }
     current = entry;
     updating = FALSE;

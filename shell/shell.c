@@ -235,6 +235,7 @@ void shell_status_pulse(void)
 	    shell_view_set_enabled(FALSE);
 	}
 	if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
+	int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
 
     } else if (!params.quiet) {
 	static gint counter = 0;
@@ -280,6 +281,7 @@ void shell_view_set_enabled(gboolean setting)
     //shell_action_set_enabled("CopyAction", setting);
     shell_action_set_enabled("ReportAction", setting);
     shell_action_set_enabled("SyncManagerAction", setting);
+    int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
 }
 
 void shell_status_set_enabled(gboolean setting)
@@ -1073,7 +1075,7 @@ static gboolean reload_section(gpointer data)
         /* restore position */
         if(pos_info_scroll) {
 	    if(strcmp(shell->selected_module->name,_("Network"))==0) {
-	       while(gtk_events_pending()) gtk_main_iteration();
+	      int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
 	    }
 	    RANGE_SET_VALUE(info_tree, vscrollbar, pos_info_scroll);
 	}

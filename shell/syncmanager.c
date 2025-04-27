@@ -535,8 +535,7 @@ sync_dialog_netarea_start_actions(SyncDialog *sd, SyncNetAction sna[], gint n)
         gtk_widget_show_all(hbox);
     }
 
-    while (gtk_events_pending())
-        gtk_main_iteration();
+    int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
 
     for (i = n-1; i >0; i--) {
         gchar *markup;

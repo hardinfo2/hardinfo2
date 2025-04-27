@@ -126,6 +126,36 @@ static char *entries_english_name[] = {
 	    ,"Cache/Memory"
 };
 
+//Note: Same order as entries
+static int entries_btimer[] = {
+    7,//"CPU Blowfish (Single-thread)",
+    7,//"CPU Blowfish (Multi-thread)",
+    7,//"CPU Blowfish (Multi-core)",
+    7,//"CPU Zlib",
+    5,//"CPU CryptoHash",
+    5,//"CPU Fibonacci",
+    5,//"CPU N-Queens",
+    5,//"FPU FFT",
+    5,//"FPU Raytracing (Single-thread)",
+    10,//"Internal Network Speed",
+    7,//"SysBench CPU (Single-thread)",
+    7,//"SysBench CPU (Multi-thread)",
+    7,//"SysBench CPU (Four threads)",
+    7,//"SysBench Memory (Single-thread)",
+    7,//"SysBench Memory (Two threads)",
+    7,//"SysBench Memory (Quad threads)",
+    7,//"SysBench Memory (Multi-thread)",
+    15,//"GPU Drawing"
+#if(HARDINFO2_QT5)
+    4,//,"GPU OpenGL Drawing"
+#endif
+#if(HARDINFO2_VK)
+    3,//,"GPU Vulkan Drawing"
+#endif
+    4,//,"Storage R/W Speed"
+    5,//,"Cache/Memory"
+};
+
 
 static ModuleEntry entries[] = {
     [BENCHMARK_BLOWFISH_SINGLE] =

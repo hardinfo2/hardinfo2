@@ -234,7 +234,8 @@ void shell_status_pulse(void)
 	       to a hourglass */
 	    shell_view_set_enabled(FALSE);
 	}
-	if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
+	if(shell && shell->selected_module && strcmp(shell->selected_module->name,_("Benchmark")))
+	    if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
 	int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
 
     } else if (!params.quiet) {

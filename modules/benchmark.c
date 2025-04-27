@@ -37,6 +37,8 @@
 
 bench_value bench_results[BENCHMARK_N_ENTRIES];
 
+static int btotaltimer, btimer;
+
 static void do_benchmark(void (*benchmark_function)(void), int entry);
 static gchar *benchmark_include_results_reverse(bench_value result,
                                                 const gchar *benchmark);
@@ -650,6 +652,12 @@ do_benchmark_handler(GIOChannel *source, GIOCondition condition, gpointer data)
     return FALSE;
 }
 
+static gboolean benchmark_update(gpointer user_data){
+  if(btotaltimer) shell_status_set_percentage(100*(btotaltimer-btimer)/btotaltimer);
+  if(btimer) btimer--;
+  return TRUE;
+}
+
 static void do_benchmark(void (*benchmark_function)(void), int entry)
 {
     int old_priority = 0;
@@ -658,7 +666,7 @@ static void do_benchmark(void (*benchmark_function)(void), int entry)
         return;
 
     if (params.gui_running && !params.run_benchmark) {
-      gchar *argv[] = {params.argv0, "-b",entries[entry].name,"-n",params.darkmode?"1":"0",NULL};
+        gchar *argv[] = {params.argv0, "-b",entries[entry].name,"-n",params.darkmode?"1":"0",NULL};
         GPid bench_pid;
         gint bench_stdout;
         GtkWidget *bench_dialog = NULL;
@@ -672,10 +680,14 @@ static void do_benchmark(void (*benchmark_function)(void), int entry)
         guint watch_id;
 	gchar *title;
         gboolean done=FALSE;
+	guint btimer_id=0;
 
         bench_results[entry] = r;
 
 	bench_status = g_strdup_printf(_("Benchmarking: <b>%s</b>."), _(entries[entry].name));
+	btotaltimer=entries_btimer[entry];
+	btimer=entries_btimer[entry];
+	benchmark_update(NULL);
         shell_status_update(bench_status);
 	g_free(bench_status);
 
@@ -722,6 +734,7 @@ static void do_benchmark(void (*benchmark_function)(void), int entry)
         if (g_spawn_async_with_pipes(NULL, argv, NULL, spawn_flags, NULL, NULL,
                                      &bench_pid, NULL, &bench_stdout, NULL,
                                      NULL)) {
+	    btimer_id=g_timeout_add(1000,benchmark_update,NULL);
 
             channel = g_io_channel_unix_new(bench_stdout);
             watch_id = g_io_add_watch(channel, G_IO_IN, do_benchmark_handler, benchmark_dialog);
@@ -742,11 +755,13 @@ static void do_benchmark(void (*benchmark_function)(void), int entry)
             g_io_channel_unref(channel);
             if(benchmark_dialog && benchmark_dialog->dialog) gtk_widget_destroy(benchmark_dialog->dialog);
             g_free(benchmark_dialog);
+	    g_source_remove(btimer_id);
 
             return;
         }
         if(benchmark_dialog && benchmark_dialog->dialog) gtk_widget_destroy(benchmark_dialog->dialog);
         g_free(benchmark_dialog);
+	if(btimer_id) g_source_remove(btimer_id);
         return;
     }
 

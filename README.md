@@ -83,15 +83,16 @@ Building and installing
 **openSUSE**: use zypper instead of yum, zypper --no-gpg-checks install ./hardinfo2-*
 libqt5-qtbase-devel instead of qt5-qtbase-devel
 
-**ArchLinux/Garuda/Manjaro/Endeavour**
- - git clone https://github.com/hardinfo2/hardinfo2
- - cd hardinfo2
- - cp tools/PKGBUILD .
- - cp tools/hardinfo2.install .
- - makepkg -cis --noextract
- - hardinfo2
+**Arch Linux and derivates such as Garuda, EndeavourOS, CachyOS, etc.**
+ * `hardinfo2` (stable release) or `hardinfo2-git` (latest git master branch) can be installed via the [AUR](https://wiki.archlinux.org/title/Arch_User_Repository).
 
-Setting up addition tools
+**Manjaro**
+* Available for both x86_64 and aarch64 architectures.<sup>1</sup>
+- `sudo pacman -S hardinfo2`
+
+  <sub><sup>1</sup> Note that the ARM version is currently only available in the arm-unstable [branch](https://wiki.manjaro.org/index.php/Switching_Branches)</sub>
+
+Setting up additional tools
 ---------------------------
 Most hardware is detected automatically by Hardinfo2, but some might need manual set up.
 

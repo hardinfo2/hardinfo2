@@ -223,6 +223,7 @@ if(${distro} MATCHES "openSUSE*")
   else()
     #opensuse leap 16
     if(${disversion} GREATER 15.99)
+       SET(RPM_REQ "dmidecode, sysbench, udisks2, xdg-utils, xrandr,vulkan-tools,  Mesa-demo-x, iperf, sensors, gawk") #Some error for fwupd vs KDE6 dependencies
     endif()
   endif()
 endif()

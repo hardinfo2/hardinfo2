@@ -346,17 +346,14 @@ const gchar *hi_note_func(gint entry)
     case BENCHMARK_SBCPU_SINGLE:
     case BENCHMARK_SBCPU_QUAD:
     case BENCHMARK_SBCPU_ALL:
-        return _("Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-                 "Results in events/second. Higher is better.");
+        return _("Results in events/second. Higher is better.");
     case BENCHMARK_MEMORY_SINGLE:
     case BENCHMARK_MEMORY_DUAL:
     case BENCHMARK_MEMORY_QUAD:
     case BENCHMARK_MEMORY_ALL:
-        return _("Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-                 "Results in MiB/second. Higher is better.");
+        return _("Results in MiB/second. Higher is better.");
     case BENCHMARK_IPERF3_SINGLE:
-        return _("<i><b>iperf3</b></i> is required.\n"
-                 "Results in Gbits/s. Higher is better.");
+        return _("Results in Gbits/s. Higher is better.");
     case BENCHMARK_CRYPTOHASH:
     case BENCHMARK_BLOWFISH_SINGLE:
     case BENCHMARK_BLOWFISH_THREADS:

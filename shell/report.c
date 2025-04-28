@@ -448,6 +448,7 @@ static void report_html_header(ReportContext * ctx)
 	 "    .stitle { font: bold 2em sans-serif; padding: 10px 0 10px 10px; color: #07575B; font-family: Arial, sans-serif; }\n"
 	 "    .sstitle{ font: bold 1.25em serif; padding: 10px 0 10px 10px; color: #C4DFE6; font-family: Arial, sans-serif; "
 	 "              background: #07575B; border-bottom: 2px solid #009879; border-top: 2px solid #009879;}\n"
+	 "    .hilight  { font: bold 1em sans-serif; color: orange; padding: 2px; font-family: Arial, sans-serif; min-width: auto; width: 300px !important; }\n"
 	 "    .field  { font: 1em sans-serif; color: #C4DFE6; padding: 2px; font-family: Arial, sans-serif; min-width: auto; width: 300px !important; }\n"
 	 "    .value  { font: 1em sans-serif; color: #C4DFE6; font-family: Arial, sans-serif; }\n"
 	 "    table.details { margin-left: 0px;min-width:auto;width:100%%; }\n"
@@ -558,16 +559,19 @@ static void report_html_key_value(ReportContext * ctx, gchar *key, gchar *value,
     gchar *name = (gchar*)key_get_name(key);
 
     if (columns == 2) {
-      ctx->output = h_strdup_cprintf("<tr%s><td class=\"icon\">%s</td><td class=\"field\">%s</td>"
-                                    "<td class=\"value\">%s</td></tr>\n",
-                                    ctx->output,
-                                    highlight ? " class=\"hilight\"" : "",
-                                    icon, name, value);
+      ctx->output = h_strdup_cprintf("<tr><td class=\"icon\">%s</td><td class=\"%s\">%s</td>"
+				     "<td class=\"%s\">%s</td></tr>\n",
+				     ctx->output,
+				     icon,
+				     highlight ? "hilight" : "field",
+				     name,
+				     highlight ? "hilight" : "value",
+				     value);
     } else {
       values = g_strsplit(value, "|", columns);
       mc = g_strv_length(values) - 1;
 
-      ctx->output = h_strdup_cprintf("\n<tr%s>\n<td class=\"icon\">%s</td><td class=\"field\">%s</td>", ctx->output, highlight ? " class=\"hilight\"" : "", icon, name);
+      ctx->output = h_strdup_cprintf("\n<tr>\n<td class=\"icon\">%s</td><td class=\"%s\">%s</td>", ctx->output, icon, highlight ? "hilight" : "field", name);
 
       for (i = columns-2; i >= 0; i--) {
         ctx->output = h_strdup_cprintf("<td class=\"value\">%s</td>",

@@ -1301,8 +1301,8 @@ gchar *strwrap(const gchar *st, size_t w, gchar delimiter)
 
   if(!st) return NULL;
 
-  //disable wrap for CLI
-  if(params.create_report) return g_strdup(st);
+  //disable wrap for CLI text
+  if(params.create_report && !(params.fmt_opts & FMT_OPT_HTML)) return g_strdup(st);
 
   while(((len=strlen(ist)) > 0) && (((rst-retst)+w+2)<MAX_STRWRAP)){
     if(len>w) len=w;

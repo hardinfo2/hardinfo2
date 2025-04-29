@@ -25,14 +25,6 @@ Latest Release News: [https://hardinfo2.org/news](https://hardinfo2.org/news)
 
 Server code can be found here: [https://github.com/hardinfo2/server](https://github.com/hardinfo2/server)
 
-Packaging status
---------------
-[![Packaging status](https://hardinfo2.org/repology.svg)](https://hardinfo2.org/repology.svg)
-
-Download
---------
-[Download](https://hardinfo2.org/download)
-
 Dependencies
 ------------
 - GTK3 >=3.00 or GTK2+ >=2.20 - (GTK2+ DEPRECATED: cmake -DHARDINFO2_GTK3=0 ..)
@@ -40,16 +32,24 @@ Dependencies
 - Zlib
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
-- Qt5 >=5.10 (disable QT5/OpenGL: cmake -DHARDINFO2_QT5=0 ..)
-- Vulkan(headers), xcb, glslang (disable Vulkan: cmake -DHARDINFO2_VK=0 ..)
+- Qt5 >=5.10 (disable QT5/OpenGL Benchmark: cmake -DHARDINFO2_QT5=0 ..)
+- Vulkan(headers), libdecor-0, glslang (disable Vulkan Benchmark: cmake -DHARDINFO2_VK=0 ..)
 
-Building and installing
+Packaging status
+--------------
+[![Packaging status](https://hardinfo2.org/repology.svg)](https://hardinfo2.org/repology.svg)
+
+Download and installing (Users)
+-------------------------------
+Please see the user download and install page here:
+[https://hardinfo2.org/download](https://hardinfo2.org/download)
+
+Building and installing (Developers / Testers (Thanx))
 -----------------------
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
-- sudo apt install libjson-glib-dev zlib1g-dev libsoup2.4-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev
+- sudo apt install libjson-glib-dev zlib1g-dev libsoup-3.0-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev
 - sudo apt install libdecor-0-dev glslang-tools (vulkan for newer distros)
-- sudo apt install libsoup-3.0-dev  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
 - ./tools/git_latest_release.sh (Switch to latest stable release, tools/git_unstable_master.sh for developers)
@@ -66,9 +66,8 @@ Building and installing
 * NOTE: libdecor.. can be in CRB repo
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl
-- sudo yum install json-glib-devel zlib-devel libsoup-devel gtk3-devel qt5-qtbase-devel
+- sudo yum install json-glib-devel zlib-devel libsoup3-devel gtk3-devel qt5-qtbase-devel
 - sudo yum install libdecor-devel wayland-devel glslang (vulkan for newer distros)
-- sudo yum install libsoup3-devel  (might fail if not available on distro - OK)
 - git clone https://github.com/hardinfo2/hardinfo2
 - cd hardinfo2
 - ./tools/git_latest_release.sh (Switch to latest stable release, tools/git_unstable_master.sh for developers)
@@ -83,20 +82,16 @@ Building and installing
 **openSUSE**: use zypper instead of yum, zypper --no-gpg-checks install ./hardinfo2-*
 libqt5-qtbase-devel instead of qt5-qtbase-devel
 
-**Arch Linux and derivates such as Garuda, EndeavourOS, CachyOS, etc.**
- * `hardinfo2` (stable release) or `hardinfo2-git` (latest git master branch) can be installed via the [AUR](https://wiki.archlinux.org/title/Arch_User_Repository).
+**ArchLinux/Garuda/Manjaro/Endeavour/Artix/SystemRescue**
+ - git clone https://github.com/hardinfo2/hardinfo2
+ - cd hardinfo2
+ - ./tools/git_latest_release.sh (Switch to latest stable release, tools/git_unstable_master.sh for developers)
+ - cp tools/PKGBUILD .
+ - cp tools/hardinfo2.install .
+ - makepkg -cis --noextract
+ - hardinfo2
 
-**Manjaro**
-* Available for both x86_64 and aarch64 architectures.<sup>1</sup>
-- `sudo pacman -S hardinfo2`
-
-  <sub><sup>1</sup> Note that the ARM version is currently only available in the arm-unstable [branch](https://wiki.manjaro.org/index.php/Switching_Branches)</sub>
-
-Setting up additional tools
----------------------------
-Most hardware is detected automatically by Hardinfo2, but some might need manual set up.
-
-**Package installs these**
+**Hardinfo2 package installs the following packages as dependencies**
 - Depends:
 - **gawk**: Used by hardinfo2 service to determine System Type
 - **dmidecode**: is needed to provide DMI information.
@@ -108,7 +103,7 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **iperf3**: iperf3 is used to benchmark internal network speed.
 - **vulkan-tools**: vulkaninfo is used to display vulcan information.
 - **qt5-base**: QT5 Framework for QT5 OpenGL GPU Benchmark
-- **xcb wayland-dev libdecor-0-dev** : WSI Framework for Vulkan Benchmark
+- **xcb wayland libdecor-0** : WSI Framework for Vulkan Benchmark
 - **vulkan glslang-tools** : Vulkan Framework/Shader Tool for Vulkan Benchmark
 - **Service**: Service loads SPD modules (at24/ee1004/spd5118) to display SPD info for your DIMMs memory. Show addresses for iomem+ioports.
 - Recommends/Depends/Optional: (distro choice - prefer installed)
@@ -119,6 +114,7 @@ Most hardware is detected automatically by Hardinfo2, but some might need manual
 - **hddtemp**: To obtain the hard disk drive temperature, be sure to run hddtemp
 in daemon mode, using the default port.
 - **apcaccess**: apcaccess is used for ups/battery information.
+- **mesa-vulkan-swrast/libvulkan_lvp**: Vulkan Software driver if you have no hardware vulkan driver (eg. Virtual).
 
 License
 ------

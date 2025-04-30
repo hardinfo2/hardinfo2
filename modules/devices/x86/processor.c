@@ -730,12 +730,67 @@ gchar *dmi_socket_info() {
     return ret;
 }
 
+#define PTR_BITS ((unsigned int)sizeof(void*) * 8)
+gchar *ldlinux_hwcap_info() {
+    gboolean spawned;
+    gchar *ret,*cmd_line,*out=NULL,*err=NULL,*supported=g_strdup("");
+
+    if(PTR_BITS==64){//64bit
+        cmd_line=g_strdup("sh -c 'LC_ALL=C /usr/lib64/ld-linux-x86-64.so.2 --help'");
+	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	g_free(cmd_line);
+	if (!spawned || strlen(out)<100) {
+	   if(out) {g_free(out);out=NULL;}
+	   if(err) {g_free(err);err=NULL;}
+	   cmd_line=g_strdup("sh -c 'LC_ALL=C /lib64/ld-linux-x86-64.so.2 --help'");
+	   spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	   g_free(cmd_line);
+	}
+	if (spawned && strlen(out)>=100) {
+	    if(strstr(out,"x86-64-v1 (sup")) supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	    if(strstr(out,"x86-64-v2 (sup")) supported=g_strconcat(supported," x86-64-V2 ",NULL);
+	    if(strstr(out,"x86-64-v3 (sup")) supported=g_strconcat(supported," x86-64-V3 ",NULL);
+	    if(strstr(out,"x86-64-v4 (sup")) supported=g_strconcat(supported," x86-64-V4 ",NULL);
+	    if(strstr(out,"x86-64-v5 (sup")) supported=g_strconcat(supported," x86-64-V5 ",NULL);//future
+	    if(strlen(supported)<1) supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	} else {
+	    supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	}
+    } else {//32bit
+        cmd_line=g_strdup("sh -c 'LC_ALL=C uname -m'");
+	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	g_free(cmd_line);
+	if (spawned && strlen(out)>=1) {
+	    supported=g_strconcat(supported, out, NULL);
+	}else{
+	    supported=g_strconcat(supported, " x86 ", NULL);
+	}
+    }
+    if(out) g_free(out);
+    if(err) g_free(err);
+
+    if(strlen(supported)<1) {
+        g_free(supported);
+        supported=g_strdup("(None)");
+    }
+
+    ret = g_strdup_printf("[%s]\n"
+			  "HWCAPS=  %s\n",
+			  _("CPU Supported Profiles"),
+			  supported
+			  );
+    g_free(supported);
+
+    return ret;
+}
+
 gchar *processor_meta(GSList * processors) {
     gchar *meta_cpu_name = processor_name(processors);
     gchar *meta_cpu_desc = processor_describe(processors);
     gchar *meta_freq_desc = processor_frequency_desc(processors);
     gchar *meta_clocks = clocks_summary(processors);
     gchar *meta_caches = caches_summary(processors);
+    gchar *meta_hwcap = ldlinux_hwcap_info();
     gchar *meta_dmi = dmi_socket_info();
     gchar *ret = NULL;
     UNKIFNULL(meta_cpu_desc);
@@ -745,11 +800,13 @@ gchar *processor_meta(GSList * processors) {
                         "%s=%s\n"
                         "%s"
                         "%s"
+                        "%s"
                         "%s",
                         _("Package Information"),
                         _("Name"), meta_cpu_name,
                         _("Topology"), meta_cpu_desc,
                         _("Logical CPU Config"), meta_freq_desc,
+                        meta_hwcap,
                         meta_clocks,
                         meta_caches,
                         meta_dmi);

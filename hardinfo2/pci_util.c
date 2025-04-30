@@ -38,12 +38,6 @@ const gchar *find_pci_ids_file() {
     if (pci_ids_file) {
         if (!strstr(pci_ids_file, ".min"))
             return pci_ids_file;
-        if (g_timer_elapsed(pci_ids_timer, NULL) > 2.0) {
-            /* try again for the full version */
-            DEBUG("find_pci_ids_file() found only a \".min\" version, trying again...");
-            g_free(pci_ids_file);
-            pci_ids_file = NULL;
-        }
     }
     char *file_search_order[] = {
         g_build_filename(g_get_user_config_dir(), "hardinfo2", "pci.ids", NULL),
@@ -58,21 +52,14 @@ const gchar *find_pci_ids_file() {
             g_free(file_search_order[n]);
     }
     DEBUG("find_pci_ids_file() result: %s", pci_ids_file);
-    if (pci_ids_file) {
-        if (!pci_ids_timer)
-            pci_ids_timer = g_timer_new();
-        else
-            g_timer_reset(pci_ids_timer);
-    }
     return pci_ids_file;
 }
 
 char *pci_lookup_ids_vendor_str(uint32_t id) {
     gchar *ret = NULL;
 
-    ids_query_result result;// = {};
+    ids_query_result result;
     gchar *qpath;
-    memset(&result,0,sizeof(ids_query_result));
     if (!find_pci_ids_file())
         return FALSE;
 
@@ -86,13 +73,24 @@ char *pci_lookup_ids_vendor_str(uint32_t id) {
     return ret;
 }
 
+
+static pcid *lastd=NULL;
 static gboolean pci_lookup_ids(pcid *d) {
     gboolean ret = FALSE;
-    ids_query_result result;// = {};
     gchar *qpath;
-    memset(&result,0,sizeof(ids_query_result));
-    if (!find_pci_ids_file())
-        return FALSE;
+    ids_query_result result;
+
+    if (!find_pci_ids_file()) return FALSE;
+
+    //check if last was the same to speedup for lots of same devices (Virtual Machines)
+    if( lastd && (d->vendor_id==lastd->vendor_id) && (d->device_id==lastd->device_id) && (d->sub_vendor_id==lastd->sub_vendor_id) ){
+        if(lastd->vendor_id_str) d->vendor_id_str = g_strdup(lastd->vendor_id_str);
+        if(lastd->device_id_str) d->device_id_str = g_strdup(lastd->device_id_str);
+        if(lastd->sub_device_id_str) d->sub_device_id_str = g_strdup(lastd->sub_device_id_str);
+        if(lastd->sub_vendor_id_str) d->sub_vendor_id_str = g_strdup(lastd->sub_vendor_id_str);
+        if(lastd->class_str) d->class_str = g_strdup(lastd->class_str);
+	return TRUE;
+    }
 
     /* lookup vendor, device, sub device */
     qpath = g_strdup_printf("%04x/%04x/%04x %04x",
@@ -144,6 +142,25 @@ static gboolean pci_lookup_ids(pcid *d) {
     }
     g_free(qpath);
 
+    if(lastd){
+        g_free(lastd->vendor_id_str);
+        g_free(lastd->device_id_str);
+        g_free(lastd->sub_device_id_str);
+        g_free(lastd->sub_vendor_id_str);
+	g_free(lastd->class_str);
+	g_free(lastd);
+	lastd=NULL;
+    }
+    if(!lastd) lastd=g_malloc0(sizeof(pcid));
+    if(lastd){
+        memcpy(lastd,d,sizeof(pcid));
+        //
+        if(d->vendor_id_str) lastd->vendor_id_str = g_strdup(d->vendor_id_str);
+        if(d->device_id_str) lastd->device_id_str = g_strdup(d->device_id_str);
+        if(d->sub_device_id_str) lastd->sub_device_id_str = g_strdup(d->sub_device_id_str);
+        if(d->sub_vendor_id_str) lastd->sub_vendor_id_str = g_strdup(d->sub_vendor_id_str);
+        if(d->class_str) lastd->class_str = g_strdup(d->class_str);
+    }
     return ret;
 }
 
@@ -183,7 +200,7 @@ static char *lspci_line_value(char *line, const char *prefix) {
 }
 
 /* read output line of lspci -vmmnn */
-static int lspci_line_string_and_code(char *line, char *prefix, char **str, uint32_t *code) {
+/*static int lspci_line_string_and_code(char *line, char *prefix, char **str, uint32_t *code) {
     char *l = lspci_line_value(line, prefix);
     char *e;
 
@@ -191,12 +208,12 @@ static int lspci_line_string_and_code(char *line, char *prefix, char **str, uint
         e = strchr(l, 0);
         while (e > l && *e != '[') e--;
         sscanf(e, "[%x]", code);
-        *e = 0; /* terminate at start of code */
-        if (*str) free(*str); /* free if replacing */
+        *e = 0; // terminate at start of code
+        if (*str) free(*str); // free if replacing
         *str = strdup(g_strstrip(l));
     }
     return 0;
-}
+}*/
 
 static gboolean pci_fill_details(pcid *s) {
     if (nolspci) return FALSE;
@@ -307,7 +324,7 @@ static gboolean pci_get_device_sysfs(uint32_t dom, uint32_t bus, uint32_t dev, u
     return TRUE;
 }
 
-static gboolean pci_get_device_lspci(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func, pcid *s) {
+/*static gboolean pci_get_device_lspci(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func, pcid *s) {
     if (nolspci) return FALSE;
     gboolean spawned;
     gchar *out, *err, *p, *l, *next_nl;
@@ -351,7 +368,7 @@ static gboolean pci_get_device_lspci(uint32_t dom, uint32_t bus, uint32_t dev, u
     }
     g_free(pci_loc);
     return FALSE;
-}
+    }*/
 
 pcid *pci_get_device_str(const char *addy) {
     uint32_t dom, bus, dev, func;
@@ -372,8 +389,7 @@ pcid *pci_get_device(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func) {
         ok = pci_get_device_sysfs(dom, bus, dev, func, s);
         if (ok) {
             ok |= pci_lookup_ids(s);
-            if (!ok)
-                ok |= pci_get_device_lspci(dom, bus, dev, func, s);
+            //if (!ok) ok |= pci_get_device_lspci(dom, bus, dev, func, s);
         }
         if (!ok) {
             pcid_free(s);
@@ -383,7 +399,7 @@ pcid *pci_get_device(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func) {
     return s;
 }
 
-static pcid_list pci_get_device_list_lspci(uint32_t class_min, uint32_t class_max) {
+/*static pcid_list pci_get_device_list_lspci(uint32_t class_min, uint32_t class_max) {
     if (nolspci) return NULL;
     gboolean spawned;
     gchar *out, *err, *p, *next_nl;
@@ -414,7 +430,7 @@ static pcid_list pci_get_device_list_lspci(uint32_t class_min, uint32_t class_ma
         g_free(err);
     }
     return dl;
-}
+    }*/
 
 static pcid_list pci_get_device_list_sysfs(uint32_t class_min, uint32_t class_max) {
     pcid_list dl = NULL;
@@ -452,8 +468,7 @@ static pcid_list pci_get_device_list_sysfs(uint32_t class_min, uint32_t class_ma
 pcid_list pci_get_device_list(uint32_t class_min, uint32_t class_max) {
     pcid_list dl = NULL;
     dl = pci_get_device_list_sysfs(class_min, class_max);
-    if (!dl)
-        dl = pci_get_device_list_lspci(class_min, class_max);
+    //if (!dl) dl = pci_get_device_list_lspci(class_min, class_max);
     return dl;
 }
 

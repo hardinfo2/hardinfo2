@@ -415,7 +415,7 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
     }
 
     param->topic=topic;
-    if(topic) {create_report=1; skip_benchmarks=1;}
+    if(topic) {create_report=1; skip_benchmarks=1;quiet=1;}
     param->create_report = create_report;
     param->report_format = REPORT_FORMAT_TEXT;
     param->show_version = show_version;

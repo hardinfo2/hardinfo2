@@ -120,11 +120,24 @@ void tag_vendor(gchar **str, guint offset, const gchar *vendor_str, const char *
     }
 }
 
+static gchar *lastvendor=NULL;
+static gchar *lasttag=NULL;
+static int lastfmt=-1;
 gchar *vendor_match_tag(const gchar *vendor_str, int fmt_opts) {
+    if(!vendor_str || strlen(vendor_str)<1) return NULL;
+
+    if(lastvendor && (lastfmt==fmt_opts) && (strcmp(vendor_str, lastvendor)==0) ){
+        if(lasttag) return g_strdup(lasttag);
+        return NULL;
+    }
+    if(lastvendor) {g_free(lastvendor);g_free(lasttag);lasttag=NULL;}
+    lastvendor=g_strdup(vendor_str);
+    lastfmt=fmt_opts;
     const Vendor *v = vendor_match(vendor_str, NULL);
     if (v) {
         gchar *ven_tag = v->name_short ? g_strdup(v->name_short) : g_strdup(v->name);
         tag_vendor(&ven_tag, 0, ven_tag, v->ansi_color, fmt_opts);
+	lasttag=g_strdup(ven_tag);
         return ven_tag;
     }
     return NULL;

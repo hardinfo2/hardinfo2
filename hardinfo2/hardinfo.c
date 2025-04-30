@@ -177,10 +177,39 @@ int main(int argc, char **argv)
 
 	DEBUG("generating report");
 
-	report = report_create_from_module_list_format(modules,
-						       params.
-						       report_format);
-	g_print("%s", report);
+	report = report_create_from_module_list_format(modules, params.report_format);
+
+	if(params.topic){
+	  int active=0;
+	  gchar *p=report,*pos=report;
+	  while(*pos!=0){
+	      while(*pos!=0 && *pos!='\n') pos++;
+	      if(*pos){
+	          *pos=0;
+		  //stop
+		  if((active==3) && (*(pos+1)=='\n')) active=0; //active subblock and next is space
+		  if(active && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) active=0; //active and next is topic
+		  if((active>=2) && ((*p=='-') || (*p=='*')) ) active=0;//active main topic has underscore
+		  if(strcmp(params.topic,"getlist")==0) {
+		      if((*(p+0)==' ') && (*(p+3)=='-')) {active=3;}//subblock
+		      if((*(p+0)=='-') && (*(p+1)!='-')) {active=2;}//subheading
+		      if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {active=1;}//heading
+		      if(active) g_print("%s\n",p);
+		      active=0;
+		  }else{
+		      //start
+		      if(g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) {active=3;}//subblock
+		      if(g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) {active=2;}//subheading
+		      if(g_ascii_strncasecmp(p,params.topic,strlen(params.topic))==0) {active=1;}//heading
+	              if(active) g_print("%s\n",p);
+		  }
+
+		  pos++;p=pos;
+	      }
+	  }
+	}else{
+	    g_print("%s", report);
+	}
 
 	if(params.bench_user_note) {//synchronize
 	    if(!params.skip_benchmarks)

@@ -321,6 +321,7 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
     static gint show_version = FALSE;
     static gint skip_benchmarks = FALSE;
     static gint quiet = FALSE;
+    static gchar *topic = NULL;
     static gchar *report_format = NULL;
     static gchar *run_benchmark = NULL;
     static gchar *result_format = NULL;
@@ -346,6 +347,12 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 	 .arg = G_OPTION_ARG_STRING,
 	 .arg_data = &report_format,
 	 .description = N_("chooses a report format ([text], html)")},
+	{
+	 .long_name = "topic",
+	 .short_name = 't',
+	 .arg = G_OPTION_ARG_STRING,
+	 .arg_data = &topic,
+	 .description = N_("search for a topic in CLI (-t getlist shows available)")},
 	{
 	 .long_name = "run-benchmark",
 	 .short_name = 'b',
@@ -407,6 +414,8 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 	exit(1);
     }
 
+    param->topic=topic;
+    if(topic) {create_report=1; skip_benchmarks=1;}
     param->create_report = create_report;
     param->report_format = REPORT_FORMAT_TEXT;
     param->show_version = show_version;

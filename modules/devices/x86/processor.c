@@ -776,7 +776,7 @@ gchar *ldlinux_hwcap_info() {
 
     ret = g_strdup_printf("[%s]\n"
 			  "HWCAPS=  %s\n",
-			  _("Distro & CPU Supported Profiles"),
+			  _("Distro and CPU Supported Profiles"),
 			  supported
 			  );
     g_free(supported);

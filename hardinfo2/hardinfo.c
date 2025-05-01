@@ -204,7 +204,7 @@ int main(int argc, char **argv)
 		      //start
 		      if((active==0) && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subblock
 		      if((active==0) && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=2;if(header) g_print("%s\n",header);}//subheading
-		      if((active==1) && (plen>=(strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
+		      if((active==0) && (plen>=(strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
 		      //print
 	              if(active>0) g_print("%s\n",p);
 		      //Stop

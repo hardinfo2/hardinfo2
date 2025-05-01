@@ -64,6 +64,7 @@ struct _ProgramParameters {
   int fmt_opts;
   gint     report_format;
   gint     max_bench_results;
+  gint     topiccached;
   gchar   *topic;
   gchar   *run_benchmark;
   gchar   *bench_user_note;

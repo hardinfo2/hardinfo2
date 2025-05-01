@@ -169,7 +169,7 @@ int main(int argc, char **argv)
 	gtk_main();
     } else if (params.create_report) {
 	/* generate report */
-	gchar *report;
+	gchar *report=NULL;
 
 	if(params.bench_user_note) {//synchronize without sending benchmarks
 	    sync_manager_update_on_startup(0);
@@ -177,44 +177,66 @@ int main(int argc, char **argv)
 
 	DEBUG("generating report");
 
-	report = report_create_from_module_list_format(modules, params.report_format);
+#define REPORTSIZE 1024*1024
+	if(params.topiccached){
+            gchar *file=g_build_filename(g_get_user_config_dir(), "hardinfo2", "cachedreport", NULL);
+	    FILE *io=fopen(file,"r");
+	    if(io){
+	        report=g_malloc(REPORTSIZE);
+		if(report){
+		  if(fread(report, 1, REPORTSIZE, io)==0) {
+		        g_free(report);
+			report=NULL;
+		    }
+		}
+	        fclose(io);
+	    }
+	}
+	if(!report){
+	    report = report_create_from_module_list_format(modules, params.report_format);
+
+	    gchar *file=g_build_filename(g_get_user_config_dir(), "hardinfo2", "cachedreport", NULL);
+	    FILE *io=fopen(file,"w");
+	    fputs(report,io);
+	    fclose(io);
+	}
 
 	if(params.topic){
-	  int active=0;
-	  size_t poslen,plen;
-	  gchar *p=report,*pos=report,*header=NULL;
-	  while(*pos!=0){
-	      while( (*pos!=0) && (*pos!='\n') ) pos++;
-	      if(*pos){
-	          *pos=0;
-		  poslen=strlen(pos+1);
-		  plen=strlen(p);
-		  //stop before printing new header/module
-		  if((active>=1) && (poslen>=2) && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {if(active==1) active=-1; else active=0;} //active and next is heading/module
+	    int active=0;
+	    size_t poslen,plen;
+	    gchar *p=report,*pos=report,*header=NULL;
+	    while(*pos!=0){
+	        while( (*pos!=0) && (*pos!='\n') ) pos++;
+	        if(*pos){
+	            *pos=0;
+		    poslen=strlen(pos+1);
+		    plen=strlen(p);
+		    //stop before printing new header/module
+		    if((active>=1) && (poslen>=2) && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {if(active==1) active=-1; else active=0;} //active and next is heading/module
 
-		  if(strcmp(params.topic,"getlist")==0) {
-		      if((*(p+0)==' ') && (*(p+3)=='-')) {active=3;}//subblock
-		      if((*(p+0)=='-') && (*(p+1)!='-')) {active=2;}//subheading
-		      if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {active=1;}//heading
-		      if(active) g_print("%s\n",p);
-		      active=0;
-		  } else {
-		      if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {if(header) g_free(header);header=g_strdup(p);}//heading
-		      //if((*(p+0)=='-') && (*(p+1)!='-')) {if(header) header=g_strconcat(header,p,NULL); else header=g_strdup(p);}//subheading
-		      //start
-		      if((active==0) && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subblock
-		      if((active==0) && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=2;if(header) g_print("%s\n",header);}//subheading
-		      if((active==0) && (plen>=(  strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
-		      //print
-	              if(active>0) g_print("%s\n",p);
-		      //Stop
-		      if((active>=3) && (poslen>=4) && (*(pos+4)=='-')) {active=0;} //active subblock and next is new subblock
-		      if((active>=2) && (poslen>=1) && (*(pos+1)=='-')) {active=0;} //active and next is subheader
-		  }
+		    if(strcmp(params.topic,"getlist")==0) {
+		        if((*(p+0)==' ') && (*(p+3)=='-')) {active=3;}//subblock
+		        if((*(p+0)=='-') && (*(p+1)!='-')) {active=2;}//subheading
+		        if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {active=1;}//heading
+		        if(active) g_print("%s\n",p);
+		        active=0;
+		    } else {
+		        if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {if(header) g_free(header);header=g_strdup(p);}//heading
+		        //if((*(p+0)=='-') && (*(p+1)!='-')) {if(header) header=g_strconcat(header,p,NULL); else header=g_strdup(p);}//subheading
+		        //start
+			if((active==0) && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subblock
+			if((active==0) && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=2;if(header) g_print("%s\n",header);}//subheading
+			if((active==0) && (plen>=(  strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
+			//print
+			if(active>0) g_print("%s\n",p);
+			//Stop
+			if((active>=3) && (poslen>=4) && (*(pos+4)=='-')) {active=0;} //active subblock and next is new subblock
+			if((active>=2) && (poslen>=1) && (*(pos+1)=='-')) {active=0;} //active and next is subheader
+		    }
 
-		  pos++; p=pos;
-	       }
-	   }
+		    pos++; p=pos;
+	        }
+	    }
 	} else {
 	    g_print("%s", report);
 	}

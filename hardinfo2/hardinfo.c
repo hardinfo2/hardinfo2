@@ -188,6 +188,7 @@ int main(int argc, char **argv)
 	          *pos=0;
 		  //stop
 		  if((active==3) && (*(pos+1)=='\n')) active=0; //active subblock and next is space
+		  if((active==3) && (*(pos+4)=='-')) active=0; //active subblock and next is new subblock
 		  if(active && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) active=0; //active and next is topic
 		  if((active>=2) && ((*p=='-') || (*p=='*')) ) active=0;//active main topic has underscore
 		  if(strcmp(params.topic,"getlist")==0) {

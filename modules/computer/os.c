@@ -570,7 +570,10 @@ static Distro parse_os_release(void)
         gchar *t,*p=contents;
         while(*p && ((*p>'9') || (*p<'0'))) p++;
 	strend(p,' ');
-        t=pretty_name; pretty_name=g_strdup_printf("%s - Fedora %s", t,p); g_free(t);
+	if(g_str_equal(id,"altlinux")) {/*ALT Linux is not directly based on redhat/fedora anymore - was based on redhat*/}
+        else {
+	  t=pretty_name; pretty_name=g_strdup_printf("%s - Fedora %s", t,p); g_free(t);
+	}
         g_free(contents);
     } else
     //Based on RedHat Linux add to distro string
@@ -586,7 +589,8 @@ static Distro parse_os_release(void)
 	//RHEL8=>FC28
 	//RHEL9=>FC34
 	//RHEL10=>FC40
-	if(g_str_equal(id,"openmandriva")) {/*Mandriva is not based on redhat/fedora anymore - was based on RH5.1*/}
+	if(g_str_equal(id,"altlinux")) {/*ALT Linux is not directly based on redhat/fedora anymore - was based on redhat*/}
+        else if(g_str_equal(id,"openmandriva")) {/*Mandriva is not based on redhat/fedora anymore - was based on RH5.1*/}
 	else if(atoi(p)>=19){//hmm, distro should have had fedora-release
             t=pretty_name; pretty_name=g_strdup_printf("%s - Fedora %s", t,p); g_free(t);
 	} else {

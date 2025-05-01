@@ -115,6 +115,9 @@ name ALT Linux
     match_string alt linux
     match_string ALT Regular
     match_string ALT Workstation
+    match_string ALT Server
+    match_string ALT Starterkit
+    match_string ALT Mobile
 
 name American Megatrends
     name_short AMI

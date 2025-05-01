@@ -181,34 +181,41 @@ int main(int argc, char **argv)
 
 	if(params.topic){
 	  int active=0;
-	  gchar *p=report,*pos=report;
+	  size_t poslen,plen;
+	  gchar *p=report,*pos=report,*header=NULL;
 	  while(*pos!=0){
-	      while(*pos!=0 && *pos!='\n') pos++;
+	      while( (*pos!=0) && (*pos!='\n') ) pos++;
 	      if(*pos){
 	          *pos=0;
-		  //stop
-		  if((active==3) && (*(pos+1)=='\n')) active=0; //active subblock and next is space
-		  if((active==3) && (*(pos+4)=='-')) active=0; //active subblock and next is new subblock
-		  if(active && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) active=0; //active and next is topic
-		  if((active>=2) && ((*p=='-') || (*p=='*')) ) active=0;//active main topic has underscore
+		  poslen=strlen(pos+1);
+		  plen=strlen(p);
+		  //stop before printing new header/module
+		  if((active>=1) && (poslen>=2) && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {active=0;} //active and next is heading/module
+
 		  if(strcmp(params.topic,"getlist")==0) {
 		      if((*(p+0)==' ') && (*(p+3)=='-')) {active=3;}//subblock
 		      if((*(p+0)=='-') && (*(p+1)!='-')) {active=2;}//subheading
 		      if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {active=1;}//heading
 		      if(active) g_print("%s\n",p);
 		      active=0;
-		  }else{
+		  } else {
+		      if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {if(header) g_free(header);header=g_strdup(p);}//heading
+		      if((*(p+0)=='-') && (*(p+1)!='-')) {if(header) header=g_strconcat(header,p,NULL); else header=g_strdup(p);}//subheading
 		      //start
-		      if(g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) {active=3;}//subblock
-		      if(g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) {active=2;}//subheading
-		      if(g_ascii_strncasecmp(p,params.topic,strlen(params.topic))==0) {active=1;}//heading
+		      if(!active && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subblock
+		      if(!active && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=2;if(header) g_print("%s\n",header);}//subheading
+		      if(!active && (plen>=(strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
+		      //print
 	              if(active) g_print("%s\n",p);
+		      //Stop
+		      if((active>=3) && (poslen>=4) && (*(pos+4)=='-')) {active=0;} //active subblock and next is new subblock
+		      if((active>=2) && (poslen>=2) && (*(pos+2)=='-')) {active=0;} //active and next is subheader
 		  }
 
-		  pos++;p=pos;
-	      }
-	  }
-	}else{
+		  pos++; p=pos;
+	       }
+	   }
+	} else {
 	    g_print("%s", report);
 	}
 

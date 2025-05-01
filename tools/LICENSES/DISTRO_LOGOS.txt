@@ -1,0 +1,13 @@
+DISTRO LOGOs
+------------
+
+pixmap/distro/
+
+Each logo is copyright of the company.
+They are used without special permission as they are only used for information about the running distro.
+GPL2+ allows to distribute copyrighted material (GPL3).
+
+
+Vendor Data:
+------------
+Furthermore each distro has vendor data to allow users to go to the distro homepage. Also just informational.

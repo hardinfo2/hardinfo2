@@ -212,11 +212,12 @@ int main(int argc, char **argv)
 		    poslen=strlen(pos+1);
 		    plen=strlen(p);
 		    //stop before printing new header/module
-		    if((active>=1) && (poslen>=2) && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {if(active==1) active=-1; else active=0;} //active and next is heading/module
+		    if((active==1) && (poslen>=2) && (((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {active=-1;} //next is module
+		    if((active>=2) && (poslen>=2) && (((*(pos+1)=='-') && (*(pos+2)=='-')) || ((*(pos+1)=='*') && (*(pos+2)=='*'))) ) {if(active==2) active=-1; else active=0;} //next is heading/module
 
 		    if(strcmp(params.topic,"getlist")==0) {
-		        if((*(p+0)==' ') && (*(p+3)=='-')) {active=3;}//subblock
-		        if((*(p+0)=='-') && (*(p+1)!='-')) {active=2;}//subheading
+		        if((*(p+0)==' ') && (*(p+3)=='-')) {active=4;}//subblock
+		        if((*(p+0)=='-') && (*(p+1)!='-')) {active=3;}//subheading
 		        if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {active=1;}//heading
 		        if(active) g_print("%s\n",p);
 		        active=0;
@@ -224,14 +225,17 @@ int main(int argc, char **argv)
 		        if((*(p+0)!='-') && (*(p+0)>32) && (*(p+0)!='*')) {if(header) g_free(header);header=g_strdup(p);}//heading
 		        //if((*(p+0)=='-') && (*(p+1)!='-')) {if(header) header=g_strconcat(header,p,NULL); else header=g_strdup(p);}//subheading
 		        //start
-			if((active==0) && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subblock
-			if((active==0) && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=2;if(header) g_print("%s\n",header);}//subheading
-			if((active==0) && (plen>=(  strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) ) {active=1;}//heading
+			if((active==0) && (plen>=(4+strlen(params.topic))) && (g_ascii_strncasecmp(p+4,params.topic,strlen(params.topic))==0) ) {active=4;if(header) g_print("%s\n",header);}//subblock
+			if((active==0) && (plen>=(1+strlen(params.topic))) && (g_ascii_strncasecmp(p+1,params.topic,strlen(params.topic))==0) ) {active=3;if(header) g_print("%s\n",header);}//subheading
+			if((active==0) && (plen>=(  strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) && ((poslen>=1)&&(*(pos+1)=='-')) ) {active=2;}//heading
+			if((active==0) && (plen>=(  strlen(params.topic))) && (g_ascii_strncasecmp(p  ,params.topic,strlen(params.topic))==0) && ((poslen>=1)&&(*(pos+1)=='*')) ) {active=1;}//module
+			if((*params.topic=='*') && (strlen(params.topic)>=2) && (strstr(p,params.topic+1)!=0)) {active=1;}//text search
 			//print
 			if(active>0) g_print("%s\n",p);
 			//Stop
-			if((active>=3) && (poslen>=4) && (*(pos+4)=='-')) {active=0;} //active subblock and next is new subblock
-			if((active>=2) && (poslen>=1) && (*(pos+1)=='-')) {active=0;} //active and next is subheader
+			if(*params.topic=='*') {active=0;}//text search
+			if((active>=4) && (poslen>=4) && (*(pos+4)=='-')) {active=0;} //active subblock and next is new subblock
+			if((active>=3) && (poslen>=1) && (*(pos+1)=='-')) {active=0;} //active and next is subheader
 		    }
 
 		    pos++; p=pos;

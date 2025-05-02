@@ -355,7 +355,7 @@ endif()
 
 #PCLinuxOS
 if(${distro} MATCHES "PCLinux")
-    SET(CPACK_RPM_PACKAGE_AUTOREQPROV "no")  
+    SET(CPACK_RPM_PACKAGE_AUTOREQPROV "no")
     SET(RPM_REQ "dmidecode, udisks2, lm_sensors, xdg-utils, xrandr, vulkan-tools,  glxinfo, iperf, gawk") #miss sysbench,fwupd
     set(HARDINFO2_SYSTEMV 1)
 endif()
@@ -363,6 +363,11 @@ endif()
 #Devuan
 if(${distro} MATCHES "Devuan")
     set(HARDINFO2_SYSTEMV 1)
+endif()
+
+#ALT Linux
+if(${distro} MATCHES "ALT*")
+    set(HARDINFO2_QT5_MOCQT5 1)
 endif()
 
 #MX

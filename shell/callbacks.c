@@ -415,6 +415,7 @@ void cb_about()
 	"B. Watson (Slackbuild packages)",
 	"K1ngfish3r (Clear Linux)",
 	"adamthiede (Alpine branches)",
+	"k0tran+glinkinvd (Alt Linux branches)",
 	"",
         NULL
     };

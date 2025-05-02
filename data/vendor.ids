@@ -114,10 +114,17 @@ name ALT Linux
     match_string altlinux
     match_string alt linux
     match_string ALT Regular
+    match_string ALT Workstation K
     match_string ALT Workstation
     match_string ALT Server
     match_string ALT Starterkit
+    match_string ALT Mobile Sisyphus
     match_string ALT Mobile
+    match_string ALT Education
+    match_string ALT SP Server
+    match_string ALT SP Workstation
+    match_string ALT Virtualization
+    match_string Simply Linux
 
 name American Megatrends
     name_short AMI

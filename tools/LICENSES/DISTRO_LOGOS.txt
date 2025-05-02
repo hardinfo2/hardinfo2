@@ -3,7 +3,7 @@ DISTRO LOGOs
 
 pixmaps/distros/
 
-Each logo is copyright of the company.
+Each logo is copyright of the respective companies/communities/distros.
 They are used without special permission as they are only used for information about the running distro.
 GPL2+ allows to distribute copyrighted material (GPL3).
 
@@ -11,3 +11,6 @@ GPL2+ allows to distribute copyrighted material (GPL3).
 Vendor Data:
 ------------
 Furthermore each distro has vendor data to allow users to go to the distro homepage. Also just informational.
+
+
+Special: ALT Linux is also distributed by BaseALT company - LOGOs, vendor match data used in hardinfo2 is from FOSS ALT Linux. #153

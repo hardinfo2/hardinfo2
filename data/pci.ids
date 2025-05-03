@@ -1,8 +1,8 @@
 #
 #	List of PCI ID's
 #
-#	Version: 2025.03.09
-#	Date:    2025-03-09 03:15:02
+#	Version: 2025.04.23
+#	Date:    2025-04-23 03:15:02
 #
 #	Maintained by Albert Pool, Martin Mares, and other volunteers from
 #	the PCI ID Project at https://pci-ids.ucw.cz/.
@@ -24851,10 +24851,12 @@
 	5016  E16 PCIe4 NVMe Controller
 	5018  E18 PCIe4 NVMe Controller
 	5019  PS5019-E19 PCIe4 NVMe Controller (DRAM-less)
+	5020  PS5020-E20 (X1) PCIe4 NVMe Controller
 	5021  PS5021-E21 PCIe4 NVMe Controller (DRAM-less)
 	5026  PS5026-E26 PCIe5 NVMe Controller
 	5027  PS5027-E27T PCIe4 NVMe Controller (DRAM-less)
 	5031  PS5031-E31T PCIe5 NVMe Controller
+	5302  PS5302-X2 PCIe5 NVMe Controller
 1989  Montilio Inc.
 	0001  RapidFile Bridge
 	8001  RapidFile

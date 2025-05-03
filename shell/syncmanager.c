@@ -710,6 +710,10 @@ void insert_text_event(GtkEditable *editable, const gchar *text, gint length, gi
 	    return;
         }
     }
+}
+
+void changed_event(GtkEditable *editable, gpointer data) {
+    gchar *usernote=g_strdup(gtk_entry_get_text(data));
     //printf("Usernote=%s\n",usernote);
     if(params.bench_user_note) g_free(params.bench_user_note);
     params.bench_user_note=usernote;
@@ -790,7 +794,7 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     usernote = gtk_entry_new();
     gtk_entry_set_max_length(GTK_ENTRY(usernote),50);
     g_signal_connect (usernote, "insert-text", G_CALLBACK(insert_text_event), (gpointer) usernote);
-
+    g_signal_connect (usernote, "changed", G_CALLBACK(changed_event), (gpointer) usernote);
     if(!params.bench_user_note){//Fetch UserNote from Settings if not specified
         GKeyFile *key_file = g_key_file_new();
 	gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);

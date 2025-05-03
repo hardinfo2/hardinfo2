@@ -517,6 +517,27 @@ sync_dialog_netarea_start_actions(SyncDialog *sd, SyncNetAction sna[], gint n)
     const gchar *curr_str = "\342\226\266";
     const gchar *empty_str = "\302\240\302\240";
 
+    if(params.bench_user_note && !strstr(params.bench_user_note,"Group-MachineName-ServerReq")) {
+        GKeyFile *key_file = g_key_file_new();
+	g_mkdir(g_get_user_config_dir(),0755);
+	g_mkdir(g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL),0755);
+	gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
+	g_key_file_load_from_file( key_file, conf_path,
+				   G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+	if(params.bench_user_note) {
+	    g_key_file_set_string(key_file, "Sync", "UserNote", params.bench_user_note);
+	} else {
+	    g_key_file_set_string(key_file, "Sync", "UserNote", "");
+	}
+#if GLIB_CHECK_VERSION(2,40,0)
+	g_key_file_save_to_file(key_file, conf_path, NULL);
+#else
+	g2_key_file_save_to_file(key_file, conf_path, NULL);
+#endif
+	g_free(conf_path);
+	g_key_file_free(key_file);
+    }
+
     labels = g_new0(GtkWidget *, n);
     status_labels = g_new0(GtkWidget *, n);
 
@@ -768,6 +789,17 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     usernote = gtk_entry_new();
     gtk_entry_set_max_length(GTK_ENTRY(usernote),50);
     g_signal_connect (usernote, "insert-text", G_CALLBACK(insert_text_event), (gpointer) usernote);
+
+    if(!params.bench_user_note){//Fetch UserNote from Settings if not specified
+        GKeyFile *key_file = g_key_file_new();
+	gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
+	g_key_file_load_from_file(key_file, conf_path,
+				G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+	params.bench_user_note = g_key_file_get_string(key_file, "Sync", "UserNote", NULL);
+        g_free(conf_path);
+	g_key_file_free(key_file);
+    }
+
     if(params.bench_user_note) gtk_entry_set_text (GTK_ENTRY(usernote), params.bench_user_note);
     else gtk_entry_set_text (GTK_ENTRY(usernote), "Group-MachineName-ServerReq");
 

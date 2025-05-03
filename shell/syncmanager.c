@@ -694,12 +694,13 @@ static void close_clicked(void) { g_main_loop_quit(loop); }
 
 void insert_text_event(GtkEditable *editable, const gchar *text, gint length, gint *position, gpointer data) {
     int i,c=0;
+    guint u;
     gchar *usernote=g_strdup(g_strconcat(gtk_entry_get_text(data),text,NULL));
 
     //first cannot be dash
     //if((*position==0) && (text[0]=='-')) {g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");g_free(usernote);return;}
     //only two dash
-    for (guint u = 0; u < strlen(usernote); u++) if(usernote[u]=='-') c++;
+    for (u=0; u < strlen(usernote); u++) if(usernote[u]=='-') c++;
     if(c>2) {g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");g_free(usernote);return;}
     //check digit+alpha+dash
     for (i = 0; i < length; i++) {

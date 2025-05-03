@@ -426,18 +426,24 @@ static gboolean send_request_for_net_action(SyncNetAction *sna)
           uri = g_strdup_printf("%s/%s?ver=%s&blobver=%d&rel=%d", API_SERVER_URI, sna->entry->file_name,VERSION,our_blobs_update_version,RELEASE);
 	} else if(strncmp(sna->entry->file_name,"benchmark.json",14)==0){
 	    if (sna->entry->generate_contents_for_upload == NULL) {//GET/Fetch
+	        gchar *cpuname=module_call_method("devices::getProcessorName");
+	        gchar *machinetype=module_call_method("computer::getMachineType");
 	        if(params.bench_user_note){
-		  uri = g_strdup_printf("%s/%s?ver=%s&L=%d&rel=%d&MT=%s&BUN=%s", API_SERVER_URI,
+		  uri = g_strdup_printf("%s/%s?ver=%s&L=%d&rel=%d&MT=%s&CPU=%s&BUN=%s", API_SERVER_URI,
 				        sna->entry->file_name, VERSION,
 		                        params.max_bench_results,RELEASE,
-					module_call_method("computer::getMachineType"),
+					machinetype,
+					cpuname,
 					params.bench_user_note);
 		} else {
-		  uri = g_strdup_printf("%s/%s?ver=%s&L=%d&rel=%d&&MT=%s", API_SERVER_URI,
+		  uri = g_strdup_printf("%s/%s?ver=%s&L=%d&rel=%d&&MT=%s&CPU=%s", API_SERVER_URI,
 					sna->entry->file_name, VERSION,
 		                        params.max_bench_results, RELEASE,
-					module_call_method("computer::getMachineType"));
+					machinetype,
+					cpuname);
 		}
+		g_free(cpuname);
+		g_free(machinetype);
 	    } else {//POST/Send
 	      uri = g_strdup_printf("%s/%s?ver=%s&rel=%d", API_SERVER_URI,
 				    sna->entry->file_name, VERSION, RELEASE);

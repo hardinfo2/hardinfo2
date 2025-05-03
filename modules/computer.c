@@ -432,7 +432,10 @@ gchar *computer_get_machinetype(int english)
     tmp=module_call_method("computer::getOSKernel");
     if(tmp && strstr(tmp,"WSL2")){
          g_free(tmp);
-         return g_strdup("Virtual (WSL2)");
+	 if(english)
+	     return g_strdup(N_("Virtual (WSL2)"));
+	 else
+	     return g_strdup(_("Virtual (WSL2)"));
     }
     g_free(tmp);
 
@@ -450,8 +453,12 @@ gchar *computer_get_machinetype(int english)
              return g_strdup(_("Single-board computer"));
     }
 
-    if (g_file_test("/proc/pmu/info", G_FILE_TEST_EXISTS))
-        return g_strdup(_("Laptop"));
+    if (g_file_test("/proc/pmu/info", G_FILE_TEST_EXISTS)) {
+        if(english)
+	    return g_strdup(N_("Laptop"));
+	else
+            return g_strdup(_("Laptop"));
+    }
 
     dir = g_dir_open("/proc/acpi/battery", 0, NULL);
     if (dir) {
@@ -459,8 +466,12 @@ gchar *computer_get_machinetype(int english)
 
         g_dir_close(dir);
 
-        if (name)
-            return g_strdup(_("Laptop"));
+        if (name) {
+	    if(english)
+                return g_strdup(N_("Laptop"));
+	    else
+	        return g_strdup(_("Laptop"));
+	}
     }
 
     dir = g_dir_open("/sys/class/power_supply", 0, NULL);

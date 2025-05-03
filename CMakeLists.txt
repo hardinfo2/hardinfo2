@@ -129,6 +129,8 @@ string(REGEX REPLACE "/" "" disversion "${disversion}")
 string(REGEX REPLACE " " "" disversion "${disversion}")
 #RPM Distro's
 if(${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*" OR ${distro} MATCHES "Fedora*" OR ${distro} MATCHES "RedHat*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "openSUSE*" OR ${distro} MATCHES "SUSE*" OR ${distro} MATCHES "PCLinuxOS*" OR ${distro} MATCHES "Ultramarine*" OR ${distro} MATCHES "Nobara*" OR ${distro} MATCHES "OpenMandriva*")
+  #ALT Linux is RPM but too old rpmbuild - use alien until fixed
+  # OR ${distro} MATCHES "ALT*" OR ${distro} MATCHES "SimplyLinux"
   set(RPM 1)
 endif()
 #Arch Distro's (tgz)
@@ -366,7 +368,7 @@ if(${distro} MATCHES "Devuan")
 endif()
 
 #ALT Linux
-if(${distro} MATCHES "ALT*")
+if(${distro} MATCHES "ALT*" OR ${distro} MATCHES "SimplyLinux")
     set(HARDINFO2_QT5_MOCQT5 1)
 endif()
 

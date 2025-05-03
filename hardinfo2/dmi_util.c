@@ -159,6 +159,8 @@ char *dmi_get_str(const char *id_str) {
     return ret;
 }
 
+static int dmi_permission_denied=0;
+
 char *dmi_get_str_abs(const char *id_str) {
     static const struct {
         char *id;
@@ -208,16 +210,18 @@ char *dmi_get_str_abs(const char *id_str) {
     }
 
     /* try dmidecode, but may require root */
-    snprintf(full_path, PATH_MAX, "dmidecode -s %s", id_str);
-    spawned = hardinfo_spawn_command_line_sync(full_path,
-            &out, &err, &i, NULL);
-    if (spawned) {
-        if (i == 0)
-            ret = out;
-        else
-            g_free(out);
+    if(!dmi_permission_denied) {
+        snprintf(full_path, PATH_MAX, "dmidecode -s %s", id_str);
+	spawned = hardinfo_spawn_command_line_sync(full_path, &out, &err, &i, NULL);
+	if (spawned) {
+	    dmi_permission_denied=i;
+	    if (i == 0)
+	        ret = out;
+	    else
+	        g_free(out);
 
-        g_free(err);
+	    g_free(err);
+	}
     }
 
 dmi_str_done:

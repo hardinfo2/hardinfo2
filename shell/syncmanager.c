@@ -427,7 +427,7 @@ static gboolean send_request_for_net_action(SyncNetAction *sna)
 	} else if(strncmp(sna->entry->file_name,"benchmark.json",14)==0){
 	    if (sna->entry->generate_contents_for_upload == NULL) {//GET/Fetch
 	        gchar *cpuname=module_call_method("devices::getProcessorName");
-	        gchar *machinetype=module_call_method("computer::getMachineType");
+		gchar *machinetype=module_call_method("computer::getMachineTypeEnglish");
 	        if(params.bench_user_note){
 		  uri = g_strdup_printf("%s/%s?ver=%s&L=%d&rel=%d&MT=%s&CPU=%s&BUN=%s", API_SERVER_URI,
 				        sna->entry->file_name, VERSION,

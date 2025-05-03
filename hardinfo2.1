@@ -1,6 +1,6 @@
 .\" Manpage for hardinfo.
 .\" https://github.com/hwspeedy/hardinfo2/.
-.TH HARDINFO "1" "April 2024" "2.0" "User Commands"
+.TH HARDINFO "1" "May 2025" "2.2" "User Commands"
 .SH NAME
 \fBHardinfo2\fR \- System Information and Benchmark for Linux Systems.
 .SH USAGE
@@ -8,6 +8,8 @@
 .SH DESCRIPTION
 Is a system information and benchmark for Linux systems, that gathers information about the 
 hardware and operating system, performs benchmarks with online compare against other machines, and generates reports.
+
+Online Userguide with more info: https://hardinfo2.org/userguide
 
 .SH OPTIONS
 .TP
@@ -23,26 +25,36 @@ creates a report and prints to standard output
 \fB\-f\fR, \fB\-\-report\-format\fR
 chooses a report format (text, html)
 .TP
+\fB\-t\fR, \fB\-\-topic\fR
+search for a topic in CLI report (-t getlist shows available)
+.TP
+\fB\-c\fR, \fB\-\-topic-cache\fR
+search for a topic in Cached CLI report (-t getlist shows available)
+.TP
+\fB\-b\fR, \fB\-\-run\-benchmark\fR
+run a specific benchmark eg. -b 'FPU FFT'  (Default all benchmarks runs when generate report)
+.TP
+\fB\-u\fR, \fB\-\-user\-note Group[-MachineName[-ServerReq]]\fR
+adds a user note to data send to server. When added eg. -u 1 synchronization is activated.
+Letters and numbers and dashes are accepted. Length max 50. 0-2 dashes used as seperator.
+Format Group-MachineName-ServerReq
+Group and MachineName are for anonymous identification and can but benchmarks into a group and identify each machine.
+ServerReq is to tell the server which records you want to get. See homepage for more details about the Server Request strings available.
+.TP
 \fB\-g\fR, \fB\-\-result\-format\fR
 chooses a result format (short, conf, shell)
 .TP
 \fB\-n\fR, \fB\-\-max\-results\fR
 maximum number of benchmark results to include (-1 for no limit, default is 50)
 .TP
-\fB\-b\fR, \fB\-\-run\-benchmark\fR
-run a specific benchmark eg. -b 'FPU FFT'  (Default all benchmarks runs when generate report)
+\fB\-v\fR, \fB\-\-version\fR
+shows program version and quit
 .TP
 \fB\-s\fR, \fB\-\-skip\-benchmark\fR
 Disables all benchmark runs.
 .TP
-\fB\-u\fR, \fB\-\-user\-note\fR
-adds a user note to data send to server. When added eg. -u 1 synchronization is activated.
-.TP
 \fB\-w\fR, \fB\-\-very\-verbose\fR
 show all details
-.TP
-\fB\-v\fR, \fB\-\-version\fR
-shows program version and quit
 .SH EXAMPLES
 examples of CLI command usage:\fR
 .TP

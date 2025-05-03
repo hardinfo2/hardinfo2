@@ -371,7 +371,7 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 	 .short_name = 'u',
 	 .arg = G_OPTION_ARG_STRING,
 	 .arg_data = &bench_user_note,
-	 .description = N_("user note attached to benchmark results. (updating/synchronize with server)")},
+	 .description = N_("user note attached to benchmark results. Group-MachineName-ServerReq")},
 	{
 	 .long_name = "result-format",
 	 .short_name = 'g',
@@ -442,12 +442,24 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
             param->report_format = REPORT_FORMAT_SHELL;
     }
 
-    /* clean user note */
+    /* check user note */
     if (bench_user_note) {
-        char *p = NULL;
-        while( (p = strchr(bench_user_note, ';')) )  { *p = ','; }
-        param->bench_user_note =
-            gg_key_file_parse_string_as_value(bench_user_note, '|');
+        char *p = bench_user_note;
+	int ok=0,c=0;
+	//if( (*p!=0) && (*p!='-') ) ok=1;
+	if(*p!=0) ok=1;
+        while(ok && *p)  {
+	    if(*p=='-') c++;
+	    if(!isalpha(*p) && !isdigit(*p) && (*p!='-')) ok=0;
+	    p++;
+	}
+	if(c>2) ok=0;
+	if(strlen(bench_user_note)>50) ok=0;
+        if(ok) param->bench_user_note=bench_user_note;
+	if(!ok) {
+	    g_print(_("User Note invalid (letters+numbers Group-MachineName-ServerReq)\nUser Note params are optional and usernote can be left blank.\nHave only a group, group-MachineName and also a special request to server for the return benchmark data from server\n"));
+	    exit(1);
+	}
     }
 
     /* html ok?

@@ -670,6 +670,30 @@ static void sel_toggle(GtkCellRendererToggle *cellrenderertoggle,
 
 static void close_clicked(void) { g_main_loop_quit(loop); }
 
+
+void insert_text_event(GtkEditable *editable, const gchar *text, gint length, gint *position, gpointer data) {
+    int i,c=0;
+    gchar *usernote=g_strdup(g_strconcat(gtk_entry_get_text(data),text,NULL));
+
+    //first cannot be dash
+    //if((*position==0) && (text[0]=='-')) {g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");g_free(usernote);return;}
+    //only two dash
+    for (guint u = 0; u < strlen(usernote); u++) if(usernote[u]=='-') c++;
+    if(c>2) {g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");g_free(usernote);return;}
+    //check digit+alpha+dash
+    for (i = 0; i < length; i++) {
+	if (!isalpha(text[i]) && !isdigit(text[i]) && (text[i]!='-')) {
+            g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");
+	    g_free(usernote);
+	    return;
+        }
+    }
+    //printf("Usernote=%s\n",usernote);
+    if(params.bench_user_note) g_free(params.bench_user_note);
+    params.bench_user_note=usernote;
+}
+
+
 static SyncDialog *sync_dialog_new(GtkWidget *parent)
 {
     SyncDialog *sd;
@@ -682,8 +706,9 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     GtkWidget *button7;
     GtkWidget *button6;
     GtkWidget *priv_policy_btn;
-    GtkWidget *label;
-    GtkWidget *hbox;
+    GtkWidget *label,*label2;
+    GtkWidget *hbox,*hbox2;
+    GtkWidget *usernote;
 
     GtkTreeViewColumn *column;
     GtkTreeModel *model;
@@ -731,6 +756,28 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     gtk_box_pack_start(GTK_BOX(hbox), icon_cache_get_image_at_size("sync.svg", 64, 64), FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 0);
     gtk_widget_show_all(hbox);
+
+    //UserNote
+#if GTK_CHECK_VERSION(3, 0, 0)
+    hbox2 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+#else
+    hbox2 = gtk_hbox_new(FALSE, 5);
+#endif
+    gtk_box_pack_start(GTK_BOX(dialog1_vbox), hbox2, FALSE, FALSE, 0);
+
+    usernote = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(usernote),50);
+    g_signal_connect (usernote, "insert-text", G_CALLBACK(insert_text_event), (gpointer) usernote);
+    if(params.bench_user_note) gtk_entry_set_text (GTK_ENTRY(usernote), params.bench_user_note);
+    else gtk_entry_set_text (GTK_ENTRY(usernote), "Group-MachineName-ServerReq");
+
+    label2 = gtk_label_new(_("User Note "));
+    gtk_label_set_line_wrap(GTK_LABEL(label2), FALSE);
+    gtk_label_set_use_markup(GTK_LABEL(label2), TRUE);
+
+    gtk_box_pack_start(GTK_BOX(hbox2), label2, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox2), usernote, TRUE, TRUE, 0);
+    gtk_widget_show_all(hbox2);
 
     gtk_box_pack_start(GTK_BOX(dialog1_vbox), sd->sna->vbox, TRUE, TRUE, 0);
 

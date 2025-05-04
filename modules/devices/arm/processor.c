@@ -718,6 +718,7 @@ gchar *processor_meta(GSList * processors) {
     gchar *meta_freq_desc = processor_frequency_desc(processors);
     gchar *meta_clocks = clocks_summary(processors);
     gchar *meta_caches = caches_summary(processors);
+    gchar *meta_hwcaps = ldlinux_hwcaps_info();
     gchar *ret = NULL;
     UNKIFNULL(meta_cpu_desc);
     ret = g_strdup_printf("[%s]\n"
@@ -726,17 +727,20 @@ gchar *processor_meta(GSList * processors) {
                             "%s=%s\n"
                             "%s=%s\n"
                             "%s"
+                            "%s"
                             "%s",
                             _("SOC/Package"),
                             _("Name"), meta_soc,
                             _("Description"), meta_cpu_desc,
                             _("Topology"), meta_cpu_topo,
                             _("Logical CPU Config"), meta_freq_desc,
+			    meta_hwcaps,
 			    meta_clocks, meta_caches );
     g_free(meta_soc);
     g_free(meta_cpu_desc);
     g_free(meta_cpu_topo);
     g_free(meta_freq_desc);
+    g_free(meta_hwcaps);
     g_free(meta_clocks);
     g_free(meta_caches);
     return ret;

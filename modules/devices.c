@@ -258,6 +258,66 @@ gchar *processor_describe_by_counting_names(GSList * processors)
     return ret;
 }
 
+//currently only 64bit x86 has ld caps
+#ifdef ARCH_x86
+#define PTR_BITS ((unsigned int)sizeof(void*) * 8)
+#else
+#define PTR_BITS 32
+#endif
+gchar *ldlinux_hwcaps_info() {
+    gboolean spawned;
+    gchar *ret,*cmd_line,*out=NULL,*err=NULL,*supported=g_strdup("");
+
+    if(PTR_BITS==64){//64bit
+        cmd_line=g_strdup("sh -c 'LC_ALL=C /usr/lib64/ld-linux-x86-64.so.2 --help'");
+	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	g_free(cmd_line);
+	if (!spawned || strlen(out)<100) {
+	   if(out) {g_free(out);out=NULL;}
+	   if(err) {g_free(err);err=NULL;}
+	   cmd_line=g_strdup("sh -c 'LC_ALL=C /lib64/ld-linux-x86-64.so.2 --help'");
+	   spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	   g_free(cmd_line);
+	}
+	if (spawned && strlen(out)>=100) {
+	    if(strstr(out,"x86-64-v1 (sup")) supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	    if(strstr(out,"x86-64-v2 (sup")) supported=g_strconcat(supported," x86-64-V2 ",NULL);
+	    if(strstr(out,"x86-64-v3 (sup")) supported=g_strconcat(supported," x86-64-V3 ",NULL);
+	    if(strstr(out,"x86-64-v4 (sup")) supported=g_strconcat(supported," x86-64-V4 ",NULL);
+	    if(strstr(out,"x86-64-v5 (sup")) supported=g_strconcat(supported," x86-64-V5 ",NULL);//future
+	    if(strlen(supported)<1) supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	} else {
+	    supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	}
+    } else {//32bit and others
+        cmd_line=g_strdup("sh -c 'LC_ALL=C uname -m'");
+	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
+	g_free(cmd_line);
+	if (spawned && strlen(out)>=1) {
+	    supported=g_strconcat(supported, out, NULL);
+	}else{
+	    supported=g_strconcat(supported, " ",HARDINFO2_ARCH," ", NULL);
+	}
+    }
+    if(out) g_free(out);
+    if(err) g_free(err);
+
+    if(strlen(supported)<1) {
+        g_free(supported);
+        supported=g_strdup("(None)");
+    }
+
+    ret = g_strdup_printf("[%s]\n"
+			  "HWCAPS=  %s\n",
+			  _("Distro and CPU Supported Profiles"),
+			  supported
+			  );
+    g_free(supported);
+
+    return ret;
+}
+
+
 gchar *get_processor_name(void)
 {
     scan_processors(FALSE);
@@ -715,6 +775,7 @@ const ShellModuleMethod *hi_exported_methods(void)
         {"getProcessorNameAndDesc", get_processor_name_and_desc},
         {"getProcessorFrequency", get_processor_max_frequency},
         {"getProcessorFrequencyDesc", get_processor_frequency_desc},
+        {"getProcessorHwCaps", ldlinux_hwcaps_info},
         {"getStorageDevices", get_storage_devices},
         {"getStorageDevicesSimple", get_storage_devices_simple},
         {"getStorageDevicesModels", get_storage_devices_models},

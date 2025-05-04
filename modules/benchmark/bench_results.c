@@ -39,6 +39,7 @@ typedef struct {
     char *cpu_name;
     char *cpu_desc;
     char *cpu_config;
+    char *cpu_hwcaps;
     char *ogl_renderer;
     char *gpu_desc;
     int processors;
@@ -128,8 +129,8 @@ bench_machine *bench_machine_this()
         m->board = module_call_method("devices::getMotherboard");
         m->cpu_name = module_call_method("devices::getProcessorName");
         m->cpu_desc = module_call_method("devices::getProcessorDesc");
-        m->cpu_config =
-            module_call_method("devices::getProcessorFrequencyDesc");
+        m->cpu_config = module_call_method("devices::getProcessorFrequencyDesc");
+	m->cpu_hwcaps = module_call_method("devices::getProcessorHwCaps");
         m->gpu_desc = module_call_method("devices::getGPUList");
         m->ogl_renderer = module_call_method("computer::getOGLRenderer");
         tmp = module_call_method("computer::getMemoryTotal");

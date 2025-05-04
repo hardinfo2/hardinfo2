@@ -47,6 +47,7 @@ gchar *processor_describe(GSList * processors);
 gchar *processor_describe_default(GSList * processors);
 gchar *processor_describe_by_counting_names(GSList * processors);
 gchar *processor_frequency_desc(GSList *processors);
+gchar *ldlinux_hwcaps_info(void);
 
 /* Printers */
 void init_cups(void);

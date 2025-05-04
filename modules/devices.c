@@ -294,7 +294,7 @@ gchar *ldlinux_hwcaps() {
 	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
 	g_free(cmd_line);
 	if (spawned && strlen(out)>=1) {
-	    supported=g_strconcat(supported, out, NULL);
+	    supported=g_strconcat(supported, " ",out," ", NULL);
 	}else{
 	    supported=g_strconcat(supported, " ",HARDINFO2_ARCH," ", NULL);
 	}

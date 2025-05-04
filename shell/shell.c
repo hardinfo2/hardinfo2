@@ -38,6 +38,9 @@
 
 #include "callbacks.h"
 
+gboolean updating=TRUE;
+gboolean closing=FALSE;
+
 struct UpdateTableItem {
     union {
         GtkWidget *widget;
@@ -229,11 +232,6 @@ void shell_action_set_active(const gchar * action_name, gboolean setting)
 void shell_status_pulse(void)
 {
     if (params.gui_running) {
-	if (shell->_pulses++ == 5) {
-	    /* we're pulsing for some time, disable the interface and change the cursor
-	       to a hourglass */
-	    shell_view_set_enabled(FALSE);
-	}
 	if(shell && shell->selected_module && strcmp(shell->selected_module->name,_("Benchmark")))
 	    if(gtk_widget_get_visible(shell->progress)) gtk_progress_bar_pulse(GTK_PROGRESS_BAR(shell->progress));
 	int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
@@ -283,6 +281,8 @@ void shell_view_set_enabled(gboolean setting)
     shell_action_set_enabled("ReportAction", setting);
     shell_action_set_enabled("SyncManagerAction", setting);
     int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
+    updating=!setting;
+    if(!updating && closing) cb_quit();
 }
 
 void shell_status_set_enabled(gboolean setting)
@@ -291,11 +291,11 @@ void shell_status_set_enabled(gboolean setting)
     if (!params.gui_running)
 	return;
 
+    shell_view_set_enabled(!setting);
     if (setting)
         gtk_widget_show(shell->progress);
     else {
         gtk_widget_hide(shell->progress);
-	shell_view_set_enabled(TRUE);
 	shell_status_update(_("Done."));
     }
 }
@@ -336,8 +336,15 @@ void shell_status_update(const gchar * message)
     }
 }
 
-static void destroy_me(void)
-{
+gboolean destroy_event (GtkWidget* self, GdkEvent* event, gpointer user_data) {
+    if(!updating){
+        return FALSE;
+    } else {
+        closing=TRUE;
+        return TRUE;
+    }
+}
+static void destroy_me(void){
     cb_quit();
 }
 
@@ -526,7 +533,8 @@ static void create_window(void)
     gtk_window_set_icon(GTK_WINDOW(shell->window), icon_cache_get_pixbuf("hardinfo2.svg"));
     shell_set_title(shell, NULL);
     gtk_window_set_default_size(GTK_WINDOW(shell->window), 1280*params.scale, 800*params.scale);
-    g_signal_connect(G_OBJECT(shell->window), "destroy", destroy_me, NULL);
+    g_signal_connect(G_OBJECT(shell->window), "destroy", G_CALLBACK(destroy_me), NULL);
+    g_signal_connect(G_OBJECT(shell->window), "delete-event", G_CALLBACK(destroy_event), NULL);
 #if GTK_CHECK_VERSION(3, 0, 0)
     g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_me, NULL);
     g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange2_me, NULL);

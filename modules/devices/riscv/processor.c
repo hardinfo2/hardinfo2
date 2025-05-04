@@ -534,6 +534,7 @@ gchar *processor_meta(GSList * processors) {
     gchar *meta_cpu_desc = processor_describe(processors);
     gchar *meta_cpu_topo = processor_describe_default(processors);
     gchar *meta_freq_desc = processor_frequency_desc(processors);
+    gchar *meta_hwcaps = ldlinux_hwcaps_info();
     gchar *meta_clocks = clocks_summary(processors);
     gchar *meta_caches = caches_summary(processors);
     gchar *ret = NULL;
@@ -544,12 +545,14 @@ gchar *processor_meta(GSList * processors) {
                             "%s=%s\n"
                             "%s=%s\n"
                             "%s"
+                            "%s"
                             "%s",
                             _("SOC/Package"),
                             _("Name"), meta_soc,
                             _("Description"), meta_cpu_desc,
                             _("Topology"), meta_cpu_topo,
                             _("Logical CPU Config"), meta_freq_desc,
+			    meta_hwcaps,
 			    meta_clocks, meta_caches );
     g_free(meta_soc);
     g_free(meta_cpu_desc);

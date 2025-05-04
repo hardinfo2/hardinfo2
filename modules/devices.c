@@ -264,9 +264,9 @@ gchar *processor_describe_by_counting_names(GSList * processors)
 #else
 #define PTR_BITS 32
 #endif
-gchar *ldlinux_hwcaps_info() {
+gchar *ldlinux_hwcaps() {
     gboolean spawned;
-    gchar *ret,*cmd_line,*out=NULL,*err=NULL,*supported=g_strdup("");
+    gchar *cmd_line,*out=NULL,*err=NULL,*supported=g_strdup("");
 
     if(PTR_BITS==64){//64bit
         cmd_line=g_strdup("sh -c 'LC_ALL=C /usr/lib64/ld-linux-x86-64.so.2 --help'");
@@ -307,7 +307,13 @@ gchar *ldlinux_hwcaps_info() {
         supported=g_strdup("(None)");
     }
 
-    ret = g_strdup_printf("[%s]\n"
+    return supported;
+}
+
+gchar *ldlinux_hwcaps_info() {
+    gchar *supported=ldlinux_hwcaps();
+
+    gchar *ret = g_strdup_printf("[%s]\n"
 			  "HWCAPS=  %s\n",
 			  _("Distro and CPU Supported Profiles"),
 			  supported
@@ -775,7 +781,7 @@ const ShellModuleMethod *hi_exported_methods(void)
         {"getProcessorNameAndDesc", get_processor_name_and_desc},
         {"getProcessorFrequency", get_processor_max_frequency},
         {"getProcessorFrequencyDesc", get_processor_frequency_desc},
-        {"getProcessorHwCaps", ldlinux_hwcaps_info},
+        {"getProcessorHwCaps", ldlinux_hwcaps},
         {"getStorageDevices", get_storage_devices},
         {"getStorageDevicesSimple", get_storage_devices_simple},
         {"getStorageDevicesModels", get_storage_devices_models},

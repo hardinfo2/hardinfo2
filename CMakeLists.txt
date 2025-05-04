@@ -186,9 +186,15 @@ endif()
 
 #centos/redhat/oracle 10
 if((${disversion} GREATER_EQUAL 10) AND (${disversion} LESS 10.99))
-  if(${distro} MATCHES "Red*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*")
-    message("Centos/Redhat/oracle/rocky/alma 10 - Missing xrandr+sysbench!!!")
-    SET(RPM_REQ "dmidecode, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, vulkan-tools, gawk") #miss sysbench, xrandr
+  if(${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*")
+    message("Centos/Redhat/oracle/rocky/alma 10 - Missing xrandr vue to wayland standard")
+    SET(RPM_REQ "dmidecode, sysbench, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, vulkan-tools, gawk") #miss xrandr
+  endif()
+  #below to be removed when Redhat switches to epel10_1
+  if(${distro} MATCHES "Red*")
+    message("Centos/Redhat/oracle/rocky/alma 10 - Missing xrandr vue to wayland standard")
+    message("Redhat - Missing sysbench - old epel10_0 instead of epel10_1")
+    SET(RPM_REQ "dmidecode, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, vulkan-tools, gawk") #miss xrandr sysbench
   endif()
 endif()
 

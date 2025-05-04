@@ -322,7 +322,7 @@ bench_result *bench_result_benchmarkjson(const gchar *bench_name,
     JsonObject *machine;
     bench_result *b;
 
-    if (json_node_get_node_type(node) != JSON_NODE_OBJECT)
+    if (!node || (json_node_get_node_type(node) != JSON_NODE_OBJECT))
         return NULL;
 
     machine = json_node_get_object(node);

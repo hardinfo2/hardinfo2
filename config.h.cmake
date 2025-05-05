@@ -25,6 +25,7 @@
 #cmakedefine HARDINFO2_VK       @HARDINFO2_VK@
 #cmakedefine HARDINFO2_VK_WAYLAND @HARDINFO2_VK_WAYLAND@
 #cmakedefine HARDINFO2_VK_X11   @HARDINFO2_VK_X11@
+#cmakedefine HARDINFO2_NOSSL    @HARDINFO2_NOSSL@
 
 #define Release 1
 #define ON 1

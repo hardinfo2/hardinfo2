@@ -72,9 +72,14 @@ static GQuark err_quark;
 static guint server_blobs_update_version = 0;
 static guint our_blobs_update_version = 0;
 
-//Note there are no personal information involved and very old
-//linux systems does not work with HTTPS so use HTTP for now
+//Note there are no personal information involved
+//Very old linux systems does not work with HTTPS
+//But it is the standard and should be used in new distros
+#if(HARDINFO2_NOSSL)
 #define API_SERVER_URI "http://api.hardinfo2.org"
+#else
+#define API_SERVER_URI "https://api.hardinfo2.org"
+#endif
 
 #define LABEL_SYNC_DEFAULT                                                     \
     _("<big><b>Synchronize with Central Database</b></big>\n"                  \

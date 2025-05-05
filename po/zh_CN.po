@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 01:21+0200\n"
+"POT-Creation-Date: 2025-05-05 16:55+0200\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: Kane Wang <wangqiang1@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -631,9 +631,9 @@ msgid "Check Update Version"
 msgstr ""
 
 #: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:788
-#: modules/computer/os.c:197 modules/computer/os.c:388
-#: modules/computer/os.c:423 modules/computer/os.c:737
-#: modules/computer/os.c:800 modules/devices.c:621 modules/devices.c:772
+#: modules/computer/os.c:198 modules/computer/os.c:389
+#: modules/computer/os.c:424 modules/computer/os.c:738
+#: modules/computer/os.c:801 modules/devices.c:621 modules/devices.c:772
 #: modules/devices/firmware.c:151 modules/devices/printers.c:106
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
@@ -686,7 +686,7 @@ msgstr "生成报表(_R)"
 msgid "Generates a report with detailed system information"
 msgstr ""
 
-#: shell/menu.c:51 shell/syncmanager.c:749
+#: shell/menu.c:51 shell/syncmanager.c:754
 msgid "Synchronize"
 msgstr ""
 
@@ -766,7 +766,7 @@ msgstr ""
 msgid "Save File"
 msgstr "保存文件"
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:868
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -870,44 +870,44 @@ msgstr "<b>%s → 概要</b>"
 msgid "Updating..."
 msgstr "正在更新..."
 
-#: shell/syncmanager.c:80
+#: shell/syncmanager.c:85
 msgid ""
 "<big><b>Synchronize with Central Database</b></big>\n"
 "The following information may be synchronized\n"
 "with the HardInfo2 central database."
 msgstr ""
 
-#: shell/syncmanager.c:84
+#: shell/syncmanager.c:89
 msgid ""
 "<big><b>Synchronizing</b></big>\n"
 "This may take some time."
 msgstr ""
 
-#: shell/syncmanager.c:573
+#: shell/syncmanager.c:578
 msgid "(canceled)"
 msgstr "(已取消)"
 
-#: shell/syncmanager.c:589
+#: shell/syncmanager.c:594
 msgid "(failed)"
 msgstr "(失败)"
 
-#: shell/syncmanager.c:685 modules/benchmark.c:938
+#: shell/syncmanager.c:690 modules/benchmark.c:938
 msgid "Send benchmark results"
 msgstr ""
 
-#: shell/syncmanager.c:811
+#: shell/syncmanager.c:816
 msgid "User Note "
 msgstr ""
 
-#: shell/syncmanager.c:855
+#: shell/syncmanager.c:860
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: shell/syncmanager.c:877
+#: shell/syncmanager.c:882
 msgid "_Synchronize"
 msgstr "同步(_S)"
 
-#: shell/syncmanager.c:926
+#: shell/syncmanager.c:931
 #, c-format
 msgid "Synchronizing: %s"
 msgstr ""
@@ -1034,7 +1034,7 @@ msgstr ""
 #. * line references
 #: modules/benchmark/bench_results.c:34 modules/computer.c:41
 #: modules/computer/display.c:39 modules/computer/display.c:56
-#: modules/computer/os.c:410 modules/computer/os.c:467 modules/devices.c:751
+#: modules/computer/os.c:411 modules/computer/os.c:468 modules/devices.c:751
 #: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
 #: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
 #: modules/devices/gpu.c:130 modules/devices/gpu.c:216
@@ -2324,7 +2324,7 @@ msgstr ""
 #: modules/computer/modules.c:332 modules/computer/modules.c:333
 #: modules/computer/modules.c:334 modules/computer/modules.c:335
 #: modules/devices/dmi.c:117 modules/devices/firmware.c:246
-#: modules/devices/x86/processor.c:694
+#: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
 msgid "(Not available)"
 msgstr "（不可用）"
 
@@ -2368,106 +2368,106 @@ msgstr "许可协议"
 msgid "Dependencies"
 msgstr "依赖"
 
-#: modules/computer/os.c:155 modules/computer/os.c:156
-#: modules/computer/os.c:158 modules/computer/os.c:159
+#: modules/computer/os.c:156 modules/computer/os.c:157
+#: modules/computer/os.c:159 modules/computer/os.c:160
 msgid "GNU C Library"
 msgstr "GNU C库"
 
-#: modules/computer/os.c:157
+#: modules/computer/os.c:158
 msgid "musl C Library"
 msgstr ""
 
-#: modules/computer/os.c:160
+#: modules/computer/os.c:161
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc or uClibc-ng"
 
-#: modules/computer/os.c:161
+#: modules/computer/os.c:162
 msgid "diet libc"
 msgstr ""
 
-#: modules/computer/os.c:234 modules/computer/os.c:237
+#: modules/computer/os.c:235 modules/computer/os.c:238
 msgid "GNOME Shell "
 msgstr "GNOME Shell "
 
-#: modules/computer/os.c:247 modules/computer/os.c:250
+#: modules/computer/os.c:248 modules/computer/os.c:251
 msgid "Version: "
 msgstr "版本："
 
-#: modules/computer/os.c:270 modules/computer/os.c:273
+#: modules/computer/os.c:271 modules/computer/os.c:274
 msgid "MATE Desktop Environment "
 msgstr ""
 
-#: modules/computer/os.c:309
+#: modules/computer/os.c:310
 #, c-format
 msgid "Unknown (Window Manager: %s)"
 msgstr "未知 (窗口管理器：%s)"
 
 #. !/{desktop environment} on {session type}
-#: modules/computer/os.c:320
+#: modules/computer/os.c:321
 #, c-format
 msgid "%s on %s"
 msgstr ""
 
-#: modules/computer/os.c:386
+#: modules/computer/os.c:387
 msgid "Terminal"
 msgstr "终端"
 
-#: modules/computer/os.c:402
+#: modules/computer/os.c:403
 msgid "User access allowed"
 msgstr ""
 
-#: modules/computer/os.c:404
+#: modules/computer/os.c:405
 msgid "User access forbidden"
 msgstr ""
 
-#: modules/computer/os.c:406
+#: modules/computer/os.c:407
 msgid "Access allowed (running as superuser)"
 msgstr ""
 
-#: modules/computer/os.c:408
+#: modules/computer/os.c:409
 msgid "Access forbidden? (running as superuser)"
 msgstr ""
 
-#: modules/computer/os.c:417 modules/computer/os.c:791
+#: modules/computer/os.c:418 modules/computer/os.c:792
 msgid "Disabled"
 msgstr ""
 
-#: modules/computer/os.c:419
+#: modules/computer/os.c:420
 msgid "Partially enabled (mmap base+stack+VDSO base)"
 msgstr ""
 
-#: modules/computer/os.c:421
+#: modules/computer/os.c:422
 msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
 msgstr ""
 
 #. !/bits of entropy for rng (0)
-#: modules/computer/os.c:430
+#: modules/computer/os.c:431
 msgid "(None or not available)"
 msgstr ""
 
 #. !/bits of entropy for rng (low/poor value)
-#: modules/computer/os.c:431
+#: modules/computer/os.c:432
 #, c-format
 msgid "%d bits (low)"
 msgstr ""
 
 #. !/bits of entropy for rng (medium value)
-#: modules/computer/os.c:432
+#: modules/computer/os.c:433
 #, c-format
 msgid "%d bits (medium)"
 msgstr ""
 
 #. !/bits of entropy for rng (high/good value)
-#: modules/computer/os.c:433
+#: modules/computer/os.c:434
 #, c-format
 msgid "%d bits (healthy)"
 msgstr ""
 
-#: modules/computer/os.c:786
+#: modules/computer/os.c:787
 msgid "Not installed"
 msgstr ""
 
-#: modules/computer/os.c:789
+#: modules/computer/os.c:790
 msgid "Enabled"
 msgstr ""
 
@@ -4691,10 +4691,6 @@ msgstr ""
 msgid "Socket Information"
 msgstr ""
 
-#: modules/devices/x86/processor.c:695
-msgid "(Not available; Perhaps try running hardinfo2 as root.)"
-msgstr ""
-
 #: modules/devices/x86/processor.c:713
 msgid "CPU Socket"
 msgstr ""
@@ -5243,8 +5239,8 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:141
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
-"i.e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
+"e. bit count)"
 msgstr ""
 
 #: modules/devices/x86/x86_data.c:142

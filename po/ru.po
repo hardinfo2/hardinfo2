@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 01:21+0200\n"
+"POT-Creation-Date: 2025-05-05 16:55+0200\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -656,9 +656,9 @@ msgid "Check Update Version"
 msgstr "Проверить обновления"
 
 #: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:788
-#: modules/computer/os.c:197 modules/computer/os.c:388
-#: modules/computer/os.c:423 modules/computer/os.c:737
-#: modules/computer/os.c:800 modules/devices.c:621 modules/devices.c:772
+#: modules/computer/os.c:198 modules/computer/os.c:389
+#: modules/computer/os.c:424 modules/computer/os.c:738
+#: modules/computer/os.c:801 modules/devices.c:621 modules/devices.c:772
 #: modules/devices/firmware.c:151 modules/devices/printers.c:106
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
@@ -724,7 +724,7 @@ msgstr "Создать _отчет"
 msgid "Generates a report with detailed system information"
 msgstr "Создать отчет с подробной информацией о системе"
 
-#: shell/menu.c:51 shell/syncmanager.c:749
+#: shell/menu.c:51 shell/syncmanager.c:754
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
@@ -804,7 +804,7 @@ msgstr "Silicon"
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:868
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
 msgid "_Cancel"
 msgstr "_Отмена"
 
@@ -917,7 +917,7 @@ msgstr "<b>%s → Сводка</b>"
 msgid "Updating..."
 msgstr "Обновление..."
 
-#: shell/syncmanager.c:80
+#: shell/syncmanager.c:85
 msgid ""
 "<big><b>Synchronize with Central Database</b></big>\n"
 "The following information may be synchronized\n"
@@ -927,7 +927,7 @@ msgstr ""
 "Следующая информация может быть синхронизирована\n"
 "с центральной базой данных HardInfo2."
 
-#: shell/syncmanager.c:84
+#: shell/syncmanager.c:89
 msgid ""
 "<big><b>Synchronizing</b></big>\n"
 "This may take some time."
@@ -935,31 +935,31 @@ msgstr ""
 "<big><b>Синхронизация</b></big>\n"
 "Это может занять какое-то время."
 
-#: shell/syncmanager.c:573
+#: shell/syncmanager.c:578
 msgid "(canceled)"
 msgstr "(отменен)"
 
-#: shell/syncmanager.c:589
+#: shell/syncmanager.c:594
 msgid "(failed)"
 msgstr "(ошибка)"
 
-#: shell/syncmanager.c:685 modules/benchmark.c:938
+#: shell/syncmanager.c:690 modules/benchmark.c:938
 msgid "Send benchmark results"
 msgstr "Отправить результаты тестирования"
 
-#: shell/syncmanager.c:811
+#: shell/syncmanager.c:816
 msgid "User Note "
 msgstr ""
 
-#: shell/syncmanager.c:855
+#: shell/syncmanager.c:860
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
 
-#: shell/syncmanager.c:877
+#: shell/syncmanager.c:882
 msgid "_Synchronize"
 msgstr "_Синхронизировать"
 
-#: shell/syncmanager.c:926
+#: shell/syncmanager.c:931
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "Синхронизация: %s"
@@ -1088,7 +1088,7 @@ msgstr "Результаты в FPS. Чем выше, тем лучше."
 #. * line references
 #: modules/benchmark/bench_results.c:34 modules/computer.c:41
 #: modules/computer/display.c:39 modules/computer/display.c:56
-#: modules/computer/os.c:410 modules/computer/os.c:467 modules/devices.c:751
+#: modules/computer/os.c:411 modules/computer/os.c:468 modules/devices.c:751
 #: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
 #: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
 #: modules/devices/gpu.c:130 modules/devices/gpu.c:216
@@ -2414,7 +2414,7 @@ msgstr "Обновить таблицу значков модулей ядра"
 #: modules/computer/modules.c:332 modules/computer/modules.c:333
 #: modules/computer/modules.c:334 modules/computer/modules.c:335
 #: modules/devices/dmi.c:117 modules/devices/firmware.c:246
-#: modules/devices/x86/processor.c:694
+#: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
 msgid "(Not available)"
 msgstr "(Недоступно)"
 
@@ -2458,106 +2458,106 @@ msgstr "Лицензия"
 msgid "Dependencies"
 msgstr "Зависимости"
 
-#: modules/computer/os.c:155 modules/computer/os.c:156
-#: modules/computer/os.c:158 modules/computer/os.c:159
+#: modules/computer/os.c:156 modules/computer/os.c:157
+#: modules/computer/os.c:159 modules/computer/os.c:160
 msgid "GNU C Library"
 msgstr "GNU C Library"
 
-#: modules/computer/os.c:157
+#: modules/computer/os.c:158
 msgid "musl C Library"
 msgstr "musl C Library"
 
-#: modules/computer/os.c:160
+#: modules/computer/os.c:161
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc or uClibc-ng"
 
-#: modules/computer/os.c:161
+#: modules/computer/os.c:162
 msgid "diet libc"
 msgstr "diet libc"
 
-#: modules/computer/os.c:234 modules/computer/os.c:237
+#: modules/computer/os.c:235 modules/computer/os.c:238
 msgid "GNOME Shell "
 msgstr "GNOME Shell "
 
-#: modules/computer/os.c:247 modules/computer/os.c:250
+#: modules/computer/os.c:248 modules/computer/os.c:251
 msgid "Version: "
 msgstr "Версия: "
 
-#: modules/computer/os.c:270 modules/computer/os.c:273
+#: modules/computer/os.c:271 modules/computer/os.c:274
 msgid "MATE Desktop Environment "
 msgstr "MATE Desktop Environment "
 
-#: modules/computer/os.c:309
+#: modules/computer/os.c:310
 #, c-format
 msgid "Unknown (Window Manager: %s)"
 msgstr "Неизвестно (Оконный менеджер: %s)"
 
 #. !/{desktop environment} on {session type}
-#: modules/computer/os.c:320
+#: modules/computer/os.c:321
 #, c-format
 msgid "%s on %s"
 msgstr "%s на %s"
 
-#: modules/computer/os.c:386
+#: modules/computer/os.c:387
 msgid "Terminal"
 msgstr "Терминал"
 
-#: modules/computer/os.c:402
+#: modules/computer/os.c:403
 msgid "User access allowed"
 msgstr "Пользовательский доступ разрешен"
 
-#: modules/computer/os.c:404
+#: modules/computer/os.c:405
 msgid "User access forbidden"
 msgstr "Пользовательский доступ запрещен"
 
-#: modules/computer/os.c:406
+#: modules/computer/os.c:407
 msgid "Access allowed (running as superuser)"
 msgstr "Доступ разрешен (запущено суперпользователем)"
 
-#: modules/computer/os.c:408
+#: modules/computer/os.c:409
 msgid "Access forbidden? (running as superuser)"
 msgstr "Доступ запрещен? (запущено суперпользователем)"
 
-#: modules/computer/os.c:417 modules/computer/os.c:791
+#: modules/computer/os.c:418 modules/computer/os.c:792
 msgid "Disabled"
 msgstr "Отключено"
 
-#: modules/computer/os.c:419
+#: modules/computer/os.c:420
 msgid "Partially enabled (mmap base+stack+VDSO base)"
 msgstr "Частично включено (mmap base+stack+VDSO base)"
 
-#: modules/computer/os.c:421
+#: modules/computer/os.c:422
 msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
 msgstr "Полностью включено (mmap base+stack+VDSO base+heap)"
 
 #. !/bits of entropy for rng (0)
-#: modules/computer/os.c:430
+#: modules/computer/os.c:431
 msgid "(None or not available)"
 msgstr "(Нет или недоступно)"
 
 #. !/bits of entropy for rng (low/poor value)
-#: modules/computer/os.c:431
+#: modules/computer/os.c:432
 #, c-format
 msgid "%d bits (low)"
 msgstr "%d бит (низкая)"
 
 #. !/bits of entropy for rng (medium value)
-#: modules/computer/os.c:432
+#: modules/computer/os.c:433
 #, c-format
 msgid "%d bits (medium)"
 msgstr "%d бит (средняя)"
 
 #. !/bits of entropy for rng (high/good value)
-#: modules/computer/os.c:433
+#: modules/computer/os.c:434
 #, c-format
 msgid "%d bits (healthy)"
 msgstr "%d бит (здоровый)"
 
-#: modules/computer/os.c:786
+#: modules/computer/os.c:787
 msgid "Not installed"
 msgstr "Не установлено"
 
-#: modules/computer/os.c:789
+#: modules/computer/os.c:790
 msgid "Enabled"
 msgstr "Включено"
 
@@ -4883,11 +4883,6 @@ msgstr "Обход багов"
 msgid "Socket Information"
 msgstr "Информация о сокете"
 
-#: modules/devices/x86/processor.c:695
-msgid "(Not available; Perhaps try running hardinfo2 as root.)"
-msgstr ""
-"(Недоступно, попробуйте запустить hardinfo2 от имени суперпользователя.)"
-
 #: modules/devices/x86/processor.c:713
 msgid "CPU Socket"
 msgstr "Сокет процессора"
@@ -5450,8 +5445,8 @@ msgstr "Инструкция переноса данных после подка
 #: modules/devices/x86/x86_data.c:141
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
-"i.e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
+"e. bit count)"
 msgstr ""
 "Возвращение набора счетчика бит в 1 инструкцию (вес Хэмминга, т.е. счетчик "
 "бит)"
@@ -5472,8 +5467,8 @@ msgstr "Стандарт дополнительного шифрования (н
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr ""
-"Сохранение расширенных состояний процессора: также добавляет "
-"XGETBY,XRSTOR,XSETBY"
+"Сохранение расширенных состояний процессора: также добавляет XGETBY,XRSTOR,"
+"XSETBY"
 
 #. !/flag:avx
 #: modules/devices/x86/x86_data.c:145
@@ -6674,6 +6669,10 @@ msgstr "Широковещательный адрес"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr "ОЗУ"
+
+#~ msgid "(Not available; Perhaps try running hardinfo2 as root.)"
+#~ msgstr ""
+#~ "(Недоступно, попробуйте запустить hardinfo2 от имени суперпользователя.)"
 
 #~ msgid ""
 #~ "user note attached to benchmark results. (updating/synchronize with "

@@ -36,6 +36,7 @@ typedef struct {
 static const AptFlavor apt_flavors[] = {
     { "Puppy Linux",    "puppy",           "/etc/DISTRO_SPECS",            "/etc/DISTRO_SPECS",          "DISTRO_VERSION="      },
     { "Winux",          "winux",           "/usr/bin/winux-driver-manager","/etc/os-release",            "PRETTY_NAME=\"Winux " },
+    { "Vendefoul Wolf", "Vendefoul",       "/opt/vendefoulwolf.png",       "/etc/os-release",            "VERSION_ID="          },
     { "Parrot Security","parrot",          "parrot-updater",               "/etc/os-release",            "VERSION_ID="          },
     { "Bodhi Linux",    "bodhi",           "bodhi-appcenter",              "/etc/bodhi/info",            "RELEASE="             },
     { "MX Linux",       "mxlinux",         "mx-welcome",                   "/etc/mx-version",            "MX-"                  },

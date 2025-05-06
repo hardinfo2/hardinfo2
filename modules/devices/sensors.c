@@ -583,48 +583,6 @@ static void read_sensors_omnibook(void) {
     }
 }
 
-static void read_sensors_hddtemp(void) {
-    Socket *s;
-    gchar buffer[1024];
-    gint len = 0;
-
-    if (!(s = sock_connect("127.0.0.1", 7634)))
-        return;
-
-    while (!len)
-        len = sock_read(s, buffer, sizeof(buffer));
-    sock_close(s);
-
-    if (len > 2 && buffer[0] == '|' && buffer[1] == '/') {
-        gchar **disks;
-        int i;
-
-        disks = g_strsplit(buffer, "||", 0);
-        for (i = 0; disks[i]; i++) {
-            gchar **fields = g_strsplit(disks[i] + 1, "|", 5);
-
-            /*
-             * 0 -> /dev/hda
-             * 1 -> FUJITSU MHV2080AH
-             * 2 -> 41
-             * 3 -> C
-             */
-            const gchar *unit = strcmp(fields[3], "C")
-                ? "\302\260F" : "\302\260C";
-            add_sensor("Drive Temperature",
-                       fields[1],
-                       "hddtemp",
-                       atoi(fields[2]),
-                       unit,
-                       "therm");
-
-            g_strfreev(fields);
-        }
-
-        g_strfreev(disks);
-    }
-}
-
 static void read_sensors_udisks2(void) {
     GSList *node;
     GSList *temps;
@@ -744,7 +702,6 @@ void scan_sensors_do(void) {
     }
 
     read_sensors_windfarm();
-    read_sensors_hddtemp();
     read_sensors_udisks2();
 }
 

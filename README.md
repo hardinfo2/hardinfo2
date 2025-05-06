@@ -111,9 +111,7 @@ libqt5-qtbase-devel instead of qt5-qtbase-devel
 - **fwupd**: fwupd is used to read and display information about firmware in system.
 
 **User can install/setup these depending on hardware**
-- **hddtemp**: To obtain the hard disk drive temperature, be sure to run hddtemp
-in daemon mode, using the default port.
-- **apcaccess**: apcaccess is used for ups/battery information.
+- **apcupsd**: apcaccess is used for ups/battery information.
 - **mesa-vulkan-swrast/libvulkan_lvp**: Vulkan Software driver if you have no hardware vulkan driver (eg. Virtual).
 
 License

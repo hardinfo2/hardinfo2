@@ -566,18 +566,39 @@ static void read_sensors_sys_thermal(void) {
 
 static void read_sensors_cpufreq(void) {
     const gchar *path = "/proc/cpuinfo";
-    gchar *contents;
-    if (g_file_get_contents(path, &contents, NULL, NULL)) {
+    gchar *contents,*cpupath;
+    int cpuid=0;
+
+    cpupath=g_strdup_printf("/sys/devices/system/cpu/cpu%d/cpufreq/scaling_cur_freq",cpuid);
+    while(g_file_get_contents(cpupath, &contents, NULL, NULL)) {
+        int freq;
+	gchar *p,*cpuid_str;
+	p=contents;
+	while(p && (sscanf(p, "%d", &freq)==1)) {
+            cpuid_str=g_strdup_printf("cpu%d",cpuid);
+
+	    add_sensor("CPU Frequency", cpuid_str, "cpufreq", (float)freq/1000, " MHz", "processor");
+
+	    cpuid++;
+	    g_free(cpuid_str);
+	    p=strstr(p,"\n");
+	}
+	g_free(contents);
+	g_free(cpupath);
+	cpupath=g_strdup_printf("/sys/devices/system/cpu/cpu%d/cpufreq/scaling_cur_freq",cpuid);
+    }
+    g_free(cpupath);
+
+    if (!cpuid && g_file_get_contents(path, &contents, NULL, NULL)) {
         float freq;
 	gchar *p,*cpuid_str;
-	int cpuid=0;
 
 	p=strstr(contents,"cpu MHz");
 
 	while(p && (sscanf(p, "cpu MHz%*[ \t]: %f", &freq)==1)) {
             cpuid_str=g_strdup_printf("cpu%d",cpuid);
 
-	    add_sensor("CPU Frequency", cpuid_str, "core", freq, "MHz", "processor");
+	    add_sensor("CPU Frequency", cpuid_str, "core", freq, " MHz", "processor");
 
 	    cpuid++;
 	    g_free(cpuid_str);

@@ -25,7 +25,7 @@ hardinfo2.pot now has 1324 strings (no change), with 63 c-format strings
 - [ ] ko.po : (222 / 1324 remain untranslated, needs work/fuzzy: 0)
 - [ ] pt_BR.po : (17 / 1324 remain untranslated, needs work/fuzzy: 0)
 - [ ] pt.po : (211 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] ru.po : (12 / 1324 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1324 remain untranslated, needs work/fuzzy: 0)
 - [ ] tr.po : (12 / 1324 remain untranslated, needs work/fuzzy: 0)
 - [ ] zh_CN.po : (927 / 1324 remain untranslated, needs work/fuzzy: 0)
 

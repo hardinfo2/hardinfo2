@@ -563,6 +563,30 @@ static void read_sensors_sys_thermal(void) {
     }
 }
 
+
+static void read_sensors_cpufreq(void) {
+    const gchar *path = "/proc/cpuinfo";
+    gchar *contents;
+    if (g_file_get_contents(path, &contents, NULL, NULL)) {
+        float freq;
+	gchar *p,*cpuid_str;
+	int cpuid=0;
+
+	p=strstr(contents,"cpu MHz");
+
+	while(p && (sscanf(p, "cpu MHz%*[ \t]: %f", &freq)==1)) {
+            cpuid_str=g_strdup_printf("cpu%d",cpuid);
+
+	    add_sensor("CPU Frequency", cpuid_str, "core", freq, "MHz", "processor");
+
+	    cpuid++;
+	    g_free(cpuid_str);
+	    p=strstr(p+7,"cpu MHz");
+	}
+	g_free(contents);
+    }
+}
+
 static void read_sensors_omnibook(void) {
     const gchar *path_ob = "/proc/omnibook/temperature";
     gchar *contents;
@@ -701,6 +725,7 @@ void scan_sensors_do(void) {
         read_sensors_omnibook();
     }
 
+    read_sensors_cpufreq();
     read_sensors_windfarm();
     read_sensors_udisks2();
 }

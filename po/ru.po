@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 16:55+0200\n"
+"POT-Creation-Date: 2025-05-06 15:43+0300\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -577,11 +577,11 @@ msgstr "выберите формат отчета ([text], HTML)"
 
 #: hardinfo2/util.c:356
 msgid "search for a topic in CLI report (-t getlist shows available)"
-msgstr ""
+msgstr "поиск темы в отчете CLI (-t getlist список доступных)"
 
 #: hardinfo2/util.c:362
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
-msgstr ""
+msgstr "поиск темы в кэшированном отчете CLI (-t getlist список доступных)"
 
 #: hardinfo2/util.c:368
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
@@ -592,6 +592,8 @@ msgstr ""
 #: hardinfo2/util.c:374
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
+"Примечание пользователя, прикрепленное к результатам теста. Group-"
+"MachineName-ServerReq"
 
 #: hardinfo2/util.c:380
 msgid "benchmark result format ([short], conf, shell)"
@@ -637,6 +639,10 @@ msgid ""
 "Have only a group, group-MachineName and also a special request to server "
 "for the return benchmark data from server\n"
 msgstr ""
+"Недопустимая заметка пользователя (буквы+цифры Group-MachineName-ServerReq)\n"
+"Параметры заметки пользователя необязательны, ее можно оставить пустой.\n"
+"Имеете только группу group-MachineName, а также специальный запрос к серверу "
+"для возврата данных теста\n"
 
 #: hardinfo2/util.c:915
 #, c-format
@@ -949,7 +955,7 @@ msgstr "Отправить результаты тестирования"
 
 #: shell/syncmanager.c:816
 msgid "User Note "
-msgstr ""
+msgstr "Примечание пользователя "
 
 #: shell/syncmanager.c:860
 msgid "Privacy Policy"
@@ -1042,7 +1048,7 @@ msgstr "GPU OpenGL Drawing"
 
 #: modules/benchmark/benches.c:318
 msgid "GPU Vulkan Drawing"
-msgstr ""
+msgstr "GPU Vulkan Drawing"
 
 #: modules/benchmark/benches.c:327
 msgid "Storage R/W Speed"
@@ -1054,15 +1060,15 @@ msgstr "Кэш/Память"
 
 #: modules/benchmark/benches.c:349
 msgid "Results in events/second. Higher is better."
-msgstr ""
+msgstr "Результаты в событиях в секунду. Чем выше, тем лучше."
 
 #: modules/benchmark/benches.c:354
 msgid "Results in MiB/second. Higher is better."
-msgstr ""
+msgstr "Результаты в МиБ/с. Чем выше, тем лучше."
 
 #: modules/benchmark/benches.c:356
 msgid "Results in Gbits/s. Higher is better."
-msgstr ""
+msgstr "Результаты в Гбит/с. Чем выше, тем лучше."
 
 #: modules/benchmark/benches.c:366
 msgid "Results in HIMarks. Higher is better."
@@ -1645,7 +1651,7 @@ msgstr "Virtual (QEMU)"
 
 #: modules/computer.c:436 modules/computer.c:438
 msgid "Virtual (WSL2)"
-msgstr ""
+msgstr "Virtual (WSL2)"
 
 #: modules/computer.c:451 modules/computer.c:453
 msgid "Single-board computer"
@@ -3154,7 +3160,7 @@ msgstr "Ресурсы"
 
 #: modules/devices.c:318
 msgid "Distro and CPU Supported Profiles"
-msgstr ""
+msgstr "Поддерживаемые профили дистрибутива и ЦП"
 
 #: modules/devices.c:749
 msgid "WSL2"
@@ -3696,7 +3702,7 @@ msgstr "Максимальная скорость линии"
 #: modules/devices/gpu.c:105 modules/devices/pci.c:146
 #: modules/devices/pci.c:147 modules/devices/storage.c:71
 msgid "GT/s"
-msgstr "ГТ/сек"
+msgstr "ГТ/с"
 
 #: modules/devices/gpu.c:115
 msgid "NVIDIA"
@@ -6669,38 +6675,3 @@ msgstr "Широковещательный адрес"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr "ОЗУ"
-
-#~ msgid "(Not available; Perhaps try running hardinfo2 as root.)"
-#~ msgstr ""
-#~ "(Недоступно, попробуйте запустить hardinfo2 от имени суперпользователя.)"
-
-#~ msgid ""
-#~ "user note attached to benchmark results. (updating/synchronize with "
-#~ "server)"
-#~ msgstr ""
-#~ "примечание пользователя, прикрепленное к результатам теста (обновление/"
-#~ "синхронизация с сервером)"
-
-#~ msgid "Loading modules..."
-#~ msgstr "Загрузка модулей..."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in events/second. Higher is better."
-#~ msgstr ""
-#~ "Требуется <i><b>sysbench</b></i> от Алексея Копытова.\n"
-#~ "Результаты в событиях в секунду. Чем выше, тем лучше."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in MiB/second. Higher is better."
-#~ msgstr ""
-#~ "Требуется <i><b>sysbench</b></i> от Алексея Копытова.\n"
-#~ "Результаты в МиБ/сек. Чем выше, тем лучше."
-
-#~ msgid ""
-#~ "<i><b>iperf3</b></i> is required.\n"
-#~ "Results in Gbits/s. Higher is better."
-#~ msgstr ""
-#~ "Требуется <i><b>iperf3</b></i>.\n"
-#~ "Результаты в Гбит/с. Чем выше, тем лучше."

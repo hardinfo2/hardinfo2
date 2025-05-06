@@ -572,16 +572,14 @@ static void read_sensors_cpufreq(void) {
     cpupath=g_strdup_printf("/sys/devices/system/cpu/cpu%d/cpufreq/scaling_cur_freq",cpuid);
     while(g_file_get_contents(cpupath, &contents, NULL, NULL)) {
         int freq;
-	gchar *p,*cpuid_str;
-	p=contents;
-	while(p && (sscanf(p, "%d", &freq)==1)) {
+	gchar *cpuid_str;
+	if(contents && (sscanf(contents, "%d", &freq)==1)) {
             cpuid_str=g_strdup_printf("cpu%d",cpuid);
 
 	    add_sensor("CPU Frequency", cpuid_str, "cpufreq", (float)freq/1000, " MHz", "processor");
 
 	    cpuid++;
 	    g_free(cpuid_str);
-	    p=strstr(p,"\n");
 	}
 	g_free(contents);
 	g_free(cpupath);

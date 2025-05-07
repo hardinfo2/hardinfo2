@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 16:55+0200\n"
+"POT-Creation-Date: 2025-05-07 11:30+0200\n"
 "PO-Revision-Date: 2024-05-20 13:19+0200\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
@@ -767,7 +767,7 @@ msgstr ""
 msgid "Save File"
 msgstr ""
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -906,15 +906,23 @@ msgstr ""
 msgid "User Note "
 msgstr ""
 
-#: shell/syncmanager.c:860
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr ""
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr ""
+
+#: shell/syncmanager.c:876
 msgid "Privacy Policy"
 msgstr "Adatvédelmi irányelv"
 
-#: shell/syncmanager.c:882
+#: shell/syncmanager.c:898
 msgid "_Synchronize"
 msgstr "Fel_töltés"
 
-#: shell/syncmanager.c:931
+#: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
 msgstr ""

@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 16:55+0200\n"
-"PO-Revision-Date: 2025-05-05 16:54+0200\n"
+"POT-Creation-Date: 2025-05-07 11:30+0200\n"
+"PO-Revision-Date: 2025-05-07 11:33+0200\n"
 "Last-Translator: hwspeedy\n"
 "Language-Team: \n"
 "Language: da\n"
-"X-Poedit-Basepath: ../\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #: hardinfo2/cpu_util.c:29
@@ -62,8 +62,7 @@ msgid "Governor"
 msgstr "Guvernør"
 
 #: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:1009
-#: modules/devices/gpu.c:215 modules/devices/pci.c:169
-#: modules/devices/usb.c:140
+#: modules/devices/gpu.c:215 modules/devices/pci.c:169 modules/devices/usb.c:140
 msgid "Driver"
 msgstr "Driver"
 
@@ -626,8 +625,8 @@ msgstr ""
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
 "User Note params are optional and usernote can be left blank.\n"
-"Have only a group, group-MachineName and also a special request to server "
-"for the return benchmark data from server\n"
+"Have only a group, group-MachineName and also a special request to server for "
+"the return benchmark data from server\n"
 msgstr ""
 "Bruger Note ugyldig (bogstaver+tal Group-MachineName-ServerReq)\n"
 "Bruger Note parametre er valgfri og bruger note kan være tom.\n"
@@ -652,14 +651,13 @@ msgid "Check Update Version"
 msgstr "Tjek opdateringsversion"
 
 #: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:788
-#: modules/computer/os.c:198 modules/computer/os.c:389
-#: modules/computer/os.c:424 modules/computer/os.c:738
-#: modules/computer/os.c:801 modules/devices.c:621 modules/devices.c:772
-#: modules/devices/firmware.c:151 modules/devices/printers.c:106
-#: modules/devices/printers.c:113 modules/devices/printers.c:123
-#: modules/devices/printers.c:138 modules/devices/printers.c:147
-#: modules/devices/printers.c:256 modules/devices/spd-decode.c:364
-#: modules/devices/usb.c:150
+#: modules/computer/os.c:198 modules/computer/os.c:389 modules/computer/os.c:424
+#: modules/computer/os.c:738 modules/computer/os.c:801 modules/devices.c:621
+#: modules/devices.c:772 modules/devices/firmware.c:151
+#: modules/devices/printers.c:106 modules/devices/printers.c:113
+#: modules/devices/printers.c:123 modules/devices/printers.c:138
+#: modules/devices/printers.c:147 modules/devices/printers.c:256
+#: modules/devices/spd-decode.c:364 modules/devices/usb.c:150
 msgid "Unknown"
 msgstr "Ukendt"
 
@@ -670,21 +668,21 @@ msgstr "Systemoplysninger og benchmark"
 #: shell/callbacks.c:468
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
-"the terms of the GNU General Public License as published by the Free "
-"Software Foundation, version 2 or later.\n"
+"the terms of the GNU General Public License as published by the Free Software "
+"Foundation, version 2 or later.\n"
 "\n"
 "This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
-"more details.\n"
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details.\n"
 "\n"
 "You should have received a copy of the GNU General Public License along with "
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
-"HardInfo2 er gratis software; du kan videredistribuere det og/eller ændre "
-"det i henhold til betingelserne i GNU General Public License som udgivet af "
-"Free Software Foundation, version 2 eller nyere.\n"
+"HardInfo2 er gratis software; du kan videredistribuere det og/eller ændre det "
+"i henhold til betingelserne i GNU General Public License som udgivet af Free "
+"Software Foundation, version 2 eller nyere.\n"
 "\n"
 "Dette program distribueres i håb om, at det vil være nyttigt, men UDEN NOGEN "
 "GARANTI; uden selv den underforståede garanti for SALGBARHED eller EGNETHED "
@@ -798,7 +796,7 @@ msgstr "Tema Silicium"
 msgid "Save File"
 msgstr "Gem fil"
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
 msgid "_Cancel"
 msgstr "_Annuller"
 
@@ -945,15 +943,23 @@ msgstr "Send benchmarkresultater"
 msgid "User Note "
 msgstr "Bruger Note "
 
-#: shell/syncmanager.c:860
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr "Lad den være standard/blank eller se "
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr "Bruger Manual"
+
+#: shell/syncmanager.c:876
 msgid "Privacy Policy"
 msgstr "Privatlivspolitik"
 
-#: shell/syncmanager.c:882
+#: shell/syncmanager.c:898
 msgid "_Synchronize"
 msgstr "_Synkroniser"
 
-#: shell/syncmanager.c:931
+#: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "Synkroniserer: %s"
@@ -1085,12 +1091,11 @@ msgstr "Resultater i FPS. Højere er bedre."
 #: modules/computer/os.c:411 modules/computer/os.c:468 modules/devices.c:751
 #: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
 #: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
-#: modules/devices/gpu.c:130 modules/devices/gpu.c:216
-#: modules/devices/gpu.c:217 modules/devices/gpu.c:236
-#: modules/devices/inputdevices.c:51 modules/devices/monitors.c:28
-#: modules/devices/monitors.c:29 modules/devices/monitors.c:152
-#: modules/devices/monitors.c:161 modules/devices/pci.c:25
-#: modules/devices/pci.c:170 modules/devices/pci.c:171
+#: modules/devices/gpu.c:130 modules/devices/gpu.c:216 modules/devices/gpu.c:217
+#: modules/devices/gpu.c:236 modules/devices/inputdevices.c:51
+#: modules/devices/monitors.c:28 modules/devices/monitors.c:29
+#: modules/devices/monitors.c:152 modules/devices/monitors.c:161
+#: modules/devices/pci.c:25 modules/devices/pci.c:170 modules/devices/pci.c:171
 #: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
 #: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
 #: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
@@ -1108,21 +1113,19 @@ msgstr "(Ukendt)"
 #: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:770
 #: modules/devices.c:587 modules/devices.c:595 modules/devices.c:623
 #: modules/devices/e2k/processor.c:363 modules/devices/e2k/processor.c:400
-#: modules/devices/gpu.c:125 modules/devices/gpu.c:127
-#: modules/devices/gpu.c:133 modules/devices/gpu.c:135
-#: modules/devices/gpu.c:239 modules/devices/gpu.c:241
+#: modules/devices/gpu.c:125 modules/devices/gpu.c:127 modules/devices/gpu.c:133
+#: modules/devices/gpu.c:135 modules/devices/gpu.c:239 modules/devices/gpu.c:241
 #: modules/devices/ia64/processor.c:167 modules/devices/ia64/processor.c:196
 #: modules/devices/loongarch64/processor.c:98
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
-#: modules/devices/parisc/processor.c:158
-#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
-#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:380
-#: modules/devices/riscv/processor.c:393 modules/devices/riscv/processor.c:591
-#: modules/devices/riscv/processor.c:626 modules/devices/s390/processor.c:160
-#: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
-#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
-#: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
-#: modules/devices/x86/processor.c:793
+#: modules/devices/parisc/processor.c:158 modules/devices/parisc/processor.c:191
+#: modules/devices/ppc/processor.c:160 modules/devices/ppc/processor.c:187
+#: modules/devices/riscv/processor.c:380 modules/devices/riscv/processor.c:393
+#: modules/devices/riscv/processor.c:591 modules/devices/riscv/processor.c:626
+#: modules/devices/s390/processor.c:160 modules/devices/sh/processor.c:87
+#: modules/devices/sh/processor.c:88 modules/devices/sh/processor.c:89
+#: modules/devices/x86/processor.c:317 modules/devices/x86/processor.c:330
+#: modules/devices/x86/processor.c:658 modules/devices/x86/processor.c:793
 msgid "MHz"
 msgstr "MHz"
 
@@ -1171,8 +1174,7 @@ msgstr "%s; %s; %s"
 #: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
 #: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
 #: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1354
-#: modules/network/net.c:416 modules/network/net.c:440
-#: modules/network/net.c:441
+#: modules/network/net.c:416 modules/network/net.c:440 modules/network/net.c:441
 msgid "MiB"
 msgstr "MiB"
 
@@ -2057,8 +2059,7 @@ msgstr ""
 "tilgængeligt."
 
 #: modules/computer.c:1167
-msgid ""
-"Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
+msgid "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr ""
 "Mesa's <i><b>glxinfo</b></i>-værktøj er påkrævet for OpenGL-oplysninger."
 
@@ -2432,8 +2433,8 @@ msgstr "Licens"
 msgid "Dependencies"
 msgstr "Afhængigheder"
 
-#: modules/computer/os.c:156 modules/computer/os.c:157
-#: modules/computer/os.c:159 modules/computer/os.c:160
+#: modules/computer/os.c:156 modules/computer/os.c:157 modules/computer/os.c:159
+#: modules/computer/os.c:160
 msgid "GNU C Library"
 msgstr "GNU C bibliotek"
 
@@ -3473,8 +3474,7 @@ msgid ""
 "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
 msgstr ""
 "\"Ofte end ikke er oplysningerne i DMI-tabellerne unøjagtige,\n"
-"ufuldstændige eller simpelthen forkerte.\" -<i><b>dmidecode</b></i> "
-"manualside"
+"ufuldstændige eller simpelthen forkerte.\" -<i><b>dmidecode</b></i> manualside"
 
 #: modules/devices/e2k/processor.c:51
 msgctxt "cache-type"
@@ -3663,8 +3663,8 @@ msgstr "Maksimal forbindelsesbredde"
 msgid "Maximum Link Speed"
 msgstr "Maksimal forbindelseshastighed"
 
-#: modules/devices/gpu.c:105 modules/devices/pci.c:146
-#: modules/devices/pci.c:147 modules/devices/storage.c:71
+#: modules/devices/gpu.c:105 modules/devices/pci.c:146 modules/devices/pci.c:147
+#: modules/devices/storage.c:71
 msgid "GT/s"
 msgstr "GT/s"
 
@@ -3695,8 +3695,8 @@ msgstr "Placering"
 msgid "DRM Device"
 msgstr "DRM-enhed"
 
-#: modules/devices/gpu.c:207 modules/devices/pci.c:165
-#: modules/devices/usb.c:137 modules/devices/usb.c:178
+#: modules/devices/gpu.c:207 modules/devices/pci.c:165 modules/devices/usb.c:137
+#: modules/devices/usb.c:178
 msgid "Class"
 msgstr "Klasse"
 
@@ -5044,8 +5044,8 @@ msgstr "Automatisk urkontrol (Thermal Monitor)"
 #: modules/devices/x86/x86_data.c:76
 msgctxt "x86-flag"
 msgid ""
-"Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
-"x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
+"Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit x86 "
+"architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
 msgstr ""
 "Intel Itanium Architecture 64-bit (ikke at forveksle med Intels 64-bit x86-"
 "arkitektur med flag x86-64 eller \"AMD64\" bit angivet med flag lm)"
@@ -5277,8 +5277,8 @@ msgstr "SSE-3 (\"Prescott Nye Instruktioner\")"
 #: modules/devices/x86/x86_data.c:120
 msgctxt "x86-flag"
 msgid ""
-"Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
-"for GCM)"
+"Perform a Carry-Less Multiplication of Quadword instruction - accelerator for "
+"GCM)"
 msgstr ""
 "Udfør en Carry-Less Multiplikation af Quadword-instruktion - accelerator for "
 "GCM)"
@@ -5407,8 +5407,8 @@ msgstr "Flyt data efter at have byttet bytes instruktion"
 #: modules/devices/x86/x86_data.c:141
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
-"e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i.e. "
+"bit count)"
 msgstr ""
 "Return antallet af bits indstillet til 1 instruktion (Hammingvægt, dvs. "
 "bitantal)"
@@ -5447,8 +5447,7 @@ msgstr "16-bit fp-konverteringer (CVT16)"
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
 msgstr ""
-"Læs tilfældigt nummer fra hardware-instruktion til generator af tilfældige "
-"tal"
+"Læs tilfældigt nummer fra hardware-instruktion til generator af tilfældige tal"
 
 #. !/flag:hypervisor
 #: modules/devices/x86/x86_data.c:148
@@ -5577,8 +5576,8 @@ msgstr "3DNow prefetch instructioner"
 #: modules/devices/x86/x86_data.c:170
 msgctxt "x86-flag"
 msgid ""
-"indicates OS Visible Workaround, which allows the OS to work around "
-"processor errata."
+"indicates OS Visible Workaround, which allows the OS to work around processor "
+"errata."
 msgstr ""
 "indikerer OS Synlig Fejl Rettelse, som tillader OS at fikse processor fejl."
 
@@ -6192,8 +6191,7 @@ msgstr "IPI påkrævet for at vække fjern-CPU"
 #. !/bug:cpu_insecure & bug:cpu_meltdown
 #: modules/devices/x86/x86_data.c:286 modules/devices/x86/x86_data.c:287
 msgctxt "x86-flag"
-msgid ""
-"CPU is affected by meltdown attack and needs kernel page table isolation"
+msgid "CPU is affected by meltdown attack and needs kernel page table isolation"
 msgstr ""
 "CPU er påvirket af nedsmeltningsangreb og har brug for isolering af "
 "kernesidetabel"
@@ -6418,8 +6416,7 @@ msgctxt "wi-op-mode"
 msgid "(Unknown)"
 msgstr "(Ukendt)"
 
-#: modules/network/net.c:268 modules/network/net.c:288
-#: modules/network/net.c:296
+#: modules/network/net.c:268 modules/network/net.c:288 modules/network/net.c:296
 msgctxt "net-if-type"
 msgid "Ethernet"
 msgstr "Ethernet"
@@ -6434,9 +6431,8 @@ msgctxt "net-if-type"
 msgid "Point-to-Point"
 msgstr "Punkt-til-punkt"
 
-#: modules/network/net.c:271 modules/network/net.c:272
-#: modules/network/net.c:273 modules/network/net.c:274
-#: modules/network/net.c:298
+#: modules/network/net.c:271 modules/network/net.c:272 modules/network/net.c:273
+#: modules/network/net.c:274 modules/network/net.c:298
 msgctxt "net-if-type"
 msgid "Wireless"
 msgstr "Trådløs"
@@ -6577,8 +6573,7 @@ msgstr "Bytes modtaget"
 msgid "Bytes Sent"
 msgstr "Bytes sendt"
 
-#: modules/network/net.c:458 modules/network/net.c:480
-#: modules/network/net.c:481
+#: modules/network/net.c:458 modules/network/net.c:480 modules/network/net.c:481
 msgid "dBm"
 msgstr "dBm"
 
@@ -6614,8 +6609,7 @@ msgstr "Signal / Støj"
 msgid "Internet Protocol (IPv4)"
 msgstr "Internetprotokol (IPv4)"
 
-#: modules/network/net.c:495 modules/network/net.c:496
-#: modules/network/net.c:498
+#: modules/network/net.c:495 modules/network/net.c:496 modules/network/net.c:498
 msgid "(Not set)"
 msgstr "(Ikke indstillet)"
 

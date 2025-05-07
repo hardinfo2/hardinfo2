@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 16:55+0200\n"
+"POT-Creation-Date: 2025-05-07 11:30+0200\n"
 "PO-Revision-Date: 2025-04-08 10:53+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -798,7 +798,7 @@ msgstr "Tema Silikon"
 msgid "Save File"
 msgstr "Dosya Kaydet"
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
 msgid "_Cancel"
 msgstr "İ_ptal"
 
@@ -944,15 +944,23 @@ msgstr "Karşılaştırma sonucunu gönder"
 msgid "User Note "
 msgstr ""
 
-#: shell/syncmanager.c:860
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr ""
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr ""
+
+#: shell/syncmanager.c:876
 msgid "Privacy Policy"
 msgstr "Gizlilik İlkesi"
 
-#: shell/syncmanager.c:882
+#: shell/syncmanager.c:898
 msgid "_Synchronize"
 msgstr "_Eşzamanla"
 
-#: shell/syncmanager.c:931
+#: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "Eşitleniyor: %s"

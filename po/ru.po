@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-06 15:43+0300\n"
+"POT-Creation-Date: 2025-05-07 11:30+0200\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -810,7 +810,7 @@ msgstr "Silicon"
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
 msgid "_Cancel"
 msgstr "_Отмена"
 
@@ -957,15 +957,23 @@ msgstr "Отправить результаты тестирования"
 msgid "User Note "
 msgstr "Примечание пользователя "
 
-#: shell/syncmanager.c:860
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr ""
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr ""
+
+#: shell/syncmanager.c:876
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
 
-#: shell/syncmanager.c:882
+#: shell/syncmanager.c:898
 msgid "_Synchronize"
 msgstr "_Синхронизировать"
 
-#: shell/syncmanager.c:931
+#: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "Синхронизация: %s"

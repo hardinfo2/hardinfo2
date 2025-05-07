@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-05 16:55+0200\n"
+"POT-Creation-Date: 2025-05-07 11:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -767,7 +767,7 @@ msgstr ""
 msgid "Save File"
 msgstr ""
 
-#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:873
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
 msgid "_Cancel"
 msgstr ""
 
@@ -900,15 +900,23 @@ msgstr ""
 msgid "User Note "
 msgstr ""
 
-#: shell/syncmanager.c:860
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr ""
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr ""
+
+#: shell/syncmanager.c:876
 msgid "Privacy Policy"
 msgstr ""
 
-#: shell/syncmanager.c:882
+#: shell/syncmanager.c:898
 msgid "_Synchronize"
 msgstr ""
 
-#: shell/syncmanager.c:931
+#: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
 msgstr ""

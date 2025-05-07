@@ -30,6 +30,7 @@ void cb_copy_to_clipboard();
 void cb_side_pane();
 void cb_toolbar();
 void cb_open_web_page();
+void cb_open_help_page();
 void cb_open_online_docs();
 void cb_open_online_docs_context();
 void cb_sync_manager();

@@ -64,9 +64,14 @@ static GtkActionEntry entries[] = {
      G_CALLBACK(cb_refresh)},
 
     {"HomePageAction", NULL,
-     N_("_Open HardInfo2 Web Site"), NULL,
+     N_("HardInfo2 _Web Site"), NULL,
      NULL,
      G_CALLBACK(cb_open_web_page)},
+
+    {"HelpPageAction", NULL,
+     N_("_Help - User Guide"), NULL,
+     NULL,
+     G_CALLBACK(cb_open_help_page)},
 
     {"ReportBugAction", NULL,
      N_("_Report bug"), NULL,
@@ -220,6 +225,8 @@ void menu_init(Shell * shell)
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("refresh.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/WebPage"));
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("home.svg",size,size));
+    t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/HelpPage"));
+    gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("help.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/ReportBug"));
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("report-bug.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/About"));

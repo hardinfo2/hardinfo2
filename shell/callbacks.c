@@ -264,6 +264,10 @@ void cb_open_web_page()
 {
     uri_open("https://www.hardinfo2.org");
 }
+void cb_open_help_page()
+{
+    uri_open("https://www.hardinfo2.org/userguide#gui");
+}
 
 void cb_report_bug()
 {

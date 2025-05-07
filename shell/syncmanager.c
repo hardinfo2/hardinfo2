@@ -736,9 +736,9 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     GtkWidget *button8;
     GtkWidget *button7;
     GtkWidget *button6;
-    GtkWidget *priv_policy_btn;
-    GtkWidget *label,*label2;
-    GtkWidget *hbox,*hbox2;
+    GtkWidget *priv_policy_btn,*link1;
+    GtkWidget *label,*label2,*label3;
+    GtkWidget *hbox,*hbox2,*hbox3;
     GtkWidget *usernote;
 
     GtkTreeViewColumn *column;
@@ -754,7 +754,7 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     gtk_window_set_title(GTK_WINDOW(dialog), _("Synchronize"));
     gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
     gtk_window_set_icon(GTK_WINDOW(dialog), icon_cache_get_pixbuf("sync.svg"));
-    gtk_window_set_default_size(GTK_WINDOW(dialog), 420*params.scale, 260*params.scale);
+    gtk_window_set_default_size(GTK_WINDOW(dialog), 560*params.scale, 500*params.scale);
     gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_CENTER_ON_PARENT);
     gtk_window_set_type_hint(GTK_WINDOW(dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -820,6 +820,22 @@ static SyncDialog *sync_dialog_new(GtkWidget *parent)
     gtk_box_pack_start(GTK_BOX(hbox2), label2, FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(hbox2), usernote, TRUE, TRUE, 0);
     gtk_widget_show_all(hbox2);
+
+    //user note help
+#if GTK_CHECK_VERSION(3, 0, 0)
+    hbox3 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+#else
+    hbox3 = gtk_hbox_new(FALSE, 5);
+#endif
+    gtk_box_pack_start(GTK_BOX(dialog1_vbox), hbox3, FALSE, FALSE, 0);
+
+    label3 = gtk_label_new(_("Leave it default/blank or see "));
+    gtk_label_set_line_wrap(GTK_LABEL(label3), FALSE);
+    gtk_label_set_use_markup(GTK_LABEL(label3), TRUE);
+    link1 = gtk_link_button_new_with_label("https://hardinfo2.org/userguide#usernote", _("User Guide"));
+    gtk_box_pack_start(GTK_BOX(hbox3), label3, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox3), link1, FALSE, TRUE, 0);
+    gtk_widget_show_all(hbox3);
 
     gtk_box_pack_start(GTK_BOX(dialog1_vbox), sd->sna->vbox, TRUE, TRUE, 0);
 

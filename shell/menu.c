@@ -64,12 +64,12 @@ static GtkActionEntry entries[] = {
      G_CALLBACK(cb_refresh)},
 
     {"HomePageAction", NULL,
-     N_("HardInfo2 _Web Site"), NULL,
+     N_("HardInfo2 _Web Site"), "<control>W",
      NULL,
      G_CALLBACK(cb_open_web_page)},
 
     {"HelpPageAction", NULL,
-     N_("_Help - User Guide"), NULL,
+     N_("_Help - User Guide"), "<control>H",
      NULL,
      G_CALLBACK(cb_open_help_page)},
 

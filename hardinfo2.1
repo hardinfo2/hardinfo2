@@ -34,12 +34,12 @@ search for a topic in Cached CLI report (-t getlist shows available)
 \fB\-b\fR, \fB\-\-run\-benchmark\fR
 run a specific benchmark eg. -b 'FPU FFT'  (Default all benchmarks runs when generate report)
 .TP
-\fB\-u\fR, \fB\-\-user\-note Group[-MachineName[-ServerReq]]\fR
+\fB\-u\fR, \fB\-\-user\-note Group-MachineName[-ServerReq]\fR
 adds a user note to data send to server. When added eg. -u 1 synchronization is activated.
-Letters and numbers and dashes are accepted. Length max 50. 0-2 dashes used as seperator.
+Letters (small+caps) and numbers and dashes are accepted. Length max 50. 0-2 dashes used as seperator.
 Format Group-MachineName-ServerReq
-Group and MachineName are for anonymous identification and can but benchmarks into a group and identify each machine.
-ServerReq is to tell the server which records you want to get. See homepage for more details about the Server Request strings available.
+Group and MachineName are for anonymous identification and can put benchmarks into a group and you can sort of identify each machine by your chosen string.
+ServerReq is to tell the server which records you want to get. See https://hardinfo2.org/userguide#usernote for more details about the Server Request strings available.
 .TP
 \fB\-g\fR, \fB\-\-result\-format\fR
 chooses a result format (short, conf, shell)
@@ -64,8 +64,8 @@ runs only FPU FFT benchmark
 hardinfo2 -u 1
 enable updates at startup and starts gui (can also be set in gui)
 .TP
-hardinfo2 -u SBC-DK -r
-updates data from server, generate CLI report and sends benchmark with user-note
+hardinfo2 -u choosengroup-choosenid -r
+Updates data from server, generate CLI report and sends benchmark with user-note. See more at https://hardinfo2.org/userguide#usernote
 .TP
 hardinfo2 -r
 generates CLI report

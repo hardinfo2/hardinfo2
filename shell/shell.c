@@ -274,7 +274,7 @@ void shell_view_set_enabled(gboolean setting)
 	widget_set_cursor(GTK_WIDGET(shell->window), GDK_WATCH);
     }
 
-    //gtk_widget_set_sensitive(shell->hbox, setting);
+    gtk_widget_set_sensitive(shell->hbox, setting);
     shell_action_set_enabled("ViewMenuAction", setting);
     shell_action_set_enabled("RefreshAction", setting);
     //shell_action_set_enabled("CopyAction", setting);

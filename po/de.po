@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 11:30+0200\n"
+"POT-Creation-Date: 2025-05-07 18:09+0200\n"
 "PO-Revision-Date: 2016-06-10 12:11+0200\n"
 "Last-Translator: Alexander Münch <git@thehacker.biz>\n"
 "Language-Team: German\n"
@@ -649,11 +649,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: shell/callbacks.c:464 shell/shell.c:522
+#: shell/callbacks.c:468 shell/shell.c:522
 msgid "System Information and Benchmark"
 msgstr ""
 
-#: shell/callbacks.c:468
+#: shell/callbacks.c:472
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -706,66 +706,70 @@ msgid "_Refresh"
 msgstr "_Aktualisieren"
 
 #: shell/menu.c:67
-msgid "_Open HardInfo2 Web Site"
-msgstr "HardInfo2-_Webseite öffnen"
+msgid "HardInfo2 _Web Site"
+msgstr ""
 
 #: shell/menu.c:72
+msgid "_Help - User Guide"
+msgstr ""
+
+#: shell/menu.c:77
 msgid "_Report bug"
 msgstr "Fehler _melden"
 
-#: shell/menu.c:77
+#: shell/menu.c:82
 msgid "_About HardInfo2"
 msgstr "_Über HardInfo2"
 
-#: shell/menu.c:78
+#: shell/menu.c:83
 msgid "Displays program version information"
 msgstr ""
 
-#: shell/menu.c:82
+#: shell/menu.c:87
 msgid "_Quit"
 msgstr "_Beenden"
 
-#: shell/menu.c:89
+#: shell/menu.c:94
 msgid "_Side Pane"
 msgstr "_Seitenleiste"
 
-#: shell/menu.c:90
+#: shell/menu.c:95
 msgid "Toggles side pane visibility"
 msgstr ""
 
-#: shell/menu.c:93
+#: shell/menu.c:98
 msgid "_Toolbar"
 msgstr "_Symbolleiste"
 
-#: shell/menu.c:97
+#: shell/menu.c:102
 msgid "Synchronize on startup"
 msgstr ""
 
-#: shell/menu.c:102
+#: shell/menu.c:107
 msgid "Disable Theme"
 msgstr ""
 
-#: shell/menu.c:106
+#: shell/menu.c:111
 msgid "Theme Motherboard"
 msgstr ""
 
-#: shell/menu.c:110
+#: shell/menu.c:115
 msgid "Theme Graffiti"
 msgstr ""
 
-#: shell/menu.c:114
+#: shell/menu.c:119
 msgid "Theme Anime PC"
 msgstr ""
 
-#: shell/menu.c:118
+#: shell/menu.c:123
 msgid "Theme Tux Star"
 msgstr ""
 
-#: shell/menu.c:122
+#: shell/menu.c:127
 msgid "Theme PixArt"
 msgstr ""
 
-#: shell/menu.c:126
+#: shell/menu.c:131
 msgid "Theme Silicon"
 msgstr ""
 
@@ -6518,6 +6522,9 @@ msgstr ""
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr ""
+
+#~ msgid "_Open HardInfo2 Web Site"
+#~ msgstr "HardInfo2-_Webseite öffnen"
 
 #~ msgid "Loading modules..."
 #~ msgstr "Lade Module..."

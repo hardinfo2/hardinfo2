@@ -16,9 +16,9 @@ endif()
 project(hardinfo2)
 
 #Release settings
-set(HARDINFO2_VERSION "2.2.12")
+set(HARDINFO2_VERSION "2.2.13")
 set(HARDINFO2_RELEASE_DATE "2025-05-08")
-set(HARDINFO2_RELEASE_NOTE_HTML "<p>Pre/Release</p><p>\nNew Vulkan Benchmark\nImproved CLI usage\nBenchmark Filtering features\nLots of minor fixes/maintenance/updates/cleanup\nFor details see homepage news.</p>")
+set(HARDINFO2_RELEASE_NOTE_HTML "<p>Release</p><p>\nNew Vulkan Benchmark\nImproved CLI usage\nBenchmark Filtering features\nLots of minor fixes/maintenance/updates/cleanup\nFor details see homepage news.</p>")
 
 #Build settings
 option(HARDINFO2_SERVICE "Build with service support" 1)

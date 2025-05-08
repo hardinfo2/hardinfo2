@@ -14,20 +14,19 @@ Status
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1324 strings (no change), with 63 c-format strings
-(as of 71b6300-dirty 71b63003107c544aacd5effc2f1a66b4f75f7289)
-- [ ] da_backup.po : (51 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [x] da.po : (0 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (850 / 1324 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (448 / 1324 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (865 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1159 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (222 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (17 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (211 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [x] ru.po : (0 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] tr.po : (12 / 1324 remain untranslated, needs work/fuzzy: 0)
-- [ ] zh_CN.po : (927 / 1324 remain untranslated, needs work/fuzzy: 0)
+hardinfo2.pot now has 1329 strings (no change), with 63 c-format strings
+(as of 9aee4ff-dirty 9aee4ff8b63cfdef636e48bd031c5229d1aa6529)
+- [x] da.po : (0 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (856 / 1329 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (454 / 1329 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (871 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1165 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (228 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (23 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (217 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] ru.po : (7 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] tr.po : (18 / 1329 remain untranslated, needs work/fuzzy: 0)
+- [ ] zh_CN.po : (933 / 1329 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 

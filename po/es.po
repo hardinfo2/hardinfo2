@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 14:24+0200\n"
+"POT-Creation-Date: 2025-05-08 20:14+0200\n"
 "PO-Revision-Date: 2020-05-10 16:56+0200\n"
 "Last-Translator: micrococo\n"
 "Language-Team:\n"
@@ -94,7 +94,7 @@ msgstr "Asentamientos"
 msgid "Drawer"
 msgstr "Dibujado"
 
-#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:735
+#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:737
 #: modules/devices/riscv/processor.c:553 modules/devices/x86/processor.c:753
 msgid "Topology"
 msgstr "Topología"
@@ -629,7 +629,7 @@ msgstr ""
 msgid "Scanning: %s..."
 msgstr "Escaneando: %s..."
 
-#: hardinfo2/util.c:925 shell/shell.c:299
+#: hardinfo2/util.c:925 shell/shell.c:300
 msgid "Done."
 msgstr "Hecho."
 
@@ -653,11 +653,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: shell/callbacks.c:492 shell/shell.c:522
+#: shell/callbacks.c:496 shell/shell.c:523
 msgid "System Information and Benchmark"
 msgstr ""
 
-#: shell/callbacks.c:496
+#: shell/callbacks.c:500
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -705,79 +705,83 @@ msgstr ""
 msgid "Send benchmark results and receive updated data from the network"
 msgstr ""
 
-#: shell/menu.c:62
+#: shell/menu.c:56 shell/menu.c:57
+msgid "Update Available"
+msgstr ""
+
+#: shell/menu.c:67
 msgid "_Refresh"
 msgstr "_Actualizar"
 
-#: shell/menu.c:67
+#: shell/menu.c:72
 msgid "HardInfo2 _Web Site"
 msgstr ""
 
-#: shell/menu.c:72
+#: shell/menu.c:77
 msgid "_Help - User Guide"
 msgstr ""
 
-#: shell/menu.c:77
+#: shell/menu.c:82
 msgid "_Update HardInfo2"
 msgstr ""
 
-#: shell/menu.c:82
+#: shell/menu.c:87
 msgid "_Report bug"
 msgstr "_Reportar un error"
 
-#: shell/menu.c:87
+#: shell/menu.c:92
 msgid "_About HardInfo2"
 msgstr "_Acerca de Hardinfo"
 
-#: shell/menu.c:88
+#: shell/menu.c:93
 msgid "Displays program version information"
 msgstr "Muestra la información de versión del programa"
 
-#: shell/menu.c:92
+#: shell/menu.c:97
 msgid "_Quit"
 msgstr "_Salir"
 
-#: shell/menu.c:99
+#: shell/menu.c:104
 msgid "_Side Pane"
 msgstr "_Panel lateral"
 
-#: shell/menu.c:100
+#: shell/menu.c:105
 msgid "Toggles side pane visibility"
 msgstr "Conmuta la visibilidad del panel lateral"
 
-#: shell/menu.c:103
+#: shell/menu.c:108
 msgid "_Toolbar"
 msgstr "_Barra de herramientas"
 
-#: shell/menu.c:107
+#: shell/menu.c:112
 msgid "Synchronize on startup"
 msgstr ""
 
-#: shell/menu.c:112
+#: shell/menu.c:117
 msgid "Disable Theme"
 msgstr ""
 
-#: shell/menu.c:116
+#: shell/menu.c:121
 msgid "Theme Motherboard"
 msgstr ""
 
-#: shell/menu.c:120
+#: shell/menu.c:125
 msgid "Theme Graffiti"
 msgstr ""
 
-#: shell/menu.c:124
+#: shell/menu.c:129
 msgid "Theme Anime PC"
 msgstr ""
 
-#: shell/menu.c:128
+#: shell/menu.c:133
 msgid "Theme Tux Star"
 msgstr ""
 
-#: shell/menu.c:132
+#: shell/menu.c:137
 msgid "Theme PixArt"
 msgstr ""
 
-#: shell/menu.c:136
+#: shell/menu.c:141
 msgid "Theme Silicon"
 msgstr ""
 
@@ -845,16 +849,16 @@ msgstr "_Seleccionar todo"
 msgid "_Generate"
 msgstr "_Generar"
 
-#: shell/shell.c:235 modules/benchmark/bench_results.c:484
+#: shell/shell.c:236 modules/benchmark/bench_results.c:484
 msgid "Benchmark"
 msgstr "Prueba de rendimiento"
 
-#: shell/shell.c:517
+#: shell/shell.c:518
 #, c-format
 msgid "%s - System Information and Benchmark"
 msgstr ""
 
-#: shell/shell.c:667
+#: shell/shell.c:668
 #, c-format
 msgid ""
 "<b>Hardinfo2 not packaged correctly</b>\n"
@@ -866,28 +870,28 @@ msgid ""
 "Please fix by installing manually"
 msgstr ""
 
-#: shell/shell.c:1074 modules/network.c:409
+#: shell/shell.c:1108 modules/network.c:409
 msgid "Network"
 msgstr "Red"
 
-#: shell/shell.c:1647
+#: shell/shell.c:1681
 msgid "URL"
 msgstr ""
 
-#: shell/shell.c:1654
+#: shell/shell.c:1688
 msgid "Support URL"
 msgstr ""
 
-#: shell/shell.c:1665
+#: shell/shell.c:1699
 msgid "Wikipedia"
 msgstr ""
 
-#: shell/shell.c:2001
+#: shell/shell.c:2035
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Resumen</b>"
 
-#: shell/shell.c:2106
+#: shell/shell.c:2140
 msgid "Updating..."
 msgstr "Actualizando..."
 
@@ -1091,7 +1095,7 @@ msgstr "(desconocido)"
 
 #: modules/benchmark/bench_results.c:263 modules/devices/alpha/processor.c:90
 #: modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524
-#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:770
+#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:772
 #: modules/devices.c:587 modules/devices.c:595 modules/devices.c:623
 #: modules/devices/e2k/processor.c:363 modules/devices/e2k/processor.c:400
 #: modules/devices/gpu.c:125 modules/devices/gpu.c:127
@@ -1591,7 +1595,7 @@ msgid "Field"
 msgstr "Campo"
 
 #: modules/computer.c:385 modules/computer.c:689 modules/computer/modules.c:362
-#: modules/computer/modules.c:363 modules/devices/arm/processor.c:734
+#: modules/computer/modules.c:363 modules/devices/arm/processor.c:736
 #: modules/devices/riscv/processor.c:552
 msgid "Description"
 msgstr "Descripción"
@@ -1775,7 +1779,7 @@ msgstr "Módulos cargados"
 
 #: modules/computer.c:688 modules/computer.c:716 modules/computer.c:856
 #: modules/computer/languages.c:95 modules/computer/modules.c:362
-#: modules/devices/arm/processor.c:733 modules/devices/dmi.c:38
+#: modules/devices/arm/processor.c:735 modules/devices/dmi.c:38
 #: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:358
 #: modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160
 #: modules/devices/inputdevices.c:141 modules/devices/monitors.c:400
@@ -1813,7 +1817,7 @@ msgstr "Punto de montaje"
 msgid "Usage"
 msgstr "Uso"
 
-#: modules/computer.c:731 modules/devices/arm/processor.c:787
+#: modules/computer.c:731 modules/devices/arm/processor.c:789
 #: modules/devices.c:1032 modules/devices.c:1046
 #: modules/devices/e2k/processor.c:416 modules/devices/gpu.c:85
 #: modules/devices/gpu.c:93 modules/devices/gpu.c:299 modules/devices/pci.c:123
@@ -2521,7 +2525,7 @@ msgstr "Identificador de usuario"
 msgid "Default Shell"
 msgstr "Intérprete de órdenes predefinido"
 
-#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:787
+#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:789
 #: modules/devices.c:1032 modules/devices/devicetree.c:162
 #: modules/devices/devicetree.c:208 modules/devices/devicetree/pmac_data.c:80
 #: modules/devices/e2k/processor.c:361 modules/devices/e2k/processor.c:416
@@ -2540,7 +2544,7 @@ msgid "Platform String"
 msgstr "Plataforma"
 
 #: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
-#: modules/devices/arm/processor.c:787 modules/devices/e2k/processor.c:363
+#: modules/devices/arm/processor.c:789 modules/devices/e2k/processor.c:363
 #: modules/devices/e2k/processor.c:416 modules/devices/ia64/processor.c:167
 #: modules/devices/loongarch64/processor.c:98
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
@@ -2931,20 +2935,20 @@ msgstr "Variante"
 msgid "Capabilities"
 msgstr "Capacidades"
 
-#: modules/devices/arm/processor.c:732 modules/devices/riscv/processor.c:550
+#: modules/devices/arm/processor.c:734 modules/devices/riscv/processor.c:550
 msgid "SOC/Package"
 msgstr "SOC/Paquete"
 
-#: modules/devices/arm/processor.c:736 modules/devices/riscv/processor.c:554
+#: modules/devices/arm/processor.c:738 modules/devices/riscv/processor.c:554
 #: modules/devices/x86/processor.c:754
 msgid "Logical CPU Config"
 msgstr "Configuración lógica de la CPU"
 
-#: modules/devices/arm/processor.c:757 modules/devices/riscv/processor.c:611
+#: modules/devices/arm/processor.c:759 modules/devices/riscv/processor.c:611
 msgid "SOC/Package Information"
 msgstr "Información del SOC/Paquete"
 
-#: modules/devices/arm/processor.c:787 modules/devices/riscv/processor.c:643
+#: modules/devices/arm/processor.c:789 modules/devices/riscv/processor.c:643
 #: modules/devices/x86/processor.c:814
 msgid "Socket:Core"
 msgstr "Zócalo:Núcleo"

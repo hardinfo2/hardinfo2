@@ -36,6 +36,7 @@ char *uidefs_str =
     "	<menu name=\"HelpMenu\" action=\"HelpMenuAction\">"
     "		<menuitem name=\"WebPage\" action=\"HomePageAction\" always-show-image=\"true\"/>"
     "		<menuitem name=\"HelpPage\" action=\"HelpPageAction\" always-show-image=\"true\"/>"
+    "		<menuitem name=\"UpdatesPage\" action=\"UpdatesPageAction\" always-show-image=\"true\"/>"
     "		<menuitem name=\"ReportBug\" action=\"ReportBugAction\" always-show-image=\"true\"/>"
     "		<menuitem name=\"About\" action=\"AboutAction\" always-show-image=\"true\"/>"
     "	</menu>"

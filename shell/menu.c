@@ -73,6 +73,11 @@ static GtkActionEntry entries[] = {
      NULL,
      G_CALLBACK(cb_open_help_page)},
 
+    {"UpdatesPageAction", NULL,
+     N_("_Update HardInfo2"), "",
+     NULL,
+     G_CALLBACK(cb_open_updates_page)},
+
     {"ReportBugAction", NULL,
      N_("_Report bug"), NULL,
      NULL,
@@ -227,6 +232,8 @@ void menu_init(Shell * shell)
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("home.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/HelpPage"));
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("help.svg",size,size));
+    t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/UpdatesPage"));
+    gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("updates.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/ReportBug"));
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("report-bug.svg",size,size));
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/HelpMenu/About"));

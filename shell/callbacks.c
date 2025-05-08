@@ -268,6 +268,30 @@ void cb_open_help_page()
 {
     uri_open("https://www.hardinfo2.org/userguide#gui");
 }
+void cb_open_updates_page()
+{
+    gchar *cmd_line, *err=NULL, *arch=NULL, *url, *distro=NULL;
+    gboolean spawned;
+
+    cmd_line=g_strdup("sh -c 'LC_ALL=C uname -m'");
+    spawned = g_spawn_command_line_sync(cmd_line, &arch, &err, NULL, NULL);
+    g_free(cmd_line);
+    if (!spawned || strlen(arch)<1) {
+      if(arch) g_free(arch);
+      arch=g_strdup(HARDINFO2_ARCH);
+    }
+    if(!arch) arch=strdup("err");
+    if(err) g_free(err);
+    
+    distro=module_call_method("computer::getOSshort");
+    
+    url=g_strconcat("https://www.hardinfo2.org/updates?ver=",VERSION,"&arch=",arch,"&distro=",distro,NULL);
+    g_free(arch);g_free(distro);
+    
+    uri_open(url);
+    
+    g_free(url);
+}
 
 void cb_report_bug()
 {

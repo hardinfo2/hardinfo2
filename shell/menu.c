@@ -52,6 +52,11 @@ static GtkActionEntry entries[] = {
      N_("Send benchmark results and receive updated data from the network"),
      G_CALLBACK(cb_sync_manager)},
 
+    {"UpdateAction", HI_STOCK_UPDATES,
+     N_("Update Available"), "",
+     N_("Update Available"),
+     G_CALLBACK(cb_update)},
+
     //does not work correctly and value low
     /*{"CopyAction", HI_STOCK_CLIPBOARD,
      N_("_Copy to Clipboard"), "<control>C",

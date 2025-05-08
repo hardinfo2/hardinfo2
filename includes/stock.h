@@ -22,6 +22,7 @@
 #define HI_STOCK_REFRESH "hi-stock-refresh"
 #define HI_STOCK_REPORT "hi-stock-report"
 #define HI_STOCK_SYNC "hi-stock-sync"
+#define HI_STOCK_UPDATES "hi-stock-updates"
 
 void stock_icons_init(void);
 void stock_icon_register(gchar *filename, gchar *stock_id);

@@ -28,6 +28,7 @@ static struct {
     { "refresh.svg", HI_STOCK_REFRESH},
     { "report.svg", HI_STOCK_REPORT},
     { "sync.svg", HI_STOCK_SYNC},
+    { "updates.svg", HI_STOCK_UPDATES},
 };
 
 static GtkIconFactory *icon_factory;

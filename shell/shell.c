@@ -19,6 +19,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 
 #include <gtk/gtk.h>
 #include <glib/gstdio.h>
@@ -867,6 +868,10 @@ void shell_set_transient_dialog(GtkWindow *dialog)
 
 void shell_init(GSList * modules)
 {
+    gchar *path;
+    unsigned int latest_ver=0,u1=0,u2=0,u3=0,a1=0,a2=0,a3=0,app_ver=0;
+    int fd=-1;
+
     if (shell) {
 	g_error("Shell already created");
 	return;
@@ -883,6 +888,35 @@ void shell_init(GSList * modules)
     shell_action_set_property("RefreshAction", "is-important", TRUE);
     shell_action_set_property("ReportAction", "is-important", TRUE);
     shell_action_set_property("SyncManagerAction", "is-important", TRUE);
+    shell_action_set_property("UpdateAction", "is-important", TRUE);
+
+    path = g_build_filename(g_get_user_config_dir(), "hardinfo2","blobs-update-version.json", NULL);
+    fd = open(path,O_RDONLY);
+    if(fd>=0){
+        char *buf=NULL;
+	struct stat st;
+	stat(path,&st);
+	if(st.st_size>0){
+	    buf=g_malloc(st.st_size+1);
+	    if(buf){
+	        int i=read(fd, buf, st.st_size);
+	        if(i>0){
+		    buf[st.st_size]=0;
+		    char *s=strstr(buf,"\"latest-program-version\"");
+	            if(s && sscanf(s,"\"latest-program-version\":\"%u.%u.%u\"",&u1,&u2,&u3)==3) latest_ver=u1*10000+u2*100+u3;
+	        }
+	    }
+        }
+        close(fd);
+	g_free(buf);
+    }
+    free(path);
+    if(sscanf(VERSION,"%u.%u.%u",&a1,&a2,&a3)==3) app_ver=a1*10000+a2*100+a3;
+    if(app_ver && (latest_ver > app_ver)){
+        shell_action_set_property("UpdateAction", "visible-horizontal", TRUE);
+    } else {
+        shell_action_set_property("UpdateAction", "visible-horizontal", FALSE);
+    }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     shell_action_set_property("DisableThemeAction", "draw-as-radio", TRUE);

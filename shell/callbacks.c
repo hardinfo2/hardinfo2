@@ -33,6 +33,10 @@
 
 #include "config.h"
 
+void cb_update()
+{
+    cb_open_updates_page();
+}
 void cb_sync_manager()
 {
     Shell *shell = shell_get_main_shell();

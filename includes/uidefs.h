@@ -48,6 +48,8 @@ char *uidefs_str =
   /*    "			<toolitem name=\"Copy\" action=\"CopyAction\"/>"*/
     "			<separator/>"
     "                   <toolitem name=\"SyncManager\" action=\"SyncManagerAction\" always-show-image=\"true\"/>"
+    "			<separator/>"
+    "                   <toolitem name=\"Update\" action=\"UpdateAction\" always-show-image=\"true\"/>"
     "	</toolbar>"
     "</ui>";
 

@@ -34,6 +34,7 @@ void cb_open_help_page();
 void cb_open_updates_page();
 void cb_open_online_docs();
 void cb_open_online_docs_context();
+void cb_update();
 void cb_sync_manager();
 void cb_report_bug();
 void cb_donate();

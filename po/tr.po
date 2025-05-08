@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 18:09+0200\n"
+"POT-Creation-Date: 2025-05-08 14:24+0200\n"
 "PO-Revision-Date: 2025-04-08 10:53+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -662,11 +662,11 @@ msgstr "Güncelleme Sürümünü Kontrol Edin"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: shell/callbacks.c:468 shell/shell.c:522
+#: shell/callbacks.c:492 shell/shell.c:522
 msgid "System Information and Benchmark"
 msgstr "Sistem Bilgileri ve Karşılaştırma"
 
-#: shell/callbacks.c:472
+#: shell/callbacks.c:496
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -739,62 +739,66 @@ msgid "_Help - User Guide"
 msgstr ""
 
 #: shell/menu.c:77
+msgid "_Update HardInfo2"
+msgstr ""
+
+#: shell/menu.c:82
 msgid "_Report bug"
 msgstr "Hata _Bildir"
 
-#: shell/menu.c:82
+#: shell/menu.c:87
 msgid "_About HardInfo2"
 msgstr "HardInfo2 _Hakkında"
 
-#: shell/menu.c:83
+#: shell/menu.c:88
 msgid "Displays program version information"
 msgstr "Program sürüm bilgilerini görüntüler"
 
-#: shell/menu.c:87
+#: shell/menu.c:92
 msgid "_Quit"
 msgstr "_Çık"
 
-#: shell/menu.c:94
+#: shell/menu.c:99
 msgid "_Side Pane"
 msgstr "_Yan Panel"
 
-#: shell/menu.c:95
+#: shell/menu.c:100
 msgid "Toggles side pane visibility"
 msgstr "Yan bölmenin görünürlüğünü açar veya kapatır"
 
-#: shell/menu.c:98
+#: shell/menu.c:103
 msgid "_Toolbar"
 msgstr "_Araç Çubuğu"
 
-#: shell/menu.c:102
+#: shell/menu.c:107
 msgid "Synchronize on startup"
 msgstr "Başlangıçta senkronize et"
 
-#: shell/menu.c:107
+#: shell/menu.c:112
 msgid "Disable Theme"
 msgstr "Temayı Devre Dışı Bırak"
 
-#: shell/menu.c:111
+#: shell/menu.c:116
 msgid "Theme Motherboard"
 msgstr "Tema Anakart"
 
-#: shell/menu.c:115
+#: shell/menu.c:120
 msgid "Theme Graffiti"
 msgstr "Tema Grafiti"
 
-#: shell/menu.c:119
+#: shell/menu.c:124
 msgid "Theme Anime PC"
 msgstr "Tema Anime Bilgisayar"
 
-#: shell/menu.c:123
+#: shell/menu.c:128
 msgid "Theme Tux Star"
 msgstr "Tema Tux Yıldızı"
 
-#: shell/menu.c:127
+#: shell/menu.c:132
 msgid "Theme PixArt"
 msgstr "Tema PixArt"
 
-#: shell/menu.c:131
+#: shell/menu.c:136
 msgid "Theme Silicon"
 msgstr "Tema Silikon"
 

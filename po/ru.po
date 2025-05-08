@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 18:09+0200\n"
+"POT-Creation-Date: 2025-05-08 14:24+0200\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -673,11 +673,11 @@ msgstr "Проверить обновления"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: shell/callbacks.c:468 shell/shell.c:522
+#: shell/callbacks.c:492 shell/shell.c:522
 msgid "System Information and Benchmark"
 msgstr "Информация о системе и тесты"
 
-#: shell/callbacks.c:472
+#: shell/callbacks.c:496
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -751,62 +751,66 @@ msgid "_Help - User Guide"
 msgstr ""
 
 #: shell/menu.c:77
+msgid "_Update HardInfo2"
+msgstr ""
+
+#: shell/menu.c:82
 msgid "_Report bug"
 msgstr "_Сообщить об ошибке"
 
-#: shell/menu.c:82
+#: shell/menu.c:87
 msgid "_About HardInfo2"
 msgstr "_О приложении..."
 
-#: shell/menu.c:83
+#: shell/menu.c:88
 msgid "Displays program version information"
 msgstr "Показывает информацию о версии программы"
 
-#: shell/menu.c:87
+#: shell/menu.c:92
 msgid "_Quit"
 msgstr "_Выход"
 
-#: shell/menu.c:94
+#: shell/menu.c:99
 msgid "_Side Pane"
 msgstr "_Боковая панель"
 
-#: shell/menu.c:95
+#: shell/menu.c:100
 msgid "Toggles side pane visibility"
 msgstr "Видимость боковой панели"
 
-#: shell/menu.c:98
+#: shell/menu.c:103
 msgid "_Toolbar"
 msgstr "_Панель инструментов"
 
-#: shell/menu.c:102
+#: shell/menu.c:107
 msgid "Synchronize on startup"
 msgstr "Синхронизировать при запуске"
 
-#: shell/menu.c:107
+#: shell/menu.c:112
 msgid "Disable Theme"
 msgstr "Отключена"
 
-#: shell/menu.c:111
+#: shell/menu.c:116
 msgid "Theme Motherboard"
 msgstr "Motherboard"
 
-#: shell/menu.c:115
+#: shell/menu.c:120
 msgid "Theme Graffiti"
 msgstr "Graffiti"
 
-#: shell/menu.c:119
+#: shell/menu.c:124
 msgid "Theme Anime PC"
 msgstr "Anime PC"
 
-#: shell/menu.c:123
+#: shell/menu.c:128
 msgid "Theme Tux Star"
 msgstr "Tux Star"
 
-#: shell/menu.c:127
+#: shell/menu.c:132
 msgid "Theme PixArt"
 msgstr "PixArt"
 
-#: shell/menu.c:131
+#: shell/menu.c:136
 msgid "Theme Silicon"
 msgstr "Silicon"
 

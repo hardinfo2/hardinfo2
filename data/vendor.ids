@@ -1291,6 +1291,13 @@ name Sony
     note EDID vendor: SNY
     match_string_exact SNY
 
+name SparkyLinux
+    name_short SparkyLinux
+    url www.sparkylinux.org
+    ansi_color 0;37;40
+    match_string sparky
+    match_string sparkylinux
+
 name Spectec Computer
     name_short Spectec
     url spectec.com.tw

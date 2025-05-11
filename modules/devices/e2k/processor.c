@@ -50,7 +50,8 @@ static gchar *__cache_get_info_as_string(Processor *processor)
 static const char* cache_types[] = {
     NC_("cache-type", /*/cache type, as appears in: Level 1 (Data)*/ "Data"),
     NC_("cache-type", /*/cache type, as appears in: Level 1 (Instruction)*/ "Instruction"),
-    NC_("cache-type", /*/cache type, as appears in: Level 2 (Unified)*/ "Unified")
+    NC_("cache-type", /*/cache type, as appears in: Level 2 (Unified)*/ "Unified"),
+    NULL
 };
 
 static void __cache_obtain_info(Processor *processor)
@@ -58,8 +59,11 @@ static void __cache_obtain_info(Processor *processor)
     ProcessorCache *cache;
     gchar *endpoint, *entry, *index;
     gchar *uref = NULL;
-    gint i;
+    gint i=0;
     gint processor_number = processor->id;
+
+    //remove gcc unused warning for translations
+    while(cache_types[i]) i++;
 
     endpoint = g_strdup_printf("/sys/devices/system/cpu/cpu%d/cache", processor_number);
 
@@ -131,14 +135,15 @@ fail:
 static gint cmp_cache(ProcessorCache *a, ProcessorCache *b) {
         gint i = 0;
         cmp_cache_test(phy_sock);
-        i = g_strcmp0(a->type, b->type); if (i!=0) return i;
+        i = g_strcmp0(a->type, b->type);
+	if (i!=0) return i;
         cmp_cache_test(level);
         cmp_cache_test(size);
         cmp_cache_test(uid); /* uid is unique among caches with the same (type, level) */
         if (a->uid == -1) {
             /* if id wasn't available, use shared_cpu_list as a unique ref */
-            i = g_strcmp0(a->shared_cpu_list, b->shared_cpu_list); if (i!=0)
-            return i;
+            i = g_strcmp0(a->shared_cpu_list, b->shared_cpu_list);
+	    if (i!=0) return i;
         }
         return 0;
 }
@@ -146,7 +151,8 @@ static gint cmp_cache(ProcessorCache *a, ProcessorCache *b) {
 static gint cmp_cache_ignore_id(ProcessorCache *a, ProcessorCache *b) {
         gint i = 0;
         cmp_cache_test(phy_sock);
-        i = g_strcmp0(a->type, b->type); if (i!=0) return i;
+        i = g_strcmp0(a->type, b->type);
+	if (i!=0) return i;
         cmp_cache_test(level);
         cmp_cache_test(size);
         return 0;
@@ -159,7 +165,7 @@ gchar *caches_summary(GSList * processors)
     GSList *tmp, *l;
     Processor *p;
     ProcessorCache *c, *cur = NULL;
-    gint cur_count = 0, i = 0;
+    gint cur_count = 0;
 
     /* create list of all cache references */
     for (l = processors; l; l = l->next) {

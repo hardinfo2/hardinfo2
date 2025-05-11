@@ -29,7 +29,7 @@ processor_scan(void)
     FILE *cpuinfo;
     gchar buffer[128];
     gchar *vendor_id = NULL;
-    gint   num_procs = 0;
+    //gint   num_procs = 0;
     gfloat bogomips = 0.0f;
     GSList *pi = NULL;
 
@@ -49,7 +49,7 @@ processor_scan(void)
         }
 
         get_str("vendor_id", vendor_id);
-        get_int("# processors", num_procs);
+        //get_int("# processors", num_procs);
         get_int("bogomips per cpu", bogomips);
 
         if ( CHECK_FOR("processor") ) {

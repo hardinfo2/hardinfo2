@@ -94,7 +94,7 @@ processor_scan(void)
 
     /* re-duplicate missing data for /proc/cpuinfo variant that de-duplicated it */
 #define REDUP(f) if (dproc->f && !processor->f) processor->f = g_strdup(dproc->f);
-    Processor *dproc;
+    Processor *dproc=NULL;
     GSList *l;
     l = procs = g_slist_reverse(procs);
     while (l) {

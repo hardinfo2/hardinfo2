@@ -25,7 +25,6 @@
  */
 
 #include <stdint.h>
-#include <poll.h>
 #include <wayland-client-core.h>
 #include <wayland-client-protocol.h>
 #include <wayland-client.h>

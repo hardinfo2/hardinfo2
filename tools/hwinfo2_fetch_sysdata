@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #create group hardinfo2 if not exists
-if ! getent group hardinfo2 >/dev/null; then
+if ! awk -F: '$1 == "hardinfo2" { found = 1 } END { exit !found }' /etc/group; then
     groupadd hardinfo2 2>/dev/null
     addgroup hardinfo2 2>/dev/null
 fi

@@ -585,6 +585,10 @@ gchar *callback_os(void)
                    info_field_update(_("Load Average"), 10000),
                    info_field_last());
 
+    info_add_group(info, _("Note"),
+                   info_field(_("Logo"),_("belongs to distro and may be reg. trademark")),
+                   info_field_last());
+
     p=info_flatten(info);
     g_free(distro);
     g_free(distro_icon);

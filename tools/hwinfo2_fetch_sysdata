@@ -1,8 +1,10 @@
 #!/bin/sh
 
 #create group hardinfo2 if not exists
-groupadd hardinfo2 2>/dev/null
-addgroup hardinfo2 2>/dev/null
+if ! getent group hardinfo2 >/dev/null; then
+    groupadd hardinfo2 2>/dev/null
+    addgroup hardinfo2 2>/dev/null
+fi
 
 #Create runtime data directory
 mkdir /run/hardinfo2 2>/dev/null

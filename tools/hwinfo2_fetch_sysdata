@@ -1,8 +1,10 @@
 #!/bin/sh
 
 #create group hardinfo2 if not exists
-groupadd hardinfo2 2>/dev/null
-addgroup hardinfo2 2>/dev/null
+if ! awk -F: '$1 == "hardinfo2" { found = 1 } END { exit !found }' /etc/group; then
+    groupadd hardinfo2 2>/dev/null
+    addgroup hardinfo2 2>/dev/null
+fi
 
 #Create runtime data directory
 mkdir /run/hardinfo2 2>/dev/null

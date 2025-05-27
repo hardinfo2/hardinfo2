@@ -629,6 +629,7 @@ gchar *processor_name(GSList *processors) {
         { "hardkernel,odroid-n2", "Amlogic", "S922x (N2)" }, // N2
         { "mediatek,mt8173", "MediaTek", "MT8173" },
         { "mediatek,mt8183", "MediaTek", "MT8183" },
+        { "mediatek,mt8167", "MediaTek", "MT8167" },
         { "mediatek,mt6895", "MediaTek", "MT6895" },
         { "mediatek,mt6799", "MediaTek", "MT6799 (Helio X30)" },
         { "mediatek,mt6799", "MediaTek", "MT6799 (Helio X30)" },

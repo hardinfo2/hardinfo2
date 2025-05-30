@@ -1256,6 +1256,7 @@ GSList *decode_dimms2(GSList *eeprom_list, const gchar *driver, gboolean use_sys
     return dimm_list;
 }
 
+/* TODO: Disabled until combined with SPD info - udev alternative to dmidecode
 static GSList *memory_info_from_udev(void)
 {
     GSList *dimm_list = NULL;
@@ -1359,7 +1360,7 @@ static GSList *memory_info_from_udev(void)
                 spd->vendor_index = index;
             }
         } else {
-            /* FIXME: there are many more fields there! */
+            // FIXME: there are many more fields there!
         }
     }
 
@@ -1376,7 +1377,7 @@ static GSList *memory_info_from_udev(void)
     g_strfreev(lines);
 
     return dimm_list;
-}
+}*/
 
 GSList *spd_scan() {
     GDir *dir = NULL;

@@ -1385,9 +1385,10 @@ GSList *spd_scan() {
     const SpdDriver *driver;
     gboolean is_spd = FALSE;
 
-    dimm_list = memory_info_from_udev();
-    if (dimm_list)
-        return dimm_list;
+    //TODO: Combine with SPD info below and enable udev as dmidecode alternative.
+    //dimm_list = memory_info_from_udev();
+    //if (dimm_list)
+    //    return dimm_list;
 
     for (driver = spd_drivers; driver->dir_path; driver++) {
         if (g_file_test(driver->dir_path, G_FILE_TEST_EXISTS)) {

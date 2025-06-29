@@ -278,23 +278,34 @@ void scan_route(gboolean reload)
 					     v[3],//flags
 					     v[2]);//mask
 	        } else {
-		    if(v[8]){
-		        gchar **sv=g_strsplit(v[0],"/",2);
-	                __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
-                                             __routing_table,
+		  if(!strstr(p,"via")){
+		      if(strstr(p,"src")){
+			  gchar **sv=g_strsplit(v[0],"/",2);
+			  __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
+					     __routing_table,
 					     sv[0],//dest
 					     v[8],//gateway
 					     v[2],//interface
-					     v[9],//flags
+					     "",//flags
 					     sv[1]);//mask
-			g_strfreev(sv);
-		    } else {//default
-	                __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
+			  g_strfreev(sv);
+		       } else {
+			  gchar **sv=g_strsplit(v[0],"/",2);
+			  __routing_table = h_strdup_cprintf("%s=%s|%s|/%s\n",
+					     __routing_table,
+					     sv[0],//dest
+					     v[2],//interface
+					     "",//flags
+					     sv[1]);//mask
+			  g_strfreev(sv);
+		       }
+		    } else {
+		        __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
                                              __routing_table,
 					     v[0],//dest
 					     v[2],//gateway
 					     v[4],//interface
-					     v[6],//flags
+					     "",//flags
 					     "0");//mask
 		    }
 	        }

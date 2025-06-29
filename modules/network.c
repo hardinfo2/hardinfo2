@@ -118,22 +118,26 @@ static gchar *__statistics = NULL;
 void scan_statistics(gboolean reload)
 {
     gboolean spawned;
-    gchar *out=NULL,*err=NULL,*p,*netstat_path;
+    gchar *out=NULL,*err=NULL,*p,*netstat_path,*command_line=NULL,*names[6];
     int line = 0;
 
     SCAN_START();
 
     g_free(__statistics);
     __statistics = g_strdup("");
+    for(int i=0;i<6;i++) names[i]=NULL;
 
-    if ((netstat_path = find_program("netstat"))) {
-    gchar *command_line = g_strdup_printf("%s -s", netstat_path);
+    if ((netstat_path = find_program("ip"))) command_line = g_strdup_printf("%s -s -s link show", netstat_path);
+    else if ((netstat_path = find_program("netstat"))) command_line = g_strdup_printf("%s -s", netstat_path);
+    if(command_line){
     spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
+
     if (spawned && out) {
         p=out;
         while (p) {
 	    if (!isspace(*p)) {
-	        gchar *np=strchr(p,':');
+	        if(strstr(command_line,"ip")) if(strchr(p,' ')) p=strchr(p,' ');
+		gchar *np=strchr(p,':');
 		if(np) *np=0;
 		gchar *tmp = g_ascii_strup(p, -1);
 		__statistics = h_strdup_cprintf("[%s]\n", __statistics, tmp);
@@ -144,21 +148,42 @@ void scan_statistics(gboolean reload)
 		gchar *np=p;
 		while (*np && (*np!='\n')) np++;
 		if(*np && (*np=='\n')) {*np=0;} else np=NULL;
-                /* the bolded-space/dot used here is a hardinfo shell hack */
-                if (params.markup_ok)
-		    __statistics = h_strdup_cprintf("<b> </b>#%d=%s\n", __statistics, line++, p);
-                else
-                    __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, p);
+                if(strstr(command_line,"ip")){
+		    if(strstr(p,"/")) {
+		      // __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, p);
+		    } else {
+		        if(strstr(p,":")){
+			  gchar **sv=strsplit_multi(strstr(p,":")+1," ",6);
+		          for(int i=0;i<6;i++) {
+			      g_free(names[i]); names[i]=NULL;
+			      if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
+			      if(names[i] && strlen(names[i])==0) {g_free(names[i]);names[i]=NULL;}
+			  }
+			  g_strfreev(sv);
+			} else {
+			  gchar **sv=strsplit_multi(p," ",6);
+			  for(int i=0;i<6;i++) if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL));
+			  g_strfreev(sv);
+			}
+		    }
+		} else {
+		    /* the bolded-space/dot used here is a hardinfo shell hack */
+		    if (params.markup_ok)
+		        __statistics = h_strdup_cprintf("<b> </b>#%d=%s\n", __statistics, line++, p);
+		    else
+		        __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, p);
+		}
 		if(np) *np='\n';
 	    }
 	    p=strchr(p,'\n');
 	    if(p && *p) p++;
-        }
+	}
     }
     g_free(out);
     g_free(err);
     g_free(command_line);
     g_free(netstat_path);
+    for(int i=0;i<6;i++) g_free(names[i]);
     }
     SCAN_END();
 }
@@ -216,36 +241,64 @@ static gchar *__routing_table = NULL;
 void scan_route(gboolean reload)
 {
     gboolean spawned;
-    gchar *out=NULL,*err=NULL,*p,*route_path;
+    gchar *out=NULL,*err=NULL,*p,*route_path,*command_line=NULL;
 
     SCAN_START();
 
     g_free(__routing_table);
     __routing_table = g_strdup("");
 
-    if ((route_path = find_program("route"))) {
-    gchar *command_line = g_strdup_printf("%s -n", route_path);
+    if ((route_path = find_program("ip"))) command_line = g_strdup_printf("%s route", route_path);
+    else if ((route_path = find_program("route"))) command_line = g_strdup_printf("%s -n", route_path);
+    if(command_line){
     spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
 
     if(spawned && out) {
 	p=out;
-        /* eat first two lines */
-        if(p) p=strstr(p,"\n");
-	if(p) p++;
-        if(p) p=strstr(p,"\n");
-	if(p) p++;
+	if(!strstr(command_line,"ip")){
+	    /* eat first two lines */
+            if(p) p=strstr(p,"\n");
+	    if(p) p++;
+	    if(p) p=strstr(p,"\n");
+	    if(p) p++;
+	}
 
         while (p && *p) {
 	    gchar *np=strchr(p,'\n');
 	    if(np) *np=0;
-	    gchar **v=strsplit_multi(p," ",8);
-	    if(v) __routing_table = h_strdup_cprintf("%s / %s=%s|%s|%s\n",
+	    gchar **v=strsplit_multi(p," ",10);
+
+	    if(v) {
+	        if(!strstr(command_line,"ip")){
+	            __routing_table = h_strdup_cprintf("%s / %s=%s|%s|%s\n",
                                              __routing_table,
-                                             v[0],
-					     v[1],
-                                             v[7],
-                                             v[3],
-					     v[2]);
+					     v[0],//dest
+					     v[1],//gateway
+					     v[7],//interface
+					     v[3],//flags
+					     v[2]);//mask
+	        } else {
+		    if(v[8]){
+		        gchar **sv=g_strsplit(v[0],"/",2);
+	                __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
+                                             __routing_table,
+					     sv[0],//dest
+					     v[8],//gateway
+					     v[2],//interface
+					     v[9],//flags
+					     sv[1]);//mask
+			g_strfreev(sv);
+		    } else {//default
+	                __routing_table = h_strdup_cprintf("%s / %s=%s|%s|/%s\n",
+                                             __routing_table,
+					     v[0],//dest
+					     v[2],//gateway
+					     v[4],//interface
+					     v[6],//flags
+					     "0");//mask
+		    }
+	        }
+	    }
 	    if(np) *np='\n';
 	    g_strfreev(v);
 
@@ -298,31 +351,44 @@ static gchar *__connections = NULL;
 void scan_connections(gboolean reload)
 {
     gboolean spawned;
-    gchar *out=NULL,*err=NULL,*p,*netstat_path;
+    gchar *out=NULL,*err=NULL,*p,*netstat_path,*command_line=NULL;
 
     SCAN_START();
 
     g_free(__connections);
     __connections = g_strdup("");
 
-    if ((netstat_path = find_program("netstat"))) {
-    gchar *command_line = g_strdup_printf("%s -antu", netstat_path);
+    if ((netstat_path = find_program("ss"))) command_line = g_strdup_printf("%s -antu", netstat_path);
+    else if ((netstat_path = find_program("netstat"))) command_line = g_strdup_printf("%s -antu", netstat_path);
+    if(command_line){
     spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
 
     if(spawned && out) {
-	p=out;
+        out=strreplace(out,"%","-");
+        out=strreplace(out,"[","(");
+        out=strreplace(out,"]",")");
+        p=out;
         while (p) {
 	    gchar *np=strchr(p,'\n');
 	    if(np) *np=0;
 	    gchar **v=strsplit_multi(p," ",6);
 
 	    if (v && (g_str_has_prefix(p, "tcp") || g_str_has_prefix(p, "udp"))) {
-	        __connections = h_strdup_cprintf("%s=%s|%s|%s\n",
+	        if(strstr(command_line,"netstat")){
+	            __connections = h_strdup_cprintf("%s=%s|%s|%s\n",
                                              __connections,
                                              v[3],	/* local address */
                                              v[0],	/* protocol */
 					     v[4],	/* foreign address */
                                              v[5]);	/* state */
+	        } else {
+	            __connections = h_strdup_cprintf("%s=%s|%s|%s\n",
+                                             __connections,
+                                             v[4],	/* local address */
+                                             v[0],	/* protocol */
+					     v[5],	/* foreign address */
+                                             v[1]);	/* state */
+	        }
 	    }
 	    if(np) *np='\n';
 	    g_strfreev(v);

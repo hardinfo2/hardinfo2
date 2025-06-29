@@ -197,7 +197,7 @@ void scan_dns(gboolean reload)
 {
     FILE *resolv;
     gchar buffer[256];
-    gboolean spawned;
+    gboolean spawned=FALSE;
     gchar *out=NULL,*err=NULL,*p,*resolvectl_path,*command_line=NULL,*ip;
 
     SCAN_START();
@@ -206,8 +206,9 @@ void scan_dns(gboolean reload)
     __nameservers = g_strdup("");
 
     if ((resolvectl_path = find_program("resolvectl"))) command_line = g_strdup_printf("%s status", resolvectl_path);
-    spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
-    if (spawned && out) {
+    if(command_line){
+      spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
+      if (spawned && out) {
         p=out;
 	while (p && *p) {
 	    gchar *np=strchr(p,'\n');
@@ -235,11 +236,12 @@ void scan_dns(gboolean reload)
 	    p=strchr(p,'\n');
 	    if(p && *p) p++;
 	}
+      }
+      g_free(out);
+      g_free(err);
+      g_free(command_line);
+      g_free(resolvectl_path);
     }
-    g_free(out);
-    g_free(err);
-    g_free(command_line);
-    g_free(resolvectl_path);
 
     if (!spawned && (resolv = fopen("/etc/resolv.conf", "r"))) {
         while (fgets(buffer, 256, resolv)) {

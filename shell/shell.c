@@ -571,7 +571,8 @@ static void create_window(void)
 #if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_set_valign(GTK_WIDGET(shell->progress), GTK_ALIGN_CENTER);
 #else
-    gtk_misc_set_alignment(GTK_MISC(shell->progress), 0.0, 0.5);
+    //Results in conversion error - just disable for GTK2
+    //gtk_misc_set_alignment(GTK_MISC(shell->progress), 0.0, 0.5);
 #endif
     gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(shell->progress),0.10);
     gtk_widget_hide(shell->progress);

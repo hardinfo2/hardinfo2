@@ -72,7 +72,9 @@ gchar** strsplit_multi(const gchar *string, const gchar *delimiter, gint max_tok
 {
     char *s;
     const gchar *remainder;
-    GPtrArray *string_list;
+    gchar **string_list;
+    //GPtrArray *string_list;
+    int c=0;
 
     g_return_val_if_fail (string != NULL, NULL);
     g_return_val_if_fail (delimiter != NULL, NULL);
@@ -80,10 +82,11 @@ gchar** strsplit_multi(const gchar *string, const gchar *delimiter, gint max_tok
 
     if (max_tokens < 1) {
         max_tokens = G_MAXINT;
-	string_list = g_ptr_array_new ();
-    } else {
-        string_list = g_ptr_array_new_full (max_tokens + 1, NULL);
-    }
+	//string_list = g_ptr_array_new ();
+    } //else {
+      //string_list = g_ptr_array_new_full (max_tokens + 1, NULL);
+    //}
+    string_list=g_malloc((max_tokens+1)*sizeof(char*));
 
     remainder = string;
     while(strstr(remainder, delimiter)==remainder) {remainder++;}//Skip next - multi
@@ -94,15 +97,15 @@ gchar** strsplit_multi(const gchar *string, const gchar *delimiter, gint max_tok
         {
             gsize len;
 	    len = s - remainder;
-	    g_ptr_array_add (string_list, g_strndup (remainder, len));
+	    string_list[c++]=g_strndup (remainder, len); //g_ptr_array_add (string_list, g_strndup (remainder, len));
 	    remainder = s + delimiter_len;
 	    while(strstr(remainder, delimiter)==remainder) {remainder++;}//Skip next - multi
 	    s = strstr (remainder, delimiter);
         }
     }
-    if (*string) g_ptr_array_add (string_list, g_strdup (remainder));
-    g_ptr_array_add (string_list, NULL);
-    return (char **) g_ptr_array_free (string_list, FALSE);
+    if (*string) string_list[c++]=g_strdup (remainder); //g_ptr_array_add (string_list, g_strdup (remainder));
+    string_list[c++]=NULL; //g_ptr_array_add (string_list, NULL);
+    return string_list;//(char **) g_ptr_array_free (string_list, FALSE);
 }
 
 
@@ -125,7 +128,7 @@ void scan_statistics(gboolean reload)
 
     g_free(__statistics);
     __statistics = g_strdup("");
-    for(int i=0;i<6;i++) names[i]=NULL;
+    int i=0;while(i<6) names[i++]=NULL;
 
     if ((netstat_path = find_program("ip"))) command_line = g_strdup_printf("%s -s -s link show", netstat_path);
     else if ((netstat_path = find_program("netstat"))) command_line = g_strdup_printf("%s -s", netstat_path);
@@ -154,15 +157,16 @@ void scan_statistics(gboolean reload)
 		    } else {
 		        if(strstr(p,":")){
 			  gchar **sv=strsplit_multi(strstr(p,":")+1," ",6);
-		          for(int i=0;i<6;i++) {
+		          int i=0;while(i<6) {
 			      g_free(names[i]); names[i]=NULL;
 			      if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
 			      if(names[i] && strlen(names[i])==0) {g_free(names[i]);names[i]=NULL;}
+			      i++;
 			  }
 			  g_strfreev(sv);
 			} else {
 			  gchar **sv=strsplit_multi(p," ",6);
-			  for(int i=0;i<6;i++) if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL));
+			  int i=0;while(i<6) {if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL)); i++;}
 			  g_strfreev(sv);
 			}
 		    }
@@ -183,7 +187,7 @@ void scan_statistics(gboolean reload)
     g_free(err);
     g_free(command_line);
     g_free(netstat_path);
-    for(int i=0;i<6;i++) g_free(names[i]);
+    int i=0;while(i<6) g_free(names[i++]);
     }
     SCAN_END();
 }
@@ -193,38 +197,68 @@ void scan_dns(gboolean reload)
 {
     FILE *resolv;
     gchar buffer[256];
+    gboolean spawned;
+    gchar *out=NULL,*err=NULL,*p,*resolvectl_path,*command_line=NULL,*ip;
 
     SCAN_START();
 
     g_free(__nameservers);
     __nameservers = g_strdup("");
 
-    if ((resolv = fopen("/etc/resolv.conf", "r"))) {
-      while (fgets(buffer, 256, resolv)) {
-        if (g_str_has_prefix(buffer, "nameserver")) {
-          gchar *ip;
-          struct sockaddr_in sa;
-          char hbuf[NI_MAXHOST];
+    if ((resolvectl_path = find_program("resolvectl"))) command_line = g_strdup_printf("%s status", resolvectl_path);
+    spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
+    if (spawned && out) {
+        p=out;
+	while (p && *p) {
+	    gchar *np=strchr(p,'\n');
+	    if(np) *np=0;
+	    if(strstr(p,"DNS Servers:")){
+		struct sockaddr_in sa;
+		sa.sin_family = AF_INET;
+		char hbuf[NI_MAXHOST];
+	        ip=strstr(p,":")+2;
+		while(ip && *ip){
+                    gchar *np1=strchr(ip,' ');
+		    if(np1) *np1=0;
+		    inet_pton(AF_INET,ip,&sa.sin_addr.s_addr);
+		    if (getnameinfo((struct sockaddr *)&sa, sizeof(sa), hbuf, sizeof(hbuf), NULL, 0, NI_NAMEREQD)) {
+		        __nameservers = h_strdup_cprintf("%s=\n", __nameservers, ip);
+		    } else {
+		        __nameservers = h_strdup_cprintf("%s=%s\n", __nameservers, ip, hbuf);
+		    }
+		    if(np1) *np1=' ';
+		    ip=strstr(ip," ");
+		    if(ip && *ip) ip++;
+		}
+	    }
+	    if(np) *np='\n';
+	    p=strchr(p,'\n');
+	    if(p && *p) p++;
+	}
+    }
+    g_free(out);
+    g_free(err);
+    g_free(command_line);
+    g_free(resolvectl_path);
 
-          ip = g_strstrip(buffer + sizeof("nameserver"));
+    if (!spawned && (resolv = fopen("/etc/resolv.conf", "r"))) {
+        while (fgets(buffer, 256, resolv)) {
+	    if (g_str_has_prefix(buffer, "nameserver")) {
+	        struct sockaddr_in sa;
+		char hbuf[NI_MAXHOST];
+		ip = g_strstrip(buffer + sizeof("nameserver"));
+		sa.sin_family = AF_INET;
+		inet_pton(AF_INET,ip,&sa.sin_addr.s_addr);
 
-          sa.sin_family = AF_INET;
-	  inet_pton(AF_INET,ip,&sa.sin_addr.s_addr);
+		if (getnameinfo((struct sockaddr *)&sa, sizeof(sa), hbuf, sizeof(hbuf), NULL, 0, NI_NAMEREQD)) {
+		    __nameservers = h_strdup_cprintf("%s=\n", __nameservers, ip);
+		} else {
+		    __nameservers = h_strdup_cprintf("%s=%s\n", __nameservers, ip, hbuf);
+		}
 
-          if (getnameinfo((struct sockaddr *)&sa, sizeof(sa), hbuf, sizeof(hbuf), NULL, 0, NI_NAMEREQD)) {
-              __nameservers = h_strdup_cprintf("%s=\n",
-                                               __nameservers,
-                                               ip);
-          } else {
-              __nameservers = h_strdup_cprintf("%s=%s\n",
-                                               __nameservers,
-                                               ip, hbuf);
-          }
-
-          shell_status_pulse();
-        }
-      }
-      fclose(resolv);
+	    }
+	}
+	fclose(resolv);
     }
 
     SCAN_END();

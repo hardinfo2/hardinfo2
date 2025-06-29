@@ -137,7 +137,7 @@ void scan_statistics(gboolean reload)
 
     if (spawned && out) {
         p=out;
-        while (p) {
+        while (p && *p) {
 	    if (!isspace(*p)) {
 	        if(strstr(command_line,"ip")) if(strchr(p,' ')) p=strchr(p,' ');
 		gchar *np=strchr(p,':');
@@ -146,6 +146,7 @@ void scan_statistics(gboolean reload)
 		__statistics = h_strdup_cprintf("[%s]\n", __statistics, tmp);
 		g_free(tmp);
 		if(np) *np=':';
+		line=0;
 	    } else {
 		while (*p && isspace(*p)) p++;
 		gchar *np=p;
@@ -415,7 +416,7 @@ void scan_connections(gboolean reload)
         out=strreplace(out,"[","(");
         out=strreplace(out,"]",")");
         p=out;
-        while (p) {
+        while (p && *p) {
 	    gchar *np=strchr(p,'\n');
 	    if(np) *np=0;
 	    gchar **v=strsplit_multi(p," ",6);

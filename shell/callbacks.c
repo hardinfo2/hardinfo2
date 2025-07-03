@@ -418,7 +418,7 @@ void cb_about()
 	"thiagodalsoto (Brazilian)",
 	"serkan-maker (Turkish)",
 	"ReVe1uv (Chinese)",
-	"yolanteng0 (France)",
+	"yolateng0 (France)",
         "",
 	"Artwork by:",
         "Jakub Szypulka",

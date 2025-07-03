@@ -463,11 +463,11 @@ msgstr ""
 #: hardinfo2/hardinfo.c:153
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
-msgstr ""
+msgstr "Benchmark inconnu ``%s''\n"
 
 #: hardinfo2/hardinfo.c:255
 msgid "Don't know what to do. Exiting."
-msgstr "Que faire. Sortir."
+msgstr "Quefaire. Sortir."
 
 #: hardinfo2/usb_util.c:296 modules/devices/devicetree.c:90
 #: modules/devices/devicetree.c:91 modules/devices/monitors.c:408
@@ -547,7 +547,7 @@ msgstr "Erreur Fatale"
 
 #: hardinfo2/util.c:338
 msgid "do not print status messages to standard output"
-msgstr ""
+msgstr "Ne pas imprimer les messages d'état en sortie standard"
 
 #: hardinfo2/util.c:344
 msgid "creates a report and prints to standard output"
@@ -559,19 +559,19 @@ msgstr "Choisir format du rapport ([text], html)"
 
 #: hardinfo2/util.c:356
 msgid "search for a topic in CLI report (-t getlist shows available)"
-msgstr ""
+msgstr "Recherche d'un sujet dans le rapport CLI (-t montre les listes possibles)"
 
 #: hardinfo2/util.c:362
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
-msgstr ""
+msgstr "Recherche d'un sujet dans le rapport CLI en cache (-t montre les listes possibles) "
 
 #: hardinfo2/util.c:368
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
-msgstr ""
+msgstr "Lanv=cer un seul Benchmark exp - b 'FPU FFT' (Par défaut tous les Benchmarks se lancent)"
 
 #: hardinfo2/util.c:374
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
-msgstr ""
+msgstr "Pour une note d'utilisateur jointe aux résultats de référence. Groupe-MachineName-ServerRe"
 
 #: hardinfo2/util.c:380
 msgid "benchmark result format ([short], conf, shell)"
@@ -581,7 +581,7 @@ msgstr "Format Résultat du benchmark ([court], conf, shell)"
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
 "250)"
-msgstr "Nombre max de benchmark à inclure (-1 aucune limite, defaut est 250)"
+msgstr "Nombre max de benchmark à inclure (-1 aucune limite, par défaut  250)"
 
 #: hardinfo2/util.c:392
 msgid "shows program version and quit"
@@ -597,7 +597,7 @@ msgstr "Voir tous les détails"
 
 #: hardinfo2/util.c:409
 msgid "- System Information and Benchmark"
-msgstr ""
+msgstr "- Informations et référence du système"
 
 #: hardinfo2/util.c:419
 #, c-format
@@ -627,11 +627,11 @@ msgstr "Réalisé."
 
 #: hardinfo2/vendor.c:213
 msgid "Update vendor list"
-msgstr ""
+msgstr "Mettre à jour la liste des fournisseurs"
 
 #: hardinfo2/vendor.c:218
 msgid "Check Update Version"
-msgstr ""
+msgstr "Vérifiez la version à jour"
 
 #: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:788
 #: modules/computer/os.c:198 modules/computer/os.c:389
@@ -647,7 +647,7 @@ msgstr "Inconnu"
 
 #: shell/callbacks.c:496 shell/shell.c:523
 msgid "System Information and Benchmark"
-msgstr ""
+msgstr "Informations et référence du système"
 
 #: shell/callbacks.c:500
 msgid ""
@@ -687,19 +687,19 @@ msgstr "Générer _Rapport"
 
 #: shell/menu.c:47
 msgid "Generates a report with detailed system information"
-msgstr ""
+msgstr "Génère un rapport contenant des informations détaillées sur le système"
 
 #: shell/menu.c:51 shell/syncmanager.c:754
 msgid "Synchronize"
-msgstr ""
+msgstr "Synchronise"
 
 #: shell/menu.c:52
 msgid "Send benchmark results and receive updated data from the network"
-msgstr ""
+msgstr "Send benchmark results and receive updated data from the network"
 
 #: shell/menu.c:56 shell/menu.c:57
 msgid "Update Available"
-msgstr ""
+msgstr "Mise à jour disponible"
 
 #: shell/menu.c:67
 msgid "_Refresh"
@@ -707,11 +707,11 @@ msgstr "_Rafraichir"
 
 #: shell/menu.c:72
 msgid "HardInfo2 _Web Site"
-msgstr ""
+msgstr "Site Web HardInfo2"
 
 #: shell/menu.c:77
 msgid "_Help - User Guide"
-msgstr ""
+msgstr "_Help - Guide utilisateur"
 
 #: shell/menu.c:82
 msgid "_Update HardInfo2"
@@ -739,7 +739,7 @@ msgstr "_Volet latéral"
 
 #: shell/menu.c:105
 msgid "Toggles side pane visibility"
-msgstr "Basculer visibilité du panneau latéral "
+msgstr "Basculer sur le panneau latéral "
 
 #: shell/menu.c:108
 msgid "_Toolbar"
@@ -747,11 +747,11 @@ msgstr "_Barre d'outils"
 
 #: shell/menu.c:112
 msgid "Synchronize on startup"
-msgstr ""
+msgstr "Synchroniser au démarrage"
 
 #: shell/menu.c:117
 msgid "Disable Theme"
-msgstr ""
+msgstr "Désactiver le thème"
 
 #: shell/menu.c:121
 msgid "Theme Motherboard"
@@ -923,11 +923,11 @@ msgstr ""
 
 #: shell/syncmanager.c:832
 msgid "Leave it default/blank or see "
-msgstr ""
+msgstr "Laisser sa fonction par défaut/blanc ou voir"
 
 #: shell/syncmanager.c:835
 msgid "User Guide"
-msgstr ""
+msgstr "Guide de l'utilisateur"
 
 #: shell/syncmanager.c:876
 msgid "Privacy Policy"
@@ -940,7 +940,7 @@ msgstr "_Synchronisation"
 #: shell/syncmanager.c:947
 #, c-format
 msgid "Synchronizing: %s"
-msgstr ""
+msgstr "Synchronisation: %s"
 
 #: modules/benchmark/benches.c:163
 msgid "CPU Blowfish (Single-thread)"
@@ -980,7 +980,7 @@ msgstr ""
 
 #: modules/benchmark/benches.c:235
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "Vitesse du réseau interne"
 
 #: modules/benchmark/benches.c:243
 msgid "SysBench CPU (Single-thread)"
@@ -1032,7 +1032,7 @@ msgstr ""
 
 #: modules/benchmark/benches.c:349
 msgid "Results in events/second. Higher is better."
-msgstr ""
+msgstr "Résultats des événements/secondes. Plus c'est élevé, meilleur est le résultat."
 
 #: modules/benchmark/benches.c:354
 msgid "Results in MiB/second. Higher is better."

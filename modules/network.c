@@ -244,7 +244,7 @@ void scan_dns(gboolean reload)
       g_free(resolvectl_path);
     }
 
-    if (!spawned && (resolv = fopen("/etc/resolv.conf", "r"))) {
+    if ((!spawned || (strlen(__nameservers)==0)) && (resolv = fopen("/etc/resolv.conf", "r"))) {
         while (fgets(buffer, 256, resolv)) {
 	    if (g_str_has_prefix(buffer, "nameserver")) {
 	        struct sockaddr_in sa;

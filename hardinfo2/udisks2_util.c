@@ -549,6 +549,22 @@ gpointer get_udisks2_drive_info(const char *blockdev, GDBusProxy *block,
         u->removable = g_variant_get_boolean(v);
         g_variant_unref(v);
     }
+    //udisks2 has errors - missing event registration - try to call it twize, first above will start info collection
+    if(!u->size){
+        v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Size");
+	if(v){
+	    u->size = g_variant_get_uint64(v);
+	    g_variant_unref(v);
+	}
+    }
+    //udisks2 has errors - in before semi patch - only blockIF got size correctly, driveIF was zero for drives with bad namespaces
+    if(!u->size){
+        v = get_dbus_property(block, UDISKS2_BLOCK_INTERFACE, "Size");
+	if(v){
+	    u->size = g_variant_get_uint64(v);
+	    g_variant_unref(v);
+	}
+    }
     v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "PmSupported");
     if (v){
         u->pm_supported = g_variant_get_boolean(v);

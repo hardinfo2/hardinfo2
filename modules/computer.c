@@ -658,11 +658,13 @@ gchar *callback_security(void)
 	    if (g_strstr_len(contents, -1, "Not affected") )
 	        icon = "circle_green_check.svg";
 
-            if (g_str_has_prefix(contents, "Mitigation:") ||
+            if (g_str_has_prefix(contents, "KVM: Mitigation:") ||
+                g_str_has_prefix(contents, "Mitigation:") ||
                 g_str_has_prefix(contents, "mitigation:"))
                 icon = "circle_yellow_exclaim.svg";
 
-            if (g_strstr_len(contents, -1, "Vulnerable") ||
+            if (g_str_has_prefix(contents, "Unknown:") ||
+                g_strstr_len(contents, -1, "Vulnerable") ||
                 g_strstr_len(contents, -1, "vulnerable"))
                 icon = "circle_red_x.svg";
 

@@ -39,19 +39,9 @@ struct wsi_interface xcb_wsi_interface(void);
 struct wsi_interface
 get_wsi_interface(void);
 
-enum wsi_key {
-   WSI_KEY_UP,
-   WSI_KEY_DOWN,
-   WSI_KEY_LEFT,
-   WSI_KEY_RIGHT,
-   WSI_KEY_A,
-   WSI_KEY_ESC,
-   WSI_KEY_OTHER,
-};
-
 struct wsi_callbacks {
    void (*resize)(int new_width, int new_height);
-   void (*key_press)(bool down, enum wsi_key key);
+  //   void (*key_press)(bool down, enum wsi_key key);
    void (*exit)();
 };
 

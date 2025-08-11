@@ -41,7 +41,7 @@
 #include "wsi/wsi.h"
 
 /*Change this version on any changes to benchmark*/
-#define VKBENCH_VERSION 2
+#define VKBENCH_VERSION 3
 
 #ifndef VK_API_VERSION_MAJOR
 /* retain compatibility with old vulkan headers */
@@ -1513,9 +1513,9 @@ wsi_resize(int p_new_width, int p_new_height)
    new_height = p_new_height;
 }
 
-static void
+/*static void
 wsi_key_press(bool down, enum wsi_key key) {
-  /*if (!down)
+  if (!down)
       return;
    switch (key) {
       case WSI_KEY_ESC:
@@ -1537,8 +1537,8 @@ wsi_key_press(bool down, enum wsi_key key) {
          break;
       default:
          break;
-    }*/
-}
+    }
+}*/
 
 static void
 wsi_exit()
@@ -1548,7 +1548,7 @@ wsi_exit()
 
 static struct wsi_callbacks wsi_callbacks = {
    .resize = wsi_resize,
-   .key_press = wsi_key_press,
+   //.key_press = wsi_key_press,
    .exit = wsi_exit,
 };
 

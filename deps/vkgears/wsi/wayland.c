@@ -420,8 +420,9 @@ static bool update_window()
          pollfds[0].events &= ~POLLOUT; /* successfully flushed */
 
       unsigned poll_count = 2;// + (keyboard_data.rate > 0);
-      if (poll(pollfds, poll_count, 0.0) == -1)
-         break;
+      //HACK: Below should wait for display being ready but blocks on Wayland client 124 - ok on 120. Protocol seams correct - maybe wayland bug?, maybe vulkan MAILBOX bug - works with fifo. - Hack results seams fair. (opensuse+fedoraRH)
+      /*if (poll(pollfds, poll_count, 0.0) == -1)
+	break;*/
 
       if (pollfds[0].revents & (POLLERR | POLLHUP | POLLNVAL))
          break;
@@ -453,17 +454,17 @@ static bool update_window()
          }
       }
 
-      if (pollfds[2].revents & POLLIN) {
-	/*uint64_t repeats;
+      /*if (pollfds[2].revents & POLLIN) {
+	uint64_t repeats;
          if (read(keyboard_data.keyboard_timer_fd, &repeats, sizeof(repeats)) == 8) {
             for(uint64_t i = 0; i < repeats; i++) {
                dispatch_key(keyboard_data.repeat_scancode, 1);
             }
-	    }*/
-      }
+	    }
+      }*/
 
       if (!(pollfds[0].events & POLLOUT))
-         return false;
+	return false;
    }
 
    return true;

@@ -14,19 +14,20 @@ Status
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1329 strings (no change), with 63 c-format strings
-(as of 0bf1cd35-dirty 0bf1cd35956586e01807ac6e8829f845ef56f097)
-- [x] da.po : (0 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (856 / 1329 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (454 / 1329 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (871 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1165 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (228 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (23 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (217 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [x] ru.po : (0 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] tr.po : (18 / 1329 remain untranslated, needs work/fuzzy: 0)
-- [ ] zh_CN.po : (933 / 1329 remain untranslated, needs work/fuzzy: 0)
+hardinfo2.pot now has 1331 strings (+2), with 63 c-format strings
+(as of fbbbe9ad-dirty fbbbe9ad1f8ed4486bf7a059f07b9c25d50a4375)
+grep: предупреждение: stray \ before :
+- [ ] da.po : (3 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (858 / 1331 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (456 / 1331 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (850 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1167 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (230 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (25 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (219 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] tr.po : (20 / 1331 remain untranslated, needs work/fuzzy: 0)
+- [ ] zh_CN.po : (935 / 1331 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 

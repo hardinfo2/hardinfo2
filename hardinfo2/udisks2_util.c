@@ -361,7 +361,9 @@ gpointer get_udisks2_temp(const char *blockdev, GDBusProxy *block,
 
     v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Model");
     if (v) {
-        disk_temp->drive = g_variant_dup_string(v, NULL);
+        gchar *drivetemp = g_variant_dup_string(v, NULL);
+	disk_temp->drive = g_strconcat(drivetemp," (",blockdev,")",NULL);
+	g_free(drivetemp);
         g_variant_unref(v);
     }
 

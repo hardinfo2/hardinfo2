@@ -16,7 +16,6 @@ editing - use the ./updatepo.sh
 
 hardinfo2.pot now has 1331 strings (+2), with 63 c-format strings
 (as of fbbbe9ad-dirty fbbbe9ad1f8ed4486bf7a059f07b9c25d50a4375)
-grep: предупреждение: stray \ before :
 - [ ] da.po : (3 / 1331 remain untranslated, needs work/fuzzy: 0)
 - [ ] de.po : (858 / 1331 remain untranslated, needs work/fuzzy: 2)
 - [ ] es.po : (456 / 1331 remain untranslated, needs work/fuzzy: 18)

@@ -489,7 +489,7 @@ static Distro parse_os_release(void)
     if(strstr(content2,"CachyOS")) {
         g_free(contents);
 	contents=content2;
-    }
+    } else g_free(content2);
 
     split = g_strsplit(contents, "\n", 0);
     g_free(contents);

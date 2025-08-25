@@ -185,7 +185,7 @@ name Arch Linux
     name_short Arch Linux
     url www.archlinux.org
     ansi_color 0;36;107
-    match_string arch linux
+    match_string arch l
 
 name Arm Holdings
 # styled lower-case "arm"
@@ -294,6 +294,12 @@ name C-Media Electronics
     name_short C-Media
     url www.cmedia.com.tw
     match_string C-Media
+
+name CachyOS
+    name_short CachyOS
+    url cachyos.org
+    ansi_color 0;97;42
+    match_string CachyOS
 
 name Cambridge Silicon Radio
     name_short CSR

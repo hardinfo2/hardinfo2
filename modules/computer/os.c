@@ -476,7 +476,7 @@ static Distro parse_os_release(void)
     gchar *id = NULL;
     gchar *version = NULL;
     gchar *codename = NULL;
-    gchar **split, *contents, **line;
+    gchar **split, *contents, *content2, **line;
     gchar *orig_id=NULL, *orig_name=NULL;
 
     //some overrides the /etc/os-release, so we use usr/lib first and fixes distro via Apt, OLD DISTRO fallback to /etc/os.
@@ -484,6 +484,12 @@ static Distro parse_os_release(void)
         if (!g_file_get_contents("/etc/os-release", &contents, NULL, NULL))
             return (Distro) {};
 
+    //force /etc/os-release for some distros
+    if (!g_file_get_contents("/etc/os-release", &content2, NULL, NULL)) return (Distro) {};
+    if(strstr(content2,"CachyOS")) {
+        g_free(contents);
+	contents=content2;
+    }
 
     split = g_strsplit(contents, "\n", 0);
     g_free(contents);

@@ -941,31 +941,66 @@ char *ddr5_print_spd_timings(int speed, float cas, float trcd, float trp, float 
                            ceil(trp / ctime - 0.025), ceil(tras / ctime - 0.025));
 }
 void decode_ddr5_module_size(unsigned char *bytes, dmi_mem_size *size) {
-    int sdrcap;
-    int diePerPack;
+  int sdrcap1,sdrcap2;
+  int diePerPack1,diePerPack2;
+  int iowidth1,iowidth2;
     switch(bytes[4] & 31) {//gbit
-        case 0: sdrcap=0;break;
-        case 1: sdrcap=4;break;
-        case 2: sdrcap=8;break;
-        case 3: sdrcap=12;break;
-        case 4: sdrcap=16;break;
-        case 5: sdrcap=24;break;
-        case 6: sdrcap=32;break;
-        case 7: sdrcap=48;break;
-        case 8: sdrcap=64;break;
-        default: sdrcap=0;break;
+        case 0: sdrcap1=0;break;
+        case 1: sdrcap1=4;break;
+        case 2: sdrcap1=8;break;
+        case 3: sdrcap1=12;break;
+        case 4: sdrcap1=16;break;
+        case 5: sdrcap1=24;break;
+        case 6: sdrcap1=32;break;
+        case 7: sdrcap1=48;break;
+        case 8: sdrcap1=64;break;
+        default: sdrcap1=0;break;
     }
     switch(bytes[4]>>5) {
-        case 0: diePerPack=1;break;
-        case 1: diePerPack=2;break;
-        case 2: diePerPack=2;break;
-        case 3: diePerPack=4;break;
-        case 4: diePerPack=8;break;
-        case 5: diePerPack=16;break;
-        default: diePerPack=1;break;
+        case 0: diePerPack1=1;break;
+        case 1: diePerPack1=2;break;
+        case 2: diePerPack1=2;break;
+        case 3: diePerPack1=4;break;
+        case 4: diePerPack1=8;break;
+        case 5: diePerPack1=16;break;
+        default: diePerPack1=1;break;
     }
-    //MB - multiply by 2 due to 2 32bit channels
-    *size = (dmi_mem_size)sdrcap*2*1024*diePerPack;
+    switch(bytes[6]>>5) {
+        case 0: iowidth1=4;break;
+        case 1: iowidth1=8;break;
+        case 2: iowidth1=16;break;
+        case 3: iowidth1=32;break;
+        default: iowidth1=32;break;
+    }
+    switch(bytes[8] & 31) {//gbit
+        case 0: sdrcap2=0;break;
+        case 1: sdrcap2=4;break;
+        case 2: sdrcap2=8;break;
+        case 3: sdrcap2=12;break;
+        case 4: sdrcap2=16;break;
+        case 5: sdrcap2=24;break;
+        case 6: sdrcap2=32;break;
+        case 7: sdrcap2=48;break;
+        case 8: sdrcap2=64;break;
+        default: sdrcap2=0;break;
+    }
+    switch(bytes[8]>>5) {
+        case 0: diePerPack2=1;break;
+        case 1: diePerPack2=2;break;
+        case 2: diePerPack2=2;break;
+        case 3: diePerPack2=4;break;
+        case 4: diePerPack2=8;break;
+        case 5: diePerPack2=16;break;
+        default: diePerPack2=1;break;
+    }
+    switch(bytes[10]>>5) {
+        case 0: iowidth2=4;break;
+        case 1: iowidth2=8;break;
+        case 2: iowidth2=16;break;
+        case 3: iowidth2=32;break;
+        default: iowidth2=32;break;
+    }
+    *size = (dmi_mem_size)sdrcap1*8*1024/iowidth1*diePerPack1+sdrcap2*8*1024/iowidth2*diePerPack2;
 }
 
 float ddr5_mtb_ftb_calc(unsigned char b1, signed char b2) {

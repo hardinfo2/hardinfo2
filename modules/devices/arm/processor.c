@@ -597,8 +597,9 @@ gchar *processor_name(GSList *processors) {
         char *search_str;
         char *vendor;
         char *soc;
-    } dt_compat_searches[] = {
+    } dt_compat_searches[] = { 
         { "allwinner,sun8i-h3", "Allwinner", "H3" },
+        { "allwinner,sun50i-h616", "Allwinner", "H616" },//Orange PI Zero3
         { "amlogic,a311d", "Amlogic", "A311D (Vim3)" }, // VIM3
         { "amlogic,s905w", "Amlogic", "S905W" },
         { "amlogic,s912", "Amlogic", "S912" },

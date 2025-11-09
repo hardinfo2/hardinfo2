@@ -266,6 +266,7 @@ gchar *processor_name(GSList * processors) {
         { "sophgo,sg2042", "Sophgo", "SG2042" },
         { "sophgo,cv1800b", "Sophgo", "CV1800B" },
         { "sophgo,cv1812h", "Sophgo", "CV1812H" },
+        { "spacemit,k1-x", "SpacemiT", "K1" },
         { "starfive,jh7100", "StarFive", "JH7100" },
         { "starfive,jh7110", "StarFive", "JH7110" },
         { "starfive,visionfive-2", "StarFive", "JH7110" },

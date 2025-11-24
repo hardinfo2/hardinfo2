@@ -1,0 +1,6540 @@
+# Georgian translation for hardinfo2.
+# Copyright (C) 2025, hardinfo2 authors
+# This file is distributed under the same license as the hardinfo2 package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hardinfo2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 04:56+0100\n"
+"PO-Revision-Date: 2025-11-23 14:19+0100\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+
+#: hardinfo2/cpu_util.c:29
+msgid "Little Endian"
+msgstr "წვრილბოლოიანი"
+
+#: hardinfo2/cpu_util.c:31
+msgid "Big Endian"
+msgstr "მსხვილბოლოიანი"
+
+#: hardinfo2/cpu_util.c:209 hardinfo2/cpu_util.c:220 modules/devices/gpu.c:268
+msgid "Frequency Scaling"
+msgstr "სიხშირის მასშტაბირება"
+
+#: hardinfo2/cpu_util.c:210 modules/devices/gpu.c:269
+msgid "Minimum"
+msgstr "მინიმუმი"
+
+#: hardinfo2/cpu_util.c:210 hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:212
+#: hardinfo2/dt_util.c:590 modules/devices/gpu.c:269 modules/devices/gpu.c:270
+msgid "kHz"
+msgstr "კჰც"
+
+#: hardinfo2/cpu_util.c:211 modules/devices/gpu.c:270
+msgid "Maximum"
+msgstr "მაქსიმუმი"
+
+#: hardinfo2/cpu_util.c:212
+msgid "Current"
+msgstr "მიმდინარე"
+
+#: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:271
+msgid "Transition Latency"
+msgstr "გადასვლის დაყოვნება"
+
+#: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:271
+msgid "ns"
+msgstr "ნწმ"
+
+#: hardinfo2/cpu_util.c:214
+msgid "Governor"
+msgstr "მმართველი"
+
+#: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:1009
+#: modules/devices/gpu.c:215 modules/devices/pci.c:169
+#: modules/devices/usb.c:140
+msgid "Driver"
+msgstr "დრაივერი"
+
+#: hardinfo2/cpu_util.c:227 modules/computer.c:766
+#: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
+#: modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
+#: modules/devices/riscv/processor.c:346 modules/devices/x86/processor.c:283
+#: modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
+msgid "(Not Available)"
+msgstr "(ხელმისაწვდომი არაა)"
+
+#: hardinfo2/cpu_util.c:235 hardinfo2/cpu_util.c:237
+msgid "Socket"
+msgstr "სოკეტი"
+
+#: hardinfo2/cpu_util.c:240 hardinfo2/cpu_util.c:242 modules/devices/gpu.c:211
+#: modules/devices/gpu.c:301
+msgid "Core"
+msgstr "ბირთვი"
+
+#: hardinfo2/cpu_util.c:245
+msgid "Book"
+msgstr "წიგნი"
+
+#: hardinfo2/cpu_util.c:247
+msgid "Drawer"
+msgstr "უჯრა"
+
+#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:742
+#: modules/devices/riscv/processor.c:553 modules/devices/x86/processor.c:753
+msgid "Topology"
+msgstr "ტოპოლოგია"
+
+#: hardinfo2/cpu_util.c:254
+msgid "ID"
+msgstr "ID"
+
+#: hardinfo2/dmi_util.c:25
+msgid "BIOS Information"
+msgstr "BIOS-ის ინფორმაცია"
+
+#: hardinfo2/dmi_util.c:26 modules/devices/parisc/processor.c:157
+msgid "System"
+msgstr "სისტემა"
+
+#: hardinfo2/dmi_util.c:27
+msgid "Base Board"
+msgstr "საბაზისო დაფა"
+
+#: hardinfo2/dmi_util.c:28 modules/devices/dmi.c:54
+msgid "Chassis"
+msgstr "შასი"
+
+#: hardinfo2/dmi_util.c:29 modules/computer.c:525 modules/computer.c:1101
+#: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563
+#: modules/devices.c:99 modules/devices/e2k/processor.c:363
+#: modules/devices/ia64/processor.c:159
+#: modules/devices/loongarch64/processor.c:93
+#: modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
+#: modules/devices/parisc/processor.c:154 modules/devices/ppc/processor.c:157
+#: modules/devices/riscv/processor.c:586 modules/devices/s390/processor.c:131
+#: modules/devices/sh/processor.c:83 modules/devices/sparc/processor.c:74
+#: modules/devices/x86/processor.c:647
+msgid "Processor"
+msgstr "პროცესორი"
+
+#: hardinfo2/dmi_util.c:30
+msgid "Memory Controller"
+msgstr "მეხსიერების კონტროლერი"
+
+#: hardinfo2/dmi_util.c:31
+msgid "Memory Module"
+msgstr "მეხსიერების მოდული"
+
+#: hardinfo2/dmi_util.c:32 modules/devices/arm/processor.c:572
+#: modules/devices/e2k/processor.c:372 modules/devices/parisc/processor.c:163
+#: modules/devices/riscv/processor.c:595 modules/devices/x86/processor.c:663
+msgid "Cache"
+msgstr "კეში"
+
+#: hardinfo2/dmi_util.c:33
+msgid "Port Connector"
+msgstr "პორტის კონექტორი"
+
+#: hardinfo2/dmi_util.c:34
+msgid "System Slots"
+msgstr "სისტემის სლოტები"
+
+#: hardinfo2/dmi_util.c:35
+msgid "On Board Devices"
+msgstr "დაფაში ჩაშენებული მოწყობილობები"
+
+#: hardinfo2/dmi_util.c:36
+msgid "OEM Strings"
+msgstr "OEM სტრიქონები"
+
+#: hardinfo2/dmi_util.c:37
+msgid "System Configuration Options"
+msgstr "სისტემის კონფიგურაციის პარამეტრები"
+
+#: hardinfo2/dmi_util.c:38
+msgid "BIOS Language"
+msgstr "BIOS-ის ენა"
+
+#: hardinfo2/dmi_util.c:39
+msgid "Group Associations"
+msgstr "ჯგუფის მინიჭებები"
+
+#: hardinfo2/dmi_util.c:40
+msgid "System Event Log"
+msgstr "სისტემის მოვლენების ჟურნალი"
+
+#: hardinfo2/dmi_util.c:41
+msgid "Physical Memory Array"
+msgstr "ფიზიკური მეხსიერების მასივი"
+
+#: hardinfo2/dmi_util.c:42
+msgid "Memory Device"
+msgstr "მეხსიერების მოწყობილობა"
+
+#: hardinfo2/dmi_util.c:43
+msgid "32-bit Memory Error"
+msgstr "32-ბიტიანი მეხსიერების შეცდომა"
+
+#: hardinfo2/dmi_util.c:44
+msgid "Memory Array Mapped Address"
+msgstr "მეხსიერების მასივის რუკის მისამართი"
+
+#: hardinfo2/dmi_util.c:45
+msgid "Memory Device Mapped Address"
+msgstr "მეხსიერების მოწყობილობის ასახული მისამართი"
+
+#: hardinfo2/dmi_util.c:46
+msgid "Built-in Pointing Device"
+msgstr "ჩაშენებული საჩვენებელი მოწყობილობა"
+
+#: hardinfo2/dmi_util.c:47
+msgid "Portable Battery"
+msgstr "პორტატული ელემენტი"
+
+#: hardinfo2/dmi_util.c:48
+msgid "System Reset"
+msgstr "სისტემის გადატვირთვა"
+
+#: hardinfo2/dmi_util.c:49
+msgid "Hardware Security"
+msgstr "აპარატურული უსაფრთხოება"
+
+#: hardinfo2/dmi_util.c:50
+msgid "System Power Controls"
+msgstr "სისტემის კვების კონტროლი"
+
+#: hardinfo2/dmi_util.c:51
+msgid "Voltage Probe"
+msgstr "ვოლტაჟის ზონდი"
+
+#: hardinfo2/dmi_util.c:52
+msgid "Cooling Device"
+msgstr "გამაგრილებელი მოწყობილობა"
+
+#: hardinfo2/dmi_util.c:53
+msgid "Temperature Probe"
+msgstr "ტემპერატურის ზონდი"
+
+#: hardinfo2/dmi_util.c:54
+msgid "Electrical Current Probe"
+msgstr "ელექტრული დენის ზონდი"
+
+#: hardinfo2/dmi_util.c:55
+msgid "Out-of-band Remote Access"
+msgstr "დაშორებული წვდომა"
+
+#: hardinfo2/dmi_util.c:56
+msgid "Boot Integrity Services"
+msgstr "ჩატვირთვის მთლიანობის სერვისები"
+
+#: hardinfo2/dmi_util.c:57
+msgid "System Boot"
+msgstr "სისტემის ჩატვირთვა"
+
+#: hardinfo2/dmi_util.c:58
+msgid "64-bit Memory Error"
+msgstr "64-ბიტიანი მეხსიერების შეცდომა"
+
+#: hardinfo2/dmi_util.c:59
+msgid "Management Device"
+msgstr "მართვის მოწყობილობა"
+
+#: hardinfo2/dmi_util.c:60
+msgid "Management Device Component"
+msgstr "მართვის მოწყობილობის კომპონენტი"
+
+#: hardinfo2/dmi_util.c:61
+msgid "Management Device Threshold Data"
+msgstr "მართვის მოწყობილობის ზღვრის მონაცემები"
+
+#: hardinfo2/dmi_util.c:62
+msgid "Memory Channel"
+msgstr "მეხსიერების არხი"
+
+#: hardinfo2/dmi_util.c:63
+msgid "IPMI Device"
+msgstr "IPMI მოწყობილობა"
+
+#: hardinfo2/dmi_util.c:64
+msgid "Power Supply"
+msgstr "კვების ბლოკი"
+
+#: hardinfo2/dmi_util.c:65
+msgid "Additional Information"
+msgstr "დამატებითი ინფორმაცია"
+
+#: hardinfo2/dmi_util.c:66
+msgid "Onboard Device"
+msgstr "მოწყობილობა დაფაზე"
+
+#: hardinfo2/dmi_util.c:237
+msgid "Invalid chassis type (0)"
+msgstr "შასის არასწორი ტიპი (0)"
+
+#: hardinfo2/dmi_util.c:238 hardinfo2/dmi_util.c:239
+msgid "Unknown chassis type"
+msgstr "შასის უცნობი ტიპი"
+
+#: hardinfo2/dmi_util.c:240
+msgid "Desktop"
+msgstr "სამუშაო მაგიდა"
+
+#: hardinfo2/dmi_util.c:241
+msgid "Low-profile Desktop"
+msgstr "დაბალი პროფილის სამუშაო მაგიდა"
+
+#: hardinfo2/dmi_util.c:242
+msgid "Pizza Box"
+msgstr "პიცისყუთი"
+
+#: hardinfo2/dmi_util.c:243
+msgid "Mini Tower"
+msgstr "კომპიუტერი პატარა ყუთით"
+
+#: hardinfo2/dmi_util.c:244
+msgid "Tower"
+msgstr "კომპიუტერის კეისი"
+
+#: hardinfo2/dmi_util.c:245
+msgid "Portable"
+msgstr "გადასატანი"
+
+#: hardinfo2/dmi_util.c:246 modules/computer.c:458 modules/computer.c:460
+#: modules/computer.c:471 modules/computer.c:473 modules/computer.c:497
+#: modules/computer.c:499
+msgid "Laptop"
+msgstr "ლეპტოპი"
+
+#: hardinfo2/dmi_util.c:247
+msgid "Notebook"
+msgstr "ნოუთბუქი"
+
+#: hardinfo2/dmi_util.c:248
+msgid "Handheld"
+msgstr "ჯიბის"
+
+#: hardinfo2/dmi_util.c:249
+msgid "Docking Station"
+msgstr "სამაგრი დაფა"
+
+#: hardinfo2/dmi_util.c:250
+msgid "All-in-one"
+msgstr "ყველა-ერთში"
+
+#: hardinfo2/dmi_util.c:251
+msgid "Subnotebook"
+msgstr "ქვენოუთბუქი"
+
+#: hardinfo2/dmi_util.c:252
+msgid "Space-saving"
+msgstr "პატარა ზომის კომპიუტერი"
+
+#: hardinfo2/dmi_util.c:253
+msgid "Lunch Box"
+msgstr "სადილის ყუთი"
+
+#: hardinfo2/dmi_util.c:254
+msgid "Main Server Chassis"
+msgstr "სერვერის მთავარი შასი"
+
+#: hardinfo2/dmi_util.c:255
+msgid "Expansion Chassis"
+msgstr "გამაფართოებელი შასი"
+
+#: hardinfo2/dmi_util.c:256
+msgid "Sub Chassis"
+msgstr "ქვე-შასი"
+
+#: hardinfo2/dmi_util.c:257
+msgid "Bus Expansion Chassis"
+msgstr "სალტეს გაფართოების შასი"
+
+#: hardinfo2/dmi_util.c:258
+msgid "Peripheral Chassis"
+msgstr "გარე შასი"
+
+#: hardinfo2/dmi_util.c:259
+msgid "RAID Chassis"
+msgstr "RAID შასი"
+
+#: hardinfo2/dmi_util.c:260
+msgid "Rack Mount Chassis"
+msgstr "რეკში ჩასადგმელი შასი"
+
+#: hardinfo2/dmi_util.c:261
+msgid "Sealed-case PC"
+msgstr "დალუქული PC"
+
+#: hardinfo2/dmi_util.c:262
+msgid "Multi-system"
+msgstr "მრავალსისტემიანი ყუთი"
+
+#: hardinfo2/dmi_util.c:263
+msgid "CompactPCI"
+msgstr "CompactPCI"
+
+#: hardinfo2/dmi_util.c:264
+msgid "AdvancedTCA"
+msgstr "AdvancedTCA"
+
+#: hardinfo2/dmi_util.c:265
+msgid "Blade"
+msgstr "ბლეიდი"
+
+#: hardinfo2/dmi_util.c:266
+msgid "Blade Enclosing"
+msgstr "ბლეიდ-სერვერების ყუთი"
+
+#: hardinfo2/dmi_util.c:267
+msgid "Tablet"
+msgstr "ტაბლეტი"
+
+#: hardinfo2/dmi_util.c:268
+msgid "Convertible"
+msgstr "გარდაქმნადი"
+
+#: hardinfo2/dmi_util.c:269
+msgid "Detachable"
+msgstr "მოხსნადი"
+
+#: hardinfo2/dmi_util.c:270
+msgid "IoT Gateway"
+msgstr "IoT ნაგულისხმები რაუტერი"
+
+#: hardinfo2/dmi_util.c:271
+msgid "Embedded PC"
+msgstr "ჩაშენებული PC"
+
+#: hardinfo2/dmi_util.c:272
+msgid "Mini PC"
+msgstr "მინი PC"
+
+#: hardinfo2/dmi_util.c:273
+msgid "Stick PC"
+msgstr "კომპიუტერი ჩიპზე"
+
+#: hardinfo2/dt_util.c:1175
+msgid "phandle Map"
+msgstr "phandle-ის რუკა"
+
+#: hardinfo2/dt_util.c:1176
+msgid "Alias Map"
+msgstr "ფსევდონიმების რუკა"
+
+#: hardinfo2/dt_util.c:1177
+msgid "Symbol Map"
+msgstr "სიმბოლოების რუკა"
+
+#. !/ %d will be latest year of copyright
+#: hardinfo2/hardinfo.c:108
+#, c-format
+msgid ""
+"Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
+"\n"
+msgstr ""
+"(C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project - ყველა უფლება "
+"დაცულია.\n"
+"\n"
+
+#: hardinfo2/hardinfo.c:110
+#, c-format
+msgid ""
+"Compile-time options:\n"
+"  Release version:  %s (%s)\n"
+"  LibSoup version:  %s\n"
+"  Data           :  %s\n"
+"  Library        :  %s\n"
+"  Locale         :  %s\n"
+"  Compiled for   :  %s\n"
+msgstr ""
+"კომპილაციისას მითითებული პარამეტრები:\n"
+"  რელიზის ვერსია:  %s (%s)\n"
+"  LibSoup-ის ვერსია:  %s\n"
+"  მონაცემები           :  %s\n"
+"  ბიბლიოთეკა        :  %s\n"
+"  ლოკალი         :  %s\n"
+"  აგებულია ვისთვის   :  %s\n"
+
+#: hardinfo2/hardinfo.c:118
+msgid "3.0"
+msgstr "3.0"
+
+#: hardinfo2/hardinfo.c:153
+#, c-format
+msgid "Unknown benchmark ``%s''\n"
+msgstr "უცნობი წარმადობის ტესტი``%s''\n"
+
+#: hardinfo2/hardinfo.c:255
+msgid "Don't know what to do. Exiting."
+msgstr "არ ვიცი, რა ვქნა. ჩემით გავალ."
+
+#: hardinfo2/usb_util.c:296 modules/devices/devicetree.c:90
+#: modules/devices/devicetree.c:91 modules/devices/monitors.c:408
+#: modules/devices/storage.c:306 modules/devices/storage.c:328
+msgid "(None)"
+msgstr "(არცერთი)"
+
+#: hardinfo2/util.c:114 modules/computer/uptime.c:54
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d დღე"
+msgstr[1] "%d დღე"
+
+#: hardinfo2/util.c:115 modules/computer/uptime.c:55
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d საათი"
+msgstr[1] "%d საათი"
+
+#: hardinfo2/util.c:116 modules/computer/uptime.c:56
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d წუთი"
+msgstr[1] "%d წუთი"
+
+#: hardinfo2/util.c:117
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d წმ"
+msgstr[1] "%d წმ"
+
+#: hardinfo2/util.c:138
+#, c-format
+msgid "%.1f B"
+msgstr "%.1f ბ"
+
+#: hardinfo2/util.c:140
+#, c-format
+msgid "%.1f KiB"
+msgstr "%.1f კიბ"
+
+#: hardinfo2/util.c:142
+#, c-format
+msgid "%.1f MiB"
+msgstr "%.1f მიბ"
+
+#: hardinfo2/util.c:144
+#, c-format
+msgid "%.1f GiB"
+msgstr "%.1f გიბ"
+
+#: hardinfo2/util.c:146
+#, c-format
+msgid "%.1f TiB"
+msgstr "%.1f ტიბ"
+
+#: hardinfo2/util.c:148
+#, c-format
+msgid "%.1f PiB"
+msgstr "%.1f Pპიბ"
+
+#: hardinfo2/util.c:294
+msgid "Error"
+msgstr "შეცდომა"
+
+#: hardinfo2/util.c:294 hardinfo2/util.c:310
+msgid "Warning"
+msgstr "გაფრთხილება"
+
+#: hardinfo2/util.c:309
+msgid "Fatal Error"
+msgstr "ფატალური შეცდომა"
+
+#: hardinfo2/util.c:338
+msgid "do not print status messages to standard output"
+msgstr "სტატუსის შეტყობინებების სტანდარტულ გამოტანაზე არჩვენება"
+
+#: hardinfo2/util.c:344
+msgid "creates a report and prints to standard output"
+msgstr "ქმნის ანგარიშს და გამოიტანს სტანდარტულ გამოტანაზე"
+
+#: hardinfo2/util.c:350
+msgid "chooses a report format ([text], html)"
+msgstr "ირჩევს ანგარიშის ფორმატს ([text], html)"
+
+#: hardinfo2/util.c:356
+msgid "search for a topic in CLI report (-t getlist shows available)"
+msgstr ""
+
+#: hardinfo2/util.c:362
+msgid "search for a topic in Cached CLI report (-t getlist shows available)"
+msgstr ""
+
+#: hardinfo2/util.c:368
+msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
+msgstr ""
+
+#: hardinfo2/util.c:374
+msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
+msgstr ""
+
+#: hardinfo2/util.c:380
+msgid "benchmark result format ([short], conf, shell)"
+msgstr ""
+
+#: hardinfo2/util.c:386
+msgid ""
+"maximum number of benchmark results to include (-1 for no limit, default is "
+"250)"
+msgstr ""
+
+#: hardinfo2/util.c:392
+msgid "shows program version and quit"
+msgstr "აჩვენებს პროგრამის ვერსიას და გავა"
+
+#: hardinfo2/util.c:398
+msgid "do not run benchmarks"
+msgstr "არ გაუშვა წარმადობის შემოწმებები"
+
+#: hardinfo2/util.c:404
+msgid "show all details"
+msgstr "ყველა დეტალის ჩვენება"
+
+#: hardinfo2/util.c:409
+msgid "- System Information and Benchmark"
+msgstr "- ინფორმაცის სისტემის შესახებ და წარმადობის შემოწმება"
+
+#: hardinfo2/util.c:419
+#, c-format
+msgid ""
+"Unrecognized arguments.\n"
+"Try ``%s --help'' for more information.\n"
+msgstr ""
+
+#: hardinfo2/util.c:460
+msgid ""
+"User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
+"User Note params are optional and usernote can be left blank.\n"
+"Have only a group, group-MachineName and also a special request to server "
+"for the return benchmark data from server\n"
+msgstr ""
+
+#: hardinfo2/util.c:915
+#, c-format
+msgid "Scanning: %s..."
+msgstr "სკანირება: %s..."
+
+#: hardinfo2/util.c:925 shell/shell.c:300
+msgid "Done."
+msgstr "მზადაა."
+
+#: hardinfo2/vendor.c:213
+msgid "Update vendor list"
+msgstr "მომწოდებლების სიის განახლება"
+
+#: hardinfo2/vendor.c:218
+msgid "Check Update Version"
+msgstr "განახლების ვერსიის შემოწმება"
+
+#: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:794
+#: modules/computer/os.c:198 modules/computer/os.c:389
+#: modules/computer/os.c:424 modules/computer/os.c:744
+#: modules/computer/os.c:807 modules/devices.c:621 modules/devices.c:772
+#: modules/devices/firmware.c:151 modules/devices/printers.c:106
+#: modules/devices/printers.c:113 modules/devices/printers.c:123
+#: modules/devices/printers.c:138 modules/devices/printers.c:147
+#: modules/devices/printers.c:256 modules/devices/spd-decode.c:364
+#: modules/devices/usb.c:150
+msgid "Unknown"
+msgstr "უცნობი"
+
+#: shell/callbacks.c:496 shell/shell.c:523
+msgid "System Information and Benchmark"
+msgstr "ინფორმაცის სისტემის შესახებ და წარმადობის შემოწმება"
+
+#: shell/callbacks.c:500
+msgid ""
+"HardInfo2 is free software; you can redistribute it and/or modify it under "
+"the terms of the GNU General Public License as published by the Free "
+"Software Foundation, version 2 or later.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 51 "
+"Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
+msgstr ""
+
+#: shell/menu.c:37
+msgid "_Information"
+msgstr "_ინფორმაცია"
+
+#: shell/menu.c:38
+msgid "_View"
+msgstr "_ხედი"
+
+#: shell/menu.c:40
+msgid "_Theme"
+msgstr "_თემა"
+
+#: shell/menu.c:42
+msgid "_Help"
+msgstr "_დახმარება"
+
+#: shell/menu.c:46
+msgid "Generate _Report"
+msgstr "ანგარიშის გენე_რაცია"
+
+#: shell/menu.c:47
+msgid "Generates a report with detailed system information"
+msgstr ""
+
+#: shell/menu.c:51 shell/syncmanager.c:754
+msgid "Synchronize"
+msgstr "სინქრონიზაცია"
+
+#: shell/menu.c:52
+msgid "Send benchmark results and receive updated data from the network"
+msgstr ""
+
+#: shell/menu.c:56 shell/menu.c:57
+msgid "Update Available"
+msgstr "ხელმისაწვდომია განახლება"
+
+#: shell/menu.c:67
+msgid "_Refresh"
+msgstr "_განახლება"
+
+#: shell/menu.c:72
+msgid "HardInfo2 _Web Site"
+msgstr "HardInfo2-ის _ვებსაიტი"
+
+#: shell/menu.c:77
+msgid "_Help - User Guide"
+msgstr "_დახმარება - მომხმარებლის სახელმძღვანელო"
+
+#: shell/menu.c:82
+msgid "_Update HardInfo2"
+msgstr "_HardInfo2-ის განახლება"
+
+#: shell/menu.c:87
+msgid "_Report bug"
+msgstr "შეცდომის ანგა_რიში"
+
+#: shell/menu.c:92
+msgid "_About HardInfo2"
+msgstr "HardInfo2-ის შეს_ახებ"
+
+#: shell/menu.c:93
+msgid "Displays program version information"
+msgstr "აჩვენებს პროგრამის ვერსიის ინფორამციას"
+
+#: shell/menu.c:97
+msgid "_Quit"
+msgstr "გასვ_ლა"
+
+#: shell/menu.c:104
+msgid "_Side Pane"
+msgstr "_გვერდითა პანელი"
+
+#: shell/menu.c:105
+msgid "Toggles side pane visibility"
+msgstr "გადართავს გვერდითი პანელის ხილვადობას"
+
+#: shell/menu.c:108
+msgid "_Toolbar"
+msgstr "ხელსაწყოთა _პანელი"
+
+#: shell/menu.c:112
+msgid "Synchronize on startup"
+msgstr "სინქრონიზაცია გაშვებისას"
+
+#: shell/menu.c:117
+msgid "Disable Theme"
+msgstr "თემის გამორთვა"
+
+#: shell/menu.c:121
+msgid "Theme Motherboard"
+msgstr "მთავარი დაფის თემა"
+
+#: shell/menu.c:125
+msgid "Theme Graffiti"
+msgstr "გრაფიტის თემა"
+
+#: shell/menu.c:129
+msgid "Theme Anime PC"
+msgstr "ანიმე კომპიუტერის თემა"
+
+#: shell/menu.c:133
+msgid "Theme Tux Star"
+msgstr "პინგვინი ვარსკვლავის თემა"
+
+#: shell/menu.c:137
+msgid "Theme PixArt"
+msgstr "PixArt-ის თემა"
+
+#: shell/menu.c:141
+msgid "Theme Silicon"
+msgstr "სილიციუმის თემა"
+
+#: shell/report.c:854 shell/report.c:862
+msgid "Save File"
+msgstr "ფაილის შენახვა"
+
+#: shell/report.c:857 shell/report.c:1336 shell/syncmanager.c:889
+msgid "_Cancel"
+msgstr "გაუ_ქმება"
+
+#: shell/report.c:859
+msgid "_Save"
+msgstr "_შენახვა"
+
+#: shell/report.c:1037
+msgid "Cannot create ReportContext. Programming bug?"
+msgstr "ანგარიშის კონტექსტის შექმნა შეუძლებელია. შეცდომა პროგრამირებისას?"
+
+#: shell/report.c:1057
+msgid "Open the report with your web browser?"
+msgstr "გავხსნა ანგარიში თქვენი ბრაუზერით?"
+
+#: shell/report.c:1060
+msgid "_No"
+msgstr "_არა"
+
+#: shell/report.c:1061
+msgid "_Open"
+msgstr "_გახსნა"
+
+#: shell/report.c:1092
+msgid "Generating report..."
+msgstr "ანგარიშის გენერაცია..."
+
+#: shell/report.c:1102
+msgid "Report saved."
+msgstr "ანგარიში შენახულია."
+
+#: shell/report.c:1104
+msgid "Error while creating the report."
+msgstr "შეცდომა ანგარიშის შექმნისას."
+
+#: shell/report.c:1206
+msgid "Generate Report"
+msgstr "ანგარიშის გენერაცია"
+
+#: shell/report.c:1232
+msgid ""
+"<big><b>Generate Report</b></big>\n"
+"Please choose the information that you wish to view in your report:"
+msgstr ""
+
+#: shell/report.c:1302
+msgid "Select _None"
+msgstr "მონიშვნის _მოხსნა"
+
+#: shell/report.c:1313
+msgid "Select _All"
+msgstr "ყველაფრის მონიშვნა"
+
+#: shell/report.c:1346
+msgid "_Generate"
+msgstr "_გენერაცია"
+
+#: shell/shell.c:236 modules/benchmark/bench_results.c:484
+msgid "Benchmark"
+msgstr "ტესტირება"
+
+#: shell/shell.c:518
+#, c-format
+msgid "%s - System Information and Benchmark"
+msgstr ""
+
+#: shell/shell.c:669
+#, c-format
+msgid ""
+"<b>Hardinfo2 not packaged correctly</b>\n"
+"\n"
+"Missing packages:\n"
+"\n"
+"%s\n"
+"\n"
+"Please fix by installing manually"
+msgstr ""
+
+#: shell/shell.c:1109 modules/network.c:566
+msgid "Network"
+msgstr "ქსელი"
+
+#: shell/shell.c:1682
+msgid "URL"
+msgstr "URL"
+
+#: shell/shell.c:1689
+msgid "Support URL"
+msgstr "მხარდაჭერის URL"
+
+#: shell/shell.c:1700
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+#: shell/shell.c:2036
+#, c-format
+msgid "<b>%s → Summary</b>"
+msgstr "<b>%s → შეჯამება</b>"
+
+#: shell/shell.c:2141
+msgid "Updating..."
+msgstr "განახლება..."
+
+#: shell/syncmanager.c:85
+msgid ""
+"<big><b>Synchronize with Central Database</b></big>\n"
+"The following information may be synchronized\n"
+"with the HardInfo2 central database."
+msgstr ""
+
+#: shell/syncmanager.c:89
+msgid ""
+"<big><b>Synchronizing</b></big>\n"
+"This may take some time."
+msgstr ""
+
+#: shell/syncmanager.c:578
+msgid "(canceled)"
+msgstr "(გაუქმებულია)"
+
+#: shell/syncmanager.c:594
+msgid "(failed)"
+msgstr "(ჩავარდა)"
+
+#: shell/syncmanager.c:690 modules/benchmark.c:938
+msgid "Send benchmark results"
+msgstr "წარმადობის ტესტის შედეგების გაგზავნა"
+
+#: shell/syncmanager.c:816
+msgid "User Note "
+msgstr "მომხმარებლის შენიშვნა "
+
+#: shell/syncmanager.c:832
+msgid "Leave it default/blank or see "
+msgstr "დატოვეთ ნაგულისხმევი/ცარიელი, ან იხილეთ "
+
+#: shell/syncmanager.c:835
+msgid "User Guide"
+msgstr "მომხმარებლის სახელმძღვანელო"
+
+#: shell/syncmanager.c:876
+msgid "Privacy Policy"
+msgstr "კონფიდენციალობის პოლიტიკა"
+
+#: shell/syncmanager.c:898
+msgid "_Synchronize"
+msgstr "_სინქრონიზაცია"
+
+#: shell/syncmanager.c:947
+#, c-format
+msgid "Synchronizing: %s"
+msgstr "სინქრონიზაცია: %s"
+
+#: modules/benchmark/benches.c:163
+msgid "CPU Blowfish (Single-thread)"
+msgstr "CPU Blowfish (ერთი ნაკადით)"
+
+#: modules/benchmark/benches.c:171
+msgid "CPU Blowfish (Multi-thread)"
+msgstr "CPU Blowfish (მრავალნაკადიანი)"
+
+#: modules/benchmark/benches.c:179
+msgid "CPU Blowfish (Multi-core)"
+msgstr "CPU Blowfish (მრავალბირთვიანი)"
+
+#: modules/benchmark/benches.c:187
+msgid "CPU Zlib"
+msgstr "CPU Zlib"
+
+#: modules/benchmark/benches.c:195
+msgid "CPU CryptoHash"
+msgstr "CPU CryptoHash"
+
+#: modules/benchmark/benches.c:203
+msgid "CPU Fibonacci"
+msgstr "CPU ფიბონაჩი"
+
+#: modules/benchmark/benches.c:211
+msgid "CPU N-Queens"
+msgstr "CPU N-Queens"
+
+#: modules/benchmark/benches.c:219
+msgid "FPU FFT"
+msgstr "FPU FFT"
+
+#: modules/benchmark/benches.c:227
+msgid "FPU Raytracing (Single-thread)"
+msgstr "FPU Raytracing (ერთნაკადიანი)"
+
+#: modules/benchmark/benches.c:235
+msgid "Internal Network Speed"
+msgstr "შიდა ქსელის სიჩქარე"
+
+#: modules/benchmark/benches.c:243
+msgid "SysBench CPU (Single-thread)"
+msgstr "SysBench CPU (ერთნაკადიანი)"
+
+#: modules/benchmark/benches.c:251
+msgid "SysBench CPU (Multi-thread)"
+msgstr "SysBench CPU (მრავალნაკადიანი)"
+
+#: modules/benchmark/benches.c:259
+msgid "SysBench CPU (Four threads)"
+msgstr "SysBench CPU (ოთხი ნაკადი)"
+
+#: modules/benchmark/benches.c:267
+msgid "SysBench Memory (Single-thread)"
+msgstr "SysBench მეხსიერება (ერთი ნაკადით)"
+
+#: modules/benchmark/benches.c:275
+msgid "SysBench Memory (Two threads)"
+msgstr "SysBench მეხსიერება (ორი ნაკადით)"
+
+#: modules/benchmark/benches.c:283
+msgid "SysBench Memory (Quad threads)"
+msgstr "SysBench მეხსიერება (ოთხი ნაკადით)"
+
+#: modules/benchmark/benches.c:291
+msgid "SysBench Memory (Multi-thread)"
+msgstr "SysBench მეხსიერება (ბევრი ნაკადით)"
+
+#: modules/benchmark/benches.c:299
+msgid "GPU Drawing"
+msgstr "GPU-ით ხატვა"
+
+#: modules/benchmark/benches.c:308
+msgid "GPU OpenGL Drawing"
+msgstr "GPU OpenGL-ით ხატვა"
+
+#: modules/benchmark/benches.c:318
+msgid "GPU Vulkan Drawing"
+msgstr "GPU Vulkan-ით ხატვა"
+
+#: modules/benchmark/benches.c:327
+msgid "Storage R/W Speed"
+msgstr "საცავის ჩაწერა/წაკითხვის სიჩქარე"
+
+#: modules/benchmark/benches.c:335
+msgid "Cache/Memory"
+msgstr "კეში/მეხსიერება"
+
+#: modules/benchmark/benches.c:349
+msgid "Results in events/second. Higher is better."
+msgstr "შედეგის ერთეულია მოვლენა/წმ. რაც მეტი, მით უკეთესი."
+
+#: modules/benchmark/benches.c:354
+msgid "Results in MiB/second. Higher is better."
+msgstr "შედეგის ერთეულია მიბ/წმ. რაც მეტი, მით უკეთესი."
+
+#: modules/benchmark/benches.c:356
+msgid "Results in Gbits/s. Higher is better."
+msgstr "შედეგის ერთეულია გბიტ/წმ. რაც მეტი, მით უკეთესი."
+
+#: modules/benchmark/benches.c:366
+msgid "Results in HIMarks. Higher is better."
+msgstr "შედეგის ერთეულია HiMark. რაც მეტი, მით უკეთესი."
+
+#: modules/benchmark/benches.c:368
+msgid ""
+"Results in HIMarks. Higher is better.\n"
+"Many Desktop Environments only uses software."
+msgstr ""
+"შედეგის ერთეულია HiMark. რაც მეტი, მით უკეთესი.\n"
+"ბევრი სამუშაო მაგიდის გარემო მხოლოდ პროგრამას იყენებს."
+
+#: modules/benchmark/benches.c:372
+msgid "Results in MB/s. Higher is better."
+msgstr "შედეგის ერთეულია მბ/წმ. რაც მეტი, მით უკეთესი."
+
+#: modules/benchmark/benches.c:375 modules/benchmark/benches.c:379
+msgid "Results in FPS. Higher is better."
+msgstr "შედეგის ერთეულია კადრი/წმ. რაც მეტი, მით უკეთესი."
+
+#. !/ Used for an unknown value. Having it in only one place cleans up the .po
+#. * line references
+#: modules/benchmark/bench_results.c:34 modules/computer.c:41
+#: modules/computer/display.c:39 modules/computer/display.c:56
+#: modules/computer/os.c:411 modules/computer/os.c:468 modules/devices.c:751
+#: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
+#: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
+#: modules/devices/gpu.c:130 modules/devices/gpu.c:216
+#: modules/devices/gpu.c:217 modules/devices/gpu.c:236
+#: modules/devices/inputdevices.c:51 modules/devices/monitors.c:28
+#: modules/devices/monitors.c:29 modules/devices/monitors.c:152
+#: modules/devices/monitors.c:161 modules/devices/pci.c:25
+#: modules/devices/pci.c:170 modules/devices/pci.c:171
+#: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
+#: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
+#: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
+#: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
+#: modules/devices/spd-decode.c:1514 modules/devices/storage.c:27
+#: modules/devices/storage.c:307 modules/devices/storage.c:336
+#: modules/devices/storage.c:431 modules/devices/usb.c:29
+#: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
+#: includes/spd-decode.h:25
+msgid "(Unknown)"
+msgstr "(უცნობი)"
+
+#: modules/benchmark/bench_results.c:263 modules/devices/alpha/processor.c:90
+#: modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524
+#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:777
+#: modules/devices.c:587 modules/devices.c:595 modules/devices.c:623
+#: modules/devices/e2k/processor.c:369 modules/devices/e2k/processor.c:406
+#: modules/devices/gpu.c:125 modules/devices/gpu.c:127
+#: modules/devices/gpu.c:133 modules/devices/gpu.c:135
+#: modules/devices/gpu.c:239 modules/devices/gpu.c:241
+#: modules/devices/ia64/processor.c:167 modules/devices/ia64/processor.c:196
+#: modules/devices/loongarch64/processor.c:98
+#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
+#: modules/devices/parisc/processor.c:158
+#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
+#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:380
+#: modules/devices/riscv/processor.c:393 modules/devices/riscv/processor.c:591
+#: modules/devices/riscv/processor.c:626 modules/devices/s390/processor.c:160
+#: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
+#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
+#: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
+#: modules/devices/x86/processor.c:793
+msgid "MHz"
+msgstr "მჰც"
+
+#: modules/benchmark/bench_results.c:295 modules/devices.c:180
+#, c-format
+msgid "%d physical processor"
+msgid_plural "%d physical processors"
+msgstr[0] "%d ფიზიკური პროცესორი"
+msgstr[1] "%d ფიზიკური პროცესორი"
+
+#: modules/benchmark/bench_results.c:296 modules/devices.c:181
+#, c-format
+msgid "%d core"
+msgid_plural "%d cores"
+msgstr[0] "%d ბირთვი"
+msgstr[1] "%d ბირთვი"
+
+#: modules/benchmark/bench_results.c:297 modules/devices.c:182
+#, c-format
+msgid "%d thread"
+msgid_plural "%d threads"
+msgstr[0] "%d ნაკადი"
+msgstr[1] "%d ნაკადი"
+
+#: modules/benchmark/bench_results.c:302 modules/devices.c:184
+#, c-format
+msgid "%d NUMA node"
+msgid_plural "%d NUMA nodes"
+msgstr[0] "%d NUMA კვანძი"
+msgstr[1] "%d NUMA კვანძი"
+
+#. !/NP procs; NC cores across NN nodes; NT threads
+#: modules/benchmark/bench_results.c:306
+#, c-format
+msgid "%s; %s across %s; %s"
+msgstr "%s; %s %s-ის გასწვრივ; %s"
+
+#. !/NP procs; NC cores; NT threads
+#: modules/benchmark/bench_results.c:311
+#, c-format
+msgid "%s; %s; %s"
+msgstr "%s; %s; %s"
+
+#: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
+#: modules/computer.c:999 modules/devices/dmi_memory.c:639
+#: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
+#: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
+#: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1518
+#: modules/network/net.c:416 modules/network/net.c:440
+#: modules/network/net.c:441
+msgid "MiB"
+msgstr "მიბ"
+
+#: modules/benchmark/bench_results.c:390 modules/benchmark/bench_results.c:509
+msgid "kiB"
+msgstr "კიბ"
+
+#: modules/benchmark/bench_results.c:398 modules/benchmark/bench_results.c:454
+#, c-format
+msgid "%d-bit"
+msgstr "%d-ბიტიანი"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Benchmark Result"
+msgstr "წარმადობის ტესტის შედეგი"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Threads"
+msgstr "ნაკადები"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "Elapsed Time"
+msgstr "გასული დრო"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "seconds"
+msgstr "წამი"
+
+#: modules/benchmark/bench_results.c:421 modules/computer/languages.c:101
+#: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:368
+#: modules/devices/gpu.c:209 modules/devices/ia64/processor.c:166
+#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167
+#: modules/devices/ppc/processor.c:159
+msgid "Revision"
+msgstr "რევიზია"
+
+#: modules/benchmark/bench_results.c:422 modules/benchmark/bench_results.c:487
+msgid "Extra Information"
+msgstr "დამატებითი ინფორმაცია"
+
+#: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
+#: modules/computer.c:588
+msgid "Note"
+msgstr "შენიშვნა"
+
+#: modules/benchmark/bench_results.c:425 modules/benchmark/bench_results.c:490
+msgid ""
+"This result is from an old version of HardInfo. Results might not be "
+"comparable to current version. Some details are missing."
+msgstr ""
+
+#: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494
+#: modules/devices/devicetree/pmac_data.c:81 modules/devices/sh/processor.c:85
+msgid "Machine"
+msgstr "მანქანა"
+
+#: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494
+#: modules/devices/devicetree.c:207 modules/devices/dmi.c:48
+msgid "Board"
+msgstr "დაფა"
+
+#: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
+#: modules/computer.c:527
+msgid "Machine Type"
+msgstr "მანქანის ტიპი"
+
+#: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:499
+msgid "CPU Name"
+msgstr "პროცესორის სახელი"
+
+#: modules/benchmark/bench_results.c:433 modules/benchmark/bench_results.c:500
+msgid "CPU Description"
+msgstr "პროცესორის აღწერა"
+
+#: modules/benchmark/bench_results.c:434 modules/benchmark/bench_results.c:502
+#: modules/benchmark.c:601
+msgid "CPU Config"
+msgstr "პროცესორის კონფიგურაცია"
+
+#: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
+msgid "Threads Available"
+msgstr "ხელმისაწვდომი ძაფები"
+
+#: modules/benchmark/bench_results.c:436 modules/benchmark/bench_results.c:503
+#: modules/benchmark.c:579
+msgid "GPU"
+msgstr "GPU"
+
+#: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
+#: modules/computer.c:538
+msgid "OpenGL Renderer"
+msgstr "OpenGL რენდერი"
+
+#: modules/benchmark/bench_results.c:438 modules/benchmark/bench_results.c:507
+#: modules/benchmark.c:590 modules/computer.c:1102 modules/devices.c:109
+msgid "Storage"
+msgstr "საცავი"
+
+#: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
+#: modules/computer.c:140 modules/computer.c:526 modules/computer.c:1101
+#: modules/devices/gpu.c:212
+msgid "Memory"
+msgstr "მეხსიერება"
+
+#: modules/benchmark/bench_results.c:440 modules/benchmark/bench_results.c:511
+msgid "Pointer Size"
+msgstr "კურსორის ზომა"
+
+#: modules/benchmark/bench_results.c:485 modules/devices/dmi_memory.c:859
+#: modules/devices/firmware.c:246 modules/devices/monitors.c:492
+#: modules/devices/x86/processor.c:692
+msgid "Result"
+msgstr "შედეგი"
+
+#: modules/benchmark/bench_results.c:497
+msgid "Linux Kernel"
+msgstr "Linux-ის ბირთვი"
+
+#: modules/benchmark/bench_results.c:498
+msgid "Linux OS"
+msgstr "Linux OS"
+
+#: modules/benchmark/bench_results.c:509
+msgid "Physical Memory"
+msgstr "ფიზიკური მეხსიერება"
+
+#: modules/benchmark/bench_results.c:513
+msgid "Handles"
+msgstr "დამმუშავებლები"
+
+#: modules/benchmark/bench_results.c:513
+msgid "mid"
+msgstr "შუა"
+
+#: modules/benchmark/bench_results.c:514
+msgid "cfg_val"
+msgstr "cfg_val"
+
+#: modules/benchmark.c:352
+msgid "This Machine"
+msgstr "ეს მანქანა"
+
+#: modules/benchmark.c:578 modules/benchmark.c:589 modules/benchmark.c:601
+msgid "Results"
+msgstr "შედეგები"
+
+#: modules/benchmark.c:602 modules/devices/sparc/processor.c:75
+msgid "CPU"
+msgstr "პროცესორი"
+
+#: modules/benchmark.c:687
+#, c-format
+msgid "Benchmarking: <b>%s</b>."
+msgstr "წარმადობის შემოწმება: <b>%s</b>."
+
+#: modules/benchmark.c:694
+#, c-format
+msgid "Benchmarking: %s"
+msgstr "წარმადობის შემოწმება: %s"
+
+#: modules/benchmark.c:698
+msgid "Stop"
+msgstr "გაჩერება"
+
+#: modules/benchmark.c:711
+msgid ""
+"Please do not move your mouse\n"
+"or press any keys."
+msgstr ""
+
+#: modules/benchmark.c:773
+msgid "Benchmarks"
+msgstr "წარმადობის შემოწმებები"
+
+#: modules/benchmark.c:783
+msgid "Perform tasks and compare with other systems"
+msgstr ""
+
+#: modules/benchmark.c:944
+msgid "Receive benchmark results"
+msgstr "წარმადობის ტესტის შედეგების მიღება"
+
+#: modules/computer/alsa.c:26 modules/computer.c:542
+msgid "Audio Devices"
+msgstr "აუდიიმოწყობილობები"
+
+#: modules/computer/alsa.c:34
+msgid "Audio Adapter"
+msgstr "აუდიობარათი"
+
+#: modules/computer.c:96 modules/devices/firmware.c:74
+msgid "Summary"
+msgstr "შეჯამება"
+
+#: modules/computer.c:97 modules/computer.c:528 modules/computer.c:1100
+msgid "Operating System"
+msgstr "ოპერაციული სისტემა"
+
+#: modules/computer.c:98
+msgid "Security"
+msgstr "უსაფრთხოება"
+
+#: modules/computer.c:99 modules/devices/gpu.c:217 modules/devices/pci.c:171
+msgid "Kernel Modules"
+msgstr "ბირთვის მოდულები"
+
+#: modules/computer.c:100 modules/computer.c:706
+msgid "Boots"
+msgstr "ჩატვირთვები"
+
+#: modules/computer.c:101
+msgid "Languages"
+msgstr "ენები"
+
+#: modules/computer.c:102
+msgid "Memory Usage"
+msgstr "მეხსიერების გამოყენება"
+
+#: modules/computer.c:103
+msgid "Filesystems"
+msgstr "ფაილური სისტემები"
+
+#: modules/computer.c:104 modules/computer.c:534
+msgid "Display"
+msgstr "ჩვენება"
+
+#: modules/computer.c:105 modules/computer/environment.c:37
+msgid "Environment Variables"
+msgstr "გარემოს ცვლადები"
+
+#: modules/computer.c:107 modules/computer.c:109
+msgid "Development"
+msgstr "შემუშავება"
+
+#: modules/computer.c:111 modules/computer.c:849
+msgid "Users"
+msgstr "მომხმარებლები"
+
+#: modules/computer.c:112
+msgid "Groups"
+msgstr "ჯგუფები"
+
+#: modules/computer.c:142
+#, c-format
+msgid "%dMB (%dMB used)"
+msgstr "%dმბ (%dმბ გამოყენებულია)"
+
+#: modules/computer.c:144 modules/computer.c:584
+msgid "Uptime"
+msgstr "ჩართულობის დრო"
+
+#: modules/computer.c:146 modules/computer.c:530
+msgid "Date/Time"
+msgstr "თარიღი / დრო"
+
+#: modules/computer.c:151 modules/computer.c:585
+msgid "Load Average"
+msgstr "საშუალო დატვირთვა"
+
+#: modules/computer.c:266
+msgid "Scripting Languages"
+msgstr "სკრიპტის ენები"
+
+#: modules/computer.c:267
+msgid "Gambas3 (gbr3)"
+msgstr "Gambas3 (gbr3)"
+
+#: modules/computer.c:268
+msgid "Python (default)"
+msgstr "Python (ნაგულისხმევი)"
+
+#: modules/computer.c:269
+msgid "Python2"
+msgstr "Python2"
+
+#: modules/computer.c:270
+msgid "Python3"
+msgstr "Python3"
+
+#: modules/computer.c:271
+msgid "Perl"
+msgstr "Perl"
+
+#: modules/computer.c:272
+msgid "Rakudo (Perl6)"
+msgstr "Rakudo (Perl6)"
+
+#: modules/computer.c:273
+msgid "PHP"
+msgstr "PHP"
+
+#: modules/computer.c:274
+msgid "Ruby"
+msgstr "Ruby"
+
+#: modules/computer.c:275
+msgid "Bash"
+msgstr "Bash"
+
+#: modules/computer.c:276
+msgid "JavaScript (Node.js)"
+msgstr "JavaScript (Node.js)"
+
+#: modules/computer.c:277
+msgid "awk"
+msgstr "awk"
+
+#: modules/computer.c:278
+msgid "Compilers"
+msgstr "კომპილატორები"
+
+#: modules/computer.c:279
+msgid "C (GCC)"
+msgstr "C (GCC)"
+
+#: modules/computer.c:280
+msgid "C (Clang)"
+msgstr "C (Clang)"
+
+#: modules/computer.c:281
+msgid "D (dmd)"
+msgstr "D (dmd)"
+
+#: modules/computer.c:282
+msgid "Gambas3 (gbc3)"
+msgstr "Gambas3 (gbc3)"
+
+#: modules/computer.c:283
+msgid "Java"
+msgstr "Java"
+
+#: modules/computer.c:284
+msgid ".NET"
+msgstr ".NET"
+
+#: modules/computer.c:285
+msgid "Vala"
+msgstr "Vala"
+
+#: modules/computer.c:286
+msgid "Haskell (GHC)"
+msgstr "Haskell (GHC)"
+
+#: modules/computer.c:287
+msgid "FreePascal"
+msgstr "FreePascal"
+
+#: modules/computer.c:288
+msgid "Go"
+msgstr "წინ"
+
+#: modules/computer.c:289
+msgid "Rust"
+msgstr "Rust"
+
+#: modules/computer.c:290
+msgid "Tools"
+msgstr "ხელსაწყოები"
+
+#: modules/computer.c:291
+msgid "make"
+msgstr "make"
+
+#: modules/computer.c:292
+msgid "ninja"
+msgstr "ninja"
+
+#: modules/computer.c:293
+msgid "GDB"
+msgstr "GDB"
+
+#: modules/computer.c:294
+msgid "LLDB"
+msgstr "LLDB"
+
+#: modules/computer.c:295
+msgid "strace"
+msgstr "strace"
+
+#: modules/computer.c:296
+msgid "valgrind"
+msgstr "valgrind"
+
+#: modules/computer.c:297
+msgid "QMake"
+msgstr "QMake"
+
+#: modules/computer.c:298
+msgid "CMake"
+msgstr "CMake"
+
+#: modules/computer.c:299
+msgid "Gambas3 IDE"
+msgstr "Gambas3 IDE"
+
+#: modules/computer.c:300
+msgid "Radare2"
+msgstr "Radare2"
+
+#: modules/computer.c:301
+msgid "ltrace"
+msgstr "ltrace"
+
+#: modules/computer.c:302
+msgid "Powershell"
+msgstr "Powershell"
+
+#: modules/computer.c:343
+msgid "Not found"
+msgstr "ნაპოვნი არაა"
+
+#: modules/computer.c:348
+#, c-format
+msgid "Detecting version: %s"
+msgstr "აღმოჩენილია ვერსია: %s"
+
+#: modules/computer.c:366
+msgid "Program"
+msgstr "პროგრამა"
+
+#: modules/computer.c:366 modules/computer.c:566 modules/computer.c:568
+#: modules/computer.c:772 modules/computer/modules.c:364
+#: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
+#: modules/devices/dmi.c:57 modules/devices/firmware.c:75
+#: modules/devices/inputdevices.c:146 modules/devices/monitors.c:406
+msgid "Version"
+msgstr "ვერსია"
+
+#: modules/computer.c:385
+msgid "Field"
+msgstr "ველი"
+
+#: modules/computer.c:385 modules/computer.c:695 modules/computer/modules.c:362
+#: modules/computer/modules.c:363 modules/devices/arm/processor.c:741
+#: modules/devices/riscv/processor.c:552
+msgid "Description"
+msgstr "აღწერა"
+
+#: modules/computer.c:385 modules/devices.c:1008
+msgid "Value"
+msgstr "მნიშვნელობა"
+
+#: modules/computer.c:400 modules/computer.c:402
+msgid "Virtual (Xen)"
+msgstr "ვირტუალური (Xen)"
+
+#: modules/computer.c:409 modules/computer.c:411
+msgid "Virtual (VirtualBox)"
+msgstr "ვირტუალური (VirtualBox)"
+
+#: modules/computer.c:416 modules/computer.c:418
+msgid "Virtual (VMware)"
+msgstr "ვირტუალური (VMware)"
+
+#: modules/computer.c:426 modules/computer.c:428
+msgid "Virtual (QEMU)"
+msgstr "ვირტუალური (QEMU)"
+
+#: modules/computer.c:436 modules/computer.c:438
+msgid "Virtual (WSL2)"
+msgstr "ვირტუალური (WSL2)"
+
+#: modules/computer.c:451 modules/computer.c:453
+msgid "Single-board computer"
+msgstr "ერთდაფიანი კომპიუტერი"
+
+#: modules/computer.c:510 modules/computer.c:512
+msgid "Unknown physical machine type"
+msgstr "უცნობი ფიზიკური მანქანის ტიპი"
+
+#: modules/computer.c:524 modules/computer.c:1054
+msgid "Computer"
+msgstr "კომპიუტერი"
+
+#: modules/computer.c:529 modules/computer.c:578
+msgid "User Name"
+msgstr "მომხმარებლის სახელი"
+
+#: modules/computer.c:535
+msgid "Resolution"
+msgstr "გარჩევადობა"
+
+#: modules/computer.c:535 modules/computer.c:777
+#, c-format
+msgid "%dx%d pixels"
+msgstr "%dx%d პიქსელი"
+
+#: modules/computer.c:537
+msgid "Display Adapter"
+msgstr "ვიდეობარათი"
+
+#: modules/computer.c:539
+msgid "Session Display Server"
+msgstr "სესიის ჩვენების სერვერი"
+
+#: modules/computer.c:543 modules/devices.c:108
+msgid "Input Devices"
+msgstr "შეტანის მოწყობილობები"
+
+#: modules/computer.c:566
+msgid "Kernel"
+msgstr "ბირთვი"
+
+#: modules/computer.c:567
+msgid "Command Line"
+msgstr "ბრძანების სტრიქონი"
+
+#: modules/computer.c:569
+msgid "C Library"
+msgstr "C ბიბლიოთეკა"
+
+#: modules/computer.c:570
+msgid "Distribution"
+msgstr "გავრცელება"
+
+#: modules/computer.c:576
+msgid "Current Session"
+msgstr "მიმდინარე სესია"
+
+#: modules/computer.c:577
+msgid "Computer Name"
+msgstr "კომპიუტერის სახელი"
+
+#: modules/computer.c:579 modules/computer/languages.c:99
+msgid "Language"
+msgstr "ენა"
+
+#: modules/computer.c:580 modules/computer/users.c:52
+msgid "Home Directory"
+msgstr "საწყისი საქაღალდე"
+
+#: modules/computer.c:581
+msgid "Desktop Environment"
+msgstr "სამუშაო გარემო"
+
+#: modules/computer.c:584
+msgid "Misc"
+msgstr "სხვა"
+
+#: modules/computer.c:589
+msgid "Logo"
+msgstr "ლოგო"
+
+#: modules/computer.c:589
+msgid "belongs to distro and may be reg. trademark"
+msgstr ""
+
+#: modules/computer.c:608
+msgid "Root Only System"
+msgstr "მხოლოდ ძირითადი სისტემა"
+
+#: modules/computer.c:609
+msgid "Single User System"
+msgstr "ერთმომხმარებლიანი სისტემა"
+
+#: modules/computer.c:610
+msgid "Multi User System"
+msgstr "მრავალმომხმარებლიანი სისტემა"
+
+#: modules/computer.c:618
+msgid "HardInfo2"
+msgstr "HardInfo2"
+
+#: modules/computer.c:619
+msgid "HardInfo2 running as"
+msgstr "HardInfo2 გაშვებულია, როგორც"
+
+#: modules/computer.c:619
+msgid "Superuser"
+msgstr "ზემომხმარებელი"
+
+#: modules/computer.c:619
+msgid "User"
+msgstr "მომხმარებელი"
+
+#: modules/computer.c:620
+msgid "User System Type"
+msgstr "მომხმარებლის სისტემის ტიპი"
+
+#: modules/computer.c:620
+msgid "Hardinfo2 Service not enabled/started"
+msgstr "Hardinfo2-ის სერვისი არ არის ჩართული/გაშვებული"
+
+#: modules/computer.c:624
+msgid "Health"
+msgstr "ჯანმრთელობა"
+
+#: modules/computer.c:626
+msgid "Available entropy in /dev/random"
+msgstr "ხელმისაწვდომი ენტროპია /dev/random-ში"
+
+#: modules/computer.c:632
+msgid "Hardening Features"
+msgstr "გამაგრების თვისებები"
+
+#: modules/computer.c:633
+msgid "ASLR"
+msgstr "ASLR"
+
+#: modules/computer.c:634
+msgid "dmesg"
+msgstr "dmesg"
+
+#: modules/computer.c:639
+msgid "Linux Security Modules"
+msgstr "Linux-ის უსაფრთხოების მოდულები"
+
+#: modules/computer.c:640
+msgid "Modules available"
+msgstr "ხელმისაწვდომი მოდულები"
+
+#: modules/computer.c:641
+msgid "SELinux status"
+msgstr "SELinux-ის სტატუსი"
+
+#: modules/computer.c:647
+msgid "CPU Vulnerabilities"
+msgstr "პროცესორის მოწყვლადობები"
+
+#: modules/computer.c:692
+msgid "Loaded Modules"
+msgstr "დატვირთული მოდულები"
+
+#: modules/computer.c:694 modules/computer.c:722 modules/computer.c:862
+#: modules/computer/languages.c:95 modules/computer/modules.c:362
+#: modules/devices/arm/processor.c:740 modules/devices/dmi.c:38
+#: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:364
+#: modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160
+#: modules/devices/inputdevices.c:141 modules/devices/monitors.c:400
+#: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:551
+#: modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:752
+#: modules/network.c:490
+msgid "Name"
+msgstr "სახელი"
+
+#: modules/computer.c:708
+msgid "Date & Time"
+msgstr "დრო და თარიღი"
+
+#: modules/computer.c:709
+msgid "Kernel Version"
+msgstr "ბირთვის ვერსია"
+
+#: modules/computer.c:719
+msgid "Available Languages"
+msgstr "ხელმისაწვდომი ენები"
+
+#: modules/computer.c:721
+msgid "Language Code"
+msgstr "ენის კოდი"
+
+#: modules/computer.c:733
+msgid "Mounted File Systems"
+msgstr "მიმაგრებული ფაილური სისტემები"
+
+#: modules/computer.c:735 modules/computer/filesystem.c:89
+msgid "Mount Point"
+msgstr "მიმაგრების წერტილი"
+
+#: modules/computer.c:736
+msgid "Usage"
+msgstr "გამოყენება"
+
+#: modules/computer.c:737 modules/devices/arm/processor.c:794
+#: modules/devices.c:1032 modules/devices.c:1046
+#: modules/devices/e2k/processor.c:422 modules/devices/gpu.c:85
+#: modules/devices/gpu.c:93 modules/devices/gpu.c:299 modules/devices/pci.c:123
+#: modules/devices/pci.c:131 modules/devices/pci.c:175
+#: modules/devices/riscv/processor.c:643 modules/devices/storage.c:48
+#: modules/devices/storage.c:57 modules/devices/usb.c:173
+#: modules/devices/usb.c:185 modules/devices/x86/processor.c:814
+msgid "Device"
+msgstr "მოწყობილობა"
+
+#: modules/computer.c:760
+msgid "Session"
+msgstr "სესია"
+
+#: modules/computer.c:761 modules/devices.c:1009 modules/devices.c:1046
+#: modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729
+#: modules/devices/inputdevices.c:142 modules/devices/spd-decode.c:1541
+#: modules/devices/x86/processor.c:715
+msgid "Type"
+msgstr "ტიპი"
+
+#: modules/computer.c:764
+msgid "Wayland"
+msgstr "Wayland"
+
+#: modules/computer.c:765 modules/computer.c:770
+msgid "Current Display Name"
+msgstr "მიმდინარე ეკრანის სახელი"
+
+#: modules/computer.c:769
+msgid "X Server"
+msgstr "X სახელი"
+
+#: modules/computer.c:771 modules/computer.c:811 modules/computer.c:834
+#: modules/devices.c:1046 modules/devices/dmi.c:40 modules/devices/dmi.c:46
+#: modules/devices/dmi.c:50 modules/devices/dmi.c:55
+#: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873
+#: modules/devices/e2k/processor.c:365 modules/devices/firmware.c:75
+#: modules/devices/firmware.c:169 modules/devices/firmware.c:174
+#: modules/devices/firmware.c:221 modules/devices/gpu.c:84
+#: modules/devices/gpu.c:92 modules/devices/gpu.c:298
+#: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:144
+#: modules/devices/monitors.c:399 modules/devices/pci.c:122
+#: modules/devices/pci.c:130 modules/devices/storage.c:47
+#: modules/devices/storage.c:56 modules/devices/storage.c:282
+#: modules/devices/storage.c:573 modules/devices/storage.c:778
+#: modules/devices/usb.c:172 modules/devices/x86/processor.c:654
+msgid "Vendor"
+msgstr "მომწოდებელი"
+
+#: modules/computer.c:773
+msgid "Release Number"
+msgstr "რელიზის ნომერი"
+
+#: modules/computer.c:781
+msgid "Screens"
+msgstr "ეკრანები"
+
+#: modules/computer.c:787
+msgid "Disconnected"
+msgstr "გათიშულია"
+
+#: modules/computer.c:790
+msgid "Connected"
+msgstr "დაკავშირებულია"
+
+#: modules/computer.c:798
+msgid "Unused"
+msgstr "გამოუყენებელი"
+
+#: modules/computer.c:799
+#, c-format
+msgid "%dx%d pixels, offset (%d, %d)"
+msgstr "%dx%d პიქსელი, წანაცვლება (%d, %d)"
+
+#: modules/computer.c:808
+msgid "Outputs (XRandR)"
+msgstr "შედეგები (XRandR)"
+
+#: modules/computer.c:810
+msgid "OpenGL (GLX)"
+msgstr "OpenGL (GLX)"
+
+#: modules/computer.c:812
+msgid "Renderer"
+msgstr "რენდერერი"
+
+#: modules/computer.c:813
+msgid "Direct Rendering"
+msgstr "პირდაპირი რენდერი"
+
+#: modules/computer.c:814 modules/computer/modules.c:344
+#: modules/computer/modules.c:345 modules/devices/inputdevices.c:153
+#: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
+#: modules/devices/spd-decode.c:1135
+msgid "Yes"
+msgstr "კი"
+
+#: modules/computer.c:814 modules/computer/modules.c:344
+#: modules/computer/modules.c:345 modules/devices/printers.c:145
+#: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
+msgid "No"
+msgstr "არა"
+
+#: modules/computer.c:815
+msgid "Version (Compatibility)"
+msgstr "ვერსია (თავსებადობა)"
+
+#: modules/computer.c:816
+msgid "Shading Language Version (Compatibility)"
+msgstr "დაჩრდილვის ენის ვერსია (თავსებადობა)"
+
+#: modules/computer.c:817
+msgid "Version (Core)"
+msgstr "ვერსია (ბირთვი)"
+
+#: modules/computer.c:818
+msgid "Shading Language Version (Core)"
+msgstr "დაჩრდილვის ენის ვერსია (ბირთვი)"
+
+#: modules/computer.c:819
+msgid "Version (ES)"
+msgstr "ვერსია (ES)"
+
+#: modules/computer.c:820
+msgid "Shading Language Version (ES)"
+msgstr "დაჩრდილვის ენის ვერსია (ES)"
+
+#: modules/computer.c:821
+msgid "GLX Version"
+msgstr "GLX-ის ვერსია"
+
+#: modules/computer.c:829
+msgid "Vulkan"
+msgstr "Vulkan"
+
+#: modules/computer.c:830
+msgid "Instance Version"
+msgstr "გაშვებული ასლის ვერსია"
+
+#: modules/computer.c:832
+msgid "Api Version"
+msgstr "API-ის ვერსია"
+
+#: modules/computer.c:833
+msgid "Driver Version"
+msgstr "დრაივერის ვერსია"
+
+#: modules/computer.c:835
+msgid "Device Type"
+msgstr "მოწყობილობის ტიპი"
+
+#: modules/computer.c:836
+msgid "Device Name"
+msgstr "მოწყობილობის სახელი"
+
+#: modules/computer.c:837
+msgid "Driver Name"
+msgstr "დრაივერის სახელი"
+
+#: modules/computer.c:838
+msgid "Driver Info"
+msgstr "ინფორმაცია დრაივერის შესახებ"
+
+#: modules/computer.c:839
+msgid "Conformance Version"
+msgstr "შესაბამისობის ვერსია"
+
+#: modules/computer.c:860
+msgid "Group"
+msgstr "ჯგუფი"
+
+#: modules/computer.c:863 modules/computer/users.c:51
+msgid "Group ID"
+msgstr "ჯგუფის ID"
+
+#: modules/computer.c:995
+#, c-format
+msgid "%0.1f %s available to Linux"
+msgstr "%0.1f %s ხელმისაწვდომია ლინუქსისთვის"
+
+#: modules/computer.c:997 modules/devices/dmi_memory.c:637
+#: modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789
+#: modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1516
+msgid "GiB"
+msgstr "გიბ"
+
+#: modules/computer.c:1001 modules/computer/memory_usage.c:73
+#: modules/computer/modules.c:362
+msgid "KiB"
+msgstr "კიბ"
+
+#: modules/computer.c:1073 modules/devices/devicetree/pmac_data.c:82
+msgid "Motherboard"
+msgstr "მთავარი დაფა"
+
+#: modules/computer.c:1101
+msgid "Graphics"
+msgstr "გრაფიკა"
+
+#: modules/computer.c:1102 modules/devices.c:105
+msgid "Printers"
+msgstr "პრინტერები"
+
+#: modules/computer.c:1102
+msgid "Audio"
+msgstr "აუდიო"
+
+#: modules/computer.c:1153
+msgid "Gathers high-level computer information"
+msgstr ""
+
+#: modules/computer.c:1164
+msgid "<i><b>lsmod</b></i> is required."
+msgstr "<i><b>lsmod</b></i> აუცილებელია."
+
+#: modules/computer.c:1172
+msgid ""
+"X.org's <i><b>xrandr</b></i> utility provides additional details when "
+"available."
+msgstr ""
+
+#: modules/computer.c:1173
+msgid ""
+"Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
+msgstr ""
+
+#: modules/computer.c:1174
+msgid ""
+"Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
+msgstr ""
+
+#: modules/computer/filesystem.c:87
+msgid "Filesystem"
+msgstr "ფაილური სისტემა"
+
+#: modules/computer/filesystem.c:88
+msgid "Mounted As"
+msgstr "მიმაგრების წერტილი"
+
+#: modules/computer/filesystem.c:88
+msgid "Read-Write"
+msgstr "ჩაწერადი-წაკითხვადი"
+
+#: modules/computer/filesystem.c:88
+msgid "Read-Only"
+msgstr "მხოლოდ-კითხვადი"
+
+#: modules/computer/filesystem.c:90 modules/devices.c:1032
+#: modules/devices/dmi_memory.c:733 modules/devices/dmi_memory.c:766
+#: modules/devices/dmi_memory.c:805 modules/devices/dmi_memory.c:872
+#: modules/devices/spd-decode.c:1548
+msgid "Size"
+msgstr "ზომა"
+
+#: modules/computer/filesystem.c:91
+msgid "Used"
+msgstr "გამოყენებულია"
+
+#: modules/computer/filesystem.c:92
+msgid "Available"
+msgstr "ხელმისაწვდომია"
+
+#: modules/computer/languages.c:94
+msgid "Locale Information"
+msgstr "ლოკალის ინფორმაცია"
+
+#: modules/computer/languages.c:96 modules/devices/gpu.c:272
+#: modules/devices/spd-decode.c:1537
+msgid "Source"
+msgstr "წყარო"
+
+#: modules/computer/languages.c:97
+msgid "Address"
+msgstr "მისამართი"
+
+#: modules/computer/languages.c:98
+msgid "E-mail"
+msgstr "ელფოსტა"
+
+#: modules/computer/languages.c:100
+msgid "Territory"
+msgstr "ტერიტორია"
+
+#: modules/computer/languages.c:102 modules/devices/dmi.c:45
+msgid "Date"
+msgstr "თარიღი"
+
+#: modules/computer/languages.c:103
+msgid "Codeset"
+msgstr "კოდების ნაკრები"
+
+#: modules/computer/loadavg.c:64
+msgid "Couldn't obtain load average"
+msgstr "საშუალო დატვირთვის მიღება ვერ მოხერხდა"
+
+#: modules/computer/memory_usage.c:131
+msgid "Total physical memory usable by the system"
+msgstr "სისტემის მიერ გამოყენებადი ფიზიკური მეხსიერება ჯამში"
+
+#: modules/computer/memory_usage.c:132
+msgid "Free memory which is not used for anything"
+msgstr "თავისუფალი მეხსიერება, რომელიც არაფრისთვის გამოიყენება"
+
+#: modules/computer/memory_usage.c:133
+msgid "Virtual memory, total swap space available"
+msgstr "ვირტუალური მეხსიერება, ხელმისაწვდომია მთლიანი სვოპის სივრცე"
+
+#: modules/computer/memory_usage.c:134
+msgid "Virtual memory, remaining swap space available"
+msgstr "ვირტუალური მეხსიერება, დარჩენილი სვოპის სივრცე ხელმისაწვდომია"
+
+#: modules/computer/memory_usage.c:135
+msgid "Memory present within main memory and in the swapfile"
+msgstr ""
+
+#: modules/computer/memory_usage.c:136
+msgid "HighTotal value can vary based on the type of kernel used"
+msgstr ""
+
+#: modules/computer/memory_usage.c:137
+msgid "Amount of memory that is not directly mapped into kernel space"
+msgstr ""
+
+#: modules/computer/memory_usage.c:138
+msgid "LowTotal value can vary based on the type of kernel used"
+msgstr ""
+
+#: modules/computer/memory_usage.c:139
+msgid "Total and free memory directly mapped into kernel space"
+msgstr ""
+
+#: modules/computer/memory_usage.c:140
+msgid "Available memory for allocation to any process, without swapping"
+msgstr ""
+
+#: modules/computer/memory_usage.c:141
+msgid "Memory in buffer cache, temporary storage for raw disk blocks"
+msgstr ""
+
+#: modules/computer/memory_usage.c:142
+msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
+msgstr ""
+
+#: modules/computer/memory_usage.c:143
+msgid "Memory used more recently and not swapped out or reclaimed"
+msgstr ""
+
+#: modules/computer/memory_usage.c:144
+msgid "Memory not been used recently and can be swapped out or reclaimed"
+msgstr ""
+
+#: modules/computer/memory_usage.c:145
+msgid "Anonymous memory used more recently and not swapped out"
+msgstr ""
+
+#: modules/computer/memory_usage.c:146
+msgid "Anonymous memory not been used and can be swapped out"
+msgstr ""
+
+#: modules/computer/memory_usage.c:147
+msgid "Pagecache memory been used more recently and not reclaimed"
+msgstr ""
+
+#: modules/computer/memory_usage.c:148
+msgid "Pagecache memory reclaimable without huge performance impact"
+msgstr ""
+
+#: modules/computer/memory_usage.c:149
+msgid "Unevictable pages can't be swapped out for a variety of reasons"
+msgstr ""
+
+#: modules/computer/memory_usage.c:150
+msgid "Pages locked to memory using the mlock() system call"
+msgstr ""
+
+#: modules/computer/memory_usage.c:151
+msgid "Memory consumed by the zswap backend (compressed size)"
+msgstr ""
+
+#: modules/computer/memory_usage.c:152
+msgid "Amount of anonymous memory stored in zswap (original size)"
+msgstr ""
+
+#: modules/computer/memory_usage.c:153
+msgid "Memory waiting to be written back to disk"
+msgstr ""
+
+#: modules/computer/memory_usage.c:154
+msgid "Memory which is actively being written back to disk"
+msgstr ""
+
+#: modules/computer/memory_usage.c:155
+msgid "Non-file backed pages mapped into userspace page tables"
+msgstr ""
+
+#: modules/computer/memory_usage.c:156
+msgid "Files which have been mmapped, such as libraries"
+msgstr ""
+
+#: modules/computer/memory_usage.c:157
+msgid "Total memory used by shared memory (shmem) and tmpfs"
+msgstr ""
+
+#: modules/computer/memory_usage.c:158
+msgid "Kernel allocations reclaimable under memory pressure"
+msgstr ""
+
+#: modules/computer/memory_usage.c:159
+msgid "In-kernel data structures cache"
+msgstr "ბირთვში არსებული მონაცემთა სტრუქტურების კეში"
+
+#: modules/computer/memory_usage.c:160
+msgid "Part of Slab, that might be reclaimed, such as caches"
+msgstr ""
+
+#: modules/computer/memory_usage.c:161
+msgid "Part of Slab, that cannot be reclaimed on memory pressure"
+msgstr ""
+
+#: modules/computer/memory_usage.c:162
+msgid "Memory consumed by the kernel stacks of all tasks"
+msgstr "ყველა ამოცანის ბირთვის სტეკების მიერ დახარჯული მეხსიერება"
+
+#: modules/computer/memory_usage.c:163
+msgid "Memory consumed by userspace page tables"
+msgstr "მომხმარებლის სივრცის გვერდის ცხრილების მიერ დახარჯული მეხსიერება"
+
+#: modules/computer/memory_usage.c:164
+msgid "Memory consumed by secondary page tables"
+msgstr "მეორადი გვერდის ცხრილების მიერ დახარჯული მეხსიერება"
+
+#: modules/computer/memory_usage.c:165
+msgid "Previous counted pages which had been written to the server"
+msgstr ""
+
+#: modules/computer/memory_usage.c:166
+msgid "Memory used for block device bounce buffers"
+msgstr ""
+
+#: modules/computer/memory_usage.c:167
+msgid "Memory used by FUSE for temporary writeback buffers"
+msgstr ""
+
+#: modules/computer/memory_usage.c:168
+msgid "Total memory currently available to be allocated on the system"
+msgstr ""
+
+#: modules/computer/memory_usage.c:169
+msgid "The amount of memory presently allocated on the system"
+msgstr ""
+
+#: modules/computer/memory_usage.c:170
+msgid "Total size of vmalloc virtual address space"
+msgstr ""
+
+#: modules/computer/memory_usage.c:171
+msgid "Amount of vmalloc area which is used"
+msgstr ""
+
+#: modules/computer/memory_usage.c:172
+msgid "Largest contiguous block of vmalloc area which is free"
+msgstr ""
+
+#: modules/computer/memory_usage.c:173
+msgid "Memory allocated to the percpu allocator"
+msgstr ""
+
+#: modules/computer/memory_usage.c:174
+msgid "Amount of memory the kernel identifies as corrupted"
+msgstr ""
+
+#: modules/computer/memory_usage.c:175
+msgid "Non-file backed huge pages mapped into userspace page tables"
+msgstr ""
+
+#: modules/computer/memory_usage.c:176
+msgid "Memory used by shmem and tmpfs allocated with huge pages"
+msgstr ""
+
+#: modules/computer/memory_usage.c:177
+msgid "Shared memory mapped into userspace with huge pages"
+msgstr ""
+
+#: modules/computer/memory_usage.c:178
+msgid "Memory used for fs data (page cache) allocated with huge pages"
+msgstr ""
+
+#: modules/computer/memory_usage.c:179
+msgid "Page cache mapped into userspace with huge pages"
+msgstr ""
+
+#: modules/computer/memory_usage.c:180
+msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
+msgstr ""
+
+#: modules/computer/memory_usage.c:181
+msgid "Free remaining memory in the CMA reserves"
+msgstr ""
+
+#: modules/computer/memory_usage.c:182
+msgid "Amount of unaccepted memory usable by the kernel"
+msgstr ""
+
+#: modules/computer/memory_usage.c:183
+msgid "Size of the pool of huge pages"
+msgstr "უზარმაზარი გვერდების პულის ზომა"
+
+#: modules/computer/memory_usage.c:184
+msgid "Number of huge pages available"
+msgstr "ხელმისაწვდომი უზარმაზარი გვერდების რაოდენობა"
+
+#: modules/computer/memory_usage.c:185
+msgid "Number of huge pages reserved"
+msgstr "დარეზერვებული უზარმაზარი გვერდების რაოდენობა"
+
+#: modules/computer/memory_usage.c:186
+msgid "Number of huge pages surplus"
+msgstr "ჭარბი უზარმაზარი გვერდების რაოდენობა"
+
+#: modules/computer/memory_usage.c:187
+msgid "Huge page size, used in conjunction with hugepages parameter"
+msgstr ""
+
+#: modules/computer/memory_usage.c:188
+msgid "Total amount of memory consumed by huge pages of all sizes"
+msgstr ""
+
+#: modules/computer/memory_usage.c:189
+msgid "Breakdown of page table sizes of 4k size"
+msgstr ""
+
+#: modules/computer/memory_usage.c:190
+msgid "Breakdown of page table sizes of 2M size"
+msgstr ""
+
+#: modules/computer/memory_usage.c:191
+msgid "Breakdown of page table sizes of 1G size"
+msgstr ""
+
+#: modules/computer/modules.c:161
+msgid "Update kernel module icon table"
+msgstr "ბირთვის მოდულის ხატულას ცხრილის განახლება"
+
+#: modules/computer/modules.c:330 modules/computer/modules.c:331
+#: modules/computer/modules.c:332 modules/computer/modules.c:333
+#: modules/computer/modules.c:334 modules/computer/modules.c:335
+#: modules/devices/dmi.c:117 modules/devices/firmware.c:246
+#: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
+msgid "(Not available)"
+msgstr "(ხელმისაწვდომი არაა)"
+
+#: modules/computer/modules.c:361
+msgid "Module Information"
+msgstr "მოდულის ინფორმაცია"
+
+#: modules/computer/modules.c:361 modules/devices/gpu.c:304
+msgid "Path"
+msgstr "ბილიკი"
+
+#: modules/computer/modules.c:361
+msgid "Used Memory"
+msgstr "გამოყენებული მეხსიერება"
+
+#: modules/computer/modules.c:363
+msgid "Version Magic"
+msgstr "ვერსიის ჯადოსნური რიცხვი"
+
+#: modules/computer/modules.c:364
+msgid "In Linus' Tree"
+msgstr "ლინუსის ხეში"
+
+#: modules/computer/modules.c:365
+msgid "Retpoline Enabled"
+msgstr "Retpoline ჩართულია"
+
+#: modules/computer/modules.c:365
+msgid "Copyright"
+msgstr "საავტორო უფლებები"
+
+#: modules/computer/modules.c:365
+msgid "Author"
+msgstr "ავტორი"
+
+#: modules/computer/modules.c:366
+msgid "License"
+msgstr "ლიცენზია"
+
+#: modules/computer/modules.c:372
+msgid "Dependencies"
+msgstr "დამოკიდებულებები"
+
+#: modules/computer/os.c:156 modules/computer/os.c:157
+#: modules/computer/os.c:159 modules/computer/os.c:160
+msgid "GNU C Library"
+msgstr "GNU C ბიბლიოთეკა"
+
+#: modules/computer/os.c:158
+msgid "musl C Library"
+msgstr "musl C ბიბლიოთეკა"
+
+#: modules/computer/os.c:161
+msgid "uClibc or uClibc-ng"
+msgstr "uClibc ან uClibc-ng"
+
+#: modules/computer/os.c:162
+msgid "diet libc"
+msgstr "diet libc"
+
+#: modules/computer/os.c:235 modules/computer/os.c:238
+msgid "GNOME Shell "
+msgstr "GNOME-ის გარსი "
+
+#: modules/computer/os.c:248 modules/computer/os.c:251
+msgid "Version: "
+msgstr "ვერსია: "
+
+#: modules/computer/os.c:271 modules/computer/os.c:274
+msgid "MATE Desktop Environment "
+msgstr "სამუშაო გარემო MATE "
+
+#: modules/computer/os.c:310
+#, c-format
+msgid "Unknown (Window Manager: %s)"
+msgstr "უცნობი (ფანჯრების მმართველი: %s)"
+
+#. !/{desktop environment} on {session type}
+#: modules/computer/os.c:321
+#, c-format
+msgid "%s on %s"
+msgstr "%s %s-ზე"
+
+#: modules/computer/os.c:387
+msgid "Terminal"
+msgstr "ტერმინალი"
+
+#: modules/computer/os.c:403
+msgid "User access allowed"
+msgstr "მომხმარებლის წვდომა ნებადართულია"
+
+#: modules/computer/os.c:405
+msgid "User access forbidden"
+msgstr "მომხმარებლის წვდომა აკრძალულია"
+
+#: modules/computer/os.c:407
+msgid "Access allowed (running as superuser)"
+msgstr ""
+
+#: modules/computer/os.c:409
+msgid "Access forbidden? (running as superuser)"
+msgstr ""
+
+#: modules/computer/os.c:418 modules/computer/os.c:798
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: modules/computer/os.c:420
+msgid "Partially enabled (mmap base+stack+VDSO base)"
+msgstr ""
+
+#: modules/computer/os.c:422
+msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
+msgstr ""
+
+#. !/bits of entropy for rng (0)
+#: modules/computer/os.c:431
+msgid "(None or not available)"
+msgstr "(არცერთი ან არ არის ხელმისაწვდომი)"
+
+#. !/bits of entropy for rng (low/poor value)
+#: modules/computer/os.c:432
+#, c-format
+msgid "%d bits (low)"
+msgstr "%d ბიტი (დაბალი)"
+
+#. !/bits of entropy for rng (medium value)
+#: modules/computer/os.c:433
+#, c-format
+msgid "%d bits (medium)"
+msgstr "%d ბიტი (საშუალო)"
+
+#. !/bits of entropy for rng (high/good value)
+#: modules/computer/os.c:434
+#, c-format
+msgid "%d bits (healthy)"
+msgstr "%d ბიტი (ჯანსაღი)"
+
+#: modules/computer/os.c:793
+msgid "Not installed"
+msgstr "დაყენებული არაა"
+
+#: modules/computer/os.c:796
+msgid "Enabled"
+msgstr "ჩართულია"
+
+#: modules/computer/users.c:49
+msgid "User Information"
+msgstr "მომხმარებლის ინფორმაცია"
+
+#: modules/computer/users.c:50
+msgid "User ID"
+msgstr "მომხმარებლის ID"
+
+#: modules/computer/users.c:53
+msgid "Default Shell"
+msgstr "ნაგულისხმევი გარსი"
+
+#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:794
+#: modules/devices.c:1032 modules/devices/devicetree.c:162
+#: modules/devices/devicetree.c:208 modules/devices/devicetree/pmac_data.c:80
+#: modules/devices/e2k/processor.c:367 modules/devices/e2k/processor.c:422
+#: modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165
+#: modules/devices/loongarch64/processor.c:96
+#: modules/devices/m68k/processor.c:84 modules/devices/mips/processor.c:75
+#: modules/devices/monitors.c:401 modules/devices/parisc/processor.c:155
+#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:587
+#: modules/devices/riscv/processor.c:643 modules/devices/s390/processor.c:132
+#: modules/devices/x86/processor.c:814
+msgid "Model"
+msgstr "მოდელი"
+
+#: modules/devices/alpha/processor.c:89
+msgid "Platform String"
+msgstr "პლატფორმის სტრიქონი"
+
+#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
+#: modules/devices/arm/processor.c:794 modules/devices/e2k/processor.c:369
+#: modules/devices/e2k/processor.c:422 modules/devices/ia64/processor.c:167
+#: modules/devices/loongarch64/processor.c:98
+#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
+#: modules/devices/parisc/processor.c:158 modules/devices/ppc/processor.c:160
+#: modules/devices/riscv/processor.c:591 modules/devices/riscv/processor.c:643
+#: modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
+#: modules/devices/x86/processor.c:814
+msgid "Frequency"
+msgstr "სიხშირე"
+
+#: modules/devices/alpha/processor.c:91 modules/devices/arm/processor.c:568
+#: modules/devices/e2k/processor.c:370 modules/devices/ia64/processor.c:168
+#: modules/devices/m68k/processor.c:88 modules/devices/mips/processor.c:78
+#: modules/devices/parisc/processor.c:159 modules/devices/ppc/processor.c:161
+#: modules/devices/s390/processor.c:134 modules/devices/sh/processor.c:90
+#: modules/devices/x86/processor.c:659
+msgid "BogoMips"
+msgstr "BogoMips"
+
+#: modules/devices/alpha/processor.c:92 modules/devices/arm/processor.c:569
+#: modules/devices/e2k/processor.c:371 modules/devices/ia64/processor.c:169
+#: modules/devices/loongarch64/processor.c:101
+#: modules/devices/m68k/processor.c:89 modules/devices/mips/processor.c:79
+#: modules/devices/parisc/processor.c:160 modules/devices/ppc/processor.c:162
+#: modules/devices/riscv/processor.c:592 modules/devices/s390/processor.c:135
+#: modules/devices/sh/processor.c:91 modules/devices/sparc/processor.c:77
+#: modules/devices/x86/processor.c:660
+msgid "Byte Order"
+msgstr "ბაიტების მიმდევრობა"
+
+#. !/flag:swp
+#: modules/devices/arm/arm_data.c:42
+msgctxt "arm-flag"
+msgid "SWP instruction (atomic read-modify-write)"
+msgstr "SWP ინსტრუქცია (ატომური წაკითხვა-შეცვლა-ჩაწერა)"
+
+#. !/flag:half
+#: modules/devices/arm/arm_data.c:43
+msgctxt "arm-flag"
+msgid "Half-word loads and stores"
+msgstr "ნახევარი სიტყვის ჩატვირთვა და დამახსოვრება"
+
+#. !/flag:thumb
+#: modules/devices/arm/arm_data.c:44
+msgctxt "arm-flag"
+msgid "Thumb (16-bit instruction set)"
+msgstr "Thumb (16-ბიტიანი ინსტრუქციის ნაკრები)"
+
+#. !/flag:26bit
+#: modules/devices/arm/arm_data.c:45
+msgctxt "arm-flag"
+msgid "26-Bit Model (Processor status register folded into program counter)"
+msgstr ""
+"26-ბიტიანი მოდელი (პროცესორის სტატუსის რეგისტრი დაკეცილია პროგრამის "
+"მრიცხველში)"
+
+#. !/flag:fastmult
+#: modules/devices/arm/arm_data.c:46
+msgctxt "arm-flag"
+msgid "32x32->64-bit multiplication"
+msgstr "32x32->64-ბიტიანი გამრავლება"
+
+#. !/flag:fpa
+#: modules/devices/arm/arm_data.c:47
+msgctxt "arm-flag"
+msgid "Floating point accelerator"
+msgstr "მცურავწერტილიანი ინსტრუქციების ამაჩქარებელი"
+
+#. !/flag:vfp
+#: modules/devices/arm/arm_data.c:48
+msgctxt "arm-flag"
+msgid "VFP (early SIMD vector floating point instructions)"
+msgstr "VFP (ადრეული SIMD ვექტორული მცურავწერტილიანი ინსტრუქციები)"
+
+#. !/flag:edsp
+#: modules/devices/arm/arm_data.c:49
+msgctxt "arm-flag"
+msgid "DSP extensions (the 'e' variant of the ARM9 CPUs, and all others above)"
+msgstr "DSP გაფართოებები (ARM9 CPU-ების 'e' ვარიანტი და ყველა სხვა ზემოთ)"
+
+#. !/flag:java
+#: modules/devices/arm/arm_data.c:50
+msgctxt "arm-flag"
+msgid "Jazelle (Java bytecode accelerator)"
+msgstr "Jazelle (Java ბაიტკოდის ამაჩქარებელი)"
+
+#. !/flag:iwmmxt
+#: modules/devices/arm/arm_data.c:51
+msgctxt "arm-flag"
+msgid "SIMD instructions similar to Intel MMX"
+msgstr "Intel MMX-ის მსგავსი SIMD ინსტრუქციები"
+
+#. !/flag:crunch
+#: modules/devices/arm/arm_data.c:52
+msgctxt "arm-flag"
+msgid "MaverickCrunch coprocessor (if kernel support enabled)"
+msgstr "MaverickCrunch თანაპროცესორი (თუ ბირთვის მხარდაჭერა ჩართულია)"
+
+#. !/flag:thumbee
+#: modules/devices/arm/arm_data.c:53
+msgctxt "arm-flag"
+msgid "ThumbEE"
+msgstr "ThumbEE"
+
+#. !/flag:neon
+#: modules/devices/arm/arm_data.c:54
+msgctxt "arm-flag"
+msgid "Advanced SIMD/NEON on AArch32"
+msgstr "გაფართოებული SIMD/NEON AArch32-ზე"
+
+#. !/flag:evtstrm
+#: modules/devices/arm/arm_data.c:55
+msgctxt "arm-flag"
+msgid "Kernel event stream using generic architected timer"
+msgstr "ბირთვის მოვლენიების ნაკადი ზოგადი არქიტექტურული ტაიმერის გამოყენებით"
+
+#. !/flag:vfpv3
+#: modules/devices/arm/arm_data.c:56
+msgctxt "arm-flag"
+msgid "VFP version 3"
+msgstr "VFP ვერსია 3"
+
+#. !/flag:vfpv3d16
+#: modules/devices/arm/arm_data.c:57
+msgctxt "arm-flag"
+msgid "VFP version 3 with 16 D-registers"
+msgstr "VFP ვერსია 3 16 D-რეგისტრით"
+
+#. !/flag:vfpv4
+#: modules/devices/arm/arm_data.c:58
+msgctxt "arm-flag"
+msgid "VFP version 4 with fast context switching"
+msgstr "VFP ვერსია 4 სწრაფი კონტექსტის გადართვით"
+
+#. !/flag:vfpd32
+#: modules/devices/arm/arm_data.c:59
+msgctxt "arm-flag"
+msgid "VFP with 32 D-registers"
+msgstr "VFP 32 D-რეგისტრით"
+
+#. !/flag:tls
+#: modules/devices/arm/arm_data.c:60
+msgctxt "arm-flag"
+msgid "TLS register"
+msgstr "TLS რეგისტრი"
+
+#. !/flag:idiva
+#: modules/devices/arm/arm_data.c:61
+msgctxt "arm-flag"
+msgid "SDIV and UDIV hardware division in ARM mode"
+msgstr "SDIV და UDIV აპარატურის განყოფილება ARM რეჟიმში"
+
+#. !/flag:idivt
+#: modules/devices/arm/arm_data.c:62
+msgctxt "arm-flag"
+msgid "SDIV and UDIV hardware division in Thumb mode"
+msgstr "SDIV და UDIV აპარატურის განყოფილება რეჟიმში Thumb"
+
+#. !/flag:lpae
+#: modules/devices/arm/arm_data.c:63
+msgctxt "arm-flag"
+msgid "40-bit Large Physical Address Extension"
+msgstr "40-ბიტიანი დიდი ფიზიკური მისამართის გაფართოება"
+
+#. !/flag:pmull
+#: modules/devices/arm/arm_data.c:65
+msgctxt "arm-flag"
+msgid "64x64->128-bit F2m multiplication (arch>=8)"
+msgstr "64x64->128-ბიტიანი F2m გამრავლება (arch>=8)"
+
+#. !/flag:aes
+#: modules/devices/arm/arm_data.c:66
+msgctxt "arm-flag"
+msgid "Crypto:AES (arch>=8)"
+msgstr "Crypto:AES (arch>=8)"
+
+#. !/flag:sha1
+#: modules/devices/arm/arm_data.c:67
+msgctxt "arm-flag"
+msgid "Crypto:SHA1 (arch>=8)"
+msgstr "Crypto:SHA1 (arch>=8)"
+
+#. !/flag:sha2
+#: modules/devices/arm/arm_data.c:68
+msgctxt "arm-flag"
+msgid "Crypto:SHA2 (arch>=8)"
+msgstr "Crypto:SHA2 (arch>=8)"
+
+#. !/flag:crc32
+#: modules/devices/arm/arm_data.c:69
+msgctxt "arm-flag"
+msgid "CRC32 checksum instructions (arch>=8)"
+msgstr "CRC32 საკონტროლო ჯამის ინსტრუქციები (arch>=8)"
+
+#. !/flag:fp
+#: modules/devices/arm/arm_data.c:71
+msgctxt "arm-flag"
+msgid "Floating-point on AArch64 (arch>=8)"
+msgstr "მცურავმძიმიანი ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:asimd
+#: modules/devices/arm/arm_data.c:72
+msgctxt "arm-flag"
+msgid "Advanced SIMD/NEON on AArch64 (arch>=8)"
+msgstr "გაფართოებული SIMD/NEON AArch64-ზე (arch>=8)"
+
+#. !/flag:atomics
+#: modules/devices/arm/arm_data.c:73
+msgctxt "arm-flag"
+msgid "Atomic instructions on AArch64 (arch>=8)"
+msgstr "ატომური ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:fphp
+#: modules/devices/arm/arm_data.c:74
+msgctxt "arm-flag"
+msgid "Half precision floating point on AArch64 (arch>=8)"
+msgstr "ნახევარსიზუსტიანი მცურავმძიმიანი ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:asimdhp
+#: modules/devices/arm/arm_data.c:75
+msgctxt "arm-flag"
+msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
+msgstr "დამატებითი SIMD BFloat16-ით AArch64-ზე (arch>=8)"
+
+#. !/flag:cpuid
+#: modules/devices/arm/arm_data.c:76
+msgctxt "arm-flag"
+msgid "CPU features can be read on AArch64 (arch>=8)"
+msgstr "CPU-ის ფუნქციები შეიძლება, წაიკითხოთ AArch64-ზე (arch>=8)"
+
+#. !/flag:asimdrdm
+#: modules/devices/arm/arm_data.c:77
+msgctxt "arm-flag"
+msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
+msgstr "დამატებითი SIMD დამრგვალება MulAcc AArch64-ზე (arch>=8)"
+
+#. !/flag:jscvt
+#: modules/devices/arm/arm_data.c:78
+msgctxt "arm-flag"
+msgid "JacaScript conversion on AArch64 (arch>=8)"
+msgstr "JavaScript-ის გადაყვანა AArch64-ზე (arch>=8)"
+
+#. !/flag:fcma
+#: modules/devices/arm/arm_data.c:79
+msgctxt "arm-flag"
+msgid "Complex number SIMD on AArch64 (arch>=8)"
+msgstr "კომპლექსური რიცხვების SIMD AArch64-ზე (arch>=8)"
+
+#. !/flag:lrcpc
+#: modules/devices/arm/arm_data.c:80
+msgctxt "arm-flag"
+msgid "Weak release consistency on AArch64 (arch>=8)"
+msgstr "სუსტი რელიზების შეთანხმება AArch64-ზე (arch>=8)"
+
+#. !/flag:dcpop
+#: modules/devices/arm/arm_data.c:81
+msgctxt "arm-flag"
+msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
+msgstr ""
+
+#. !/flag:sha3
+#: modules/devices/arm/arm_data.c:82
+msgctxt "arm-flag"
+msgid "SHA-3 instructions on AArch64 (arch>=8)"
+msgstr "SHA-3 ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:sm3
+#: modules/devices/arm/arm_data.c:83
+msgctxt "arm-flag"
+msgid "SM3 instructions on AArch64 (arch>=8)"
+msgstr "SM3 ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:sm4
+#: modules/devices/arm/arm_data.c:84
+msgctxt "arm-flag"
+msgid "SM4 instructions on AArch64 (arch>=8)"
+msgstr "SM4 ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:asimddp
+#: modules/devices/arm/arm_data.c:85
+msgctxt "arm-flag"
+msgid "SIMD Dot Product on AArch64 (arch>=8)"
+msgstr ""
+
+#. !/flag:sha512
+#: modules/devices/arm/arm_data.c:86
+msgctxt "arm-flag"
+msgid "SHA512 instructions on AArch64 (arch>=8)"
+msgstr "SHA512 ინსტრუქციები AArch64-ზე (arch>=8)"
+
+#. !/flag:sve
+#: modules/devices/arm/arm_data.c:87
+msgctxt "arm-flag"
+msgid "Scalable Vector Extension on AArch64 (arch>=8)"
+msgstr "მასშტაბირებადი ვექტორული გაფართოება AArch64-ზე (arch>=8)"
+
+#: modules/devices/arm/processor.c:46 modules/devices/e2k/processor.c:30
+#: modules/devices/riscv/processor.c:36 modules/devices/x86/processor.c:149
+msgid "Cache information not available=\n"
+msgstr "კეშის ინფორმაცია მიუწვდომელია=\n"
+
+#: modules/devices/arm/processor.c:52 modules/devices/e2k/processor.c:36
+#: modules/devices/riscv/processor.c:42 modules/devices/x86/processor.c:155
+#, c-format
+msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
+msgstr ""
+
+#: modules/devices/arm/processor.c:174 modules/devices/e2k/processor.c:163
+#: modules/devices/riscv/processor.c:164 modules/devices/x86/processor.c:366
+msgid "Caches"
+msgstr "კეშები"
+
+#: modules/devices/arm/processor.c:225 modules/devices/arm/processor.c:242
+#: modules/devices/e2k/processor.c:214 modules/devices/e2k/processor.c:231
+#: modules/devices/riscv/processor.c:215 modules/devices/riscv/processor.c:232
+#: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
+#, c-format
+msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
+msgstr ""
+
+#: modules/devices/arm/processor.c:365
+msgid "ARM Processor"
+msgstr "ARM პროცესორი"
+
+#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:522
+#: modules/devices/x86/processor.c:609
+msgid "Empty List"
+msgstr "ცარიელი სია"
+
+#: modules/devices/arm/processor.c:461 modules/devices/gpu.c:210
+#: modules/devices/gpu.c:300 modules/devices/riscv/processor.c:330
+#: modules/devices/x86/processor.c:267
+msgid "Clocks"
+msgstr "საათები"
+
+#: modules/devices/arm/processor.c:507 modules/devices/arm/processor.c:520
+#: modules/devices/riscv/processor.c:376 modules/devices/riscv/processor.c:389
+#: modules/devices/x86/processor.c:313 modules/devices/x86/processor.c:326
+#, c-format
+msgid "%.2f-%.2f %s=%dx\n"
+msgstr "%.2f-%.2f %s=%dx\n"
+
+#: modules/devices/arm/processor.c:564
+msgid "Linux Name"
+msgstr "Linux-ის სახელი"
+
+#: modules/devices/arm/processor.c:565
+msgid "Decoded Name"
+msgstr "გაშიფრული სახელი"
+
+#: modules/devices/arm/processor.c:566 modules/network/net.c:476
+msgid "Mode"
+msgstr "რეჟიმი"
+
+#: modules/devices/arm/processor.c:573
+msgid "ARM"
+msgstr "ARM"
+
+#: modules/devices/arm/processor.c:574
+msgid "Implementer"
+msgstr "განმახორციელებელი"
+
+#: modules/devices/arm/processor.c:575 modules/devices/dmi_memory.c:874
+msgid "Part"
+msgstr "ნაწილი"
+
+#: modules/devices/arm/processor.c:576 modules/devices/ia64/processor.c:162
+#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:588
+msgid "Architecture"
+msgstr "არქიტექტურა"
+
+#: modules/devices/arm/processor.c:577
+msgid "Variant"
+msgstr "ვარიანტი"
+
+#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:596
+#: modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
+msgid "Capabilities"
+msgstr "შესაძლებლობები"
+
+#: modules/devices/arm/processor.c:739 modules/devices/riscv/processor.c:550
+msgid "SOC/Package"
+msgstr "SOC/პაკეტი"
+
+#: modules/devices/arm/processor.c:743 modules/devices/riscv/processor.c:554
+#: modules/devices/x86/processor.c:754
+msgid "Logical CPU Config"
+msgstr "ლოგიკური პროცესორის კონფიგურაცია"
+
+#: modules/devices/arm/processor.c:764 modules/devices/riscv/processor.c:611
+msgid "SOC/Package Information"
+msgstr "SOC/პაკეტის ინფორმაცია"
+
+#: modules/devices/arm/processor.c:794 modules/devices/riscv/processor.c:643
+#: modules/devices/x86/processor.c:814
+msgid "Socket:Core"
+msgstr "სოკეტი:ბირთვი"
+
+#: modules/devices/battery.c:178
+#, c-format
+msgid ""
+"\n"
+"[Battery: %s]\n"
+"State=%s (load: %s)\n"
+"Capacity=%s / %s (%.2f%%)\n"
+"Battery Technology=%s (%s)\n"
+"Manufacturer=%s\n"
+"Model Number=%s\n"
+"Serial Number=%s\n"
+msgstr ""
+
+#: modules/devices/battery.c:262
+#, c-format
+msgid ""
+"\n"
+"[AC Power Supply: %s]\n"
+"Online=%s\n"
+"AC Power Type=%s\n"
+msgstr ""
+
+#: modules/devices/battery.c:299
+#, c-format
+msgid ""
+"\n"
+"[Battery: %s]\n"
+"State=%s\n"
+"Capacity=%s %% / %s\n"
+"Battery Usage=%.0f W\n"
+"Battery Health=%.0f %%\n"
+"Design Full Energy=%.3f Wh\n"
+"Current Full Energy=%.3f Wh\n"
+"Design Full Capacity=%.3f Ah\n"
+"Current Full Capacity=%.3f Ah\n"
+"Voltage Design=%.3f V\n"
+"Battery Technology=%s\n"
+"Manufacturer=%s\n"
+"Model Number=%s\n"
+"Serial Number=%s\n"
+msgstr ""
+
+#: modules/devices/battery.c:412
+#, c-format
+msgid ""
+"\n"
+"[Battery (APM)]\n"
+"Charge=%d%%\n"
+"Remaining Charge=%s of %s\n"
+"Using=%s\n"
+"APM driver version=%s\n"
+"APM BIOS version=%s\n"
+msgstr ""
+
+#: modules/devices/battery.c:424
+#, c-format
+msgid ""
+"\n"
+"[Battery (APM)]\n"
+"Charge=%d%%\n"
+"Using=%s\n"
+"APM driver version=%s\n"
+"APM BIOS version=%s\n"
+msgstr ""
+
+#: modules/devices/battery.c:453
+msgid ""
+"[No batteries]\n"
+"No batteries found on this system=\n"
+msgstr ""
+
+#: modules/devices.c:100
+msgid "Graphics Processors"
+msgstr "გრაფიკული პროცესორები"
+
+#: modules/devices.c:101 modules/devices/monitors.c:446
+#: modules/devices/monitors.c:492
+msgid "Monitors"
+msgstr "ეკრანები"
+
+#: modules/devices.c:102 modules/devices/pci.c:196
+msgid "PCI Devices"
+msgstr "PCI მოწყობილობები"
+
+#: modules/devices.c:103 modules/devices/usb.c:212
+msgid "USB Devices"
+msgstr "USB მოწყობილობები"
+
+#: modules/devices.c:104
+msgid "Firmware"
+msgstr "მიკროკოდი"
+
+#: modules/devices.c:106
+msgid "Battery"
+msgstr "ელემენტი"
+
+#: modules/devices.c:107
+msgid "Sensors"
+msgstr "სენსორები"
+
+#: modules/devices.c:110
+msgid "System DMI"
+msgstr "სისტემური DMI"
+
+#: modules/devices.c:111
+msgid "Memory Devices"
+msgstr "მეხსიერების მოწყობილობები"
+
+#: modules/devices.c:113 modules/devices.c:115
+msgid "Device Tree"
+msgstr "მოწყობილობების ხე"
+
+#: modules/devices.c:117
+msgid "Resources"
+msgstr "რესურსები"
+
+#: modules/devices.c:318
+msgid "Distro and CPU Supported Profiles"
+msgstr "დისტრიბუციისა და CPU-ს მხარდაჭერილი პროფილები"
+
+#: modules/devices.c:749
+msgid "WSL2"
+msgstr "WSL2"
+
+#: modules/devices.c:1008
+msgid "Sensor"
+msgstr "სენსორი"
+
+#: modules/devices.c:1066 modules/devices/dmi_memory.c:806
+msgid "Devices"
+msgstr "მოწყობილობები"
+
+#: modules/devices.c:1078
+msgid "Update PCI ID listing"
+msgstr "PCI ID ჩამონათვლის განახლება"
+
+#: modules/devices.c:1083
+msgid "Update USB ID listing"
+msgstr "USB ID ჩამონათვლის განახლება"
+
+#: modules/devices.c:1088
+msgid "Update EDID vendor codes"
+msgstr "EDID მომწოდებლის კოდების განახლება"
+
+#: modules/devices.c:1093
+msgid "Update IEEE OUI vendor codes"
+msgstr "IEEE OUI მომწოდებლის კოდების განახლება"
+
+#: modules/devices.c:1098
+msgid "Update SD card manufacturer information"
+msgstr "SD ბარათის მწარმოებლის ინფორმაციის განახლება"
+
+#: modules/devices.c:1105
+msgid "Update CPU flags database"
+msgstr "CPU-ის ალმების მონაცემთა ბაზის განახლება"
+
+#: modules/devices.c:1140
+msgid "Gathers information about hardware devices"
+msgstr "აგროვებს ინფორმაციას აპარატურული მოწყობილობების შესახებ"
+
+#: modules/devices.c:1161
+msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
+msgstr ""
+
+#: modules/devices.c:1164
+msgid "A full <i><b>pci.ids</b></i> is not available on the system."
+msgstr ""
+
+#: modules/devices.c:1169 modules/devices/dmi_memory.c:938
+msgid ""
+"Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
+"--now (SystemD distro)\n"
+"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"And Logout/Reboot for groups to be updated..."
+msgstr ""
+
+#: modules/devices.c:1175
+msgid ""
+"Any NVMe storage devices present are not listed.\n"
+"<b><i>udisks2</i></b> is required for NVMe devices."
+msgstr ""
+
+#: modules/devices/devicetree.c:51
+msgid "Properties"
+msgstr "თვისებები"
+
+#: modules/devices/devicetree.c:52
+msgid "Children"
+msgstr "ბავშვები"
+
+#: modules/devices/devicetree.c:88
+msgid "Node"
+msgstr "კვანძი"
+
+#: modules/devices/devicetree.c:89
+msgid "Node Path"
+msgstr "კვანძის ბილიკი"
+
+#: modules/devices/devicetree.c:90
+msgid "Alias"
+msgstr "ფსევდონიმი"
+
+#: modules/devices/devicetree.c:91
+msgid "Symbol"
+msgstr "სიმბოლო"
+
+#: modules/devices/devicetree.c:144 modules/devices/devicetree/pmac_data.c:79
+msgid "Platform"
+msgstr "პლატფორმა"
+
+#: modules/devices/devicetree.c:145 modules/devices/devicetree.c:210
+#: modules/devices/gpu.c:305
+msgid "Compatible"
+msgstr "თავსებადია"
+
+#: modules/devices/devicetree.c:146
+msgid "GPU-compatible"
+msgstr "GPU-სთან თავსებადი"
+
+#: modules/devices/devicetree.c:161
+msgid "Raspberry Pi or Compatible"
+msgstr "Raspberry Pi ან თავსებადი"
+
+#: modules/devices/devicetree.c:163 modules/devices/devicetree.c:190
+#: modules/devices/devicetree.c:209 modules/devices/devicetree/rpi_data.c:169
+#: modules/devices/dmi.c:42 modules/devices/dmi.c:52 modules/devices/dmi.c:58
+#: modules/devices/spd-decode.c:1547 modules/devices/usb.c:182
+msgid "Serial Number"
+msgstr "სერიული ნომერი"
+
+#: modules/devices/devicetree.c:164 modules/devices/devicetree/rpi_data.c:166
+msgid "RCode"
+msgstr "RCode"
+
+#: modules/devices/devicetree.c:164
+msgid "No revision code available; unable to lookup model details."
+msgstr ""
+
+#: modules/devices/devicetree.c:189
+msgid "More"
+msgstr "მეტი"
+
+#: modules/devices/devicetree.c:270
+msgid "Messages"
+msgstr "შეტყობინებები"
+
+#: modules/devices/devicetree/pmac_data.c:78
+msgid "Apple Power Macintosh"
+msgstr "Apple Power Macintosh"
+
+#: modules/devices/devicetree/pmac_data.c:83
+msgid "Detected as"
+msgstr "აღმოჩენილია, როგორც"
+
+#: modules/devices/devicetree/pmac_data.c:84
+msgid "PMAC Flags"
+msgstr "PMAC-ის ალმები"
+
+#: modules/devices/devicetree/pmac_data.c:85
+msgid "L2 Cache"
+msgstr "L2 კეში"
+
+#: modules/devices/devicetree/pmac_data.c:86
+msgid "PMAC Generation"
+msgstr "PMAC გენერაცია"
+
+#: modules/devices/devicetree/rpi_data.c:161
+#: modules/devices/devicetree/rpi_data.c:162
+msgid "Raspberry Pi"
+msgstr "Raspberry Pi"
+
+#: modules/devices/devicetree/rpi_data.c:162
+msgid "Board Name"
+msgstr "დაფის სახელი"
+
+#: modules/devices/devicetree/rpi_data.c:163
+msgid "PCB Revision"
+msgstr "PCB-ის რევიზია"
+
+#: modules/devices/devicetree/rpi_data.c:164
+msgid "Introduction"
+msgstr "შესავალი"
+
+#: modules/devices/devicetree/rpi_data.c:165 modules/devices/usb.c:174
+msgid "Manufacturer"
+msgstr "მწარმოებელი"
+
+#: modules/devices/devicetree/rpi_data.c:167
+msgid "SOC (spec)"
+msgstr "SOC (სპეციფიკაცია)"
+
+#: modules/devices/devicetree/rpi_data.c:168
+msgid "Memory (spec)"
+msgstr "მეხსიერება (სპეციფიკაცია)"
+
+#: modules/devices/devicetree/rpi_data.c:170
+msgid "Permanent overvolt bit"
+msgstr "მუდმივი ზევოლტაჟის ბიტი"
+
+#: modules/devices/devicetree/rpi_data.c:170
+msgctxt "rpi-ov-bit"
+msgid "Set"
+msgstr "დაყენებულია"
+
+#: modules/devices/devicetree/rpi_data.c:170
+msgctxt "rpi-ov-bit"
+msgid "Not set"
+msgstr "დაყენებული არაა"
+
+#: modules/devices/dmi.c:37 modules/devices/inputdevices.c:145
+#: modules/devices/usb.c:171
+msgid "Product"
+msgstr "პროდუქტი"
+
+#: modules/devices/dmi.c:39 modules/devices/e2k/processor.c:366
+#: modules/devices/ia64/processor.c:164
+#: modules/devices/loongarch64/processor.c:95 modules/devices/sh/processor.c:86
+msgid "Family"
+msgstr "ოჯახი"
+
+#: modules/devices/dmi.c:43
+msgid "SKU"
+msgstr "SKU"
+
+#: modules/devices/dmi.c:44
+msgid "BIOS"
+msgstr "BIOS"
+
+#: modules/devices/dmi.c:53 modules/devices/dmi.c:59
+msgid "Asset Tag"
+msgstr "აქტივის ჭდე"
+
+#: modules/devices/dmi.c:151
+msgid "DMI Unavailable"
+msgstr "DMI მიუწვდომელია"
+
+#: modules/devices/dmi.c:152
+msgid "DMI is not available. Perhaps this platform does not provide DMI."
+msgstr "DMI არ არის ხელმისაწვდომი. ალბათ, ეს პლატფორმა არ უზრუნველყოფს DMI-ის."
+
+#: modules/devices/dmi_memory.c:620 modules/devices/dmi_memory.c:859
+msgid "Memory Device List"
+msgstr "მეხსიერების მოწყობილობების სია"
+
+#: modules/devices/dmi_memory.c:668
+msgid "Memory Array"
+msgstr "მეხსიერების მასივი"
+
+#: modules/devices/dmi_memory.c:669 modules/devices/x86/processor.c:714
+msgid "DMI Handle"
+msgstr "DMI დამუშავება"
+
+#: modules/devices/dmi_memory.c:670 modules/devices/dmi_memory.c:726
+#: modules/devices/dmi_memory.c:764 modules/devices/dmi_memory.c:871
+msgid "Locator"
+msgstr "ლოკატორი"
+
+#: modules/devices/dmi_memory.c:671
+msgid "Use"
+msgstr "გამოყენება"
+
+#: modules/devices/dmi_memory.c:672
+msgid "Error Correction Type"
+msgstr "შეცდომის გამოსწორების ტიპი"
+
+#: modules/devices/dmi_memory.c:673
+msgid "Size (Present / Max)"
+msgstr "ზომა (არსებული / მაქს)"
+
+#: modules/devices/dmi_memory.c:674
+msgid "Devices (Populated / Sockets)"
+msgstr "მოწყობილობები (ჩასმული / სოკეტები)"
+
+#: modules/devices/dmi_memory.c:675 modules/devices/dmi_memory.c:807
+msgid "Types Present"
+msgstr "წარმოდგენილი ტიპები"
+
+#: modules/devices/dmi_memory.c:676
+msgid "ROM Size"
+msgstr "ROM-ის ზომა"
+
+#: modules/devices/dmi_memory.c:724 modules/devices/dmi_memory.c:762
+msgid "Memory Socket"
+msgstr "მეხსიერების სოკეტი"
+
+#: modules/devices/dmi_memory.c:725 modules/devices/dmi_memory.c:763
+msgid "DMI Handles (Array, Socket)"
+msgstr "DMI დამუშავებები (მასივი, სოკეტი)"
+
+#: modules/devices/dmi_memory.c:727 modules/devices/dmi_memory.c:765
+msgid "Bank Locator"
+msgstr "სლოტის მომძებნი"
+
+#: modules/devices/dmi_memory.c:728 modules/devices/spd-decode.c:1540
+msgid "Form Factor"
+msgstr "ზომა"
+
+#: modules/devices/dmi_memory.c:732 modules/devices/spd-decode.c:1546
+msgid "Part Number"
+msgstr "ნაწილის ნომერი"
+
+#: modules/devices/dmi_memory.c:734
+msgid "Rated Speed"
+msgstr "ნომინალური სიჩქარე"
+
+#: modules/devices/dmi_memory.c:735
+msgid "Configured Speed"
+msgstr "მორგებული სიჩქარე"
+
+#: modules/devices/dmi_memory.c:736
+msgid "Data Width/Total Width"
+msgstr "მონაცემთა სიგანე/მთლიანი სიგანე"
+
+#: modules/devices/dmi_memory.c:737
+msgid "Rank"
+msgstr "რანგი"
+
+#: modules/devices/dmi_memory.c:738
+msgid "Minimum Voltage"
+msgstr "მინიმალური ძაბვა"
+
+#: modules/devices/dmi_memory.c:739
+msgid "Maximum Voltage"
+msgstr "მაქსიმალური ძაბვა"
+
+#: modules/devices/dmi_memory.c:740
+msgid "Configured Voltage"
+msgstr "მორგებული ძაბვა"
+
+#: modules/devices/dmi_memory.c:766 modules/devices/dmi_memory.c:773
+#: modules/devices/monitors.c:492
+msgid "(Empty)"
+msgstr "(ცარიელი)"
+
+#: modules/devices/dmi_memory.c:804
+msgid "Serial Presence Detect (SPD) Summary"
+msgstr ""
+
+#: modules/devices/dmi_memory.c:860
+msgid "(Not available - See hint box below)"
+msgstr ""
+
+#: modules/devices/dmi_memory.c:932
+msgid "No DMI available"
+msgstr "DMI ხელმისაწვდომი არაა"
+
+#: modules/devices/dmi_memory.c:937
+msgid "<b><i>dmidecode</i></b> package installed"
+msgstr "<b><i>dmidecode</i></b> პაკეტი დაყენებულია"
+
+#: modules/devices/dmi_memory.c:948
+msgid "Memory Information requires more Setup:"
+msgstr ""
+
+#: modules/devices/dmi_memory.c:976
+msgid ""
+"\"More often than not, information contained in the DMI tables is "
+"inaccurate,\n"
+"incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
+msgstr ""
+
+#: modules/devices/e2k/processor.c:51
+msgctxt "cache-type"
+msgid "Data"
+msgstr "მონაცემები"
+
+#: modules/devices/e2k/processor.c:52
+msgctxt "cache-type"
+msgid "Instruction"
+msgstr "ინსტრუქცია"
+
+#: modules/devices/e2k/processor.c:53
+msgctxt "cache-type"
+msgid "Unified"
+msgstr "გაერთიანებული"
+
+#: modules/devices/firmware.c:36
+msgid "Device cannot be removed easily"
+msgstr ""
+
+#: modules/devices/firmware.c:37
+msgid "Device is updatable in this or any other mode"
+msgstr ""
+
+#: modules/devices/firmware.c:38
+msgid "Update can only be done from offline mode"
+msgstr ""
+
+#: modules/devices/firmware.c:39
+msgid "Requires AC power"
+msgstr "მოითხოვს AC კვებას"
+
+#: modules/devices/firmware.c:40
+msgid "Is locked and can be unlocked"
+msgstr "დაბლოკილია და მისი განბლოკვა შესაძლებელია"
+
+#: modules/devices/firmware.c:41
+msgid "Is found in current metadata"
+msgstr "ნაპოვნია მიმდინარე მეტამონაცემებში"
+
+#: modules/devices/firmware.c:42
+msgid "Requires a bootloader mode to be manually enabled by the user"
+msgstr ""
+
+#: modules/devices/firmware.c:43
+msgid "Has been registered with other plugins"
+msgstr "რეგისტრირებულია სხვა დამატებებთან"
+
+#: modules/devices/firmware.c:44
+msgid "Requires a reboot to apply firmware or to reload hardware"
+msgstr ""
+
+#: modules/devices/firmware.c:45
+msgid "Requires system shutdown to apply firmware"
+msgstr ""
+
+#: modules/devices/firmware.c:46
+msgid "Has been reported to a metadata server"
+msgstr ""
+
+#: modules/devices/firmware.c:47
+msgid "User has been notified"
+msgstr "მომხმარებელი გაფრთხილებულია"
+
+#: modules/devices/firmware.c:48
+msgid "Always use the runtime version rather than the bootloader"
+msgstr ""
+
+#: modules/devices/firmware.c:49
+msgid "Install composite firmware on the parent before the child"
+msgstr ""
+
+#: modules/devices/firmware.c:50
+msgid "Is currently in bootloader mode"
+msgstr "ამჟამად ჩამტვირთავის რეჟიმშია"
+
+#: modules/devices/firmware.c:51
+msgid "The hardware is waiting to be replugged"
+msgstr "აპარატურა თავიდან შეერთებას ელოდება"
+
+#: modules/devices/firmware.c:52
+msgid "Ignore validation safety checks when flashing this device"
+msgstr ""
+
+#: modules/devices/firmware.c:53
+msgid "Requires the update to be retried with a new plugin"
+msgstr ""
+
+#: modules/devices/firmware.c:54
+msgid "Do not add instance IDs from the device baseclass"
+msgstr ""
+
+#: modules/devices/firmware.c:55
+msgid "Device update needs to be separately activated"
+msgstr ""
+
+#: modules/devices/firmware.c:56
+msgid ""
+"Ensure the version is a valid semantic version, e.g. numbers separated with "
+"dots"
+msgstr ""
+
+#: modules/devices/firmware.c:57
+msgid "Extra metadata can be exposed about this device"
+msgstr ""
+
+#: modules/devices/firmware.c:74
+msgid "DeviceId"
+msgstr "DeviceId"
+
+#: modules/devices/firmware.c:74 modules/devices/firmware.c:189
+msgid "Guid"
+msgstr "Guid"
+
+#: modules/devices/firmware.c:74
+msgid "Plugin"
+msgstr "დამატება"
+
+#: modules/devices/firmware.c:74 modules/devices/firmware.c:207
+#: modules/network.c:538
+msgid "Flags"
+msgstr "ალმები"
+
+#: modules/devices/firmware.c:75
+msgid "VendorId"
+msgstr "VendorId"
+
+#: modules/devices/firmware.c:75
+msgid "VersionBootloader"
+msgstr "VersionBootloader"
+
+#: modules/devices/firmware.c:76 modules/devices/firmware.c:181
+msgid "Icon"
+msgstr "ხატულა"
+
+#: modules/devices/firmware.c:76
+msgid "InstallDuration"
+msgstr "InstallDuration"
+
+#: modules/devices/firmware.c:76 modules/devices/firmware.c:199
+msgid "Created"
+msgstr "შექმნის თარიღი"
+
+#: modules/devices/firmware.c:76 modules/devices/monitors.c:409
+msgid "Checksum"
+msgstr "საკონტროლო ჯამი"
+
+#: modules/devices/firmware.c:77 modules/devices/usb.c:139
+#: modules/devices/usb.c:180 modules/network.c:505
+msgid "Protocol"
+msgstr "პროტოკოლი"
+
+#: modules/devices/firmware.c:245
+msgid "Firmware List"
+msgstr "მიკროკოდების სია"
+
+#: modules/devices/firmware.c:258
+msgid "Requires the <i><b>fwupd</b></i> daemon."
+msgstr "სჭირდება დემონი <i><b>fwupd</b></i>."
+
+#: modules/devices/gpu.c:94 modules/devices/pci.c:132
+#: modules/devices/storage.c:58
+msgid "SVendor"
+msgstr "SVendor"
+
+#: modules/devices/gpu.c:95 modules/devices/pci.c:133
+#: modules/devices/storage.c:59
+msgid "SDevice"
+msgstr "SDevice"
+
+#: modules/devices/gpu.c:103 modules/devices/pci.c:143
+#: modules/devices/storage.c:68
+msgid "PCI Express"
+msgstr "PCI Express"
+
+#: modules/devices/gpu.c:104 modules/devices/pci.c:145
+#: modules/devices/storage.c:70
+msgid "Maximum Link Width"
+msgstr "მაქსიმალირი კავშირის სიგანე"
+
+#: modules/devices/gpu.c:105 modules/devices/pci.c:147
+#: modules/devices/storage.c:71
+msgid "Maximum Link Speed"
+msgstr "მაქსიმალური კავშირის სიჩქარე"
+
+#: modules/devices/gpu.c:105 modules/devices/pci.c:146
+#: modules/devices/pci.c:147 modules/devices/storage.c:71
+msgid "GT/s"
+msgstr "GT/s"
+
+#: modules/devices/gpu.c:115
+msgid "NVIDIA"
+msgstr "NVIDIA"
+
+#: modules/devices/gpu.c:117
+msgid "BIOS Version"
+msgstr "BIOS-ის ვერსია"
+
+#: modules/devices/gpu.c:118
+msgid "UUID"
+msgstr "UUID"
+
+#: modules/devices/gpu.c:203 modules/devices/gpu.c:295
+#: modules/devices/inputdevices.c:140 modules/devices/pci.c:164
+#: modules/devices/usb.c:170
+msgid "Device Information"
+msgstr "დისკის ინფორმაცია"
+
+#: modules/devices/gpu.c:205 modules/devices/gpu.c:297
+#: modules/devices/storage.c:69
+msgid "Location"
+msgstr "მდებარეობა"
+
+#: modules/devices/gpu.c:206
+msgid "DRM Device"
+msgstr "DRM მოწყობილობა"
+
+#: modules/devices/gpu.c:207 modules/devices/pci.c:165
+#: modules/devices/usb.c:137 modules/devices/usb.c:178
+msgid "Class"
+msgstr "კლასი"
+
+#: modules/devices/gpu.c:216 modules/devices/pci.c:170
+msgid "In Use"
+msgstr "გამოყენებულია"
+
+#: modules/devices/gpu.c:251
+msgid "Unknown integrated GPU"
+msgstr "უცნობი ინტეგრირებული GPU"
+
+#: modules/devices/gpu.c:259
+msgid "clock-frequency property"
+msgstr "საათის სიხშირის თვისება"
+
+#: modules/devices/gpu.c:260
+msgid "Operating Points (OPPv1)"
+msgstr "საოპერაციო წერტილები (OPPv1)"
+
+#: modules/devices/gpu.c:261
+msgid "Operating Points (OPPv2)"
+msgstr "საოპერაციო წერტილები (OPPv2)"
+
+#: modules/devices/gpu.c:303
+msgid "Device Tree Node"
+msgstr "მოწყობილობის ხის კვანძი"
+
+#: modules/devices/gpu.c:306 modules/devices/monitors.c:472
+#: modules/network/net.c:477
+msgid "Status"
+msgstr "სტატუსი"
+
+#: modules/devices/gpu.c:323
+msgid "GPUs"
+msgstr "GPU-ები"
+
+#: modules/devices/gpu.c:347
+msgid "No GPU devices found"
+msgstr "GPU მოწყობილობები აღმოჩენილი არაა"
+
+#: modules/devices/ia64/processor.c:108
+msgid "IA64 Processor"
+msgstr "პროცესორი IA64"
+
+#: modules/devices/ia64/processor.c:163
+msgid "Architecture Revision"
+msgstr "არქიტექტურის რევიზია"
+
+#: modules/devices/ia64/processor.c:170
+msgid "CPU regs"
+msgstr "CPU-ის რეგისტრები"
+
+#: modules/devices/ia64/processor.c:171
+#: modules/devices/loongarch64/processor.c:100
+msgid "Features"
+msgstr "თვისებები"
+
+#: modules/devices/inputdevices.c:143 modules/devices/pci.c:174
+#: modules/devices/usb.c:184
+msgid "Bus"
+msgstr "სალტე"
+
+#: modules/devices/inputdevices.c:149
+msgid "Connected to"
+msgstr "დაკავშირებულია"
+
+#: modules/devices/inputdevices.c:153
+msgid "InfraRed port"
+msgstr "ინფრაწითელი პორტი"
+
+#: modules/devices/loongarch64/processor.c:94
+#: modules/devices/mips/processor.c:76
+msgid "System Type"
+msgstr "სისტემის ტიპი"
+
+#: modules/devices/loongarch64/processor.c:99
+msgid "BogoMIPS"
+msgstr "BogoMIPS"
+
+#: modules/devices/m68k/processor.c:85 modules/devices/riscv/processor.c:590
+msgid "MMU"
+msgstr "MMU"
+
+#: modules/devices/m68k/processor.c:86 modules/devices/sparc/processor.c:76
+msgid "FPU"
+msgstr "FPU"
+
+#: modules/devices/m68k/processor.c:90
+msgid "Calibration"
+msgstr "კალიბრაცია"
+
+#: modules/devices/monitors.c:30 modules/devices/monitors.c:254
+#: modules/devices/monitors.c:347 modules/devices/spd-decode.c:699
+msgid "(Unspecified)"
+msgstr "(მიუთითებელი)"
+
+#: modules/devices/monitors.c:229
+#, c-format
+msgid "Week %d of %d"
+msgstr "კვირა %d %d-დან"
+
+#: modules/devices/monitors.c:239
+msgid "Ok"
+msgstr "დიახ"
+
+#: modules/devices/monitors.c:239
+msgid "Fail"
+msgstr "ჩავარდნა"
+
+#: modules/devices/monitors.c:267 modules/devices/monitors.c:275
+#: modules/devices/monitors.c:283 modules/devices/monitors.c:294
+#: modules/devices/monitors.c:302 modules/devices/monitors.c:309
+#: modules/devices/monitors.c:317 modules/devices/monitors.c:325
+#: modules/devices/monitors.c:333 modules/devices/monitors.c:339
+msgid "(Empty List)"
+msgstr "(ცარიელი სია)"
+
+#: modules/devices/monitors.c:391
+msgid "Signal Type"
+msgstr "სიგნალის ტიპი"
+
+#: modules/devices/monitors.c:391
+msgid "Digital"
+msgstr "ციფრული"
+
+#: modules/devices/monitors.c:391
+msgid "Analog"
+msgstr "ანალოგური"
+
+#: modules/devices/monitors.c:392 modules/devices/usb.c:136
+#: modules/network.c:468 modules/network.c:521 modules/network.c:538
+msgid "Interface"
+msgstr "ინტერფეისი"
+
+#: modules/devices/monitors.c:393
+msgid "Bits per Color Channel"
+msgstr "ბიტი თითო ფერის არხისთვის"
+
+#: modules/devices/monitors.c:394
+msgid "Speaker Allocation"
+msgstr "დინამიკის გამოთხოვა"
+
+#: modules/devices/monitors.c:395
+msgid "Output (Max)"
+msgstr "გამოტანა (მაქს)"
+
+#: modules/devices/monitors.c:398
+msgid "EDID Device"
+msgstr "EDID მოწყობილობა"
+
+#: modules/devices/monitors.c:402
+msgid "Serial"
+msgstr "სერიული"
+
+#: modules/devices/monitors.c:403
+msgid "Manufacture Date"
+msgstr "წარმოების თარიღი"
+
+#: modules/devices/monitors.c:404
+msgid "EDID Meta"
+msgstr "EDID მეტა"
+
+#: modules/devices/monitors.c:405
+msgid "Data Size"
+msgstr "მონაცემების ზომა"
+
+#: modules/devices/monitors.c:405
+msgid "bytes"
+msgstr "ბაიტი"
+
+#: modules/devices/monitors.c:407
+msgid "Extension Blocks"
+msgstr "გაფართოების ბლოკები"
+
+#: modules/devices/monitors.c:408
+msgid "Extended to"
+msgstr "გაფართოებულია სადამდე"
+
+#: modules/devices/monitors.c:410
+msgid "EDID Descriptors"
+msgstr "EDID-ის დესკრიპტორები"
+
+#: modules/devices/monitors.c:411
+msgid "Detailed Timing Descriptors (DTD)"
+msgstr "დეტალური დროის აღწერები (DTD)"
+
+#: modules/devices/monitors.c:412
+msgid "Established Timings Bitmap (ETB)"
+msgstr "დადგენილი დროის ბიტური რუკა (ETB)"
+
+#: modules/devices/monitors.c:413
+msgid "Standard Timings (STD)"
+msgstr "სტანდარტული დრო (STD)"
+
+#: modules/devices/monitors.c:414
+msgid "E-EDID Extension Blocks"
+msgstr "E-EDID გაფართოების ბლოკები"
+
+#: modules/devices/monitors.c:415
+msgid "EIA/CEA-861 Data Blocks"
+msgstr "EIA/CEA-861 მონაცემთა ბლოკები"
+
+#: modules/devices/monitors.c:416
+msgid "EIA/CEA-861 Short Audio Descriptors"
+msgstr "EIA/CEA-861 მოკლე აუდიო აღწერები"
+
+#: modules/devices/monitors.c:417
+msgid "EIA/CEA-861 Short Video Descriptors"
+msgstr "EIA/CEA-861 მოკლე ვიდეო აღწერილები"
+
+#: modules/devices/monitors.c:418
+msgid "DisplayID Timings"
+msgstr "DisplayID დროები"
+
+#: modules/devices/monitors.c:419
+msgid "DisplayID Strings"
+msgstr "DisplayID-ის სტრიქონები"
+
+#: modules/devices/monitors.c:420
+msgid "Hex Dump"
+msgstr "თექვსმ. დამპი"
+
+#: modules/devices/monitors.c:420
+msgid "Data"
+msgstr "მონაცემები"
+
+#: modules/devices/monitors.c:470 modules/devices/monitors.c:501
+#: modules/devices/pci.c:172 modules/devices/usb.c:183
+msgid "Connection"
+msgstr "კავშირი"
+
+#: modules/devices/monitors.c:471
+msgid "DRM"
+msgstr "DRM"
+
+#: modules/devices/parisc/processor.c:107
+msgid "PA-RISC Processor"
+msgstr "პროცესორი PA-RISC"
+
+#: modules/devices/parisc/processor.c:161
+msgid "HVersion"
+msgstr "აპვერსია"
+
+#: modules/devices/parisc/processor.c:162
+msgid "SVersion"
+msgstr "პროგვერსია"
+
+#: modules/devices/pci.c:144
+msgid "Link Width"
+msgstr "კავშირის სიგანე"
+
+#: modules/devices/pci.c:146
+msgid "Link Speed"
+msgstr "შეერთების სიჩქარე"
+
+#: modules/devices/pci.c:173
+msgid "Domain"
+msgstr "დომენი"
+
+#: modules/devices/pci.c:176
+msgid "Function"
+msgstr "ფუნქცია"
+
+#: modules/devices/pci.c:217
+msgid "No PCI devices found"
+msgstr "PCI მოწყობილობები აღმოჩენილი არაა"
+
+#: modules/devices/ppc/processor.c:117
+msgid "POWER Processor"
+msgstr "POWER პროცესორი"
+
+#: modules/devices/printers.c:88
+msgid "⚬ Can do black and white printing=\n"
+msgstr ""
+
+#: modules/devices/printers.c:90
+msgid "⚬ Can do color printing=\n"
+msgstr ""
+
+#: modules/devices/printers.c:92
+msgid "⚬ Can do duplexing=\n"
+msgstr ""
+
+#: modules/devices/printers.c:94
+msgid "⚬ Can do staple output=\n"
+msgstr ""
+
+#: modules/devices/printers.c:96
+msgid "⚬ Can do copies=\n"
+msgstr ""
+
+#: modules/devices/printers.c:98
+msgid "⚬ Can collate copies=\n"
+msgstr ""
+
+#: modules/devices/printers.c:100
+msgid "⚬ Printer is rejecting jobs=\n"
+msgstr ""
+
+#: modules/devices/printers.c:102
+msgid "⚬ Printer was automatically discovered and added=\n"
+msgstr ""
+
+#: modules/devices/printers.c:117
+msgid "Idle"
+msgstr "უმოქმედო"
+
+#: modules/devices/printers.c:119
+msgid "Printing a Job"
+msgstr "დავალების დაბეჭდვა"
+
+#: modules/devices/printers.c:121
+msgid "Stopped"
+msgstr "გაჩერებულია"
+
+#: modules/devices/printers.c:200
+msgid ""
+"[Printers]\n"
+"No suitable CUPS library found="
+msgstr ""
+
+#: modules/devices/printers.c:213
+msgid "[Printers (CUPS)]\n"
+msgstr "[პრინტერები (CUPS)]\n"
+
+#: modules/devices/printers.c:277
+msgid ""
+"[Printers]\n"
+"No printers found=\n"
+msgstr ""
+"[პრინტერები]\n"
+"პრინტერები აღმოჩენილი არაა=\n"
+
+#: modules/devices/riscv/processor.c:589
+msgid "uarch"
+msgstr "uarch"
+
+#: modules/devices/riscv/riscv_data.c:37
+msgctxt "rv-ext"
+msgid "RISC-V 32-bit"
+msgstr "32-ბიტიანი RISC-V"
+
+#: modules/devices/riscv/riscv_data.c:38
+msgctxt "rv-ext"
+msgid "RISC-V 64-bit"
+msgstr "64-ბიტიანი RISC-V"
+
+#: modules/devices/riscv/riscv_data.c:39
+msgctxt "rv-ext"
+msgid "RISC-V 128-bit"
+msgstr "128-ბიტიანი RISC-V"
+
+#: modules/devices/riscv/riscv_data.c:40
+msgctxt "rv-ext"
+msgid "Base embedded integer instructions (15 registers)"
+msgstr "საბაზისო ჩაშენებული მთელი რიცხვის ინსტრუქციები (15 რეგისტრი)"
+
+#: modules/devices/riscv/riscv_data.c:41
+msgctxt "rv-ext"
+msgid "Base integer instructions (31 registers)"
+msgstr "საბაზისო მთელი რიცხვის ინსტრუქციები (31 რეგისტრი)"
+
+#: modules/devices/riscv/riscv_data.c:42
+msgctxt "rv-ext"
+msgid "Hardware integer multiply and divide"
+msgstr "აპარატურული მთელი რიცხვების გამრავლება და გაყოფა"
+
+#: modules/devices/riscv/riscv_data.c:43
+msgctxt "rv-ext"
+msgid "Atomic memory operations"
+msgstr "ატომური მეხსიერების ოპერაციები"
+
+#: modules/devices/riscv/riscv_data.c:44
+msgctxt "rv-ext"
+msgid "Compressed 16-bit instructions"
+msgstr "შეკუმშული 16-ბიტიანი ინსტრუქციები"
+
+#: modules/devices/riscv/riscv_data.c:45
+msgctxt "rv-ext"
+msgid "Floating-point instructions, single-precision"
+msgstr "მცურავმძიმიანი ინსტრუქციები, ერთმაგი სიზუსტე"
+
+#: modules/devices/riscv/riscv_data.c:46
+msgctxt "rv-ext"
+msgid "Floating-point instructions, double-precision"
+msgstr "მცურავმძიმიანი ინსტრუქციები, ორმაგი სიზუსტე"
+
+#: modules/devices/riscv/riscv_data.c:47
+msgctxt "rv-ext"
+msgid "Floating-point instructions, quad-precision"
+msgstr "მცურავმძიმიანი ინსტრუქციები, ოთხმაგი სიზუსტე"
+
+#: modules/devices/riscv/riscv_data.c:48
+msgctxt "rv-ext"
+msgid "Bit manipulation instructions"
+msgstr "ბიტის მანიპულირების ინსტრუქციები"
+
+#: modules/devices/riscv/riscv_data.c:49
+msgctxt "rv-ext"
+msgid "Vector operations"
+msgstr "ვექტორული ოპერაციები"
+
+#: modules/devices/riscv/riscv_data.c:50
+msgctxt "rv-ext"
+msgid "Scalar Cryptography"
+msgstr "სკალარული კრიპტოგრაფია"
+
+#: modules/devices/riscv/riscv_data.c:51
+msgctxt "rv-ext"
+msgid "Base Counters and Timers"
+msgstr "საბაზისო მრიცხველები და ტაიმერები"
+
+#: modules/devices/riscv/riscv_data.c:52
+msgctxt "rv-ext"
+msgid "Control and Status Register"
+msgstr "კონტროლისა და სტატუსის რეგისტრი"
+
+#: modules/devices/riscv/riscv_data.c:53
+msgctxt "rv-ext"
+msgid "Instruction-Fetch Fence"
+msgstr "ინსტრუქციის გამოთხოვის ზღვარი"
+
+#: modules/devices/riscv/riscv_data.c:54
+msgctxt "rv-ext"
+msgid "Hardware performance counters"
+msgstr "აპარატურის წარმადობის მრიცხველები"
+
+#: modules/devices/riscv/riscv_data.c:55
+msgctxt "rv-ext"
+msgid "Accell Index addresses"
+msgstr "Accell ინდექსის მისამართები"
+
+#: modules/devices/riscv/riscv_data.c:56
+msgctxt "rv-ext"
+msgid "Basic bit-manipulation"
+msgstr "ძირითადი ბიტური მანიპულაციები"
+
+#: modules/devices/riscv/riscv_data.c:57
+msgctxt "rv-ext"
+msgid "Supervisor-level Instructions"
+msgstr "ხელმძღვანელის დონის ინსტრუქციები"
+
+#: modules/devices/riscv/riscv_data.c:58
+msgctxt "rv-ext"
+msgid "User Mode"
+msgstr "მომხმარებლის რეჟიმი"
+
+#: modules/devices/riscv/riscv_data.c:59
+msgctxt "rv-ext"
+msgid "Transactional memory"
+msgstr "ტრანზაქციული მეხსიერება"
+
+#: modules/devices/riscv/riscv_data.c:60
+msgctxt "rv-ext"
+msgid "Packed SIMD instructions"
+msgstr "შეფუთული SIMD ინსტრუქციები"
+
+#: modules/devices/riscv/riscv_data.c:61
+msgctxt "rv-ext"
+msgid "Decimal floating-point instructions"
+msgstr "ათობითი მცურავმძიმიანი ინსტრუქციები"
+
+#: modules/devices/riscv/riscv_data.c:62
+msgctxt "rv-ext"
+msgid "Dynamically translated languages"
+msgstr "დინამიკურად თარგმნილი ენები"
+
+#: modules/devices/riscv/riscv_data.c:63
+msgctxt "rv-ext"
+msgid "User-level interrupts"
+msgstr "მომხმარებლის დონის წყვეტები"
+
+#: modules/devices/s390/processor.c:92
+msgid "S390 Processor"
+msgstr "პროცესორი S390"
+
+#: modules/devices/s390/processor.c:133
+msgid "ID String"
+msgstr "ID სტრიქონი"
+
+#: modules/devices/sh/processor.c:55
+msgid "SuperH Processor"
+msgstr "პროცესორი SuperH"
+
+#: modules/devices/sh/processor.c:88
+msgid "Bus Frequency"
+msgstr "სალტეს სიხშირე"
+
+#: modules/devices/sh/processor.c:89
+msgid "Module Frequency"
+msgstr "მოდულის სიხშირე"
+
+#: modules/devices/spd-decode.c:128 modules/devices/spd-decode.c:144
+msgid "Unspecified"
+msgstr "მიუთითებელი"
+
+#: modules/devices/spd-decode.c:130 modules/devices/spd-decode.c:146
+msgid "Invalid"
+msgstr "არასწორი"
+
+#: modules/devices/spd-decode.c:358
+msgid "Row address bits"
+msgstr "მწკრივის მისამართის ბიტები"
+
+#: modules/devices/spd-decode.c:359
+msgid "Column address bits"
+msgstr "სვეტის მისამართის ბიტები"
+
+#: modules/devices/spd-decode.c:360
+msgid "Number of rows"
+msgstr "მწკრივების რიცხვი"
+
+#: modules/devices/spd-decode.c:361
+msgid "Data width"
+msgstr "მონაცემთა სიგანე"
+
+#: modules/devices/spd-decode.c:362
+msgid "Interface signal levels"
+msgstr "ინტერფეისის სიგნალის დონეები"
+
+#: modules/devices/spd-decode.c:363
+msgid "Configuration type"
+msgstr "კონფიგურაციის ტიპი"
+
+#: modules/devices/spd-decode.c:364
+msgid "Refresh"
+msgstr "განახლება"
+
+#: modules/devices/spd-decode.c:365 modules/devices/spd-decode.c:442
+#: modules/devices/spd-decode.c:721
+msgid "Timings"
+msgstr "დრო"
+
+#: modules/devices/spd-decode.c:589 modules/devices/spd-decode.c:858
+#: modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:1146
+#: modules/devices/x86/processor.c:716
+msgid "Voltage"
+msgstr "ვოლტაჟი"
+
+#: modules/devices/spd-decode.c:590 modules/devices/spd-decode.c:901
+#: modules/devices/spd-decode.c:1148
+msgid "JEDEC Timings"
+msgstr "JEDEC დროები"
+
+#: modules/devices/spd-decode.c:697
+msgid "Ranks"
+msgstr "რანგები"
+
+#: modules/devices/spd-decode.c:698
+msgid "IO Pins per Chip"
+msgstr "I/O საკონტაქტო ღერო თითოეულ ჩიპზე"
+
+#: modules/devices/spd-decode.c:699
+msgid "Die count"
+msgstr "ნახევარგამტარული კრისტალების რაოდენობა"
+
+#: modules/devices/spd-decode.c:700
+msgid "Thermal Sensor"
+msgstr "თერმული სენსორი"
+
+#: modules/devices/spd-decode.c:700
+msgid "Present"
+msgstr "წარმოდგენილია"
+
+#: modules/devices/spd-decode.c:700
+msgid "Not present"
+msgstr "არ არსებობს"
+
+#: modules/devices/spd-decode.c:701
+msgid "Supported Voltages"
+msgstr "მხარდაჭერილი ძაბვები"
+
+#: modules/devices/spd-decode.c:705
+msgid "Supported CAS Latencies"
+msgstr "მხარდაჭერილი CAS დაყოვნებები"
+
+#: modules/devices/spd-decode.c:856
+msgid "XMP Profile"
+msgstr "XMP პროფილი"
+
+#: modules/devices/spd-decode.c:857 modules/devices/usb.c:177
+#: modules/network/net.c:438
+msgid "Speed"
+msgstr "სიჩქარე"
+
+#: modules/devices/spd-decode.c:859
+msgid "XMP Timings"
+msgstr "XMP დროები"
+
+#: modules/devices/spd-decode.c:900
+msgid "XMP"
+msgstr "XMP"
+
+#: modules/devices/spd-decode.c:1536
+msgid "Serial Presence Detect (SPD)"
+msgstr "სერიულის ყოფნის გამოვლენა (SPD)"
+
+#: modules/devices/spd-decode.c:1539
+msgid "SPD Revision"
+msgstr "SPD-ის რევიზია"
+
+#: modules/devices/spd-decode.c:1542
+msgid "Module Vendor"
+msgstr "მოდულის მომწოდებელი"
+
+#: modules/devices/spd-decode.c:1544
+msgid "DRAM Vendor"
+msgstr "DRAM-ის მომწოდებელი"
+
+#: modules/devices/spd-decode.c:1549
+msgid "Manufacturing Date (Year / Week)"
+msgstr "წარმოების თარიღი (წელი / კვირა)"
+
+#: modules/devices/storage.c:46 modules/devices/storage.c:55
+msgid "NVMe Controller"
+msgstr "NVMe-ის კონტროლერი"
+
+#: modules/devices/storage.c:138
+msgid "Read Error Rate"
+msgstr "კითხვის შეცდომების სიჩქარე"
+
+#: modules/devices/storage.c:139
+msgid "Throughput Performance"
+msgstr "გამტარუნარიანობის წარმადობა"
+
+#: modules/devices/storage.c:140
+msgid "Spin-Up Time"
+msgstr "ჩართვისას, ნომინალურ წარმადობამდე მისვლის დრო"
+
+#: modules/devices/storage.c:141
+msgid "Start/Stop Count"
+msgstr "გაშვების/შეჩერების რაოდენობა"
+
+#: modules/devices/storage.c:142
+msgid "Reallocated Sector Count"
+msgstr "თავიდან გამოთხოვილი სექტორების რაოდენობა"
+
+#: modules/devices/storage.c:143
+msgid "Read Channel Margin"
+msgstr "არხის ზღვარის წაკითხვა"
+
+#: modules/devices/storage.c:144
+msgid "Seek Error Rate"
+msgstr "გადახვევის შეცდომების სიხშირე"
+
+#: modules/devices/storage.c:145
+msgid "Seek Timer Performance"
+msgstr "ძებნის დროის წარმადობა"
+
+#: modules/devices/storage.c:146 modules/devices/storage.c:185
+msgid "Power-On Hours"
+msgstr "ჩართულობის საათები"
+
+#: modules/devices/storage.c:147
+msgid "Spin Retry Count"
+msgstr "დაქოქვის თავიდან ცდა"
+
+#: modules/devices/storage.c:148
+msgid "Calibration Retry Count"
+msgstr "კალიბრაციის თავდან ჩართვის რაოდენობა"
+
+#: modules/devices/storage.c:149
+msgid "Power Cycle Count"
+msgstr "ჩართვების რაოდენობა"
+
+#: modules/devices/storage.c:150 modules/devices/storage.c:167
+msgid "Soft Read Error Rate"
+msgstr "რბილი წაკითხვის შეცდომების სიხშირე"
+
+#: modules/devices/storage.c:151
+msgid "Runtime Bad Block"
+msgstr "გაშვების დროის ცუდი ბლოკი"
+
+#: modules/devices/storage.c:152
+msgid "End-to-End error"
+msgstr "გამჭოლი შეცდომა"
+
+#: modules/devices/storage.c:153
+msgid "Reported Uncorrectable Errors"
+msgstr "გამოუსწორებელი შეცდომები"
+
+#: modules/devices/storage.c:154
+msgid "Command Timeout"
+msgstr "ბრძანების მოლოდინის ვადა"
+
+#: modules/devices/storage.c:155
+msgid "High Fly Writes"
+msgstr "ჩაწერისას თავაკის აცდენები"
+
+#: modules/devices/storage.c:156
+msgid "Airflow Temperature"
+msgstr "მდინარე ჰაერის ტემპერატურა"
+
+#: modules/devices/storage.c:157
+msgid "G-sense Error Rate"
+msgstr "G-sense -ის შეცდომების სიხშირე"
+
+#: modules/devices/storage.c:158
+msgid "Power-off Retract Count"
+msgstr "გამორთვების რაოდენობა"
+
+#: modules/devices/storage.c:159
+msgid "Load Cycle Count"
+msgstr "ჩატვირთვის ციკლების რაოდენობა"
+
+#: modules/devices/storage.c:160 modules/devices/storage.c:183
+msgid "Temperature"
+msgstr "ტემპერატურა"
+
+#: modules/devices/storage.c:161
+msgid "Hardware ECC Recovered"
+msgstr "აპარატურული ECC აღდგენა"
+
+#: modules/devices/storage.c:162
+msgid "Reallocation Event Count"
+msgstr "თავიდან გამოთხოვის მოვლენების რაოდენობა"
+
+#: modules/devices/storage.c:163
+msgid "Current Pending Sector Count"
+msgstr "მიმდინარე მომლოდინე სექტორის რაოდენობა"
+
+#: modules/devices/storage.c:164
+msgid "Uncorrectable Sector Count"
+msgstr "შეუკეთებადი სექტორების რიცხვი"
+
+#: modules/devices/storage.c:165
+msgid "UltraDMA CRC Error Count"
+msgstr "UltraDMA CRC შეცდომების რაოდენობა"
+
+#: modules/devices/storage.c:166
+msgid "Multi-Zone Error Rate"
+msgstr "მრავალზონიანი შეცდომის სიხშირე"
+
+#: modules/devices/storage.c:168
+msgid "Run Out Cancel"
+msgstr "ECC შეცდომების რაოდენობა"
+
+#: modules/devices/storage.c:169
+msgid "Flying Height"
+msgstr "თავაკის სიმაღლე"
+
+#: modules/devices/storage.c:170
+msgid "Spin High Current"
+msgstr "დატრიალების მაღალი ძაბვა"
+
+#: modules/devices/storage.c:171
+msgid "Spin Buzz"
+msgstr "დატრიალების მცდელობები"
+
+#: modules/devices/storage.c:172
+msgid "Offline Seek Performance"
+msgstr "ავტონომური პოზიცირება"
+
+#: modules/devices/storage.c:173
+msgid "Disk Shift"
+msgstr "დისკის წანაცვლება"
+
+#: modules/devices/storage.c:174
+msgid "G-Sense Error Rate"
+msgstr "დარტყმები"
+
+#: modules/devices/storage.c:175
+msgid "Loaded Hours"
+msgstr "თავაკების მუშაობის რაოდენობა, საათებში"
+
+#: modules/devices/storage.c:176
+msgid "Load/Unload Retry Count"
+msgstr "ჩატვირთვა/გამოტვირთვის ცდებს რაოდენობა"
+
+#: modules/devices/storage.c:177
+msgid "Load Friction"
+msgstr "ჩატვირთვა ხახუნით"
+
+#: modules/devices/storage.c:178
+msgid "Load/Unload Cycle Count"
+msgstr "ჩატვირთვა /გამოტვირთვის ციკლების რაოდენობა"
+
+#: modules/devices/storage.c:179
+msgid "Load-in time"
+msgstr "შეტვირთვის დრო"
+
+#: modules/devices/storage.c:180
+msgid "Torque Amplification Count"
+msgstr "მომენტის კომპენსირების მცდელობები"
+
+#: modules/devices/storage.c:181
+msgid "Power-Off Retract Count"
+msgstr "გამორთვისას თავაკების გამოწევის რაოდენობა"
+
+#: modules/devices/storage.c:182
+msgid "GMR Head Amplitude"
+msgstr "თავაკების კანკალის ამპლიტუდა"
+
+#: modules/devices/storage.c:184
+msgid "Endurance Remaining"
+msgstr "დარჩენილი გამძლეობა"
+
+#: modules/devices/storage.c:186
+msgid "Good Block Rate"
+msgstr "კარგი ბლოკების რაოდენობა"
+
+#: modules/devices/storage.c:187
+msgid "Head Flying Hours"
+msgstr "დრო, როცა თავაკი აწეული იყო, საათებაში"
+
+#: modules/devices/storage.c:188
+msgid "Read Error Retry Rate"
+msgstr "განმეორებადი წაკითხვების მცდელობები"
+
+#: modules/devices/storage.c:189
+msgid "Total LBAs Written"
+msgstr "ჩაწერილი LBA ჯამში"
+
+#: modules/devices/storage.c:190
+msgid "Total LBAs Read"
+msgstr "წაკითხული LBA ჯამში"
+
+#: modules/devices/storage.c:191
+msgid "Wear leveling Count"
+msgstr "დისკის ცვეთის დონე"
+
+#: modules/devices/storage.c:192
+msgid "Total Used Reserved Block Count"
+msgstr ""
+
+#: modules/devices/storage.c:193
+msgid "Total Program Fail Count"
+msgstr "დაპროგრამების ჩავარდნების სრული ჯამი"
+
+#: modules/devices/storage.c:194
+msgid "Total Erase Fail Count"
+msgstr "წაშლის ჩავარდნების სრული რაოდენობა"
+
+#: modules/devices/storage.c:195
+msgid "Available Reserved Space"
+msgstr "ხელმისაწვდომი დარეზერვებული სივრცე"
+
+#: modules/devices/storage.c:196
+msgid "Program Fail Count"
+msgstr "პროგრამის ჩავარდნების რაოდენობა"
+
+#: modules/devices/storage.c:197
+msgid "Erase Fail Count"
+msgstr "წაშლის ჩავარდნების რაოდენობა"
+
+#: modules/devices/storage.c:198
+msgid "TA Counter Increased"
+msgstr "TA მრიცხველი გაიზარდა"
+
+#: modules/devices/storage.c:199
+msgid "Total Unused Reserved Block Count"
+msgstr "გამოუყენებელი დარეზერვებულია ბლოკების ჯამური რაოდენობა"
+
+#: modules/devices/storage.c:204
+msgid ""
+"\n"
+"[UDisks2]\n"
+msgstr ""
+"\n"
+"[UDisks2]\n"
+
+#: modules/devices/storage.c:257
+msgid "Removable"
+msgstr "მოხსნადი"
+
+#: modules/devices/storage.c:257
+msgid "Fixed"
+msgstr "ფიქსირებული"
+
+#: modules/devices/storage.c:260
+msgid "Ejectable"
+msgstr "გამოღებადი"
+
+#: modules/devices/storage.c:263
+msgid "Self-monitoring (S.M.A.R.T.)"
+msgstr "თვითმონიტორინგი (S.M.A.R.T.)"
+
+#: modules/devices/storage.c:266 modules/devices/x86/processor.c:664
+msgid "Power Management"
+msgstr "კვების მართვა"
+
+#: modules/devices/storage.c:269
+msgid "Advanced Power Management"
+msgstr "კვების დამატებითი მართვა"
+
+#: modules/devices/storage.c:272
+msgid "Automatic Acoustic Management"
+msgstr "აკუსტიკის ავტომატური მართვა"
+
+#: modules/devices/storage.c:275
+#, c-format
+msgid ""
+"[Drive Information]\n"
+"Model=%s\n"
+msgstr ""
+"[დრაივერის ინფორმაცია]\n"
+"მოდელი=%s\n"
+
+#: modules/devices/storage.c:285
+#, c-format
+msgid ""
+"Revision=%s\n"
+"Block Device=%s\n"
+"Serial=%s\n"
+"Size=%s\n"
+"Features=%s\n"
+msgstr ""
+"რევიზია=%s\n"
+"ბლოკური მოწყობილობა=%s\n"
+"სერიული=%s\n"
+"ზომა=%s\n"
+"მახასიათებლები=%s\n"
+
+#: modules/devices/storage.c:300
+#, c-format
+msgid "Rotation Rate=%d RPM\n"
+msgstr "ბრუნვის სიჩქარე = %d ბრ/წთ\n"
+
+#: modules/devices/storage.c:303
+#, c-format
+msgid ""
+"Media=%s\n"
+"Media compatibility=%s\n"
+msgstr ""
+"მედია=%s\n"
+"მედიის თავსებადობა=%s\n"
+
+#: modules/devices/storage.c:310
+#, c-format
+msgid "Connection bus=%s\n"
+msgstr "კავშირის სალტე=%s\n"
+
+#: modules/devices/storage.c:322
+msgid "WWN"
+msgstr "WWN"
+
+#: modules/devices/storage.c:323
+msgid "EUI "
+msgstr "EUI "
+
+#: modules/devices/storage.c:328
+msgid "WWN / EUI"
+msgstr "WWN / EUI"
+
+#: modules/devices/storage.c:332
+#, c-format
+msgid "$^$%s=[%s] %s\n"
+msgstr "$^$%s=[%s] %s\n"
+
+#: modules/devices/storage.c:334
+msgid "IEEE OUI"
+msgstr "IEEE OUI"
+
+#: modules/devices/storage.c:346
+msgid ""
+"[Self-monitoring (S.M.A.R.T.)]\n"
+"Status=%s\n"
+"Bad Sectors=%"
+msgstr ""
+
+#: modules/devices/storage.c:352
+msgid "Failing"
+msgstr "შეცდომებიანი"
+
+#: modules/devices/storage.c:352
+msgid "OK"
+msgstr "დიახ"
+
+#: modules/devices/storage.c:358
+msgid ""
+"[S.M.A.R.T. Attributes]\n"
+"Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
+msgstr ""
+
+#: modules/devices/storage.c:381
+msgid "%"
+msgid_plural "%"
+msgstr[0] "%"
+msgstr[1] "%"
+
+#: modules/devices/storage.c:419
+#, c-format
+msgid "(%d) %s=<tt>%s</tt>\n"
+msgstr "(%d) %s=<tt>%s</tt>\n"
+
+#: modules/devices/storage.c:428
+#, c-format
+msgid ""
+"[Partition table]\n"
+"Type=%s\n"
+msgstr ""
+"[დანაყოფების ცხრილი]\n"
+"ტიპი=%s\n"
+
+#: modules/devices/storage.c:447
+#, c-format
+msgid "Partition %s=%s\n"
+msgstr "დანაყოფი %s=%s\n"
+
+#: modules/devices/storage.c:496
+msgid ""
+"\n"
+"[SCSI Disks]\n"
+msgstr ""
+"\n"
+"[SCSI დისკები]\n"
+
+#: modules/devices/storage.c:568 modules/devices/storage.c:774
+#, c-format
+msgid ""
+"[Device Information]\n"
+"Model=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:575
+#, c-format
+msgid ""
+"Type=%s\n"
+"Revision=%s\n"
+"[SCSI Controller]\n"
+"Controller=scsi%d\n"
+"Channel=%d\n"
+"ID=%d\n"
+"LUN=%d\n"
+msgstr ""
+
+#: modules/devices/storage.c:622
+msgid ""
+"\n"
+"[IDE Disks]\n"
+msgstr ""
+"\n"
+"[IDE დისკები]\n"
+
+#: modules/devices/storage.c:708
+#, c-format
+msgid "Driver=%s\n"
+msgstr "დრაივერი=%s\n"
+
+#: modules/devices/storage.c:780
+#, c-format
+msgid ""
+"Device Name=hd%c\n"
+"Media=%s\n"
+"Cache=%dkb\n"
+msgstr ""
+"მოწყობილობის სახელი=hd%c\n"
+"მედია=%s\n"
+"კეში=%dკბ\n"
+
+#: modules/devices/storage.c:790
+#, c-format
+msgid ""
+"[Geometry]\n"
+"Physical=%s\n"
+"Logical=%s\n"
+msgstr ""
+"[გეომეტრია]\n"
+"ფიზიკური=%s\n"
+"ლოგიკური=%s\n"
+
+#: modules/devices/storage.c:800
+#, c-format
+msgid ""
+"[Capabilities]\n"
+"%s"
+msgstr ""
+"[შესაძლებლობები]\n"
+"%s"
+
+#: modules/devices/storage.c:807
+#, c-format
+msgid ""
+"[Speeds]\n"
+"%s"
+msgstr ""
+"[სიჩქარეები]\n"
+"%s"
+
+#: modules/devices/usb.c:138 modules/devices/usb.c:179
+msgid "Sub-class"
+msgstr "ქვეკლასი"
+
+#: modules/devices/usb.c:147 modules/network/net.c:474
+msgid "Mb/s"
+msgstr "მბ/წმ"
+
+#: modules/devices/usb.c:175
+msgid "Max Current"
+msgstr "მაქსიმალური დენი"
+
+#: modules/devices/usb.c:175
+msgid "mA"
+msgstr "მა"
+
+#: modules/devices/usb.c:176
+msgid "USB Version"
+msgstr "USB-ის ვერსია"
+
+#: modules/devices/usb.c:181
+msgid "Device Version"
+msgstr "მოწყობილობის ვერსია"
+
+#: modules/devices/usb.c:221
+msgid "No USB devices found."
+msgstr "USB მოწყობილობები აღმოჩენილი არაა."
+
+#: modules/devices/x86/processor.c:648
+msgid "Model Name"
+msgstr "Მოდელის სახელი"
+
+#: modules/devices/x86/processor.c:649
+msgid "Family, model, stepping"
+msgstr "ოჯახი, მოდელი, ბიჯი"
+
+#: modules/devices/x86/processor.c:655
+msgid "Microcode Version"
+msgstr "მიკროკოდის ვერსია"
+
+#: modules/devices/x86/processor.c:656
+msgid "Configuration"
+msgstr "მორგება"
+
+#: modules/devices/x86/processor.c:657
+msgid "Cache Size"
+msgstr "კეშის ზომა"
+
+#: modules/devices/x86/processor.c:657
+msgid "kb"
+msgstr "კბ"
+
+#: modules/devices/x86/processor.c:665
+msgid "Bug Workarounds"
+msgstr "შეცდომის შემოვლები"
+
+#: modules/devices/x86/processor.c:692
+msgid "Socket Information"
+msgstr "ინფორმაცია სოკეტის შესახებ"
+
+#: modules/devices/x86/processor.c:713
+msgid "CPU Socket"
+msgstr "პროცესორის სოკეტი"
+
+#: modules/devices/x86/processor.c:717
+msgid "External Clock"
+msgstr "გარე საათი"
+
+#: modules/devices/x86/processor.c:718
+msgid "Max Frequency"
+msgstr "მაქს. სიხშირე"
+
+#: modules/devices/x86/processor.c:751
+msgid "Package Information"
+msgstr "პაკეტის ინფორმაცია"
+
+#. !/flag:fpu
+#: modules/devices/x86/x86_data.c:48
+msgctxt "x86-flag"
+msgid "Onboard FPU (floating point support)"
+msgstr "ჩაშენებული FPU (მცურავმძიმიანი ინსტრუქციების მხარდაჭერა)"
+
+#. !/flag:vme
+#: modules/devices/x86/x86_data.c:49
+msgctxt "x86-flag"
+msgid "Virtual 8086 mode enhancements"
+msgstr "ვირტუალური 8086 რეჟიმის გაუმჯობესებები"
+
+#. !/flag:de
+#: modules/devices/x86/x86_data.c:50
+msgctxt "x86-flag"
+msgid "Debugging Extensions (CR4.DE)"
+msgstr "გამართვის გაფართოებები (CR4.DE)"
+
+#. !/flag:pse
+#: modules/devices/x86/x86_data.c:51
+msgctxt "x86-flag"
+msgid "Page Size Extensions (4MB memory pages)"
+msgstr "გვერდის ზომის გაფართოებები (4 მბ მეხსიერების გვერდები)"
+
+#. !/flag:tsc
+#: modules/devices/x86/x86_data.c:52
+msgctxt "x86-flag"
+msgid "Time Stamp Counter (RDTSC)"
+msgstr "დროის შტამპის მთვლელი (RDTSC)"
+
+#. !/flag:msr
+#: modules/devices/x86/x86_data.c:53
+msgctxt "x86-flag"
+msgid "Model-Specific Registers (RDMSR, WRMSR)"
+msgstr "მოდელის სპეციფიკური რეგისტრები (RDMSR, WRMSR)"
+
+#. !/flag:pae
+#: modules/devices/x86/x86_data.c:54
+msgctxt "x86-flag"
+msgid "Physical Address Extensions (support for more than 4GB of RAM)"
+msgstr ""
+"ფიზიკური მისამართის გაფართოებები (4 გბ-ზე მეტი ოპერატიული მეხსიერების "
+"მხარდაჭერა)"
+
+#. !/flag:mce
+#: modules/devices/x86/x86_data.c:55
+msgctxt "x86-flag"
+msgid "Machine Check Exception"
+msgstr "მანქანის შემოწმების გამონაკლისი"
+
+#. !/flag:cx8
+#: modules/devices/x86/x86_data.c:56
+msgctxt "x86-flag"
+msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
+msgstr "ინსტრუქცია CMPXCHG8 (64-ბიტიანი შეადრება და მიმოცვლა)"
+
+#. !/flag:apic
+#: modules/devices/x86/x86_data.c:57
+msgctxt "x86-flag"
+msgid "Onboard APIC"
+msgstr "ჩაშენებული APIC"
+
+#. !/flag:sep
+#: modules/devices/x86/x86_data.c:58
+msgctxt "x86-flag"
+msgid "SYSENTER/SYSEXIT"
+msgstr "SYSENTER/SYSEXIT"
+
+#. !/flag:mtrr
+#: modules/devices/x86/x86_data.c:59
+msgctxt "x86-flag"
+msgid "Memory Type Range Registers"
+msgstr "მეხსიერების ტიპის დიაპაზონის რეგისტრები"
+
+#. !/flag:pge
+#: modules/devices/x86/x86_data.c:60
+msgctxt "x86-flag"
+msgid "Page Global Enable (global bit in PDEs and PTEs)"
+msgstr "გვერდის გლობალური ჩართვა (გლობალური ბიტი PDE-ებსა და PTE-ებში)"
+
+#. !/flag:mca
+#: modules/devices/x86/x86_data.c:61
+msgctxt "x86-flag"
+msgid "Machine Check Architecture"
+msgstr "მანქანის შემოწმების არქიტექტურა"
+
+#. !/flag:cmov
+#: modules/devices/x86/x86_data.c:62
+msgctxt "x86-flag"
+msgid "CMOV instructions (conditional move) (also FCMOV)"
+msgstr "CMOV ინსტრუქციები (პირობითი გადატანა) (ასევე FCMOV)"
+
+#. !/flag:pat
+#: modules/devices/x86/x86_data.c:63
+msgctxt "x86-flag"
+msgid "Page Attribute Table"
+msgstr "გვერდის ატრიბუტების ცხრილი"
+
+#. !/flag:pse36
+#: modules/devices/x86/x86_data.c:64
+msgctxt "x86-flag"
+msgid "36-bit PSEs (huge pages)"
+msgstr "36-ბიტიანი PSE-ები (უზარმაზარი გვერდები)"
+
+#. !/flag:pn
+#: modules/devices/x86/x86_data.c:65
+msgctxt "x86-flag"
+msgid "Processor serial number"
+msgstr "პროცესორის სერიული ნომერი"
+
+#. !/flag:clflush
+#: modules/devices/x86/x86_data.c:66
+msgctxt "x86-flag"
+msgid "Cache Line Flush instruction"
+msgstr "კეშის ხაზის ჩაწერის ინსტრუქცია"
+
+#. !/flag:dts
+#: modules/devices/x86/x86_data.c:67
+msgctxt "x86-flag"
+msgid ""
+"Debug Store (buffer for debugging and profiling instructions), or "
+"alternately: digital thermal sensor"
+msgstr ""
+"გამართვის დამახსოვრება (ბუფერი გამართვისა და პროფილირების "
+"ინსტრუქციებისთვის), ან: ციფრული თერმული სენსორი"
+
+#. !/flag:acpi
+#: modules/devices/x86/x86_data.c:68
+msgctxt "x86-flag"
+msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
+msgstr ""
+"ACPI MSR-ის საშუალებით (ტემპერატურის მონიტორინგი და საათის სიჩქარის "
+"მოდულაცია)"
+
+#. !/flag:mmx
+#: modules/devices/x86/x86_data.c:69
+msgctxt "x86-flag"
+msgid "Multimedia Extensions"
+msgstr "მულტიმედიური გაფართოებები"
+
+#. !/flag:fxsr
+#: modules/devices/x86/x86_data.c:70
+msgctxt "x86-flag"
+msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
+msgstr "FXSAVE/FXRSTOR, CR4.OSFXSR"
+
+#. !/flag:sse
+#: modules/devices/x86/x86_data.c:71
+msgctxt "x86-flag"
+msgid "Intel SSE vector instructions"
+msgstr "Intel-ის ვექტორული ინსტრუქციები SSE"
+
+#. !/flag:sse2
+#: modules/devices/x86/x86_data.c:72
+msgctxt "x86-flag"
+msgid "SSE2"
+msgstr "SSE2"
+
+#. !/flag:ss
+#: modules/devices/x86/x86_data.c:73
+msgctxt "x86-flag"
+msgid "CPU self snoop"
+msgstr "CPU-ის თვითშემოწმება"
+
+#. !/flag:ht
+#: modules/devices/x86/x86_data.c:74
+msgctxt "x86-flag"
+msgid "Hyper-Threading"
+msgstr "მრავალნაკადიანობა"
+
+#. !/flag:tm
+#: modules/devices/x86/x86_data.c:75
+msgctxt "x86-flag"
+msgid "Automatic clock control (Thermal Monitor)"
+msgstr "საათის ავტომატური კონტროლი (თერმული მონიტორი)"
+
+#. !/flag:ia64
+#: modules/devices/x86/x86_data.c:76
+msgctxt "x86-flag"
+msgid ""
+"Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
+"x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
+msgstr ""
+"Intel Itanium არქიტექტურა 64-ბიტიანი (არ უნდა აგვერიოს Intel-ის 64-ბიტიან "
+"x86 არქიტექტურაში ალმით x86-64 ან \"AMD64\" ბიტით, რომელიც მითითებულია ალმით "
+"lm)"
+
+#. !/flag:pbe
+#: modules/devices/x86/x86_data.c:77
+msgctxt "x86-flag"
+msgid "Pending Break Enable (PBE# pin) wakeup support"
+msgstr "გაღვიძების Pending Break Enable (საკონტაქტო ღერო PBE#) მხარდაჭერა"
+
+#. !/flag:syscall
+#: modules/devices/x86/x86_data.c:80
+msgctxt "x86-flag"
+msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
+msgstr ""
+"SYSCALL (სწრაფი სისტემური გამოძახება) და SYSRET (სწრაფი სისტემური "
+"გამოძახებიდან დაბრუნება)"
+
+#. !/flag:mp
+#: modules/devices/x86/x86_data.c:81
+msgctxt "x86-flag"
+msgid "Multiprocessing Capable."
+msgstr "მრავალპროცესორიანი კონფიგურაციაში მუშაობის უნარი."
+
+#. !/flag:nx
+#: modules/devices/x86/x86_data.c:82
+msgctxt "x86-flag"
+msgid "Execute Disable"
+msgstr "შესრულების გამორთვა"
+
+#. !/flag:mmxext
+#: modules/devices/x86/x86_data.c:83
+msgctxt "x86-flag"
+msgid "AMD MMX extensions"
+msgstr "გაფართოებები AMD MMX"
+
+#. !/flag:fxsr_opt
+#: modules/devices/x86/x86_data.c:84
+msgctxt "x86-flag"
+msgid "FXSAVE/FXRSTOR optimizations"
+msgstr "FXSAVE/FXRSTOR ოპტიმიზაციები"
+
+#. !/flag:pdpe1gb
+#: modules/devices/x86/x86_data.c:85
+msgctxt "x86-flag"
+msgid "One GB pages (allows hugepagesz=1G)"
+msgstr "ერთგიგაბაიტიანი გვერდები (საშუალებას იძლევა hugepagesz=1G)"
+
+#. !/flag:rdtscp
+#: modules/devices/x86/x86_data.c:86
+msgctxt "x86-flag"
+msgid "Read Time-Stamp Counter and Processor ID"
+msgstr "დროის შტამპის მთვლელისა და პროცესორის ID-ის წაკთხვა"
+
+#. !/flag:lm
+#: modules/devices/x86/x86_data.c:87
+msgctxt "x86-flag"
+msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
+msgstr ""
+"გრძელი რეჟიმი (x86-64: amd64, ასევე ცნობილი, როგორც Intel 64, ანუ შეუძლია 64-"
+"ბიტიანი ოპერაციები)"
+
+#. !/flag:3dnow
+#: modules/devices/x86/x86_data.c:88
+msgctxt "x86-flag"
+msgid "3DNow! (AMD vector instructions, competing with Intel's SSE1)"
+msgstr "3DNow! (AMD ვექტორული ინსტრუქციები, კონკურენცია Intel-ის SSE1-თან)"
+
+#. !/flag:3dnowext
+#: modules/devices/x86/x86_data.c:89
+msgctxt "x86-flag"
+msgid "AMD 3DNow! extensions"
+msgstr "AMD 3DNow! გაფართოებები"
+
+#. !/flag:recovery
+#: modules/devices/x86/x86_data.c:91
+msgctxt "x86-flag"
+msgid "CPU in recovery mode"
+msgstr "CPU აღდგენის რეჟიმშია"
+
+#. !/flag:longrun
+#: modules/devices/x86/x86_data.c:92
+msgctxt "x86-flag"
+msgid "Longrun power control"
+msgstr "Longrun კვების მართვა"
+
+#. !/flag:lrti
+#: modules/devices/x86/x86_data.c:93
+msgctxt "x86-flag"
+msgid "LongRun table interface"
+msgstr "LongRun ცხრილის ინტერფეისი"
+
+#. !/flag:cxmmx
+#: modules/devices/x86/x86_data.c:95
+msgctxt "x86-flag"
+msgid "Cyrix MMX extensions"
+msgstr "გაფართოებები Cyrix MMX"
+
+#. !/flag:k6_mtrr
+#: modules/devices/x86/x86_data.c:96
+msgctxt "x86-flag"
+msgid "AMD K6 nonstandard MTRRs"
+msgstr "AMD K6-ის არასტანდარტული MTRR-ები"
+
+#. !/flag:cyrix_arr
+#: modules/devices/x86/x86_data.c:97
+msgctxt "x86-flag"
+msgid "Cyrix ARRs (= MTRRs)"
+msgstr "Cyrix ARR-ები (= MTRR-ები)"
+
+#. !/flag:centaur_mcr
+#: modules/devices/x86/x86_data.c:98
+msgctxt "x86-flag"
+msgid "Centaur MCRs (= MTRRs)"
+msgstr "Centaur MCR-ის (= MTRR-ები)"
+
+#. !/flag:constant_tsc
+#: modules/devices/x86/x86_data.c:99
+msgctxt "x86-flag"
+msgid "TSC ticks at a constant rate"
+msgstr "TSC მუდმივი სიხშირით წიკწიკებს"
+
+#. !/flag:up
+#: modules/devices/x86/x86_data.c:100
+msgctxt "x86-flag"
+msgid "SMP kernel running on UP"
+msgstr "SMP ბირთვი გაშვებულია UP-ზე"
+
+#. !/flag:art
+#: modules/devices/x86/x86_data.c:101
+msgctxt "x86-flag"
+msgid "Always-Running Timer"
+msgstr "ყოველთვის გაშვებული ტაიმერი"
+
+#. !/flag:arch_perfmon
+#: modules/devices/x86/x86_data.c:102
+msgctxt "x86-flag"
+msgid "Intel Architectural PerfMon"
+msgstr "Intel-ის არქიტექტურული PerfMon"
+
+#. !/flag:pebs
+#: modules/devices/x86/x86_data.c:103
+msgctxt "x86-flag"
+msgid "Precise-Event Based Sampling"
+msgstr "ზუსტი მოვლენაზე დაფუძნებული სემპლინგი"
+
+#. !/flag:bts
+#: modules/devices/x86/x86_data.c:104
+msgctxt "x86-flag"
+msgid "Branch Trace Store"
+msgstr "განტოტვის თვალყურის დევნების საცავი"
+
+#. !/flag:rep_good
+#: modules/devices/x86/x86_data.c:105
+msgctxt "x86-flag"
+msgid "rep microcode works well"
+msgstr "rep მიკროკოდი კარგად მუშაობს"
+
+#. !/flag:acc_power
+#: modules/devices/x86/x86_data.c:106
+msgctxt "x86-flag"
+msgid "AMD accumulated power mechanism"
+msgstr "AMD დაგროვილი სიმძლავრის მექანიზმი"
+
+#. !/flag:nopl
+#: modules/devices/x86/x86_data.c:107
+msgctxt "x86-flag"
+msgid "The NOPL (0F 1F) instructions"
+msgstr "NOPL (0F 1F) ინსტრუქციები"
+
+#. !/flag:xtopology
+#: modules/devices/x86/x86_data.c:108
+msgctxt "x86-flag"
+msgid "cpu topology enum extensions"
+msgstr "პროცესორის ტოპოლოგიის ჩამონათვლის გაფართოებები"
+
+#. !/flag:tsc_reliable
+#: modules/devices/x86/x86_data.c:109
+msgctxt "x86-flag"
+msgid "TSC is known to be reliable"
+msgstr "ცნობილია, რომ TSC საიმედოა"
+
+#. !/flag:nonstop_tsc
+#: modules/devices/x86/x86_data.c:110
+msgctxt "x86-flag"
+msgid "TSC does not stop in C states"
+msgstr "TSC არ ჩერდება C მდგომარეობებში"
+
+#. !/flag:extd_apicid
+#: modules/devices/x86/x86_data.c:111
+msgctxt "x86-flag"
+msgid "has extended APICID (8 bits)"
+msgstr "აქვს გაფართოებული APICID (8 ბიტი)"
+
+#. !/flag:amd_dcm
+#: modules/devices/x86/x86_data.c:112
+msgctxt "x86-flag"
+msgid "multi-node processor"
+msgstr "მრავალკვანძიანი პროცესორი"
+
+#. !/flag:aperfmperf
+#: modules/devices/x86/x86_data.c:113
+msgctxt "x86-flag"
+msgid "APERFMPERF"
+msgstr "APERFMPERF"
+
+#. !/flag:eagerfpu
+#: modules/devices/x86/x86_data.c:114
+msgctxt "x86-flag"
+msgid "Non lazy FPU restore"
+msgstr "არაზარმაცი FPU-ის აღდგენა"
+
+#. !/flag:nonstop_tsc_s3
+#: modules/devices/x86/x86_data.c:115
+msgctxt "x86-flag"
+msgid "TSC doesn't stop in S3 state"
+msgstr "TSC არ ჩერდება S3 მდგომარეობაში"
+
+#. !/flag:mce_recovery
+#: modules/devices/x86/x86_data.c:116
+msgctxt "x86-flag"
+msgid "CPU has recoverable machine checks"
+msgstr "CPU-ს აქვს აღდგენადი მანქანის შემოწმებები"
+
+#. !/flag:pni
+#: modules/devices/x86/x86_data.c:119
+msgctxt "x86-flag"
+msgid "SSE-3 (\"Prescott New Instructions\")"
+msgstr "SSE-3 (\"Prescott ახალი ინსტრუქციები\")"
+
+#. !/flag:pclmulqdq
+#: modules/devices/x86/x86_data.c:120
+msgctxt "x86-flag"
+msgid ""
+"Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
+"for GCM)"
+msgstr ""
+
+#. !/flag:dtes64
+#: modules/devices/x86/x86_data.c:121
+msgctxt "x86-flag"
+msgid "64-bit Debug Store"
+msgstr "64-ბიტიანი გამართვის საცავი"
+
+#. !/flag:monitor
+#: modules/devices/x86/x86_data.c:122
+msgctxt "x86-flag"
+msgid "Monitor/Mwait support (Intel SSE3 supplements)"
+msgstr ""
+
+#. !/flag:ds_cpl
+#: modules/devices/x86/x86_data.c:123
+msgctxt "x86-flag"
+msgid "CPL Qual. Debug Store"
+msgstr ""
+
+#. !/flag:vmx
+#: modules/devices/x86/x86_data.c:124
+msgctxt "x86-flag"
+msgid "Hardware virtualization, Intel VMX"
+msgstr ""
+
+#. !/flag:smx
+#: modules/devices/x86/x86_data.c:125
+msgctxt "x86-flag"
+msgid "Safer mode TXT (TPM support)"
+msgstr ""
+
+#. !/flag:est
+#: modules/devices/x86/x86_data.c:126
+msgctxt "x86-flag"
+msgid "Enhanced SpeedStep"
+msgstr "გაფართოებული SpeedStep"
+
+#. !/flag:tm2
+#: modules/devices/x86/x86_data.c:127
+msgctxt "x86-flag"
+msgid "Thermal Monitor 2"
+msgstr "თერმული მონიტორი 2"
+
+#. !/flag:ssse3
+#: modules/devices/x86/x86_data.c:128
+msgctxt "x86-flag"
+msgid "Supplemental SSE-3"
+msgstr "დამატებითი SSE-3"
+
+#. !/flag:cid
+#: modules/devices/x86/x86_data.c:129
+msgctxt "x86-flag"
+msgid "Context ID"
+msgstr "კონტექსტის ID"
+
+#. !/flag:sdbg
+#: modules/devices/x86/x86_data.c:130
+msgctxt "x86-flag"
+msgid "silicon debug"
+msgstr "სილიციუმის გამართვა"
+
+#. !/flag:fma
+#: modules/devices/x86/x86_data.c:131
+msgctxt "x86-flag"
+msgid "Fused multiply-add"
+msgstr "შერწყმული გამრავლება-მიმატება"
+
+#. !/flag:cx16
+#: modules/devices/x86/x86_data.c:132
+msgctxt "x86-flag"
+msgid "CMPXCHG16B"
+msgstr "CMPXCHG16B"
+
+#. !/flag:xtpr
+#: modules/devices/x86/x86_data.c:133
+msgctxt "x86-flag"
+msgid "Send Task Priority Messages"
+msgstr "შეტყობინების გაგზავნა ამოცანის პრიორიტეტის შესახებ"
+
+#. !/flag:pdcm
+#: modules/devices/x86/x86_data.c:134
+msgctxt "x86-flag"
+msgid "Performance Capabilities"
+msgstr "წარმადობის შესაძლებლობები"
+
+#. !/flag:pcid
+#: modules/devices/x86/x86_data.c:135
+msgctxt "x86-flag"
+msgid "Process Context Identifiers"
+msgstr "პროცესის კონტექსტის იდენტიფიკატორები"
+
+#. !/flag:dca
+#: modules/devices/x86/x86_data.c:136
+msgctxt "x86-flag"
+msgid "Direct Cache Access"
+msgstr "პირდაპირი წვდომა კეშზე"
+
+#. !/flag:sse4_1
+#: modules/devices/x86/x86_data.c:137
+msgctxt "x86-flag"
+msgid "SSE-4.1"
+msgstr "SSE-4.1"
+
+#. !/flag:sse4_2
+#: modules/devices/x86/x86_data.c:138
+msgctxt "x86-flag"
+msgid "SSE-4.2"
+msgstr "SSE-4.2"
+
+#. !/flag:x2apic
+#: modules/devices/x86/x86_data.c:139
+msgctxt "x86-flag"
+msgid "x2APIC"
+msgstr "x2APIC"
+
+#. !/flag:movbe
+#: modules/devices/x86/x86_data.c:140
+msgctxt "x86-flag"
+msgid "Move Data After Swapping Bytes instruction"
+msgstr ""
+
+#. !/flag:popcnt
+#: modules/devices/x86/x86_data.c:141
+msgctxt "x86-flag"
+msgid ""
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
+msgstr ""
+
+#: modules/devices/x86/x86_data.c:142
+msgctxt "x86-flag"
+msgid "Tsc deadline timer"
+msgstr ""
+
+#. !/flag:aes/aes-ni
+#: modules/devices/x86/x86_data.c:143
+msgctxt "x86-flag"
+msgid "Advanced Encryption Standard (New Instructions)"
+msgstr ""
+
+#. !/flag:xsave
+#: modules/devices/x86/x86_data.c:144
+msgctxt "x86-flag"
+msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
+msgstr ""
+
+#. !/flag:avx
+#: modules/devices/x86/x86_data.c:145
+msgctxt "x86-flag"
+msgid "Advanced Vector Extensions"
+msgstr ""
+
+#. !/flag:f16c
+#: modules/devices/x86/x86_data.c:146
+msgctxt "x86-flag"
+msgid "16-bit fp conversions (CVT16)"
+msgstr ""
+
+#. !/flag:rdrand
+#: modules/devices/x86/x86_data.c:147
+msgctxt "x86-flag"
+msgid "Read Random Number from hardware random number generator instruction"
+msgstr ""
+
+#. !/flag:hypervisor
+#: modules/devices/x86/x86_data.c:148
+msgctxt "x86-flag"
+msgid "Running on a hypervisor"
+msgstr "გაშვებულია ჰიპერვიზორზე"
+
+#. !/flag:rng
+#: modules/devices/x86/x86_data.c:150
+msgctxt "x86-flag"
+msgid "Random Number Generator present (xstore)"
+msgstr ""
+
+#. !/flag:rng_en
+#: modules/devices/x86/x86_data.c:151
+msgctxt "x86-flag"
+msgid "Random Number Generator enabled"
+msgstr ""
+
+#. !/flag:ace
+#: modules/devices/x86/x86_data.c:152
+msgctxt "x86-flag"
+msgid "on-CPU crypto (xcrypt)"
+msgstr ""
+
+#. !/flag:ace_en
+#: modules/devices/x86/x86_data.c:153
+msgctxt "x86-flag"
+msgid "on-CPU crypto enabled"
+msgstr ""
+
+#. !/flag:ace2
+#: modules/devices/x86/x86_data.c:154
+msgctxt "x86-flag"
+msgid "Advanced Cryptography Engine v2"
+msgstr ""
+
+#. !/flag:ace2_en
+#: modules/devices/x86/x86_data.c:155
+msgctxt "x86-flag"
+msgid "ACE v2 enabled"
+msgstr "ACE v2 ჩართულია"
+
+#. !/flag:phe
+#: modules/devices/x86/x86_data.c:156
+msgctxt "x86-flag"
+msgid "PadLock Hash Engine"
+msgstr ""
+
+#. !/flag:phe_en
+#: modules/devices/x86/x86_data.c:157
+msgctxt "x86-flag"
+msgid "PHE enabled"
+msgstr "PHE ჩართულია"
+
+#. !/flag:pmm
+#: modules/devices/x86/x86_data.c:158
+msgctxt "x86-flag"
+msgid "PadLock Montgomery Multiplier"
+msgstr ""
+
+#. !/flag:pmm_en
+#: modules/devices/x86/x86_data.c:159
+msgctxt "x86-flag"
+msgid "PMM enabled"
+msgstr "PMM ჩართულია"
+
+#. !/flag:lahf_lm
+#: modules/devices/x86/x86_data.c:161
+msgctxt "x86-flag"
+msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
+msgstr ""
+
+#. !/flag:cmp_legacy
+#: modules/devices/x86/x86_data.c:162
+msgctxt "x86-flag"
+msgid "If yes HyperThreading not valid"
+msgstr ""
+
+#. !/flag:svm
+#: modules/devices/x86/x86_data.c:163
+msgctxt "x86-flag"
+msgid "\"Secure virtual machine\": AMD-V"
+msgstr ""
+
+#. !/flag:extapic
+#: modules/devices/x86/x86_data.c:164
+msgctxt "x86-flag"
+msgid "Extended APIC space"
+msgstr ""
+
+#. !/flag:cr8_legacy
+#: modules/devices/x86/x86_data.c:165
+msgctxt "x86-flag"
+msgid "CR8 in 32-bit mode"
+msgstr ""
+
+#. !/flag:abm
+#: modules/devices/x86/x86_data.c:166
+msgctxt "x86-flag"
+msgid "Advanced Bit Manipulation"
+msgstr ""
+
+#. !/flag:sse4a
+#: modules/devices/x86/x86_data.c:167
+msgctxt "x86-flag"
+msgid "SSE-4A"
+msgstr "SSE-4A"
+
+#. !/flag:misalignsse
+#: modules/devices/x86/x86_data.c:168
+msgctxt "x86-flag"
+msgid ""
+"indicates if a general-protection exception (#GP) is generated when some "
+"legacy SSE instructions operate on unaligned data. Also depends on CR0 and "
+"Alignment Checking bit"
+msgstr ""
+
+#. !/flag:3dnowprefetch
+#: modules/devices/x86/x86_data.c:169
+msgctxt "x86-flag"
+msgid "3DNow prefetch instructions"
+msgstr ""
+
+#. !/flag:osvw
+#: modules/devices/x86/x86_data.c:170
+msgctxt "x86-flag"
+msgid ""
+"indicates OS Visible Workaround, which allows the OS to work around "
+"processor errata."
+msgstr ""
+
+#. !/flag:ibs
+#: modules/devices/x86/x86_data.c:171
+msgctxt "x86-flag"
+msgid "Instruction Based Sampling"
+msgstr ""
+
+#. !/flag:xop
+#: modules/devices/x86/x86_data.c:172
+msgctxt "x86-flag"
+msgid "extended AVX instructions"
+msgstr ""
+
+#. !/flag:skinit
+#: modules/devices/x86/x86_data.c:173
+msgctxt "x86-flag"
+msgid "SKINIT/STGI instructions"
+msgstr "ინსტრუქციები SKINIT/STGI"
+
+#. !/flag:wdt
+#: modules/devices/x86/x86_data.c:174
+msgctxt "x86-flag"
+msgid "Watchdog timer"
+msgstr ""
+
+#. !/flag:lwp
+#: modules/devices/x86/x86_data.c:175
+msgctxt "x86-flag"
+msgid "Light Weight Profiling"
+msgstr ""
+
+#. !/flag:fma4
+#: modules/devices/x86/x86_data.c:176
+msgctxt "x86-flag"
+msgid "4 operands MAC instructions"
+msgstr ""
+
+#. !/flag:tce
+#: modules/devices/x86/x86_data.c:177
+msgctxt "x86-flag"
+msgid "translation cache extension"
+msgstr ""
+
+#. !/flag:nodeid_msr
+#: modules/devices/x86/x86_data.c:178
+msgctxt "x86-flag"
+msgid "NodeId MSR"
+msgstr ""
+
+#. !/flag:tbm
+#: modules/devices/x86/x86_data.c:179
+msgctxt "x86-flag"
+msgid "Trailing Bit Manipulation"
+msgstr ""
+
+#. !/flag:topoext
+#: modules/devices/x86/x86_data.c:180
+msgctxt "x86-flag"
+msgid "Topology Extensions CPUID leafs"
+msgstr ""
+
+#. !/flag:perfctr_core
+#: modules/devices/x86/x86_data.c:181
+msgctxt "x86-flag"
+msgid "Core Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:perfctr_nb
+#: modules/devices/x86/x86_data.c:182
+msgctxt "x86-flag"
+msgid "NB Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:bpext
+#: modules/devices/x86/x86_data.c:183
+msgctxt "x86-flag"
+msgid "data breakpoint extension"
+msgstr ""
+
+#. !/flag:ptsc
+#: modules/devices/x86/x86_data.c:184
+msgctxt "x86-flag"
+msgid "performance time-stamp counter"
+msgstr ""
+
+#. !/flag:perfctr_l2
+#: modules/devices/x86/x86_data.c:185
+msgctxt "x86-flag"
+msgid "L2 Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:mwaitx
+#: modules/devices/x86/x86_data.c:186
+msgctxt "x86-flag"
+msgid "MWAIT extension (MONITORX/MWAITX)"
+msgstr ""
+
+#. !/flag:cpb
+#: modules/devices/x86/x86_data.c:188
+msgctxt "x86-flag"
+msgid "AMD Core Performance Boost"
+msgstr ""
+
+#. !/flag:epb
+#: modules/devices/x86/x86_data.c:189
+msgctxt "x86-flag"
+msgid "IA32_ENERGY_PERF_BIAS support"
+msgstr ""
+
+#. !/flag:hw_pstate
+#: modules/devices/x86/x86_data.c:190
+msgctxt "x86-flag"
+msgid "AMD HW-PState"
+msgstr ""
+
+#. !/flag:proc_feedback
+#: modules/devices/x86/x86_data.c:191
+msgctxt "x86-flag"
+msgid "AMD ProcFeedbackInterface"
+msgstr ""
+
+#. !/flag:intel_pt
+#: modules/devices/x86/x86_data.c:192
+msgctxt "x86-flag"
+msgid "Intel Processor Tracing"
+msgstr ""
+
+#. !/flag:tpr_shadow
+#: modules/devices/x86/x86_data.c:194
+msgctxt "x86-flag"
+msgid "Intel TPR Shadow"
+msgstr ""
+
+#. !/flag:vnmi
+#: modules/devices/x86/x86_data.c:195
+msgctxt "x86-flag"
+msgid "Intel Virtual NMI"
+msgstr "Intel ვირტუალური NMI"
+
+#. !/flag:flexpriority
+#: modules/devices/x86/x86_data.c:196
+msgctxt "x86-flag"
+msgid "Intel FlexPriority"
+msgstr "Intel FlexPriority"
+
+#. !/flag:ept
+#: modules/devices/x86/x86_data.c:197
+msgctxt "x86-flag"
+msgid "Intel Extended Page Table"
+msgstr "Intel გაფართოებული გვერდის ცხრილი"
+
+#. !/flag:vpid
+#: modules/devices/x86/x86_data.c:198
+msgctxt "x86-flag"
+msgid "Intel Virtual Processor ID"
+msgstr "Intel ვირტუალური პროცესორის ID"
+
+#. !/flag:vmmcall
+#: modules/devices/x86/x86_data.c:199
+msgctxt "x86-flag"
+msgid "prefer VMMCALL to VMCALL"
+msgstr ""
+
+#. !/flag:fsgsbase
+#: modules/devices/x86/x86_data.c:201
+msgctxt "x86-flag"
+msgid "{RD/WR}{FS/GS}BASE instructions"
+msgstr ""
+
+#. !/flag:tsc_adjust
+#: modules/devices/x86/x86_data.c:202
+msgctxt "x86-flag"
+msgid "TSC adjustment MSR"
+msgstr ""
+
+#. !/flag:bmi1
+#: modules/devices/x86/x86_data.c:203
+msgctxt "x86-flag"
+msgid "1st group bit manipulation extensions"
+msgstr ""
+
+#. !/flag:hle
+#: modules/devices/x86/x86_data.c:204
+msgctxt "x86-flag"
+msgid "Hardware Lock Elision"
+msgstr ""
+
+#. !/flag:avx2
+#: modules/devices/x86/x86_data.c:205
+msgctxt "x86-flag"
+msgid "AVX2 instructions"
+msgstr "ინსტრუქციები AVX2"
+
+#. !/flag:smep
+#: modules/devices/x86/x86_data.c:206
+msgctxt "x86-flag"
+msgid "Supervisor Mode Execution Protection"
+msgstr ""
+
+#. !/flag:bmi2
+#: modules/devices/x86/x86_data.c:207
+msgctxt "x86-flag"
+msgid "2nd group bit manipulation extensions"
+msgstr ""
+
+#. !/flag:erms
+#: modules/devices/x86/x86_data.c:208
+msgctxt "x86-flag"
+msgid "Enhanced REP MOVSB/STOSB"
+msgstr ""
+
+#. !/flag:invpcid
+#: modules/devices/x86/x86_data.c:209
+msgctxt "x86-flag"
+msgid "Invalidate Processor Context ID"
+msgstr ""
+
+#. !/flag:rtm
+#: modules/devices/x86/x86_data.c:210
+msgctxt "x86-flag"
+msgid "Restricted Transactional Memory"
+msgstr ""
+
+#. !/flag:cqm
+#: modules/devices/x86/x86_data.c:211
+msgctxt "x86-flag"
+msgid "Cache QoS Monitoring"
+msgstr ""
+
+#. !/flag:mpx
+#: modules/devices/x86/x86_data.c:212
+msgctxt "x86-flag"
+msgid "Memory Protection Extension"
+msgstr ""
+
+#. !/flag:avx512f
+#: modules/devices/x86/x86_data.c:213
+msgctxt "x86-flag"
+msgid "AVX-512 foundation"
+msgstr "AVX-512 ძირიტადი"
+
+#. !/flag:avx512dq
+#: modules/devices/x86/x86_data.c:214
+msgctxt "x86-flag"
+msgid "AVX-512 Double/Quad instructions"
+msgstr "AVX-512 ორმაგი/ოთხმაგი ინსტრუქციები"
+
+#. !/flag:rdseed
+#: modules/devices/x86/x86_data.c:215
+msgctxt "x86-flag"
+msgid "The RDSEED instruction"
+msgstr ""
+
+#. !/flag:adx
+#: modules/devices/x86/x86_data.c:216
+msgctxt "x86-flag"
+msgid "The ADCX and ADOX instructions"
+msgstr ""
+
+#. !/flag:smap
+#: modules/devices/x86/x86_data.c:217
+msgctxt "x86-flag"
+msgid "Supervisor Mode Access Prevention"
+msgstr ""
+
+#. !/flag:clflushopt
+#: modules/devices/x86/x86_data.c:218
+msgctxt "x86-flag"
+msgid "CLFLUSHOPT instruction"
+msgstr "ინსტრუქცია CLFLUSHOPT"
+
+#. !/flag:clwb
+#: modules/devices/x86/x86_data.c:219
+msgctxt "x86-flag"
+msgid "CLWB instruction"
+msgstr "ინსტრუქცია CLWB"
+
+#. !/flag:avx512pf
+#: modules/devices/x86/x86_data.c:220
+msgctxt "x86-flag"
+msgid "AVX-512 Prefetch"
+msgstr "AVX-512 წინასწარი გამოთხოვა"
+
+#. !/flag:avx512er
+#: modules/devices/x86/x86_data.c:221
+msgctxt "x86-flag"
+msgid "AVX-512 Exponential and Reciprocal"
+msgstr "AVX-512 ექსპონენციალური და ორმხრივი"
+
+#. !/flag:avx512cd
+#: modules/devices/x86/x86_data.c:222
+msgctxt "x86-flag"
+msgid "AVX-512 Conflict Detection"
+msgstr "AVX-512 კონფლიქტის გამოვლენა"
+
+#. !/flag:sha_ni
+#: modules/devices/x86/x86_data.c:223
+msgctxt "x86-flag"
+msgid "SHA1/SHA256 Instruction Extensions"
+msgstr ""
+
+#. !/flag:avx512bw
+#: modules/devices/x86/x86_data.c:224
+msgctxt "x86-flag"
+msgid "AVX-512 Byte/Word instructions"
+msgstr ""
+
+#. !/flag:avx512vl
+#: modules/devices/x86/x86_data.c:225
+msgctxt "x86-flag"
+msgid "AVX-512 128/256 Vector Length extensions"
+msgstr ""
+
+#. !/flag:xsaveopt
+#: modules/devices/x86/x86_data.c:227
+msgctxt "x86-flag"
+msgid "Optimized XSAVE"
+msgstr "ოპტიმიზებული XSAVE"
+
+#. !/flag:xsavec
+#: modules/devices/x86/x86_data.c:228
+msgctxt "x86-flag"
+msgid "XSAVEC"
+msgstr "XSAVEC"
+
+#. !/flag:xgetbv1
+#: modules/devices/x86/x86_data.c:229
+msgctxt "x86-flag"
+msgid "XGETBV with ECX = 1"
+msgstr "XGETBV with ECX = 1"
+
+#. !/flag:xsaves
+#: modules/devices/x86/x86_data.c:230
+msgctxt "x86-flag"
+msgid "XSAVES/XRSTORS"
+msgstr "XSAVES/XRSTORS"
+
+#. !/flag:cqm_llc
+#: modules/devices/x86/x86_data.c:232
+msgctxt "x86-flag"
+msgid "LLC QoS"
+msgstr "LLC QoS"
+
+#. !/flag:cqm_occup_llc
+#: modules/devices/x86/x86_data.c:234
+msgctxt "x86-flag"
+msgid "LLC occupancy monitoring"
+msgstr ""
+
+#. !/flag:cqm_mbm_total
+#: modules/devices/x86/x86_data.c:235
+msgctxt "x86-flag"
+msgid "LLC total MBM monitoring"
+msgstr ""
+
+#. !/flag:cqm_mbm_local
+#: modules/devices/x86/x86_data.c:236
+msgctxt "x86-flag"
+msgid "LLC local MBM monitoring"
+msgstr ""
+
+#. !/flag:clzero
+#: modules/devices/x86/x86_data.c:238
+msgctxt "x86-flag"
+msgid "CLZERO instruction"
+msgstr "CLZERO ინსტრუქცია"
+
+#. !/flag:irperf
+#: modules/devices/x86/x86_data.c:239
+msgctxt "x86-flag"
+msgid "instructions retired performance counter"
+msgstr ""
+
+#. !/flag:dtherm
+#: modules/devices/x86/x86_data.c:241
+msgctxt "x86-flag"
+msgid "digital thermal sensor"
+msgstr ""
+
+#. !/flag:ida
+#: modules/devices/x86/x86_data.c:242
+msgctxt "x86-flag"
+msgid "Intel Dynamic Acceleration"
+msgstr "Intel-ის დინამიკური აჩქარება"
+
+#. !/flag:arat
+#: modules/devices/x86/x86_data.c:243
+msgctxt "x86-flag"
+msgid "Always Running APIC Timer"
+msgstr ""
+
+#. !/flag:pln
+#: modules/devices/x86/x86_data.c:244
+msgctxt "x86-flag"
+msgid "Intel Power Limit Notification"
+msgstr ""
+
+#. !/flag:pts
+#: modules/devices/x86/x86_data.c:245
+msgctxt "x86-flag"
+msgid "Intel Package Thermal Status"
+msgstr ""
+
+#. !/flag:hwp
+#: modules/devices/x86/x86_data.c:246
+msgctxt "x86-flag"
+msgid "Intel Hardware P-states"
+msgstr ""
+
+#. !/flag:hwp_notify
+#: modules/devices/x86/x86_data.c:247
+msgctxt "x86-flag"
+msgid "HWP notification"
+msgstr "HWP შეტყობინება"
+
+#. !/flag:hwp_act_window
+#: modules/devices/x86/x86_data.c:248
+msgctxt "x86-flag"
+msgid "HWP Activity Window"
+msgstr "HWP აქტივობის ფანჯარა"
+
+#. !/flag:hwp_epp
+#: modules/devices/x86/x86_data.c:249
+msgctxt "x86-flag"
+msgid "HWP Energy Performance Preference"
+msgstr "HWP ენერგოეფექტურობის უპირატესობა"
+
+#. !/flag:hwp_pkg_req
+#: modules/devices/x86/x86_data.c:250
+msgctxt "x86-flag"
+msgid "HWP package-level request"
+msgstr ""
+
+#. !/flag:npt
+#: modules/devices/x86/x86_data.c:252
+msgctxt "x86-flag"
+msgid "AMD Nested Page Table support"
+msgstr ""
+
+#. !/flag:lbrv
+#: modules/devices/x86/x86_data.c:253
+msgctxt "x86-flag"
+msgid "AMD LBR Virtualization support"
+msgstr "AMD LBR ვირტუალიზაციის მხარდაჭერა"
+
+#. !/flag:svm_lock
+#: modules/devices/x86/x86_data.c:254
+msgctxt "x86-flag"
+msgid "AMD SVM locking MSR"
+msgstr ""
+
+#. !/flag:nrip_save
+#: modules/devices/x86/x86_data.c:255
+msgctxt "x86-flag"
+msgid "AMD SVM next_rip save"
+msgstr ""
+
+#. !/flag:tsc_scale
+#: modules/devices/x86/x86_data.c:256
+msgctxt "x86-flag"
+msgid "AMD TSC scaling support"
+msgstr ""
+
+#. !/flag:vmcb_clean
+#: modules/devices/x86/x86_data.c:257
+msgctxt "x86-flag"
+msgid "AMD VMCB clean bits support"
+msgstr ""
+
+#. !/flag:flushbyasid
+#: modules/devices/x86/x86_data.c:258
+msgctxt "x86-flag"
+msgid "AMD flush-by-ASID support"
+msgstr ""
+
+#. !/flag:decodeassists
+#: modules/devices/x86/x86_data.c:259
+msgctxt "x86-flag"
+msgid "AMD Decode Assists support"
+msgstr ""
+
+#. !/flag:pausefilter
+#: modules/devices/x86/x86_data.c:260
+msgctxt "x86-flag"
+msgid "AMD filtered pause intercept"
+msgstr ""
+
+#. !/flag:pfthreshold
+#: modules/devices/x86/x86_data.c:261
+msgctxt "x86-flag"
+msgid "AMD pause filter threshold"
+msgstr ""
+
+#. !/flag:avic
+#: modules/devices/x86/x86_data.c:262
+msgctxt "x86-flag"
+msgid "Virtual Interrupt Controller"
+msgstr "ვირტუალური წყვეტების კონტროლერი"
+
+#. !/flag:pku
+#: modules/devices/x86/x86_data.c:264
+msgctxt "x86-flag"
+msgid "Protection Keys for Userspace"
+msgstr ""
+
+#. !/flag:ospke
+#: modules/devices/x86/x86_data.c:265
+msgctxt "x86-flag"
+msgid "OS Protection Keys Enable"
+msgstr ""
+
+#. !/flag:overflow_recov
+#: modules/devices/x86/x86_data.c:267
+msgctxt "x86-flag"
+msgid "MCA overflow recovery support"
+msgstr ""
+
+#. !/flag:succor
+#: modules/devices/x86/x86_data.c:268
+msgctxt "x86-flag"
+msgid "uncorrectable error containment and recovery"
+msgstr ""
+
+#. !/flag:smca
+#: modules/devices/x86/x86_data.c:269
+msgctxt "x86-flag"
+msgid "Scalable MCA"
+msgstr "მასშტაბირებადი MCA"
+
+#. !/bug:f00f
+#: modules/devices/x86/x86_data.c:272
+msgctxt "x86-flag"
+msgid "Intel F00F bug"
+msgstr "Intel F00F შეცდომა"
+
+#. !/bug:fdiv
+#: modules/devices/x86/x86_data.c:273
+msgctxt "x86-flag"
+msgid "FPU FDIV"
+msgstr "FPU FDIV"
+
+#. !/bug:coma
+#: modules/devices/x86/x86_data.c:274
+msgctxt "x86-flag"
+msgid "Cyrix 6x86 coma"
+msgstr "Cyrix 6x86 მძიმე"
+
+#. !/bug:tlb_mmatch
+#: modules/devices/x86/x86_data.c:275
+msgctxt "x86-flag"
+msgid "AMD Erratum 383"
+msgstr "AMD ერატა 383"
+
+#. !/bug:apic_c1e
+#. !/bug:amd_e400
+#: modules/devices/x86/x86_data.c:276 modules/devices/x86/x86_data.c:285
+msgctxt "x86-flag"
+msgid "AMD Erratum 400"
+msgstr "AMD ერატა 400"
+
+#. !/bug:11ap
+#: modules/devices/x86/x86_data.c:277
+msgctxt "x86-flag"
+msgid "Bad local APIC aka 11AP"
+msgstr ""
+
+#. !/bug:fxsave_leak
+#: modules/devices/x86/x86_data.c:278
+msgctxt "x86-flag"
+msgid "FXSAVE leaks FOP/FIP/FOP"
+msgstr ""
+
+#. !/bug:clflush_monitor
+#: modules/devices/x86/x86_data.c:279
+msgctxt "x86-flag"
+msgid "AAI65, CLFLUSH required before MONITOR"
+msgstr ""
+
+#. !/bug:sysret_ss_attrs
+#: modules/devices/x86/x86_data.c:280
+msgctxt "x86-flag"
+msgid "SYSRET doesn't fix up SS attrs"
+msgstr ""
+
+#. !/bug:espfix
+#: modules/devices/x86/x86_data.c:281
+msgctxt "x86-flag"
+msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
+msgstr ""
+
+#. !/bug:null_seg
+#: modules/devices/x86/x86_data.c:282
+msgctxt "x86-flag"
+msgid "Nulling a selector preserves the base"
+msgstr ""
+
+#. !/bug:swapgs_fence
+#: modules/devices/x86/x86_data.c:283
+msgctxt "x86-flag"
+msgid "SWAPGS without input dep on GS"
+msgstr ""
+
+#. !/bug:monitor
+#: modules/devices/x86/x86_data.c:284
+msgctxt "x86-flag"
+msgid "IPI required to wake up remote CPU"
+msgstr ""
+
+#. !/bug:cpu_insecure & bug:cpu_meltdown
+#: modules/devices/x86/x86_data.c:286 modules/devices/x86/x86_data.c:287
+msgctxt "x86-flag"
+msgid ""
+"CPU is affected by meltdown attack and needs kernel page table isolation"
+msgstr ""
+
+#. !/bug:spectre_v1
+#: modules/devices/x86/x86_data.c:288
+msgctxt "x86-flag"
+msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
+msgstr ""
+
+#. !/bug:spectre_v2
+#: modules/devices/x86/x86_data.c:289
+msgctxt "x86-flag"
+msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
+msgstr ""
+
+#. !/bug:spec_store_bypass
+#: modules/devices/x86/x86_data.c:290
+msgctxt "x86-flag"
+msgid "CPU is affected by speculative store bypass attack"
+msgstr ""
+
+#. !/bug:l1tf
+#: modules/devices/x86/x86_data.c:291
+msgctxt "x86-flag"
+msgid "CPU is affected by L1 Terminal Fault"
+msgstr ""
+
+#. !/flag:pm:ts
+#: modules/devices/x86/x86_data.c:294
+msgctxt "x86-flag"
+msgid "temperature sensor"
+msgstr "ტემპერატურის სენსორი"
+
+#. !/flag:pm:fid
+#: modules/devices/x86/x86_data.c:295
+msgctxt "x86-flag"
+msgid "frequency id control"
+msgstr ""
+
+#. !/flag:pm:vid
+#: modules/devices/x86/x86_data.c:296
+msgctxt "x86-flag"
+msgid "voltage id control"
+msgstr ""
+
+#. !/flag:pm:ttp
+#: modules/devices/x86/x86_data.c:297
+msgctxt "x86-flag"
+msgid "thermal trip"
+msgstr ""
+
+#. !/flag:pm:tm
+#: modules/devices/x86/x86_data.c:298
+msgctxt "x86-flag"
+msgid "hardware thermal control"
+msgstr "აპარატურული თერმული კონტროლი"
+
+#. !/flag:pm:stc
+#: modules/devices/x86/x86_data.c:299
+msgctxt "x86-flag"
+msgid "software thermal control"
+msgstr ""
+
+#. !/flag:pm:100mhzsteps
+#: modules/devices/x86/x86_data.c:300
+msgctxt "x86-flag"
+msgid "100 MHz multiplier control"
+msgstr ""
+
+#. !/flag:pm:hwpstate
+#: modules/devices/x86/x86_data.c:301
+msgctxt "x86-flag"
+msgid "hardware P-state control"
+msgstr ""
+
+#. !/flag:pm:cpb
+#: modules/devices/x86/x86_data.c:302
+msgctxt "x86-flag"
+msgid "core performance boost"
+msgstr "ბირთვის წარმადობის აჩქარება"
+
+#. !/flag:pm:eff_freq_ro
+#: modules/devices/x86/x86_data.c:303
+msgctxt "x86-flag"
+msgid "Readonly aperf/mperf"
+msgstr ""
+
+#. !/flag:pm:proc_feedback
+#: modules/devices/x86/x86_data.c:304
+msgctxt "x86-flag"
+msgid "processor feedback interface"
+msgstr ""
+
+#. !/flag:pm:acc_power
+#: modules/devices/x86/x86_data.c:305
+msgctxt "x86-flag"
+msgid "accumulated power mechanism"
+msgstr ""
+
+#: modules/network.c:61
+msgid "Interfaces"
+msgstr "ინტერფეისები"
+
+#: modules/network.c:62
+msgid "IP Connections"
+msgstr "IP კავშირები"
+
+#: modules/network.c:63
+msgid "Routing Table"
+msgstr "რაუტინგის ცხრილი"
+
+#: modules/network.c:64 modules/network.c:467
+msgid "ARP Table"
+msgstr "ARP ცხრილი"
+
+#: modules/network.c:65
+msgid "DNS Servers"
+msgstr "DNS სერვერები"
+
+#: modules/network.c:66
+msgid "Statistics"
+msgstr "სტატისტიკა"
+
+#: modules/network.c:67
+msgid "Shared Directories"
+msgstr "გაზიარებული საქაღალდეები"
+
+#: modules/network.c:468 modules/network.c:490 modules/network.c:521
+#: modules/network/net.c:495
+msgid "IP Address"
+msgstr "IP მისამართი"
+
+#: modules/network.c:468
+msgid "MAC Address"
+msgstr "MAC მისამართი"
+
+#: modules/network.c:477
+msgid "SAMBA"
+msgstr "SAMBA"
+
+#: modules/network.c:478
+msgid "NFS"
+msgstr "NFS"
+
+#: modules/network.c:489
+msgid "Name Servers"
+msgstr "DNS სერვერები"
+
+#: modules/network.c:504
+msgid "Connections"
+msgstr "კავშირები"
+
+#: modules/network.c:505
+msgid "Local Address"
+msgstr "ლოკალური მისამართი"
+
+#: modules/network.c:505
+msgid "Foreign Address"
+msgstr "უცხო მისამართი"
+
+#: modules/network.c:505
+msgid "State"
+msgstr "მდგომარეობა"
+
+#: modules/network.c:521
+msgid "Sent"
+msgstr "გაგზავნილია"
+
+#: modules/network.c:521
+msgid "Received"
+msgstr "მიღებული"
+
+#: modules/network.c:537
+msgid "IP routing table"
+msgstr "IP მარშრუტიზაციის ცხრილი"
+
+#: modules/network.c:538
+msgid "Destination/Gateway"
+msgstr "დანიშნულება/ნაგულისხმევი რაუტერი"
+
+#: modules/network.c:538 modules/network/net.c:496
+msgid "Mask"
+msgstr "ნიღაბი"
+
+#: modules/network.c:599
+msgid "Gathers information about this computer's network connection"
+msgstr ""
+
+#: modules/network/net.c:74
+msgctxt "wi-op-mode"
+msgid "Auto"
+msgstr "ავტო"
+
+#: modules/network/net.c:75
+msgctxt "wi-op-mode"
+msgid "Ad-Hoc"
+msgstr "Ad-Hoc"
+
+#: modules/network/net.c:76
+msgctxt "wi-op-mode"
+msgid "Managed"
+msgstr "მართული"
+
+#: modules/network/net.c:77
+msgctxt "wi-op-mode"
+msgid "Master"
+msgstr "მთავარი"
+
+#: modules/network/net.c:78
+msgctxt "wi-op-mode"
+msgid "Repeater"
+msgstr "გამმეორებელი"
+
+#: modules/network/net.c:79
+msgctxt "wi-op-mode"
+msgid "Secondary"
+msgstr "მეორადი"
+
+#: modules/network/net.c:80
+msgctxt "wi-op-mode"
+msgid "(Unknown)"
+msgstr "(უცნობი)"
+
+#: modules/network/net.c:268 modules/network/net.c:288
+#: modules/network/net.c:296
+msgctxt "net-if-type"
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: modules/network/net.c:269
+msgctxt "net-if-type"
+msgid "Loopback"
+msgstr "მარყუჟი ინტერფეისი"
+
+#: modules/network/net.c:270
+msgctxt "net-if-type"
+msgid "Point-to-Point"
+msgstr "წერტილიდან წერტილამდე"
+
+#: modules/network/net.c:271 modules/network/net.c:272
+#: modules/network/net.c:273 modules/network/net.c:274
+#: modules/network/net.c:298
+msgctxt "net-if-type"
+msgid "Wireless"
+msgstr "უსადენო"
+
+#: modules/network/net.c:275
+msgctxt "net-if-type"
+msgid "Virtual Point-to-Point (TUN)"
+msgstr ""
+
+#: modules/network/net.c:276
+msgctxt "net-if-type"
+msgid "Ethernet (TAP)"
+msgstr "Ethernet (TAP)"
+
+#: modules/network/net.c:277
+msgctxt "net-if-type"
+msgid "Parallel Line Internet Protocol"
+msgstr "პარალელური ხაზის ინტერნეტ პროტოკოლი"
+
+#: modules/network/net.c:278
+msgctxt "net-if-type"
+msgid "Infrared"
+msgstr "ინფრაწითელი"
+
+#: modules/network/net.c:279 modules/network/net.c:297
+msgctxt "net-if-type"
+msgid "Serial Line Internet Protocol"
+msgstr "სერიული ხაზის ინტერნეტ პროტოკოლი"
+
+#: modules/network/net.c:280
+msgctxt "net-if-type"
+msgid "Integrated Services Digital Network"
+msgstr ""
+
+#: modules/network/net.c:281
+msgctxt "net-if-type"
+msgid "IPv6-over-IPv4 Tunnel"
+msgstr ""
+
+#: modules/network/net.c:282
+msgctxt "net-if-type"
+msgid "VMWare Virtual Network Interface (NAT)"
+msgstr ""
+
+#: modules/network/net.c:283
+msgctxt "net-if-type"
+msgid "VMWare Virtual Network Interface"
+msgstr ""
+
+#: modules/network/net.c:284
+msgctxt "net-if-type"
+msgid "Personal Area Network (PAN)"
+msgstr ""
+
+#: modules/network/net.c:285
+msgctxt "net-if-type"
+msgid "Bluetooth"
+msgstr "ბლუთუზი"
+
+#: modules/network/net.c:286
+msgctxt "net-if-type"
+msgid "Bridge Interface"
+msgstr "ხიდის ინტერფეისი"
+
+#: modules/network/net.c:287
+msgctxt "net-if-type"
+msgid "Hamachi Virtual Personal Network"
+msgstr ""
+
+#: modules/network/net.c:289
+msgctxt "net-if-type"
+msgid "Intermediate Functional Block"
+msgstr ""
+
+#: modules/network/net.c:290
+msgctxt "net-if-type"
+msgid "GRE Network Tunnel"
+msgstr ""
+
+#: modules/network/net.c:291
+msgctxt "net-if-type"
+msgid "Mesh Network"
+msgstr "ბადის ქსელი"
+
+#: modules/network/net.c:292
+msgctxt "net-if-type"
+msgid "Wireless Master Interface"
+msgstr ""
+
+#: modules/network/net.c:293
+msgctxt "net-if-type"
+msgid "VirtualBox Virtual Network Interface"
+msgstr ""
+
+#: modules/network/net.c:299
+msgctxt "net-if-type"
+msgid "Wireless (WAN)"
+msgstr "უსადენო (WAN)"
+
+#: modules/network/net.c:301
+msgctxt "net-if-type"
+msgid "(Unknown)"
+msgstr "(უცნობი)"
+
+#: modules/network/net.c:364 modules/network/net.c:374
+msgid "Network Interfaces"
+msgstr "ქსელის ინტერფეისები"
+
+#: modules/network/net.c:364
+msgid "None Found"
+msgstr "არაფერია ნაპოვნი"
+
+#: modules/network/net.c:431
+msgid "Network Adapter Properties"
+msgstr "ქსელის ბარათის თვისებები"
+
+#: modules/network/net.c:432
+msgid "Interface Type"
+msgstr "ინტერფეისის ტიპი"
+
+#: modules/network/net.c:433
+msgid "Hardware Address (MAC)"
+msgstr "აპარატურული მისამართი (MAC)"
+
+#: modules/network/net.c:437
+msgid "MTU"
+msgstr "MTU"
+
+#: modules/network/net.c:439
+msgid "Transfer Details"
+msgstr "გადმოწერის დეტალები"
+
+#: modules/network/net.c:440
+msgid "Bytes Received"
+msgstr ""
+
+#: modules/network/net.c:441
+msgid "Bytes Sent"
+msgstr "გაგზავნილი ბაიტები"
+
+#: modules/network/net.c:458 modules/network/net.c:480
+#: modules/network/net.c:481
+msgid "dBm"
+msgstr "დბმ"
+
+#: modules/network/net.c:458
+msgid "mW"
+msgstr "მვტ"
+
+#: modules/network/net.c:472
+msgid "Wireless Properties"
+msgstr "უსადენო ქსელის თვისებები"
+
+#: modules/network/net.c:473
+msgid "Network Name (SSID)"
+msgstr ""
+
+#: modules/network/net.c:474
+msgid "Bit Rate"
+msgstr "ბიტური სიჩქარე"
+
+#: modules/network/net.c:475
+msgid "Transmission Power"
+msgstr ""
+
+#: modules/network/net.c:478
+msgid "Link Quality"
+msgstr "შეერთების ხარისხი"
+
+#: modules/network/net.c:479
+msgid "Signal / Noise"
+msgstr ""
+
+#: modules/network/net.c:494
+msgid "Internet Protocol (IPv4)"
+msgstr ""
+
+#: modules/network/net.c:495 modules/network/net.c:496
+#: modules/network/net.c:498
+msgid "(Not set)"
+msgstr "(დაყენებული არაა)"
+
+#: modules/network/net.c:497
+msgid "Broadcast Address"
+msgstr "ტრანსლირების მისამართი"
+
+#: includes/spd-decode.h:28
+msgid "RAM"
+msgstr "RAM"

@@ -419,6 +419,7 @@ void cb_about()
 	"serkan-maker (Turkish)",
 	"ReVe1uv (Chinese)",
 	"yolateng0 (France)",
+	"EkaterinePapava (Georgian)",
         "",
 	"Artwork by:",
         "Jakub Szypulka",

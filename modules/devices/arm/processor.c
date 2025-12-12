@@ -603,6 +603,7 @@ gchar *processor_name(GSList *processors) {
         { "amlogic,a311d", "Amlogic", "A311D (Vim3)" }, // VIM3
         { "amlogic,s905w", "Amlogic", "S905W" },
         { "amlogic,s912", "Amlogic", "S912" },
+        { "amlogic,sc2", "Amlogic", "S905X4 (SC2)" },//Meson SC2
         { "apple,t8132", "Apple", "T8132 (M4)" },
         { "apple,t8122", "Apple", "T8122 (M3)" },
         { "apple,t8112", "Apple", "T8112 (M2)" },

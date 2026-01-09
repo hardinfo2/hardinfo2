@@ -907,8 +907,8 @@ name Nobara Linux
     url nobaraproject.org
     match_string Nobara Linux
 
-name nVidia Corporation
-    name_short nVidia
+name NVIDIA Corporation
+    name_short NVIDIA
     url www.nvidia.com
     wikipedia Nvidia
     ansi_color 0;97;42

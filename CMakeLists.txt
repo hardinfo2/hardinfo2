@@ -132,7 +132,12 @@ string(REGEX REPLACE " " "" disversion "${disversion}")
 if(${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*" OR ${distro} MATCHES "Fedora*" OR ${distro} MATCHES "RedHat*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "openSUSE*" OR ${distro} MATCHES "SUSE*" OR ${distro} MATCHES "PCLinuxOS*" OR ${distro} MATCHES "Ultramarine*" OR ${distro} MATCHES "Nobara*" OR ${distro} MATCHES "OpenMandriva*")
   #ALT Linux is RPM but too old rpmbuild - use alien until fixed
   # OR ${distro} MATCHES "ALT*" OR ${distro} MATCHES "SimplyLinux"
-  set(RPM 1)
+  #Support for debian edition (eg. pclinuxos)
+  if(${distro} MATCHES "Debian*")
+    set(RPM 0)
+  else()
+    set(RPM 1)
+  endif()
 endif()
 #Arch Distro's (tgz)
 if(${distro} MATCHES "Arch*" OR ${distro} MATCHES "Endeavour*" OR ${distro} MATCHES "Garuda*" OR ${distro} MATCHES "Reborn*" OR ${distro} MATCHES "SystemRescue*" OR ${distro} MATCHES "Artix*" OR ${distro} MATCHES "Manjaro*")

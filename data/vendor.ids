@@ -392,6 +392,12 @@ name D-Link
     ansi_color 0;97;44
     match_string D-Link
 
+name PCLinuxOS Debian
+    name_short PCLinuxOS Debian
+    url www.pclosdebian.com
+    ansi_color 0;97;44
+    match_string PCLinuxOS Debian
+
 name Debian
     url www.debian.org
     ansi_color 0;31;107

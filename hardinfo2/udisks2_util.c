@@ -10,6 +10,7 @@
 #define UDISKS2_PART_TABLE_INTERFACE "org.freedesktop.UDisks2.PartitionTable"
 #define UDISKS2_DRIVE_INTERFACE      "org.freedesktop.UDisks2.Drive"
 #define UDISKS2_DRIVE_ATA_INTERFACE  "org.freedesktop.UDisks2.Drive.Ata"
+#define UDISKS2_NVME_CONTROLLER      "org.freedesktop.UDisks2.NVMe.Controller"
 #define DBUS_PROPERTIES_INTERFACE    "org.freedesktop.DBus.Properties"
 #define UDISKS2_MANAGER_OBJ_PATH     "/org/freedesktop/UDisks2/Manager"
 #define UDISKS2_BLOCK_DEVICES_PATH   "/org/freedesktop/UDisks2/block_devices"
@@ -338,41 +339,61 @@ gpointer get_udisks2_temp(const char *blockdev, GDBusProxy *block,
     gboolean smart_enabled = FALSE;
     udiskt* disk_temp = NULL;
 
+    //ATA/SCSI Smart
     v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartEnabled");
     if (v) {
         smart_enabled = g_variant_get_boolean(v);
         g_variant_unref(v);
+	if(smart_enabled){
+	    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartTemperature");
+	    if (v) {
+	        disk_temp = udiskt_new();
+		disk_temp->temperature = (gint32) (g_variant_get_double(v) - 273.15);
+		g_variant_unref(v);
+		//Read model
+		v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Model");
+		if (v) {
+		    gchar *drivetemp = g_variant_dup_string(v, NULL);
+		    disk_temp->drive = g_strconcat(drivetemp," (",blockdev,")",NULL);
+		    g_free(drivetemp);
+		    g_variant_unref(v);
+		}
+		return disk_temp;
+	    }
+	}
+	return NULL;
     }
 
-    if (!smart_enabled) {
-        return NULL;
-    }
-
-    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartTemperature");
+    /* //NVME Smart
+    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "State");
     if (v) {
-        disk_temp = udiskt_new();
-        disk_temp->temperature = (gint32) (g_variant_get_double(v) - 273.15);
+        smart_enabled = 1;
         g_variant_unref(v);
-    }
+	if (smart_enabled) {
+	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartTemperature");
+	    if (v) {
+	        disk_temp = udiskt_new();
+		disk_temp->temperature = (gint32) (g_variant_get_double(v) - 273.15);
+		g_variant_unref(v);
+		//Read model
+		v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Model");
+		if (v) {
+	            gchar *drivetemp = g_variant_dup_string(v, NULL);
+		    disk_temp->drive = g_strconcat(drivetemp," (",blockdev,")",NULL);
+		    g_free(drivetemp);
+		    g_variant_unref(v);
+		}
+		return disk_temp;
+	    }
+	}
+    }*/
 
-    if (!disk_temp) {
-        return NULL;
-    }
-
-    v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Model");
-    if (v) {
-        gchar *drivetemp = g_variant_dup_string(v, NULL);
-	disk_temp->drive = g_strconcat(drivetemp," (",blockdev,")",NULL);
-	g_free(drivetemp);
-        g_variant_unref(v);
-    }
-
-    return disk_temp;
+    return NULL;
 }
 
-gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath){
+gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath,int nvme){
     GDBusProxy *proxy;
-    GVariant *options, *v, *v2;
+    GVariant *options, *v, *v2, *aval=NULL;
     GVariantIter *iter;
     GError *error = NULL;
     const char* aidenf;
@@ -380,18 +401,20 @@ gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath){
     gint32 avalue, aworst, athreshold, pretty_unit;
     gint64 pretty;
     udisksa *lastp = NULL, *p;
-
-    proxy = g_dbus_proxy_new_sync(udisks2_conn, G_DBUS_PROXY_FLAGS_NONE, NULL,
+    if(nvme)
+        proxy = g_dbus_proxy_new_sync(udisks2_conn, G_DBUS_PROXY_FLAGS_NONE, NULL,
+                                  UDISKS2_INTERFACE, drivepath,
+                                  UDISKS2_NVME_CONTROLLER, NULL, &error);
+    else
+        proxy = g_dbus_proxy_new_sync(udisks2_conn, G_DBUS_PROXY_FLAGS_NONE, NULL,
                                   UDISKS2_INTERFACE, drivepath,
                                   UDISKS2_DRIVE_ATA_INTERFACE, NULL, &error);
-
     options = g_variant_new_parsed("@a{sv} { %s: <true> }",
                                    "auth.no_user_interaction");
     if (error != NULL){
         g_error_free (error);
         return NULL;
     }
-
     v = g_dbus_proxy_call_sync(proxy, "SmartGetAttributes",
                                g_variant_new_tuple(&options, 1),
                                G_DBUS_CALL_FLAGS_NONE, -1, NULL, &error);
@@ -406,53 +429,101 @@ gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath){
     v2 = g_variant_get_child_value(v, 0);
     iter = g_variant_iter_new(v2);
 
-    // id(y), identifier(s), flags(q), value(i), worst(i), threshold(i),
-    // pretty(x), pretty_unit(i), expansion(a{sv})
-    // pretty_unit = 0 (unknown), 1 (dimensionless), 2 (milliseconds), 3 (sectors), 4 (millikelvin).
-    while (g_variant_iter_loop (iter, "(ysqiiixia{sv})", &aid, &aidenf, NULL, &avalue,
-                                &aworst, &athreshold, &pretty, &pretty_unit, NULL)){
-        p = udisksa_new();
-        p->id = aid;
-        p->identifier = g_strdup(aidenf);
-        p->value = avalue;
-        p->worst = aworst;
-        p->threshold = athreshold;
-        switch (pretty_unit){
-            case 1:
-                p->interpreted_unit = UDSK_INTPVAL_DIMENSIONLESS;
-                p->interpreted = pretty;
-                break;
-            case 2:
-                if (pretty > 1000*60*60){ // > 1h
-                    p->interpreted_unit = UDSK_INTPVAL_HOURS;
-                    p->interpreted = pretty / (1000*60*60);
-                }
-                else{
-                    p->interpreted_unit = UDSK_INTPVAL_MILISECONDS;
-                    p->interpreted = pretty;
-                }
-                break;
-            case 3:
-                p->interpreted_unit = UDSK_INTPVAL_SECTORS;
-                p->interpreted = pretty;
-                break;
-            case 4:
-                p->interpreted_unit = UDSK_INTPVAL_CELSIUS;
-                p->interpreted = (pretty - 273150) / 1000; //mK to °C
-                break;
-            default:
-                p->interpreted_unit = UDSK_INTPVAL_SKIP;
-                p->interpreted = -1;
-                break;
+    if(nvme){
+        int id=0;
+        while (g_variant_iter_loop (iter, "{sv}", &aidenf, &aval, NULL))
+	  if(strstr(aidenf,"temp_sensors")==0) {
+	    p = udisksa_new();
+	    p->id = id++;
+	    p->identifier = g_strdup(aidenf);
+	    p->worst = 0;
+	    p->threshold = 0;
+	    p->value = 0;
+
+	    p->interpreted = -1;
+	    if(g_variant_classify(aval)=='q'){
+	        p->interpreted = (gint64)g_variant_get_uint16(aval);
+	    }
+	    if(g_variant_classify(aval)=='u'){
+	        p->interpreted = (gint64)g_variant_get_uint32(aval);
+	    }
+	    if(g_variant_classify(aval)=='y'){
+	        p->interpreted = (gint64)g_variant_get_byte(aval);
+	    }
+	    if(g_variant_classify(aval)=='t'){
+	        p->interpreted = (gint64)g_variant_get_uint64(aval);
+	    }
+	    //
+	    if(strstr(aidenf,"hour")||strstr(aidenf,"time")) {
+	        p->interpreted_unit = UDSK_INTPVAL_HOURS;
+		if(strstr(aidenf,"time")) p->interpreted = (p->interpreted/60); //Minutes->Hours
+	    } else if(strstr(aidenf,"temp")||strstr(aidenf,"ensor")) {
+	        p->interpreted_unit=UDSK_INTPVAL_CELSIUS;
+		p->interpreted = (p->interpreted - 273);
+	    } else if(strstr(aidenf,"ercent")||strstr(aidenf,"spare")) {
+	        p->interpreted_unit=UDSK_INTPVAL_PROCENT;
+	    } else if(strstr(aidenf,"ritten")||strstr(aidenf,"ead")) {
+	        p->interpreted_unit = UDSK_INTPVAL_TB;
+		p->interpreted = (p->interpreted>>40);
+	    } else {
+	        p->interpreted_unit=UDSK_INTPVAL_DIMENSIONLESS;
+	    }
+	    p->next = NULL;
+
+	    if (lastp == NULL)
+	        dsk->smart_attributes = p;
+	    else
+	        lastp->next = p;
+	    lastp = p;
         }
-        p->next = NULL;
+    } else {
+        // id(y), identifier(s), flags(q), value(i), worst(i), threshold(i),
+        // pretty(x), pretty_unit(i), expansion(a{sv})
+        // pretty_unit = 0 (unknown), 1 (dimensionless), 2 (milliseconds), 3 (sectors), 4 (millikelvin).
+        while (g_variant_iter_loop (iter, "(ysqiiixia{sv})", &aid, &aidenf, NULL, &avalue,
+                                &aworst, &athreshold, &pretty, &pretty_unit, NULL)){
+	    p = udisksa_new();
+	    p->id = aid;
+	    p->identifier = g_strdup(aidenf);
+	    p->value = avalue;
+	    p->worst = aworst;
+	    p->threshold = athreshold;
+	    switch (pretty_unit){
+            case 1:
+	      p->interpreted_unit = UDSK_INTPVAL_DIMENSIONLESS;
+	      p->interpreted = pretty;
+	      break;
+            case 2:
+	      if (pretty > 1000*60*60){ // > 1h
+		p->interpreted_unit = UDSK_INTPVAL_HOURS;
+		p->interpreted = pretty / (1000*60*60);
+	      }
+	      else{
+		p->interpreted_unit = UDSK_INTPVAL_MILISECONDS;
+		p->interpreted = pretty;
+	      }
+	      break;
+            case 3:
+	      p->interpreted_unit = UDSK_INTPVAL_SECTORS;
+	      p->interpreted = pretty;
+	      break;
+            case 4:
+	      p->interpreted_unit = UDSK_INTPVAL_CELSIUS;
+	      p->interpreted = (pretty - 273150) / 1000; //mK to °C
+	      break;
+            default:
+	      p->interpreted_unit = UDSK_INTPVAL_SKIP;
+	      p->interpreted = -1;
+	      break;
+	    }
+	    p->next = NULL;
 
-        if (lastp == NULL)
-            dsk->smart_attributes = p;
-        else
-            lastp->next = p;
-
-        lastp = p;
+	    if (lastp == NULL)
+	        dsk->smart_attributes = p;
+	    else
+	        lastp->next = p;
+	    lastp = p;
+	}
     }
     g_variant_iter_free (iter);
     g_variant_unref(v2);
@@ -587,33 +658,62 @@ gpointer get_udisks2_drive_info(const char *blockdev, GDBusProxy *block,
         u->smart_supported = g_variant_get_boolean(v);
         g_variant_unref(v);
     }
+    //ATA/SCSI Smart
     v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartEnabled");
     if (v){
         u->smart_enabled = g_variant_get_boolean(v);
         g_variant_unref(v);
+	if (u->smart_enabled){
+	    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartPowerOnSeconds");
+	    if (v){
+                u->smart_poweron = g_variant_get_uint64(v);
+		g_variant_unref(v);
+	    }
+	    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartNumBadSectors");
+	    if (v){
+	        u->smart_bad_sectors = g_variant_get_int64(v);
+		g_variant_unref(v);
+	    }
+	    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartTemperature");
+	    if (v){
+                u->smart_temperature = (gint) (g_variant_get_double(v) - 273.15);
+		g_variant_unref(v);
+	    }
+	    v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartFailing");
+	    if (v){
+                u->smart_failing = g_variant_get_boolean(v);
+		g_variant_unref(v);
+	    }
+	    get_udisks2_smart_attributes(u, drivepath, 0);
+	}
     }
-    if (u->smart_enabled){
-        v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartPowerOnSeconds");
-        if (v){
-            u->smart_poweron = g_variant_get_uint64(v);
-            g_variant_unref(v);
-        }
-        v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartNumBadSectors");
-        if (v){
-            u->smart_bad_sectors = g_variant_get_int64(v);
-            g_variant_unref(v);
-        }
-        v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartTemperature");
-        if (v){
-            u->smart_temperature = (gint) (g_variant_get_double(v) - 273.15);
-            g_variant_unref(v);
-        }
-        v = get_dbus_property(drive, UDISKS2_DRIVE_ATA_INTERFACE, "SmartFailing");
-        if (v){
-            u->smart_failing = g_variant_get_boolean(v);
-            g_variant_unref(v);
-        }
-        get_udisks2_smart_attributes(u, drivepath);
+    //NVME Smart
+    if(!u->smart_enabled){
+        v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "State");
+        if (v) {
+	  u->smart_enabled = 1;
+	  g_variant_unref(v);
+	}
+	if (u->smart_enabled){
+	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartPowerOnHours");
+	    if (v){
+                u->smart_poweron = g_variant_get_uint64(v)*3600;
+		g_variant_unref(v);
+	    }
+	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartTemperature");
+	    if (v){
+	        u->smart_temperature = (gint) (g_variant_get_uint16(v) - 273);
+		g_variant_unref(v);
+	    }
+	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartCriticalWarning");
+	    if (v){
+	        const gchar **s=g_variant_get_strv(v,NULL);
+	        u->smart_failing = ((s!=NULL) && (*s!=0));
+		g_free(s);
+		//g_variant_unref(v);
+	    }
+	    get_udisks2_smart_attributes(u, drivepath, 1);
+	}
     }
 
     v = get_dbus_property(block, UDISKS2_PART_TABLE_INTERFACE, "Type");

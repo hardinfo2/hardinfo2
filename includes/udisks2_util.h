@@ -16,6 +16,8 @@ enum{
     UDSK_INTPVAL_HOURS         = 3,
     UDSK_INTPVAL_SECTORS       = 4,
     UDSK_INTPVAL_CELSIUS       = 5,
+    UDSK_INTPVAL_PROCENT       = 6,
+    UDSK_INTPVAL_TB            = 7,
 };
 
 typedef struct udisksa {

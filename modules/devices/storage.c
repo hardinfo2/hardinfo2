@@ -355,9 +355,10 @@ gboolean __scan_udisks2_devices(void) {
                                         disk->smart_temperature);
 
             if (disk->smart_attributes != NULL) {
-                moreinfo = h_strdup_cprintf(_("[S.M.A.R.T. Attributes]\n"
-                                            "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"),
-                                            moreinfo);
+	        if(ext->nvme_controller)
+                    moreinfo = h_strdup_cprintf(_("[S.M.A.R.T. Attributes]\nAttribute=<tt>Value</tt>\n"), moreinfo);
+		else
+                    moreinfo = h_strdup_cprintf(_("[S.M.A.R.T. Attributes]\nAttribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"), moreinfo);
 
                 attrib = disk->smart_attributes;
 
@@ -372,7 +373,13 @@ gboolean __scan_udisks2_devices(void) {
                             tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " ms", tmp, attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_HOURS:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " h", tmp, attrib->interpreted);
+			    if(attrib->interpreted<24){
+			        tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " h", tmp, attrib->interpreted);
+			    } else if (attrib->interpreted<24*365){
+			        tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " days", tmp, attrib->interpreted/24);
+			    } else {
+			      tmp = h_strdup_cprintf("%0.1f years", tmp, (double)attrib->interpreted/24/365);
+			    }
                             break;
                         case UDSK_INTPVAL_CELSIUS:
                             tmp = h_strdup_cprintf("%" G_GINT64_FORMAT "°C", tmp, attrib->interpreted);
@@ -381,6 +388,12 @@ gboolean __scan_udisks2_devices(void) {
                             tmp = h_strdup_cprintf(ngettext("%" G_GINT64_FORMAT " sector",
                                                             "%" G_GINT64_FORMAT " sectors", attrib->interpreted),
                                                    tmp, attrib->interpreted);
+                            break;
+                        case UDSK_INTPVAL_TB:
+                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " TB", tmp, attrib->interpreted);
+			    break;
+                        case UDSK_INTPVAL_PROCENT:
+                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " %%", tmp, attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_DIMENSIONLESS:
                         default:
@@ -392,21 +405,22 @@ gboolean __scan_udisks2_devices(void) {
                     j = g_utf8_strlen(tmp, -1);
                     if (j < 13) tmp = h_strdup_cprintf("%*c", tmp, 13 - j, ' ');
 
-                    if (attrib->value != -1)
-                        tmp = h_strdup_cprintf("%-13d", tmp, attrib->value);
-                    else
-                        tmp = h_strdup_cprintf("%-13s", tmp, "???");
+		    if(!ext->nvme_controller){
+		        if (attrib->value != -1)
+                            tmp = h_strdup_cprintf("%-13d", tmp, attrib->value);
+			else
+                            tmp = h_strdup_cprintf("%-13s", tmp, "???");
 
-                    if (attrib->worst != -1)
-                        tmp = h_strdup_cprintf("%-8d", tmp, attrib->worst);
-                    else
-                        tmp = h_strdup_cprintf("%-8s", tmp, "???");
+                        if (attrib->worst != -1)
+                            tmp = h_strdup_cprintf("%-8d", tmp, attrib->worst);
+                        else
+                            tmp = h_strdup_cprintf("%-8s", tmp, "???");
 
-                    if (attrib->threshold != -1)
-                        tmp = h_strdup_cprintf("%d", tmp, attrib->threshold);
-                    else
-                        tmp = h_strdup_cprintf("???", tmp);
-
+                        if (attrib->threshold != -1)
+                            tmp = h_strdup_cprintf("%d", tmp, attrib->threshold);
+                        else
+                            tmp = h_strdup_cprintf("???", tmp);
+		    }
 
                     alabel = attrib->identifier;
                     for (i = 0; smart_attrib_info[i].identifier != NULL; i++) {
@@ -416,9 +430,11 @@ gboolean __scan_udisks2_devices(void) {
                         }
                     }
 
-                    moreinfo = h_strdup_cprintf(_("(%d) %s=<tt>%s</tt>\n"),
-                                            moreinfo,
-                                            attrib->id, alabel, tmp);
+		    if(ext->nvme_controller)
+		        moreinfo = h_strdup_cprintf(_("%s=<tt>%s</tt>\n"), moreinfo, alabel, tmp);
+		    else
+		        moreinfo = h_strdup_cprintf(_("(%d) %s=<tt>%s</tt>\n"), moreinfo, attrib->id, alabel, tmp);
+
                     g_free(tmp);
                     attrib = attrib->next;
                 }

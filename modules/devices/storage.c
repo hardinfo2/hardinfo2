@@ -63,11 +63,15 @@ gchar *nvme_pci_sections(pcid *p) {
     if (p->pcie_width_curr) {
         pcie_str = g_strdup_printf("[%s]\n"
                      /* Addy */    "%s=PCI/%s\n"
+                     /* Width (cur) */  "%s=x%u\n"
                      /* Width (max) */  "%s=x%u\n"
+                     /* Speed (cur) */  "%s=%0.1f %s\n"
                      /* Speed (max) */  "%s=%0.1f %s\n",
                     _("PCI Express"),
                     _("Location"), p->slot_str,
+                    _("Link Width"), p->pcie_width_curr,
                     _("Maximum Link Width"), p->pcie_width_max,
+		    _("Link Speed"), p->pcie_speed_curr, _("GT/s"),
                     _("Maximum Link Speed"), p->pcie_speed_max, _("GT/s") );
     } else
         pcie_str = strdup("");

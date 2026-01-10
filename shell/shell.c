@@ -891,6 +891,7 @@ void shell_init(GSList * modules)
     shell_action_set_property("SyncManagerAction", "is-important", TRUE);
     shell_action_set_property("UpdateAction", "is-important", TRUE);
 
+
     path = g_build_filename(g_get_user_config_dir(), "hardinfo2","blobs-update-version.json", NULL);
     fd = open(path,O_RDONLY);
     if(fd>=0){
@@ -964,6 +965,12 @@ void shell_init(GSList * modules)
     load_graph_configure_expose(shell->loadgraph);
     gtk_widget_hide(shell->notebook);
     gtk_widget_hide(shell->note->event_box);
+
+    //Set SidePane+Toolbar active on start
+    shell_action_set_property("SidePaneAction", "active", TRUE);
+    shell_set_side_pane_visible(TRUE);
+    shell_action_set_property("ToolbarAction", "active", TRUE);
+    shell_ui_manager_set_visible("/MainMenuBarAction", TRUE);
 
     /* Should select Computer Summary (note: not Computer/Summary) */
     g_idle_add(select_first_tree_item, NULL);

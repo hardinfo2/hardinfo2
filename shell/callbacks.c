@@ -420,6 +420,7 @@ void cb_about()
 	"ReVe1uv (Chinese)",
 	"yolateng0 (France)",
 	"EkaterinePapava (Georgian)",
+	"yeager (Swedish)",
         "",
 	"Artwork by:",
         "Jakub Szypulka",

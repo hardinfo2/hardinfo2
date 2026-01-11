@@ -41,6 +41,19 @@ QGLGears::QGLGears()
 QGLGears::QGLGears()
   : QOpenGLWidget()
 {
+    QSurfaceFormat newFormat;
+    newFormat.setSamples(-1);
+    newFormat.setRenderableType(QSurfaceFormat::OpenGL);
+    newFormat.setSwapBehavior(QSurfaceFormat::SingleBuffer);
+    newFormat.setSwapInterval(0);
+    newFormat.setDepthBufferSize(0);
+    newFormat.setDefaultFormat(newFormat);
+    setFormat(newFormat);
+    setAttribute(Qt::WA_AlwaysStackOnTop);
+    QPalette p(palette());
+    p.setColor(QPalette::Base, Qt::black);
+    setAutoFillBackground(true);
+    setPalette(p);
     setFixedSize(1024, 800);
     setMinimumSize(1024, 800);
     setMaximumSize(1024, 800);

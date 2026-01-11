@@ -14,19 +14,21 @@ Status
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1331 strings (+2), with 63 c-format strings
-(as of fbbbe9ad-dirty fbbbe9ad1f8ed4486bf7a059f07b9c25d50a4375)
-- [ ] da.po : (3 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (858 / 1331 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (456 / 1331 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (850 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1167 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (230 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (25 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (219 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [x] ru.po : (0 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] tr.po : (20 / 1331 remain untranslated, needs work/fuzzy: 0)
-- [ ] zh_CN.po : (935 / 1331 remain untranslated, needs work/fuzzy: 0)
+hardinfo2.pot now has 1333 strings (+2), with 64 c-format strings
+(as of 53499893-dirty 534998938ac31260805bbc5f36188aa2434ab797)
+- [ ] da.po : (5 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (860 / 1333 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (458 / 1333 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (852 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1169 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] ka.po : (258 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (232 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (27 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (221 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] sv.po : (5 / 1333 remain untranslated, needs work/fuzzy: 1)
+- [ ] tr.po : (22 / 1333 remain untranslated, needs work/fuzzy: 0)
+- [ ] zh_CN.po : (937 / 1333 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 

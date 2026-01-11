@@ -30,6 +30,9 @@ enum BenchmarkEntries {
 #if(HARDINFO2_QT5)
     BENCHMARK_OPENGL,
 #endif
+#if(HARDINFO2_QT6)
+    BENCHMARK_OPENGL,
+#endif
 #if(HARDINFO2_VK)
     BENCHMARK_VULKAN,
 #endif
@@ -58,6 +61,9 @@ void benchmark_raytrace(void);
 void benchmark_zlib(void);
 void benchmark_iperf3_single(void);
 #if(HARDINFO2_QT5)
+void benchmark_opengl(void);
+#endif
+#if(HARDINFO2_QT6)
 void benchmark_opengl(void);
 #endif
 void benchmark_vulkan(void);

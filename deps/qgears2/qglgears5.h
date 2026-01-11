@@ -19,37 +19,24 @@
  *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#include "qglgears.h"
-#include <QTimer>
-#include "config.h"
+#ifndef QGLGEARS_H
+#define QGLGEARS_H
 
-#if(HARDINFO2_QT5)
-QGLGears::QGLGears()
-  : QGLWidget(QGLFormat(QGL::SampleBuffers), 0)
-{
-    QGLFormat newFormat;
-    newFormat.setSampleBuffers(0);
-    newFormat.setSwapInterval(0);
-    QGLGears::setFormat(newFormat);
-    setFixedSize(1024, 800);
-    setMinimumSize(1024, 800);
-    setMaximumSize(1024, 800);
-    setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-}
-#endif
-#if(HARDINFO2_QT6)
-QGLGears::QGLGears()
-  : QOpenGLWidget()
-{
-    setFixedSize(1024, 800);
-    setMinimumSize(1024, 800);
-    setMaximumSize(1024, 800);
-    setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-}
-#endif
+#include <QGLWidget>
+#include "commonrenderer.h"
 
-void QGLGears::paintEvent(QPaintEvent *)
+class QPaintEvent;
+class QPainter;
+
+class QGLGears : public QGLWidget,
+                 public CommonRenderer
 {
-    renderTo(this);
-    QTimer::singleShot(0, this, SLOT(repaint()));
-}
+    Q_OBJECT
+public:
+    QGLGears();
+
+protected:
+    virtual void paintEvent(QPaintEvent *e);
+};
+
+#endif

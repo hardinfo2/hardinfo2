@@ -24,8 +24,11 @@ set(HARDINFO2_RELEASE_NOTE_HTML "<p>Development</p><p>\nImprovements\nLots of mi
 option(HARDINFO2_SERVICE "Build with service support" 1)
 option(HARDINFO2_GTK3 "Build for GTK3 (0/off for GTK2)" 1)
 option(HARDINFO2_LIBSOUP3 "Build for libsoup-3.0 (0/off for libsoup-2.4)" 1)
+#Please use QT5 as long as possible to support compare to other distros
+option(HARDINFO2_QT6 "EXPERIMENTAL - Build opengl benchmark for QT6" 0)
 option(HARDINFO2_QT5 "Build opengl benchmark for QT5" 1)
-option(HARDINFO2_QT5_MOCQT5 "Build QT5 with moc-qt5" 0)
+#only select one of above for the OpenGL Benchmark - prefer QT5
+option(HARDINFO2_QT_MOCQT "Build QTx with moc-qtx" 0)
 option(HARDINFO2_VK "Build vulkan benchmark" 1)
 option(HARDINFO2_VK_WAYLAND "Build Vulkan with wayland support" 1)
 option(HARDINFO2_VK_X11 "Build Vulkan with X11 support" 1)
@@ -220,6 +223,7 @@ if(${disversion} LESS 6.99)
     set(HARDINFO2_SYSTEMV 1)
     message("RPM EL6 - no QT5+VK - Disabling benchmarks")
     set(HARDINFO2_QT5 0)
+    set(HARDINFO2_QT6 0)
     set(HARDINFO2_VK 0)
     message("RPM EL6 - NOSSL too old for https")
     set(HARDINFO2_NOSSL 1)
@@ -244,6 +248,7 @@ endif()
 #Fedora 23
 if(${distro}${disversion} MATCHES "Fedora23")
     message("FC23 - no QT5+VK - Disabling benchmarks")
+    set(HARDINFO2_QT6 0)
     set(HARDINFO2_QT5 0)
     set(HARDINFO2_VK 0)
     message("Fedora 23 - Too Old for HTTPS")
@@ -264,6 +269,7 @@ if(${distro}${disversion} MATCHES "DebianGNULinux7")
     set(PACKAGE_LIBSOUP2_MINVERSION 2.34.3)
     message("DEB 7 - no QT5+VK - Disabling benchmarks")
     set(HARDINFO2_QT5 0)
+    set(HARDINFO2_QT6 0)
     set(HARDINFO2_VK 0)
     message("DEB 7 - NOSSL too old for https")
     set(HARDINFO2_NOSSL 1)
@@ -275,6 +281,7 @@ endif()
 if(${distro}${disversion} MATCHES "DebianGNULinux8")
     message("DEB 8 - GTK3 version 3.14.5 is low - Themes disabled")
     message("DEB 8 - no QT5 - Disabling opengl benchmarks")
+    set(HARDINFO2_QT6 0)
     set(HARDINFO2_QT5 0)
     set(HARDINFO2_VK 0)
     SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, x11-xserver-utils, libsigsegv2, gawk") #miss vulkan-tools,fwupd +libsigsegv2 for gawk
@@ -285,6 +292,7 @@ if(${distro}${disversion} MATCHES "DebianGNULinux99")
 else()
     if(${distro}${disversion} MATCHES "DebianGNULinux9")
         message("DEB 9 - QT5 too low - Disabling opengl benchmarks")
+        set(HARDINFO2_QT6 0)
         set(HARDINFO2_QT5 0)
         set(HARDINFO2_VK 0)
 	SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, fwupd, x11-xserver-utils, gawk") #miss vulkan-tools
@@ -322,6 +330,7 @@ endif()
 if(${distro}${disversion} MATCHES "Ubuntu16")
     message("Ubuntu 16 - no QT5 - Disabling opengl+vulkan benchmarks")
     set(HARDINFO2_VK 0)
+    set(HARDINFO2_QT6 0)
     set(HARDINFO2_QT5 0)
     SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, fwupd, x11-xserver-utils, gawk") #miss vulkan-tools
     message("ubuntu 16 - Old Appstream metainfo")
@@ -382,7 +391,7 @@ endif()
 
 #ALT Linux
 if(${distro} MATCHES "ALT*" OR ${distro} MATCHES "SimplyLinux")
-    set(HARDINFO2_QT5_MOCQT5 1)
+    set(HARDINFO2_QT_MOCQT 1)
 endif()
 
 #MX
@@ -456,7 +465,7 @@ endif()
 
 add_subdirectory(po)
 
-if(HARDINFO2_QT5)
+if(HARDINFO2_QT5 OR HARDINFO2_QT6)
   add_subdirectory(deps/qgears2)
 endif()
 if(HARDINFO2_VK)
@@ -569,10 +578,10 @@ set(MODULE_network_SOURCES
 	modules/network/nfs.c
 	modules/network/samba.c
 )
-if(HARDINFO2_QT5)
-  set(HARDINFO2_QT5_FILE "modules/benchmark/opengl.c")
+if(HARDINFO2_QT5 OR HARDINFO2_QT6)
+  set(HARDINFO2_QT_FILE "modules/benchmark/opengl.c")
 else()
-  set(HARDINFO2_QT5_FILE "")
+  set(HARDINFO2_QT_FILE "")
 endif()
 if(HARDINFO2_VK)
   set(HARDINFO2_VK_FILE "modules/benchmark/vulkan.c")
@@ -596,7 +605,7 @@ set(MODULE_benchmark_SOURCES
 	modules/benchmark/zlib.c
 	modules/benchmark/sysbench.c
 	modules/benchmark/iperf3.c
-	${HARDINFO2_QT5_FILE}
+	${HARDINFO2_QT_FILE}
 	${HARDINFO2_VK_FILE}
 	modules/benchmark/storage.c
 	modules/benchmark/cachemem.c

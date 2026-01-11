@@ -60,6 +60,9 @@ BENCH_SIMPLE(BENCHMARK_IPERF3_SINGLE, "Internal Network Speed", benchmark_iperf3
 #if(HARDINFO2_QT5)
 BENCH_SIMPLE(BENCHMARK_OPENGL, "GPU OpenGL Drawing", benchmark_opengl, 1);
 #endif
+#if(HARDINFO2_QT6)
+BENCH_SIMPLE(BENCHMARK_OPENGL, "GPU OpenGL Drawing2", benchmark_opengl, 1);
+#endif
 #if(HARDINFO2_VK)
 BENCH_SIMPLE(BENCHMARK_VULKAN, "GPU Vulkan Drawing", benchmark_vulkan, 1);
 #endif
@@ -119,6 +122,9 @@ static char *entries_english_name[] = {
 #if(HARDINFO2_QT5)
 	    ,"GPU OpenGL Drawing"
 #endif
+#if(HARDINFO2_QT6)
+	    ,"GPU OpenGL Drawing2"
+#endif
 #if(HARDINFO2_VK)
 	    ,"GPU Vulkan Drawing"
 #endif
@@ -147,6 +153,9 @@ static int entries_btimer[] = {
     7,//"SysBench Memory (Multi-thread)",
     15,//"GPU Drawing"
 #if(HARDINFO2_QT5)
+    4,//,"GPU OpenGL Drawing"
+#endif
+#if(HARDINFO2_QT6)
     4,//,"GPU OpenGL Drawing"
 #endif
 #if(HARDINFO2_VK)
@@ -312,6 +321,16 @@ static ModuleEntry entries[] = {
             MODULE_FLAG_BENCHMARK|MODULE_FLAG_NO_REMOTE,
         },
 #endif
+#if(HARDINFO2_QT6)
+    [BENCHMARK_OPENGL] =
+        {
+            N_("GPU OpenGL Drawing2"),
+            "gpu.svg",
+            callback_benchmark_opengl,
+            scan_benchmark_opengl,
+            MODULE_FLAG_BENCHMARK|MODULE_FLAG_NO_REMOTE,
+        },
+#endif
 #if(HARDINFO2_VK)
     [BENCHMARK_VULKAN] =
         {
@@ -371,6 +390,10 @@ const gchar *hi_note_func(gint entry)
     case BENCHMARK_CACHEMEM:
         return _("Results in MB/s. Higher is better.");
 #if(HARDINFO2_QT5)
+    case BENCHMARK_OPENGL:
+        return _("Results in FPS. Higher is better.");
+#endif
+#if(HARDINFO2_QT6)
     case BENCHMARK_OPENGL:
         return _("Results in FPS. Higher is better.");
 #endif

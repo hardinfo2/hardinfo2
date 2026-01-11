@@ -651,10 +651,7 @@ static void create_window(void)
     if(!check_program("glxinfo"))                                 {p=pkgok;pkgok=g_strconcat("glxinfo / mesa-utils\n", pkgok, NULL);g_free(p);}
     if(strstr(PACK_REQ,"iperf") && !check_program("iperf3"))      {p=pkgok;pkgok=g_strconcat("iperf3\n", pkgok, NULL);g_free(p);}
     if(strstr(PACK_REQ,"sysbench") && !check_program("sysbench")) {p=pkgok;pkgok=g_strconcat("sysbench\n", pkgok, NULL);g_free(p);}
-#if(HARDINFO2_QT5)
-    //no binary in qt5-base package
-    //if(!check_program("qmake-qt5")) {p=pkgok;pkgok=g_strconcat("qt5-base\n", pkgok, NULL);g_free(p);}
-#endif
+    //no binary in qt5/6-base package
     //randr optional
     //if(strstr(PACK_REQ,"randr") && !check_program("xrandr"))      {p=pkgok;pkgok=g_strconcat("xrandr\n", pkgok, NULL);g_free(p);}
     //fwupd optional

@@ -20,23 +20,17 @@
 
 #cmakedefine HARDINFO2_DEBUG	@HARDINFO2_DEBUG@
 #cmakedefine CMAKE_BUILD_TYPE 	@CMAKE_BUILD_TYPE@
-#cmakedefine HARDINFO2_LIBSOUP3 @HARDINFO2_LIBSOUP3@
-#cmakedefine HARDINFO2_QT5      @HARDINFO2_QT5@
-#cmakedefine HARDINFO2_VK       @HARDINFO2_VK@
-#cmakedefine HARDINFO2_VK_WAYLAND @HARDINFO2_VK_WAYLAND@
-#cmakedefine HARDINFO2_VK_X11   @HARDINFO2_VK_X11@
-#cmakedefine HARDINFO2_NOSSL    @HARDINFO2_NOSSL@
+#cmakedefine01 HARDINFO2_LIBSOUP3
+#cmakedefine01 HARDINFO2_QT6
+#cmakedefine01 HARDINFO2_QT5
+#cmakedefine01 HARDINFO2_VK
+#cmakedefine01 HARDINFO2_VK_WAYLAND
+#cmakedefine01 HARDINFO2_VK_X11
+#cmakedefine01 HARDINFO2_NOSSL
 
 #define Release 1
 #define ON 1
 #define OFF 0
-
-#if !defined(HARDINFO2_LIBSOUP3)
-  #define HARDINFO2_LIBSOUP3 0
-#endif
-#if !defined(HARDINFO2_QT5)
-  #define HARDINFO2_QT5 0
-#endif
 
 #if defined(HARDINFO2_DEBUG) && (HARDINFO2_DEBUG==1)
   #define DEBUG(msg,...) fprintf(stderr, "*** %s:%d (%s) *** " msg "\n", \

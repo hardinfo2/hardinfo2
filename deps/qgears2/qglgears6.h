@@ -18,19 +18,16 @@
  *    along with this program; if not, write to the Free Software
  *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
-
 #ifndef QGLGEARS_H
 #define QGLGEARS_H
 
-#include <QGLWidget>
-
-
+#include <QOpenGLWidget>
 #include "commonrenderer.h"
 
 class QPaintEvent;
 class QPainter;
 
-class QGLGears : public QGLWidget,
+class QGLGears : public QOpenGLWidget,
                  public CommonRenderer
 {
     Q_OBJECT

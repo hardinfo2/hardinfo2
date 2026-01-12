@@ -38,6 +38,8 @@ if(HARDINFO2_QT6)
   execute_process(COMMAND /usr/lib64/qt6/libexec/moc -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB ${CMAKE_CURRENT_BINARY_DIR}/qglgears.h -o ${CMAKE_CURRENT_BINARY_DIR}/moc_qglgears.cpp)
   execute_process(COMMAND /usr/lib/qt6/libexec/moc -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB ${CMAKE_CURRENT_SOURCE_DIR}/qgears.h -o ${CMAKE_CURRENT_BINARY_DIR}/moc_qgears.cpp)
   execute_process(COMMAND /usr/lib/qt6/libexec/moc -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB ${CMAKE_CURRENT_BINARY_DIR}/qglgears.h -o ${CMAKE_CURRENT_BINARY_DIR}/moc_qglgears.cpp)
+  execute_process(COMMAND /usr/libexec/qt6/moc -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB ${CMAKE_CURRENT_SOURCE_DIR}/qgears.h -o ${CMAKE_CURRENT_BINARY_DIR}/moc_qgears.cpp)
+  execute_process(COMMAND /usr/libexec/qt6/moc -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB ${CMAKE_CURRENT_BINARY_DIR}/qglgears.h -o ${CMAKE_CURRENT_BINARY_DIR}/moc_qglgears.cpp)
 endif()
 
 if(HARDINFO2_QT5)

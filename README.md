@@ -33,6 +33,7 @@ Dependencies
 - glib JSON
 - Libsoup3 >=3.00 or Libsoup24 >=2.42 (LS24: cmake -DHARDINFO2_LIBSOUP3=0 ..)
 - Qt5 >=5.10 (disable QT5/OpenGL Benchmark: cmake -DHARDINFO2_QT5=0 ..)
+- Qt6 (use QT6 instead of QT5 for OpenGL Benchmark: cmake -DHARDINFO2_QT6=1 ..)
 - Vulkan(headers), libdecor-0, glslang (disable Vulkan Benchmark: cmake -DHARDINFO2_VK=0 ..)
 
 Packaging status
@@ -46,6 +47,8 @@ Please see the user download and install page here:
 
 Building and installing (Developers / Testers (Thanx))
 -----------------------
+NOTE: Please stay on QT5 as long as possible. When distro only has QT6 change all qt5->qt6 and use build option -DHARDINFO2_QT6=1.
+
 **Debian/Ubuntu/Mint/PopOS**
 - sudo apt install git cmake build-essential gettext curl
 - sudo apt install libjson-glib-dev zlib1g-dev libsoup-3.0-dev libgtk-3-dev libglib2.0-dev libqt5opengl5-dev qtbase5-dev

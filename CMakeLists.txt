@@ -27,13 +27,16 @@ option(HARDINFO2_LIBSOUP3 "Build for libsoup-3.0 (0/off for libsoup-2.4)" 1)
 #Please use QT5 as long as possible to support compare to other distros
 option(HARDINFO2_QT6 "EXPERIMENTAL - Build opengl benchmark for QT6" 0)
 option(HARDINFO2_QT5 "Build opengl benchmark for QT5" 1)
-#only select one of above for the OpenGL Benchmark - prefer QT5
 option(HARDINFO2_QT_MOCQT "Build QTx with moc-qtx" 0)
 option(HARDINFO2_VK "Build vulkan benchmark" 1)
 option(HARDINFO2_VK_WAYLAND "Build Vulkan with wayland support" 1)
 option(HARDINFO2_VK_X11 "Build Vulkan with X11 support" 1)
 option(HARDINFO2_NOSSL "Build for very old distro with no https" 0)
 
+#To allow manually setting QT6 only from cmd line
+if(HARDINFO2_QT6)
+  set(HARDINFO2_QT5 0)
+endif()
 SET(CMAKE_INSTALL_PREFIX "/usr")
 SET(HARDINFO2_SYSTEMV 0)
 SET(HARDINFO2_RUNIT 0)

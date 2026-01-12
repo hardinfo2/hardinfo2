@@ -352,35 +352,30 @@ static void destroy_me(void){
 #if GTK_CHECK_VERSION(3, 0, 0)
 int update=0;
 int schemeDark=0;
-int changed2dark=0;
 int newgnome=0;
 static void stylechange2_me(void)
 {
   if(update==1){
     GtkStyleContext *sctx=gtk_widget_get_style_context(GTK_WIDGET(shell->window));
     GdkRGBA color;
-    gtk_style_context_lookup_color(sctx, "theme_bg_color", &color);
+    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
     gint darkmode=0;
-    if((color.red+color.green+color.blue)<=1.5) darkmode=1;
+    if((color.red+color.green+color.blue)>=1.5) darkmode=1;
     //
     if(schemeDark && (!darkmode) ) {
         if(newgnome){
-            darkmode=1;
             //g_print("We need to change GTK_THEME to dark\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","HighContrastInverse", NULL);
-	    changed2dark=1;
 	}
     }
-    if( (!schemeDark) && darkmode && changed2dark ) {
+    if( (!schemeDark) && darkmode){
         if(newgnome){
-	    darkmode=0;
             //g_print("We need to change GTK_THEME to light\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","Adwaita", NULL);
-	    changed2dark=0;
 	}
     }
     //

@@ -28,134 +28,23 @@
 GHashTable *_module_hash_table = NULL;
 static gchar *kernel_modules_dir = NULL;
 
-enum icons {
-    ICON_INVALID = 0,
-
-    ICON_AUDIO,
-    ICON_BLUETOOTH,
-    ICON_CAMERA_WEB,
-    ICON_CDROM,
-    ICON_CRYPTOHASH,
-    ICON_DEVICES,
-    ICON_HDD,
-    ICON_INPUTDEVICES,
-    ICON_JOYSTICK,
-    ICON_KEYBOARD,
-    ICON_MEDIA_FLOPPY,
-    ICON_MEDIA_REMOVABLE,
-    ICON_MEMORY,
-    ICON_MONITOR,
-    ICON_MOUSE,
-    ICON_NETWORK,
-    ICON_NETWORK_CONNECTIONS,
-    ICON_NETWORK_INTERFACE,
-    ICON_THERM,
-    ICON_USB,
-    ICON_WIRELESS,
-
-    ICON_MAX,
-};
-
-static const char *icon_table[ICON_MAX] = {
-    [ICON_AUDIO] = "audio",
-    [ICON_BLUETOOTH] = "bluetooth",
-    [ICON_CAMERA_WEB] = "camera-web",
-    [ICON_CDROM] = "cdrom",
-    [ICON_CRYPTOHASH] = "cryptohash",
-    [ICON_DEVICES] = "devices",
-    [ICON_HDD] = "hdd",
-    [ICON_INPUTDEVICES] = "inputdevices",
-    [ICON_JOYSTICK] = "joystick",
-    [ICON_KEYBOARD] = "keyboard",
-    [ICON_MEDIA_FLOPPY] = "media-floppy",
-    [ICON_MEDIA_REMOVABLE] = "media-removable",
-    [ICON_MEMORY] = "memory",
-    [ICON_MONITOR] = "monitor",
-    [ICON_MOUSE] = "mouse",
-    [ICON_NETWORK] = "network",
-    [ICON_NETWORK_CONNECTIONS] = "network-connections",
-    [ICON_NETWORK_INTERFACE] = "network-interface",
-    [ICON_THERM] = "therm",
-    [ICON_USB] = "usb",
-    [ICON_WIRELESS] = "wireless",
-};
-
-/* Keep this sorted by reverse strlen(dir)! */
-static const struct {
-    const gchar *dir;
-    enum icons icon;
-} modules_icons[] = {
-    {"drivers/input/joystick/", ICON_JOYSTICK},
-    {"drivers/input/keyboard/", ICON_KEYBOARD},
-    {"drivers/media/usb/uvc/", ICON_CAMERA_WEB},
-    {"drivers/net/wireless/", ICON_WIRELESS},
-    {"drivers/net/ethernet/", ICON_NETWORK_INTERFACE},
-    {"drivers/input/mouse/", ICON_MOUSE},
-    {"drivers/bluetooth/", ICON_BLUETOOTH},
-    {"drivers/media/v4l", ICON_CAMERA_WEB},
-    {"arch/x86/crypto/", ICON_CRYPTOHASH},
-    {"drivers/crypto/", ICON_CRYPTOHASH},
-    {"net/bluetooth/", ICON_BLUETOOTH},
-    {"drivers/input/", ICON_INPUTDEVICES},
-    {"drivers/cdrom/", ICON_CDROM},
-    {"drivers/hwmon/", ICON_THERM},
-    {"drivers/iommu/", ICON_MEMORY},
-    {"net/wireless/", ICON_WIRELESS},
-    {"drivers/nvme/", ICON_HDD},
-    {"net/ethernet/", ICON_NETWORK_INTERFACE},
-    {"drivers/scsi/", ICON_HDD},
-    {"drivers/edac/", ICON_MEMORY},
-    {"drivers/hid/", ICON_INPUTDEVICES},
-    {"drivers/gpu/", ICON_MONITOR},
-    {"drivers/i2c/", ICON_MEMORY},
-    {"drivers/ata/", ICON_HDD},
-    {"drivers/usb/", ICON_USB},
-    {"drivers/pci/", ICON_DEVICES},
-    {"drivers/net/", ICON_NETWORK},
-    {"drivers/mmc/", ICON_MEDIA_REMOVABLE},
-    {"crypto/", ICON_CRYPTOHASH},
-    {"sound/", ICON_AUDIO},
-    {"net/", ICON_NETWORK_CONNECTIONS},
-    {"fs/", ICON_MEDIA_FLOPPY},
-    {},
-};
-
 static GHashTable *module_icons;
 
-static void build_icon_table_iter(JsonObject *object,
-                                  const gchar *key,
-                                  JsonNode *value,
-                                  gpointer user_data)
+static void build_icon_table_iter(JsonObject *object,const gchar *key,JsonNode *value,gpointer user_data)
 {
-    char *key_copy = g_strdup(key);
-    char *p;
-
-    for (p = key_copy; *p; p++) {
-        if (*p == '_')
-            *p = '-';
-    }
-
-    enum icons icon;
-    const gchar *value_str = json_node_get_string(value);
-    for (icon = ICON_INVALID; icon < ICON_MAX; icon++) {
-        const char *icon_name = icon_table[icon];
-
-        if (!icon_name)
-            continue;
-
-        if (g_str_equal(value_str, icon_name)) {
-            g_hash_table_insert(module_icons,
-                                key_copy, GINT_TO_POINTER(icon));
-            return;
-        }
-    }
-
-    g_free(key_copy);
+    //Check we have icon and insert if we have icon
+    gchar *icon=NULL, filename[100];
+    snprintf(filename,90,"%s.svg",json_node_get_string(value));
+    icon = g_build_filename(params.path_data, "pixmaps", filename,NULL);
+    if (g_file_test(icon, G_FILE_TEST_EXISTS))
+        g_hash_table_insert(module_icons, (gpointer)g_strdup(key), (gpointer)g_strdup(json_node_get_string(value)));
+    g_free(icon);
+    //printf("INSERT %s %s\n",key,json_node_get_string(value));
 }
 
 void kernel_module_icon_init(void)
 {
-    gchar *icon_json;
+    gchar *icon_json=NULL;
 
     static SyncEntry sync_entry = {
         .name = N_("Update kernel module icon table"),
@@ -164,34 +53,28 @@ void kernel_module_icon_init(void)
     };
     sync_manager_add_entry(&sync_entry);
 
-    icon_json = g_build_filename(g_get_user_config_dir(),
-                                 "hardinfo2", "kernel-module-icons.json",
-                                 NULL);
-
+    icon_json = g_build_filename(g_get_user_config_dir(),"hardinfo2", "kernel-module-icons.json",NULL);
+    if (!g_file_test(icon_json, G_FILE_TEST_EXISTS)){
+        g_free(icon_json);
+        icon_json = g_build_filename(params.path_data, "kernel-module-icons.json",NULL);
+    }
     module_icons = g_hash_table_new(g_str_hash, g_str_equal);
-
-    if (!g_file_test(icon_json, G_FILE_TEST_EXISTS))
-        goto out;
-
-    JsonParser *parser = json_parser_new();
-    if (!json_parser_load_from_file(parser, icon_json, NULL))
-        goto out_destroy_parser;
-
-    JsonNode *root = json_parser_get_root(parser);
-    if (json_node_get_node_type(root) != JSON_NODE_OBJECT)
-        goto out_destroy_parser;
-
-    JsonObject *icons = json_node_get_object(root);
-    if (!icons)
-        goto out_destroy_parser;
-
-    json_object_foreach_member(icons, build_icon_table_iter, NULL);
-
-out_destroy_parser:
-    g_object_unref(parser);
-
-out:
-    g_free(icon_json);
+    //printf("INIT KERNEL ICONS %s\n",icon_json);
+    if (g_file_test(icon_json, G_FILE_TEST_EXISTS)){
+      //printf("INIT KERNEL ICONS - filefound\n");
+      JsonParser *parser = json_parser_new();
+      if (json_parser_load_from_file(parser, icon_json, NULL)){	
+	//printf("INIT KERNEL ICONS - loaded\n");
+	JsonNode *root = json_parser_get_root(parser);
+	if (json_node_get_node_type(root) == JSON_NODE_OBJECT){
+	  //printf("INIT KERNEL ICONS - rood found\n");
+	  JsonObject *icons = json_node_get_object(root);
+	  if (icons) json_object_foreach_member(icons, build_icon_table_iter, NULL);
+	}
+      }
+      g_object_unref(parser);
+    }
+    g_free(icon_json);    
 }
 
 static const gchar* get_module_icon(const char *modname, const char *path)
@@ -199,36 +82,13 @@ static const gchar* get_module_icon(const char *modname, const char *path)
     char *modname_temp = g_strdup(modname);
     char *p;
     for (p = modname_temp; *p; p++) {
-        if (*p == '_')
-            *p = '-';
+        if (*p == '_') *p = '-';
     }
+    //printf("LOOKUP %s ->",modname_temp);
     gpointer icon = g_hash_table_lookup(module_icons, modname_temp);
     g_free(modname_temp);
-    if (icon)
-        return icon_table[GPOINTER_TO_INT(icon)];
-
-    if (path == NULL) /* modinfo couldn't find module path */
-        return NULL;
-
-    if (kernel_modules_dir == NULL) {
-        struct utsname utsbuf;
-        uname(&utsbuf);
-        kernel_modules_dir = g_strdup_printf("/lib/modules/%s/kernel/", utsbuf.release);
-    }
-
-    if (!g_str_has_prefix(path, kernel_modules_dir))
-        return NULL;
-
-    const gchar *path_no_prefix = path + strlen(kernel_modules_dir);
-    //const size_t path_no_prefix_len = strlen(path_no_prefix);
-    int i;
-
-    for (i = 0; modules_icons[i].dir; i++) {
-        if (g_str_has_prefix(path_no_prefix, modules_icons[i].dir))
-            return icon_table[modules_icons[i].icon];
-    }
-
-    return NULL;
+    //if(icon) printf("Found %s\n",(gchar *)icon); else printf("\n");
+    return icon;
 }
 
 gint compar (gpointer a, gpointer b) {return strcmp( (char*)a, (char*)b );}

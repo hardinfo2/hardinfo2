@@ -1,0 +1,59 @@
+# Maintainer: Mark Wagie <mark dot wagie at proton dot me>
+pkgname=hardinfo2
+pkgver=$(cat CMakeLists.txt |grep HARDINFO2_VERSION\ |grep -o -P '(?<=").*(?=")')
+pkgrel=1
+pkgdesc="System Information and Benchmark for Linux Systems."
+arch=('x86_64' 'aarch64' 'riscv64')
+url="https://www.hardinfo2.org"
+license=('GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.1-or-later')
+depends=(
+  'gtk3'
+  'libsoup3'
+  'gawk'
+  'dmidecode'
+  'iperf3'
+  'lm_sensors'
+  'mesa-utils'
+  'sysbench'
+  'udisks2'
+  'vulkan-tools'
+  'xdg-utils'
+  'xorg-xrandr'
+  'fwupd'
+  'qt6-base'
+)
+makedepends=(
+  'cmake'
+  'qt6-base'
+  'glslang'
+  'shaderc'
+  'vulkan-headers'
+)
+checkdepends=('appstream')
+provides=('hardinfo')
+conflicts=('hardinfo')
+install="$pkgname.install"
+#source=("$pkgname-$pkgver.tar.gz::https://github.com/hardinfo2/hardinfo2/archive/refs/tags/release-$pkgver.tar.gz")
+#sha256sums=('1856d067b5cb8516ef98ca9962d31d68ed14ed66cc42edb93d08265a03bc5f6e')
+source=()
+sha256sums=('SKIP')
+
+build() {
+  cmake -B build -S "../" \
+    -DCMAKE_BUILD_TYPE='Release' \
+    -DCMAKE_INSTALL_PREFIX='/usr' \
+    -DCMAKE_INSTALL_LIBDIR='lib' \
+    -DHARDINFO2_QT6=1 \
+    -Wno-dev
+  cmake --build build -j
+}
+
+check() {
+  cd $srcdir/build
+  desktop-file-validate "$pkgname.desktop"
+  appstreamcli validate --no-net "org.$pkgname.$pkgname.metainfo.xml"
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

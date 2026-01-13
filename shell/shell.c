@@ -66,7 +66,9 @@ static void info_selected_show_extra(const gchar *tag);
 static gboolean reload_section(gpointer data);
 static gboolean rescan_section(gpointer data);
 static gboolean update_field(gpointer data);
+#if GTK_CHECK_VERSION(3,0,0)
 static GSettings *settings=NULL;
+#endif
 /*
  * Globals ********************************************************************
  */

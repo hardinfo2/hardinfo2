@@ -20,6 +20,7 @@
 #include "hardinfo.h"
 #include "iconcache.h"
 #include "syncmanager.h"
+#include "callbacks.h"
 
 #include <libsoup/soup.h>
 
@@ -406,8 +407,10 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
         g_free(path);
         g_object_unref(file);
     }
-
+    
+#if SOUP_CHECK_VERSION(2,42,0)
 out:
+#endif
     g_main_loop_quit(loop);
 #if SOUP_CHECK_VERSION(2,42,0)
     g_object_unref(is);

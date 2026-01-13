@@ -148,11 +148,10 @@ void cb_theme6()
 
 void cb_disable_theme()
 {
-    Shell *shell = shell_get_main_shell();
-    // *shelltree=shell->tree;
-    char theme_st[400];
     GKeyFile *key_file = g_key_file_new();
 #if GTK_CHECK_VERSION(3, 0, 0)
+    Shell *shell = shell_get_main_shell();
+    char theme_st[400];
     GtkCssProvider *provider;
     provider = gtk_css_provider_new();
     GtkCssProvider *provider2;

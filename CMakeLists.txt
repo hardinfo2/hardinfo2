@@ -376,8 +376,9 @@ endif()
 #OpenMandriva
 if(${distro} MATCHES "OpenMandriva")
     SET(RPM_REQ "dmidecode, udisks2, sysbench, fwupd, lm_sensors, xdg-utils, xrandr, vulkan-tools,  glxinfo, iperf, gawk")
-    set(HARDINFO2_VK_WAYLAND 0)
-    message("FIXME: cannot find libdecor in mandriva!")
+    #set(HARDINFO2_VK_WAYLAND 0)
+    #message("FIXME: cannot find libdecor in mandriva!")
+    #is called libdecor-gtk
 endif()
 
 #PCLinuxOS

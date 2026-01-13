@@ -115,7 +115,7 @@ gchar *make_icon_css(const gchar *file) {
         const char *ctype = "image/png";
         if (g_str_has_suffix(file, ".svg") )
             ctype = "image/svg+xml";
-        gchar *b64data = g_base64_encode(contents, length);
+        gchar *b64data = g_base64_encode((unsigned char*)contents, length);
         ret = g_strdup_printf(
             ".%s\n"
             "{ content: url(data:%s;base64,%s); }\n",

@@ -62,7 +62,7 @@ struct _SyncDialog {
 
     SyncNetArea *sna;
 
-    gboolean flag_cancel : 1;
+    gboolean flag_cancel;
 };
 
 static GSList *entries = NULL;

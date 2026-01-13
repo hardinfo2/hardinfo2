@@ -393,7 +393,7 @@ static void stylechange2_me(void)
 //gsettings
 static void stylechange3_me(void)
 {
-    gchar *theme=NULL,*scale=NULL;
+  gchar *theme=NULL;//,*scale=NULL;
     int newDark=0,i=0;
     gchar **keys=NULL;
     if(settings && !newgnome) keys=g_settings_list_keys(settings);
@@ -666,7 +666,7 @@ static void create_window(void)
     }
 }
 
-static void view_menu_select_entry(gpointer data, gpointer data2)
+/*static void view_menu_select_entry(gpointer data, gpointer data2)
 {
     GtkTreePath *path;
     GtkTreeIter *iter = (GtkTreeIter *) data2;
@@ -677,7 +677,7 @@ static void view_menu_select_entry(gpointer data, gpointer data2)
     gtk_tree_view_set_cursor(GTK_TREE_VIEW(shell->tree->view), path, NULL,
 			     FALSE);
     gtk_tree_path_free(path);
-}
+}*/
 
 
 void shell_add_modules_to_gui(gpointer _shell_module, gpointer _shell_tree)

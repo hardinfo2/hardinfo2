@@ -382,14 +382,14 @@ static void dmi_fill_from_spd(dmi_mem_socket *s) {
 
     //Always true - FIXME
     //if (!s->partno && s->spd->partno)
-        s->partno = g_strdup(s->spd->partno);
+    s->partno = g_strdup(s->spd->partno);
 
     if (!s->form_factor && s->spd->form_factor)
         s->form_factor = g_strdup(s->spd->form_factor);
 
     //Always true - FIXME
     //if (!s->type_detail && s->spd->type_detail)
-        s->type_detail = g_strdup(s->spd->type_detail);
+    s->type_detail = g_strdup(s->spd->type_detail);
 }
 
 static dmi_mem_size size_of_online_memory_blocks() {

@@ -178,12 +178,12 @@ uint32_t r24le(edid *e, uint32_t offset, uint32_t mask) {
     return bf_value(v, mask);
 }
 
-static inline
+/*static inline
 uint32_t r24be(edid *e, uint32_t offset, uint32_t mask) {
     if (!bounds_check(e, offset+2)) return 0;
     uint32_t v = (e->u8[offset] << 16) + (e->u8[offset+1] << 8) + e->u8[offset+2];
     return bf_value(v, mask);
-}
+}*/
 
 static inline
 uint32_t r32le(edid *e, uint32_t offset, uint32_t mask) {
@@ -193,13 +193,13 @@ uint32_t r32le(edid *e, uint32_t offset, uint32_t mask) {
     return bf_value(v, mask);
 }
 
-static inline
+/*static inline
 uint32_t r32be(edid *e, uint32_t offset, uint32_t mask) {
     if (!bounds_check(e, offset+3)) return 0;
     uint32_t v = (e->u8[offset] << 24) + (e->u8[offset+1] << 16)
         + (e->u8[offset+2] << 8) + e->u8[offset+3];
     return bf_value(v, mask);
-}
+}*/
 
 static inline
 int rpnpcpy(edid_ven *dest, edid *e, uint32_t offset) {

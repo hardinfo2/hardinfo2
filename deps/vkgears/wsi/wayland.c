@@ -419,7 +419,7 @@ static bool update_window()
       else
          pollfds[0].events &= ~POLLOUT; /* successfully flushed */
 
-      unsigned poll_count = 2;// + (keyboard_data.rate > 0);
+      //unsigned poll_count = 2;// + (keyboard_data.rate > 0);
       //HACK: Below should wait for display being ready but blocks on Wayland client 124 - ok on 120. Protocol seams correct - maybe wayland bug?, maybe vulkan MAILBOX bug - works with fifo. - Hack results seams fair. (opensuse+fedoraRH)
       /*if (poll(pollfds, poll_count, 0.0) == -1)
 	break;*/

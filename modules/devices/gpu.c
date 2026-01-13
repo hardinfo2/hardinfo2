@@ -156,7 +156,7 @@ static void _gpu_pci_dev(gpud* gpu) {
 	} else if(strlen(g)>10 && g[0]=='D' && g[1]=='3' && g[2]=='D' && g[3]=='1' && g[4]=='2'){//WSL2
 	    t=g+7;
             while(g[i]){
-	        if((g[i]==')')) g[i]=0;
+	        if(g[i]==')') g[i]=0;
 	        i++;
             }
             gpuname=g_strdup_printf("GPU=%s (D3D12)\n",t);

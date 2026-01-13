@@ -98,8 +98,12 @@ message(STATUS "Building HardInfo2 for architecture: ${HARDINFO2_OS}-${HARDINFO2
 
 #add_definitions("-std=gnu89")
 #add_definitions("-fanalyzer")
+add_definitions("-Wall")
 add_definitions("-Wextra")
 add_definitions("-Wno-missing-field-initializers")
+add_definitions("-Wno-ignored-attributes")
+add_definitions("-Wno-unused-parameter")
+add_definitions("-Wno-missing-braces")
 add_definitions("-Wformat")
 add_definitions("-Wformat-security")
 
@@ -623,7 +627,7 @@ set_source_files_properties(
 	modules/benchmark/md5.c
 	modules/benchmark/sha1.c
 	PROPERTIES
-	COMPILE_FLAGS "-O0 -Wall -Wextra -Werror=implicit-function-declaration"
+	COMPILE_FLAGS "-O0 -Werror=implicit-function-declaration"
 )
 
 set_source_files_properties(
@@ -632,13 +636,13 @@ set_source_files_properties(
 	hardinfo2/problem_marker.c
 	hardinfo2/hinote_util.c
 	PROPERTIES
-	COMPILE_FLAGS "-std=c99 -Wall -Wextra -Wno-switch -Werror=implicit-function-declaration"
+	COMPILE_FLAGS "-std=c99 -Wno-switch -Werror=implicit-function-declaration"
 )
 
 foreach (_module ${HARDINFO2_MODULES})
 	add_library(${_module} MODULE ${MODULE_${_module}_SOURCES})
 	set_target_properties(${_module} PROPERTIES PREFIX "")
-	set_target_properties(${_module} PROPERTIES COMPILE_FLAGS "-Wall -Wextra -Wno-unused-parameter -Wno-missing-braces -Wno-switch -Werror=implicit-function-declaration")
+	set_target_properties(${_module} PROPERTIES COMPILE_FLAGS "-Wno-switch -Werror=implicit-function-declaration")
 	target_link_libraries(${_module} ${JSON_GLIB_LIBRARIES})
 endforeach()
 
@@ -660,7 +664,7 @@ add_library(sysobj_early STATIC
 	deps/sysobj_early/src/format_early.c
 	deps/sysobj_early/src/cpubits.c
 )
-set_target_properties(sysobj_early PROPERTIES COMPILE_FLAGS "-std=c99 -Wall -Wextra -Wno-parentheses -Werror=implicit-function-declaration")
+set_target_properties(sysobj_early PROPERTIES COMPILE_FLAGS "-std=c99 -Wno-parentheses -Werror=implicit-function-declaration")
 target_link_libraries(sysobj_early m)
 
 if (HARDINFO2_GTK3)
@@ -677,7 +681,7 @@ add_library(uber-graph STATIC
 	deps/uber-graph/uber-timeout-interval.c
 	deps/uber-graph/uber-window.c
 )
-set_target_properties(uber-graph PROPERTIES COMPILE_FLAGS "-Wall -Wextra -Wno-deprecated-declarations -Wno-unused-parameter -Werror=implicit-function-declaration")
+set_target_properties(uber-graph PROPERTIES COMPILE_FLAGS "-Wno-deprecated-declarations -Werror=implicit-function-declaration")
 endif()
 
 set_source_files_properties(
@@ -688,7 +692,7 @@ set_source_files_properties(
 	hardinfo2/x_util.c
 	hardinfo2/dt_util.c
 	PROPERTIES
-	COMPILE_FLAGS "-Wall -Wextra -Wno-parentheses -Werror=implicit-function-declaration"
+	COMPILE_FLAGS "-Wno-parentheses -Werror=implicit-function-declaration"
 )
 
 if (HARDINFO2_GTK3)

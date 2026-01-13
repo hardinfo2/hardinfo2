@@ -110,12 +110,18 @@ int main(int argc, char **argv)
 	g_print(N_("Compile-time options:\n"
 		"  Release version:  %s (%s)\n"
 		"  LibSoup version:  %s\n"
+		"  OpenGL version :  %s\n"
+		"  Vulkan version :  %s\n"
+		"  GTK version    :  %s\n"
 		"  Data           :  %s\n"
 		"  Library        :  %s\n"
 		"  Locale         :  %s\n"
 		"  Compiled for   :  %s\n"),
 		RELEASE==1 ? "Yes (" VERSION ")" : (RELEASE==0?"No (" VERSION ")":"Debug (" VERSION ")"), ARCH,
-		HARDINFO2_LIBSOUP3 ? _("3.0") : "2.4",
+		HARDINFO2_LIBSOUP3 ? "3.x" : "2.4",
+		HARDINFO2_QT5 ? "QT5" : (HARDINFO2_QT6 ? "QT6" : "Nope"),
+		HARDINFO2_VK ? (HARDINFO2_VK_WAYLAND ? (HARDINFO2_VK_X11 ? "Wayland & X11" : "Wayland") : (HARDINFO2_VK_X11 ? "X11" : "No")) : "Nope",
+		HARDINFO2_GTK3 ? "3.x" : "2.x",
 		params.path_data, params.path_lib, params.path_locale,
 		PLATFORM);
         return 0;

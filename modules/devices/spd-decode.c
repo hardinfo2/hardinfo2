@@ -1206,10 +1206,9 @@ void spd_data_free(spd_data *s) { g_free(s->bytes);g_free(s); }
 
 GSList *decode_dimms2(GSList *eeprom_list, const gchar *driver, gboolean use_sysfs, int max_size) {
     GSList *eeprom, *dimm_list = NULL;
-    int count = 0;
     spd_data *s = NULL;
 
-    for (eeprom = eeprom_list; eeprom; eeprom = eeprom->next, count++) {
+    for (eeprom = eeprom_list; eeprom; eeprom = eeprom->next) {
         gchar *spd_path = (gchar*)eeprom->data;
         s = NULL;
 

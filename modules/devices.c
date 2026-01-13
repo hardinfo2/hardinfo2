@@ -201,7 +201,6 @@ gchar *processor_name_default(GSList * processors)
     GSList *tmp, *l;
     Processor *p;
     gchar *cur_str = NULL;
-    gint cur_count = 0;
 
     tmp = g_slist_copy(processors);
     tmp = g_slist_sort(tmp, (GCompareFunc)proc_cmp_model_name);
@@ -210,14 +209,10 @@ gchar *processor_name_default(GSList * processors)
         p = (Processor*)l->data;
         if (cur_str == NULL) {
             cur_str = p->model_name;
-            cur_count = 1;
         } else {
             if(g_strcmp0(cur_str, p->model_name)) {
                 ret = h_strdup_cprintf("%s%s", ret, strlen(ret) ? "; " : "", cur_str);
                 cur_str = p->model_name;
-                cur_count = 1;
-            } else {
-                cur_count++;
             }
         }
     }

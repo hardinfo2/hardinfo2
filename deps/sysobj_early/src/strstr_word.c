@@ -25,19 +25,19 @@
 #include <string.h>
 #include <ctype.h>
 
-static char *_strstr(const char *haystack, const char *needle, int anycase) {
+static const char *_strstr(const char *haystack, const char *needle, int anycase) {
     return anycase
         ? strcasestr(haystack, needle)
         : strstr(haystack, needle);
 }
 
-static char *_strstr_word(const char *haystack, const char *needle,
+static const char *_strstr_word(const char *haystack, const char *needle,
                           int anycase, int prefix_ok, int suffix_ok) {
 
     if (!haystack || !needle)
         return NULL;
 
-    char *c;
+    const char *c;
     const char *p = haystack;
     size_t l = strlen(needle);
     while((c = _strstr(p, needle, anycase))) {
@@ -55,26 +55,26 @@ static char *_strstr_word(const char *haystack, const char *needle,
     return NULL;
 }
 
-char *strstr_word(const char *haystack, const char *needle) {
+char const *strstr_word(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 0, 0, 0);
 }
 
-char *strcasestr_word(const char *haystack, const char *needle) {
+char const *strcasestr_word(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 1, 0, 0);
 }
 
-char *strstr_word_prefix(const char *haystack, const char *needle) {
+char const *strstr_word_prefix(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 0, 1, 0);
 }
 
-char *strcasestr_word_prefix(const char *haystack, const char *needle) {
+char const *strcasestr_word_prefix(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 1, 1, 0);
 }
 
-char *strstr_word_suffix(const char *haystack, const char *needle) {
+char const *strstr_word_suffix(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 0, 0, 1);
 }
 
-char *strcasestr_word_suffix(const char *haystack, const char *needle) {
+char const *strcasestr_word_suffix(const char *haystack, const char *needle) {
     return _strstr_word(haystack, needle, 1, 0, 1);
 }

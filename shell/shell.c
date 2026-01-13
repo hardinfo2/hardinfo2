@@ -2433,7 +2433,8 @@ gboolean key_label_is_escaped(const gchar *key) {
 
 gchar *key_mi_tag(const gchar *key) {
     static char flag_list[] = "*!^@";
-    gchar *p = (gchar*)key, *l, *t;
+    gchar *p = (gchar*)key, *t;
+    const gchar *l;
 
     if (key_is_flagged(key)) {
         l = strchr(key+1, '$');

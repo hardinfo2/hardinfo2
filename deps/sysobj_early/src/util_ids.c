@@ -24,10 +24,10 @@
 #include <string.h>
 #include <ctype.h>
 
-#define ids_msg(msg, ...)  fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__) /**/
-static int ids_tracing = 0;
-void ids_trace_start() { ids_tracing = 1; }
-void ids_trace_stop() { ids_tracing = 0; }
+//#define ids_msg(msg, ...)  fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__) /**/
+//static int ids_tracing = 0;
+//void ids_trace_start() { ids_tracing = 1; }
+//void ids_trace_stop() { ids_tracing = 0; }
 
 ids_query *ids_query_new(const gchar *qpath) {
     ids_query *s = g_new0(ids_query, 1);
@@ -98,7 +98,7 @@ long scan_ids_file(const gchar *file, const gchar *qpath, ids_query_result *resu
     int tabs;
     int qdepth;
     int qpartlen[IDS_LOOKUP_MAX_DEPTH];
-    long last_root_fpos = -1, fpos, line = -1;
+    long last_root_fpos = -1, fpos;//, line = -1;
 
     memset(&ret,0,sizeof(ids_query_result));
 
@@ -107,14 +107,14 @@ long scan_ids_file(const gchar *file, const gchar *qpath, ids_query_result *resu
 
     fd = fopen(file, "r");
     if (!fd) {
-        ids_msg("file could not be read: %s", file);
+        //ids_msg("file could not be read: %s", file);
         return -1;
     }
 
     qparts = g_strsplit(qpath, "/", -1);
     qdepth = g_strv_length(qparts);
     if (qdepth > IDS_LOOKUP_MAX_DEPTH) {
-        ids_msg("qdepth (%d) > ids_max_depth (%d) for %s", qdepth, IDS_LOOKUP_MAX_DEPTH, qpath);
+        //ids_msg("qdepth (%d) > ids_max_depth (%d) for %s", qdepth, IDS_LOOKUP_MAX_DEPTH, qpath);
         qdepth = IDS_LOOKUP_MAX_DEPTH;
     }
     for(int i = 0; i < qdepth; i++)
@@ -125,9 +125,8 @@ long scan_ids_file(const gchar *file, const gchar *qpath, ids_query_result *resu
 
     for (fpos = ftell(fd); fgets(buff, IDS_LOOKUP_BUFF_SIZE, fd); fpos = ftell(fd)) {
         p = strchr(buff, '\n');
-        if (!p)
-            ids_msg("line longer than IDS_LOOKUP_BUFF_SIZE (%d), file: %s, offset: %ld", IDS_LOOKUP_BUFF_SIZE, file, fpos);
-        line++;
+        //if (!p) ids_msg("line longer than IDS_LOOKUP_BUFF_SIZE (%d), file: %s, offset: %ld", IDS_LOOKUP_BUFF_SIZE, file, fpos);
+        //line++;
 
         /* line ends at comment */
         p = strchr(buff, '#');
@@ -152,7 +151,7 @@ long scan_ids_file(const gchar *file, const gchar *qpath, ids_query_result *resu
         if (ret.results[tabs])
             goto ids_lookup_done; /* answered at this level */
 
-        if (ids_tracing) ids_msg("[%s] looking at (%d) %s...", file, tabs, p);
+        //if (ids_tracing) ids_msg("[%s] looking at (%d) %s...", file, tabs, p);
 
         if (g_str_has_prefix(p, qparts[tabs])
             && isspace(*(p + qpartlen[tabs])) ) {
@@ -163,27 +162,27 @@ long scan_ids_file(const gchar *file, const gchar *qpath, ids_query_result *resu
             if (tabs == 0) last_root_fpos = fpos;
             ids_query_result_set_str(&ret, tabs, p);
 
-            if (ids_tracing) {
+            /*if (ids_tracing) {
                 int i = 0;
                 for(; i < IDS_LOOKUP_MAX_DEPTH; i++) {
                     if (!qparts[i]) break;
                     ids_msg(" ...[%d]: %s\t--> %s", i, qparts[i], ret.results[i]);
                 }
-            }
+	    }*/
             continue;
         }
 
         if (ids_cmp(p, qparts[tabs]) == 1) {
-            if (ids_tracing)
-                ids_msg("will not be found qparts[tabs] = %s, p = %s", qparts[tabs], p);
+	  //if (ids_tracing)
+	  //    ids_msg("will not be found qparts[tabs] = %s, p = %s", qparts[tabs], p);
             goto ids_lookup_done; /* will not be found */
         }
 
     } /* for each line */
 
 ids_lookup_done:
-    if (ids_tracing)
-        ids_msg("bailed at line %ld...", line);
+    //if (ids_tracing)
+    //    ids_msg("bailed at line %ld...", line);
     fclose(fd);
 
     if (result) {
@@ -232,11 +231,11 @@ GSList *ids_file_all_get_all(const gchar *file, split_loc_function split_loc_fun
 
     FILE *fd;
     int tabs = 0, tabs_last = 0;
-    long fpos, line = -1;
+    //long fpos;//, line = -1;
 
     fd = fopen(file, "r");
     if (!fd) {
-        ids_msg("file could not be read: %s", file);
+        //ids_msg("file could not be read: %s", file);
         return ret;
     }
 
@@ -248,11 +247,10 @@ GSList *ids_file_all_get_all(const gchar *file, split_loc_function split_loc_fun
 
     if (!split_loc_func) split_loc_func = split_loc_default;
 
-    for (fpos = ftell(fd); fgets(buff, IDS_LOOKUP_BUFF_SIZE, fd); fpos = ftell(fd)) {
+    for (/*fpos = ftell(fd)*/; fgets(buff, IDS_LOOKUP_BUFF_SIZE, fd); /*fpos = ftell(fd)*/) {
         p = strchr(buff, '\n');
-        if (!p)
-            ids_msg("line longer than IDS_LOOKUP_BUFF_SIZE (%d), file: %s, offset: %ld", IDS_LOOKUP_BUFF_SIZE, file, fpos);
-        line++;
+        //if (!p) ids_msg("line longer than IDS_LOOKUP_BUFF_SIZE (%d), file: %s, offset: %ld", IDS_LOOKUP_BUFF_SIZE, file, fpos);
+        //line++;
 
         /* line ends at comment */
         p = strchr(buff, '#');
@@ -274,13 +272,13 @@ GSList *ids_file_all_get_all(const gchar *file, split_loc_function split_loc_fun
         if (tabs >= IDS_LOOKUP_MAX_DEPTH) continue; /* too deep */
         if (tabs > tabs_last + 1) {
             /* jump too big, there's a qpath part that is "" */
-            ids_msg("jump too big from depth %d to %d, file: %s, offset: %ld", tabs_last, tabs, file, fpos);
+            //ids_msg("jump too big from depth %d to %d, file: %s, offset: %ld", tabs_last, tabs, file, fpos);
             continue;
         }
 
         name = split_loc_func(p);
         if (!name) {
-            ids_msg("expected name/value split not found, file: %s, offset: %ld", file, fpos);
+	  //ids_msg("expected name/value split not found, file: %s, offset: %ld", file, fpos);
             continue;
         }
         *name = 0; name++; /* split ptr is the first char of split string */

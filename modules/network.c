@@ -70,7 +70,7 @@ static ModuleEntry entries[] = {
 
 gchar** strsplit_multi(const gchar *string, const gchar *delimiter, gint max_tokens)
 {
-    char *s;
+    const char *s;
     const gchar *remainder;
     gchar **string_list;
     //GPtrArray *string_list;

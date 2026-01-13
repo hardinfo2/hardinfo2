@@ -55,4 +55,4 @@ for f in open("/tmp/module_list", "r").readlines():
             icon_list[kmod] = icon
             break
 
-print(json.dumps(icon_list, indent=4))
+print(json.dumps(icon_list, sort_keys=True,indent=4))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-13 23:51+0100\n"
+"POT-Creation-Date: 2026-01-14 01:42+0100\n"
 "PO-Revision-Date: 2026-01-13 23:50+0100\n"
 "Last-Translator: hwspeedy\n"
 "Language-Team: \n"
@@ -454,29 +454,31 @@ msgid ""
 "Compile-time options:\n"
 "  Release version:  %s (%s)\n"
 "  LibSoup version:  %s\n"
+"  OpenGL version :  %s\n"
+"  Vulkan version :  %s\n"
+"  GTK version    :  %s\n"
 "  Data           :  %s\n"
 "  Library        :  %s\n"
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
-"Indstillinger for kompileringstid:\n"
+"Indstillinger ved kompileringstid:\n"
 "  Udgivelsesversion:  %s (%s)\n"
 "  LibSoup version  :  %s\n"
+"  OpenGL version   :  %s\n"
+"  Vulkan version   :  %s\n"
+"  GTK version      :  %s\n"
 "  Data             :  %s\n"
-"  Library          :  %s\n"
-"  Locale           :  %s\n"
-"  Compiled for     :  %s\n"
+"  Bibliotek        :  %s\n"
+"  Lokal            :  %s\n"
+"  Kompileret til   :  %s\n"
 
-#: hardinfo2/hardinfo.c:118
-msgid "3.0"
-msgstr "3,0"
-
-#: hardinfo2/hardinfo.c:153
+#: hardinfo2/hardinfo.c:159
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
 msgstr "Ukendt benchmark ``%s''\n"
 
-#: hardinfo2/hardinfo.c:255
+#: hardinfo2/hardinfo.c:261
 msgid "Don't know what to do. Exiting."
 msgstr "Ved ikke hvad jeg skal gøre."
 

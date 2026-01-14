@@ -28,11 +28,11 @@
 
 #include <vulkan/vulkan.h>
 
-#ifdef HARDINFO2_VK_WAYLAND
+#if(HARDINFO2_VK_WAYLAND)
 struct wsi_interface wayland_wsi_interface(void);
 #endif
 
-#ifdef HARDINFO2_VK_X11
+#if(HARDINFO2_VK_X11)
 struct wsi_interface xcb_wsi_interface(void);
 #endif
 

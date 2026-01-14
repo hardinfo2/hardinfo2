@@ -32,8 +32,8 @@
 struct wsi_interface
 get_wsi_interface(void)
 {
-#ifdef HARDINFO2_VK_WAYLAND
-  #ifdef HARDINFO2_VK_X11
+#if(HARDINFO2_VK_WAYLAND)
+#if(HARDINFO2_VK_X11)
     if(getenv("WAYLAND_DISPLAY")) {
         return wayland_wsi_interface();
     } else {
@@ -43,7 +43,7 @@ get_wsi_interface(void)
     return wayland_wsi_interface();
   #endif
 #else
-  #ifdef HARDINFO2_VK_X11
+  #if(HARDINFO2_VK_X11)
     return xcb_wsi_interface();
   #else
     #error NO Wayland or X11

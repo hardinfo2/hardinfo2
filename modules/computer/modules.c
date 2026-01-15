@@ -142,7 +142,7 @@ void scan_modules_do(void) {
         buf = g_strdup_printf("/sbin/modinfo %s 2>/dev/null", modname);
 
         modi = popen(buf, "r");
-        while (fgets(buffer, 1024, modi)) {
+        while (fgets(buffer, 1024, modi) && strlen(buffer)) {
             gchar **tmp = g_strsplit(buffer, ":", 2);
 
 	    if (!author && strstr(tmp[0], "author")) author = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));

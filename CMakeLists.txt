@@ -333,6 +333,20 @@ if(${disversion} LESS 10.99)
   endif()
 endif()
 
+#ubuntu 14
+if(${distro}${disversion} MATCHES "Ubuntu14")
+    message("Ubuntu 14 - no QT5 - Disabling opengl+vulkan benchmarks")
+    set(HARDINFO2_VK 0)
+    set(HARDINFO2_QT6 0)
+    set(HARDINFO2_QT5 0)
+    message("Ubuntu 14 - GTK2 - deprecated - support will end at any time")
+    set(HARDINFO2_GTK3 0)
+    SET(DEB_REQ "dmidecode, sysbench, udisks2, mesa-utils, lm-sensors, xdg-utils, iperf3, x11-xserver-utils, gawk") #miss vulkan-tools
+    message("ubuntu 14 - Old Appstream metainfo")
+    string(REPLACE "<url type=\"contact\">https://github.com/hardinfo2/hardinfo2/discussions</url>" "" METAINFO_CONTENT "${METAINFO_CONTENT}" )
+    string(REPLACE "<url type=\"translate\">https://github.com/hardinfo2/hardinfo2/tree/master/po</url>" "" METAINFO_CONTENT "${METAINFO_CONTENT}" )
+endif()
+
 #ubuntu 16
 if(${distro}${disversion} MATCHES "Ubuntu16")
     message("Ubuntu 16 - no QT5 - Disabling opengl+vulkan benchmarks")

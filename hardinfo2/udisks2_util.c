@@ -422,7 +422,6 @@ gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath,int nvme)
 
     if (error != NULL){
         g_error_free (error);
-        g_object_unref(proxy);
         return NULL;
     }
 

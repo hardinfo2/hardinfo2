@@ -629,8 +629,9 @@ gchar *processor_name(GSList *processors) {
         { "friendlyelec,nanopi-k1-plus", "Allwinner", "H5 (K1+)" }, // K1+
         { "hardkernel,odroid-c2", "Amlogic", "S905 (C2)" }, // C2
         { "hardkernel,odroid-n2", "Amlogic", "S922x (N2)" }, // N2
-        { "mediatek,mt8173", "MediaTek", "MT8173" },
+        { "mediatek,mt8186", "MediaTek", "MT8186" },
         { "mediatek,mt8183", "MediaTek", "MT8183" },
+        { "mediatek,mt8173", "MediaTek", "MT8173" },
         { "mediatek,mt8167", "MediaTek", "MT8167" },
         { "mediatek,mt6895", "MediaTek", "MT6895" },
         { "mediatek,mt6799", "MediaTek", "MT6799 (Helio X30)" },

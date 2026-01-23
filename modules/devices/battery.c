@@ -238,40 +238,63 @@ static void
 __scan_battery_sysfs_add_battery(const gchar *name)
 {
     gchar *path = g_strdup_printf("/sys/class/power_supply/%s", name);
-    gchar *status, *capacity, *capacity_level, *technology, *manufacturer;
+    gchar *status, *capacity, *capacity_level, *technology, *manufacturer, *type;
     gchar *model_name, *serial_number, *charge_full_design=NULL, *charge_full=NULL;
     gchar *voltage_min_design=NULL,*energy_full_design=NULL;
     gchar *voltage_now_txt=NULL,*current_now_txt=NULL;
+    gchar *chg_voltage_now_txt=NULL,*chg_voltage_max_txt=NULL;
     float full_design=-1.0,full_current=-1.0,voltage=-1.0;
-    float voltage_now=-1.0,current_now=0.0;
+    float voltage_now=-1.0,current_now=0.0,chg_voltage_now=-1.0,chg_voltage_max=-1.0;
     unsigned long l;
+    signed long sl;
 
     if (!path)
         return;
 
-    if(name[0]=='A' || strstr(name,"macsmc-ac")){//AC Supply
+    if(name[0]=='A' || strstr(name,"macsmc-ac") || strstr(name,"CHARGER")){//AC Supply
         status=read_contents(path, "online");
 	if(status==NULL) status=g_strdup("1");
 	if(!strcmp(status,"1")) {
 	    g_free(status);
 	    status=g_strdup("Attached");
-	}else{
-	    g_free(powerstate);powerstate=g_strdup("BAT");
-	    g_free(status);status=g_strdup("Not attached");
+        } else {
+            g_free(status);status=g_strdup("Not attached");
 	}
-        battery_list = h_strdup_cprintf(_("\n[AC Power Supply: %s]\n"
-            "Online=%s\n"
-            "AC Power Type=%s\n"
-	    ),
-            battery_list,
-            name,
-            status,
-	    read_contents(path, "type")
+	type=read_contents(path, "type");
+	if(strstr(type,"USB")){
+	    chg_voltage_now_txt=read_contents(path, "voltage_now");
+	    chg_voltage_max_txt=read_contents(path, "voltage_max_design");
+	    if(chg_voltage_now_txt) if(sscanf(chg_voltage_now_txt, "%lu", &l)==1) chg_voltage_now=(float)l/1000000.0;
+	    if(chg_voltage_max_txt) if(sscanf(chg_voltage_max_txt, "%lu", &l)==1) chg_voltage_max=(float)l/1000000.0;
+            battery_list = h_strdup_cprintf(_("\n[AC Power Supply: %s]\n"
+	        "Online=%s\n"
+		"AC Power Type=%s\n"
+                "Voltage now=%.3f V\n"
+                "Voltage max design=%.3f V\n"
+	        ),
+                battery_list,
+                name,
+                status,
+	        type,
+	        chg_voltage_now,
+	        chg_voltage_max
             );
+	} else {
+            battery_list = h_strdup_cprintf(_("\n[AC Power Supply: %s]\n"
+                "Online=%s\n"
+                "AC Power Type=%s\n"
+	        ),
+                battery_list,
+                name,
+                status,
+	        type
+            );
+	}
 	g_free(status);
+	g_free(type);
     }
 
-    if((name[0]=='B') || strstr(name,"CMB") || strstr(name,"macsmc-battery")){//Battery
+    if((name[0]=='B') || strstr(name,"CMB") || strstr(name,"macsmc-battery") || strstr(name,"sbs")){//Battery
 
     status = read_contents(path, "status");
     capacity = read_contents(path, "capacity");
@@ -288,8 +311,8 @@ __scan_battery_sysfs_add_battery(const gchar *name)
     voltage_now_txt=read_contents(path,"voltage_now");
     current_now_txt=read_contents(path,"current_now");
     if(voltage_now_txt) if(sscanf(voltage_now_txt, "%lu", &l)==1) voltage_now=(float)l/1000000.0;
-    if(current_now_txt) if(sscanf(current_now_txt, "%lu", &l)==1) current_now=(float)l/1000000.0;
-    if(!strcmp(status,"Discharging")) {current_now*=-1;}
+    if(current_now_txt) if(sscanf(current_now_txt, "%li", &sl)==1) current_now=(float)sl/1000000.0;
+    if(!strcmp(status,"Discharging") && (current_now>0)) {current_now*=-1;}
 
     if(voltage_min_design) if(sscanf(voltage_min_design, "%lu", &l)==1) voltage=(float)l/1000000.0;//uV->V
     if(!charge_full_design && energy_full_design) if(sscanf(energy_full_design, "%lu", &l)==1) full_design=(float)l/(voltage>0?voltage*1000000.0:-1.0);//uWh->Ah
@@ -330,6 +353,8 @@ __scan_battery_sysfs_add_battery(const gchar *name)
         g_free(powerstate);powerstate=g_strdup("BAT");
     }
 
+    g_free(chg_voltage_now_txt);
+    g_free(chg_voltage_max_txt);
     g_free(voltage_now_txt);
     g_free(current_now_txt);
     g_free(voltage_min_design);

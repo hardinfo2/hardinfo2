@@ -1,8 +1,8 @@
 #
 #	List of PCI IDs
 #
-#	Version: 2026.01.11
-#	Date:    2026-01-11 03:15:02
+#	Version: 2026.01.23
+#	Date:    2026-01-23 03:15:02
 #
 #	Maintained by Albert Pool, Martin Mares, and other volunteers from
 #	the PCI ID Project at https://pci-ids.ucw.cz/.
@@ -22019,6 +22019,8 @@
 		0e11 0042  Yogi
 # Integrated in CX86111/CX86113 processors
 	1830  CX861xx Integrated Host Bridge
+	1f86  DBH CX11880 Codec
+	1f87  SMIC CX11880 Codec
 	2003  HSF 56k Data/Fax Modem
 	2004  HSF 56k Data/Fax/Voice Modem
 	2005  HSF 56k Data/Fax/Voice/Spkp (w/Handset) Modem
@@ -23304,9 +23306,14 @@
 # nee Atheros Communications, Inc.
 168c  Qualcomm Atheros
 	0007  AR5210 Wireless Network Adapter [AR5000 802.11a]
+		1186 3a00  DWL-A650 5GHz Wireless CardBus Adapter
+		1186 3a02  DWL-A520 5GHz Wireless PCI Adapter
+		1668 0429  802CA Wireless PC Card
 		1737 0007  WPC54A Wireless PC Card
 		1b47 0100  Harmony 8450CN Wireless CardBus Module
 		1b47 0110  Skyline 4030 / Harmony 8450 802.11a Wireless CardBus Adapter
+		1b47 0400  PC50E-8-FC/A Wireless Access Point Radio Card
+		8086 2500  PRO/Wireless 5000 LAN CardBus Adapter
 		8086 2501  PRO/Wireless 5000 LAN PCI Adapter Module
 	0011  AR5211 Wireless Network Adapter [AR5001A 802.11a]
 	0012  AR5211 Wireless Network Adapter [AR5001X 802.11ab]
@@ -24498,6 +24505,7 @@
 	08b0  MVC200-DC
 1846  Alcatel-Lucent
 1849  ASRock Incorporation
+	1150  ASPEED AST1150 PCI-to-PCI Bridge
 	9602  RS780/RS880 PCI to PCI bridge (int gfx)
 184a  Thales Computers
 	1100  MAX II cPLD
@@ -25380,7 +25388,7 @@
 		15d9 086b  X10DRS (AST2400 BMC)
 		15d9 1b95  H12SSL-i (AST2500 BMC)
 		15d9 1d50  X14DBG-AP (AST2600 BMC)
-		1849 2000  ROME2D32LM3 (AST2500 BMC)
+		1849 2000  Onboard Graphics
 1a05  deltaww
 1a07  Kvaser AB
 	0006  CAN interface PC104+ HS/HS
@@ -26273,6 +26281,8 @@
 	3252  CH382 PCIe Dual Port Serial Adapter
 # Device ID reused: CH352 is for PCI bus, CH382 for PCIe.
 	3253  CH352/CH382 PCI/PCIe Dual Port Serial Adapter
+	3470  CH384 Serial Adapter, 4-port mode
+	3853  CH384 Serial Adapter, 8-port mode
 1c09  CSP, Inc.
 	4254  10G-PCIE3-8D-2S
 	4255  10G-PCIE3-8D-Q
@@ -26629,7 +26639,7 @@
 	1602  LEGEND 900 NVMe SSD (DRAM-less)
 # SX6000LNP
 	2263  XPG SX6000 Lite NVMe SSD (DRAM-less)
-	2708  Premier Extreme SDXC SD 7.0 / microSDXC SD7.1 Express Card (DRAM-less)
+	2708  Premier Extreme SDXC SD 7.0 / microSDXC SD 7.1 Express Card (DRAM-less)
 	32a8  SM2P32A8 NVMe SSD (DRAM-less)
 	33f3  IM2P33F3 NVMe SSD (DRAM-less)
 	33f4  IM2P33F4 NVMe SSD (DRAM-less)
@@ -26691,6 +26701,12 @@
 	5201  AM520 PCIe 3.0 NVMe SSD 128GB
 	5212  AM521 PCIe 3.0 NVMe SSD 256GB
 	5414  AM541 PCIe 4.0 NVMe SSD 1024GB
+	6020  NVMe SSD Controller UM3X1X series
+		1cc4 8320  NVMe SSD UM301a M.2 480GB
+		1cc4 8321  NVMe SSD UM301a M.2 960GB
+		1cc4 8322  NVMe SSD UM301a M.2 1.92TB
+		1ea0 8320  NVMe SSD TM1300 M.2 480GB
+		1ea0 8322  NVMe SSD TM1300 M.2 1.92TB
 	6201  AM620 PCIe 3.0 NVMe SSD 128GB
 	6202  AM620 PCIe 3.0 NVMe SSD 256GB
 	6203  AM620 PCIe 3.0 NVMe SSD 512GB
@@ -26769,6 +26785,8 @@
 		1ea0 6125  NVMe SSD TP3510 U.2 15.36TB
 		1ea0 6224  NVMe SSD TP3510 E3.S 7.68TB
 		1ea0 6225  NVMe SSD TP3510 E3.S 15.36TB
+		1ea0 7124  NVMe SSD TP3512 U.2 7.68TB
+		1ea0 7125  NVMe SSD TP3512 U.2 15.36TB
 1cc5  Embedded Intelligence, Inc.
 	0100  PCIe-CAN-02 Dual CAN bus (9-pin male). PCI Express x1.
 	0101  PCIe-CAN-01 Single CAN bus (9-pin male). PCI Express x1.
@@ -27669,6 +27687,7 @@
 1de5  Eideticom, Inc
 	1000  IO Memory Controller
 	2000  NoLoad Hardware Development Kit
+	2100  NoLoad Accelerator Platform
 	3000  eBPF-based PCIe Accelerator
 1ded  Alibaba (China) Co., Ltd.
 	107f  Elastic RDMA Adapter
@@ -27803,6 +27822,7 @@
 	05c0  PCIe 6 Fabric Switch PF6xxx [Scorpio]
 1dfc  JSC NT-COM
 	1181  TDM 8 Port E1/T1/J1 Adapter
+1e0b  Shenzhen Decenta Technology Co.,LTD
 1e0d  SambaNova Systems, Inc
 1e0e  Qualcomm / Option SimTech, Incorporated
 	9071  SIM8230G 5GNR/LTE/GNSS
@@ -28242,6 +28262,7 @@
 	50d0  NVME RAID Card DP800
 	50d1  Flexraid6 NVMeRAID
 1e3d  Burlywood, Inc
+1e3e  Shanghai Iluvatar CoreX Semiconductor Co., Ltd.
 1e43  MaxLinear Inc
 	8904  MxL8904
 	8906  MxL8906
@@ -28471,6 +28492,7 @@
 		1ec8 12a2  Fantasy I Device
 	8900  GR308
 	8902  GR3 Audio
+	8904  GR308
 	9800  Fantasy II
 		1ec8 12a2  Fantasy II Device
 	9802  Fantasy II
@@ -29399,6 +29421,7 @@
 203b  XTX Markets Technologies Ltd.
 2046  GXMICRO Technology (Shanghai) Co., Ltd.
 2048  Beijing SpaceControl Technology Co.Ltd
+2052  Frontgrade Gaisler AB
 2058  Lime Microsystems Ltd.
 205c  Zhejiang VMing Semiconductor Co., Ltd.
 	1514  EP9410 U.2 1.92TB NVME SSD
@@ -29407,6 +29430,21 @@
 	1535  EP9430 U.2 3.2TB NVME SSD
 	1536  EP9430 U.2 6.4TB NVME SSD
 205d  Shanghai Zijing Xinjie Intelligent Technology Co., Ltd.
+205e  SDTECH
+	0000  SD85xxx PCIe Gen5 Switch
+		205e 0048  SD85048 PCIe Gen 5 48 lane Switch Upstream/Downstream Port
+		205e 0096  SD85096 PCIe Gen 5 96 lane Switch Upstream/Downstream Port
+		205e 0104  SD85104 PCIe Gen 5 104 lane Switch Upstream/Downstream Port
+		205e 0105  SD85104 PCIe Gen 5 104 lane Switch Upstream/Downstream Port
+		205e 0144  SD85144 PCIe Gen 5 144 lane Switch Upstream/Downstream Port
+		205e 2004  SD85000 PCIe NT Endpoint
+		205e 2005  SD85000 PCIe gDMA Endpoint
+		205e 2006  SD85000 PCIe Management Endpoint
+	5048  SD85048 PCIe Gen 5 48 lane Switch Upstream/Downstream Port
+	5096  SD85096 PCIe Gen 5 96 lane Switch Upstream/Downstream Port
+	5104  SD85104 PCIe Gen 5 104 lane Switch Upstream/Downstream Port
+	5105  SD85104 PCIe Gen 5 104 lane Switch Upstream/Downstream Port
+	5144  SD85144 PCIe Gen 5 144 lane Switch Upstream/Downstream Port
 2061  Unis Flash Memory
 	4000  E4000 controller
 	4100  E4100 controller
@@ -29444,6 +29482,12 @@
 		2061 2044  E5300 NVMe SSD 7.68TB PCIe 5.0 U.2
 		2061 2045  E5300 NVMe SSD 12.8TB PCIe 5.0 U.2
 		2061 2046  E5300 NVMe SSD 15.36TB PCIe 5.0 U.2
+		2061 2085  E5300 NVMe SSD 3.2TB PCIe 5.0 U.2
+		2061 2086  E5300 NVMe SSD 3.84TB PCIe 5.0 U.2
+		2061 2087  E5300 NVMe SSD 6.4TB PCIe 5.0 U.2
+		2061 2088  E5300 NVMe SSD 7.68TB PCIe 5.0 U.2
+		2061 2089  E5300 NVMe SSD 12.8TB PCIe 5.0 U.2
+		2061 208a  E5300 NVMe SSD 15.36TB PCIe 5.0 U.2
 2063  Hubei Yangtze Mason Semiconductor Technology Co., Ltd.
 	0bb8  MC3000
 	0bb9  RC3000
@@ -29557,6 +29601,9 @@
 20e3  Elix Systems SA
 20e7  TOPSSD
 20f4  TRENDnet
+20f6  Shenzhen Zhishi Network Technology Co., Ltd.
+	0001  MPU H1
+20f9  Shenzhen Silicon Dynamic Networks Co., Ltd.
 2116  ZyDAS Technology Corp.
 21b4  Hunan Goke Microelectronics Co., Ltd
 21c3  21st Century Computer Corp.
@@ -31216,6 +31263,8 @@
 	0dc5  Ethernet Connection (23) I219-LM
 		1028 0c06  Precision 3580
 	0dc6  Ethernet Connection (23) I219-V
+	0dc7  Ethernet Connection I219-LM
+	0dc8  Ethernet Connection I219-V
 	0dcd  Ethernet Connection C825-X
 	0dd2  Ethernet Network Adapter I710
 		1137 0000  I710T4LG 4x1 GbE RJ45 PCIe NIC
@@ -38069,6 +38118,19 @@
 	65fa  5100 Chipset PCI Express x16 Port 4-7
 	65ff  5100 Chipset DMA Engine
 	674c  CRI
+	6e23  Nova Lake PCH-S SMbus Controller
+	6e24  Nova Lake PCH-S SPI Controller
+	6e28  Nova Lake PCH-S Serial IO UART Controller #0
+	6e29  Nova Lake PCH-S Serial IO UART Controller #1
+	6e2a  Nova Lake PCH-S Serial IO SPI Controller #0
+	6e2b  Nova Lake PCH-S Serial IO SPI Controller #1
+	6e4c  Nova Lake PCH-S Serial IO I2C Controller #0
+	6e4d  Nova Lake PCH-S Serial IO I2C Controller #1
+	6e4e  Nova Lake PCH-S Serial IO I2C Controller #2
+	6e4f  Nova Lake PCH-S Serial IO I2C Controller #3
+	6e5e  Nova Lake PCH-S Serial IO SPI Controller #2
+	6e7a  Nova Lake PCH-S Serial IO I2C Controller #4
+	6e7b  Nova Lake PCH-S Serial IO I2C Controller #5
 	6f00  Xeon E7 v4/Xeon E5 v4/Xeon E3 v4/Xeon D DMI2
 		15d9 0832  X10SRL-F
 	6f01  Xeon E7 v4/Xeon E5 v4/Xeon E3 v4/Xeon D PCI Express Root Port 0
@@ -39454,7 +39516,7 @@
 		103c 825b  OMEN-17-w001nv
 		1043 86c7  H110I-PLUS Motherboard
 		1462 f994  H110M ECO/GAMING
-	a171  CM238 HD Audio Controller
+	a171  HM175/QM175/CM238 HD Audio Controller
 	a182  C620 Series Chipset Family SATA Controller [AHCI mode]
 	a186  C620 Series Chipset Family SATA Controller [RAID mode]
 	a190  C620 Series Chipset Family PCI Express Root Port #1
@@ -39781,7 +39843,11 @@
 	ae4c  Arrow Lake-HX Gauss Newton Algorithm (GNA)
 	ae4d  Arrow Lake-HX PCIe Root Port #13
 	ae7f  Arrow Lake-HX Shared SRAM (SOC-S)
+	b002  Panther Lake Host Bridge/DRAM Controller
+	b01d  Panther Lake Innovation Platform Framework Processor Participant
 	b03e  Panther Lake NPU
+	b05d  Panther Lake IPU
+	b07d  Panther Lake Platform Monitoring Technology (PMT)
 	b080  Panther Lake [Arc B390]
 	b081  Panther Lake [Arc B370]
 	b082  Panther Lake [Arc B390]
@@ -39832,6 +39898,11 @@
 	d156  Core Processor Semaphore and Scratchpad Registers
 	d157  Core Processor System Control and Status Registers
 	d158  Core Processor Miscellaneous Registers
+	d431  Nova Lake-S Thunderbolt 5 USB Controller
+	d433  Nova Lake-S Thunderbolt 5 NHI #0
+	d44e  Nova Lake-S Thunderbolt 5 PCI Express Root Port #0
+	d44f  Nova Lake-S Thunderbolt 5 PCI Express Root Port #1
+	d460  Nova Lake-S Thunderbolt 5 PCI Express Root Port #2
 	d740  NVL-S
 	d741  NVL-U
 	d742  NVL-H
@@ -39851,6 +39922,52 @@
 	e221  Battlemage G31 [Intel Graphics]
 	e222  Battlemage G31 [Intel Graphics]
 	e223  Battlemage G31 [Intel Graphics]
+	e302  Panther Lake LPC/eSPI Controller
+	e322  Panther Lake SMBus Controller
+	e323  Panther Lake SPI(flash) Controller
+	e325  Panther Lake Serial IO UART Controller #0
+	e326  Panther Lake Serial IO UART Controller #1
+	e327  Panther Lake Serial IO SPI Host Controller #0
+	e328  Panther Lake Smart Sound Technology BUS
+	e330  Panther Lake Serial IO SPI Host Controller #1
+	e331  Panther Lake TCSS USB3 xHCI Controller
+	e333  Panther Lake Thunderbolt 4 NHI #0
+	e334  Panther Lake Thunderbolt 4 NHI #1
+	e338  Panther Lake PCI Express Root Port A1
+	e339  Panther Lake PCI Express Root Port A2
+	e33a  Panther Lake PCI Express Root Port A3
+	e33b  Panther Lake PCI Express Root Port A4
+	e33c  Panther Lake PCI Express Root Port B1
+	e33d  Panther Lake PCI Express Root Port B2
+	e33e  Panther Lake PCI Express Root Port B3
+	e33f  Panther Lake PCI Express Root Port B4
+	e340  Panther Lake PCH CNVi WiFi
+		8086 0094  Wi-Fi 6E AX211 160MHz
+	e34e  Panther Lake Thunderbolt 4 PCI Express Root Port #0
+	e35d  Panther Lake CSME HECI #1
+	e360  Panther Lake Thunderbolt 4 PCI Express Root Port #2
+	e361  Panther Lake PCI Express Root Port C1
+	e362  Panther Lake Primary to Sideband (P2SB) Bridge IOE
+	e363  Panther Lake PCI Express Root Port C3
+	e364  Panther Lake PCI Express Root Port C4
+	e365  Panther Lake PCI Express Root Port D1
+	e366  Panther Lake PCI Express Root Port D2
+	e367  Panther Lake PCI Express Root Port D3
+	e368  Panther Lake PCI Express Root Port D4
+	e369  Panther Lake PCI Express Root Port D5
+	e36a  Panther Lake PCI Express Root Port D6
+	e36b  Panther Lake PCI Express Root Port D7
+	e36c  Panther Lake PCI Express Root Port D8
+	e36f  Panther Lake I3C Host Controller #0
+	e370  Panther Lake MEI Controller
+	e376  Panther Lake Bluetooth PCI Enumerator
+	e378  Panther Lake Serial IO I2C Controller #0
+	e379  Panther Lake Serial IO I2C Controller #1
+	e37a  Panther Lake Serial IO I2C Controller #2
+	e37b  Panther Lake Serial IO I2C Controller #3
+	e37c  Panther Lake I3C Host Controller #1
+	e37d  Panther Lake USB 3.2 xHCI Controller
+	e37f  Panther Lake Shared SRAM
 	f1a5  SSD 600P Series
 		8086 390a  SSDPEKKW256G7 256GB
 	f1a6  SSD DC P4101/Pro 7600p/760p/E 6100p Series
@@ -39941,8 +40058,16 @@
 		8088 2400  Ethernet Network Adaptor RP2000-A04 for 10GbE SFP+
 	5025  Ethernet Controller WX5025 for 25GbE SFP28
 		8088 1000  Dual-Port Ethernet Network Adapter FF5025-DDATACXX
+# add new id
+	5040  Ethernet Controller WX5040 for 40GbE QSFP+
+# add new id
+		8088 1000  Dual-Port Ethernet Network Adapter FF5040-DDBTACXX
 	5125  Ethernet Controller WX5025AL for 25GbE SFP28
 		8088 3000  Dual-Port Ethernet Network Adapter FF5025-DDATAIXX
+# add new id
+	5140  Ethernet Controller WX5040AL for 40GbE QSFP+
+# add new id
+		8088 3000  Dual-Port Ethernet Network Adapter FF5040-DDBTAIXX
 80ee  InnoTek Systemberatung GmbH
 	beef  VirtualBox Graphics Adapter
 	cafe  VirtualBox Guest Service

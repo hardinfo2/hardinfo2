@@ -29,11 +29,15 @@ static struct {
     char *icon;
 } input_devices[] = {
     { NULL,       "module.svg"   }, // UNKNOWN
-    { "Keyboard", "keyboard.svg" },
+    { "Keyboard", "keyboard.svg" },//1
     { "Joystick", "joystick.svg" },
-    { "Mouse",    "mouse.svg"    },
+    { "Mouse",    "mouse.svg"    },//3
     { "Speaker",  "audio.svg"    },
-    { "Audio",    "audio.svg"    }
+    { "Audio",    "audio.svg"    },//5
+    { "Bluetooth","bluetooth.svg"},
+    { "HDMI",     "monitor.svg"  },//7
+    { "System",   "computer.svg" },
+    { "Wifi",     "wireless.svg" }//9
 };
 
 // source: https://elixir.bootlin.com/linux/v5.9/source/include/uapi/linux/input.h#L251
@@ -92,7 +96,9 @@ __scan_input_devices(void)
                     &bus, &vendor, &product, &version);
             break;
         case 'H':
-            if (strstr(tmp, "kbd"))
+            if (strstr(tmp, "sysrq"))
+            d = 8;      //INPUT_SYSTEM;
+            else if (strstr(tmp, "js"))
             d = 1;      //INPUT_KEYBOARD;
             else if (strstr(tmp, "js"))
             d = 2;      //INPUT_JOYSTICK;
@@ -102,19 +108,29 @@ __scan_input_devices(void)
             d = 0;      //INPUT_UNKNOWN;
             break;
         case '\n':
-            if (name && strstr(name, "PC Speaker")) {
-                d = 4;    // INPUT_PCSPKR
+            if (bus >= 0 && (guint)bus < sizeof(bus_types) / sizeof(gchar*)) {
+                bus_str = bus_types[bus];
             }
-            if (d == 0 && g_strcmp0(phys, "ALSA")) {
-                d = 5;    // INPUT_AUDIO
-            }
+            if (d == 0){//Name
+	        if(name && strstr(name, "wifi")) {d = 9;}           // INPUT_WIRELESS
+		if(name && strstr(name, "Wifi")) {d = 9;}           // INPUT_WIRELESS
+		if(name && strstr(name, "WiFi")) {d = 9;}           // INPUT_WIRELESS
+		if(name && strstr(name, "WIFI")) {d = 9;}           // INPUT_WIRELESS
+		if(name && strstr(name, "utton")) {d = 1;}          // INPUT_KEYBOARD
+		if(name && strstr(name, "keys")) {d = 1;}           // INPUT_KEYBOARD
+		if(name && strstr(name, "ointer")) {d = 3;}         // INPUT_MOUSE
+		if(name && strstr(name, "Touch")) {d = 3;}          // INPUT_PCSPKR
+		if(name && strstr(name, "PC Speaker")) {d = 4;}     // INPUT_PCSPKR
+	    }
+            if (d == 0){//Phys
+		if(phys && strstr(phys, "ALSA")) {d = 5;}           // INPUT_AUDIO
+	    }
+            if (d == 0){//Bus
+		if(bus_str && strstr(bus_str, "Bluetooth")) {d = 6;}// INPUT_BLUETOOTH
+	    }
 
             if (vendor > 0 && product > 0 && g_str_has_prefix(phys, "usb-")) {
                 usb_lookup_ids_vendor_product_str(vendor, product, &vendor_str, &product_str);
-            }
-
-            if (bus >= 0 && (guint)bus < sizeof(bus_types) / sizeof(gchar*)) {
-                bus_str = bus_types[bus];
             }
 
             vl = vendor_list_remove_duplicates_deep(vendors_match(name, vendor_str, NULL));

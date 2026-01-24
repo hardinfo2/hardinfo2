@@ -129,8 +129,13 @@ __scan_input_devices(void)
 		if(bus_str && strstr(bus_str, "Bluetooth")) {d = 6;}// INPUT_BLUETOOTH
 	    }
 
-            if (vendor > 0 && product > 0 && g_str_has_prefix(phys, "usb-")) {
+            if (vendor > 0 && product > 0 && strstr(bus_str,"USB")) {
                 usb_lookup_ids_vendor_product_str(vendor, product, &vendor_str, &product_str);
+            }
+            if (vendor > 0 && strstr(bus_str,"I²C")) {
+	        gchar *st=NULL;
+                usb_lookup_ids_vendor_product_str(vendor, 0, &vendor_str, &st);
+		if(st) g_free(st);
             }
 
             vl = vendor_list_remove_duplicates_deep(vendors_match(name, vendor_str, NULL));
@@ -150,8 +155,8 @@ __scan_input_devices(void)
                     /* Name */   "$^$%s=%s\n"
                     /* Type */   "%s=%s\n"
                     /* Bus */    "%s=[0x%x] %s\n"
-                    /* Vendor */ "$^$%s=[0x%x] %s\n"
-                    /* Product */"%s=[0x%x] %s\n"
+                    /* Vendor */ "$^$%s=[0x%04x] %s\n"
+                    /* Product */"%s=[0x%04x] %s\n"
                     /* Version */"%s=0x%x\n",
                             _("Device Information"),
                             _("Name"), name,

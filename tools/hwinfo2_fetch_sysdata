@@ -23,7 +23,7 @@ dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/null
 UID_MIN=1000
 if [ -e /etc/login.defs ] ; then
     U=$(awk 'match($1,"^UID_MIN") {print $2}' /etc/login.defs)
-    if [ $U -gt 100 ] ; then
+    if [ $U -gt 1 ] ; then
 	 $UDI_MIN=$U
     fi
 fi

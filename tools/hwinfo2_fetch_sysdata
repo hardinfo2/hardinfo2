@@ -22,7 +22,10 @@ dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/null
 #Allow for single user systems to use user group (To avoid reboot)
 UID_MIN=1000
 if [ -e /etc/login.defs ] ; then
-    UID_MIN=$(awk 'match($1,"^UID_MIN") {print $2}' /etc/login.defs)
+    U=$(awk 'match($1,"^UID_MIN") {print $2}' /etc/login.defs)
+    if [ $U -gt 100 ] ; then
+	 $UDI_MIN=$U
+    fi
 fi
 #SYSTYPE 0:Root, 1:SingleUser 2:MultiUser
 SYSTYPE=$(awk -F: -v UID_MIN=$UID_MIN '$3 >= UID_MIN && !match($7,"false") && !match($7,"nologin") && !match($1,"nobody") { C++; } END { if(C+0 == 0) print 0; else if(C+0 == 1) print 1; else print 2 }' /etc/passwd)

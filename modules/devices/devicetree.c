@@ -33,13 +33,6 @@
 gchar *dtree_info = NULL;
 const char *dtree_mem_str = NULL; /* used by memory devices when nothing else is available */
 
-/* These should really go into CMakeLists.txt */
-#if defined(__arm__)
-#include "devicetree/rpi_data.c"
-#elif defined(__powerpc__)
-#include "devicetree/pmac_data.c"
-#endif
-
 static gchar *get_node(dtr *dt, char *np) {
     gchar *nodes = NULL, *props = NULL, *ret = NULL;
     gchar *tmp = NULL, *pstr = NULL, *lstr = NULL;
@@ -116,90 +109,17 @@ static char *get_dt_string(dtr *dt, char *path, gboolean decode) {
 }
 
 static gchar *get_summary(dtr *dt) {
-    char *model = NULL, *compat = NULL;
+    char *model = NULL, *compat = NULL, *serial_number=NULL;
     char *ret = NULL;
 
     model = get_dt_string(dt, "/model", 0);
     compat = get_dt_string(dt, "/compatible", 1);
+    serial_number = get_dt_string(dt, "/serial-number", 1);
     UNKIFNULL(model);
     EMPIFNULL(compat);
+    EMPIFNULL(serial_number);
 
-#if defined(__arm__)
-    /* Expand on the DT information from known machines, like RPi.
-     * RPi stores a revision value in /proc/cpuinfo that can be used
-     * to look up details. This is just a nice place to pull it all
-     * together for DT machines, with a nice fallback.
-     * PPC Macs could be handled this way too. They store
-     * machine identifiers in /proc/cpuinfo. */
-    if (strstr(model, "Raspberry Pi")
-        || strstr(compat, "raspberrypi")) {
-        gchar *gpu_compat = get_dt_string(dt, "/soc/gpu/compatible", 1);
-        gchar *rpi_details = rpi_board_details();
-        gchar *basic_info;
-
-        basic_info = g_strdup_printf(
-                "[%s]\n"
-                "%s=%s\n"
-                "%s=%s\n",
-                _("Platform"),
-                _("Compatible"), compat,
-                _("GPU-compatible"), gpu_compat);
-
-        if (rpi_details) {
-            ret = g_strconcat(rpi_details, basic_info, NULL);
-
-            g_free(rpi_details);
-        } else {
-            gchar *serial_number = get_dt_string(dt, "/serial-number", 1);
-
-            ret = g_strdup_printf(
-                "[%s]\n"
-                "%s=%s\n"
-                "%s=%s\n"
-                "%s=%s\n"
-                "%s",
-                _("Raspberry Pi or Compatible"),
-                _("Model"), model,
-                _("Serial Number"), serial_number,
-                _("RCode"), _("No revision code available; unable to lookup model details."),
-                basic_info);
-
-            g_free(serial_number);
-        }
-
-        g_free(gpu_compat);
-        g_free(basic_info);
-    }
-#endif
-
-#if defined(__powerpc__)
-    /* Power Macintosh */
-    if (strstr(compat, "PowerBook") != NULL
-         || strstr(compat, "MacRISC") != NULL
-         || strstr(compat, "Power Macintosh") != NULL) {
-        gchar *mac_details = ppc_mac_details();
-
-        if (mac_details) {
-            gchar *serial_number = get_dt_string(dt, "/serial-number", 1);
-
-            ret = g_strdup_printf(
-                "%s[%s]\n"
-                "%s=%s\n",
-                mac_details,
-                _("More"),
-                _("Serial Number"), serial_number);
-
-            free(mac_details);
-            free(serial_number);
-        }
-    }
-#endif
-
-    /* fallback */
-    if (!ret) {
-        gchar *serial_number = get_dt_string(dt, "/serial-number", 1);
-        EMPIFNULL(serial_number);
-        ret = g_strdup_printf(
+    ret = g_strdup_printf(
                 "[%s]\n"
                 "%s=%s\n"
                 "%s=%s\n"
@@ -208,9 +128,8 @@ static gchar *get_summary(dtr *dt) {
                 _("Model"), model,
                 _("Serial Number"), serial_number,
                 _("Compatible"), compat);
-        free(serial_number);
-    }
 
+    free(serial_number);
     free(model);
     free(compat);
 

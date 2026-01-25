@@ -208,6 +208,14 @@ gboolean __scan_udisks2_devices(void) {
     udisks2_storage_list = g_strdup(_("\n[UDisks2]\n"));
 
     drives = get_udisks2_drives_ext();
+    //remove mmc boot0+1
+    for (node = drives; node != NULL; node = node->next) {
+        ext = (u2driveext *)node->data;
+        disk = ext->d;
+	if(strstr(disk->block_dev,"boot0") || strstr(disk->block_dev,"boot1")){
+	    drives=g_slist_remove(drives, node->data);
+	}
+    }
     for (node = drives; node != NULL; node = node->next) {
         ext = (u2driveext *)node->data;
         disk = ext->d;

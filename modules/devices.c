@@ -363,14 +363,14 @@ gchar *get_storage_devices_simple(void)
         if (!group)
             continue;
 
-        info_group_strip_extra(group);
         for (fi = 0; fi < group->fields->len; fi++) {
             field = &g_array_index(group->fields, struct InfoField, fi);
             if (!field->value)
                 continue;
 
-            tmp = g_regex_replace(regex, field->value, -1, 0, "", 0, NULL); // remove html tags
+            tmp = g_regex_replace(regex, field->value, -1, 0, "", 0, NULL); // remove html tags 
 	    tmp=strreplace(tmp,"  "," ");
+	    tmp=strreplace(tmp,"|"," ");
             storage_devs = h_strdup_cprintf("%s\n", storage_devs, g_strstrip(tmp));
             g_free(tmp);
         }

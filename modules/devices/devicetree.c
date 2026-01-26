@@ -210,10 +210,10 @@ char* dtr_map_info_section(dtr *s, dtr_map *map, char *title, int kvl) {
     ret = g_strdup_printf("[%s]\n", _(title));
     dtr_map *it = map, *ali;
     while(it != NULL) {
-        if (kvl) {
+        if (kvl & 1) {
 	    ali = s->symbols;
 	    sym=NULL;
-	    while((ali != NULL) && (sym==NULL)) {
+	    if(kvl & 2) while((ali != NULL) && (sym==NULL)) {
 	        if (strcmp(ali->path, it->path) == 0) sym = ali->label;
 		ali = ali->next;
 	    }
@@ -237,7 +237,7 @@ void __scan_dtree()
 {
     dtr *dt = dtr_new(NULL);
     gchar *summary = get_summary(dt);
-    gchar *mem = dtr_map_info_section(dt,dt->phandles,_("Memory Map"),1);
+    gchar *mem = dtr_map_info_section(dt,dt->phandles,_("Memory Map"),3);
     gchar *irq = dtr_map_info_section(dt,dt->irqs,_("IRQ Map"),1);
     gchar *alias = dtr_map_info_section(dt,dt->aliases,_("Alias Map"),0);
     gchar *symbol = dtr_map_info_section(dt,dt->symbols,_("Symbol Map"),0);

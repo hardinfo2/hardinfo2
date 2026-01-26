@@ -1095,27 +1095,31 @@ void _dtr_map_it(dtr *s, char *np, const char *what) {
                         if (s->phandles == NULL) s->phandles = ph;
 		    }
 		    if(*what=='i'){
-		      //FIXME 4*32bit ??,id,level,parent (1=risingedge,2=fallingedge,4=active high,8=activelow
-		        ph = dtr_map_add(s->irqs, be32toh(ph_prop->data_int[1]), NULL, ntmp);
-			if(be32toh(ph_prop->data_int[2])==1){
-			    gchar *t=ph->path;
-			    ph->path=g_strdup_printf("%s%s",t," (Rising Edge)");
-			    g_free(t);
-			}
-			if(be32toh(ph_prop->data_int[2])==2){
-			    gchar *t=ph->path;
-			    ph->path=g_strdup_printf("%s%s",t," (Falling Edge)");
-			    g_free(t);
-			}
-			if(be32toh(ph_prop->data_int[2])==4){
-			    gchar *t=ph->path;
-			    ph->path=g_strdup_printf("%s%s",t," (Activ High)");
-			    g_free(t);
-			}
-			if(be32toh(ph_prop->data_int[2])==8){
-			    gchar *t=ph->path;
-			    ph->path=g_strdup_printf("%s%s",t," (Activ Low)");
-			    g_free(t);
+		        //FIXME 4*32bit ??,id,level,parent (1=risingedge,2=fallingedge,4=active high,8=activelow
+		        if(ph_prop->length>4){
+		            ph = dtr_map_add(s->irqs, be32toh(ph_prop->data_int[1]), NULL, ntmp);
+			    if(be32toh(ph_prop->data_int[2])==1){
+			        gchar *t=ph->path;
+				ph->path=g_strdup_printf("%s%s",t," (Rising Edge)");
+				g_free(t);
+			    }
+			    if(be32toh(ph_prop->data_int[2])==2){
+			        gchar *t=ph->path;
+				ph->path=g_strdup_printf("%s%s",t," (Falling Edge)");
+				g_free(t);
+			    }
+			    if(be32toh(ph_prop->data_int[2])==4){
+			        gchar *t=ph->path;
+				ph->path=g_strdup_printf("%s%s",t," (Activ High)");
+				g_free(t);
+			    }
+			    if(be32toh(ph_prop->data_int[2])==8){
+			        gchar *t=ph->path;
+				ph->path=g_strdup_printf("%s%s",t," (Activ Low)");
+				g_free(t);
+			    }
+			} else {
+		            ph = dtr_map_add(s->irqs, be32toh(*ph_prop->data_int), NULL, ntmp);
 			}
                         if (s->irqs == NULL) s->irqs = ph;
 		    }

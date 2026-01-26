@@ -83,7 +83,7 @@ gchar *nvme_pci_sections(pcid *p) {
 }
 
 gboolean __scan_udisks2_devices(void) {
-    GSList *node, *drives;
+    GSList *node,*nodenext, *drives;
     u2driveext *ext;
     udiskd *disk;
     udiskp *part;
@@ -209,13 +209,16 @@ gboolean __scan_udisks2_devices(void) {
 
     drives = get_udisks2_drives_ext();
     //remove mmc boot0+1
-    for (node = drives; node != NULL; node = node->next) {
+    for (node = drives; node != NULL; ) {
+	nodenext = node->next;
         ext = (u2driveext *)node->data;
         disk = ext->d;
 	if(strstr(disk->block_dev,"boot0") || strstr(disk->block_dev,"boot1")){
-	    drives=g_slist_remove(drives, node->data);
+            drives=g_slist_remove(drives, node->data);
 	}
+	node=nodenext;
     }
+
     for (node = drives; node != NULL; node = node->next) {
         ext = (u2driveext *)node->data;
         disk = ext->d;

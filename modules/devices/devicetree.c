@@ -235,30 +235,36 @@ char* dtr_map_info_section(dtr *s, dtr_map *map, char *title, int kvl) {
 
 void __scan_dtree()
 {
-    dtr *dt = dtr_new(NULL);
-    gchar *summary = get_summary(dt);
-    gchar *mem = dtr_map_info_section(dt,dt->phandles,_("Memory Map"),3);
-    gchar *irq = dtr_map_info_section(dt,dt->irqs,_("IRQ Map"),1);
-    gchar *alias = dtr_map_info_section(dt,dt->aliases,_("Alias Map"),0);
-    gchar *symbol = dtr_map_info_section(dt,dt->symbols,_("Symbol Map"),0);
-    //gchar *messages = NULL;
+    if(dtree_info) g_free(dtree_info);
+    dtr *dt = dtr_new(NULL); 
+    if(!dtr_was_found(dt)){//Hide device tree on machines without
+        dtree_info=g_strdup("");
+	if(dt) dtr_free(dt);
+    } else {
+        gchar *summary = get_summary(dt);
+	gchar *mem = dtr_map_info_section(dt,dt->phandles,_("Memory Map"),3);
+	gchar *irq = dtr_map_info_section(dt,dt->irqs,_("IRQ Map"),1);
+	gchar *alias = dtr_map_info_section(dt,dt->aliases,_("Alias Map"),0);
+	gchar *symbol = dtr_map_info_section(dt,dt->symbols,_("Symbol Map"),0);
+	//gchar *messages = NULL;
 
-    dtree_info = g_strdup("[Device Tree]\n");
-    mi_add("Summary", summary, 1);
-    mi_add("Memory Map", mem, 0);
-    mi_add("IRQ Map", irq, 0);
-    mi_add("Alias Map", alias, 0);
-    mi_add("Symbol Map", symbol, 0);
+	dtree_info = g_strdup("[Device Tree]\n");
+	mi_add("Summary", summary, 1);
+	mi_add("Memory Map", mem, 0);
+	mi_add("IRQ Map", irq, 0);
+	mi_add("Alias Map", alias, 0);
+	mi_add("Symbol Map", symbol, 0);
 
-    //if(dtr_was_found(dt)) add_keys(dt, "/");
-    //messages = msg_section(dt, 0);
-    //mi_add("Messages", messages, 0);
+	//if(dtr_was_found(dt)) add_keys(dt, "/");
+	//messages = msg_section(dt, 0);
+	//mi_add("Messages", messages, 0);
 
-    g_free(summary);
-    g_free(mem);
-    g_free(irq);
-    g_free(alias);
-    g_free(symbol);
-    //g_free(messages);
-    dtr_free(dt);
+	g_free(summary);
+	g_free(mem);
+	g_free(irq);
+	g_free(alias);
+	g_free(symbol);
+	//g_free(messages);
+	dtr_free(dt);
+    }
 }

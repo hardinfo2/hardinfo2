@@ -363,6 +363,7 @@ static void stylechange2_me(void)
     gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
     gint darkmode=0;
     if((color.red+color.green+color.blue)>=1.5) darkmode=1;
+    //printf("Color=%3.1f dark=%d\n",color.red+color.green+color.blue,darkmode);
     //
     if(schemeDark && (!darkmode) ) {
         if(newgnome){
@@ -370,6 +371,8 @@ static void stylechange2_me(void)
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","HighContrastInverse", NULL);
+	    darkmode=1;
+	    params.darkmode=1-darkmode;
 	}
     }
     if( (!schemeDark) && darkmode){
@@ -378,12 +381,14 @@ static void stylechange2_me(void)
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","Adwaita", NULL);
+	    darkmode=0;
+	    params.darkmode=1-darkmode;
 	}
     }
     //
     if(darkmode!=params.darkmode){
         params.darkmode=darkmode;
-        //g_print("COLOR %f %f %f, schemeDark=%i -> DARKMODE=%d\n",color.red,color.green,color.blue,schemeDark, params.darkmode);
+        //g_print("Changing - COLOR %f %f %f, schemeDark=%i -> DARKMODE=%d\n",color.red,color.green,color.blue,schemeDark, params.darkmode);
         //update theme
         cb_disable_theme();
     }
@@ -877,6 +882,7 @@ void shell_init(GSList * modules)
     uri_set_function(hardinfo_link);
     params.fmt_opts = FMT_OPT_PANGO;
 
+    stylechange2_me();//initially update to correct theme
     create_window();
 
     //shell_action_set_property("CopyAction", "is-important", TRUE);
@@ -959,12 +965,6 @@ void shell_init(GSList * modules)
     load_graph_configure_expose(shell->loadgraph);
     gtk_widget_hide(shell->notebook);
     gtk_widget_hide(shell->note->event_box);
-
-    //Set SidePane+Toolbar active on start
-    shell_action_set_property("SidePaneAction", "active", TRUE);
-    shell_set_side_pane_visible(TRUE);
-    shell_action_set_property("ToolbarAction", "active", TRUE);
-    shell_ui_manager_set_visible("/MainMenuBarAction", TRUE);
 
     /* Should select Computer Summary (note: not Computer/Summary) */
     g_idle_add(select_first_tree_item, NULL);

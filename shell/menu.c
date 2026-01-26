@@ -103,11 +103,11 @@ static GtkToggleActionEntry toggle_entries[] = {
     {"SidePaneAction", NULL,
      N_("_Side Pane"), NULL,
      N_("Toggles side pane visibility"),
-     G_CALLBACK(cb_side_pane)},
+     G_CALLBACK(cb_side_pane), TRUE},
     {"ToolbarAction", NULL,
      N_("_Toolbar"), NULL,
      NULL,
-     G_CALLBACK(cb_toolbar)},
+     G_CALLBACK(cb_toolbar), TRUE},
     {"SyncOnStartupAction", NULL,
      N_("Synchronize on startup"), NULL,
      NULL,
@@ -214,16 +214,6 @@ void menu_init(Shell * shell)
     if(params.scale>=2) {size=24;icon_size=6;}//48
     gtk_toolbar_set_icon_size(GTK_TOOLBAR(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenuBarAction")), icon_size);
 
-    //Scale (menubar)+menu items
-    /*GtkToolButton *b;
-    b=GTK_TOOL_BUTTON(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenuBarAction/Refresh"));
-    GtkWidget *i=icon_cache_get_image_at_size("hardinfo2.svg",2*size,2*size);
-    gtk_tool_button_set_icon_name(GTK_TOOL_BUTTON(b),"hardinfo2.svg");
-    b=GTK_TOOL_BUTTON(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenuBar/Report"));
-    gtk_tool_button_set_icon_widget(b,icon_cache_get_image_at_size("report.svg",2*size,2*size));
-    b=GTK_TOOL_BUTTON(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenuBar/SyncManager"));
-    gtk_tool_button_set_icon_widget(b,icon_cache_get_image_at_size("sync.svg",2*size,2*size));
-    */
     GtkImageMenuItem *t;
     t=GTK_IMAGE_MENU_ITEM(gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenu/InformationMenu/Report"));
     gtk_image_menu_item_set_image(t,icon_cache_get_image_at_size("report.svg",size,size));

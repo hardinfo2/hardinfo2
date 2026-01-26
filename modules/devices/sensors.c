@@ -205,6 +205,12 @@ static char *determine_devname_for_hwmon_path(char *path) {
     tmp = g_strdup_printf("%s/name", path);
     g_file_get_contents(tmp, &devname, NULL, NULL);
     g_free(tmp);
+    if(devname && strstr(devname,"w1_slave_temp")){//1 wire support
+        g_free(devname);devname=NULL;
+        tmp = g_strdup_printf("%s/device/name", path);
+        g_file_get_contents(tmp, &devname, NULL, NULL);
+        g_free(tmp);
+    }
     if (devname)
         return g_strstrip(devname);
 

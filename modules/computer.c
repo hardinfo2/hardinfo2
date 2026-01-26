@@ -171,8 +171,10 @@ void scan_summary(gboolean reload)
 {
     SCAN_START();
     //gdk_window_freeze_updates(GDK_WINDOW(gtk_widget_get_window(shell_get_main_shell()->info_tree->view)));
+    scan_os(FALSE);
+    scan_display(FALSE);
     //module_entry_scan_all_except(entries, 0);
-    computer->alsa = computer_get_alsainfo();
+    //computer->alsa = computer_get_alsainfo();
     //gdk_window_thaw_updates(GDK_WINDOW(gtk_widget_get_window(shell_get_main_shell()->info_tree->view)));
     SCAN_END();
 }
@@ -511,6 +513,14 @@ gchar *computer_get_machinetype(int english)
         return g_strdup(_("Unknown physical machine type"));
 }
 
+gchar *get_audio_cards(void)
+{
+    if (!computer->alsa) {
+      computer->alsa = computer_get_alsainfo();
+    }
+
+    return computer_get_alsacards(computer);
+}
 
 gchar *callback_summary(void)
 {
@@ -538,7 +548,7 @@ gchar *callback_summary(void)
         info_field(_("Session Display Server"), THISORUNK(computer->display->display_server)),
         info_field_last());
 
-    p3=computer_get_alsacards(computer); info_add_computed_group(info, _("Audio Devices"),p3);
+    p3=get_audio_cards(); info_add_computed_group(info, _("Audio Devices"),p3);
     p4=module_call_method("devices::getInputDevices"); info_add_computed_group_wo_extra(info, _("Input Devices"),p4);
     p5=module_call_method("devices::getPrinters"); info_add_computed_group(info, NULL, p5); /* getPrinters provides group headers */
     p6=module_call_method("devices::getStorageDevices"); info_add_computed_group_wo_extra(info, NULL, p6); /* getStorageDevices provides group headers */
@@ -966,15 +976,6 @@ gchar *get_kernel_module_description(gchar *module)
     }
 
     return g_strdup(description);
-}
-
-gchar *get_audio_cards(void)
-{
-    if (!computer->alsa) {
-      computer->alsa = computer_get_alsainfo();
-    }
-
-    return computer_get_alsacards(computer);
 }
 
 /* the returned string must stay in kB as it is used

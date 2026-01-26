@@ -249,6 +249,7 @@ void dtr_free(dtr *s) {
         dtr_map_free(s->aliases);
         dtr_map_free(s->symbols);
         dtr_map_free(s->phandles);
+        dtr_map_free(s->irqs);
         g_free(s->base_path);
         g_free(s->log);
         g_free(s);

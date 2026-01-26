@@ -208,16 +208,14 @@ char* dtr_map_info_section(dtr *s, dtr_map *map, char *title, int kvl) {
     gchar *tmp, *ret;
     const gchar *sym;
     ret = g_strdup_printf("[%s]\n", _(title));
-    dtr_map *it = map;
+    dtr_map *it = map, *ali;
     while(it != NULL) {
         if (kvl) {
-	    dtr_map *ali = s->symbols;
+	    ali = s->symbols;
 	    sym=NULL;
-	    while(ali != NULL && sym==NULL) {
-	        if (strcmp(ali->path, it->path) == 0){
-		    sym=ali->label;
-		    ali = ali->next;
-	        }
+	    while((ali != NULL) && (sym==NULL)) {
+	        if (strcmp(ali->path, it->path) == 0) sym = ali->label;
+		ali = ali->next;
 	    }
             //sym = dtr_symbol_lookup_by_path(s, it->path);
             if (sym != NULL)

@@ -438,7 +438,9 @@ static void stylechange3_me(void)
     }
     //g_print("schemeDark=%i -> Update=%d\n",schemeDark,update);
     shell_do_reload(false);
+#if GTK_CHECK_VERSION(3, 0, 0)
     stylechange2_me();
+#endif
 }
 
 //GTK-signal

@@ -41,7 +41,41 @@ char* dtr_get_string(const char *p, int decode);
 typedef uint32_t dt_uint; /* big-endian */
 typedef uint64_t dt_uint64; /* big-endian */
 
+struct _dtr_map {
+    uint32_t v;  /* phandle */
+    char *label;  /* alias */
+    char *path;
+    struct _dtr_map *next;
+};
+typedef struct _dtr_map dtr_map;
+
+struct _dtr {
+    dtr_map *aliases;
+    dtr_map *symbols;
+    dtr_map *phandles;
+    dtr_map *irqs;
+    char *base_path;
+    char *log;
+};
 typedef struct _dtr dtr;
+
+struct _dtr_obj {
+    char *path;
+    union {
+        void *data;
+        char *data_str;
+        dt_uint *data_int;
+        dt_uint64 *data_int64;
+    };
+    char *name;
+    uint32_t length;
+    int type;
+    char *prefix;        /* if the name has a manufacturer's prefix or null */
+    char *np_name;       /* the name without any prefix. points into .prefix or .name, do not free */
+    const char *alias;  /* null until first dtr_obj_alias(). do not free */
+    const char *symbol; /* null until first dtr_obj_symbol(). do not free */
+    dtr *dt;
+};
 typedef struct _dtr_obj dtr_obj;
 
 dtr *dtr_new(const char *base_path); /* NULL for DTR_ROOT */

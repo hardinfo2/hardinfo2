@@ -74,43 +74,11 @@ static struct {
     { NULL, 0 },
 };
 
-struct _dtr_map {
-    uint32_t v;  /* phandle */
-    char *label;  /* alias */
-    char *path;
-    struct _dtr_map *next;
-};
-typedef struct _dtr_map dtr_map;
 
-struct _dtr {
-    dtr_map *aliases;
-    dtr_map *symbols;
-    dtr_map *phandles;
-    char *base_path;
-    char *log;
-};
-
-struct _dtr_obj {
-    char *path;
-    union {
-        void *data;
-        char *data_str;
-        dt_uint *data_int;
-        dt_uint64 *data_int64;
-    };
-    char *name;
-    uint32_t length;
-    int type;
-    char *prefix;        /* if the name has a manufacturer's prefix or null */
-    char *np_name;       /* the name without any prefix. points into .prefix or .name, do not free */
-    const char *alias;  /* null until first dtr_obj_alias(). do not free */
-    const char *symbol; /* null until first dtr_obj_symbol(). do not free */
-    dtr *dt;
-};
 
 dtr_map *dtr_map_add(dtr_map *map, uint32_t v, const char *label, const char *path) {
     dtr_map *it;
-    dtr_map *nmap = malloc(sizeof(dtr_map));
+    dtr_map *nmap = g_malloc(sizeof(dtr_map));
     memset(nmap, 0, sizeof(dtr_map));
     nmap->v = v;
 
@@ -131,9 +99,9 @@ void dtr_map_free(dtr_map *map) {
     dtr_map *it;
     while(map != NULL) {
         it = map->next;
-        free(map->label);
-        free(map->path);
-        free(map);
+        g_free(map->label);
+        g_free(map->path);
+        g_free(map);
         map = it;
     }
 }
@@ -221,7 +189,7 @@ const char *dtr_symbol_lookup_by_path(dtr *s, const char* path) {
 
 void _dtr_read_aliases(dtr *);
 void _dtr_read_symbols(dtr *);
-void _dtr_map_phandles(dtr *, char *np);
+void _dtr_map_it(dtr *, char *np, const char *what);
 int dtr_inh_find(dtr_obj *obj, char *qprop, int limit);
 #define UMIN(a,b) MIN(((uint32_t)(a)), ((uint32_t)(b)))
 
@@ -242,7 +210,7 @@ const char *dtr_find_device_tree_root() {
 }
 
 dtr *dtr_new_x(const char *base_path, int fast) {
-    dtr *dt = malloc(sizeof(dtr));
+    dtr *dt = g_malloc(sizeof(dtr));
     if (dt != NULL) {
         memset(dt, 0, sizeof(dtr));
         dt->log = strdup("");
@@ -261,10 +229,12 @@ dtr *dtr_new_x(const char *base_path, int fast) {
         dt->aliases = NULL;
         dt->symbols = NULL;
         dt->phandles = NULL;
+        dt->irqs = NULL;
         if (!fast) {
             _dtr_read_aliases(dt);
             _dtr_read_symbols(dt);
-            _dtr_map_phandles(dt, "");
+            _dtr_map_it(dt, "","interrupts");
+            _dtr_map_it(dt, "","phandle");
         }
     }
     return dt;
@@ -279,9 +249,9 @@ void dtr_free(dtr *s) {
         dtr_map_free(s->aliases);
         dtr_map_free(s->symbols);
         dtr_map_free(s->phandles);
-        free(s->base_path);
-        free(s->log);
-        free(s);
+        g_free(s->base_path);
+        g_free(s->log);
+        g_free(s);
     }
 }
 
@@ -319,7 +289,6 @@ const char *dtr_base_path(dtr *s) {
     return NULL;
 }
 
-/*glib, but _dt_obj *prop uses malloc() and std types */
 dtr_obj *dtr_obj_read(dtr *s, const char *dtp) {
     char *full_path;
     char *slash, *coma;
@@ -328,7 +297,7 @@ dtr_obj *dtr_obj_read(dtr *s, const char *dtp) {
     if (dtp == NULL)
         return NULL;
 
-    obj = malloc(sizeof(dtr_obj));
+    obj = g_malloc(sizeof(dtr_obj));
     if (obj != NULL) {
         memset(obj, 0, sizeof(dtr_obj));
 
@@ -361,7 +330,7 @@ dtr_obj *dtr_obj_read(dtr *s, const char *dtp) {
             obj->np_name = coma + 1;
         } else {
             obj->np_name = obj->name;
-            free(obj->prefix);
+            g_free(obj->prefix);
             obj->prefix = NULL;
         }
 
@@ -386,11 +355,11 @@ dtr_obj *dtr_obj_read(dtr *s, const char *dtp) {
 
 void dtr_obj_free(dtr_obj *s) {
     if (s != NULL) {
-        free(s->path);
-        free(s->name);
-        free(s->prefix);
-        free(s->data);
-        free(s);
+        g_free(s->path);
+        g_free(s->name);
+        g_free(s->prefix);
+        g_free(s->data);
+        g_free(s);
     }
 }
 
@@ -616,7 +585,7 @@ char *dtr_list_byte(uint8_t *bytes, unsigned long count) {
     uint32_t v;
     unsigned long i, l;
     l = count * 4 + 1;
-    dest = ret = malloc(l);
+    dest = ret = g_malloc(l);
     memset(ret, 0, l);
     *dest++='[';
     for (i = 0; i < count; i++) {
@@ -632,7 +601,7 @@ char *dtr_list_hex(dt_uint *list, unsigned long count) {
     char *ret, *dest;
     unsigned long i, l;
     l = count * 12 + 1;
-    dest = ret = malloc(l);
+    dest = ret = g_malloc(l);
     memset(ret, 0, l);
     for (i = 0; i < count; i++) {
         l = sprintf(dest, "%s0x%x", (i) ? " " : "", be32toh(list[i]));
@@ -657,7 +626,7 @@ char *dtr_list_str0(const char *data, uint32_t length) {
         esc = g_strescape(next_str, NULL);
         sprintf(tmp, "%s\"%s\"",
                 strlen(ret) ? ", " : "", esc);
-        free(esc);
+        g_free(esc);
         tmp += strlen(tmp);
         tl += l + 1; next_str += l + 1;
         if (tl >= length) break;
@@ -681,13 +650,13 @@ char *dtr_list_override(dtr_obj *obj) {
         str = dtr_list_str0(src, l);
         ret = appfsp(ret, "<%s -> %s>", ph, str);
         src += l; consumed += l;
-        free(ph);
-        free(str);
+        g_free(ph);
+        g_free(str);
     }
     if (consumed < obj->length) {
         str = dtr_list_byte((uint8_t*)src, obj->length - consumed);
         ret = appfsp(ret, "%s", str);
-        free(str);
+        g_free(str);
     }
     return ret;
 }
@@ -699,7 +668,7 @@ uint32_t dtr_get_phref_prop(dtr *s, uint32_t phandle, char *prop) {
     ph_path = dtr_phandle_lookup(s, phandle);
     tmp = g_strdup_printf("%s/%s", ph_path, prop);
     ret = dtr_get_prop_u32(s, NULL, tmp);
-    free(tmp);
+    g_free(tmp);
     return ret;
 }
 
@@ -780,7 +749,7 @@ char *dtr_list_reg(dtr_obj *obj) {
     while (consumed + (tup_len * 4) <= obj->length) {
         tup_str = dtr_list_hex(next, tup_len);
         ret = appfsp(ret, "<%s>", tup_str);
-        free(tup_str);
+        g_free(tup_str);
         consumed += (tup_len * 4);
         next += tup_len;
     }
@@ -884,7 +853,7 @@ dtr_obj *dtr_get_parent_obj(dtr_obj *obj) {
         else
             ret = dtr_obj_read(obj->dt, "/");
     }
-    free(parent);
+    g_free(parent);
     return ret;
 }
 
@@ -1023,7 +992,7 @@ dt_opp_range *dtr_get_opp_range(dtr *s, const char *name) {
                     ret->clock_latency_ns = lns;
                 }
             }
-            free(row_status); row_status = NULL;
+            g_free(row_status); row_status = NULL;
             dtr_obj_free(row_obj);
             row_obj = NULL;
         }
@@ -1034,9 +1003,9 @@ dt_opp_range *dtr_get_opp_range(dtr *s, const char *name) {
 get_opp_finish:
     dtr_obj_free(obj);
     dtr_obj_free(table_obj);
-    free(tab_status);
-    free(tab_compat);
-    free(row_status);
+    g_free(tab_status);
+    g_free(tab_compat);
+    g_free(row_status);
     return ret;
 }
 
@@ -1099,8 +1068,7 @@ void _dtr_read_symbols(dtr *s) {
     dtr_map_sort(s->symbols, 0);
 }
 
-/* TODO: rewrite */
-void _dtr_map_phandles(dtr *s, char *np) {
+void _dtr_map_it(dtr *s, char *np, const char *what) {
     gchar *dir_path;
     gchar *ftmp, *ntmp, *ptmp;
     const gchar *fn;
@@ -1118,14 +1086,40 @@ void _dtr_map_phandles(dtr *s, char *np) {
             ftmp = g_strdup_printf("%s/%s", dir_path, fn);
             if ( g_file_test(ftmp, G_FILE_TEST_IS_DIR) ) {
                 ntmp = g_strdup_printf("%s/%s", np, fn);
-                ptmp = g_strdup_printf("%s/phandle", ntmp);
+                ptmp = g_strdup_printf("%s/%s", ntmp, what);
                 ph_prop = dtr_obj_read(s, ptmp);
                 if (ph_prop != NULL) {
-                    ph = dtr_map_add(s->phandles, be32toh(*ph_prop->data_int), NULL, ntmp);
-                    if (s->phandles == NULL)
-                        s->phandles = ph;
+		    if(*what=='p'){
+		        ph = dtr_map_add(s->phandles, be32toh(*ph_prop->data_int), NULL, ntmp);
+                        if (s->phandles == NULL) s->phandles = ph;
+		    }
+		    if(*what=='i'){
+		      //FIXME 4*32bit ??,id,level,parent (1=risingedge,2=fallingedge,4=active high,8=activelow
+		        ph = dtr_map_add(s->irqs, be32toh(ph_prop->data_int[1]), NULL, ntmp);
+			if(be32toh(ph_prop->data_int[2])==1){
+			    gchar *t=ph->path;
+			    ph->path=g_strdup_printf("%s%s",t," (Rising Edge)");
+			    g_free(t);
+			}
+			if(be32toh(ph_prop->data_int[2])==2){
+			    gchar *t=ph->path;
+			    ph->path=g_strdup_printf("%s%s",t," (Falling Edge)");
+			    g_free(t);
+			}
+			if(be32toh(ph_prop->data_int[2])==4){
+			    gchar *t=ph->path;
+			    ph->path=g_strdup_printf("%s%s",t," (Activ High)");
+			    g_free(t);
+			}
+			if(be32toh(ph_prop->data_int[2])==8){
+			    gchar *t=ph->path;
+			    ph->path=g_strdup_printf("%s%s",t," (Activ Low)");
+			    g_free(t);
+			}
+                        if (s->irqs == NULL) s->irqs = ph;
+		    }
                 }
-                _dtr_map_phandles(s, ntmp);
+                _dtr_map_it(s, ntmp, what);
                 g_free(ptmp);
                 g_free(ntmp);
                 dtr_obj_free(ph_prop);
@@ -1135,49 +1129,11 @@ void _dtr_map_phandles(dtr *s, char *np) {
         g_dir_close(dir);
     }
     dtr_obj_free(prop);
-    dtr_map_sort(s->phandles, 1);
-}
-
-/*
- * Maybe these should move to devicetree.c, but would have to expose
- * struct internals.
- */
-
-/* kvl: 0 = key is label, 1 = key is v */
-char *dtr_map_info_section(dtr *s, dtr_map *map, char *title, int kvl) {
-    gchar *tmp, *ret;
-    const gchar *sym;
-    ret = g_strdup_printf("[%s]\n", _(title));
-    dtr_map *it = map;
-    while(it != NULL) {
-        if (kvl) {
-            sym = dtr_symbol_lookup_by_path(s, it->path);
-            if (sym != NULL)
-                tmp = g_strdup_printf("%s0x%x (%s)=%s\n", ret,
-                    it->v, sym, it->path);
-            else
-                tmp = g_strdup_printf("%s0x%x=%s\n", ret,
-                    it->v, it->path);
-        } else
-            tmp = g_strdup_printf("%s%s=%s\n", ret,
-                it->label, it->path);
-        g_free(ret);
-        ret = tmp;
-        it = it->next;
+    if(*what=='p'){
+       dtr_map_sort(s->phandles, 1);
     }
-
-    return ret;
+    if(*what=='i'){
+       dtr_map_sort(s->irqs, 1);
+    }
 }
 
-char *dtr_maps_info(dtr *s) {
-    gchar *ph_map, *al_map, *sy_map, *ret;
-
-    ph_map = dtr_map_info_section(s, s->phandles, _("phandle Map"), 1);
-    al_map = dtr_map_info_section(s, s->aliases, _("Alias Map"), 0);
-    sy_map = dtr_map_info_section(s, s->symbols, _("Symbol Map"), 0);
-    ret = g_strdup_printf("%s%s%s", ph_map, sy_map, al_map);
-    g_free(ph_map);
-    g_free(al_map);
-    g_free(sy_map);
-    return ret;
-}

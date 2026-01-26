@@ -171,7 +171,7 @@ void scan_summary(gboolean reload)
 {
     SCAN_START();
     //gdk_window_freeze_updates(GDK_WINDOW(gtk_widget_get_window(shell_get_main_shell()->info_tree->view)));
-    module_entry_scan_all_except(entries, 0);
+    //module_entry_scan_all_except(entries, 0);
     computer->alsa = computer_get_alsainfo();
     //gdk_window_thaw_updates(GDK_WINDOW(gtk_widget_get_window(shell_get_main_shell()->info_tree->view)));
     SCAN_END();
@@ -309,7 +309,7 @@ void scan_dev(gboolean reload)
     for (i = 0; i < G_N_ELEMENTS(detect_lang); i++) {
        gchar *version = NULL;
        gchar *output, *ignored;
-       gchar *temp;
+       //gchar *temp;
        GRegex *regex;
        GMatchInfo *match_info;
        gboolean found;
@@ -345,10 +345,9 @@ void scan_dev(gboolean reload)
        dev_list = h_strdup_cprintf("%s=%s\n", dev_list, detect_lang[i].compiler_name, version);
        g_free(version);
 
-       temp = g_strdup_printf(_("Detecting version: %s"),
-                              detect_lang[i].compiler_name);
-       shell_status_update(temp);
-       g_free(temp);
+       //temp = g_strdup_printf(_("Detecting version: %s"), detect_lang[i].compiler_name);
+       //shell_status_update(temp);
+       //g_free(temp);
     }
 
     SCAN_END();

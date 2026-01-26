@@ -438,9 +438,7 @@ static void stylechange3_me(void)
     }
     //g_print("schemeDark=%i -> Update=%d\n",schemeDark,update);
     shell_do_reload(false);
-#if GTK_CHECK_VERSION(3, 0, 0)
     stylechange2_me();
-#endif
 }
 
 //GTK-signal
@@ -884,7 +882,9 @@ void shell_init(GSList * modules)
     uri_set_function(hardinfo_link);
     params.fmt_opts = FMT_OPT_PANGO;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
     stylechange2_me();//initially update to correct theme
+#endif
     create_window();
 
     //shell_action_set_property("CopyAction", "is-important", TRUE);

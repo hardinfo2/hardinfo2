@@ -353,52 +353,50 @@ static void destroy_me(void){
 
 #if GTK_CHECK_VERSION(3, 0, 0)
 int update=0;
-int schemeDark=0;
 int newgnome=0;
 static void stylechange2_me(void)
 {
-  if(update==1){
+  if(update>=1){
     GtkStyleContext *sctx=gtk_widget_get_style_context(GTK_WIDGET(shell->window));
     GdkRGBA color;
     gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
     gint darkmode=0;
     if((color.red+color.green+color.blue)>=1.5) darkmode=1;
-    //printf("Color=%3.1f dark=%d\n",color.red+color.green+color.blue,darkmode);
+    //printf("STYLEUPDATE: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
     //
-    if(schemeDark && (!darkmode) ) {
+    if(params.darkmode && (!darkmode) ) {
         if(newgnome){
-            //g_print("We need to change GTK_THEME to dark\n");
+	    //printf("We need to change GTK_THEME to dark\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","HighContrastInverse", NULL);
-	    darkmode=1;
-	    params.darkmode=1-darkmode;
 	}
     }
-    if( (!schemeDark) && darkmode){
+    if( (!params.darkmode) && darkmode){
         if(newgnome){
-            //g_print("We need to change GTK_THEME to light\n");
+	    //printf("We need to change GTK_THEME to light\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","Adwaita", NULL);
-	    darkmode=0;
-	    params.darkmode=1-darkmode;
 	}
-    }
+	}
     //
     if(darkmode!=params.darkmode){
-        params.darkmode=darkmode;
-        //g_print("Changing - COLOR %f %f %f, schemeDark=%i -> DARKMODE=%d\n",color.red,color.green,color.blue,schemeDark, params.darkmode);
+        if(update!=2){//Wrong dark/light fixing
+            params.darkmode=darkmode;
+        } else {//Force new dark/light
+	    darkmode=params.darkmode;
+        }
+        //printf("Changing - COLOR %f %f %f, DARKMODE=%d\n",color.red,color.green,color.blue, params.darkmode);
         //update theme
         cb_disable_theme();
     }
-    //
   }
   update=0;
 }
 
 //gsettings
-static void stylechange3_me(void)
+static void stylechange_signal(void)
 {
   gchar *theme=NULL;//,*scale=NULL;
     int newDark=0,i=0;
@@ -419,33 +417,40 @@ static void stylechange3_me(void)
         if(newgnome){
             theme = g_settings_get_string(settings, "color-scheme");
             if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
+	    //printf("NewDARK NewGnome\n");
         } else {//older gnome using themes with dark in theme-name
             theme = g_settings_get_string(settings, "gtk-theme");//normal
-            if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
+            if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;/*printf("NewDARK OldGTK-Theme Dark\n");*/}
             g_free(theme);
             theme = g_settings_get_string(settings, "icon-theme");//alternative
-            if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
+            if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;/*printf("NewDARK OldIcon-Theme Dark\n");*/}
         }
         g_free(theme);
     }
     //
     if(newDark){
-      if(schemeDark!=1) if(!update) update=1;
-        schemeDark=1;
+        if(params.darkmode!=1) {
+	    //printf("Change to dark\n");
+	    params.darkmode=1;
+            update=2;
+        }
     }else{
-        if(schemeDark!=0) if(!update) update=1;
-        schemeDark=0;
+        if(params.darkmode!=0) {
+	    //printf("Change to Light\n");
+	    params.darkmode=0;
+            update=2;
+        }
     }
-    //g_print("schemeDark=%i -> Update=%d\n",schemeDark,update);
     shell_do_reload(false);
     stylechange2_me();
 }
 
 //GTK-signal
-static void stylechange_me(void)
+static void stylechange_updated(void)
 {
-    update=1;
-    //g_print("GTK style signal -> Update=%d\n",update);
+    if(!update) update=1;
+    //printf("GTK style signal -> Check Update=%d\n",update);
+    stylechange2_me();
 }
 #endif
 
@@ -539,14 +544,19 @@ static void create_window(void)
     g_signal_connect(G_OBJECT(shell->window), "destroy", G_CALLBACK(destroy_me), NULL);
     g_signal_connect(G_OBJECT(shell->window), "delete-event", G_CALLBACK(destroy_event), NULL);
 #if GTK_CHECK_VERSION(3, 0, 0)
-    g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_me, NULL);
-    g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange2_me, NULL);
-    update=-1;
+    //Get Darkmode
+    GtkStyleContext *sctx=gtk_widget_get_style_context(GTK_WIDGET(shell->window));
+    GdkRGBA color;
+    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
+    if((color.red+color.green+color.blue)>=1.5) params.darkmode=1;
+    //printf("INIT PARAM.DARKMODE Color=%3.1f =>%d\n",color.red+color.green+color.blue,params.darkmode);
+    //
+    g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_updated, NULL);
+    g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange_updated, NULL);
     if(g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE))
         settings=g_settings_new("org.gnome.desktop.interface");
-    if(settings) g_signal_connect_after(settings,"changed",stylechange3_me,NULL);
-    stylechange3_me();
-    update=0;
+    if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
+    stylechange_signal();
 #endif
 
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -882,9 +892,6 @@ void shell_init(GSList * modules)
     uri_set_function(hardinfo_link);
     params.fmt_opts = FMT_OPT_PANGO;
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-    stylechange2_me();//initially update to correct theme
-#endif
     create_window();
 
     //shell_action_set_property("CopyAction", "is-important", TRUE);

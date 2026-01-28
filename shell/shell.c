@@ -354,6 +354,7 @@ static void destroy_me(void){
 #if GTK_CHECK_VERSION(3, 0, 0)
 int update=0;
 int newgnome=0;
+gchar *ng_theme=NULL,*og_theme=NULL,*ogi_theme=NULL;
 static void stylechange2_me(void)
 {
   if(update>=1){
@@ -364,50 +365,50 @@ static void stylechange2_me(void)
     if((color.red+color.green+color.blue)>=1.5) darkmode=1;
     //printf("STYLEUPDATE: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
     //
-    if(params.darkmode && (!darkmode) ) {
+    if((update==2) && params.darkmode && (!darkmode) ) {
         if(newgnome){
 	    //printf("We need to change GTK_THEME to dark\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","HighContrastInverse", NULL);
+	    //update theme
+	    cb_disable_theme();
+	    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
+	    darkmode=0;
+	    if((color.red+color.green+color.blue)>=1.5) darkmode=1;
+	    //printf("STYLEUPDATE2: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
 	}
     }
-    if( (!params.darkmode) && darkmode){
+    if((update==2) && !params.darkmode && darkmode){
         if(newgnome){
 	    //printf("We need to change GTK_THEME to light\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","Adwaita", NULL);
+	    //update theme
+	    cb_disable_theme();
+	    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
+	    darkmode=0;
+	    if((color.red+color.green+color.blue)>=1.5) darkmode=1;
+	    //printf("STYLEUPDATE2: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
 	}
-	}
-    //
-    if(darkmode!=params.darkmode){
-        if(update!=2){//Wrong dark/light fixing
-            params.darkmode=darkmode;
-        } else {//Force new dark/light
-	    darkmode=params.darkmode;
-        }
-        //printf("Changing - COLOR %f %f %f, DARKMODE=%d\n",color.red,color.green,color.blue, params.darkmode);
+    }
+    //Wrong dark/light fixing
+    if((darkmode!=params.darkmode) && (update==1)){
+        params.darkmode=darkmode;
+        //printf("FIXING - COLOR %f %f %f, DARKMODE=%d\n",color.red,color.green,color.blue, params.darkmode);
         //update theme
         cb_disable_theme();
     }
   }
-  update=0;
+  if(update) update--;
 }
 
 //gsettings
 static void stylechange_signal(void)
 {
-  gchar *theme=NULL;//,*scale=NULL;
-    int newDark=0,i=0;
-    gchar **keys=NULL;
-    if(settings && !newgnome) keys=g_settings_list_keys(settings);
-    while(!newgnome && keys && (keys[i]!=NULL)){
-        if(strcmp(keys[i],"color-scheme")==0) newgnome=1;
-        i++;
-    }
-    if(keys) g_strfreev(keys);
-
+    int newDark=-1;
+    //printf("Stylechange_signal %s %s %s\n",(ng_theme?ng_theme:"X"),(og_theme?og_theme:"X"),(ogi_theme?ogi_theme:"X"));
     //new gnome using only normal/dark mode
     if(settings){
         //FIXME get dynamic scaling info
@@ -415,34 +416,56 @@ static void stylechange_signal(void)
 	//if(scale) sscanf(scale,"%f",&params.scale);
 
         if(newgnome){
-            theme = g_settings_get_string(settings, "color-scheme");
-            if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
-	    //printf("NewDARK NewGnome\n");
-        } else {//older gnome using themes with dark in theme-name
-            theme = g_settings_get_string(settings, "gtk-theme");//normal
-            if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;/*printf("NewDARK OldGTK-Theme Dark\n");*/}
-            g_free(theme);
-            theme = g_settings_get_string(settings, "icon-theme");//alternative
-            if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;/*printf("NewDARK OldIcon-Theme Dark\n");*/}
+            gchar *theme = g_settings_get_string(settings, "color-scheme");
+	    if(ng_theme && theme && strcmp(ng_theme, theme)){
+	        if(ng_theme) g_free(ng_theme);
+	        ng_theme=theme;
+                if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
+                if(strstr(theme,"Light")||strstr(theme,"light")||strstr(theme,"default")) newDark=0;
+	        //printf("NewDARK NewGnome=%s Dark=%d\n", theme, newDark);
+	    } else g_free(theme);
+	}
+	//older gnome using themes with dark in theme-name
+	if(newDark==-1){
+	    gchar *theme = g_settings_get_string(settings, "gtk-theme");
+	    if(og_theme && theme && strcmp(og_theme, theme)){
+	        newDark=0;
+		if(og_theme) g_free(og_theme);
+		og_theme=theme;
+		if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;}
+		//printf("NewDARK OldGTK-Theme=%s Dark=%d\n", theme, newDark);
+	    } else g_free(theme);
         }
-        g_free(theme);
+	//older gnome using themes with dark in theme-name
+	if(newDark==-1){
+	    gchar *theme = g_settings_get_string(settings, "icon-theme");
+	    if(ogi_theme && theme && strcmp(ogi_theme, theme)){
+	        newDark=0;
+		if(ogi_theme) g_free(ogi_theme);
+		ogi_theme=theme;
+		if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;}
+		//printf("NewDARK OldIcon-Theme=%s Dark=%d\n", theme, newDark);
+	    } else g_free(theme);
+        }
     }
     //
-    if(newDark){
+    if(newDark==1){
         if(params.darkmode!=1) {
 	    //printf("Change to dark\n");
 	    params.darkmode=1;
             update=2;
         }
-    }else{
+    }else if(newDark==0) {
         if(params.darkmode!=0) {
 	    //printf("Change to Light\n");
 	    params.darkmode=0;
             update=2;
         }
     }
-    shell_do_reload(false);
-    stylechange2_me();
+    if(newDark!=-1){
+        shell_do_reload(false);
+        stylechange2_me();
+    }
 }
 
 //GTK-signal
@@ -552,11 +575,28 @@ static void create_window(void)
     //printf("INIT PARAM.DARKMODE Color=%3.1f =>%d\n",color.red+color.green+color.blue,params.darkmode);
     //
     g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_updated, NULL);
-    g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange_updated, NULL);
+    //g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange_updated, NULL);
     if(g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE))
         settings=g_settings_new("org.gnome.desktop.interface");
     if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
-    stylechange_signal();
+    if(settings) {//get settings about newgnome
+        gchar **keys=NULL;
+	int i=0;
+	if(!newgnome) keys=g_settings_list_keys(settings);
+	while(!newgnome && keys && (keys[i]!=NULL)){
+	    if(strcmp(keys[i],"color-scheme")==0) newgnome=1;
+	    i++;
+	}
+	if(keys) g_strfreev(keys);
+	//register settings at startup
+	//printf("Init GSettings newgnome=%d\n",newgnome);
+	if(newgnome) {
+	    ng_theme = g_settings_get_string(settings, "color-scheme");
+	    if(strstr(ng_theme,"Dark")||strstr(ng_theme,"dark")) {params.darkmode=1;update=2;}
+	}
+	og_theme = g_settings_get_string(settings, "gtk-theme");//normal
+	ogi_theme = g_settings_get_string(settings, "icon-theme");//alternate
+    }
 #endif
 
 #if GTK_CHECK_VERSION(3, 0, 0)

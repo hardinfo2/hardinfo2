@@ -392,7 +392,7 @@ gchar *get_storage_home_models(void)
     gchar *homepath=NULL,*out=NULL,*err=NULL;
     gboolean spawned;
     const char cmd_line[] = "sh -c 'cd ~;df --output=source . |tail -1'";
-    const char cmd_line1disk[] = "sh -c 'lsblk -l |grep disk|grep -v zram'";
+    const char cmd_line1disk[] = "sh -c 'lsblk -l |grep disk|grep -v zram|grep -v mtdblock|grep -v boot0|grep -v boot1'";
     char cmd_lineblk[100];
 
     //lookup home disk by df - only works on newer machines

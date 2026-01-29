@@ -24,7 +24,7 @@ UID_MIN=1000
 if [ -e /etc/login.defs ] ; then
     U=$(awk 'match($1,"^UID_MIN") {print $2}' /etc/login.defs)
     if [ $U -gt 1 ] ; then
-	 $UDI_MIN=$U
+	 UDI_MIN=$U
     fi
 fi
 #SYSTYPE 0:Root, 1:SingleUser 2:MultiUser

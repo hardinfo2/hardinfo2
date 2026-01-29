@@ -1,5 +1,5 @@
 /*
- *    HardInfo - Displays System Information
+ *    HardInfo2 - System information and benchmark
  *    Copyright (C) 2003-2006 L. A. F. Pereira <l@tia.mat.br>
  *
  *    This program is free software; you can redistribute it and/or modify
@@ -22,70 +22,34 @@
 
 #include "syncmanager.h"
 #include "computer.h"
-#include "cpu_util.h" /* for STRIFNULL() */
 #include "hardinfo.h"
 
 GHashTable *_module_hash_table = NULL;
-static gchar *kernel_modules_dir = NULL;
-
-static GHashTable *module_icons;
-
-static void build_icon_table_iter(JsonObject *object,const gchar *key,JsonNode *value,gpointer user_data)
-{
-    //Check we have icon and insert if we have icon
-    gchar *icon=NULL, filename[100];
-    snprintf(filename,90,"%s.svg",json_node_get_string(value));
-    icon = g_build_filename(params.path_data, "pixmaps", filename,NULL);
-    if (g_file_test(icon, G_FILE_TEST_EXISTS))
-        g_hash_table_insert(module_icons, (gpointer)g_strdup(key), (gpointer)g_strdup(json_node_get_string(value)));
-    g_free(icon);
-    //printf("INSERT %s %s\n",key,json_node_get_string(value));
-}
+static JsonParser *parser=NULL;
+static JsonObject *icons=NULL;
 
 void kernel_module_icon_init(void)
 {
-    gchar *icon_json=NULL;
-
     static SyncEntry sync_entry = {
         .name = N_("Update kernel module icon table"),
         .file_name = "kernel-module-icons.json",
 	.optional = TRUE,
     };
     sync_manager_add_entry(&sync_entry);
-
-    icon_json = g_build_filename(g_get_user_config_dir(),"hardinfo2", "kernel-module-icons.json",NULL);
-    if (!g_file_test(icon_json, G_FILE_TEST_EXISTS)){
-        g_free(icon_json);
-        icon_json = g_build_filename(params.path_data, "kernel-module-icons.json",NULL);
-    }
-    module_icons = g_hash_table_new(g_str_hash, g_str_equal);
-    //printf("INIT KERNEL ICONS %s\n",icon_json);
-    if (g_file_test(icon_json, G_FILE_TEST_EXISTS)){
-      //printf("INIT KERNEL ICONS - filefound\n");
-      JsonParser *parser = json_parser_new();
-      if (json_parser_load_from_file(parser, icon_json, NULL)){	
-	//printf("INIT KERNEL ICONS - loaded\n");
-	JsonNode *root = json_parser_get_root(parser);
-	if (json_node_get_node_type(root) == JSON_NODE_OBJECT){
-	  //printf("INIT KERNEL ICONS - rood found\n");
-	  JsonObject *icons = json_node_get_object(root);
-	  if (icons) json_object_foreach_member(icons, build_icon_table_iter, NULL);
-	}
-      }
-      g_object_unref(parser);
-    }
-    g_free(icon_json);    
 }
 
 static const gchar* get_module_icon(const char *modname, const char *path)
 {
+    if(!icons) return NULL;
     char *modname_temp = g_strdup(modname);
     char *p;
     for (p = modname_temp; *p; p++) {
         if (*p == '_') *p = '-';
     }
-    //printf("LOOKUP %s ->",modname_temp);
-    gpointer icon = g_hash_table_lookup(module_icons, modname_temp);
+    //printf("LOOKUP %s\n",modname_temp);
+    if(!json_object_has_member(icons, modname_temp)) return NULL;
+
+    const gchar *icon=json_object_get_string_member(icons, modname_temp);
     g_free(modname_temp);
     //if(icon) printf("Found %s\n",(gchar *)icon); else printf("\n");
     return icon;
@@ -100,12 +64,31 @@ void scan_modules_do(void) {
     gchar *module_icons;
     GList *list=NULL,*a;
     const gchar *icon;
+    gchar *icon_json=NULL;
+    JsonNode *root=NULL;
+
+    if(parser) g_object_unref(parser);
+    if(icon_json) g_free(icon_json);
+
+    icon_json = g_build_filename(g_get_user_config_dir(),"hardinfo2", "kernel-module-icons.json",NULL);
+    if (!g_file_test(icon_json, G_FILE_TEST_EXISTS)){
+        g_free(icon_json);
+        icon_json = g_build_filename(params.path_data, "kernel-module-icons.json",NULL);
+    }
+    if (g_file_test(icon_json, G_FILE_TEST_EXISTS)){
+      parser = json_parser_new();
+      if (json_parser_load_from_file(parser, icon_json, NULL)){
+	root = json_parser_get_root(parser);
+	if (json_node_get_node_type(root) == JSON_NODE_OBJECT){
+	  icons = json_node_get_object(root);
+	}
+      }
+    }
 
     if (!_module_hash_table) { _module_hash_table = g_hash_table_new(g_str_hash, g_str_equal); }
 
     g_free(module_list);
 
-    kernel_modules_dir = NULL;
     module_list = NULL;
     module_icons = NULL;
     moreinfo_del_with_prefix("COMP:MOD");
@@ -134,7 +117,7 @@ void scan_modules_do(void) {
         FILE *modi;
         glong memory;
 
-        shell_status_pulse();
+        //if(!count--) {shell_status_pulse();count=100;}
 
         sscanf(list->data, "%s %ld", modname, &memory);
 
@@ -161,16 +144,6 @@ void scan_modules_do(void) {
         pclose(modi);
         g_free(buf);
 
-        /* old modutils includes quotes in some strings; strip them */
-        /*remove_quotes(modname);
-           remove_quotes(description);
-           remove_quotes(vermagic);
-           remove_quotes(author);
-           remove_quotes(license); */
-
-        /* old modutils displays <none> when there's no value for a
-           given field; this is not desirable in the module name
-           display, so change it to an empty string */
         if (description && g_str_equal(description, "&lt;none&gt;")) {
             g_free(description);
             description = g_strdup("");
@@ -187,12 +160,12 @@ void scan_modules_do(void) {
         icon = get_module_icon(modname, filename);
 	module_icons = h_strdup_cprintf("Icon$%s$%s=%s.svg\n", module_icons, hashkey, modname, icon ? icon: "module");
 
-        STRIFNULL(filename, _("(Not available)"));
-        STRIFNULL(description, _("(Not available)"));
-        STRIFNULL(vermagic, _("(Not available)"));
-        STRIFNULL(author, _("(Not available)"));
-        STRIFNULL(license, _("(Not available)"));
-        STRIFNULL(version, _("(Not available)"));
+        if(!filename) filename = g_strdup(_("(Not available)"));
+        if(!description) description = g_strdup(_("(Not available)"));
+        if(!vermagic) vermagic = g_strdup(_("(Not available)"));
+        if(!author) author = g_strdup(_("(Not available)"));
+        if(!license) license = g_strdup(_("(Not available)"));
+        if(!version) version = g_strdup(_("(Not available)"));
 
         gboolean ry = FALSE, ity = FALSE;
         if (retpoline && *retpoline == 'Y') ry = TRUE;
@@ -258,7 +231,6 @@ void scan_modules_do(void) {
     pclose(lsmod);
 
     g_free(lsmod_path);
-    g_free(kernel_modules_dir);
 
     if (module_list != NULL && module_icons != NULL) {
         module_list = h_strdup_cprintf("[$ShellParam$]\n%s", module_list, module_icons);

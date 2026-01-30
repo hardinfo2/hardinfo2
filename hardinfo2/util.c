@@ -493,6 +493,12 @@ gint ui_init(int *argc, char ***argv)
     return gtk_init_check(argc, argv);
 }
 
+gchar *strreplace_chr(gchar * string, gchar replace, gchar new_char)
+{
+    gchar *s;
+    for (s = string; *s; s++) if (*s==replace) *s = new_char;
+    return string;
+}
 /* Copyright: Jens Låås, SLU 2002 */
 gchar *strreplacechr(gchar * string, gchar * replace, gchar new_char)
 {
@@ -515,6 +521,37 @@ gchar *strreplace(gchar *string, gchar *replace, gchar *replacement)
 
     return ret;
 }
+
+//read a string, line by line calling change function and allow search, xtraction, manipulation, etc.
+//Cleansup string if change ever return a new string
+//EXAMPLE: gchar *change(gchar *line){printf("Line:%s (%lu)\n",line,strlen(line)); return g_strdup(line);} //return new string for line, return g_strdup("") removes line
+//EXAMPLE: gchar *change(gchar *line){printf("Line:%s (%lu)\n",line,strlen(line)); return NULL;} //return always NULL means leave original string unchanged
+//EXANOKE; st=fixline(st,*change);
+gchar* fixline(gchar *st, gchar* handle_line(gchar*)) {
+    gchar *np=NULL, *p=st, *s=NULL, *newst=NULL, *t;
+    while(p){
+        np=strchr(p,'\n');
+	if(np) *np=0;
+	s=handle_line(p);
+	if(s) {
+	    if(newst){
+	        t=newst;
+		if(strlen(s)) {newst=g_strconcat(t,s,"\n",NULL);g_free(t);}
+		g_free(s);s=st;
+	    } else {
+	      if(strlen(s)) newst=s; else {g_free(s);s=st;}
+	    }
+	} else if(np) *np='\n';
+	if(np) p=np+1; else p=NULL;
+    }
+    if(s){
+        g_free(st);
+	return newst;
+    } else {
+        return st;
+    }
+}
+
 
 static GHashTable *__module_methods = NULL;
 

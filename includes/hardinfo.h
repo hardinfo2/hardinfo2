@@ -102,8 +102,10 @@ struct _ModuleAbout {
 void   remove_quotes(gchar *str);
 char  *strend(gchar *str, gchar chr);
 void   remove_linefeed(gchar *str);
+gchar *strreplace_chr(gchar *string, gchar replace, gchar new_char);
 gchar *strreplacechr(gchar *string, gchar *replace, gchar new_char);
 gchar *strreplace(gchar *string, gchar *replace, gchar *replacement);
+gchar* fixline(gchar *st, gchar* handle_line(gchar*));
 
 /* Widget utility functions */
 void widget_set_cursor(GtkWidget *widget, GdkCursorType cursor_type);

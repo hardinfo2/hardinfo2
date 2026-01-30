@@ -522,6 +522,21 @@ gchar *get_audio_cards(void)
     return computer_get_alsacards(computer);
 }
 
+
+int oneshot;
+gchar *change(gchar *line){
+    if(strstr(line,"[")) {if(!oneshot++) return g_strdup("[Storage]\n"); else return g_strdup("");}
+    if(strstr(line,"=") && strstr(line,"|")){
+      gchar **sa=g_strsplit(line,"=",2);
+      gchar **sb=g_strsplit(sa[1],"|",2);
+      gchar *out=g_strdup_printf("%s=%s (%s)",sa[0],sb[1],sb[0]);
+      g_strfreev(sa);
+      g_strfreev(sb);
+      return out;
+    }
+    return g_strdup(line);
+}
+
 gchar *callback_summary(void)
 {
     struct Info *info = info_new();
@@ -551,9 +566,12 @@ gchar *callback_summary(void)
     p3=get_audio_cards(); info_add_computed_group(info, _("Audio Devices"),p3);
     p4=module_call_method("devices::getInputDevices"); info_add_computed_group_wo_extra(info, _("Input Devices"),p4);
     p5=module_call_method("devices::getPrinters"); info_add_computed_group(info, NULL, p5); /* getPrinters provides group headers */
-    p6=module_call_method("devices::getStorageDevices"); info_add_computed_group_wo_extra(info, NULL, p6); /* getStorageDevices provides group headers */
 
-    p=info_flatten(info);
+    p6=module_call_method("devices::getStorageDevices");
+    oneshot=0;
+    p6=fixline(p6, *change);
+    p=g_strconcat(info_flatten(info),p6,NULL);
+
     g_free(p1); g_free(p2); g_free(p3); g_free(p4); g_free(p5); g_free(p6);
     return p;
 }

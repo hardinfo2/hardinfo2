@@ -158,7 +158,7 @@ void scan_statistics(gboolean reload)
 		    } else {
 		        if(strstr(p,":")){
 			  gchar **sv=strsplit_multi(strstr(p,":")+1," ",6);
-		          int i=0;while(i<6) {
+		          int i=0;while(i<6 && sv[i]) {
 			      g_free(names[i]); names[i]=NULL;
 			      if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
 			      if(names[i] && strlen(names[i])==0) {g_free(names[i]);names[i]=NULL;}
@@ -167,7 +167,7 @@ void scan_statistics(gboolean reload)
 			  g_strfreev(sv);
 			} else {
 			  gchar **sv=strsplit_multi(p," ",6);
-			  int i=0;while(i<6) {if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL)); i++;}
+			  int i=0;while(i<6 && sv[i]) {if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL)); i++;}
 			  g_strfreev(sv);
 			}
 		    }

@@ -866,6 +866,8 @@ gchar *callback_display(void)
         info_field(_("Conformance Version"), THISORUNK(vk->vk_conformVer[i]) ),
         info_field_last());
 
+    g_free(outputs_str);
+    g_free(screens_str);
     return info_flatten(info);
 }
 

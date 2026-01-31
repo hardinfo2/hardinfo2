@@ -265,6 +265,8 @@ int main(int argc, char **argv)
     vendor_cleanup();
     pci_cleanup();
     dmidecode_cache_free();
+    DEBUG("unloading modules");
+    module_unload_all(modules);
     DEBUG("finished");
     return exit_code;
 }

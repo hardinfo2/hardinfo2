@@ -983,7 +983,7 @@ void report_create_from_module_list(ReportContext * ctx, GSList * modules)
     report_header(ctx);
 
     report_create_inner_from_module_list(ctx, modules);
-    report_module_list_free(modules);
+    if(params.gui_running) report_module_list_free(modules);
 
     report_footer(ctx);
 }

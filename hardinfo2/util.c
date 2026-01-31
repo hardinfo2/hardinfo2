@@ -621,40 +621,38 @@ static gboolean remove_module_methods(gpointer key, gpointer value, gpointer dat
 static void module_unload(ShellModule * module)
 {
     GSList *entry;
-
     if (module->dll) {
         gchar *name;
 
         if (module->deinit) {
-        	DEBUG("cleaning up module \"%s\"", module->name);
+		DEBUG("cleaning up module \"%s\"", module->name);
 		module->deinit();
 	} else {
 		DEBUG("module \"%s\" does not need cleanup", module->name);
 	}
 
         name = g_path_get_basename(g_module_name(module->dll));
-        g_hash_table_foreach_remove(__module_methods, remove_module_methods, name);
+        if(__module_methods) g_hash_table_foreach_remove(__module_methods, remove_module_methods, name);
 
     	g_module_close(module->dll);
     	g_free(name);
     }
 
-    g_free(module->name);
-    g_object_unref(module->icon);
-
-    for (entry = module->entries; entry; entry = entry->next) {
-	ShellModuleEntry *e = (ShellModuleEntry *)entry->data;
-
-	g_source_remove_by_user_data(e);
-    	g_free(e);
+    //if(module->name) g_free(module->name);
+    if(module->icon) g_object_unref(module->icon);
+    if(module->entries){
+        for (entry = module->entries; entry; entry = entry->next) {
+	    ShellModuleEntry *e = (ShellModuleEntry *)entry->data;
+	    g_source_remove_by_user_data(e);
+	    g_free(e);
+	}
+	g_slist_free(module->entries);
     }
-
-    g_slist_free(module->entries);
     g_free(module);
 }
 
 
-void module_unload_all(void)
+void module_unload_all(GSList *modules)
 {
     Shell *shell;
     GSList *module, *merge_id;
@@ -662,25 +660,26 @@ void module_unload_all(void)
     shell = shell_get_main_shell();
 
     sync_manager_clear_entries();
-    shell_clear_timeouts(shell);
-    shell_clear_tree_models(shell);
-    shell_clear_field_updates();
-    shell_set_title(shell, NULL);
-
-    for (module = shell->tree->modules; module; module = module->next) {
-    	module_unload((ShellModule *)module->data);
+    if(shell) shell_clear_timeouts(shell);
+    if(shell && params.gui_running) {
+        shell_clear_tree_models(shell);
+	shell_clear_field_updates();
+	//shell_set_title(shell, NULL);
     }
-
-    for (merge_id = shell->merge_ids; merge_id; merge_id = merge_id->next) {
-    	gtk_ui_manager_remove_ui(shell->ui_manager,
-			         GPOINTER_TO_INT(merge_id->data));
+    for (module = modules; module; module = module->next) {
+        module_unload((ShellModule *)module->data);
     }
-    g_slist_free(shell->tree->modules);
-    g_slist_free(shell->merge_ids);
+    g_slist_free(modules);
 
-    shell->merge_ids = NULL;
-    shell->tree->modules = NULL;
-    shell->selected = NULL;
+    if(params.gui_running && shell && shell->merge_ids){
+        for (merge_id = shell->merge_ids; merge_id; merge_id = merge_id->next) {
+          gtk_ui_manager_remove_ui(shell->ui_manager, GPOINTER_TO_INT(merge_id->data));
+        }
+        g_slist_free(shell->merge_ids);
+	shell->merge_ids = NULL;
+	shell->tree->modules = NULL;
+	shell->selected = NULL;
+    }
 }
 
 static ShellModule *module_load(gchar * filename)
@@ -774,7 +773,7 @@ static ShellModule *module_load(gchar * filename)
 	//DEBUG("registering methods for module ``%s''", filename);
 	module_register_methods(module);
     } else {
-    	DEBUG("cannot g_module_open(``%s''). permission problem?", filename);
+	DEBUG("cannot g_module_open(``%s''). permission problem?", filename);
       failed:
 	DEBUG("loading module %s failed: %s", filename, g_module_error());
 

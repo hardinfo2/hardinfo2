@@ -107,9 +107,11 @@ void shell_ui_manager_set_visible(const gchar * path, gboolean setting)
 
 void shell_clear_tree_models(Shell *shell)
 {
-    gtk_tree_store_clear(GTK_TREE_STORE(shell->tree->model));
-    gtk_tree_store_clear(GTK_TREE_STORE(shell->info_tree->model));
-    gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(shell->info_tree->view), FALSE);
+    if(shell){
+        if(shell->tree && shell->tree->model) gtk_tree_store_clear(GTK_TREE_STORE(shell->tree->model));
+        if(shell->info_tree && shell->info_tree->model) gtk_tree_store_clear(GTK_TREE_STORE(shell->info_tree->model));
+        //if(shell->info_tree && shell->info_tree->view) gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(shell->info_tree->view), FALSE);
+  }
 }
 
 void shell_clear_timeouts(Shell *shell)

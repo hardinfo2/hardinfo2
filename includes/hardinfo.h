@@ -126,7 +126,7 @@ void          nonblock_sleep(guint msec);
 GSList	     *modules_get_list(void);
 GSList	     *modules_load_selected(void);
 GSList       *modules_load_all(void);
-void	      module_unload_all(void);
+void	      module_unload_all(GSList *modules);
 gchar        *seconds_to_string(unsigned int seconds);
 
 gchar        *h_strdup_cprintf(const gchar *format, gchar *source, ...)

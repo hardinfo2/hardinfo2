@@ -226,7 +226,7 @@ char *dmi_get_str_abs(const char *id_str) {
 
 dmi_str_done:
     if (ret != NULL) {
-        ret = strend(ret, '\n');
+        strend(ret, '\n');
         ret = g_strstrip(ret);
     }
     return ret;
@@ -416,7 +416,7 @@ dmi_handle_list *dmidecode_handles(const dmi_type *type) {
         p = full;
         while( (next_nl = strchr(p, '\n')) ) {
             unsigned int ch = 0, ct = 0, cb = 0;
-            strend(p, '\n');
+	    gchar *np=strchr(p,'\n'); if(np) *np=0;
             if (sscanf(p, "Handle 0x%X, DMI type %u, %u bytes", &ch, &ct, &cb) > 0) {
                 if (type && !ct) ct = *type;
                 hl = dmi_handle_list_add(hl, (dmi_handle_ext){.id = ch, .type = ct, .size = cb});

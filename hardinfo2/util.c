@@ -148,16 +148,11 @@ gchar *size_human_readable(gfloat size)
     return g_strdup_printf(_("%.1f PiB"), size / PiB);
 }
 
-char *strend(gchar * str, gchar chr)
+//ends a line by replaceing chr to 0, OK for str=NULL
+void strend(gchar * str, gchar chr)
 {
-    if (!str)
-	return NULL;
-
     char *p;
-    if( (p = g_utf8_strchr(str, -1, chr)) )
-	*p = 0;
-
-    return str;
+    if( str && (p = g_utf8_strchr(str, -1, chr)) ) *p = 0;
 }
 
 void remove_quotes(gchar * str)

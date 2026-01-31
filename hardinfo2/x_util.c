@@ -67,7 +67,7 @@ gboolean fill_vk_info(vk_info *vk) {
     if (spawned) {
         p = out;
         while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
+	    gchar *np=strchr(p,'\n'); if(np) *np=0;
             g_strstrip(p);
             VK_MATCH_LINE("Vulkan Instance Version", vk_instVer);
             if(strstr(p,"GPU")==p) {found=1;sscanf(p,"GPU%d:",&gpu);}
@@ -159,7 +159,7 @@ gboolean fill_glx_info(glx_info *glx) {
     if (spawned) {
         p = out;
         while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
+	    gchar *np=strchr(p, '\n');if(np) *np=0;
             g_strstrip(p);
             GLX_MATCH_LINE("GLX version", glx_version);
             GLX_MATCH_LINE("OpenGL vendor string", ogl_vendor);
@@ -222,7 +222,7 @@ gboolean fill_xinfo(xinfo *xi) {
     if (spawned) {
         p = out;
         while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
+	    gchar *np=strchr(p, '\n'); if(np) *np=0;
             g_strstrip(p);
             XI_MATCH_LINE("name of display", display_name);
             XI_MATCH_LINE("vendor string", vendor);
@@ -264,7 +264,7 @@ gboolean fill_xrr_info(xrr_info *xrr) {
     if (spawned) {
         p = out;
         while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
+	    gchar *np;np=strchr(p, '\n'); if(np) *np=0;
             g_strstrip(p);
 
             ec = sscanf(p, "Screen %d: minimum %d x %d, current %d x %d, maximum %d x %d",

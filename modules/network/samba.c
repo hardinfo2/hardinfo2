@@ -63,8 +63,8 @@ scan_samba_usershares(void)
         shell_status_update("Scanning SAMBA user shares...");
         p = out;
         while((next_nl = strchr(p, '\n'))) {
-            cmdline = g_strdup_printf("net usershare info '%s'",
-                                      strend(p, '\n'));
+	    strend(p, '\n');
+            cmdline = g_strdup_printf("net usershare info '%s'",p);
             if (hardinfo_spawn_command_line_sync(cmdline,
                         &usershare, NULL, NULL, NULL)) {
                 length = strlen(usershare);

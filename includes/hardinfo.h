@@ -100,7 +100,7 @@ struct _ModuleAbout {
 
 /* String utility functions */
 void   remove_quotes(gchar *str);
-char  *strend(gchar *str, gchar chr);
+void   strend(gchar *str, gchar chr);
 void   remove_linefeed(gchar *str);
 gchar *strreplace_chr(gchar *string, gchar replace, gchar new_char);
 gchar *strreplacechr(gchar *string, gchar *replace, gchar new_char);

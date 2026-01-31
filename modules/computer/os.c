@@ -173,10 +173,12 @@ static gchar *get_libc_version(void)
         if (spawned) {
 
 	    if (libs[i].use_stderr) {
-                if (strstr(err,"musl")) {p=strchr(err,'\n');*p=' ';} //combine musl arch and version
-		p = strend(err, '\n');
+	        if (strstr(err,"musl")) {p=strchr(err,'\n');if(p) *p=' ';} //combine musl arch and version by removing first newline
+		strend(err, '\n');
+		p=err;
 	    } else {
-	        p = strend(out, '\n');
+	        strend(out, '\n');
+		p=out;
 	    }
 
 	    if (p && strstr(p, libs[i].match_str)) {
@@ -236,8 +238,8 @@ static gchar *detect_gnome_version(void)
         tmp = strstr(out, _("GNOME Shell "));
 
         if (tmp) {
-            tmp += strlen(_("GNOME Shell "));
-            ret=g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+	    strend(tmp, '\n');
+            ret=g_strdup_printf("GNOME %s", tmp+strlen(_("GNOME Shell ")));
 	    g_free(out);
 	    return ret;
         }
@@ -249,8 +251,8 @@ static gchar *detect_gnome_version(void)
         tmp = strstr(out, _("Version: "));
 
         if (tmp) {
-            tmp += strlen(_("Version: "));
-            ret=g_strdup_printf("GNOME %s", strend(tmp, '\n'));
+	    strend(tmp, '\n');
+            ret=g_strdup_printf("GNOME %s", tmp+strlen(_("Version: ")));
             g_free(out);
 	    return ret;
         }
@@ -272,8 +274,8 @@ static gchar *detect_mate_version(void)
         tmp = strstr(out, _("MATE Desktop Environment "));
 
         if (tmp) {
-            tmp += strlen(_("MATE Desktop Environment "));
-	    ret=g_strdup_printf("MATE %s", strend(tmp, '\n'));
+	    strend(tmp, '\n');
+	    ret=g_strdup_printf("MATE %s", tmp+strlen(_("MATE Desktop Environment ")));
 	    g_free(out);
             return ret;
         }

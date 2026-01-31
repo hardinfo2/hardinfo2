@@ -31,6 +31,7 @@
 #include <stdbool.h>
 #include "callbacks.h"
 #include "dmi_util.h"
+#include "pci_util.h"
 
 ProgramParameters params = { 0 };
 
@@ -262,6 +263,7 @@ int main(int argc, char **argv)
     }
     moreinfo_shutdown();
     vendor_cleanup();
+    pci_cleanup();
     dmidecode_cache_free();
     DEBUG("finished");
     return exit_code;

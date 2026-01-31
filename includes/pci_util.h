@@ -60,6 +60,7 @@ pcid *pci_get_device_str(const char *addy);
 #define pcid_new() g_new0(pcid, 1)
 gint pcid_cmp_by_addy(gconstpointer a, gconstpointer b);
 void pcid_free(pcid *);
+void pci_cleanup(void);
 
 typedef GSList* pcid_list;
 /* examples:

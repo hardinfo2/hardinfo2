@@ -75,6 +75,17 @@ char *pci_lookup_ids_vendor_str(uint32_t id) {
 
 
 static pcid *lastd=NULL;
+void pci_cleanup(void){
+    if(lastd){
+        g_free(lastd->vendor_id_str);
+        g_free(lastd->device_id_str);
+        g_free(lastd->sub_device_id_str);
+        g_free(lastd->sub_vendor_id_str);
+	g_free(lastd->class_str);
+	g_free(lastd);
+	lastd=NULL;
+    }
+}
 static gboolean pci_lookup_ids(pcid *d) {
     gboolean ret = FALSE;
     gchar *qpath;

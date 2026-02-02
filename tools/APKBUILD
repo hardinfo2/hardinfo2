@@ -1,0 +1,65 @@
+# Contributor: Adam Thiede <me@adamthiede.com>
+# Contributor: hwspeedy <ns@bigbear.dk>
+# Maintainer: Adam Thiede <me@adamthiede.com>
+
+#HOWTO: Copy to source root (../) and abuild -r in source root
+
+pkgname=hardinfo2
+pkgver=$(cat CMakeLists.txt |grep HARDINFO2_VERSION\ |grep -o -E "2.[0-9.]{1,5}")
+pkgrel=1
+pkgdesc="System Information and Benchmark for Linux Systems"
+url="https://github.com/hardinfo2/hardinfo2"
+arch="all !riscv64 !loongarch64" # limited by sysbench
+license="GPL-3.0-or-later"
+makedepends="
+	appstream
+	cmake
+	desktop-file-utils
+	glib-dev
+	glslang-dev
+	gtk+3.0-dev
+	json-glib-dev
+	libdecor-dev
+	libsoup3-dev
+	mesa-vulkan-swrast
+	qt5-qtbase-dev
+	samurai
+	vulkan-headers
+	vulkan-loader-dev
+	xdg-utils
+	zlib-dev
+"
+depends="
+	dmidecode
+	gawk
+	iperf3
+	lm-sensors
+	mesa-utils
+	sysbench
+	udisks2
+	vulkan-tools
+	xdg-utils
+"
+subpackages="$pkgname-doc"
+#$pkgname-lang $pkgname-openrc"
+#source="$pkgname-$pkgver.tar.gz::https://github.com/hardinfo2/hardinfo2/archive/refs/tags/release-$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-release-$pkgver"
+
+build() {
+	cmake -B build -G Ninja \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX="/usr" \
+		-DCMAKE_INSTALL_LIBDIR='lib'
+	cmake --build build
+}
+
+check() {
+	desktop-file-validate "build/$pkgname.desktop"
+	appstreamcli validate --no-net "build/org.$pkgname.$pkgname.metainfo.xml"
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+}
+
+#sha512sums=""

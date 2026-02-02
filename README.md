@@ -94,6 +94,15 @@ libqt5-qtbase-devel instead of qt5-qtbase-devel
  - makepkg -cis --noextract
  - hardinfo2
 
+**Alpine/PostmarketOS**
+ - git clone https://github.com/hardinfo2/hardinfo2
+ - cd hardinfo2
+ - ./tools/git_latest_release.sh (Switch to latest stable release, tools/git_unstable_master.sh for developers)
+ - cp tools/APKBUILD .
+ - abuild -r
+ - apk add ~/packages/USERNAME/ARCH/hardinf2-2* --allow-untrusted
+ - hardinfo2
+
 **Hardinfo2 package installs the following packages as dependencies**
 - Depends:
 - **gawk**: Used by hardinfo2 service to determine System Type

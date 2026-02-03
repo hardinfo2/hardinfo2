@@ -483,7 +483,7 @@ endif()
 
 if(${CMAKE_BUILD_TYPE} MATCHES [Dd]ebug)
 	set(HARDINFO2_DEBUG 1)
-        if(${distro}${disversion} MATCHES "DebianGNULinux7")
+        if(${distro}${disversion} MATCHES "DebianGNULinux7" OR ${distro} MATCHES "alpine*" OR ${distro} MATCHES "postmarket*")
         else()
 	   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address")
         endif()

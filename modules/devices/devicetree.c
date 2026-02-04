@@ -118,6 +118,9 @@ static gchar *get_summary(dtr *dt) {
     UNKIFNULL(model);
     EMPIFNULL(compat);
     EMPIFNULL(serial_number);
+    compat=strreplace(compat,"\", \"","\r");
+    compat=strreplace(compat,"\",\"","\r");
+    compat=strreplace(compat,"\"","");
 
     ret = g_strdup_printf(
                 "[%s]\n"

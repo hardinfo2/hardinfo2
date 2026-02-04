@@ -931,6 +931,11 @@ const ShellModuleMethod *hi_exported_methods(void)
     return m;
 }
 
+void hi_module_deinit(void)
+{
+    moreinfo_del_with_prefix("BENCH");
+}
+
 void hi_module_init(void)
 {
     static SyncEntry se[] = {

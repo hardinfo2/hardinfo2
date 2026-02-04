@@ -1121,6 +1121,8 @@ void hi_module_init(void)
 
 void hi_module_deinit(void)
 {
+    g_free(dtree_info);
+
     moreinfo_del_with_prefix("DEV");
     sensor_shutdown();
     storage_shutdown();

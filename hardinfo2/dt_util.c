@@ -1134,6 +1134,7 @@ void _dtr_map_it(dtr *s, char *np, const char *what) {
         g_dir_close(dir);
     }
     dtr_obj_free(prop);
+    g_free(dir_path);
     if(*what=='p'){
        dtr_map_sort(s->phandles, 1);
     }

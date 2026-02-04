@@ -21,4 +21,4 @@ ARCH=$(uname -m)
 mv ~/packages/$USER/$ARCH/hardinfo2*.apk ./build/
 cd build
 DISTRO=$(cat /etc/os-release |grep ^PRETTY_NAME=|awk '{sub(" ","-");sub("PRETTY_NAME=","");sub("\"","");sub("\"","")}1')
-rename r1 hardinfo2-${DISTRO}-${ARCH} *.apk
+rename r1 hardinfo2-${DISTRO}.${ARCH} *.apk

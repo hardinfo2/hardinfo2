@@ -108,6 +108,7 @@ gboolean __scan_udisks2_devices(void) {
         { "flash_sdhc",             "SDHC",               "media-sd" },
         { "flash_sdxc",             "SDXC",               "media-sd" },
         { "flash_mmc",              "MMC",                "media-sd" },
+        { "flash_mmc_eMMC",         "eMMC",               "chip" },//must be after flash_mmc
         { "floppy",                 "Floppy Disk",        "media-floppy" },
         { "floppy_zip",             "Zip Disk",           "media-floppy" },
         { "floppy_jaz",             "Jaz Disk",           "media-floppy" },
@@ -209,11 +210,16 @@ gboolean __scan_udisks2_devices(void) {
 
     drives = get_udisks2_drives_ext();
     //remove mmc boot0+1
+    gchar *emmc=NULL;
     for (node = drives; node != NULL; ) {
 	nodenext = node->next;
         ext = (u2driveext *)node->data;
         disk = ext->d;
-	if(strstr(disk->block_dev,"boot0") || strstr(disk->block_dev,"boot1")){
+	if(strstr(disk->block_dev,"boot0")){
+	    if(!emmc) emmc=strreplace(strdup(disk->block_dev),"boot0","");
+            drives=g_slist_remove(drives, node->data);
+	}
+	if(strstr(disk->block_dev,"boot1")){
             drives=g_slist_remove(drives, node->data);
 	}
 	node=nodenext;
@@ -223,14 +229,18 @@ gboolean __scan_udisks2_devices(void) {
         ext = (u2driveext *)node->data;
         disk = ext->d;
         devid = g_strdup_printf("UDISKS%d", n++);
-
+	gchar is_emmc=0;
+        if(emmc && g_strcmp0(disk->block_dev,emmc) == 0) is_emmc=1;
         icon = NULL;
 
         media_curr = disk->media;
         if (disk->media){
             for (j = 0; media_info[j].media != NULL; j++) {
                 if (g_strcmp0(disk->media, media_info[j].media) == 0) {
-                    media_curr = media_info[j].label;
+		    if(!is_emmc)
+                        media_curr = media_info[j].label;
+		    else
+                        media_curr = media_info[j+1].label;
                     break;
                 }
             }
@@ -243,8 +253,9 @@ gboolean __scan_udisks2_devices(void) {
                 for (j = 0; media_info[j].media != NULL; j++) {
                     if (g_strcmp0(disk->media_compatibility[i], media_info[j].media) == 0) {
                         media_label = media_info[j].label;
-                        if (icon == NULL)
-                            icon = media_info[j].icon;
+                        if (icon == NULL) {
+			    if(!is_emmc) icon = media_info[j].icon; else icon=media_info[j+1].icon;
+			}
                         break;
                     }
                 }
@@ -258,7 +269,10 @@ gboolean __scan_udisks2_devices(void) {
             }
         }
         if (icon == NULL && disk->ejectable && g_strcmp0(disk->connection_bus, "usb") == 0) {
-            icon = "usbfldisk";
+	    if(strstr(disk->model,"CRW") || strstr(disk->model,"CARD") || strstr(disk->model,"SD/MMC"))
+	       icon = "media-sd";
+	    else
+	       icon = "media-usb";
         }
         if (icon == NULL){
             icon = "hdd";
@@ -357,6 +371,45 @@ gboolean __scan_udisks2_devices(void) {
                 moreinfo = h_strdup_cprintf("%s", moreinfo, nvme);
             g_free(nvme);
         }
+
+        if (is_emmc) {
+	    gchar *sdate=NULL,*st=NULL,*ssslc,*ssmlc,*sseol,*path;
+	    unsigned int sslc=0, smlc=0, seol=0;
+
+	    g_file_get_contents(path=g_strdup_printf("/sys/block/%s/device/date",disk->block_dev),&sdate,NULL,NULL);g_free(path);
+	    if(g_file_get_contents(path=g_strdup_printf("/sys/block/%s/device/life_time",disk->block_dev),&st,NULL,NULL))
+	        if(sscanf(st,"%x %x",&sslc,&smlc)==2) g_free(st);
+	    g_free(path);
+	    if(g_file_get_contents(path=g_strdup_printf("/sys/block/%s/device/pre_eol_info",disk->block_dev),&st,NULL,NULL))
+	        if(sscanf(st,"%x",&seol)==1) g_free(st);
+	    g_free(path);
+
+	    if(sslc>=1 && sslc<11) ssslc=g_strdup_printf("%u%% - %u%% used", (sslc-1)*10, sslc*10);
+	    else if(sslc==11) ssslc=_("Lifetime exceeded");
+	    else ssslc=_("Unknown");
+
+	    if(smlc>=1 && smlc<11) ssmlc=g_strdup_printf("%u%% - %u%% used", (smlc-1)*10, smlc*10);
+	    else if(smlc==11) ssmlc=_("Lifetime exceeded");
+	    else ssmlc=_("Unknown");
+
+	    if(seol==1) sseol=_("Normal");
+	    else if(seol==2) sseol=_("Warning >80% used");
+	    else if(seol==3) sseol=_("Failing >90% used");
+	    else sseol=_("Unknown");
+
+	    if(seol || smlc || sslc || sdate)
+                moreinfo = h_strdup_cprintf(_("[Self-monitoring ExtCSD]\n"
+                                              "Production Date=%s\n"
+                                              "SLC Flash Status=%s\n"
+                                              "MLC Flash Status=%s\n"
+					      "Pre EOL Status=%s\n"),
+                                              moreinfo,
+					      sdate ? sdate:_("Unknown"),
+					      ssslc,ssmlc,sseol
+					  );
+	    g_free(sdate);
+	}
+
         if (disk->smart_enabled) {
             moreinfo = h_strdup_cprintf(_("[Self-monitoring (S.M.A.R.T.)]\n"
                                         "Status=%s\n"

@@ -210,6 +210,9 @@ static char *determine_devname_for_hwmon_path(char *path) {
         tmp = g_strdup_printf("%s/device/name", path);
         g_file_get_contents(tmp, &devname, NULL, NULL);
         g_free(tmp);
+	tmp=devname;
+	devname = g_strdup_printf("1W:%s",devname);
+	g_free(tmp);
     }
     if (devname)
         return g_strstrip(devname);
@@ -384,6 +387,8 @@ static void read_sensors_hwmon(void) {
                 g_regex_unref(regex);
 
                 for (count = min; count <= max; count++) {
+		    if (!hwmon_first_run && strstr(devname,"1W:")) {continue;}//1W are slow - only read at first run
+
                     if (!read_raw_hwmon_value(path_hwmon, sensor->value_path_format, count, &tmp)) {
                         continue;
                     }

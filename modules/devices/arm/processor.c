@@ -665,6 +665,7 @@ gchar *processor_name(GSList *processors) {
         { "rockchip,rk32", "Rockchip", "RK32xx-family" },
         { "rockchip,rk33", "Rockchip", "RK33xx-family" },
         { "rockchip,rk3588", "Rockchip", "RK3588" }, // rk3588-orangepi-5-max
+        { "samsung,exynos5250", "Samsung", "Exynos 5250" },
         { "sprd,sc9863a", "Unisoc", "SC9864A" },
         { "ti,omap5432", "Texas Instruments", "OMAP5432" },
         { "ti,omap5430", "Texas Instruments", "OMAP5430" },
@@ -688,6 +689,7 @@ gchar *processor_name(GSList *processors) {
         { "qcom,", "Qualcom", UNKSOC },
         { "rockchip,", "Rockchip", UNKSOC },
         { "ti,", "Texas Instruments", UNKSOC },
+        { "samsung,", "Samsung", UNKSOC },
         { NULL, NULL }
     };
     gchar *ret = NULL;

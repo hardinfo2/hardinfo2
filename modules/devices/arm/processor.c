@@ -665,6 +665,7 @@ gchar *processor_name(GSList *processors) {
         { "rockchip,rk3399", "Rockchip", "RK3399" }, // Firefly Renegade Elite
         { "rockchip,rk32", "Rockchip", "RK32xx-family" },
         { "rockchip,rk33", "Rockchip", "RK33xx-family" },
+        { "rockchip,rk3566", "Rockchip", "RK3566" },
         { "rockchip,rk3588", "Rockchip", "RK3588" }, // rk3588-orangepi-5-max
         { "samsung,exynos5250", "Samsung", "Exynos 5250" },
         { "sprd,sc9863a", "Unisoc", "SC9864A" },

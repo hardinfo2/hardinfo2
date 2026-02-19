@@ -3131,7 +3131,7 @@ msgstr "전체 <i><b>pci.ids</b></i>는 시스템에서 사용할 수 없습니�
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (SystemD distro)\n"
-"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "And Logout/Reboot for groups to be updated..."
 msgstr ""
 

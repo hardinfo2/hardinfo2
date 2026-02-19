@@ -49,6 +49,7 @@ else
 fi
 #set rights
 chmod 640 /run/hardinfo2/*
+chmod 644 /run/hardinfo2/systype
 
 
 #loading SPD modules

@@ -3151,7 +3151,7 @@ msgstr ""
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (SystemD distro)\n"
-"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"Add yourself to hardinfo2 group: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\n"
 "And Logout/Reboot for groups to be updated..."
 msgstr ""
 

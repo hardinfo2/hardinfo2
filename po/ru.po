@@ -3251,12 +3251,12 @@ msgstr "Полный <i><b>pci.ids</b></i> недоступен в систем�
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (SystemD distro)\n"
-"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"Add yourself to hardinfo2 group: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\n"
 "And Logout/Reboot for groups to be updated..."
 msgstr ""
 "Убедитесь, что служба hardinfo2 включена и запущена: sudo systemctl enable "
 "hardinfo2 --now (SystemD distro)\n"
-"Добавьте себя в группу hardinfo2: sudo usermod -a -G hardinfo2 YOUR_LOGIN\n"
+"Добавьте себя в группу hardinfo2: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\n"
 "Затем перезагрузитесь..."
 
 #: modules/devices.c:1170

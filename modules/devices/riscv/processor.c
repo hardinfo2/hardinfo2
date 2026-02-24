@@ -271,6 +271,7 @@ gchar *processor_name(GSList * processors) {
         { "starfive,jh7110", "StarFive", "JH7110" },
         { "starfive,visionfive-2", "StarFive", "JH7110" },
         { "thead,c910", "T-Head", "C910" },
+        { "thead,th1520", "T-Head", "TH1520" },
         { "thead,light-lpi4a", "T-Head", "TH1520" },
 	//
         { "allwinner,", "Allwinner", UNKSOC },

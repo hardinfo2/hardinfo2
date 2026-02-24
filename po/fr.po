@@ -854,7 +854,7 @@ msgstr "Outil d'évaluation"
 #: shell/shell.c:515
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""%s - Informations système et benchmark""
+msgstr "%s - Informations système et benchmark"
 
 #: shell/shell.c:663
 #, c-format
@@ -873,7 +873,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"Merci de corriger en installant manuellement"
+"Merci de corriger ces paquets en les installant manuellement"
 
 #: shell/shell.c:1110 modules/network.c:566
 msgid "Network"

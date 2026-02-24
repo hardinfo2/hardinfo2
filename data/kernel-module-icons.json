@@ -1143,6 +1143,7 @@
     "i2c-hid": "inputdevices",
     "i2c-hid-acpi": "inputdevices",
     "i2c-hid-of": "inputdevices",
+    "i2c-hid-of-elan": "inputdevices",
     "i2c-hid-of-goodix": "inputdevices",
     "i2c-i801": "memory",
     "i2c-imx": "memory",

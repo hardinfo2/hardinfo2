@@ -393,7 +393,7 @@ __scan_battery_apm(void)
 {
     FILE                *procapm;
     static char         *sremaining = NULL, *stotal = NULL;
-    static unsigned int  last_time = 0;
+    static long long int  last_time = 0;
     static int           percentage = 0;
     const  char         *ac_status[] = { "Battery",
                                          "AC Power",

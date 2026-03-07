@@ -48,6 +48,22 @@
 
 void sync_manager_clear_entries(void);
 
+int get_systype(void)
+{
+    FILE *io;
+    int systype=-1;
+    gchar buffer[100];
+    if( (io = fopen("/run/hardinfo2/systype", "r")) ) {
+        if(fgets(buffer, sizeof(buffer), io)) {
+	    if(strstr(buffer,"Root")) systype=0;
+	    if(strstr(buffer,"Single")) systype=1;
+	    if(strstr(buffer,"Multi")) systype=2;
+        }
+	fclose(io);
+    }
+    return systype;
+}
+
 gchar *find_program(gchar *program_name)
 {
     int i;
@@ -1006,7 +1022,7 @@ gchar *module_entry_get_moreinfo(ShellModuleEntry * module_entry, gchar * field)
 const gchar *module_entry_get_note(ShellModuleEntry * module_entry)
 {
     if (module_entry->notefunc) {
-	return module_entry->notefunc(module_entry->number);
+        return module_entry->notefunc(module_entry->number);
     }
 
     return NULL;

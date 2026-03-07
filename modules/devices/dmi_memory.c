@@ -924,18 +924,18 @@ gchar *memory_devices_get_system_memory_str() {
 
 static gchar note_state[note_max_len] = "";
 
-gboolean memory_devices_hinote(const char **msg) {
+gchar *memory_devices_hinote(void) {
     *note_state = 0; /* clear */
     //check for dmi interface
     gboolean has_dmi = g_file_test("/sys/firmware/dmi", G_FILE_TEST_IS_DIR);
     if(!has_dmi) {
         note_printf(note_state, "%s", _("No DMI available"));
-	*msg=note_state;
-        return TRUE;
+	return note_state;
     }
     gboolean has_dmiaccess = (access("/sys/firmware/dmi/tables/DMI", R_OK)==0) || (access("/sys/firmware/dmi/tables/smbios_entry_point", R_OK)==0) || (access("/run/hardinfo2/dmi_memory", R_OK)==0);
     gchar *want_dmi       = _("<b><i>dmidecode</i></b> package installed");
-    gchar *want_dmiaccess = _("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)\nAdd yourself to hardinfo2 group: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\nAnd Logout/Reboot for groups to be updated...");
+    gchar *want_dmiaccess1 = _("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)");
+    gchar *want_dmiaccess2 = _("Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\nLogout/Reboot for groups to be updated...");
     gchar *want_at24      = "sudo modprobe at24 (or eeprom) (for SDR, DDR, DDR2, DDR3)";
     gchar *want_ee1004    = "sudo modprobe ee1004 (for DDR4)";
     gchar *want_spd5118   = "sudo modprobe spd5118 (for DDR5)";
@@ -948,8 +948,16 @@ gboolean memory_devices_hinote(const char **msg) {
     note_printf(note_state, "%s\n", _("Memory Information requires more Setup:"));
     note_print(note_state, "<tt>1. </tt>");
     gboolean has_dmidecode = note_require_tool("dmidecode", note_state, want_dmi);
-    note_print(note_state, "<tt>   </tt>");
-    note_cond_bullet(has_dmiaccess, note_state, want_dmiaccess);
+    if(!has_dmiaccess){
+        int systype=get_systype();
+	if(systype<0) {
+	    note_print(note_state, "<tt>   </tt>");
+	    note_cond_bullet(has_dmiaccess, note_state, want_dmiaccess1);
+	}else if(systype==2){
+	    note_print(note_state, "<tt>   </tt>");
+            note_cond_bullet(has_dmiaccess, note_state, want_dmiaccess2);
+	}
+    }
     note_print(note_state, "<tt>2. </tt>");
     note_cond_bullet(has_at24_eeprom, note_state, want_at24);
     note_print(note_state, "<tt>   </tt>");
@@ -967,16 +975,13 @@ gboolean memory_devices_hinote(const char **msg) {
         best_state = TRUE;
 
     if (!best_state) {
-        *msg = note_state;
-        return TRUE;
+        return note_state;
     }
 
     if (sketchy_info) {
-        *msg = g_strdup(
-            _("\"More often than not, information contained in the DMI tables is inaccurate,\n"
-              "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"));
-        return TRUE;
+        return _("\"More often than not, information contained in the DMI tables is inaccurate,\n"
+              "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page");
     }
 
-    return FALSE;
+    return NULL;
 }

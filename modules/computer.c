@@ -627,15 +627,13 @@ gchar *callback_os(void)
 
 gchar *callback_security(void)
 {
-  gchar *st=NULL, buffer[100], *systype=NULL,*p,*p1,*p2,*p3;
-    FILE *io;
+    gchar *st=NULL, *systype_str=NULL, *p,*p1,*p2,*p3;
+    int systype=get_systype();
 
-    if( (io = fopen("/run/hardinfo2/systype", "r")) ) {
-        if(fgets(buffer, sizeof(buffer), io)) {
-	    if(strstr(buffer,"Root")) systype=g_strdup(_("Root Only System"));
-	    if(strstr(buffer,"Single")) systype=g_strdup(_("Single User System"));
-	    if(strstr(buffer,"Multi")) systype=g_strdup(_("Multi User System"));
-        }
+    if( systype>=0 ) {
+        if( systype==0 ) systype_str=g_strdup(_("Root Only System"));
+	if( systype==1 ) systype_str=g_strdup(_("Single User System"));
+	if( systype==2 ) systype_str=g_strdup(_("Multi User System"));
     }
 
     struct Info *info = info_new();
@@ -644,7 +642,7 @@ gchar *callback_security(void)
 
     info_add_group(info, _("HardInfo2"),
         info_field(_("HardInfo2 running as"), (getuid() == 0) ? _("Superuser") : _("User")),
-        info_field(_("User System Type"), (systype!=NULL) ? systype : _("Hardinfo2 Service not enabled/started")),
+        info_field(_("User System Type"), (systype_str!=NULL) ? systype_str : _("Hardinfo2 Service not enabled/started")),
         info_field_last());
 
     info_add_group(
@@ -708,7 +706,7 @@ gchar *callback_security(void)
     }
 
     p=info_flatten(info);
-    g_free(systype); g_free(p1); g_free(p2); g_free(p3); g_free(st);
+    g_free(systype_str); g_free(p1); g_free(p2); g_free(p3); g_free(st);
     return p;
 }
 
@@ -1177,7 +1175,7 @@ const ModuleAbout *hi_module_get_about(void)
     return &ma;
 }
 
-static const gchar *hinote_kmod() {
+gchar *hinote_kmod() {
     static gchar note[note_max_len] = "";
     gboolean ok = TRUE;
     *note = 0; /* clear */
@@ -1185,7 +1183,7 @@ static const gchar *hinote_kmod() {
     return ok ? NULL : g_strstrip(note); /* remove last \n */
 }
 
-static const gchar *hinote_display() {
+gchar *hinote_display() {
     static gchar note[note_max_len] = "";
     gboolean ok = TRUE;
     *note = 0; /* clear */
@@ -1195,7 +1193,7 @@ static const gchar *hinote_display() {
     return ok ? NULL : g_strstrip(note); /* remove last \n */
 }
 
-const gchar *hi_note_func(gint entry)
+gchar *hi_note_func(gint entry)
 {
     if (entry == ENTRY_KMOD) {
         return hinote_kmod();

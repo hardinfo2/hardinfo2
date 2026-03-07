@@ -507,7 +507,6 @@ gchar *monitors_get_info() {
     return ret;
 }
 
-gboolean monitors_hinote(const char **msg) {
-    PARAM_NOT_UNUSED(msg);
-    return FALSE;
+gchar *monitors_hinote(void) {
+    return NULL;
 }

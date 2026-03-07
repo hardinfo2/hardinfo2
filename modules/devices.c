@@ -73,7 +73,7 @@ void scan_dtree(gboolean reload);
 void scan_device_resources(gboolean reload);
 
 gboolean root_required_for_resources(void);
-gboolean spd_decode_show_hinote(const char**);
+gchar *spd_decode_show_hinote(void);
 
 gchar *hi_more_info(gchar *entry);
 
@@ -133,18 +133,18 @@ gchar *gpuname=NULL;
 gchar *memory_devices_get_info();
 gchar *memory_devices_get_system_memory_types_str();
 gchar *memory_devices_get_system_memory_str();
-gboolean memory_devices_hinote(const char **msg);
+gchar *memory_devices_hinote(void);
 gchar *memory_devices_info = NULL;
 gchar *memory_devices_desc = NULL;
 
 /* in firmware.c */
 gchar *firmware_get_info();
-gboolean firmware_hinote(const char **msg);
+gchar *firmware_hinote(void);
 gchar *firmware_info = NULL;
 
 /* in monitors.c */
 gchar *monitors_get_info();
-gboolean monitors_hinote(const char **msg);
+gchar *monitors_hinote(void);
 gchar *monitors_info = NULL;
 
 #include <vendor.h>
@@ -1151,39 +1151,36 @@ gchar **hi_module_get_dependencies(void)
 
 const gchar *hi_note_func(gint entry)
 {
-    if (entry == ENTRY_PCI
-        || entry == ENTRY_GPU) {
+    if ((entry == ENTRY_PCI) || (entry == ENTRY_GPU)) {
             const gchar *ids = find_pci_ids_file();
             if (!ids) {
-                return g_strdup(_("A copy of <i><b>pci.ids</b></i> is not available on the system."));
+                return _("A copy of <i><b>pci.ids</b></i> is not available on the system.");
             }
             if (ids && strstr(ids, ".min")) {
-                return g_strdup(_("A full <i><b>pci.ids</b></i> is not available on the system."));
+                return _("A full <i><b>pci.ids</b></i> is not available on the system.");
             }
+	return NULL;
     }
     if (entry == ENTRY_RESOURCES) {
         if (root_required_for_resources()) {
-            return g_strdup(_("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)\nAdd yourself to hardinfo2 group: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\nAnd Logout/Reboot for groups to be updated..."));
+	    int systype=get_systype();
+	    if(systype<0) return _("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)");
+	    return _("Add yourself to hardinfo2 group:\nsudo usermod -a -G hardinfo2 $USER\nLogout/Reboot for groups to be updated...");
         }
+	return NULL;
     }
-    else if (entry == ENTRY_STORAGE){
+    if (entry == ENTRY_STORAGE){
         if (storage_no_nvme) {
-            return g_strdup(
-                _("Any NVMe storage devices present are not listed.\n"
-                  "<b><i>udisks2</i></b> is required for NVMe devices."));
+            return _("Any NVMe storage devices present are not listed.\n"
+                  "<b><i>udisks2</i></b> is required for NVMe devices.");
         }
+	return NULL;
     }
-    else if (entry == ENTRY_DMI_MEM){
-        const char *msg;
-        if (memory_devices_hinote(&msg)) {
-            return msg;
-        }
+    if (entry == ENTRY_DMI_MEM){
+        return memory_devices_hinote();
     }
-    else if (entry == ENTRY_FW) {
-        const char *msg;
-        if (firmware_hinote(&msg)) {
-            return msg;
-        }
+    if (entry == ENTRY_FW) {
+        return firmware_hinote();
     }
     return NULL;
 }

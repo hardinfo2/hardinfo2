@@ -119,6 +119,7 @@ gchar    *file_chooser_build_filename(GtkWidget *chooser, gchar *extension);
 gpointer  file_types_get_data_by_name(FileTypes *file_types, gchar *name);
 
 /* Misc utility functions */
+int          get_systype(void);
 gchar	     *find_program(gchar *program_name);
 gboolean     check_program(gchar *program_name);
 gchar        *size_human_readable(gfloat size);

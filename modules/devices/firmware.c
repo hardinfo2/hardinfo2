@@ -248,15 +248,13 @@ gchar *fwupdmgr_get_devices_info() {
     return ret;
 }
 
-gchar *firmware_get_info() {
+gchar *firmware_get_info(void) {
     return fwupdmgr_get_devices_info();
 }
 
-gboolean firmware_hinote(const char **msg) {
+gchar *firmware_hinote(void) {
     if (fail_no_fwupd) {
-        *msg = g_strdup(
-            _("Requires the <i><b>fwupd</b></i> daemon."));
-        return TRUE;
+        return _("Requires the <i><b>fwupd</b></i> daemon.");
     }
-    return FALSE;
+    return NULL;
 }

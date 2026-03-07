@@ -151,13 +151,14 @@ void scan_device_resources(gboolean reload)
       }
     }
 
-    _require_root = zero_to_zero_addr > 2;
+    _require_root = (zero_to_zero_addr > 2);
 
     SCAN_END();
 }
 
 gchar *callback_device_resources(void)
 {
+    if(!_resources) scan_device_resources(FALSE);
     return g_strdup(_resources);
 }
 

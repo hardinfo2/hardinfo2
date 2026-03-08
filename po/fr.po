@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 01:42+0100\n"
+"POT-Creation-Date: 2026-03-08 00:51+0100\n"
 "PO-Revision-Date: 2019-11-18\n"
 "Last-Translator: yolateng0 <yolateng0-AT-yo.nohost.me>\n"
 "Language-Team: KreizennDafar\n"
@@ -35,7 +35,7 @@ msgid "Minimum"
 msgstr "Minimum"
 
 #: hardinfo2/cpu_util.c:210 hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:212
-#: hardinfo2/dt_util.c:590 modules/devices/gpu.c:269 modules/devices/gpu.c:270
+#: hardinfo2/dt_util.c:560 modules/devices/gpu.c:269 modules/devices/gpu.c:270
 msgid "kHz"
 msgstr "kHz"
 
@@ -65,10 +65,10 @@ msgstr "Governor"
 msgid "Driver"
 msgstr "Driver"
 
-#: hardinfo2/cpu_util.c:227 modules/computer.c:766
+#: hardinfo2/cpu_util.c:227 modules/computer.c:791
 #: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
 #: modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
-#: modules/devices/riscv/processor.c:347 modules/devices/x86/processor.c:283
+#: modules/devices/riscv/processor.c:348 modules/devices/x86/processor.c:283
 #: modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
 msgid "(Not Available)"
 msgstr "(Non Disponible)"
@@ -90,8 +90,8 @@ msgstr "Book"
 msgid "Drawer"
 msgstr "Drawer"
 
-#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:743
-#: modules/devices/riscv/processor.c:554 modules/devices/x86/processor.c:753
+#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:748
+#: modules/devices/riscv/processor.c:555 modules/devices/x86/processor.c:753
 msgid "Topology"
 msgstr "Topologie"
 
@@ -115,14 +115,14 @@ msgstr "Base Carte Mère"
 msgid "Chassis"
 msgstr "Châssis"
 
-#: hardinfo2/dmi_util.c:29 modules/computer.c:525 modules/computer.c:1101
+#: hardinfo2/dmi_util.c:29 modules/computer.c:549 modules/computer.c:1119
 #: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563
 #: modules/devices.c:99 modules/devices/e2k/processor.c:363
 #: modules/devices/ia64/processor.c:159
 #: modules/devices/loongarch64/processor.c:93
 #: modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
 #: modules/devices/parisc/processor.c:154 modules/devices/ppc/processor.c:157
-#: modules/devices/riscv/processor.c:587 modules/devices/s390/processor.c:131
+#: modules/devices/riscv/processor.c:588 modules/devices/s390/processor.c:131
 #: modules/devices/sh/processor.c:83 modules/devices/sparc/processor.c:74
 #: modules/devices/x86/processor.c:647
 msgid "Processor"
@@ -138,7 +138,7 @@ msgstr "Module Mémoire"
 
 #: hardinfo2/dmi_util.c:32 modules/devices/arm/processor.c:572
 #: modules/devices/e2k/processor.c:372 modules/devices/parisc/processor.c:163
-#: modules/devices/riscv/processor.c:596 modules/devices/x86/processor.c:663
+#: modules/devices/riscv/processor.c:597 modules/devices/x86/processor.c:663
 msgid "Cache"
 msgstr "Cache"
 
@@ -310,9 +310,9 @@ msgstr "Tour"
 msgid "Portable"
 msgstr "Portable"
 
-#: hardinfo2/dmi_util.c:246 modules/computer.c:458 modules/computer.c:460
-#: modules/computer.c:471 modules/computer.c:473 modules/computer.c:497
-#: modules/computer.c:499
+#: hardinfo2/dmi_util.c:246 modules/computer.c:459 modules/computer.c:461
+#: modules/computer.c:472 modules/computer.c:474 modules/computer.c:498
+#: modules/computer.c:500
 msgid "Laptop"
 msgstr "Portable"
 
@@ -424,27 +424,15 @@ msgstr "Mini PC"
 msgid "Stick PC"
 msgstr "Stick PC"
 
-#: hardinfo2/dt_util.c:1175
-msgid "phandle Map"
-msgstr "Map Descriptif"
-
-#: hardinfo2/dt_util.c:1176
-msgid "Alias Map"
-msgstr "Map Alias"
-
-#: hardinfo2/dt_util.c:1177
-msgid "Symbol Map"
-msgstr "Symbol Map"
-
 #. !/ %d will be latest year of copyright
-#: hardinfo2/hardinfo.c:108
+#: hardinfo2/hardinfo.c:109
 #, c-format
 msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:110
+#: hardinfo2/hardinfo.c:111
 #, c-format
 msgid ""
 "Compile-time options:\n"
@@ -459,153 +447,152 @@ msgid ""
 "  Compiled for   :  %s\n"
 msgstr ""
 
-#: hardinfo2/hardinfo.c:159
+#: hardinfo2/hardinfo.c:160
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
 msgstr "Benchmark inconnu ``%s''\n"
 
-#: hardinfo2/hardinfo.c:261
+#: hardinfo2/hardinfo.c:262
 msgid "Don't know what to do. Exiting."
 msgstr "Quefaire. Sortir."
 
-#: hardinfo2/usb_util.c:296 modules/devices/devicetree.c:90
-#: modules/devices/devicetree.c:91 modules/devices/monitors.c:408
-#: modules/devices/storage.c:310 modules/devices/storage.c:332
+#: hardinfo2/usb_util.c:296 modules/devices/monitors.c:408
+#: modules/devices/storage.c:335 modules/devices/storage.c:357
 msgid "(None)"
 msgstr "(Aucun)"
 
-#: hardinfo2/util.c:114 modules/computer/uptime.c:54
+#: hardinfo2/util.c:130 modules/computer/uptime.c:54
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d jour"
 msgstr[1] "%d jours"
 
-#: hardinfo2/util.c:115 modules/computer/uptime.c:55
+#: hardinfo2/util.c:131 modules/computer/uptime.c:55
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d heure"
 msgstr[1] "%d heures"
 
-#: hardinfo2/util.c:116 modules/computer/uptime.c:56
+#: hardinfo2/util.c:132 modules/computer/uptime.c:56
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minute"
 msgstr[1] "%d minutes"
 
-#: hardinfo2/util.c:117
+#: hardinfo2/util.c:133
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d seconde"
 msgstr[1] "%d secondes"
 
-#: hardinfo2/util.c:138
+#: hardinfo2/util.c:154
 #, c-format
 msgid "%.1f B"
 msgstr "%.1f B"
 
-#: hardinfo2/util.c:140
+#: hardinfo2/util.c:156
 #, c-format
 msgid "%.1f KiB"
 msgstr "%.1f KiB"
 
-#: hardinfo2/util.c:142
+#: hardinfo2/util.c:158
 #, c-format
 msgid "%.1f MiB"
 msgstr "%.1f MiB"
 
-#: hardinfo2/util.c:144
+#: hardinfo2/util.c:160
 #, c-format
 msgid "%.1f GiB"
 msgstr "%.1f GiB"
 
-#: hardinfo2/util.c:146
+#: hardinfo2/util.c:162
 #, c-format
 msgid "%.1f TiB"
 msgstr "%.1f TiB"
 
-#: hardinfo2/util.c:148
+#: hardinfo2/util.c:164
 #, c-format
 msgid "%.1f PiB"
 msgstr "%.1f PiB"
 
-#: hardinfo2/util.c:294
+#: hardinfo2/util.c:305
 msgid "Error"
 msgstr "Erreur"
 
-#: hardinfo2/util.c:294 hardinfo2/util.c:310
+#: hardinfo2/util.c:305 hardinfo2/util.c:321
 msgid "Warning"
 msgstr "Attention"
 
-#: hardinfo2/util.c:309
+#: hardinfo2/util.c:320
 msgid "Fatal Error"
 msgstr "Erreur Fatale"
 
-#: hardinfo2/util.c:338
+#: hardinfo2/util.c:349
 msgid "do not print status messages to standard output"
 msgstr "Ne pas imprimer les messages d'état en sortie standard"
 
-#: hardinfo2/util.c:344
+#: hardinfo2/util.c:355
 msgid "creates a report and prints to standard output"
 msgstr "créer un rapport et imprimer sur la sortie standard"
 
-#: hardinfo2/util.c:350
+#: hardinfo2/util.c:361
 msgid "chooses a report format ([text], html)"
 msgstr "Choisir le format du rapport ([text], html)"
 
-#: hardinfo2/util.c:356
+#: hardinfo2/util.c:367
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr ""
 "Recherche d'un sujet dans le rapport CLI (-t montre les listes possibles)"
 
-#: hardinfo2/util.c:362
+#: hardinfo2/util.c:373
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr ""
 "Recherche d'un sujet dans le rapport CLI en cache (-t montre les listes "
 "possibles) "
 
-#: hardinfo2/util.c:368
+#: hardinfo2/util.c:379
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr ""
 "Lanv=cer un seul Benchmark exp - b 'FPU FFT' (Par défaut tous les Benchmarks "
 "se lancent)"
 
-#: hardinfo2/util.c:374
+#: hardinfo2/util.c:385
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
 "Pour une note d'utilisateur jointe aux résultats de référence. Groupe-"
 "MachineName-ServerRe"
 
-#: hardinfo2/util.c:380
+#: hardinfo2/util.c:391
 msgid "benchmark result format ([short], conf, shell)"
 msgstr "Format Résultat du benchmark ([court], conf, shell)"
 
-#: hardinfo2/util.c:386
+#: hardinfo2/util.c:397
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
 "250)"
 msgstr "Nombre max de benchmark à inclure (-1 aucune limite, par défaut  250)"
 
-#: hardinfo2/util.c:392
+#: hardinfo2/util.c:403
 msgid "shows program version and quit"
 msgstr "Affiche la version du programme et quitter"
 
-#: hardinfo2/util.c:398
+#: hardinfo2/util.c:409
 msgid "do not run benchmarks"
 msgstr "Ne pas activer de Benchmark"
 
-#: hardinfo2/util.c:404
+#: hardinfo2/util.c:415
 msgid "show all details"
 msgstr "Voir tous les détails"
 
-#: hardinfo2/util.c:409
+#: hardinfo2/util.c:420
 msgid "- System Information and Benchmark"
 msgstr "- Informations et référence du système"
 
-#: hardinfo2/util.c:419
+#: hardinfo2/util.c:430
 #, c-format
 msgid ""
 "Unrecognized arguments.\n"
@@ -614,7 +601,7 @@ msgstr ""
 "commandes inconnues.\n"
 "Essayer ``%s --help'' pour plus d'informations.\n"
 
-#: hardinfo2/util.c:460
+#: hardinfo2/util.c:471
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
 "User Note params are optional and usernote can be left blank.\n"
@@ -622,12 +609,12 @@ msgid ""
 "for the return benchmark data from server\n"
 msgstr ""
 
-#: hardinfo2/util.c:915
+#: hardinfo2/util.c:962
 #, c-format
 msgid "Scanning: %s..."
 msgstr "Scanne: %s..."
 
-#: hardinfo2/util.c:925 shell/shell.c:302
+#: hardinfo2/util.c:972 shell/shell.c:304
 msgid "Done."
 msgstr "Réalisé."
 
@@ -639,36 +626,38 @@ msgstr "Mettre à jour la liste des fournisseurs"
 msgid "Check Update Version"
 msgstr "Vérifiez la version à jour"
 
-#: hardinfo2/vendor.c:385 modules/computer.c:564 modules/computer.c:794
-#: modules/computer/os.c:200 modules/computer/os.c:391
-#: modules/computer/os.c:426 modules/computer/os.c:746
-#: modules/computer/os.c:809 modules/devices.c:616 modules/devices.c:767
+#: hardinfo2/vendor.c:385 modules/computer.c:591 modules/computer.c:819
+#: modules/computer/os.c:201 modules/computer/os.c:392
+#: modules/computer/os.c:427 modules/computer/os.c:747
+#: modules/computer/os.c:810 modules/devices.c:616 modules/devices.c:767
 #: modules/devices/firmware.c:151 modules/devices/printers.c:106
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
 #: modules/devices/printers.c:256 modules/devices/spd-decode.c:364
+#: modules/devices/storage.c:389 modules/devices/storage.c:393
+#: modules/devices/storage.c:398 modules/devices/storage.c:407
 #: modules/devices/usb.c:150
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: shell/callbacks.c:497 shell/shell.c:520
+#: shell/callbacks.c:497 shell/shell.c:555
 msgid "System Information and Benchmark"
 msgstr "Informations et référence du système"
 
 #: shell/callbacks.c:501
 msgid ""
-"HardInfo2 est un logiciel libre ; vous pouvez le redistribuer et/ou le modifier "
-"selon les termes de la Licence Publique Générale GNU telle que publiée par la "
-"Free Software Foundation, version 2 ou ultérieure.\n"
+"HardInfo2 is free software; you can redistribute it and/or modify it under "
+"the terms of the GNU General Public License as published by the Free "
+"Software Foundation, version 2 or later.\n"
 "\n"
-"Ce programme est distribué dans l’espoir qu’il sera utile, mais SANS AUCUNE "
-"GARANTIE ; sans même la garantie implicite de QUALITÉ MARCHANDE ou "
-"d’ADÉQUATION À UN USAGE PARTICULIER. Consultez la Licence Publique Générale GNU "
-"pour plus de détails.\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
 "\n"
-"Vous devriez avoir reçu une copie de la Licence Publique Générale GNU avec "
-"ce programme ; si ce n’est pas le cas, écrivez à la Free Software Foundation, "
-"Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 51 "
+"Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
 
 #: shell/menu.c:37
@@ -701,7 +690,9 @@ msgstr "Synchronise"
 
 #: shell/menu.c:52
 msgid "Send benchmark results and receive updated data from the network"
-msgstr "Envoyer les résultats de benchmark et recevoir les données mises à jour depuis le réseau"
+msgstr ""
+"Envoyer les résultats de benchmark et recevoir les données mises à jour "
+"depuis le réseau"
 
 #: shell/menu.c:56 shell/menu.c:57
 msgid "Update Available"
@@ -847,16 +838,16 @@ msgstr "Sélectionner _Tout"
 msgid "_Generate"
 msgstr "_Création"
 
-#: shell/shell.c:238 modules/benchmark/bench_results.c:484
+#: shell/shell.c:240 modules/benchmark/bench_results.c:484
 msgid "Benchmark"
 msgstr "Outil d'évaluation"
 
-#: shell/shell.c:515
+#: shell/shell.c:550
 #, c-format
 msgid "%s - System Information and Benchmark"
 msgstr "%s - Informations système et benchmark"
 
-#: shell/shell.c:663
+#: shell/shell.c:720
 #, c-format
 msgid ""
 "<b>Hardinfo2 not packaged correctly</b>\n"
@@ -875,28 +866,28 @@ msgstr ""
 "\n"
 "Merci de corriger ces paquets en les installant manuellement"
 
-#: shell/shell.c:1110 modules/network.c:566
+#: shell/shell.c:1161 modules/network.c:573
 msgid "Network"
 msgstr "Réseau"
 
-#: shell/shell.c:1683
+#: shell/shell.c:1734
 msgid "URL"
 msgstr ""
 
-#: shell/shell.c:1690
+#: shell/shell.c:1741
 msgid "Support URL"
 msgstr ""
 
-#: shell/shell.c:1701
+#: shell/shell.c:1752
 msgid "Wikipedia"
 msgstr ""
 
-#: shell/shell.c:2037
+#: shell/shell.c:2088
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Résumé</b>"
 
-#: shell/shell.c:2142
+#: shell/shell.c:2193
 msgid "Updating..."
 msgstr "Mise à jour..."
 
@@ -926,7 +917,7 @@ msgstr "(annuler)"
 msgid "(failed)"
 msgstr "(échec)"
 
-#: shell/syncmanager.c:693 modules/benchmark.c:938
+#: shell/syncmanager.c:693 modules/benchmark.c:943
 msgid "Send benchmark results"
 msgstr "Envoyer vos résultats de benchmark"
 
@@ -1050,8 +1041,8 @@ msgstr ""
 #: modules/benchmark/benches.c:368
 msgid "Results in events/second. Higher is better."
 msgstr ""
-"Résultats des événements/secondes. Plus c'est élevé, meilleur est le résultat."
-"résultat."
+"Résultats des événements/secondes. Plus c'est élevé, meilleur est le "
+"résultat.résultat."
 
 #: modules/benchmark/benches.c:373
 msgid "Results in MiB/second. Higher is better."
@@ -1086,12 +1077,12 @@ msgstr "Résultats en FPS. Plus la valeur est élevée, mieux c'est."
 #. * line references
 #: modules/benchmark/bench_results.c:34 modules/computer.c:41
 #: modules/computer/display.c:39 modules/computer/display.c:56
-#: modules/computer/os.c:413 modules/computer/os.c:470 modules/devices.c:746
+#: modules/computer/os.c:414 modules/computer/os.c:471 modules/devices.c:746
 #: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
 #: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
 #: modules/devices/gpu.c:130 modules/devices/gpu.c:216
 #: modules/devices/gpu.c:217 modules/devices/gpu.c:236
-#: modules/devices/inputdevices.c:51 modules/devices/monitors.c:28
+#: modules/devices/inputdevices.c:57 modules/devices/monitors.c:28
 #: modules/devices/monitors.c:29 modules/devices/monitors.c:152
 #: modules/devices/monitors.c:161 modules/devices/pci.c:25
 #: modules/devices/pci.c:170 modules/devices/pci.c:171
@@ -1100,8 +1091,8 @@ msgstr "Résultats en FPS. Plus la valeur est élevée, mieux c'est."
 #: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
 #: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
 #: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27
-#: modules/devices/storage.c:311 modules/devices/storage.c:340
-#: modules/devices/storage.c:451 modules/devices/usb.c:29
+#: modules/devices/storage.c:336 modules/devices/storage.c:365
+#: modules/devices/storage.c:515 modules/devices/usb.c:29
 #: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
 #: includes/spd-decode.h:25
 msgid "(Unknown)"
@@ -1109,7 +1100,7 @@ msgstr "(Inconnu)"
 
 #: modules/benchmark/bench_results.c:263 modules/devices/alpha/processor.c:90
 #: modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524
-#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:778
+#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:783
 #: modules/devices.c:582 modules/devices.c:590 modules/devices.c:618
 #: modules/devices/e2k/processor.c:369 modules/devices/e2k/processor.c:406
 #: modules/devices/gpu.c:125 modules/devices/gpu.c:127
@@ -1120,9 +1111,9 @@ msgstr "(Inconnu)"
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
 #: modules/devices/parisc/processor.c:158
 #: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
-#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:381
-#: modules/devices/riscv/processor.c:394 modules/devices/riscv/processor.c:592
-#: modules/devices/riscv/processor.c:627 modules/devices/s390/processor.c:160
+#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:382
+#: modules/devices/riscv/processor.c:395 modules/devices/riscv/processor.c:593
+#: modules/devices/riscv/processor.c:628 modules/devices/s390/processor.c:160
 #: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
 #: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
 #: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
@@ -1171,7 +1162,7 @@ msgid "%s; %s; %s"
 msgstr ""
 
 #: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
-#: modules/computer.c:999 modules/devices/dmi_memory.c:639
+#: modules/computer.c:1017 modules/devices/dmi_memory.c:639
 #: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
 #: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
 #: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517
@@ -1218,7 +1209,7 @@ msgid "Extra Information"
 msgstr "Informations supplémentaires"
 
 #: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
-#: modules/computer.c:588
+#: modules/computer.c:615
 msgid "Note"
 msgstr "Notes"
 
@@ -1227,21 +1218,22 @@ msgid ""
 "This result is from an old version of HardInfo. Results might not be "
 "comparable to current version. Some details are missing."
 msgstr ""
-"Ce résultat provient d'une ancienne version de HardInfo. Les résultats peuvent ne pas être "
-"comparables à la version actuelle. Certains détails sont manquants."
+"Ce résultat provient d'une ancienne version de HardInfo. Les résultats "
+"peuvent ne pas être comparables à la version actuelle. Certains détails sont "
+"manquants."
 
 #: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494
-#: modules/devices/devicetree/pmac_data.c:81 modules/devices/sh/processor.c:85
+#: modules/devices/sh/processor.c:85
 msgid "Machine"
 msgstr "Machine"
 
 #: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494
-#: modules/devices/devicetree.c:207 modules/devices/dmi.c:48
+#: modules/devices/devicetree.c:130 modules/devices/dmi.c:48
 msgid "Board"
 msgstr "Carte"
 
 #: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
-#: modules/computer.c:527
+#: modules/computer.c:551
 msgid "Machine Type"
 msgstr "Type de machine"
 
@@ -1268,17 +1260,17 @@ msgid "GPU"
 msgstr "GPU"
 
 #: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
-#: modules/computer.c:538
+#: modules/computer.c:562
 msgid "OpenGL Renderer"
 msgstr "OpenGL Rendu"
 
 #: modules/benchmark/bench_results.c:438 modules/benchmark/bench_results.c:507
-#: modules/benchmark.c:590 modules/computer.c:1102 modules/devices.c:109
+#: modules/benchmark.c:590 modules/computer.c:1120 modules/devices.c:109
 msgid "Storage"
 msgstr "Stockage"
 
 #: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
-#: modules/computer.c:140 modules/computer.c:526 modules/computer.c:1101
+#: modules/computer.c:140 modules/computer.c:550 modules/computer.c:1119
 #: modules/devices/gpu.c:212
 msgid "Memory"
 msgstr "Mémoire"
@@ -1359,11 +1351,11 @@ msgstr "Benchmarks"
 msgid "Perform tasks and compare with other systems"
 msgstr "Effectuer des tâches et les comparer avec d'autres systèmes"
 
-#: modules/benchmark.c:944
+#: modules/benchmark.c:949
 msgid "Receive benchmark results"
 msgstr "Recevoir les résultats de benchmark"
 
-#: modules/computer/alsa.c:26 modules/computer.c:542
+#: modules/computer/alsa.c:26 modules/computer.c:566
 msgid "Audio Devices"
 msgstr "Matériels Audio"
 
@@ -1375,7 +1367,7 @@ msgstr "Adapteur Audio"
 msgid "Summary"
 msgstr "Résumé"
 
-#: modules/computer.c:97 modules/computer.c:528 modules/computer.c:1100
+#: modules/computer.c:97 modules/computer.c:552 modules/computer.c:1118
 msgid "Operating System"
 msgstr "Systeme d'exploitation"
 
@@ -1387,7 +1379,7 @@ msgstr "Sécurité"
 msgid "Kernel Modules"
 msgstr "Modules du kernel"
 
-#: modules/computer.c:100 modules/computer.c:706
+#: modules/computer.c:100 modules/computer.c:731
 msgid "Boots"
 msgstr "Boots"
 
@@ -1403,7 +1395,7 @@ msgstr "Usage de Mémoire"
 msgid "Filesystems"
 msgstr "Fichiers Système"
 
-#: modules/computer.c:104 modules/computer.c:534
+#: modules/computer.c:104 modules/computer.c:558
 msgid "Display"
 msgstr "Affichage"
 
@@ -1415,7 +1407,7 @@ msgstr "Variables d'environnement"
 msgid "Development"
 msgstr "Developpement"
 
-#: modules/computer.c:111 modules/computer.c:849
+#: modules/computer.c:111 modules/computer.c:876
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -1428,458 +1420,452 @@ msgstr "Groupes"
 msgid "%dMB (%dMB used)"
 msgstr "%dMB (%dMB utilisées)"
 
-#: modules/computer.c:144 modules/computer.c:584
+#: modules/computer.c:144 modules/computer.c:611
 msgid "Uptime"
 msgstr "durée de fonctionnent"
 
-#: modules/computer.c:146 modules/computer.c:530
+#: modules/computer.c:146 modules/computer.c:554
 msgid "Date/Time"
 msgstr "Date/Heure"
 
-#: modules/computer.c:151 modules/computer.c:585
+#: modules/computer.c:151 modules/computer.c:612
 msgid "Load Average"
 msgstr "Nombre de chargements"
 
-#: modules/computer.c:266
+#: modules/computer.c:268
 msgid "Scripting Languages"
 msgstr "Langage de script"
 
-#: modules/computer.c:267
+#: modules/computer.c:269
 msgid "Gambas3 (gbr3)"
 msgstr "Gambas3 (gbr3)"
 
-#: modules/computer.c:268
+#: modules/computer.c:270
 msgid "Python (default)"
 msgstr "Python (default)"
 
-#: modules/computer.c:269
+#: modules/computer.c:271
 msgid "Python2"
 msgstr "Python2"
 
-#: modules/computer.c:270
+#: modules/computer.c:272
 msgid "Python3"
 msgstr "Python3"
 
-#: modules/computer.c:271
+#: modules/computer.c:273
 msgid "Perl"
 msgstr "Perl"
 
-#: modules/computer.c:272
+#: modules/computer.c:274
 msgid "Rakudo (Perl6)"
 msgstr "Rakudo (Perl6)"
 
-#: modules/computer.c:273
+#: modules/computer.c:275
 msgid "PHP"
 msgstr "PHP"
 
-#: modules/computer.c:274
+#: modules/computer.c:276
 msgid "Ruby"
 msgstr "Ruby"
 
-#: modules/computer.c:275
+#: modules/computer.c:277
 msgid "Bash"
 msgstr "Bash"
 
-#: modules/computer.c:276
+#: modules/computer.c:278
 msgid "JavaScript (Node.js)"
 msgstr "JavaScript (Node.js)"
 
-#: modules/computer.c:277
+#: modules/computer.c:279
 msgid "awk"
 msgstr "awk"
 
-#: modules/computer.c:278
+#: modules/computer.c:280
 msgid "Compilers"
 msgstr "Compilateurs"
 
-#: modules/computer.c:279
+#: modules/computer.c:281
 msgid "C (GCC)"
 msgstr "C (GCC)"
 
-#: modules/computer.c:280
+#: modules/computer.c:282
 msgid "C (Clang)"
 msgstr "C (Clang)"
 
-#: modules/computer.c:281
+#: modules/computer.c:283
 msgid "D (dmd)"
 msgstr "D (dmd)"
 
-#: modules/computer.c:282
+#: modules/computer.c:284
 msgid "Gambas3 (gbc3)"
 msgstr "Gambas3 (gbc3)"
 
-#: modules/computer.c:283
+#: modules/computer.c:285
 msgid "Java"
 msgstr "Java"
 
-#: modules/computer.c:284
+#: modules/computer.c:286
 msgid ".NET"
 msgstr ""
 
-#: modules/computer.c:285
+#: modules/computer.c:287
 msgid "Vala"
 msgstr "Vala"
 
-#: modules/computer.c:286
+#: modules/computer.c:288
 msgid "Haskell (GHC)"
 msgstr "Haskell (GHC)"
 
-#: modules/computer.c:287
+#: modules/computer.c:289
 msgid "FreePascal"
 msgstr "FreePascal"
 
-#: modules/computer.c:288
+#: modules/computer.c:290
 msgid "Go"
 msgstr "Go"
 
-#: modules/computer.c:289
+#: modules/computer.c:291
 msgid "Rust"
 msgstr "Rust"
 
-#: modules/computer.c:290
+#: modules/computer.c:292
 msgid "Tools"
 msgstr "Outils"
 
-#: modules/computer.c:291
+#: modules/computer.c:293
 msgid "make"
 msgstr "make"
 
-#: modules/computer.c:292
+#: modules/computer.c:294
 msgid "ninja"
 msgstr "ninja"
 
-#: modules/computer.c:293
+#: modules/computer.c:295
 msgid "GDB"
 msgstr ""
 
-#: modules/computer.c:294
+#: modules/computer.c:296
 msgid "LLDB"
 msgstr ""
 
-#: modules/computer.c:295
+#: modules/computer.c:297
 msgid "strace"
 msgstr ""
 
-#: modules/computer.c:296
+#: modules/computer.c:298
 msgid "valgrind"
 msgstr ""
 
-#: modules/computer.c:297
+#: modules/computer.c:299
 msgid "QMake"
 msgstr ""
 
-#: modules/computer.c:298
+#: modules/computer.c:300
 msgid "CMake"
 msgstr ""
 
-#: modules/computer.c:299
+#: modules/computer.c:301
 msgid "Gambas3 IDE"
 msgstr ""
 
-#: modules/computer.c:300
+#: modules/computer.c:302
 msgid "Radare2"
 msgstr ""
 
-#: modules/computer.c:301
+#: modules/computer.c:303
 msgid "ltrace"
 msgstr ""
 
-#: modules/computer.c:302
+#: modules/computer.c:304
 msgid "Powershell"
 msgstr ""
 
-#: modules/computer.c:343
+#: modules/computer.c:345
 msgid "Not found"
 msgstr "Non trouvé"
 
-#: modules/computer.c:348
-#, c-format
-msgid "Detecting version: %s"
-msgstr "Version détectée: %s"
-
-#: modules/computer.c:366
+#: modules/computer.c:367
 msgid "Program"
 msgstr "Programme"
 
-#: modules/computer.c:366 modules/computer.c:566 modules/computer.c:568
-#: modules/computer.c:772 modules/computer/modules.c:224
+#: modules/computer.c:367 modules/computer.c:593 modules/computer.c:595
+#: modules/computer.c:797 modules/computer/modules.c:197
 #: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
 #: modules/devices/dmi.c:57 modules/devices/firmware.c:75
-#: modules/devices/inputdevices.c:146 modules/devices/monitors.c:406
+#: modules/devices/inputdevices.c:173 modules/devices/monitors.c:406
 msgid "Version"
 msgstr "Version"
 
-#: modules/computer.c:385
+#: modules/computer.c:386
 msgid "Field"
 msgstr "Champ"
 
-#: modules/computer.c:385 modules/computer.c:695 modules/computer/modules.c:222
-#: modules/computer/modules.c:223 modules/devices/arm/processor.c:742
-#: modules/devices/riscv/processor.c:553
+#: modules/computer.c:386 modules/computer.c:720 modules/computer/modules.c:195
+#: modules/computer/modules.c:196 modules/devices/arm/processor.c:747
+#: modules/devices/riscv/processor.c:554
 msgid "Description"
 msgstr "Description"
 
-#: modules/computer.c:385 modules/devices.c:1003
+#: modules/computer.c:386 modules/devices.c:1003
 msgid "Value"
 msgstr "Valeur"
 
-#: modules/computer.c:400 modules/computer.c:402
+#: modules/computer.c:401 modules/computer.c:403
 msgid "Virtual (Xen)"
 msgstr "Virtualisation (Xen"
 
-#: modules/computer.c:409 modules/computer.c:411
+#: modules/computer.c:410 modules/computer.c:412
 msgid "Virtual (VirtualBox)"
 msgstr "Virtualisation (VirtualBox)"
 
-#: modules/computer.c:416 modules/computer.c:418
+#: modules/computer.c:417 modules/computer.c:419
 msgid "Virtual (VMware)"
 msgstr "Virtualisation (VMware)"
 
-#: modules/computer.c:426 modules/computer.c:428
+#: modules/computer.c:427 modules/computer.c:429
 msgid "Virtual (QEMU)"
 msgstr "Virtualisation (QEMU)"
 
-#: modules/computer.c:436 modules/computer.c:438
+#: modules/computer.c:437 modules/computer.c:439
 msgid "Virtual (WSL2)"
 msgstr ""
 
-#: modules/computer.c:451 modules/computer.c:453
+#: modules/computer.c:452 modules/computer.c:454
 msgid "Single-board computer"
 msgstr "Ordinateur monocarte"
 
-#: modules/computer.c:510 modules/computer.c:512
+#: modules/computer.c:511 modules/computer.c:513
 msgid "Unknown physical machine type"
 msgstr "Type de machine inconnu"
 
-#: modules/computer.c:524 modules/computer.c:1054
+#: modules/computer.c:548 modules/computer.c:1072
 msgid "Computer"
 msgstr "Ordinateur"
 
-#: modules/computer.c:529 modules/computer.c:578
+#: modules/computer.c:553 modules/computer.c:605
 msgid "User Name"
 msgstr "Utilisateur"
 
-#: modules/computer.c:535
+#: modules/computer.c:559
 msgid "Resolution"
 msgstr "Résolution"
 
-#: modules/computer.c:535 modules/computer.c:777
+#: modules/computer.c:559 modules/computer.c:802
 #, c-format
 msgid "%dx%d pixels"
 msgstr "%dx%d pixels"
 
-#: modules/computer.c:537
+#: modules/computer.c:561
 msgid "Display Adapter"
 msgstr "Carte graphique"
 
-#: modules/computer.c:539
+#: modules/computer.c:563
 msgid "Session Display Server"
 msgstr "Serveur d'affichage de session"
 
-#: modules/computer.c:543 modules/devices.c:108
+#: modules/computer.c:567 modules/devices.c:108
 msgid "Input Devices"
 msgstr "Périphériques d'entrée"
 
-#: modules/computer.c:566
+#: modules/computer.c:593
 msgid "Kernel"
 msgstr ""
 
-#: modules/computer.c:567
+#: modules/computer.c:594
 msgid "Command Line"
 msgstr "Ligne de commande"
 
-#: modules/computer.c:569
+#: modules/computer.c:596
 msgid "C Library"
 msgstr ""
 
-#: modules/computer.c:570
+#: modules/computer.c:597
 msgid "Distribution"
 msgstr ""
 
-#: modules/computer.c:576
+#: modules/computer.c:603
 msgid "Current Session"
 msgstr "Session en cours"
 
-#: modules/computer.c:577
+#: modules/computer.c:604
 msgid "Computer Name"
 msgstr "Nom de l'Ordinateur"
 
-#: modules/computer.c:579 modules/computer/languages.c:99
+#: modules/computer.c:606 modules/computer/languages.c:99
 msgid "Language"
 msgstr "Langue"
 
-#: modules/computer.c:580 modules/computer/users.c:52
+#: modules/computer.c:607 modules/computer/users.c:52
 msgid "Home Directory"
 msgstr "Dossier Home"
 
-#: modules/computer.c:581
+#: modules/computer.c:608
 msgid "Desktop Environment"
 msgstr "Environnement de bureau"
 
-#: modules/computer.c:584
+#: modules/computer.c:611
 msgid "Misc"
 msgstr "Divers"
 
-#: modules/computer.c:589
+#: modules/computer.c:616
 msgid "Logo"
 msgstr ""
 
-#: modules/computer.c:589
+#: modules/computer.c:616
 msgid "belongs to distro and may be reg. trademark"
 msgstr "appartient à la distribution et possiblement une marque déposée"
 
-#: modules/computer.c:608
+#: modules/computer.c:634
 msgid "Root Only System"
 msgstr "Accès Root seulement"
 
-#: modules/computer.c:609
+#: modules/computer.c:635
 msgid "Single User System"
 msgstr "Systême utilisateur unique"
 
-#: modules/computer.c:610
+#: modules/computer.c:636
 msgid "Multi User System"
 msgstr "Systême utilisateur multiple"
 
-#: modules/computer.c:618
+#: modules/computer.c:643
 msgid "HardInfo2"
 msgstr ""
 
-#: modules/computer.c:619
+#: modules/computer.c:644
 msgid "HardInfo2 running as"
 msgstr ""
 
-#: modules/computer.c:619
+#: modules/computer.c:644
 msgid "Superuser"
 msgstr ""
 
-#: modules/computer.c:619
+#: modules/computer.c:644
 msgid "User"
 msgstr ""
 
-#: modules/computer.c:620
+#: modules/computer.c:645
 msgid "User System Type"
 msgstr ""
 
-#: modules/computer.c:620
+#: modules/computer.c:645
 msgid "Hardinfo2 Service not enabled/started"
 msgstr "Service Hardinfo2 non activé/démarré"
 
-
-#: modules/computer.c:624
+#: modules/computer.c:649
 msgid "Health"
 msgstr "Santé"
 
-#: modules/computer.c:626
+#: modules/computer.c:651
 msgid "Available entropy in /dev/random"
 msgstr "Entropie disponible dans /dev/random"
 
-#: modules/computer.c:632
+#: modules/computer.c:657
 msgid "Hardening Features"
 msgstr "Fonctionnalités de renforcement"
 
-#: modules/computer.c:633
+#: modules/computer.c:658
 msgid "ASLR"
 msgstr ""
 
-#: modules/computer.c:634
+#: modules/computer.c:659
 msgid "dmesg"
 msgstr ""
 
-#: modules/computer.c:639
+#: modules/computer.c:664
 msgid "Linux Security Modules"
 msgstr ""
 
-#: modules/computer.c:640
+#: modules/computer.c:665
 msgid "Modules available"
 msgstr "Modules disponibles"
 
-#: modules/computer.c:641
+#: modules/computer.c:666
 msgid "SELinux status"
 msgstr "Statut de SELinux"
 
-#: modules/computer.c:647
+#: modules/computer.c:672
 msgid "CPU Vulnerabilities"
 msgstr "Vulnérabilités du CPU"
 
-#: modules/computer.c:692
+#: modules/computer.c:717
 msgid "Loaded Modules"
 msgstr "Modules chargés"
 
-#: modules/computer.c:694 modules/computer.c:722 modules/computer.c:862
-#: modules/computer/languages.c:95 modules/computer/modules.c:222
-#: modules/devices/arm/processor.c:741 modules/devices/dmi.c:38
+#: modules/computer.c:719 modules/computer.c:747 modules/computer.c:889
+#: modules/computer/languages.c:95 modules/computer/modules.c:195
+#: modules/devices/arm/processor.c:746 modules/devices/dmi.c:38
 #: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:364
 #: modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160
-#: modules/devices/inputdevices.c:141 modules/devices/monitors.c:400
-#: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:552
+#: modules/devices/inputdevices.c:168 modules/devices/monitors.c:400
+#: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:553
 #: modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:752
-#: modules/network.c:490
+#: modules/network.c:497
 msgid "Name"
 msgstr "Nom"
 
-#: modules/computer.c:708
+#: modules/computer.c:733
 msgid "Date & Time"
 msgstr "Date et Heure"
 
-#: modules/computer.c:709
+#: modules/computer.c:734
 msgid "Kernel Version"
 msgstr ""
 
-#: modules/computer.c:719
+#: modules/computer.c:744
 msgid "Available Languages"
 msgstr "Langues disponibles"
 
-#: modules/computer.c:721
+#: modules/computer.c:746
 msgid "Language Code"
 msgstr "Langage Code"
 
-#: modules/computer.c:733
+#: modules/computer.c:758
 msgid "Mounted File Systems"
 msgstr "Systèmes de fichiers montés"
 
-#: modules/computer.c:735 modules/computer/filesystem.c:89
+#: modules/computer.c:760 modules/computer/filesystem.c:89
 msgid "Mount Point"
 msgstr "Point de montage"
 
-#: modules/computer.c:736
+#: modules/computer.c:761
 msgid "Usage"
 msgstr ""
 
-#: modules/computer.c:737 modules/devices/arm/processor.c:795
+#: modules/computer.c:762 modules/devices/arm/processor.c:800
 #: modules/devices.c:1027 modules/devices.c:1041
 #: modules/devices/e2k/processor.c:422 modules/devices/gpu.c:85
 #: modules/devices/gpu.c:93 modules/devices/gpu.c:299 modules/devices/pci.c:123
 #: modules/devices/pci.c:131 modules/devices/pci.c:175
-#: modules/devices/riscv/processor.c:644 modules/devices/storage.c:48
+#: modules/devices/riscv/processor.c:645 modules/devices/storage.c:48
 #: modules/devices/storage.c:57 modules/devices/usb.c:173
 #: modules/devices/usb.c:185 modules/devices/x86/processor.c:814
 msgid "Device"
 msgstr "Périphérique"
 
-#: modules/computer.c:760
+#: modules/computer.c:785
 msgid "Session"
 msgstr ""
 
-#: modules/computer.c:761 modules/devices.c:1004 modules/devices.c:1041
+#: modules/computer.c:786 modules/devices.c:1004 modules/devices.c:1041
 #: modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729
-#: modules/devices/inputdevices.c:142 modules/devices/spd-decode.c:1540
+#: modules/devices/inputdevices.c:169 modules/devices/spd-decode.c:1540
 #: modules/devices/x86/processor.c:715
 msgid "Type"
 msgstr ""
 
-#: modules/computer.c:764
+#: modules/computer.c:789
 msgid "Wayland"
 msgstr ""
 
-#: modules/computer.c:765 modules/computer.c:770
+#: modules/computer.c:790 modules/computer.c:795
 msgid "Current Display Name"
 msgstr "Nom de l'affichage actuel"
 
-#: modules/computer.c:769
+#: modules/computer.c:794
 msgid "X Server"
 msgstr ""
 
-#: modules/computer.c:771 modules/computer.c:811 modules/computer.c:834
+#: modules/computer.c:796 modules/computer.c:836 modules/computer.c:859
 #: modules/devices.c:1041 modules/devices/dmi.c:40 modules/devices/dmi.c:46
 #: modules/devices/dmi.c:50 modules/devices/dmi.c:55
 #: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873
@@ -1887,199 +1873,202 @@ msgstr ""
 #: modules/devices/firmware.c:169 modules/devices/firmware.c:174
 #: modules/devices/firmware.c:221 modules/devices/gpu.c:84
 #: modules/devices/gpu.c:92 modules/devices/gpu.c:298
-#: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:144
+#: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:171
 #: modules/devices/monitors.c:399 modules/devices/pci.c:122
 #: modules/devices/pci.c:130 modules/devices/storage.c:47
-#: modules/devices/storage.c:56 modules/devices/storage.c:286
-#: modules/devices/storage.c:593 modules/devices/storage.c:798
+#: modules/devices/storage.c:56 modules/devices/storage.c:311
+#: modules/devices/storage.c:657 modules/devices/storage.c:862
 #: modules/devices/usb.c:172 modules/devices/x86/processor.c:654
 msgid "Vendor"
 msgstr "Fabricant"
 
-#: modules/computer.c:773
+#: modules/computer.c:798
 msgid "Release Number"
 msgstr "Numéro de version"
 
-#: modules/computer.c:781
+#: modules/computer.c:806
 msgid "Screens"
 msgstr "Ecrans"
 
-#: modules/computer.c:787
+#: modules/computer.c:812
 msgid "Disconnected"
 msgstr "Déconnecté"
 
-#: modules/computer.c:790
+#: modules/computer.c:815
 msgid "Connected"
 msgstr "Connecté"
 
-#: modules/computer.c:798
+#: modules/computer.c:823
 msgid "Unused"
 msgstr "Non utilisé"
 
-#: modules/computer.c:799
+#: modules/computer.c:824
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
 msgstr ""
 
-#: modules/computer.c:808
+#: modules/computer.c:833
 msgid "Outputs (XRandR)"
 msgstr ""
 
-#: modules/computer.c:810
+#: modules/computer.c:835
 msgid "OpenGL (GLX)"
 msgstr ""
 
-#: modules/computer.c:812
+#: modules/computer.c:837
 msgid "Renderer"
 msgstr "Moteur de rendu"
 
-#: modules/computer.c:813
+#: modules/computer.c:838
 msgid "Direct Rendering"
 msgstr "Rendu en direct"
 
-#: modules/computer.c:814 modules/computer/modules.c:204
-#: modules/computer/modules.c:205 modules/devices/inputdevices.c:153
+#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/inputdevices.c:180
 #: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
 #: modules/devices/spd-decode.c:1135
 msgid "Yes"
 msgstr "Oui"
 
-#: modules/computer.c:814 modules/computer/modules.c:204
-#: modules/computer/modules.c:205 modules/devices/printers.c:145
+#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/printers.c:145
 #: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
 msgid "No"
 msgstr "Non"
 
-#: modules/computer.c:815
+#: modules/computer.c:840
 msgid "Version (Compatibility)"
 msgstr "Version (compatible)"
 
-#: modules/computer.c:816
+#: modules/computer.c:841
 msgid "Shading Language Version (Compatibility)"
 msgstr "Version du langage de shading (compatibilité)"
 
-#: modules/computer.c:817
+#: modules/computer.c:842
 msgid "Version (Core)"
 msgstr "Version (Coeur)"
 
-#: modules/computer.c:818
+#: modules/computer.c:843
 msgid "Shading Language Version (Core)"
 msgstr "Version du langage de shading (noyau)"
 
-#: modules/computer.c:819
+#: modules/computer.c:844
 msgid "Version (ES)"
 msgstr ""
 
-#: modules/computer.c:820
+#: modules/computer.c:845
 msgid "Shading Language Version (ES)"
 msgstr ""
 
-#: modules/computer.c:821
+#: modules/computer.c:846
 msgid "GLX Version"
 msgstr ""
 
-#: modules/computer.c:829
+#: modules/computer.c:854
 msgid "Vulkan"
 msgstr ""
 
-#: modules/computer.c:830
+#: modules/computer.c:855
 msgid "Instance Version"
 msgstr ""
 
-#: modules/computer.c:832
+#: modules/computer.c:857
 msgid "Api Version"
 msgstr ""
 
-#: modules/computer.c:833
+#: modules/computer.c:858
 msgid "Driver Version"
 msgstr ""
 
-#: modules/computer.c:835
+#: modules/computer.c:860
 msgid "Device Type"
 msgstr ""
 
-#: modules/computer.c:836
+#: modules/computer.c:861
 msgid "Device Name"
 msgstr "Nom du périphérique"
 
-#: modules/computer.c:837
+#: modules/computer.c:862
 msgid "Driver Name"
 msgstr "Nom du driver"
 
-#: modules/computer.c:838
+#: modules/computer.c:863
 msgid "Driver Info"
 msgstr "Infos Driver"
 
-#: modules/computer.c:839
+#: modules/computer.c:864
 msgid "Conformance Version"
 msgstr "Version de conformité"
 
-#: modules/computer.c:860
+#: modules/computer.c:887
 msgid "Group"
 msgstr "Groupe"
 
-#: modules/computer.c:863 modules/computer/users.c:51
+#: modules/computer.c:890 modules/computer/users.c:51
 msgid "Group ID"
 msgstr "ID groupe"
 
-#: modules/computer.c:995
+#: modules/computer.c:1013
 #, c-format
 msgid "%0.1f %s available to Linux"
 msgstr "%0.1f %s disponible(s) pour Linux"
 
-#: modules/computer.c:997 modules/devices/dmi_memory.c:637
+#: modules/computer.c:1015 modules/devices/dmi_memory.c:637
 #: modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789
 #: modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1515
 msgid "GiB"
 msgstr ""
 
-#: modules/computer.c:1001 modules/computer/memory_usage.c:73
-#: modules/computer/modules.c:222
+#: modules/computer.c:1019 modules/computer/memory_usage.c:73
+#: modules/computer/modules.c:195
 msgid "KiB"
 msgstr ""
 
-#: modules/computer.c:1073 modules/devices/devicetree/pmac_data.c:82
+#: modules/computer.c:1091
 msgid "Motherboard"
 msgstr "Carte Mère"
 
-#: modules/computer.c:1101
+#: modules/computer.c:1119
 msgid "Graphics"
 msgstr "Graphiques"
 
-#: modules/computer.c:1102 modules/devices.c:105
+#: modules/computer.c:1120 modules/devices.c:105
 msgid "Printers"
 msgstr "Imprimantes"
 
-#: modules/computer.c:1102
+#: modules/computer.c:1120
 msgid "Audio"
 msgstr ""
 
-#: modules/computer.c:1153
+#: modules/computer.c:1171
 msgid "Gathers high-level computer information"
 msgstr "Collecte des informations de l'ordinateur"
 
-#: modules/computer.c:1164
+#: modules/computer.c:1182
 msgid "<i><b>lsmod</b></i> is required."
 msgstr ""
 
-#: modules/computer.c:1172
+#: modules/computer.c:1190
 msgid ""
 "X.org's <i><b>xrandr</b></i> utility provides additional details when "
 "available."
 msgstr ""
-"L'utilitaire <i><b>xrandr</b></i> de X.org fournit des détails supplémentaires lorsqu'ils sont disponibles."
+"L'utilitaire <i><b>xrandr</b></i> de X.org fournit des détails "
+"supplémentaires lorsqu'ils sont disponibles."
 
-#: modules/computer.c:1173
+#: modules/computer.c:1191
 msgid ""
 "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr ""
-"L'utilitaire <i><b>glxinfo</b></i> de Mesa est requis pour obtenir des informations OpenGL."
+"L'utilitaire <i><b>glxinfo</b></i> de Mesa est requis pour obtenir des "
+"informations OpenGL."
 
-#: modules/computer.c:1174
+#: modules/computer.c:1192
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
-"L'utilitaire <i><b>vulkaninfo</b></i> de Vulkan est requis pour obtenir des informations sur Vulkan."
+"L'utilitaire <i><b>vulkaninfo</b></i> de Vulkan est requis pour obtenir des "
+"informations sur Vulkan."
 
 #: modules/computer/filesystem.c:87
 msgid "Filesystem"
@@ -2163,7 +2152,8 @@ msgstr "Mémoire virtuelle, espace d'échange restant disponible"
 
 #: modules/computer/memory_usage.c:135
 msgid "Memory present within main memory and in the swapfile"
-msgstr "Mémoire présente dans la mémoire principale et dans le fichier d'échange"
+msgstr ""
+"Mémoire présente dans la mémoire principale et dans le fichier d'échange"
 
 #: modules/computer/memory_usage.c:136
 msgid "HighTotal value can vary based on the type of kernel used"
@@ -2171,7 +2161,8 @@ msgstr "La valeur HighTotal peut varier selon le type de noyau utilisé"
 
 #: modules/computer/memory_usage.c:137
 msgid "Amount of memory that is not directly mapped into kernel space"
-msgstr "Quantité de mémoire qui n'est pas directement mappée dans l'espace noyau"
+msgstr ""
+"Quantité de mémoire qui n'est pas directement mappée dans l'espace noyau"
 
 #: modules/computer/memory_usage.c:138
 msgid "LowTotal value can vary based on the type of kernel used"
@@ -2183,15 +2174,21 @@ msgstr "Mémoire totale et libre directement mappée dans l'espace noyau"
 
 #: modules/computer/memory_usage.c:140
 msgid "Available memory for allocation to any process, without swapping"
-msgstr "Mémoire disponible pour allocation à n'importe quel processus, sans échange sur disque"
+msgstr ""
+"Mémoire disponible pour allocation à n'importe quel processus, sans échange "
+"sur disque"
 
 #: modules/computer/memory_usage.c:141
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
-msgstr "Mémoire dans le cache tampon, stockage temporaire pour les blocs bruts du disque"
+msgstr ""
+"Mémoire dans le cache tampon, stockage temporaire pour les blocs bruts du "
+"disque"
 
 #: modules/computer/memory_usage.c:142
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
-msgstr "Mémoire dans le cache de pages (cache disque, mémoire partagée, tmpfs et shmem)"
+msgstr ""
+"Mémoire dans le cache de pages (cache disque, mémoire partagée, tmpfs et "
+"shmem)"
 
 #: modules/computer/memory_usage.c:143
 msgid "Memory used more recently and not swapped out or reclaimed"
@@ -2215,11 +2212,13 @@ msgstr "Mémoire du cache de pages utilisée récemment et non récupérée"
 
 #: modules/computer/memory_usage.c:148
 msgid "Pagecache memory reclaimable without huge performance impact"
-msgstr "Mémoire du cache de pages récupérable sans impact majeur sur les performances"
+msgstr ""
+"Mémoire du cache de pages récupérable sans impact majeur sur les performances"
 
 #: modules/computer/memory_usage.c:149
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
-msgstr "Les pages inéjectables ne peuvent pas être échangées pour diverses raisons"
+msgstr ""
+"Les pages inéjectables ne peuvent pas être échangées pour diverses raisons"
 
 #: modules/computer/memory_usage.c:150
 msgid "Pages locked to memory using the mlock() system call"
@@ -2243,7 +2242,9 @@ msgstr "Mémoire actuellement en cours d'écriture sur le disque"
 
 #: modules/computer/memory_usage.c:155
 msgid "Non-file backed pages mapped into userspace page tables"
-msgstr "Pages non liées à des fichiers mappées dans les tables de pages de l'espace utilisateur"
+msgstr ""
+"Pages non liées à des fichiers mappées dans les tables de pages de l'espace "
+"utilisateur"
 
 #: modules/computer/memory_usage.c:156
 msgid "Files which have been mmapped, such as libraries"
@@ -2287,7 +2288,8 @@ msgstr "Pages comptées précédemment et écrites sur le serveur"
 
 #: modules/computer/memory_usage.c:166
 msgid "Memory used for block device bounce buffers"
-msgstr "Mémoire utilisée pour les tampons intermédiaires des périphériques bloc"
+msgstr ""
+"Mémoire utilisée pour les tampons intermédiaires des périphériques bloc"
 
 #: modules/computer/memory_usage.c:167
 msgid "Memory used by FUSE for temporary writeback buffers"
@@ -2323,7 +2325,9 @@ msgstr "Quantité de mémoire identifiée comme corrompue par le noyau"
 
 #: modules/computer/memory_usage.c:175
 msgid "Non-file backed huge pages mapped into userspace page tables"
-msgstr "Pages énormes non liées à des fichiers mappées dans les tables de pages de l'espace utilisateur"
+msgstr ""
+"Pages énormes non liées à des fichiers mappées dans les tables de pages de "
+"l'espace utilisateur"
 
 #: modules/computer/memory_usage.c:176
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
@@ -2331,11 +2335,14 @@ msgstr "Mémoire utilisée par shmem et tmpfs allouée avec des pages énormes"
 
 #: modules/computer/memory_usage.c:177
 msgid "Shared memory mapped into userspace with huge pages"
-msgstr "Mémoire partagée mappée dans l'espace utilisateur avec des pages énormes"
+msgstr ""
+"Mémoire partagée mappée dans l'espace utilisateur avec des pages énormes"
 
 #: modules/computer/memory_usage.c:178
 msgid "Memory used for fs data (page cache) allocated with huge pages"
-msgstr "Mémoire utilisée pour les données du système de fichiers (cache de pages) allouée avec des pages énormes"
+msgstr ""
+"Mémoire utilisée pour les données du système de fichiers (cache de pages) "
+"allouée avec des pages énormes"
 
 #: modules/computer/memory_usage.c:179
 msgid "Page cache mapped into userspace with huge pages"
@@ -2371,11 +2378,13 @@ msgstr "Nombre de pages énormes excédentaires"
 
 #: modules/computer/memory_usage.c:187
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr "Taille des pages énormes, utilisée en conjonction avec le paramètre hugepages"
+msgstr ""
+"Taille des pages énormes, utilisée en conjonction avec le paramètre hugepages"
 
 #: modules/computer/memory_usage.c:188
 msgid "Total amount of memory consumed by huge pages of all sizes"
-msgstr "Quantité totale de mémoire consommée par les pages énormes de toutes tailles"
+msgstr ""
+"Quantité totale de mémoire consommée par les pages énormes de toutes tailles"
 
 #: modules/computer/memory_usage.c:189
 msgid "Breakdown of page table sizes of 4k size"
@@ -2389,158 +2398,158 @@ msgstr "Répartition des tailles des tables de pages de 2 Mo"
 msgid "Breakdown of page table sizes of 1G size"
 msgstr "Répartition des tailles des tables de pages de 1 Go"
 
-#: modules/computer/modules.c:50
+#: modules/computer/modules.c:34
 msgid "Update kernel module icon table"
 msgstr "Mettre à jour la table des icônes des modules du noyau"
 
-#: modules/computer/modules.c:190 modules/computer/modules.c:191
-#: modules/computer/modules.c:192 modules/computer/modules.c:193
-#: modules/computer/modules.c:194 modules/computer/modules.c:195
+#: modules/computer/modules.c:163 modules/computer/modules.c:164
+#: modules/computer/modules.c:165 modules/computer/modules.c:166
+#: modules/computer/modules.c:167 modules/computer/modules.c:168
 #: modules/devices/dmi.c:117 modules/devices/firmware.c:246
 #: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
 msgid "(Not available)"
 msgstr "(Non disponible)"
 
-#: modules/computer/modules.c:221
+#: modules/computer/modules.c:194
 msgid "Module Information"
 msgstr "Informations sur le module"
 
-#: modules/computer/modules.c:221 modules/devices/gpu.c:304
+#: modules/computer/modules.c:194 modules/devices/gpu.c:304
 msgid "Path"
 msgstr "Chemin"
 
-#: modules/computer/modules.c:221
+#: modules/computer/modules.c:194
 msgid "Used Memory"
 msgstr "Mémoire utilisée"
 
-#: modules/computer/modules.c:223
+#: modules/computer/modules.c:196
 msgid "Version Magic"
 msgstr "Version magique"
 
-#: modules/computer/modules.c:224
+#: modules/computer/modules.c:197
 msgid "In Linus' Tree"
 msgstr "Dans l'arbre de Linus"
 
-#: modules/computer/modules.c:225
+#: modules/computer/modules.c:198
 msgid "Retpoline Enabled"
 msgstr "Retpoline activé"
 
-#: modules/computer/modules.c:225
+#: modules/computer/modules.c:198
 msgid "Copyright"
 msgstr "Droits d'auteur"
 
-#: modules/computer/modules.c:225
+#: modules/computer/modules.c:198
 msgid "Author"
 msgstr "Auteur"
 
-#: modules/computer/modules.c:226
+#: modules/computer/modules.c:199
 msgid "License"
 msgstr "Licence"
 
-#: modules/computer/modules.c:232
+#: modules/computer/modules.c:205
 msgid "Dependencies"
 msgstr "Dépendances"
 
-#: modules/computer/os.c:158 modules/computer/os.c:159
-#: modules/computer/os.c:161 modules/computer/os.c:162
+#: modules/computer/os.c:157 modules/computer/os.c:158
+#: modules/computer/os.c:160 modules/computer/os.c:161
 msgid "GNU C Library"
 msgstr "Bibliothèque C GNU"
 
-#: modules/computer/os.c:160
+#: modules/computer/os.c:159
 msgid "musl C Library"
 msgstr "Bibliothèque C musl"
 
-#: modules/computer/os.c:163
+#: modules/computer/os.c:162
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc ou uClibc-ng"
 
-#: modules/computer/os.c:164
+#: modules/computer/os.c:163
 msgid "diet libc"
 msgstr "diet libc"
 
-#: modules/computer/os.c:237 modules/computer/os.c:240
+#: modules/computer/os.c:238 modules/computer/os.c:242
 msgid "GNOME Shell "
 msgstr ""
 
-#: modules/computer/os.c:250 modules/computer/os.c:253
+#: modules/computer/os.c:251 modules/computer/os.c:255
 msgid "Version: "
 msgstr ""
 
-#: modules/computer/os.c:273 modules/computer/os.c:276
+#: modules/computer/os.c:274 modules/computer/os.c:278
 msgid "MATE Desktop Environment "
 msgstr ""
 
-#: modules/computer/os.c:312
+#: modules/computer/os.c:313
 #, c-format
 msgid "Unknown (Window Manager: %s)"
 msgstr "(gestionnaire de fenêtres: %s) inconnu"
 
 #. !/{desktop environment} on {session type}
-#: modules/computer/os.c:323
+#: modules/computer/os.c:324
 #, c-format
 msgid "%s on %s"
 msgstr ""
 
-#: modules/computer/os.c:389
+#: modules/computer/os.c:390
 msgid "Terminal"
 msgstr "Terminal"
 
-#: modules/computer/os.c:405
+#: modules/computer/os.c:406
 msgid "User access allowed"
 msgstr "Accès utilisateur autorisé"
 
-#: modules/computer/os.c:407
+#: modules/computer/os.c:408
 msgid "User access forbidden"
 msgstr "Accès utilisateur interdit"
 
-#: modules/computer/os.c:409
+#: modules/computer/os.c:410
 msgid "Access allowed (running as superuser)"
 msgstr "Accès autorisé (exécuté en tant que superutilisateur)"
 
-#: modules/computer/os.c:411
+#: modules/computer/os.c:412
 msgid "Access forbidden? (running as superuser)"
 msgstr "Accès interdit ? (exécuté en tant que superutilisateur)"
 
-#: modules/computer/os.c:420 modules/computer/os.c:800
+#: modules/computer/os.c:421 modules/computer/os.c:801
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: modules/computer/os.c:422
+#: modules/computer/os.c:423
 msgid "Partially enabled (mmap base+stack+VDSO base)"
 msgstr "Partiellement activé (base mmap + pile + base VDSO)"
 
-#: modules/computer/os.c:424
+#: modules/computer/os.c:425
 msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
 msgstr "Entièrement activé (base Mmap + pile + base VDSO + heap)"
 
 #. !/bits of entropy for rng (0)
-#: modules/computer/os.c:433
+#: modules/computer/os.c:434
 msgid "(None or not available)"
 msgstr "(Aucun ou non disponible)"
 
 #. !/bits of entropy for rng (low/poor value)
-#: modules/computer/os.c:434
+#: modules/computer/os.c:435
 #, c-format
 msgid "%d bits (low)"
 msgstr "%d bits (lent)"
 
 #. !/bits of entropy for rng (medium value)
-#: modules/computer/os.c:435
+#: modules/computer/os.c:436
 #, c-format
 msgid "%d bits (medium)"
 msgstr "%d bits (moyen)"
 
 #. !/bits of entropy for rng (high/good value)
-#: modules/computer/os.c:436
+#: modules/computer/os.c:437
 #, c-format
 msgid "%d bits (healthy)"
 msgstr "%d bits (élévé)"
 
-#: modules/computer/os.c:795
+#: modules/computer/os.c:796
 msgid "Not installed"
 msgstr "Non installé"
 
-#: modules/computer/os.c:798
+#: modules/computer/os.c:799
 msgid "Enabled"
 msgstr "Disponible"
 
@@ -2556,16 +2565,15 @@ msgstr "ID utilisateur"
 msgid "Default Shell"
 msgstr "Shell par défaut"
 
-#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:795
-#: modules/devices.c:1027 modules/devices/devicetree.c:162
-#: modules/devices/devicetree.c:208 modules/devices/devicetree/pmac_data.c:80
+#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:800
+#: modules/devices.c:1027 modules/devices/devicetree.c:131
 #: modules/devices/e2k/processor.c:367 modules/devices/e2k/processor.c:422
 #: modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165
 #: modules/devices/loongarch64/processor.c:96
 #: modules/devices/m68k/processor.c:84 modules/devices/mips/processor.c:75
 #: modules/devices/monitors.c:401 modules/devices/parisc/processor.c:155
-#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:588
-#: modules/devices/riscv/processor.c:644 modules/devices/s390/processor.c:132
+#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:589
+#: modules/devices/riscv/processor.c:645 modules/devices/s390/processor.c:132
 #: modules/devices/x86/processor.c:814
 msgid "Model"
 msgstr "Modèle"
@@ -2575,12 +2583,12 @@ msgid "Platform String"
 msgstr ""
 
 #: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
-#: modules/devices/arm/processor.c:795 modules/devices/e2k/processor.c:369
+#: modules/devices/arm/processor.c:800 modules/devices/e2k/processor.c:369
 #: modules/devices/e2k/processor.c:422 modules/devices/ia64/processor.c:167
 #: modules/devices/loongarch64/processor.c:98
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
 #: modules/devices/parisc/processor.c:158 modules/devices/ppc/processor.c:160
-#: modules/devices/riscv/processor.c:592 modules/devices/riscv/processor.c:644
+#: modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:645
 #: modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
 #: modules/devices/x86/processor.c:814
 msgid "Frequency"
@@ -2600,7 +2608,7 @@ msgstr ""
 #: modules/devices/loongarch64/processor.c:101
 #: modules/devices/m68k/processor.c:89 modules/devices/mips/processor.c:79
 #: modules/devices/parisc/processor.c:160 modules/devices/ppc/processor.c:162
-#: modules/devices/riscv/processor.c:593 modules/devices/s390/processor.c:135
+#: modules/devices/riscv/processor.c:594 modules/devices/s390/processor.c:135
 #: modules/devices/sh/processor.c:91 modules/devices/sparc/processor.c:77
 #: modules/devices/x86/processor.c:660
 msgid "Byte Order"
@@ -2623,12 +2631,12 @@ msgstr "Chargements et stockages de demi-mots"
 msgctxt "arm-flag"
 msgid "Thumb (16-bit instruction set)"
 msgstr "Thumb (jeu d'instructions 16 bits)"
+
 #. !/flag:26bit
 #: modules/devices/arm/arm_data.c:45
 msgctxt "arm-flag"
 msgid "26-Bit Model (Processor status register folded into program counter)"
-msgstr ""
-"26-Bit Model (Registre d'état du cpu incorporé dans le programme)"
+msgstr "26-Bit Model (Registre d'état du cpu incorporé dans le programme)"
 
 #. !/flag:fastmult
 #: modules/devices/arm/arm_data.c:46
@@ -2892,24 +2900,26 @@ msgstr "Caches"
 #: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr "Niveau %d (%s)#%d=%dx %d Ko (%d Ko), %d voies associatives, %d ensembles\n"
+msgstr ""
+"Niveau %d (%s)#%d=%dx %d Ko (%d Ko), %d voies associatives, %d ensembles\n"
+
 #: modules/devices/arm/processor.c:365
 msgid "ARM Processor"
 msgstr "Processeur ARM"
 
-#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:523
+#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:524
 #: modules/devices/x86/processor.c:609
 msgid "Empty List"
 msgstr "Liste Vide"
 
 #: modules/devices/arm/processor.c:461 modules/devices/gpu.c:210
-#: modules/devices/gpu.c:300 modules/devices/riscv/processor.c:331
+#: modules/devices/gpu.c:300 modules/devices/riscv/processor.c:332
 #: modules/devices/x86/processor.c:267
 msgid "Clocks"
 msgstr ""
 
 #: modules/devices/arm/processor.c:507 modules/devices/arm/processor.c:520
-#: modules/devices/riscv/processor.c:377 modules/devices/riscv/processor.c:390
+#: modules/devices/riscv/processor.c:378 modules/devices/riscv/processor.c:391
 #: modules/devices/x86/processor.c:313 modules/devices/x86/processor.c:326
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
@@ -2940,32 +2950,33 @@ msgid "Part"
 msgstr "Partie"
 
 #: modules/devices/arm/processor.c:576 modules/devices/ia64/processor.c:162
-#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:589
+#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:590
 msgid "Architecture"
 msgstr "Architecture"
 
 #: modules/devices/arm/processor.c:577
 msgid "Variant"
 msgstr "Variante"
-#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:597
+
+#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:598
 #: modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
 msgid "Capabilities"
 msgstr "Capacités"
 
-#: modules/devices/arm/processor.c:740 modules/devices/riscv/processor.c:551
+#: modules/devices/arm/processor.c:745 modules/devices/riscv/processor.c:552
 msgid "SOC/Package"
 msgstr ""
 
-#: modules/devices/arm/processor.c:744 modules/devices/riscv/processor.c:555
+#: modules/devices/arm/processor.c:749 modules/devices/riscv/processor.c:556
 #: modules/devices/x86/processor.c:754
 msgid "Logical CPU Config"
 msgstr ""
 
-#: modules/devices/arm/processor.c:765 modules/devices/riscv/processor.c:612
+#: modules/devices/arm/processor.c:770 modules/devices/riscv/processor.c:613
 msgid "SOC/Package Information"
 msgstr ""
 
-#: modules/devices/arm/processor.c:795 modules/devices/riscv/processor.c:644
+#: modules/devices/arm/processor.c:800 modules/devices/riscv/processor.c:645
 #: modules/devices/x86/processor.c:814
 msgid "Socket:Core"
 msgstr ""
@@ -2991,7 +3002,18 @@ msgstr ""
 "Modele=%s\n"
 "Numéro de série=%s\n"
 
-#: modules/devices/battery.c:262
+#: modules/devices/battery.c:269
+#, c-format
+msgid ""
+"\n"
+"[AC Power Supply: %s]\n"
+"Online=%s\n"
+"AC Power Type=%s\n"
+"Voltage now=%.3f V\n"
+"Voltage max design=%.3f V\n"
+msgstr ""
+
+#: modules/devices/battery.c:283
 #, c-format
 msgid ""
 "\n"
@@ -3000,7 +3022,7 @@ msgid ""
 "AC Power Type=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:299
+#: modules/devices/battery.c:322
 #, c-format
 msgid ""
 "\n"
@@ -3020,7 +3042,7 @@ msgid ""
 "Serial Number=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:412
+#: modules/devices/battery.c:437
 #, c-format
 msgid ""
 "\n"
@@ -3039,7 +3061,7 @@ msgstr ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 
-#: modules/devices/battery.c:424
+#: modules/devices/battery.c:449
 #, c-format
 msgid ""
 "\n"
@@ -3056,7 +3078,7 @@ msgstr ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 
-#: modules/devices/battery.c:453
+#: modules/devices/battery.c:478
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"
@@ -3148,167 +3170,70 @@ msgstr "Mettre à jour les informations des fabricants de cartes SD"
 #: modules/devices.c:1100
 msgid "Update CPU flags database"
 msgstr "Mettre à jour la base de données des indicateurs CPU"
-#: modules/devices.c:1135
+
+#: modules/devices.c:1137
 msgid "Gathers information about hardware devices"
 msgstr "Collecte des informations des périphériques"
 
-#: modules/devices.c:1156
+#: modules/devices.c:1157
 msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
 msgstr ""
 
-#: modules/devices.c:1159
+#: modules/devices.c:1160
 msgid "A full <i><b>pci.ids</b></i> is not available on the system."
 msgstr "Un <i><b>pci.ids</b></i> complet n'est pas disponible sur le système."
 
-#: modules/devices.c:1164 modules/devices/dmi_memory.c:938
+#: modules/devices.c:1167 modules/devices/dmi_memory.c:937
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
-"--now (SystemD distro)\n"
-"Add yourself to hardinfo2 group: sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\n"
-"And Logout/Reboot for groups to be updated..."
-msgstr ""
-"Assurez-vous que le service hardinfo2 est activé et démarré : sudo systemctl enable hardinfo2 "
-"--now (distribution SystemD)\n"
-"Ajoutez-vous au groupe hardinfo2 : sudo groupadd hardinfo2 && \\\n sudo usermod -a -G hardinfo2 $USER\n"
+"--now (SystemD distro)"
+msgstr "Assurez-vous que le service hardinfo2 est activé et démarré: sudo "
+"systemctl enable hardinfo2 --now (distribution SystemD)"
+
+#: modules/devices.c:1168
+msgid ""
+"Add yourself to hardinfo2 group:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"Logout/Reboot for groups to be updated..."
+msgstr "Ajoutez-vous au groupe hardinfo2:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
 "Puis déconnectez-vous/rebootez pour que les groupes soient mis à jour…"
 
-#: modules/devices.c:1170
+#: modules/devices.c:1174
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
 "Les périphériques de stockage NVMe présents ne sont pas listés.\n"
 "<b><i>udisks2</i></b> est requis pour les périphériques NVMe."
-#: modules/devices/devicetree.c:51
-msgid "Properties"
-msgstr "Propriétés"
 
-#: modules/devices/devicetree.c:52
-msgid "Children"
-msgstr ""
-
-#: modules/devices/devicetree.c:88
-msgid "Node"
-msgstr ""
-
-#: modules/devices/devicetree.c:89
-msgid "Node Path"
-msgstr ""
-
-#: modules/devices/devicetree.c:90
-msgid "Alias"
-msgstr ""
-
-#: modules/devices/devicetree.c:91
-msgid "Symbol"
-msgstr "Symbole"
-
-#: modules/devices/devicetree.c:144 modules/devices/devicetree/pmac_data.c:79
-msgid "Platform"
-msgstr "Plateforme"
-
-#: modules/devices/devicetree.c:145 modules/devices/devicetree.c:210
-#: modules/devices/gpu.c:305
-msgid "Compatible"
-msgstr "Similaire"
-
-#: modules/devices/devicetree.c:146
-msgid "GPU-compatible"
-msgstr ""
-
-#: modules/devices/devicetree.c:161
-msgid "Raspberry Pi or Compatible"
-msgstr "Raspberry Pi ou Similaire"
-
-#: modules/devices/devicetree.c:163 modules/devices/devicetree.c:190
-#: modules/devices/devicetree.c:209 modules/devices/devicetree/rpi_data.c:169
-#: modules/devices/dmi.c:42 modules/devices/dmi.c:52 modules/devices/dmi.c:58
+#: modules/devices/devicetree.c:132 modules/devices/dmi.c:42
+#: modules/devices/dmi.c:52 modules/devices/dmi.c:58
 #: modules/devices/spd-decode.c:1546 modules/devices/usb.c:182
 msgid "Serial Number"
 msgstr "Numéro de série"
 
-#: modules/devices/devicetree.c:164 modules/devices/devicetree/rpi_data.c:166
-msgid "RCode"
+#: modules/devices/devicetree.c:133 modules/devices/gpu.c:305
+msgid "Compatible"
+msgstr "Similaire"
+
+#: modules/devices/devicetree.c:248
+msgid "Memory Map"
 msgstr ""
 
-#: modules/devices/devicetree.c:164
-msgid "No revision code available; unable to lookup model details."
-msgstr ""
-"Aucun code de révision n'est disponible; il n'est pas possible de consulter "
-"les détails du modèle."
-
-#: modules/devices/devicetree.c:189
-msgid "More"
-msgstr "Plus"
-
-#: modules/devices/devicetree.c:270
-msgid "Messages"
+#: modules/devices/devicetree.c:249
+msgid "IRQ Map"
 msgstr ""
 
-#: modules/devices/devicetree/pmac_data.c:78
-msgid "Apple Power Macintosh"
-msgstr ""
+#: modules/devices/devicetree.c:250
+msgid "Alias Map"
+msgstr "Map Alias"
 
-#: modules/devices/devicetree/pmac_data.c:83
-msgid "Detected as"
-msgstr "Détecté comme"
+#: modules/devices/devicetree.c:251
+msgid "Symbol Map"
+msgstr "Symbol Map"
 
-#: modules/devices/devicetree/pmac_data.c:84
-msgid "PMAC Flags"
-msgstr ""
-
-#: modules/devices/devicetree/pmac_data.c:85
-msgid "L2 Cache"
-msgstr ""
-
-#: modules/devices/devicetree/pmac_data.c:86
-msgid "PMAC Generation"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:161
-#: modules/devices/devicetree/rpi_data.c:162
-msgid "Raspberry Pi"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:162
-msgid "Board Name"
-msgstr "Nom de la carte"
-
-#: modules/devices/devicetree/rpi_data.c:163
-msgid "PCB Revision"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:164
-msgid "Introduction"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:165 modules/devices/usb.c:174
-msgid "Manufacturer"
-msgstr "Fabricant"
-
-#: modules/devices/devicetree/rpi_data.c:167
-msgid "SOC (spec)"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:168
-msgid "Memory (spec)"
-msgstr "Memoire (spec)"
-
-#: modules/devices/devicetree/rpi_data.c:170
-msgid "Permanent overvolt bit"
-msgstr ""
-
-#: modules/devices/devicetree/rpi_data.c:170
-msgctxt "rpi-ov-bit"
-msgid "Set"
-msgstr "Sélectionné"
-
-#: modules/devices/devicetree/rpi_data.c:170
-msgctxt "rpi-ov-bit"
-msgid "Not set"
-msgstr "Non séléctionné"
-
-#: modules/devices/dmi.c:37 modules/devices/inputdevices.c:145
+#: modules/devices/dmi.c:37 modules/devices/inputdevices.c:172
 #: modules/devices/usb.c:171
 msgid "Product"
 msgstr "Produit"
@@ -3337,7 +3262,9 @@ msgstr ""
 
 #: modules/devices/dmi.c:152
 msgid "DMI is not available. Perhaps this platform does not provide DMI."
-msgstr "Le DMI n'est pas disponible. Il se peut que cette plateforme ne fournisse pas de DMI."
+msgstr ""
+"Le DMI n'est pas disponible. Il se peut que cette plateforme ne fournisse "
+"pas de DMI."
 
 #: modules/devices/dmi_memory.c:620 modules/devices/dmi_memory.c:859
 msgid "Memory Device List"
@@ -3445,15 +3372,21 @@ msgstr ""
 msgid "No DMI available"
 msgstr ""
 
-#: modules/devices/dmi_memory.c:937
+#: modules/devices/dmi_memory.c:936
 msgid "<b><i>dmidecode</i></b> package installed"
+msgstr ""
+
+#: modules/devices/dmi_memory.c:938
+msgid ""
+"Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
+"Logout/Reboot for groups to be updated..."
 msgstr ""
 
 #: modules/devices/dmi_memory.c:948
 msgid "Memory Information requires more Setup:"
 msgstr ""
 
-#: modules/devices/dmi_memory.c:976
+#: modules/devices/dmi_memory.c:982
 msgid ""
 "\"More often than not, information contained in the DMI tables is "
 "inaccurate,\n"
@@ -3578,7 +3511,7 @@ msgid "Plugin"
 msgstr ""
 
 #: modules/devices/firmware.c:74 modules/devices/firmware.c:207
-#: modules/network.c:538
+#: modules/network.c:545
 msgid "Flags"
 msgstr ""
 
@@ -3607,7 +3540,7 @@ msgid "Checksum"
 msgstr ""
 
 #: modules/devices/firmware.c:77 modules/devices/usb.c:139
-#: modules/devices/usb.c:180 modules/network.c:505
+#: modules/devices/usb.c:180 modules/network.c:512
 msgid "Protocol"
 msgstr ""
 
@@ -3615,7 +3548,7 @@ msgstr ""
 msgid "Firmware List"
 msgstr ""
 
-#: modules/devices/firmware.c:258
+#: modules/devices/firmware.c:257
 msgid "Requires the <i><b>fwupd</b></i> daemon."
 msgstr ""
 
@@ -3663,7 +3596,7 @@ msgid "UUID"
 msgstr ""
 
 #: modules/devices/gpu.c:203 modules/devices/gpu.c:295
-#: modules/devices/inputdevices.c:140 modules/devices/pci.c:164
+#: modules/devices/inputdevices.c:167 modules/devices/pci.c:164
 #: modules/devices/usb.c:170
 msgid "Device Information"
 msgstr "Information matériel"
@@ -3736,16 +3669,16 @@ msgstr ""
 msgid "Features"
 msgstr "Caractéristiques"
 
-#: modules/devices/inputdevices.c:143 modules/devices/pci.c:174
+#: modules/devices/inputdevices.c:170 modules/devices/pci.c:174
 #: modules/devices/usb.c:184
 msgid "Bus"
 msgstr ""
 
-#: modules/devices/inputdevices.c:149
+#: modules/devices/inputdevices.c:176
 msgid "Connected to"
 msgstr "Connecté à"
 
-#: modules/devices/inputdevices.c:153
+#: modules/devices/inputdevices.c:180
 msgid "InfraRed port"
 msgstr "Port infrarouge"
 
@@ -3758,7 +3691,7 @@ msgstr "Type de système"
 msgid "BogoMIPS"
 msgstr ""
 
-#: modules/devices/m68k/processor.c:85 modules/devices/riscv/processor.c:591
+#: modules/devices/m68k/processor.c:85 modules/devices/riscv/processor.c:592
 msgid "MMU"
 msgstr ""
 
@@ -3809,7 +3742,7 @@ msgid "Analog"
 msgstr ""
 
 #: modules/devices/monitors.c:392 modules/devices/usb.c:136
-#: modules/network.c:468 modules/network.c:521 modules/network.c:538
+#: modules/network.c:475 modules/network.c:528 modules/network.c:545
 msgid "Interface"
 msgstr ""
 
@@ -4014,7 +3947,7 @@ msgstr ""
 "[Imprimantes]\n"
 "Aucune imprimante trouvée=\n"
 
-#: modules/devices/riscv/processor.c:590
+#: modules/devices/riscv/processor.c:591
 msgid "uarch"
 msgstr ""
 
@@ -4298,294 +4231,2058 @@ msgstr "Date de fabrication (Année / Semaine)"
 msgid "NVMe Controller"
 msgstr "Contrôleur NVMe"
 
-#: modules/devices/storage.c:142
+#: modules/devices/storage.c:143
 msgid "Read Error Rate"
 msgstr "Taux d'erreurs de lecture"
 
-#: modules/devices/storage.c:143
+#: modules/devices/storage.c:144
 msgid "Throughput Performance"
 msgstr "Performance de débit"
 
-#: modules/devices/storage.c:144
+#: modules/devices/storage.c:145
 msgid "Spin-Up Time"
 msgstr "Temps de démarrage du disque"
 
-#: modules/devices/storage.c:145
+#: modules/devices/storage.c:146
 msgid "Start/Stop Count"
 msgstr "Nombre de démarrages/arrêts"
 
-#: modules/devices/storage.c:146
+#: modules/devices/storage.c:147
 msgid "Reallocated Sector Count"
 msgstr "Nombre de secteurs réalloués"
 
-#: modules/devices/storage.c:147
+#: modules/devices/storage.c:148
 msgid "Read Channel Margin"
 msgstr "Marge du canal de lecture"
 
-#: modules/devices/storage.c:148
+#: modules/devices/storage.c:149
 msgid "Seek Error Rate"
 msgstr "Taux d'erreurs de recherche"
 
-#: modules/devices/storage.c:149
+#: modules/devices/storage.c:150
 msgid "Seek Timer Performance"
 msgstr "Performance du temporisateur de recherche"
 
-#: modules/devices/storage.c:150 modules/devices/storage.c:189
+#: modules/devices/storage.c:151 modules/devices/storage.c:190
 msgid "Power-On Hours"
 msgstr "Heures de fonctionnement"
 
-#: modules/devices/storage.c:151
+#: modules/devices/storage.c:152
 msgid "Spin Retry Count"
 msgstr "Nombre de tentatives de démarrage"
 
-#: modules/devices/storage.c:152
+#: modules/devices/storage.c:153
 msgid "Calibration Retry Count"
 msgstr "Nombre de tentatives de calibration"
 
-#: modules/devices/storage.c:153
+#: modules/devices/storage.c:154
 msgid "Power Cycle Count"
 msgstr "Nombre de cycles d'alimentation"
 
-#: modules/devices/storage.c:154 modules/devices/storage.c:171
+#: modules/devices/storage.c:155 modules/devices/storage.c:172
 msgid "Soft Read Error Rate"
 msgstr "Taux d'erreurs de lecture corrigibles"
 
-#: modules/devices/storage.c:155
+#: modules/devices/storage.c:156
 msgid "Runtime Bad Block"
 msgstr "Bloc défectueux en cours d'utilisation"
 
-#: modules/devices/storage.c:156
+#: modules/devices/storage.c:157
 msgid "End-to-End error"
 msgstr "Erreur de bout en bout"
 
-#: modules/devices/storage.c:157
+#: modules/devices/storage.c:158
 msgid "Reported Uncorrectable Errors"
 msgstr "Erreurs non corrigibles signalées"
 
-#: modules/devices/storage.c:158
+#: modules/devices/storage.c:159
 msgid "Command Timeout"
 msgstr "Expiration de commande"
 
-#: modules/devices/storage.c:159
+#: modules/devices/storage.c:160
 msgid "High Fly Writes"
 msgstr "Écritures à grande hauteur de vol"
 
-#: modules/devices/storage.c:160
+#: modules/devices/storage.c:161
 msgid "Airflow Temperature"
 msgstr "Température de flux d'air"
 
-#: modules/devices/storage.c:161
+#: modules/devices/storage.c:162
 msgid "G-sense Error Rate"
 msgstr "Taux d'erreurs G-sense"
 
-#: modules/devices/storage.c:162
+#: modules/devices/storage.c:163
 msgid "Power-off Retract Count"
 msgstr "Nombre de retraits à l'arrêt"
 
-#: modules/devices/storage.c:163
+#: modules/devices/storage.c:164
 msgid "Load Cycle Count"
 msgstr "Nombre de cycles de chargement"
 
-#: modules/devices/storage.c:164 modules/devices/storage.c:187
+#: modules/devices/storage.c:165 modules/devices/storage.c:188
 msgid "Temperature"
 msgstr "Température"
 
-#: modules/devices/storage.c:165
+#: modules/devices/storage.c:166
 msgid "Hardware ECC Recovered"
 msgstr "ECC matériel récupéré"
 
-#: modules/devices/storage.c:166
+#: modules/devices/storage.c:167
 msgid "Reallocation Event Count"
 msgstr "Nombre d'événements de réallocation"
 
-#: modules/devices/storage.c:167
+#: modules/devices/storage.c:168
 msgid "Current Pending Sector Count"
 msgstr "Nombre actuel de secteurs en attente"
 
-#: modules/devices/storage.c:168
+#: modules/devices/storage.c:169
 msgid "Uncorrectable Sector Count"
 msgstr "Nombre de secteurs non corrigibles"
 
-#: modules/devices/storage.c:169
+#: modules/devices/storage.c:170
 msgid "UltraDMA CRC Error Count"
 msgstr "Nombre d'erreurs CRC UltraDMA"
 
-#: modules/devices/storage.c:170
+#: modules/devices/storage.c:171
 msgid "Multi-Zone Error Rate"
 msgstr "Taux d'erreurs multi-zone"
 
-#: modules/devices/storage.c:172
+#: modules/devices/storage.c:173
 msgid "Run Out Cancel"
 msgstr "Annulation de fin de piste"
 
-#: modules/devices/storage.c:173
+#: modules/devices/storage.c:174
 msgid "Flying Height"
 msgstr "Erreur placement haut"
 
-#: modules/devices/storage.c:174
+#: modules/devices/storage.c:175
 msgid "Spin High Current"
 msgstr "Courant de démarrage élevé"
 
-#: modules/devices/storage.c:175
+#: modules/devices/storage.c:176
 msgid "Spin Buzz"
 msgstr "Buzz au démarrage"
 
-#: modules/devices/storage.c:176
+#: modules/devices/storage.c:177
 msgid "Offline Seek Performance"
 msgstr "Performance de recherche hors ligne"
 
-#: modules/devices/storage.c:177
+#: modules/devices/storage.c:178
 msgid "Disk Shift"
 msgstr "Déplacement du disque"
 
-#: modules/devices/storage.c:178
+#: modules/devices/storage.c:179
 msgid "G-Sense Error Rate"
 msgstr "Taux d'erreurs G-Sense"
 
-#: modules/devices/storage.c:179
+#: modules/devices/storage.c:180
 msgid "Loaded Hours"
 msgstr "Heures de disque chargé"
 
-#: modules/devices/storage.c:180
+#: modules/devices/storage.c:181
 msgid "Load/Unload Retry Count"
 msgstr "Nombre de tentatives de chargement/déchargement"
 
-#: modules/devices/storage.c:181
+#: modules/devices/storage.c:182
 msgid "Load Friction"
 msgstr "Friction de chargement"
 
-#: modules/devices/storage.c:182
+#: modules/devices/storage.c:183
 msgid "Load/Unload Cycle Count"
 msgstr "Nombre de cycles de chargement/déchargement"
 
-#: modules/devices/storage.c:183
+#: modules/devices/storage.c:184
 msgid "Load-in time"
 msgstr "Temps de chargement"
 
-#: modules/devices/storage.c:184
+#: modules/devices/storage.c:185
 msgid "Torque Amplification Count"
 msgstr "Nombre d'amplifications de couple"
 
-#: modules/devices/storage.c:185
+#: modules/devices/storage.c:186
 msgid "Power-Off Retract Count"
 msgstr "Nombre de retraits à l'arrêt"
 
-#: modules/devices/storage.c:186
+#: modules/devices/storage.c:187
 msgid "GMR Head Amplitude"
 msgstr "Amplitude de la tête GMR"
 
-#: modules/devices/storage.c:188
+#: modules/devices/storage.c:189
 msgid "Endurance Remaining"
 msgstr "Longévité restante"
 
-#: modules/devices/storage.c:190
+#: modules/devices/storage.c:191
 msgid "Good Block Rate"
 msgstr "Taux de blocs sains"
 
-#: modules/devices/storage.c:191
+#: modules/devices/storage.c:192
 msgid "Head Flying Hours"
 msgstr "Heures de vol de la tête"
 
-#: modules/devices/storage.c:192
+#: modules/devices/storage.c:193
 msgid "Read Error Retry Rate"
 msgstr "Taux de relecture après erreur"
 
-#: modules/devices/storage.c:193
+#: modules/devices/storage.c:194
 msgid "Total LBAs Written"
 msgstr "Nombre total de LBAs écrits"
 
-#: modules/devices/storage.c:194
+#: modules/devices/storage.c:195
 msgid "Total LBAs Read"
 msgstr "Nombre total de LBAs lus"
 
-#: modules/devices/storage.c:195
+#: modules/devices/storage.c:196
 msgid "Wear leveling Count"
 msgstr "Nombre de cycles d'usage/usure"
 
-#: modules/devices/storage.c:196
+#: modules/devices/storage.c:197
 msgid "Total Used Reserved Block Count"
 msgstr "Nombre total de blocs réservés utilisés"
 
-#: modules/devices/storage.c:197
+#: modules/devices/storage.c:198
 msgid "Total Program Fail Count"
 msgstr "Nombre total d'échecs d'écriture"
 
-#: modules/devices/storage.c:198
+#: modules/devices/storage.c:199
 msgid "Total Erase Fail Count"
 msgstr "Nombre total d'échecs d'effacement"
 
-#: modules/devices/storage.c:199
+#: modules/devices/storage.c:200
 msgid "Available Reserved Space"
 msgstr "Espace réservé disponible"
 
-#: modules/devices/storage.c:200
+#: modules/devices/storage.c:201
 msgid "Program Fail Count"
 msgstr "Nombre d'échecs d'écriture"
 
-#: modules/devices/storage.c:201
+#: modules/devices/storage.c:202
 msgid "Erase Fail Count"
 msgstr "Nombre d'échecs d'effacement"
 
-#: modules/devices/storage.c:202
+#: modules/devices/storage.c:203
 msgid "TA Counter Increased"
 msgstr "Compteur TA implémenté"
 
-#: modules/devices/storage.c:203
+#: modules/devices/storage.c:204
 msgid "Total Unused Reserved Block Count"
 msgstr "Nombre total de blocs réservés non utilisés"
 
-#: modules/devices/storage.c:261
+#: modules/devices/storage.c:209
+msgid ""
+"\n"
+"[UDisks2]\n"
+msgstr ""
+
+#: modules/devices/storage.c:286
 msgid "Removable"
 msgstr "Amovible"
 
-#: modules/devices/storage.c:261
+#: modules/devices/storage.c:286
 msgid "Fixed"
 msgstr "Fixe"
 
-#: modules/devices/storage.c:264
+#: modules/devices/storage.c:289
 msgid "Ejectable"
 msgstr "Éjectable"
 
-#: modules/devices/storage.c:267
+#: modules/devices/storage.c:292
 msgid "Self-monitoring (S.M.A.R.T.)"
 msgstr "Autosurveillance (S.M.A.R.T.)"
 
-#: modules/devices/storage.c:270 modules/devices/x86/processor.c:664
+#: modules/devices/storage.c:295 modules/devices/x86/processor.c:664
 msgid "Power Management"
 msgstr "Gestion de l'alimentation"
 
-#: modules/devices/storage.c:273
+#: modules/devices/storage.c:298
 msgid "Advanced Power Management"
 msgstr "Gestion avancée de l'alimentation"
 
-#: modules/devices/storage.c:276
+#: modules/devices/storage.c:301
 msgid "Automatic Acoustic Management"
 msgstr "Gestion acoustique automatique"
-#: modules/network.c:505
+
+#: modules/devices/storage.c:304
+#, c-format
+msgid ""
+"[Drive Information]\n"
+"Model=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:314
+#, c-format
+msgid ""
+"Revision=%s\n"
+"Block Device=%s\n"
+"Serial=%s\n"
+"Size=%s\n"
+"Features=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:329
+#, c-format
+msgid "Rotation Rate=%d RPM\n"
+msgstr ""
+
+#: modules/devices/storage.c:332
+#, c-format
+msgid ""
+"Media=%s\n"
+"Media compatibility=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:339
+#, c-format
+msgid "Connection bus=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:351
+msgid "WWN"
+msgstr ""
+
+#: modules/devices/storage.c:352
+msgid "EUI "
+msgstr ""
+
+#: modules/devices/storage.c:357
+msgid "WWN / EUI"
+msgstr ""
+
+#: modules/devices/storage.c:361
+#, c-format
+msgid "$^$%s=[%s] %s\n"
+msgstr ""
+
+#: modules/devices/storage.c:363
+msgid "IEEE OUI"
+msgstr ""
+
+#: modules/devices/storage.c:388 modules/devices/storage.c:392
+msgid "Lifetime exceeded"
+msgstr ""
+
+#: modules/devices/storage.c:395
+msgid "Normal"
+msgstr ""
+
+#: modules/devices/storage.c:396
+#, c-format
+msgid "Warning >80% used"
+msgstr ""
+
+#: modules/devices/storage.c:397
+#, c-format
+msgid "Failing >90% used"
+msgstr ""
+
+#: modules/devices/storage.c:401
+#, c-format
+msgid ""
+"[Self-monitoring ExtCSD]\n"
+"Production Date=%s\n"
+"SLC Flash Status=%s\n"
+"MLC Flash Status=%s\n"
+"Pre EOL Status=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:414
+msgid ""
+"[Self-monitoring (S.M.A.R.T.)]\n"
+"Status=%s\n"
+"Bad Sectors=%"
+msgstr ""
+
+#: modules/devices/storage.c:420
+msgid "Failing"
+msgstr ""
+
+#: modules/devices/storage.c:420
+msgid "OK"
+msgstr ""
+
+#: modules/devices/storage.c:427
+msgid ""
+"[S.M.A.R.T. Attributes]\n"
+"Attribute=<tt>Value</tt>\n"
+msgstr ""
+
+#: modules/devices/storage.c:429
+msgid ""
+"[S.M.A.R.T. Attributes]\n"
+"Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
+msgstr ""
+
+#: modules/devices/storage.c:456
+msgid "%"
+msgid_plural "%"
+msgstr[0] ""
+msgstr[1] ""
+
+#: modules/devices/storage.c:502
+#, c-format
+msgid "%s=<tt>%s</tt>\n"
+msgstr ""
+
+#: modules/devices/storage.c:504
+#, c-format
+msgid "(%d) %s=<tt>%s</tt>\n"
+msgstr ""
+
+#: modules/devices/storage.c:512
+#, c-format
+msgid ""
+"[Partition table]\n"
+"Type=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:531
+#, c-format
+msgid "Partition %s=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:580
+msgid ""
+"\n"
+"[SCSI Disks]\n"
+msgstr ""
+
+#: modules/devices/storage.c:652 modules/devices/storage.c:858
+#, c-format
+msgid ""
+"[Device Information]\n"
+"Model=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:659
+#, c-format
+msgid ""
+"Type=%s\n"
+"Revision=%s\n"
+"[SCSI Controller]\n"
+"Controller=scsi%d\n"
+"Channel=%d\n"
+"ID=%d\n"
+"LUN=%d\n"
+msgstr ""
+
+#: modules/devices/storage.c:706
+msgid ""
+"\n"
+"[IDE Disks]\n"
+msgstr ""
+
+#: modules/devices/storage.c:792
+#, c-format
+msgid "Driver=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:864
+#, c-format
+msgid ""
+"Device Name=hd%c\n"
+"Media=%s\n"
+"Cache=%dkb\n"
+msgstr ""
+
+#: modules/devices/storage.c:874
+#, c-format
+msgid ""
+"[Geometry]\n"
+"Physical=%s\n"
+"Logical=%s\n"
+msgstr ""
+
+#: modules/devices/storage.c:884
+#, c-format
+msgid ""
+"[Capabilities]\n"
+"%s"
+msgstr ""
+
+#: modules/devices/storage.c:891
+#, c-format
+msgid ""
+"[Speeds]\n"
+"%s"
+msgstr ""
+
+#: modules/devices/usb.c:138 modules/devices/usb.c:179
+msgid "Sub-class"
+msgstr ""
+
+#: modules/devices/usb.c:147 modules/network/net.c:474
+msgid "Mb/s"
+msgstr ""
+
+#: modules/devices/usb.c:174
+msgid "Manufacturer"
+msgstr "Fabricant"
+
+#: modules/devices/usb.c:175
+msgid "Max Current"
+msgstr ""
+
+#: modules/devices/usb.c:175
+msgid "mA"
+msgstr ""
+
+#: modules/devices/usb.c:176
+msgid "USB Version"
+msgstr ""
+
+#: modules/devices/usb.c:181
+msgid "Device Version"
+msgstr ""
+
+#: modules/devices/usb.c:221
+msgid "No USB devices found."
+msgstr ""
+
+#: modules/devices/x86/processor.c:648
+msgid "Model Name"
+msgstr ""
+
+#: modules/devices/x86/processor.c:649
+msgid "Family, model, stepping"
+msgstr ""
+
+#: modules/devices/x86/processor.c:655
+msgid "Microcode Version"
+msgstr ""
+
+#: modules/devices/x86/processor.c:656
+msgid "Configuration"
+msgstr ""
+
+#: modules/devices/x86/processor.c:657
+msgid "Cache Size"
+msgstr ""
+
+#: modules/devices/x86/processor.c:657
+msgid "kb"
+msgstr ""
+
+#: modules/devices/x86/processor.c:665
+msgid "Bug Workarounds"
+msgstr ""
+
+#: modules/devices/x86/processor.c:692
+msgid "Socket Information"
+msgstr ""
+
+#: modules/devices/x86/processor.c:713
+msgid "CPU Socket"
+msgstr ""
+
+#: modules/devices/x86/processor.c:717
+msgid "External Clock"
+msgstr ""
+
+#: modules/devices/x86/processor.c:718
+msgid "Max Frequency"
+msgstr ""
+
+#: modules/devices/x86/processor.c:751
+msgid "Package Information"
+msgstr ""
+
+#. !/flag:fpu
+#: modules/devices/x86/x86_data.c:48
+msgctxt "x86-flag"
+msgid "Onboard FPU (floating point support)"
+msgstr ""
+
+#. !/flag:vme
+#: modules/devices/x86/x86_data.c:49
+msgctxt "x86-flag"
+msgid "Virtual 8086 mode enhancements"
+msgstr ""
+
+#. !/flag:de
+#: modules/devices/x86/x86_data.c:50
+msgctxt "x86-flag"
+msgid "Debugging Extensions (CR4.DE)"
+msgstr ""
+
+#. !/flag:pse
+#: modules/devices/x86/x86_data.c:51
+msgctxt "x86-flag"
+msgid "Page Size Extensions (4MB memory pages)"
+msgstr ""
+
+#. !/flag:tsc
+#: modules/devices/x86/x86_data.c:52
+msgctxt "x86-flag"
+msgid "Time Stamp Counter (RDTSC)"
+msgstr ""
+
+#. !/flag:msr
+#: modules/devices/x86/x86_data.c:53
+msgctxt "x86-flag"
+msgid "Model-Specific Registers (RDMSR, WRMSR)"
+msgstr ""
+
+#. !/flag:pae
+#: modules/devices/x86/x86_data.c:54
+msgctxt "x86-flag"
+msgid "Physical Address Extensions (support for more than 4GB of RAM)"
+msgstr ""
+
+#. !/flag:mce
+#: modules/devices/x86/x86_data.c:55
+msgctxt "x86-flag"
+msgid "Machine Check Exception"
+msgstr ""
+
+#. !/flag:cx8
+#: modules/devices/x86/x86_data.c:56
+msgctxt "x86-flag"
+msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
+msgstr ""
+
+#. !/flag:apic
+#: modules/devices/x86/x86_data.c:57
+msgctxt "x86-flag"
+msgid "Onboard APIC"
+msgstr ""
+
+#. !/flag:sep
+#: modules/devices/x86/x86_data.c:58
+msgctxt "x86-flag"
+msgid "SYSENTER/SYSEXIT"
+msgstr ""
+
+#. !/flag:mtrr
+#: modules/devices/x86/x86_data.c:59
+msgctxt "x86-flag"
+msgid "Memory Type Range Registers"
+msgstr ""
+
+#. !/flag:pge
+#: modules/devices/x86/x86_data.c:60
+msgctxt "x86-flag"
+msgid "Page Global Enable (global bit in PDEs and PTEs)"
+msgstr ""
+
+#. !/flag:mca
+#: modules/devices/x86/x86_data.c:61
+msgctxt "x86-flag"
+msgid "Machine Check Architecture"
+msgstr ""
+
+#. !/flag:cmov
+#: modules/devices/x86/x86_data.c:62
+msgctxt "x86-flag"
+msgid "CMOV instructions (conditional move) (also FCMOV)"
+msgstr ""
+
+#. !/flag:pat
+#: modules/devices/x86/x86_data.c:63
+msgctxt "x86-flag"
+msgid "Page Attribute Table"
+msgstr ""
+
+#. !/flag:pse36
+#: modules/devices/x86/x86_data.c:64
+msgctxt "x86-flag"
+msgid "36-bit PSEs (huge pages)"
+msgstr ""
+
+#. !/flag:pn
+#: modules/devices/x86/x86_data.c:65
+msgctxt "x86-flag"
+msgid "Processor serial number"
+msgstr ""
+
+#. !/flag:clflush
+#: modules/devices/x86/x86_data.c:66
+msgctxt "x86-flag"
+msgid "Cache Line Flush instruction"
+msgstr ""
+
+#. !/flag:dts
+#: modules/devices/x86/x86_data.c:67
+msgctxt "x86-flag"
+msgid ""
+"Debug Store (buffer for debugging and profiling instructions), or "
+"alternately: digital thermal sensor"
+msgstr ""
+
+#. !/flag:acpi
+#: modules/devices/x86/x86_data.c:68
+msgctxt "x86-flag"
+msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
+msgstr ""
+
+#. !/flag:mmx
+#: modules/devices/x86/x86_data.c:69
+msgctxt "x86-flag"
+msgid "Multimedia Extensions"
+msgstr ""
+
+#. !/flag:fxsr
+#: modules/devices/x86/x86_data.c:70
+msgctxt "x86-flag"
+msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
+msgstr ""
+
+#. !/flag:sse
+#: modules/devices/x86/x86_data.c:71
+msgctxt "x86-flag"
+msgid "Intel SSE vector instructions"
+msgstr ""
+
+#. !/flag:sse2
+#: modules/devices/x86/x86_data.c:72
+msgctxt "x86-flag"
+msgid "SSE2"
+msgstr ""
+
+#. !/flag:ss
+#: modules/devices/x86/x86_data.c:73
+msgctxt "x86-flag"
+msgid "CPU self snoop"
+msgstr ""
+
+#. !/flag:ht
+#: modules/devices/x86/x86_data.c:74
+msgctxt "x86-flag"
+msgid "Hyper-Threading"
+msgstr ""
+
+#. !/flag:tm
+#: modules/devices/x86/x86_data.c:75
+msgctxt "x86-flag"
+msgid "Automatic clock control (Thermal Monitor)"
+msgstr ""
+
+#. !/flag:ia64
+#: modules/devices/x86/x86_data.c:76
+msgctxt "x86-flag"
+msgid ""
+"Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
+"x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
+msgstr ""
+
+#. !/flag:pbe
+#: modules/devices/x86/x86_data.c:77
+msgctxt "x86-flag"
+msgid "Pending Break Enable (PBE# pin) wakeup support"
+msgstr ""
+
+#. !/flag:syscall
+#: modules/devices/x86/x86_data.c:80
+msgctxt "x86-flag"
+msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
+msgstr ""
+
+#. !/flag:mp
+#: modules/devices/x86/x86_data.c:81
+msgctxt "x86-flag"
+msgid "Multiprocessing Capable."
+msgstr ""
+
+#. !/flag:nx
+#: modules/devices/x86/x86_data.c:82
+msgctxt "x86-flag"
+msgid "Execute Disable"
+msgstr ""
+
+#. !/flag:mmxext
+#: modules/devices/x86/x86_data.c:83
+msgctxt "x86-flag"
+msgid "AMD MMX extensions"
+msgstr ""
+
+#. !/flag:fxsr_opt
+#: modules/devices/x86/x86_data.c:84
+msgctxt "x86-flag"
+msgid "FXSAVE/FXRSTOR optimizations"
+msgstr ""
+
+#. !/flag:pdpe1gb
+#: modules/devices/x86/x86_data.c:85
+msgctxt "x86-flag"
+msgid "One GB pages (allows hugepagesz=1G)"
+msgstr ""
+
+#. !/flag:rdtscp
+#: modules/devices/x86/x86_data.c:86
+msgctxt "x86-flag"
+msgid "Read Time-Stamp Counter and Processor ID"
+msgstr ""
+
+#. !/flag:lm
+#: modules/devices/x86/x86_data.c:87
+msgctxt "x86-flag"
+msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
+msgstr ""
+
+#. !/flag:3dnow
+#: modules/devices/x86/x86_data.c:88
+msgctxt "x86-flag"
+msgid "3DNow! (AMD vector instructions, competing with Intel's SSE1)"
+msgstr ""
+
+#. !/flag:3dnowext
+#: modules/devices/x86/x86_data.c:89
+msgctxt "x86-flag"
+msgid "AMD 3DNow! extensions"
+msgstr ""
+
+#. !/flag:recovery
+#: modules/devices/x86/x86_data.c:91
+msgctxt "x86-flag"
+msgid "CPU in recovery mode"
+msgstr ""
+
+#. !/flag:longrun
+#: modules/devices/x86/x86_data.c:92
+msgctxt "x86-flag"
+msgid "Longrun power control"
+msgstr ""
+
+#. !/flag:lrti
+#: modules/devices/x86/x86_data.c:93
+msgctxt "x86-flag"
+msgid "LongRun table interface"
+msgstr ""
+
+#. !/flag:cxmmx
+#: modules/devices/x86/x86_data.c:95
+msgctxt "x86-flag"
+msgid "Cyrix MMX extensions"
+msgstr ""
+
+#. !/flag:k6_mtrr
+#: modules/devices/x86/x86_data.c:96
+msgctxt "x86-flag"
+msgid "AMD K6 nonstandard MTRRs"
+msgstr ""
+
+#. !/flag:cyrix_arr
+#: modules/devices/x86/x86_data.c:97
+msgctxt "x86-flag"
+msgid "Cyrix ARRs (= MTRRs)"
+msgstr ""
+
+#. !/flag:centaur_mcr
+#: modules/devices/x86/x86_data.c:98
+msgctxt "x86-flag"
+msgid "Centaur MCRs (= MTRRs)"
+msgstr ""
+
+#. !/flag:constant_tsc
+#: modules/devices/x86/x86_data.c:99
+msgctxt "x86-flag"
+msgid "TSC ticks at a constant rate"
+msgstr ""
+
+#. !/flag:up
+#: modules/devices/x86/x86_data.c:100
+msgctxt "x86-flag"
+msgid "SMP kernel running on UP"
+msgstr ""
+
+#. !/flag:art
+#: modules/devices/x86/x86_data.c:101
+msgctxt "x86-flag"
+msgid "Always-Running Timer"
+msgstr ""
+
+#. !/flag:arch_perfmon
+#: modules/devices/x86/x86_data.c:102
+msgctxt "x86-flag"
+msgid "Intel Architectural PerfMon"
+msgstr ""
+
+#. !/flag:pebs
+#: modules/devices/x86/x86_data.c:103
+msgctxt "x86-flag"
+msgid "Precise-Event Based Sampling"
+msgstr ""
+
+#. !/flag:bts
+#: modules/devices/x86/x86_data.c:104
+msgctxt "x86-flag"
+msgid "Branch Trace Store"
+msgstr ""
+
+#. !/flag:rep_good
+#: modules/devices/x86/x86_data.c:105
+msgctxt "x86-flag"
+msgid "rep microcode works well"
+msgstr ""
+
+#. !/flag:acc_power
+#: modules/devices/x86/x86_data.c:106
+msgctxt "x86-flag"
+msgid "AMD accumulated power mechanism"
+msgstr ""
+
+#. !/flag:nopl
+#: modules/devices/x86/x86_data.c:107
+msgctxt "x86-flag"
+msgid "The NOPL (0F 1F) instructions"
+msgstr ""
+
+#. !/flag:xtopology
+#: modules/devices/x86/x86_data.c:108
+msgctxt "x86-flag"
+msgid "cpu topology enum extensions"
+msgstr ""
+
+#. !/flag:tsc_reliable
+#: modules/devices/x86/x86_data.c:109
+msgctxt "x86-flag"
+msgid "TSC is known to be reliable"
+msgstr ""
+
+#. !/flag:nonstop_tsc
+#: modules/devices/x86/x86_data.c:110
+msgctxt "x86-flag"
+msgid "TSC does not stop in C states"
+msgstr ""
+
+#. !/flag:extd_apicid
+#: modules/devices/x86/x86_data.c:111
+msgctxt "x86-flag"
+msgid "has extended APICID (8 bits)"
+msgstr ""
+
+#. !/flag:amd_dcm
+#: modules/devices/x86/x86_data.c:112
+msgctxt "x86-flag"
+msgid "multi-node processor"
+msgstr ""
+
+#. !/flag:aperfmperf
+#: modules/devices/x86/x86_data.c:113
+msgctxt "x86-flag"
+msgid "APERFMPERF"
+msgstr ""
+
+#. !/flag:eagerfpu
+#: modules/devices/x86/x86_data.c:114
+msgctxt "x86-flag"
+msgid "Non lazy FPU restore"
+msgstr ""
+
+#. !/flag:nonstop_tsc_s3
+#: modules/devices/x86/x86_data.c:115
+msgctxt "x86-flag"
+msgid "TSC doesn't stop in S3 state"
+msgstr ""
+
+#. !/flag:mce_recovery
+#: modules/devices/x86/x86_data.c:116
+msgctxt "x86-flag"
+msgid "CPU has recoverable machine checks"
+msgstr ""
+
+#. !/flag:pni
+#: modules/devices/x86/x86_data.c:119
+msgctxt "x86-flag"
+msgid "SSE-3 (\"Prescott New Instructions\")"
+msgstr ""
+
+#. !/flag:pclmulqdq
+#: modules/devices/x86/x86_data.c:120
+msgctxt "x86-flag"
+msgid ""
+"Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
+"for GCM)"
+msgstr ""
+
+#. !/flag:dtes64
+#: modules/devices/x86/x86_data.c:121
+msgctxt "x86-flag"
+msgid "64-bit Debug Store"
+msgstr ""
+
+#. !/flag:monitor
+#: modules/devices/x86/x86_data.c:122
+msgctxt "x86-flag"
+msgid "Monitor/Mwait support (Intel SSE3 supplements)"
+msgstr ""
+
+#. !/flag:ds_cpl
+#: modules/devices/x86/x86_data.c:123
+msgctxt "x86-flag"
+msgid "CPL Qual. Debug Store"
+msgstr ""
+
+#. !/flag:vmx
+#: modules/devices/x86/x86_data.c:124
+msgctxt "x86-flag"
+msgid "Hardware virtualization, Intel VMX"
+msgstr ""
+
+#. !/flag:smx
+#: modules/devices/x86/x86_data.c:125
+msgctxt "x86-flag"
+msgid "Safer mode TXT (TPM support)"
+msgstr ""
+
+#. !/flag:est
+#: modules/devices/x86/x86_data.c:126
+msgctxt "x86-flag"
+msgid "Enhanced SpeedStep"
+msgstr ""
+
+#. !/flag:tm2
+#: modules/devices/x86/x86_data.c:127
+msgctxt "x86-flag"
+msgid "Thermal Monitor 2"
+msgstr ""
+
+#. !/flag:ssse3
+#: modules/devices/x86/x86_data.c:128
+msgctxt "x86-flag"
+msgid "Supplemental SSE-3"
+msgstr ""
+
+#. !/flag:cid
+#: modules/devices/x86/x86_data.c:129
+msgctxt "x86-flag"
+msgid "Context ID"
+msgstr ""
+
+#. !/flag:sdbg
+#: modules/devices/x86/x86_data.c:130
+msgctxt "x86-flag"
+msgid "silicon debug"
+msgstr ""
+
+#. !/flag:fma
+#: modules/devices/x86/x86_data.c:131
+msgctxt "x86-flag"
+msgid "Fused multiply-add"
+msgstr ""
+
+#. !/flag:cx16
+#: modules/devices/x86/x86_data.c:132
+msgctxt "x86-flag"
+msgid "CMPXCHG16B"
+msgstr ""
+
+#. !/flag:xtpr
+#: modules/devices/x86/x86_data.c:133
+msgctxt "x86-flag"
+msgid "Send Task Priority Messages"
+msgstr ""
+
+#. !/flag:pdcm
+#: modules/devices/x86/x86_data.c:134
+msgctxt "x86-flag"
+msgid "Performance Capabilities"
+msgstr ""
+
+#. !/flag:pcid
+#: modules/devices/x86/x86_data.c:135
+msgctxt "x86-flag"
+msgid "Process Context Identifiers"
+msgstr ""
+
+#. !/flag:dca
+#: modules/devices/x86/x86_data.c:136
+msgctxt "x86-flag"
+msgid "Direct Cache Access"
+msgstr ""
+
+#. !/flag:sse4_1
+#: modules/devices/x86/x86_data.c:137
+msgctxt "x86-flag"
+msgid "SSE-4.1"
+msgstr ""
+
+#. !/flag:sse4_2
+#: modules/devices/x86/x86_data.c:138
+msgctxt "x86-flag"
+msgid "SSE-4.2"
+msgstr ""
+
+#. !/flag:x2apic
+#: modules/devices/x86/x86_data.c:139
+msgctxt "x86-flag"
+msgid "x2APIC"
+msgstr ""
+
+#. !/flag:movbe
+#: modules/devices/x86/x86_data.c:140
+msgctxt "x86-flag"
+msgid "Move Data After Swapping Bytes instruction"
+msgstr ""
+
+#. !/flag:popcnt
+#: modules/devices/x86/x86_data.c:141
+msgctxt "x86-flag"
+msgid ""
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
+msgstr ""
+
+#: modules/devices/x86/x86_data.c:142
+msgctxt "x86-flag"
+msgid "Tsc deadline timer"
+msgstr ""
+
+#. !/flag:aes/aes-ni
+#: modules/devices/x86/x86_data.c:143
+msgctxt "x86-flag"
+msgid "Advanced Encryption Standard (New Instructions)"
+msgstr ""
+
+#. !/flag:xsave
+#: modules/devices/x86/x86_data.c:144
+msgctxt "x86-flag"
+msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
+msgstr ""
+
+#. !/flag:avx
+#: modules/devices/x86/x86_data.c:145
+msgctxt "x86-flag"
+msgid "Advanced Vector Extensions"
+msgstr ""
+
+#. !/flag:f16c
+#: modules/devices/x86/x86_data.c:146
+msgctxt "x86-flag"
+msgid "16-bit fp conversions (CVT16)"
+msgstr ""
+
+#. !/flag:rdrand
+#: modules/devices/x86/x86_data.c:147
+msgctxt "x86-flag"
+msgid "Read Random Number from hardware random number generator instruction"
+msgstr ""
+
+#. !/flag:hypervisor
+#: modules/devices/x86/x86_data.c:148
+msgctxt "x86-flag"
+msgid "Running on a hypervisor"
+msgstr ""
+
+#. !/flag:rng
+#: modules/devices/x86/x86_data.c:150
+msgctxt "x86-flag"
+msgid "Random Number Generator present (xstore)"
+msgstr ""
+
+#. !/flag:rng_en
+#: modules/devices/x86/x86_data.c:151
+msgctxt "x86-flag"
+msgid "Random Number Generator enabled"
+msgstr ""
+
+#. !/flag:ace
+#: modules/devices/x86/x86_data.c:152
+msgctxt "x86-flag"
+msgid "on-CPU crypto (xcrypt)"
+msgstr ""
+
+#. !/flag:ace_en
+#: modules/devices/x86/x86_data.c:153
+msgctxt "x86-flag"
+msgid "on-CPU crypto enabled"
+msgstr ""
+
+#. !/flag:ace2
+#: modules/devices/x86/x86_data.c:154
+msgctxt "x86-flag"
+msgid "Advanced Cryptography Engine v2"
+msgstr ""
+
+#. !/flag:ace2_en
+#: modules/devices/x86/x86_data.c:155
+msgctxt "x86-flag"
+msgid "ACE v2 enabled"
+msgstr ""
+
+#. !/flag:phe
+#: modules/devices/x86/x86_data.c:156
+msgctxt "x86-flag"
+msgid "PadLock Hash Engine"
+msgstr ""
+
+#. !/flag:phe_en
+#: modules/devices/x86/x86_data.c:157
+msgctxt "x86-flag"
+msgid "PHE enabled"
+msgstr ""
+
+#. !/flag:pmm
+#: modules/devices/x86/x86_data.c:158
+msgctxt "x86-flag"
+msgid "PadLock Montgomery Multiplier"
+msgstr ""
+
+#. !/flag:pmm_en
+#: modules/devices/x86/x86_data.c:159
+msgctxt "x86-flag"
+msgid "PMM enabled"
+msgstr ""
+
+#. !/flag:lahf_lm
+#: modules/devices/x86/x86_data.c:161
+msgctxt "x86-flag"
+msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
+msgstr ""
+
+#. !/flag:cmp_legacy
+#: modules/devices/x86/x86_data.c:162
+msgctxt "x86-flag"
+msgid "If yes HyperThreading not valid"
+msgstr ""
+
+#. !/flag:svm
+#: modules/devices/x86/x86_data.c:163
+msgctxt "x86-flag"
+msgid "\"Secure virtual machine\": AMD-V"
+msgstr ""
+
+#. !/flag:extapic
+#: modules/devices/x86/x86_data.c:164
+msgctxt "x86-flag"
+msgid "Extended APIC space"
+msgstr ""
+
+#. !/flag:cr8_legacy
+#: modules/devices/x86/x86_data.c:165
+msgctxt "x86-flag"
+msgid "CR8 in 32-bit mode"
+msgstr ""
+
+#. !/flag:abm
+#: modules/devices/x86/x86_data.c:166
+msgctxt "x86-flag"
+msgid "Advanced Bit Manipulation"
+msgstr ""
+
+#. !/flag:sse4a
+#: modules/devices/x86/x86_data.c:167
+msgctxt "x86-flag"
+msgid "SSE-4A"
+msgstr ""
+
+#. !/flag:misalignsse
+#: modules/devices/x86/x86_data.c:168
+msgctxt "x86-flag"
+msgid ""
+"indicates if a general-protection exception (#GP) is generated when some "
+"legacy SSE instructions operate on unaligned data. Also depends on CR0 and "
+"Alignment Checking bit"
+msgstr ""
+
+#. !/flag:3dnowprefetch
+#: modules/devices/x86/x86_data.c:169
+msgctxt "x86-flag"
+msgid "3DNow prefetch instructions"
+msgstr ""
+
+#. !/flag:osvw
+#: modules/devices/x86/x86_data.c:170
+msgctxt "x86-flag"
+msgid ""
+"indicates OS Visible Workaround, which allows the OS to work around "
+"processor errata."
+msgstr ""
+
+#. !/flag:ibs
+#: modules/devices/x86/x86_data.c:171
+msgctxt "x86-flag"
+msgid "Instruction Based Sampling"
+msgstr ""
+
+#. !/flag:xop
+#: modules/devices/x86/x86_data.c:172
+msgctxt "x86-flag"
+msgid "extended AVX instructions"
+msgstr ""
+
+#. !/flag:skinit
+#: modules/devices/x86/x86_data.c:173
+msgctxt "x86-flag"
+msgid "SKINIT/STGI instructions"
+msgstr ""
+
+#. !/flag:wdt
+#: modules/devices/x86/x86_data.c:174
+msgctxt "x86-flag"
+msgid "Watchdog timer"
+msgstr ""
+
+#. !/flag:lwp
+#: modules/devices/x86/x86_data.c:175
+msgctxt "x86-flag"
+msgid "Light Weight Profiling"
+msgstr ""
+
+#. !/flag:fma4
+#: modules/devices/x86/x86_data.c:176
+msgctxt "x86-flag"
+msgid "4 operands MAC instructions"
+msgstr ""
+
+#. !/flag:tce
+#: modules/devices/x86/x86_data.c:177
+msgctxt "x86-flag"
+msgid "translation cache extension"
+msgstr ""
+
+#. !/flag:nodeid_msr
+#: modules/devices/x86/x86_data.c:178
+msgctxt "x86-flag"
+msgid "NodeId MSR"
+msgstr ""
+
+#. !/flag:tbm
+#: modules/devices/x86/x86_data.c:179
+msgctxt "x86-flag"
+msgid "Trailing Bit Manipulation"
+msgstr ""
+
+#. !/flag:topoext
+#: modules/devices/x86/x86_data.c:180
+msgctxt "x86-flag"
+msgid "Topology Extensions CPUID leafs"
+msgstr ""
+
+#. !/flag:perfctr_core
+#: modules/devices/x86/x86_data.c:181
+msgctxt "x86-flag"
+msgid "Core Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:perfctr_nb
+#: modules/devices/x86/x86_data.c:182
+msgctxt "x86-flag"
+msgid "NB Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:bpext
+#: modules/devices/x86/x86_data.c:183
+msgctxt "x86-flag"
+msgid "data breakpoint extension"
+msgstr ""
+
+#. !/flag:ptsc
+#: modules/devices/x86/x86_data.c:184
+msgctxt "x86-flag"
+msgid "performance time-stamp counter"
+msgstr ""
+
+#. !/flag:perfctr_l2
+#: modules/devices/x86/x86_data.c:185
+msgctxt "x86-flag"
+msgid "L2 Performance Counter Extensions"
+msgstr ""
+
+#. !/flag:mwaitx
+#: modules/devices/x86/x86_data.c:186
+msgctxt "x86-flag"
+msgid "MWAIT extension (MONITORX/MWAITX)"
+msgstr ""
+
+#. !/flag:cpb
+#: modules/devices/x86/x86_data.c:188
+msgctxt "x86-flag"
+msgid "AMD Core Performance Boost"
+msgstr ""
+
+#. !/flag:epb
+#: modules/devices/x86/x86_data.c:189
+msgctxt "x86-flag"
+msgid "IA32_ENERGY_PERF_BIAS support"
+msgstr ""
+
+#. !/flag:hw_pstate
+#: modules/devices/x86/x86_data.c:190
+msgctxt "x86-flag"
+msgid "AMD HW-PState"
+msgstr ""
+
+#. !/flag:proc_feedback
+#: modules/devices/x86/x86_data.c:191
+msgctxt "x86-flag"
+msgid "AMD ProcFeedbackInterface"
+msgstr ""
+
+#. !/flag:intel_pt
+#: modules/devices/x86/x86_data.c:192
+msgctxt "x86-flag"
+msgid "Intel Processor Tracing"
+msgstr ""
+
+#. !/flag:tpr_shadow
+#: modules/devices/x86/x86_data.c:194
+msgctxt "x86-flag"
+msgid "Intel TPR Shadow"
+msgstr ""
+
+#. !/flag:vnmi
+#: modules/devices/x86/x86_data.c:195
+msgctxt "x86-flag"
+msgid "Intel Virtual NMI"
+msgstr ""
+
+#. !/flag:flexpriority
+#: modules/devices/x86/x86_data.c:196
+msgctxt "x86-flag"
+msgid "Intel FlexPriority"
+msgstr ""
+
+#. !/flag:ept
+#: modules/devices/x86/x86_data.c:197
+msgctxt "x86-flag"
+msgid "Intel Extended Page Table"
+msgstr ""
+
+#. !/flag:vpid
+#: modules/devices/x86/x86_data.c:198
+msgctxt "x86-flag"
+msgid "Intel Virtual Processor ID"
+msgstr ""
+
+#. !/flag:vmmcall
+#: modules/devices/x86/x86_data.c:199
+msgctxt "x86-flag"
+msgid "prefer VMMCALL to VMCALL"
+msgstr ""
+
+#. !/flag:fsgsbase
+#: modules/devices/x86/x86_data.c:201
+msgctxt "x86-flag"
+msgid "{RD/WR}{FS/GS}BASE instructions"
+msgstr ""
+
+#. !/flag:tsc_adjust
+#: modules/devices/x86/x86_data.c:202
+msgctxt "x86-flag"
+msgid "TSC adjustment MSR"
+msgstr ""
+
+#. !/flag:bmi1
+#: modules/devices/x86/x86_data.c:203
+msgctxt "x86-flag"
+msgid "1st group bit manipulation extensions"
+msgstr ""
+
+#. !/flag:hle
+#: modules/devices/x86/x86_data.c:204
+msgctxt "x86-flag"
+msgid "Hardware Lock Elision"
+msgstr ""
+
+#. !/flag:avx2
+#: modules/devices/x86/x86_data.c:205
+msgctxt "x86-flag"
+msgid "AVX2 instructions"
+msgstr ""
+
+#. !/flag:smep
+#: modules/devices/x86/x86_data.c:206
+msgctxt "x86-flag"
+msgid "Supervisor Mode Execution Protection"
+msgstr ""
+
+#. !/flag:bmi2
+#: modules/devices/x86/x86_data.c:207
+msgctxt "x86-flag"
+msgid "2nd group bit manipulation extensions"
+msgstr ""
+
+#. !/flag:erms
+#: modules/devices/x86/x86_data.c:208
+msgctxt "x86-flag"
+msgid "Enhanced REP MOVSB/STOSB"
+msgstr ""
+
+#. !/flag:invpcid
+#: modules/devices/x86/x86_data.c:209
+msgctxt "x86-flag"
+msgid "Invalidate Processor Context ID"
+msgstr ""
+
+#. !/flag:rtm
+#: modules/devices/x86/x86_data.c:210
+msgctxt "x86-flag"
+msgid "Restricted Transactional Memory"
+msgstr ""
+
+#. !/flag:cqm
+#: modules/devices/x86/x86_data.c:211
+msgctxt "x86-flag"
+msgid "Cache QoS Monitoring"
+msgstr ""
+
+#. !/flag:mpx
+#: modules/devices/x86/x86_data.c:212
+msgctxt "x86-flag"
+msgid "Memory Protection Extension"
+msgstr ""
+
+#. !/flag:avx512f
+#: modules/devices/x86/x86_data.c:213
+msgctxt "x86-flag"
+msgid "AVX-512 foundation"
+msgstr ""
+
+#. !/flag:avx512dq
+#: modules/devices/x86/x86_data.c:214
+msgctxt "x86-flag"
+msgid "AVX-512 Double/Quad instructions"
+msgstr ""
+
+#. !/flag:rdseed
+#: modules/devices/x86/x86_data.c:215
+msgctxt "x86-flag"
+msgid "The RDSEED instruction"
+msgstr ""
+
+#. !/flag:adx
+#: modules/devices/x86/x86_data.c:216
+msgctxt "x86-flag"
+msgid "The ADCX and ADOX instructions"
+msgstr ""
+
+#. !/flag:smap
+#: modules/devices/x86/x86_data.c:217
+msgctxt "x86-flag"
+msgid "Supervisor Mode Access Prevention"
+msgstr ""
+
+#. !/flag:clflushopt
+#: modules/devices/x86/x86_data.c:218
+msgctxt "x86-flag"
+msgid "CLFLUSHOPT instruction"
+msgstr ""
+
+#. !/flag:clwb
+#: modules/devices/x86/x86_data.c:219
+msgctxt "x86-flag"
+msgid "CLWB instruction"
+msgstr ""
+
+#. !/flag:avx512pf
+#: modules/devices/x86/x86_data.c:220
+msgctxt "x86-flag"
+msgid "AVX-512 Prefetch"
+msgstr ""
+
+#. !/flag:avx512er
+#: modules/devices/x86/x86_data.c:221
+msgctxt "x86-flag"
+msgid "AVX-512 Exponential and Reciprocal"
+msgstr ""
+
+#. !/flag:avx512cd
+#: modules/devices/x86/x86_data.c:222
+msgctxt "x86-flag"
+msgid "AVX-512 Conflict Detection"
+msgstr ""
+
+#. !/flag:sha_ni
+#: modules/devices/x86/x86_data.c:223
+msgctxt "x86-flag"
+msgid "SHA1/SHA256 Instruction Extensions"
+msgstr ""
+
+#. !/flag:avx512bw
+#: modules/devices/x86/x86_data.c:224
+msgctxt "x86-flag"
+msgid "AVX-512 Byte/Word instructions"
+msgstr ""
+
+#. !/flag:avx512vl
+#: modules/devices/x86/x86_data.c:225
+msgctxt "x86-flag"
+msgid "AVX-512 128/256 Vector Length extensions"
+msgstr ""
+
+#. !/flag:xsaveopt
+#: modules/devices/x86/x86_data.c:227
+msgctxt "x86-flag"
+msgid "Optimized XSAVE"
+msgstr ""
+
+#. !/flag:xsavec
+#: modules/devices/x86/x86_data.c:228
+msgctxt "x86-flag"
+msgid "XSAVEC"
+msgstr ""
+
+#. !/flag:xgetbv1
+#: modules/devices/x86/x86_data.c:229
+msgctxt "x86-flag"
+msgid "XGETBV with ECX = 1"
+msgstr ""
+
+#. !/flag:xsaves
+#: modules/devices/x86/x86_data.c:230
+msgctxt "x86-flag"
+msgid "XSAVES/XRSTORS"
+msgstr ""
+
+#. !/flag:cqm_llc
+#: modules/devices/x86/x86_data.c:232
+msgctxt "x86-flag"
+msgid "LLC QoS"
+msgstr ""
+
+#. !/flag:cqm_occup_llc
+#: modules/devices/x86/x86_data.c:234
+msgctxt "x86-flag"
+msgid "LLC occupancy monitoring"
+msgstr ""
+
+#. !/flag:cqm_mbm_total
+#: modules/devices/x86/x86_data.c:235
+msgctxt "x86-flag"
+msgid "LLC total MBM monitoring"
+msgstr ""
+
+#. !/flag:cqm_mbm_local
+#: modules/devices/x86/x86_data.c:236
+msgctxt "x86-flag"
+msgid "LLC local MBM monitoring"
+msgstr ""
+
+#. !/flag:clzero
+#: modules/devices/x86/x86_data.c:238
+msgctxt "x86-flag"
+msgid "CLZERO instruction"
+msgstr ""
+
+#. !/flag:irperf
+#: modules/devices/x86/x86_data.c:239
+msgctxt "x86-flag"
+msgid "instructions retired performance counter"
+msgstr ""
+
+#. !/flag:dtherm
+#: modules/devices/x86/x86_data.c:241
+msgctxt "x86-flag"
+msgid "digital thermal sensor"
+msgstr ""
+
+#. !/flag:ida
+#: modules/devices/x86/x86_data.c:242
+msgctxt "x86-flag"
+msgid "Intel Dynamic Acceleration"
+msgstr ""
+
+#. !/flag:arat
+#: modules/devices/x86/x86_data.c:243
+msgctxt "x86-flag"
+msgid "Always Running APIC Timer"
+msgstr ""
+
+#. !/flag:pln
+#: modules/devices/x86/x86_data.c:244
+msgctxt "x86-flag"
+msgid "Intel Power Limit Notification"
+msgstr ""
+
+#. !/flag:pts
+#: modules/devices/x86/x86_data.c:245
+msgctxt "x86-flag"
+msgid "Intel Package Thermal Status"
+msgstr ""
+
+#. !/flag:hwp
+#: modules/devices/x86/x86_data.c:246
+msgctxt "x86-flag"
+msgid "Intel Hardware P-states"
+msgstr ""
+
+#. !/flag:hwp_notify
+#: modules/devices/x86/x86_data.c:247
+msgctxt "x86-flag"
+msgid "HWP notification"
+msgstr ""
+
+#. !/flag:hwp_act_window
+#: modules/devices/x86/x86_data.c:248
+msgctxt "x86-flag"
+msgid "HWP Activity Window"
+msgstr ""
+
+#. !/flag:hwp_epp
+#: modules/devices/x86/x86_data.c:249
+msgctxt "x86-flag"
+msgid "HWP Energy Performance Preference"
+msgstr ""
+
+#. !/flag:hwp_pkg_req
+#: modules/devices/x86/x86_data.c:250
+msgctxt "x86-flag"
+msgid "HWP package-level request"
+msgstr ""
+
+#. !/flag:npt
+#: modules/devices/x86/x86_data.c:252
+msgctxt "x86-flag"
+msgid "AMD Nested Page Table support"
+msgstr ""
+
+#. !/flag:lbrv
+#: modules/devices/x86/x86_data.c:253
+msgctxt "x86-flag"
+msgid "AMD LBR Virtualization support"
+msgstr ""
+
+#. !/flag:svm_lock
+#: modules/devices/x86/x86_data.c:254
+msgctxt "x86-flag"
+msgid "AMD SVM locking MSR"
+msgstr ""
+
+#. !/flag:nrip_save
+#: modules/devices/x86/x86_data.c:255
+msgctxt "x86-flag"
+msgid "AMD SVM next_rip save"
+msgstr ""
+
+#. !/flag:tsc_scale
+#: modules/devices/x86/x86_data.c:256
+msgctxt "x86-flag"
+msgid "AMD TSC scaling support"
+msgstr ""
+
+#. !/flag:vmcb_clean
+#: modules/devices/x86/x86_data.c:257
+msgctxt "x86-flag"
+msgid "AMD VMCB clean bits support"
+msgstr ""
+
+#. !/flag:flushbyasid
+#: modules/devices/x86/x86_data.c:258
+msgctxt "x86-flag"
+msgid "AMD flush-by-ASID support"
+msgstr ""
+
+#. !/flag:decodeassists
+#: modules/devices/x86/x86_data.c:259
+msgctxt "x86-flag"
+msgid "AMD Decode Assists support"
+msgstr ""
+
+#. !/flag:pausefilter
+#: modules/devices/x86/x86_data.c:260
+msgctxt "x86-flag"
+msgid "AMD filtered pause intercept"
+msgstr ""
+
+#. !/flag:pfthreshold
+#: modules/devices/x86/x86_data.c:261
+msgctxt "x86-flag"
+msgid "AMD pause filter threshold"
+msgstr ""
+
+#. !/flag:avic
+#: modules/devices/x86/x86_data.c:262
+msgctxt "x86-flag"
+msgid "Virtual Interrupt Controller"
+msgstr ""
+
+#. !/flag:pku
+#: modules/devices/x86/x86_data.c:264
+msgctxt "x86-flag"
+msgid "Protection Keys for Userspace"
+msgstr ""
+
+#. !/flag:ospke
+#: modules/devices/x86/x86_data.c:265
+msgctxt "x86-flag"
+msgid "OS Protection Keys Enable"
+msgstr ""
+
+#. !/flag:overflow_recov
+#: modules/devices/x86/x86_data.c:267
+msgctxt "x86-flag"
+msgid "MCA overflow recovery support"
+msgstr ""
+
+#. !/flag:succor
+#: modules/devices/x86/x86_data.c:268
+msgctxt "x86-flag"
+msgid "uncorrectable error containment and recovery"
+msgstr ""
+
+#. !/flag:smca
+#: modules/devices/x86/x86_data.c:269
+msgctxt "x86-flag"
+msgid "Scalable MCA"
+msgstr ""
+
+#. !/bug:f00f
+#: modules/devices/x86/x86_data.c:272
+msgctxt "x86-flag"
+msgid "Intel F00F bug"
+msgstr ""
+
+#. !/bug:fdiv
+#: modules/devices/x86/x86_data.c:273
+msgctxt "x86-flag"
+msgid "FPU FDIV"
+msgstr ""
+
+#. !/bug:coma
+#: modules/devices/x86/x86_data.c:274
+msgctxt "x86-flag"
+msgid "Cyrix 6x86 coma"
+msgstr ""
+
+#. !/bug:tlb_mmatch
+#: modules/devices/x86/x86_data.c:275
+msgctxt "x86-flag"
+msgid "AMD Erratum 383"
+msgstr ""
+
+#. !/bug:apic_c1e
+#. !/bug:amd_e400
+#: modules/devices/x86/x86_data.c:276 modules/devices/x86/x86_data.c:285
+msgctxt "x86-flag"
+msgid "AMD Erratum 400"
+msgstr ""
+
+#. !/bug:11ap
+#: modules/devices/x86/x86_data.c:277
+msgctxt "x86-flag"
+msgid "Bad local APIC aka 11AP"
+msgstr ""
+
+#. !/bug:fxsave_leak
+#: modules/devices/x86/x86_data.c:278
+msgctxt "x86-flag"
+msgid "FXSAVE leaks FOP/FIP/FOP"
+msgstr ""
+
+#. !/bug:clflush_monitor
+#: modules/devices/x86/x86_data.c:279
+msgctxt "x86-flag"
+msgid "AAI65, CLFLUSH required before MONITOR"
+msgstr ""
+
+#. !/bug:sysret_ss_attrs
+#: modules/devices/x86/x86_data.c:280
+msgctxt "x86-flag"
+msgid "SYSRET doesn't fix up SS attrs"
+msgstr ""
+
+#. !/bug:espfix
+#: modules/devices/x86/x86_data.c:281
+msgctxt "x86-flag"
+msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
+msgstr ""
+
+#. !/bug:null_seg
+#: modules/devices/x86/x86_data.c:282
+msgctxt "x86-flag"
+msgid "Nulling a selector preserves the base"
+msgstr ""
+
+#. !/bug:swapgs_fence
+#: modules/devices/x86/x86_data.c:283
+msgctxt "x86-flag"
+msgid "SWAPGS without input dep on GS"
+msgstr ""
+
+#. !/bug:monitor
+#: modules/devices/x86/x86_data.c:284
+msgctxt "x86-flag"
+msgid "IPI required to wake up remote CPU"
+msgstr ""
+
+#. !/bug:cpu_insecure & bug:cpu_meltdown
+#: modules/devices/x86/x86_data.c:286 modules/devices/x86/x86_data.c:287
+msgctxt "x86-flag"
+msgid ""
+"CPU is affected by meltdown attack and needs kernel page table isolation"
+msgstr ""
+
+#. !/bug:spectre_v1
+#: modules/devices/x86/x86_data.c:288
+msgctxt "x86-flag"
+msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
+msgstr ""
+
+#. !/bug:spectre_v2
+#: modules/devices/x86/x86_data.c:289
+msgctxt "x86-flag"
+msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
+msgstr ""
+
+#. !/bug:spec_store_bypass
+#: modules/devices/x86/x86_data.c:290
+msgctxt "x86-flag"
+msgid "CPU is affected by speculative store bypass attack"
+msgstr ""
+
+#. !/bug:l1tf
+#: modules/devices/x86/x86_data.c:291
+msgctxt "x86-flag"
+msgid "CPU is affected by L1 Terminal Fault"
+msgstr ""
+
+#. !/flag:pm:ts
+#: modules/devices/x86/x86_data.c:294
+msgctxt "x86-flag"
+msgid "temperature sensor"
+msgstr ""
+
+#. !/flag:pm:fid
+#: modules/devices/x86/x86_data.c:295
+msgctxt "x86-flag"
+msgid "frequency id control"
+msgstr ""
+
+#. !/flag:pm:vid
+#: modules/devices/x86/x86_data.c:296
+msgctxt "x86-flag"
+msgid "voltage id control"
+msgstr ""
+
+#. !/flag:pm:ttp
+#: modules/devices/x86/x86_data.c:297
+msgctxt "x86-flag"
+msgid "thermal trip"
+msgstr ""
+
+#. !/flag:pm:tm
+#: modules/devices/x86/x86_data.c:298
+msgctxt "x86-flag"
+msgid "hardware thermal control"
+msgstr ""
+
+#. !/flag:pm:stc
+#: modules/devices/x86/x86_data.c:299
+msgctxt "x86-flag"
+msgid "software thermal control"
+msgstr ""
+
+#. !/flag:pm:100mhzsteps
+#: modules/devices/x86/x86_data.c:300
+msgctxt "x86-flag"
+msgid "100 MHz multiplier control"
+msgstr ""
+
+#. !/flag:pm:hwpstate
+#: modules/devices/x86/x86_data.c:301
+msgctxt "x86-flag"
+msgid "hardware P-state control"
+msgstr ""
+
+#. !/flag:pm:cpb
+#: modules/devices/x86/x86_data.c:302
+msgctxt "x86-flag"
+msgid "core performance boost"
+msgstr ""
+
+#. !/flag:pm:eff_freq_ro
+#: modules/devices/x86/x86_data.c:303
+msgctxt "x86-flag"
+msgid "Readonly aperf/mperf"
+msgstr ""
+
+#. !/flag:pm:proc_feedback
+#: modules/devices/x86/x86_data.c:304
+msgctxt "x86-flag"
+msgid "processor feedback interface"
+msgstr ""
+
+#. !/flag:pm:acc_power
+#: modules/devices/x86/x86_data.c:305
+msgctxt "x86-flag"
+msgid "accumulated power mechanism"
+msgstr ""
+
+#: modules/network.c:61
+msgid "Interfaces"
+msgstr ""
+
+#: modules/network.c:62
+msgid "IP Connections"
+msgstr ""
+
+#: modules/network.c:63
+msgid "Routing Table"
+msgstr ""
+
+#: modules/network.c:64 modules/network.c:474
+msgid "ARP Table"
+msgstr ""
+
+#: modules/network.c:65
+msgid "DNS Servers"
+msgstr ""
+
+#: modules/network.c:66
+msgid "Statistics"
+msgstr ""
+
+#: modules/network.c:67
+msgid "Shared Directories"
+msgstr ""
+
+#: modules/network.c:475 modules/network.c:497 modules/network.c:528
+#: modules/network/net.c:495
+msgid "IP Address"
+msgstr ""
+
+#: modules/network.c:475
+msgid "MAC Address"
+msgstr ""
+
+#: modules/network.c:484
+msgid "SAMBA"
+msgstr ""
+
+#: modules/network.c:485
+msgid "NFS"
+msgstr ""
+
+#: modules/network.c:496
+msgid "Name Servers"
+msgstr ""
+
+#: modules/network.c:511
+msgid "Connections"
+msgstr ""
+
+#: modules/network.c:512
+msgid "Local Address"
+msgstr ""
+
+#: modules/network.c:512
+msgid "Foreign Address"
+msgstr ""
+
+#: modules/network.c:512
 msgid "State"
 msgstr "Etat"
 
-#: modules/network.c:521
+#: modules/network.c:528
 msgid "Sent"
 msgstr "Envoyé"
 
-#: modules/network.c:521
+#: modules/network.c:528
 msgid "Received"
 msgstr "Reçue"
 
-#: modules/network.c:537
+#: modules/network.c:544
 msgid "IP routing table"
 msgstr ""
 
-#: modules/network.c:538
+#: modules/network.c:545
 msgid "Destination/Gateway"
 msgstr "Destination/Passerelle"
 
-#: modules/network.c:538 modules/network/net.c:496
+#: modules/network.c:545 modules/network/net.c:496
 msgid "Mask"
 msgstr "Masque"
 
-#: modules/network.c:599
+#: modules/network.c:606
 msgid "Gathers information about this computer's network connection"
 msgstr "Collecte des informations sur les connexions réseau de cet ordinateur"
 
@@ -4832,6 +6529,50 @@ msgstr "Adresse Broadcast"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr ""
+
+#~ msgid "phandle Map"
+#~ msgstr "Map Descriptif"
+
+#, c-format
+#~ msgid "Detecting version: %s"
+#~ msgstr "Version détectée: %s"
+
+#~ msgid "Properties"
+#~ msgstr "Propriétés"
+
+#~ msgid "Symbol"
+#~ msgstr "Symbole"
+
+#~ msgid "Platform"
+#~ msgstr "Plateforme"
+
+#~ msgid "Raspberry Pi or Compatible"
+#~ msgstr "Raspberry Pi ou Similaire"
+
+#~ msgid "No revision code available; unable to lookup model details."
+#~ msgstr ""
+#~ "Aucun code de révision n'est disponible; il n'est pas possible de "
+#~ "consulter les détails du modèle."
+
+#~ msgid "More"
+#~ msgstr "Plus"
+
+#~ msgid "Detected as"
+#~ msgstr "Détecté comme"
+
+#~ msgid "Board Name"
+#~ msgstr "Nom de la carte"
+
+#~ msgid "Memory (spec)"
+#~ msgstr "Memoire (spec)"
+
+#~ msgctxt "rpi-ov-bit"
+#~ msgid "Set"
+#~ msgstr "Sélectionné"
+
+#~ msgctxt "rpi-ov-bit"
+#~ msgid "Not set"
+#~ msgstr "Non séléctionné"
 
 #~ msgid "_Open HardInfo2 Web Site"
 #~ msgstr "_HardInfo2 Site Web"

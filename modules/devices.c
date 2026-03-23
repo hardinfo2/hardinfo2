@@ -407,8 +407,6 @@ gchar *get_storage_home_models(void)
 	    g_free(err);
             spawned = g_spawn_command_line_sync(cmd_lineblk, &out, &err, NULL, NULL);
 	    if(spawned && out){
-	        p=strstr(out," ")+1;//note: field 4 is size
-	        *p=0;
 	        homepath=g_strdup(out);
 	    }
 	}
@@ -420,8 +418,6 @@ gchar *get_storage_home_models(void)
         spawned = g_spawn_command_line_sync(cmd_line1disk, &out, &err, NULL, NULL);
         if(spawned && out){
 	    if(strstr(out,"disk") && (strstr(out,"\n")==(out+strlen(out)-1)) ) {
-	        p=strstr(out," ")+1;//note: field 4 is size
-		*p=0;
                 homepath=strdup(out);
 	    }
         }
@@ -429,8 +425,8 @@ gchar *get_storage_home_models(void)
         g_free(err);
     }
     if(!homepath) return g_strdup("NoHomePath");
+    if( (p=strstr(homepath," ")) ) *p=0;
     if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (p=strstr(homepath,"p")) ) *p=0;
-    homepath[strlen(homepath)-1]=0;
     while(homepath[strlen(homepath)-1]>='0' && homepath[strlen(homepath)-1]<='9') homepath[strlen(homepath)-1]=0;
     //printf("Homepath=%s (%u)\n",homepath,(unsigned int)strlen(homepath));
 

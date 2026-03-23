@@ -391,7 +391,7 @@ gchar *get_storage_home_models(void)
     GRegex *regex;
     gchar *homepath=NULL,*out=NULL,*err=NULL;
     gboolean spawned;
-    const char cmd_line[] = "sh -c 'cd ~;df --output=source . |tail -1'";
+    const char cmd_line[] = "sh -c 'cd ~;df -a . |tail -1'";
     const char cmd_line1disk[] = "sh -c 'lsblk -l |grep disk|grep -v zram|grep -v mtdblock|grep -v boot0|grep -v boot1'";
     char cmd_lineblk[100];
 
@@ -429,9 +429,9 @@ gchar *get_storage_home_models(void)
         g_free(err);
     }
     if(!homepath) return g_strdup("NoHomePath");
+    if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (p=strstr(homepath,"p")) ) *p=0;
     homepath[strlen(homepath)-1]=0;
     while(homepath[strlen(homepath)-1]>='0' && homepath[strlen(homepath)-1]<='9') homepath[strlen(homepath)-1]=0;
-    if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (homepath[strlen(homepath)-1]=='p') ) homepath[strlen(homepath)-1]=0;
     //printf("Homepath=%s (%u)\n",homepath,(unsigned int)strlen(homepath));
 
     regex = g_regex_new ("<.*?>", 0, 0, NULL);

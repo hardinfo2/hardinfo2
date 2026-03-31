@@ -314,13 +314,19 @@ __scan_battery_sysfs_add_battery(const gchar *name)
     power_now_txt=read_contents(path,"power_now");
     if(voltage_now_txt) if(sscanf(voltage_now_txt, "%lu", &l)==1) voltage_now=(float)l/1000000.0;
     if(current_now_txt) if(sscanf(current_now_txt, "%li", &sl)==1) current_now=(float)sl/1000000.0;
-    if(power_now_txt) if(sscanf(power_now_txt, "%li", &sl)==1) power_now=(float)sl/1000000.0;
+    if(power_now_txt) {
+      if(sscanf(power_now_txt, "%li", &sl)==1) {
+	power_now=(float)sl/1000000.0;
+	if((power_now!=0) && (current_now==0) && (voltage_now>0)) current_now=power_now/voltage_now;//Fix for missing current on asus rog strix G18 (G814JV)++
+      }
+    }
     if(!strcmp(status,"Discharging") && (current_now>0)) {current_now*=-1;}
-
     if(voltage_min_design) if(sscanf(voltage_min_design, "%lu", &l)==1) voltage=(float)l/1000000.0;//uV->V
+    //full_design
     if(!charge_full_design && energy_full_design) if(sscanf(energy_full_design, "%lu", &l)==1) full_design=(float)l/(voltage>0?voltage*1000000.0:-1.0);//uWh->Ah
     if(charge_full_design) if(sscanf(charge_full_design, "%lu", &l)==1) full_design=(float)l/1000000.0;//uAh->Ah
-    if(!charge_full && energy_full) if(sscanf(energy_full, "%lu", &l)==1) full_current=(float)l/(voltage>0?voltage*1000000.0:-1.0);//uWh->Ah
+    //full_current
+    if(!charge_full && energy_full) if(sscanf(energy_full, "%lu", &l)==1) full_current=(float)l/(voltage>0?voltage*1000000.0:-1.0);//uWh->Ah - Fix for missing current on asus rog strix G18 (G814JV)++
     if(charge_full) if(sscanf(charge_full, "%lu", &l)==1) full_current=(float)l/1000000.0;//uAh->Ah
 
     battery_list = h_strdup_cprintf(_("\n[Battery: %s]\n"
@@ -341,7 +347,7 @@ __scan_battery_sysfs_add_battery(const gchar *name)
         name,
         status,
         capacity, capacity_level,
-	voltage_now*current_now!=0?voltage_now*current_now:(power_now!=0?power_now:-1),
+	voltage_now*current_now!=0?voltage_now*current_now:-1,
 	full_design>0?(full_current*100.0)/full_design:-1,
 	voltage>0?full_design*voltage:-1,
         voltage>0?full_current*voltage:-1,

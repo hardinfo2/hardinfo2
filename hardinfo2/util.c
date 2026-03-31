@@ -294,6 +294,7 @@ gchar *file_chooser_build_filename(GtkWidget * chooser, gchar * extension)
     return retval;
 }
 
+#ifdef HARDINFO2_DEBUG
 static void
 log_handler(const gchar * log_domain,
 	    GLogLevelFlags log_level,
@@ -324,6 +325,7 @@ log_handler(const gchar * log_domain,
 	gtk_widget_destroy(dialog);
     }
 }
+#endif
 
 void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 {
@@ -497,10 +499,11 @@ gint ui_init(int *argc, char ***argv)
     DEBUG("initializing gtk+ UI");
 
     g_set_application_name("HardInfo2");
-    /*g_log_set_handler(NULL,
+#ifdef HARDINFO2_DEBUG
+    g_log_set_handler(NULL,
 		      G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL |
-		      G_LOG_LEVEL_ERROR, log_handler, NULL);*/
-
+		      G_LOG_LEVEL_ERROR, log_handler, NULL);
+#endif
     return gtk_init_check(argc, argv);
 }
 

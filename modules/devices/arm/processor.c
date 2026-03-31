@@ -660,6 +660,7 @@ gchar *processor_name(GSList *processors) {
         { "qcom,msm", "Qualcomm", "Snapdragon-family"},
         { "qcom,x1e80100", "Qualcomm", "Snapdragon X Elite"},
         { "qcom,x1p42100", "Qualcomm", "Snapdragon X Plus"},
+        { "rockchip,rk3188", "Rockchip", "RK3188" }, // tablets from 2012
         { "rockchip,rk3288", "Rockchip", "RK3288" }, // Asus Tinkerboard
         { "rockchip,rk3328", "Rockchip", "RK3328" }, // Firefly Renegade
         { "rockchip,rk3399", "Rockchip", "RK3399" }, // Firefly Renegade Elite
@@ -696,14 +697,28 @@ gchar *processor_name(GSList *processors) {
     };
     gchar *ret = NULL;
     gchar *compat = NULL;
-    int i;
+    int i, rev=0;
 
     compat = dtr_get_string("/compatible", 1);
+
+    if(!compat) {//search dmesg if no DT - older distros
+        gboolean spawned;
+	gchar *out, *err, *p;
+	spawned = g_spawn_command_line_sync("sh -c 'dmesg -t|grep cpufreq\\  |cut -f 1 -d \\ '", &out, &err, NULL, NULL);
+        rev=1;
+	if (spawned) {
+	    p=out;while(p && *p>' ') p++; if(p) *p=0;
+	    if(strlen(out)>1 && strlen(out)<20) compat = g_strdup_printf(",%s",out);
+	    g_free(out);
+	    g_free(err);
+	}
+    }
 
     if (compat != NULL) {
         i = 0;
         while(dt_compat_searches[i].search_str != NULL) {
-            if (strstr(compat, dt_compat_searches[i].search_str) != NULL) {
+	  if ( (!rev && strstr(compat, dt_compat_searches[i].search_str) != NULL) ||
+	       (rev && strstr(dt_compat_searches[i].search_str, compat) != NULL) ) {
 	        if(strstr(dt_compat_searches[i].soc,"Unknown"))
 		    ret = g_strdup_printf("%s %s (%s)", dt_compat_searches[i].vendor, dt_compat_searches[i].soc, compat);
 		else
@@ -758,6 +773,7 @@ gchar *processor_meta(GSList * processors) {
     g_free(meta_caches);
     return ret;
 }
+
 
 gchar *processor_get_info(GSList * processors)
 {

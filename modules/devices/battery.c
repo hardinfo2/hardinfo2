@@ -321,6 +321,7 @@ __scan_battery_sysfs_add_battery(const gchar *name)
       }
     }
     if(!strcmp(status,"Discharging") && (current_now>0)) {current_now*=-1;}
+    if(!strcmp(status,"Full") && (current_now==0)) {current_now=0.0001;}
     if(voltage_min_design) if(sscanf(voltage_min_design, "%lu", &l)==1) voltage=(float)l/1000000.0;//uV->V
     //full_design
     if(!charge_full_design && energy_full_design) if(sscanf(energy_full_design, "%lu", &l)==1) full_design=(float)l/(voltage>0?voltage*1000000.0:-1.0);//uWh->Ah

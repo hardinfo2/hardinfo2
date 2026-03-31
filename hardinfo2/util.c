@@ -497,9 +497,9 @@ gint ui_init(int *argc, char ***argv)
     DEBUG("initializing gtk+ UI");
 
     g_set_application_name("HardInfo2");
-    g_log_set_handler(NULL,
+    /*g_log_set_handler(NULL,
 		      G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL |
-		      G_LOG_LEVEL_ERROR, log_handler, NULL);
+		      G_LOG_LEVEL_ERROR, log_handler, NULL);*/
 
     return gtk_init_check(argc, argv);
 }

@@ -1368,7 +1368,7 @@ msgstr "Sprachen"
 
 #: modules/computer.c:102
 msgid "Memory Usage"
-msgstr "SPeicherbenutzung"
+msgstr "Speicherbenutzung"
 
 #: modules/computer.c:103
 msgid "Filesystems"

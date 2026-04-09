@@ -179,7 +179,7 @@ msgstr "系统事件日志"
 
 #: hardinfo2/dmi_util.c:41
 msgid "Physical Memory Array"
-msgstr ""
+msgstr "物理内存阵列"
 
 #: hardinfo2/dmi_util.c:42
 msgid "Memory Device"
@@ -191,11 +191,11 @@ msgstr "32位内存错误"
 
 #: hardinfo2/dmi_util.c:44
 msgid "Memory Array Mapped Address"
-msgstr ""
+msgstr "内存阵列已映射地址"
 
 #: hardinfo2/dmi_util.c:45
 msgid "Memory Device Mapped Address"
-msgstr ""
+msgstr "内存设备已映射地址"
 
 #: hardinfo2/dmi_util.c:46
 msgid "Built-in Pointing Device"
@@ -413,7 +413,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:270
 msgid "IoT Gateway"
-msgstr ""
+msgstr "IoT 网关"
 
 #: hardinfo2/dmi_util.c:271
 msgid "Embedded PC"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: hardinfo2/dmi_util.c:272
 msgid "Mini PC"
-msgstr ""
+msgstr "迷你电脑"
 
 #: hardinfo2/dmi_util.c:273
 msgid "Stick PC"
@@ -532,11 +532,11 @@ msgstr "严重错误"
 
 #: hardinfo2/util.c:349
 msgid "do not print status messages to standard output"
-msgstr ""
+msgstr "不打印状态信息到标准输出"
 
 #: hardinfo2/util.c:355
 msgid "creates a report and prints to standard output"
-msgstr ""
+msgstr "创建报告并打印到标准输出"
 
 #: hardinfo2/util.c:361
 msgid "chooses a report format ([text], html)"
@@ -574,7 +574,7 @@ msgstr "显示程序版本并退出"
 
 #: hardinfo2/util.c:409
 msgid "do not run benchmarks"
-msgstr ""
+msgstr "不运行基准测试"
 
 #: hardinfo2/util.c:415
 msgid "show all details"
@@ -614,7 +614,7 @@ msgstr ""
 
 #: hardinfo2/vendor.c:218
 msgid "Check Update Version"
-msgstr ""
+msgstr "检查版本更新"
 
 #: hardinfo2/vendor.c:385 modules/computer.c:591 modules/computer.c:819
 #: modules/computer/os.c:201 modules/computer/os.c:392
@@ -632,7 +632,7 @@ msgstr "未知"
 
 #: shell/callbacks.c:497 shell/shell.c:555
 msgid "System Information and Benchmark"
-msgstr ""
+msgstr "系统信息和基准测试"
 
 #: shell/callbacks.c:501
 msgid ""
@@ -672,19 +672,19 @@ msgstr "生成报表(_R)"
 
 #: shell/menu.c:47
 msgid "Generates a report with detailed system information"
-msgstr ""
+msgstr "生成一份包含详细系统信息的报告"
 
 #: shell/menu.c:51 shell/syncmanager.c:757
 msgid "Synchronize"
-msgstr ""
+msgstr "同步"
 
 #: shell/menu.c:52
 msgid "Send benchmark results and receive updated data from the network"
-msgstr ""
+msgstr "发送基准测试结构并通过网络更新数据"
 
 #: shell/menu.c:56 shell/menu.c:57
 msgid "Update Available"
-msgstr ""
+msgstr "可更新"
 
 #: shell/menu.c:67
 msgid "_Refresh"
@@ -740,27 +740,27 @@ msgstr "禁用主题"
 
 #: shell/menu.c:121
 msgid "Theme Motherboard"
-msgstr ""
+msgstr "Motherboard 主题"
 
 #: shell/menu.c:125
 msgid "Theme Graffiti"
-msgstr ""
+msgstr "Graffiti 主题"
 
 #: shell/menu.c:129
 msgid "Theme Anime PC"
-msgstr ""
+msgstr "Anime PC 主题"
 
 #: shell/menu.c:133
 msgid "Theme Tux Star"
-msgstr ""
+msgstr "Tux Star 主题"
 
 #: shell/menu.c:137
 msgid "Theme PixArt"
-msgstr ""
+msgstr "PixArt 主题"
 
 #: shell/menu.c:141
 msgid "Theme Silicon"
-msgstr ""
+msgstr "Silicon 主题"
 
 #: shell/report.c:854 shell/report.c:862
 msgid "Save File"
@@ -776,11 +776,11 @@ msgstr "保存(_S)"
 
 #: shell/report.c:1037
 msgid "Cannot create ReportContext. Programming bug?"
-msgstr ""
+msgstr "无法创建报告内容，或许是程序错误？"
 
 #: shell/report.c:1057
 msgid "Open the report with your web browser?"
-msgstr "在默认浏览器中打开报告？"
+msgstr "在默认浏览器中打开报告吗？"
 
 #: shell/report.c:1060
 msgid "_No"
@@ -831,7 +831,7 @@ msgstr "基准"
 #: shell/shell.c:550
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""
+msgstr "%s - 系统信息和基准测试"
 
 #: shell/shell.c:720
 #, c-format
@@ -895,7 +895,7 @@ msgstr "(失败)"
 
 #: shell/syncmanager.c:693 modules/benchmark.c:943
 msgid "Send benchmark results"
-msgstr ""
+msgstr "发送基准测试结果"
 
 #: shell/syncmanager.c:819
 msgid "User Note "
@@ -1038,12 +1038,12 @@ msgstr ""
 
 #: modules/benchmark/benches.c:391
 msgid "Results in MB/s. Higher is better."
-msgstr ""
+msgstr "结果以 MB/秒为单位，越高越好。"
 
 #: modules/benchmark/benches.c:394 modules/benchmark/benches.c:398
 #: modules/benchmark/benches.c:402
 msgid "Results in FPS. Higher is better."
-msgstr ""
+msgstr "结果以帧率为单位，越高越好。"
 
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
@@ -1150,7 +1150,7 @@ msgstr ""
 
 #: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
 msgid "Benchmark Result"
-msgstr ""
+msgstr "基准测试结果"
 
 #: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
 msgid "Threads"
@@ -1294,7 +1294,7 @@ msgstr ""
 #: modules/benchmark.c:694
 #, c-format
 msgid "Benchmarking: %s"
-msgstr ""
+msgstr "正在运行基准测试：%s"
 
 #: modules/benchmark.c:698
 msgid "Stop"
@@ -1308,15 +1308,15 @@ msgstr ""
 
 #: modules/benchmark.c:773
 msgid "Benchmarks"
-msgstr ""
+msgstr "基准测试"
 
 #: modules/benchmark.c:783
 msgid "Perform tasks and compare with other systems"
-msgstr ""
+msgstr "执行任务并和其他系统比较"
 
 #: modules/benchmark.c:949
 msgid "Receive benchmark results"
-msgstr ""
+msgstr "接受基准测试结果"
 
 #: modules/computer/alsa.c:26 modules/computer.c:566
 msgid "Audio Devices"
@@ -1381,7 +1381,7 @@ msgstr "组"
 #: modules/computer.c:142
 #, c-format
 msgid "%dMB (%dMB used)"
-msgstr ""
+msgstr "%dMB (%dMB 已使用)"
 
 #: modules/computer.c:144 modules/computer.c:611
 msgid "Uptime"
@@ -1571,7 +1571,7 @@ msgstr "描述"
 
 #: modules/computer.c:386 modules/devices.c:1003
 msgid "Value"
-msgstr "亮度"
+msgstr "数值"
 
 #: modules/computer.c:401 modules/computer.c:403
 msgid "Virtual (Xen)"
@@ -1616,7 +1616,7 @@ msgstr "解决方案"
 #: modules/computer.c:559 modules/computer.c:802
 #, c-format
 msgid "%dx%d pixels"
-msgstr ""
+msgstr "%dx%d 像素"
 
 #: modules/computer.c:561
 msgid "Display Adapter"
@@ -1672,7 +1672,7 @@ msgstr "其它"
 
 #: modules/computer.c:616
 msgid "Logo"
-msgstr ""
+msgstr "标识"
 
 #: modules/computer.c:616
 msgid "belongs to distro and may be reg. trademark"
@@ -1716,7 +1716,7 @@ msgstr "Hardinfo2 服务器没有启用或启动"
 
 #: modules/computer.c:649
 msgid "Health"
-msgstr ""
+msgstr "健康"
 
 #: modules/computer.c:651
 msgid "Available entropy in /dev/random"
@@ -1868,7 +1868,7 @@ msgstr "未使用"
 #: modules/computer.c:824
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
-msgstr ""
+msgstr "%dx%d 像素, (%d, %d) 偏移"
 
 #: modules/computer.c:833
 msgid "Outputs (XRandR)"
@@ -2005,11 +2005,11 @@ msgstr "音频"
 
 #: modules/computer.c:1171
 msgid "Gathers high-level computer information"
-msgstr ""
+msgstr "收集计算机上层日志"
 
 #: modules/computer.c:1182
 msgid "<i><b>lsmod</b></i> is required."
-msgstr ""
+msgstr "需要<i><b>lsmod</b></i>。"
 
 #: modules/computer.c:1190
 msgid ""
@@ -2089,255 +2089,255 @@ msgstr "系统代码集"
 
 #: modules/computer/loadavg.c:64
 msgid "Couldn't obtain load average"
-msgstr ""
+msgstr "无法获取平均负载"
 
 #: modules/computer/memory_usage.c:131
 msgid "Total physical memory usable by the system"
-msgstr ""
+msgstr "系统可使用的总物理内存"
 
 #: modules/computer/memory_usage.c:132
 msgid "Free memory which is not used for anything"
-msgstr ""
+msgstr "未被使用的空闲内存"
 
 #: modules/computer/memory_usage.c:133
 msgid "Virtual memory, total swap space available"
-msgstr ""
+msgstr "可用的总交换空间"
 
 #: modules/computer/memory_usage.c:134
 msgid "Virtual memory, remaining swap space available"
-msgstr ""
+msgstr "可被交换的虚拟内存"
 
 #: modules/computer/memory_usage.c:135
 msgid "Memory present within main memory and in the swapfile"
-msgstr ""
+msgstr "主内存与交换文件中的内存"
 
 #: modules/computer/memory_usage.c:136
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "HighTotal 值会因所使用的内核类型而变化"
 
 #: modules/computer/memory_usage.c:137
 msgid "Amount of memory that is not directly mapped into kernel space"
-msgstr ""
+msgstr "未直接映射到内核空间的内存量"
 
 #: modules/computer/memory_usage.c:138
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "LowTotal 值会因所使用的内核类型而变化"
 
 #: modules/computer/memory_usage.c:139
 msgid "Total and free memory directly mapped into kernel space"
-msgstr ""
+msgstr "直接映射到内核空间的总内存和空闲内存"
 
 #: modules/computer/memory_usage.c:140
 msgid "Available memory for allocation to any process, without swapping"
-msgstr ""
+msgstr "可直接分配给进程的可用内存（无交换）"
 
 #: modules/computer/memory_usage.c:141
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
-msgstr ""
+msgstr "缓冲缓存中的内存，用于临时存放原始磁盘块"
 
 #: modules/computer/memory_usage.c:142
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
-msgstr ""
+msgstr "页面缓存中的内存（磁盘缓存、共享内存、tmpfs 和 shmem）"
 
 #: modules/computer/memory_usage.c:143
 msgid "Memory used more recently and not swapped out or reclaimed"
-msgstr ""
+msgstr "近期使用且未被交换或回收的内存"
 
 #: modules/computer/memory_usage.c:144
 msgid "Memory not been used recently and can be swapped out or reclaimed"
-msgstr ""
+msgstr "近期未使用且可被交换或回收的内存"
 
 #: modules/computer/memory_usage.c:145
 msgid "Anonymous memory used more recently and not swapped out"
-msgstr ""
+msgstr "近期使用且未被交换的匿名内存"
 
 #: modules/computer/memory_usage.c:146
 msgid "Anonymous memory not been used and can be swapped out"
-msgstr ""
+msgstr "近期未使用且可被交换的匿名内存"
 
 #: modules/computer/memory_usage.c:147
 msgid "Pagecache memory been used more recently and not reclaimed"
-msgstr ""
+msgstr "近期使用且未被回收的页面缓存内存"
 
 #: modules/computer/memory_usage.c:148
 msgid "Pagecache memory reclaimable without huge performance impact"
-msgstr ""
+msgstr "可在不产生巨大性能影响的情况下回收的页面缓存内存"
 
 #: modules/computer/memory_usage.c:149
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
-msgstr ""
+msgstr "因多种原因无法被置换的页面"
 
 #: modules/computer/memory_usage.c:150
 msgid "Pages locked to memory using the mlock() system call"
-msgstr ""
+msgstr "使用 mlock() 系统调用锁定在内存中的页面"
 
 #: modules/computer/memory_usage.c:151
 msgid "Memory consumed by the zswap backend (compressed size)"
-msgstr ""
+msgstr "zswap 后端占用的内存（压缩后大小）"
 
 #: modules/computer/memory_usage.c:152
 msgid "Amount of anonymous memory stored in zswap (original size)"
-msgstr ""
+msgstr "存储在 zswap 中的匿名内存量（原始大小）"
 
 #: modules/computer/memory_usage.c:153
 msgid "Memory waiting to be written back to disk"
-msgstr ""
+msgstr "等待写回磁盘的内存"
 
 #: modules/computer/memory_usage.c:154
 msgid "Memory which is actively being written back to disk"
-msgstr ""
+msgstr "正在写回磁盘的内存"
 
 #: modules/computer/memory_usage.c:155
 msgid "Non-file backed pages mapped into userspace page tables"
-msgstr ""
+msgstr "映射到用户空间页面表的非文件后备页面"
 
 #: modules/computer/memory_usage.c:156
 msgid "Files which have been mmapped, such as libraries"
-msgstr ""
+msgstr "已 mmapped 的文件，例如库文件"
 
 #: modules/computer/memory_usage.c:157
 msgid "Total memory used by shared memory (shmem) and tmpfs"
-msgstr ""
+msgstr "共享内存（shmem）和 tmpfs 使用的总内存"
 
 #: modules/computer/memory_usage.c:158
 msgid "Kernel allocations reclaimable under memory pressure"
-msgstr ""
+msgstr "在内存压力下可回收的内核分配"
 
 #: modules/computer/memory_usage.c:159
 msgid "In-kernel data structures cache"
-msgstr ""
+msgstr "内核数据结构缓存"
 
 #: modules/computer/memory_usage.c:160
 msgid "Part of Slab, that might be reclaimed, such as caches"
-msgstr ""
+msgstr "Slab 的可回收部分，例如缓存"
 
 #: modules/computer/memory_usage.c:161
 msgid "Part of Slab, that cannot be reclaimed on memory pressure"
-msgstr ""
+msgstr "Slab 的不可回收部分，在内存压力下无法回收"
 
 #: modules/computer/memory_usage.c:162
 msgid "Memory consumed by the kernel stacks of all tasks"
-msgstr ""
+msgstr "所有任务内核栈占用的内存"
 
 #: modules/computer/memory_usage.c:163
 msgid "Memory consumed by userspace page tables"
-msgstr ""
+msgstr "用户空间页面表占用的内存"
 
 #: modules/computer/memory_usage.c:164
 msgid "Memory consumed by secondary page tables"
-msgstr ""
+msgstr "次级页面表占用的内存"
 
 #: modules/computer/memory_usage.c:165
 msgid "Previous counted pages which had been written to the server"
-msgstr ""
+msgstr "之前计数且已写入服务器的页面"
 
 #: modules/computer/memory_usage.c:166
 msgid "Memory used for block device bounce buffers"
-msgstr ""
+msgstr "块设备回跳缓冲区占用的内存"
 
 #: modules/computer/memory_usage.c:167
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr ""
+msgstr "FUSE 用于临时回写缓冲区占用的内存"
 
 #: modules/computer/memory_usage.c:168
 msgid "Total memory currently available to be allocated on the system"
-msgstr ""
+msgstr "系统当前可分配的总内存"
 
 #: modules/computer/memory_usage.c:169
 msgid "The amount of memory presently allocated on the system"
-msgstr ""
+msgstr "系统当前已分配的内存量"
 
 #: modules/computer/memory_usage.c:170
 msgid "Total size of vmalloc virtual address space"
-msgstr ""
+msgstr "vmalloc 虚拟地址空间的总大小"
 
 #: modules/computer/memory_usage.c:171
 msgid "Amount of vmalloc area which is used"
-msgstr ""
+msgstr "已使用的 vmalloc 区域量"
 
 #: modules/computer/memory_usage.c:172
 msgid "Largest contiguous block of vmalloc area which is free"
-msgstr ""
+msgstr "最大的连续空闲 vmalloc 区块"
 
 #: modules/computer/memory_usage.c:173
 msgid "Memory allocated to the percpu allocator"
-msgstr ""
+msgstr "分配给 per-CPU 分配器的内存"
 
 #: modules/computer/memory_usage.c:174
 msgid "Amount of memory the kernel identifies as corrupted"
-msgstr ""
+msgstr "内核识别为损坏的内存量"
 
 #: modules/computer/memory_usage.c:175
 msgid "Non-file backed huge pages mapped into userspace page tables"
-msgstr ""
+msgstr "映射到用户空间页面表的非文件后备大页面"
 
 #: modules/computer/memory_usage.c:176
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
-msgstr ""
+msgstr "使用大页面分配的 shmem 和 tmpfs 占用的内存"
 
 #: modules/computer/memory_usage.c:177
 msgid "Shared memory mapped into userspace with huge pages"
-msgstr ""
+msgstr "使用大页面映射到用户空间的共享内存"
 
 #: modules/computer/memory_usage.c:178
 msgid "Memory used for fs data (page cache) allocated with huge pages"
-msgstr ""
+msgstr "使用大页面分配的文件系统数据（页面缓存）占用的内存"
 
 #: modules/computer/memory_usage.c:179
 msgid "Page cache mapped into userspace with huge pages"
-msgstr ""
+msgstr "使用大页面映射到用户空间的页面缓存"
 
 #: modules/computer/memory_usage.c:180
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
-msgstr ""
+msgstr "为连续内存分配器（CMA）预留的内存"
 
 #: modules/computer/memory_usage.c:181
 msgid "Free remaining memory in the CMA reserves"
-msgstr ""
+msgstr "CMA 预留中剩余的空闲内存"
 
 #: modules/computer/memory_usage.c:182
 msgid "Amount of unaccepted memory usable by the kernel"
-msgstr ""
+msgstr "内核可用但未被接受的内存量"
 
 #: modules/computer/memory_usage.c:183
 msgid "Size of the pool of huge pages"
-msgstr ""
+msgstr "大页面池的大小"
 
 #: modules/computer/memory_usage.c:184
 msgid "Number of huge pages available"
-msgstr ""
+msgstr "可用的大页面数量"
 
 #: modules/computer/memory_usage.c:185
 msgid "Number of huge pages reserved"
-msgstr ""
+msgstr "已保留的大页面数量"
 
 #: modules/computer/memory_usage.c:186
 msgid "Number of huge pages surplus"
-msgstr ""
+msgstr "多余的大页面数量"
 
 #: modules/computer/memory_usage.c:187
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr ""
+msgstr "大页面大小（与 hugepages 参数一起使用）"
 
 #: modules/computer/memory_usage.c:188
 msgid "Total amount of memory consumed by huge pages of all sizes"
-msgstr ""
+msgstr "所有大小的大页面占用的总内存"
 
 #: modules/computer/memory_usage.c:189
 msgid "Breakdown of page table sizes of 4k size"
-msgstr ""
+msgstr "4k 页面表大小分布"
 
 #: modules/computer/memory_usage.c:190
 msgid "Breakdown of page table sizes of 2M size"
-msgstr ""
+msgstr "2M 页面表大小分布"
 
 #: modules/computer/memory_usage.c:191
 msgid "Breakdown of page table sizes of 1G size"
-msgstr ""
+msgstr "1G 页面表大小分布"
 
 #: modules/computer/modules.c:34
 msgid "Update kernel module icon table"
-msgstr ""
+msgstr "更新内核模块图标表"
 
 #: modules/computer/modules.c:163 modules/computer/modules.c:164
 #: modules/computer/modules.c:165 modules/computer/modules.c:166
@@ -2365,7 +2365,7 @@ msgstr "版本魔数"
 
 #: modules/computer/modules.c:197
 msgid "In Linus' Tree"
-msgstr ""
+msgstr "在内核代码树中"
 
 #: modules/computer/modules.c:198
 msgid "Retpoline Enabled"
@@ -2414,7 +2414,7 @@ msgstr "版本："
 
 #: modules/computer/os.c:274 modules/computer/os.c:278
 msgid "MATE Desktop Environment "
-msgstr ""
+msgstr "MATE 桌面环境"
 
 #: modules/computer/os.c:313
 #, c-format
@@ -2433,19 +2433,19 @@ msgstr "终端"
 
 #: modules/computer/os.c:406
 msgid "User access allowed"
-msgstr ""
+msgstr "允许的用户权限"
 
 #: modules/computer/os.c:408
 msgid "User access forbidden"
-msgstr ""
+msgstr "拒绝的用户权限"
 
 #: modules/computer/os.c:410
 msgid "Access allowed (running as superuser)"
-msgstr ""
+msgstr "允许访问（以超级用户运行）"
 
 #: modules/computer/os.c:412
 msgid "Access forbidden? (running as superuser)"
-msgstr ""
+msgstr "拒绝访问？（以超级用户运行）"
 
 #: modules/computer/os.c:421 modules/computer/os.c:801
 msgid "Disabled"
@@ -2462,7 +2462,7 @@ msgstr ""
 #. !/bits of entropy for rng (0)
 #: modules/computer/os.c:434
 msgid "(None or not available)"
-msgstr ""
+msgstr "（没有或不可用）"
 
 #. !/bits of entropy for rng (low/poor value)
 #: modules/computer/os.c:435
@@ -2484,7 +2484,7 @@ msgstr ""
 
 #: modules/computer/os.c:796
 msgid "Not installed"
-msgstr ""
+msgstr "未安装"
 
 #: modules/computer/os.c:799
 msgid "Enabled"
@@ -3166,19 +3166,19 @@ msgstr ""
 
 #: modules/devices/dmi.c:151
 msgid "DMI Unavailable"
-msgstr ""
+msgstr "DMI 不可用"
 
 #: modules/devices/dmi.c:152
 msgid "DMI is not available. Perhaps this platform does not provide DMI."
-msgstr ""
+msgstr "DMI 不可用，可能是该平提啊不提供 DMI。"
 
 #: modules/devices/dmi_memory.c:620 modules/devices/dmi_memory.c:859
 msgid "Memory Device List"
-msgstr ""
+msgstr "内存设备列表"
 
 #: modules/devices/dmi_memory.c:668
 msgid "Memory Array"
-msgstr ""
+msgstr "内存阵列"
 
 #: modules/devices/dmi_memory.c:669 modules/devices/x86/processor.c:714
 msgid "DMI Handle"
@@ -3187,7 +3187,7 @@ msgstr ""
 #: modules/devices/dmi_memory.c:670 modules/devices/dmi_memory.c:726
 #: modules/devices/dmi_memory.c:764 modules/devices/dmi_memory.c:871
 msgid "Locator"
-msgstr ""
+msgstr "位置"
 
 #: modules/devices/dmi_memory.c:671
 msgid "Use"
@@ -3251,20 +3251,20 @@ msgstr ""
 
 #: modules/devices/dmi_memory.c:738
 msgid "Minimum Voltage"
-msgstr ""
+msgstr "最小电压"
 
 #: modules/devices/dmi_memory.c:739
 msgid "Maximum Voltage"
-msgstr ""
+msgstr "最大电压"
 
 #: modules/devices/dmi_memory.c:740
 msgid "Configured Voltage"
-msgstr ""
+msgstr "当前电压"
 
 #: modules/devices/dmi_memory.c:766 modules/devices/dmi_memory.c:773
 #: modules/devices/monitors.c:492
 msgid "(Empty)"
-msgstr ""
+msgstr "（空）"
 
 #: modules/devices/dmi_memory.c:804
 msgid "Serial Presence Detect (SPD) Summary"
@@ -3276,11 +3276,11 @@ msgstr ""
 
 #: modules/devices/dmi_memory.c:932
 msgid "No DMI available"
-msgstr ""
+msgstr "DMI 不可用"
 
 #: modules/devices/dmi_memory.c:936
 msgid "<b><i>dmidecode</i></b> package installed"
-msgstr ""
+msgstr "<b><i>dmidecode</i></b> 软件包已安装"
 
 #: modules/devices/dmi_memory.c:938
 msgid ""
@@ -3290,7 +3290,7 @@ msgstr ""
 
 #: modules/devices/dmi_memory.c:948
 msgid "Memory Information requires more Setup:"
-msgstr ""
+msgstr "内存信息需要更多设置："
 
 #: modules/devices/dmi_memory.c:982
 msgid ""
@@ -3328,11 +3328,11 @@ msgstr ""
 
 #: modules/devices/firmware.c:39
 msgid "Requires AC power"
-msgstr ""
+msgstr "需要 AC 电源"
 
 #: modules/devices/firmware.c:40
 msgid "Is locked and can be unlocked"
-msgstr ""
+msgstr "已锁定，可解锁"
 
 #: modules/devices/firmware.c:41
 msgid "Is found in current metadata"
@@ -3452,11 +3452,11 @@ msgstr "协议"
 
 #: modules/devices/firmware.c:245
 msgid "Firmware List"
-msgstr ""
+msgstr "固件列表"
 
 #: modules/devices/firmware.c:257
 msgid "Requires the <i><b>fwupd</b></i> daemon."
-msgstr ""
+msgstr "需要 <i><b>fwupd</b></i> 服务"
 
 #: modules/devices/gpu.c:94 modules/devices/pci.c:132
 #: modules/devices/storage.c:58
@@ -3670,7 +3670,7 @@ msgstr ""
 
 #: modules/devices/monitors.c:402
 msgid "Serial"
-msgstr ""
+msgstr "序列号"
 
 #: modules/devices/monitors.c:403
 msgid "Manufacture Date"
@@ -4057,7 +4057,7 @@ msgstr ""
 #: modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:1146
 #: modules/devices/x86/processor.c:716
 msgid "Voltage"
-msgstr ""
+msgstr "电压"
 
 #: modules/devices/spd-decode.c:590 modules/devices/spd-decode.c:901
 #: modules/devices/spd-decode.c:1148
@@ -4090,7 +4090,7 @@ msgstr ""
 
 #: modules/devices/spd-decode.c:701
 msgid "Supported Voltages"
-msgstr ""
+msgstr "支持的电压"
 
 #: modules/devices/spd-decode.c:705
 msgid "Supported CAS Latencies"
@@ -4098,12 +4098,12 @@ msgstr ""
 
 #: modules/devices/spd-decode.c:856
 msgid "XMP Profile"
-msgstr ""
+msgstr "XMP 配置文件"
 
 #: modules/devices/spd-decode.c:857 modules/devices/usb.c:177
 #: modules/network/net.c:438
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: modules/devices/spd-decode.c:859
 msgid "XMP Timings"
@@ -4135,11 +4135,11 @@ msgstr ""
 
 #: modules/devices/storage.c:46 modules/devices/storage.c:55
 msgid "NVMe Controller"
-msgstr ""
+msgstr "NVMe 控制器"
 
 #: modules/devices/storage.c:143
 msgid "Read Error Rate"
-msgstr ""
+msgstr "读取错误率"
 
 #: modules/devices/storage.c:144
 msgid "Throughput Performance"
@@ -4171,7 +4171,7 @@ msgstr ""
 
 #: modules/devices/storage.c:151 modules/devices/storage.c:190
 msgid "Power-On Hours"
-msgstr ""
+msgstr "通电时间"
 
 #: modules/devices/storage.c:152
 msgid "Spin Retry Count"
@@ -4183,11 +4183,11 @@ msgstr ""
 
 #: modules/devices/storage.c:154
 msgid "Power Cycle Count"
-msgstr ""
+msgstr "启动-关闭循环次数"
 
 #: modules/devices/storage.c:155 modules/devices/storage.c:172
 msgid "Soft Read Error Rate"
-msgstr ""
+msgstr "软读取错误率"
 
 #: modules/devices/storage.c:156
 msgid "Runtime Bad Block"
@@ -4195,15 +4195,15 @@ msgstr ""
 
 #: modules/devices/storage.c:157
 msgid "End-to-End error"
-msgstr ""
+msgstr "端到端错误"
 
 #: modules/devices/storage.c:158
 msgid "Reported Uncorrectable Errors"
-msgstr ""
+msgstr "报告的不可修正错误"
 
 #: modules/devices/storage.c:159
 msgid "Command Timeout"
-msgstr ""
+msgstr "命令超时"
 
 #: modules/devices/storage.c:160
 msgid "High Fly Writes"
@@ -4211,7 +4211,7 @@ msgstr ""
 
 #: modules/devices/storage.c:161
 msgid "Airflow Temperature"
-msgstr ""
+msgstr "气流温度"
 
 #: modules/devices/storage.c:162
 msgid "G-sense Error Rate"
@@ -4227,11 +4227,11 @@ msgstr ""
 
 #: modules/devices/storage.c:165 modules/devices/storage.c:188
 msgid "Temperature"
-msgstr ""
+msgstr "温度"
 
 #: modules/devices/storage.c:166
 msgid "Hardware ECC Recovered"
-msgstr ""
+msgstr "发现硬件 ECC"
 
 #: modules/devices/storage.c:167
 msgid "Reallocation Event Count"
@@ -4468,17 +4468,17 @@ msgstr ""
 
 #: modules/devices/storage.c:395
 msgid "Normal"
-msgstr ""
+msgstr "正常"
 
 #: modules/devices/storage.c:396
 #, c-format
 msgid "Warning >80% used"
-msgstr ""
+msgstr "警告，超过 80% 使用率"
 
 #: modules/devices/storage.c:397
 #, c-format
 msgid "Failing >90% used"
-msgstr ""
+msgstr "错误，超过 90% 使用率"
 
 #: modules/devices/storage.c:401
 #, c-format
@@ -4672,7 +4672,7 @@ msgstr ""
 
 #: modules/devices/x86/processor.c:692
 msgid "Socket Information"
-msgstr ""
+msgstr "Socket 信息"
 
 #: modules/devices/x86/processor.c:713
 msgid "CPU Socket"
@@ -4684,7 +4684,7 @@ msgstr ""
 
 #: modules/devices/x86/processor.c:718
 msgid "Max Frequency"
-msgstr ""
+msgstr "最大频率"
 
 #: modules/devices/x86/processor.c:751
 msgid "Package Information"
@@ -4694,13 +4694,13 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:48
 msgctxt "x86-flag"
 msgid "Onboard FPU (floating point support)"
-msgstr ""
+msgstr "板载 FPU（支持浮点运算）"
 
 #. !/flag:vme
 #: modules/devices/x86/x86_data.c:49
 msgctxt "x86-flag"
 msgid "Virtual 8086 mode enhancements"
-msgstr ""
+msgstr "虚拟 8085 模式增强"
 
 #. !/flag:de
 #: modules/devices/x86/x86_data.c:50
@@ -4748,7 +4748,7 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:57
 msgctxt "x86-flag"
 msgid "Onboard APIC"
-msgstr ""
+msgstr "板载 APIC"
 
 #. !/flag:sep
 #: modules/devices/x86/x86_data.c:58
@@ -4796,7 +4796,7 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:65
 msgctxt "x86-flag"
 msgid "Processor serial number"
-msgstr ""
+msgstr "处理器序列号"
 
 #. !/flag:clflush
 #: modules/devices/x86/x86_data.c:66
@@ -4852,7 +4852,7 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:74
 msgctxt "x86-flag"
 msgid "Hyper-Threading"
-msgstr ""
+msgstr "超线程"
 
 #. !/flag:tm
 #: modules/devices/x86/x86_data.c:75
@@ -6034,7 +6034,7 @@ msgstr ""
 #: modules/devices/x86/x86_data.c:294
 msgctxt "x86-flag"
 msgid "temperature sensor"
-msgstr ""
+msgstr "温度传感器"
 
 #. !/flag:pm:fid
 #: modules/devices/x86/x86_data.c:295
@@ -6189,7 +6189,7 @@ msgstr "掩码"
 
 #: modules/network.c:606
 msgid "Gathers information about this computer's network connection"
-msgstr ""
+msgstr "收集该计算机的网络连接信息"
 
 #: modules/network/net.c:74
 msgctxt "wi-op-mode"
@@ -6224,7 +6224,7 @@ msgstr ""
 #: modules/network/net.c:80
 msgctxt "wi-op-mode"
 msgid "(Unknown)"
-msgstr ""
+msgstr "（未知）"
 
 #: modules/network/net.c:268 modules/network/net.c:288
 #: modules/network/net.c:296
@@ -6252,12 +6252,12 @@ msgstr "无线网卡"
 #: modules/network/net.c:275
 msgctxt "net-if-type"
 msgid "Virtual Point-to-Point (TUN)"
-msgstr ""
+msgstr "虚拟 P2P（TUN）"
 
 #: modules/network/net.c:276
 msgctxt "net-if-type"
 msgid "Ethernet (TAP)"
-msgstr ""
+msgstr "以太网（TAP）"
 
 #: modules/network/net.c:277
 msgctxt "net-if-type"
@@ -6287,12 +6287,12 @@ msgstr ""
 #: modules/network/net.c:282
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface (NAT)"
-msgstr ""
+msgstr "VMWare 虚拟网络接口（NAT）"
 
 #: modules/network/net.c:283
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface"
-msgstr ""
+msgstr "VMWare 虚拟网络接口"
 
 #: modules/network/net.c:284
 msgctxt "net-if-type"
@@ -6307,12 +6307,12 @@ msgstr "蓝牙"
 #: modules/network/net.c:286
 msgctxt "net-if-type"
 msgid "Bridge Interface"
-msgstr ""
+msgstr "桥接接口"
 
 #: modules/network/net.c:287
 msgctxt "net-if-type"
 msgid "Hamachi Virtual Personal Network"
-msgstr ""
+msgstr "Hamachi 虚拟个人网络"
 
 #: modules/network/net.c:289
 msgctxt "net-if-type"
@@ -6327,7 +6327,7 @@ msgstr ""
 #: modules/network/net.c:291
 msgctxt "net-if-type"
 msgid "Mesh Network"
-msgstr ""
+msgstr "Mesh 网络"
 
 #: modules/network/net.c:292
 msgctxt "net-if-type"
@@ -6337,12 +6337,12 @@ msgstr ""
 #: modules/network/net.c:293
 msgctxt "net-if-type"
 msgid "VirtualBox Virtual Network Interface"
-msgstr ""
+msgstr "VirtualBox 虚拟网络接口"
 
 #: modules/network/net.c:299
 msgctxt "net-if-type"
 msgid "Wireless (WAN)"
-msgstr ""
+msgstr "无线（WAN）"
 
 #: modules/network/net.c:301
 msgctxt "net-if-type"
@@ -6359,7 +6359,7 @@ msgstr "未找到"
 
 #: modules/network/net.c:431
 msgid "Network Adapter Properties"
-msgstr ""
+msgstr "网络适配器属性"
 
 #: modules/network/net.c:432
 msgid "Interface Type"
@@ -6400,7 +6400,7 @@ msgstr "无线属性"
 
 #: modules/network/net.c:473
 msgid "Network Name (SSID)"
-msgstr ""
+msgstr "网络名（SSID）"
 
 #: modules/network/net.c:474
 msgid "Bit Rate"
@@ -6416,7 +6416,7 @@ msgstr "连接质量"
 
 #: modules/network/net.c:479
 msgid "Signal / Noise"
-msgstr ""
+msgstr "信号 / 噪声"
 
 #: modules/network/net.c:494
 msgid "Internet Protocol (IPv4)"

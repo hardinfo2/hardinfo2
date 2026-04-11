@@ -125,6 +125,7 @@ libqt5-qtbase-devel instead of qt5-qtbase-devel
 **User can install/setup these depending on hardware**
 - **apcupsd**: apcaccess is used for ups/battery information.
 - **mesa-vulkan-swrast/libvulkan_lvp**: Vulkan Software driver if you have no hardware vulkan driver (eg. Virtual).
+- **freeipmi-tools/freeipmi**: for showing ipmi sensors for Workstations/Servers.
 
 License
 ------

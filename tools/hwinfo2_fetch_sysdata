@@ -17,7 +17,7 @@ cat /proc/ioports >/run/hardinfo2/ioports 2>/dev/null
 
 #DMI memory array and DIMM memory information
 dmidecode -t 16 >/run/hardinfo2/dmi_memarray 2>/dev/null
-dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/nul
+dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/null
 
 #Allow for single user systems to use user group (To avoid reboot)
 UID_MIN=1000

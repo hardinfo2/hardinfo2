@@ -43,6 +43,7 @@ else
 	echo "Root Only System" >/run/hardinfo2/systype
     else
 	echo "Multi User System" >/run/hardinfo2/systype
+	SYSTYPE="2"
     fi
     #set owner to hardinfo2 (multiuser)
     chown -R root:hardinfo2 /run/hardinfo2
@@ -58,4 +59,12 @@ modprobe -q ee1004
 modprobe -q at24 || true
 
 #ipmi sensors
-while [ -f /sbin/ipmi-sensors ]; do /sbin/ipmi-sensors |grep -v N/A|grep -v Presence >/run/hardinfo2/ipmi_sensors 2>/dev/null; sleep 60; done
+while [ -f /sbin/ipmi-sensors ]; do
+    /sbin/ipmi-sensors |grep -v N/A|grep -v Presence >/run/hardinfo2/ipmi_sensors 2>/dev/null;
+    if [ $SYSTYPE = "1" ]; then
+       chown root:$GIDNAME /run/hardinfo2/ipmi_sensors
+    else
+       chown root:hardinfo2 /run/hardinfo2/ipmi_sensors
+    fi
+    sleep 60;
+done

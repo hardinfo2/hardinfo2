@@ -3,8 +3,9 @@ Description=Hardinfo2 support for root access
 After=basic.target
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=/usr/bin/hwinfo2_fetch_sysdata
+RemainAfterExit=yes
 
 [Install]
 WantedBy=basic.target

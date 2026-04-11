@@ -17,7 +17,7 @@ cat /proc/ioports >/run/hardinfo2/ioports 2>/dev/null
 
 #DMI memory array and DIMM memory information
 dmidecode -t 16 >/run/hardinfo2/dmi_memarray 2>/dev/null
-dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/null
+dmidecode -t 17 >/run/hardinfo2/dmi_memory 2>/dev/nul
 
 #Allow for single user systems to use user group (To avoid reboot)
 UID_MIN=1000
@@ -56,3 +56,6 @@ chmod 644 /run/hardinfo2/systype
 modprobe -q spd5118
 modprobe -q ee1004
 modprobe -q at24 || true
+
+#ipmi sensors
+while [ -f /sbin/ipmi-sensors ]; do /sbin/ipmi-sensors |grep -v N/A|grep -v Presence >/run/hardinfo2/ipmi_sensors 2>/dev/null; sleep 60; done

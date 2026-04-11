@@ -134,15 +134,13 @@ static void read_sensor_labels(gchar *devname) {
     fclose(conf);
 }
 
-static void add_sensor(const char *type,
-                       const char *sensor,
-                       const char *parent,
-                       double value,
-                       const char *unit,
-                       const char *icon) {
+static int keynumber=0;
+static void add_sensor(const char *type, const char *sensor, const char *parent,
+                       double value, const char *unit, const char *icon)
+{
     char key[64];
 
-    snprintf(key, sizeof(key), "%s/%s", parent, sensor);
+    snprintf(key, sizeof(key), "%s%d/%s", parent, keynumber++, sensor);
 
     if (SENSORS_GROUP_BY_TYPE) {
         // group by type
@@ -153,8 +151,7 @@ static void add_sensor(const char *type,
         }
         sensors = h_strdup_cprintf("$%s$%s=%.2f%s|%s\n", sensors,
             key, sensor, value, unit, parent);
-    }
-    else {
+    } else {
         // group by device source / driver
         if (g_strcmp0(last_group, parent) != 0) {
             sensors = h_strdup_cprintf("[%s]\n", sensors, parent);
@@ -310,7 +307,7 @@ static const struct HwmonSensor hwmon_sensors[] = {
         1000.0,
         "bolt"
     },
-    { }
+    {   NULL,NULL,NULL,NULL,NULL,NULL,0,NULL }
 };
 
 static const char *hwmon_prefix[] = {"device", "", NULL};
@@ -477,7 +474,7 @@ struct WindfarmSensorType {
     gboolean    with_decimal_p;
 };
 static const struct WindfarmSensorType windfarm_sensor_types[] = {
-    {"Fan", "fan", "^[a-z-]+-fan(-[0-9]+)?$", " RPM", FALSE},
+    {"Fan Speed", "fan", "^[a-z-]+-fan(-[0-9]+)?$", " RPM", FALSE},
     {"Temperature", "therm", "^[a-z-]+-temp(-[0-9]+)?$", "\302\260C", TRUE},
     {"Power", "bolt", "^[a-z-]+-power(-[0-9]+)?$", " W", TRUE},
     {"Current", "bolt", "^[a-z-]+-current(-[0-9]+)?$", " A", TRUE},
@@ -643,7 +640,7 @@ gchar *add_ipmi_sensors(gchar *line){
     gchar **v=g_strsplit(line," | ", -1);
     float f=atof(v[3]);
     if(strstr(v[4],"C"))   {add_sensor("Temperature", g_strstrip(v[1]), "ipmi", f, "\302\260C", "therm");}
-    if(strstr(v[4],"RPM")) {add_sensor("Fan", g_strstrip(v[1]), "ipmi", f, " RPM", "fan");}
+    if(strstr(v[4],"RPM")) {add_sensor("Fan Speed", g_strstrip(v[1]), "ipmi", f, " RPM", "fan");}
     if(strstr(v[4],"A"))   {add_sensor("Current", g_strstrip(v[1]), "ipmi", f, " A", "bolt");}
     if(strstr(v[4],"V"))   {add_sensor("Voltage", g_strstrip(v[1]), "ipmi", f, " V", "bolt");}
     if(strstr(v[4],"W"))   {add_sensor("Power", g_strstrip(v[1]), "ipmi", f, " W", "bolt");}
@@ -694,7 +691,7 @@ static const struct libsensors_feature_type {
     const char *unit;
     sensors_subfeature_type input;
 } libsensors_feature_types[SENSORS_FEATURE_MAX] = {
-    [SENSORS_FEATURE_FAN] = {"Fan", "fan", "RPM",
+    [SENSORS_FEATURE_FAN] = {"Fan Speed", "fan", "RPM",
                              SENSORS_SUBFEATURE_FAN_INPUT},
     [SENSORS_FEATURE_TEMP] = {"Temperature", "therm", "\302\260C",
                               SENSORS_SUBFEATURE_TEMP_INPUT},

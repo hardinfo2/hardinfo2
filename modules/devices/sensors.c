@@ -763,6 +763,7 @@ static int read_sensors_libsensors(void)
 #endif
 
 void scan_sensors_do(void) {
+    keynumber=0;
     g_free(sensors);
     g_free(sensor_icons);
     g_free(last_group);

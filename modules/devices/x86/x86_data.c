@@ -188,6 +188,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "perfctr_l2",    NC_("x86-flag", /*!/flag:perfctr_l2*/  "L2 Performance Counter Extensions") },
     { "mwaitx",        NC_("x86-flag", /*!/flag:mwaitx*/  "MWAIT extension (MONITORX/MWAITX)") },
 /* Auxiliary flags: Linux defined - For features scattered in various CPUID levels */
+    { "cpuid_fault",   NC_("x86-flag", /*!/flag:cpb*/  "Intel CPUID Faulting") },
     { "cpb",           NC_("x86-flag", /*!/flag:cpb*/  "AMD Core Performance Boost") },
     { "epb",           NC_("x86-flag", /*!/flag:epb*/  "IA32_ENERGY_PERF_BIAS support") },
     { "hw_pstate",     NC_("x86-flag", /*!/flag:hw_pstate*/  "AMD HW-PState") },
@@ -199,6 +200,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "ibrs",          NC_("x86-flag", /*!/flag:ibrs*/  "Indirect Branch Restricted Speculation") },
     { "ibpb",          NC_("x86-flag", /*!/flag:ibpb*/  "Indirect Branch Prediction Barrier without guaranteed RSB flush") },
     { "stibp",         NC_("x86-flag", /*!/flag:stibp*/  "Single Thread Indirect Branch Predictors") },
+    { "ibrs_enhanced", NC_("x86-flag", /*!/flag:ibrs_enhanced*/  "Enhanced IBRS") },
 /* Virtualization flags: Linux defined */
     { "tpr_shadow",   NC_("x86-flag", /*!/flag:tpr_shadow*/  "Intel TPR Shadow") },
     { "vnmi",         NC_("x86-flag", /*!/flag:vnmi*/  "Intel Virtual NMI") },
@@ -206,11 +208,13 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "ept",          NC_("x86-flag", /*!/flag:ept*/  "Intel Extended Page Table") },
     { "vpid",         NC_("x86-flag", /*!/flag:vpid*/  "Intel Virtual Processor ID") },
     { "vmmcall",      NC_("x86-flag", /*!/flag:vmmcall*/  "prefer VMMCALL to VMCALL") },
+    { "ept_ad",       NC_("x86-flag", /*!/flag:ept_ad*/  "Intel Extended Page Table access-dirty bit") },
 /* AMD-defined CPU features, CPUID level 0x00000007:1 (eax), word 12 */
     { "avx512_bf16",  NC_("x86-flag", /*!/flag:avx512_bf16*/  "AVX512 BFLOAT16 instructions") },
 /* Intel-defined CPU features, CPUID level 0x00000007:0 (ebx) */
     { "fsgsbase",   NC_("x86-flag", /*!/flag:fsgsbase*/  "{RD/WR}{FS/GS}BASE instructions") },
     { "tsc_adjust", NC_("x86-flag", /*!/flag:tsc_adjust*/  "TSC adjustment MSR") },
+    { "sgx",        NC_("x86-flag", /*!/flag:sgx*/  "Software Guard Extensions") },
     { "bmi1",       NC_("x86-flag", /*!/flag:bmi1*/  "1st group bit manipulation extensions") },
     { "hle",        NC_("x86-flag", /*!/flag:hle*/  "Hardware Lock Elision") },
     { "avx2",       NC_("x86-flag", /*!/flag:avx2*/  "AVX2 instructions") },
@@ -237,17 +241,18 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "avx512vl",   NC_("x86-flag", /*!/flag:avx512vl*/  "AVX-512 128/256 Vector Length extensions") },
     { "md_clear",   NC_("x86-flag", /*!/flag:md_clear*/  "VERW clears CPU buffers") },
     { "flush_l1d",  NC_("x86-flag", /*!/flag:flush_l1d*/  "Flush L1D cache") },
+    { "arch_capabilities",  NC_("x86-flag", /*!/flag:arch_capabilities*/  "IA32_ARCH_CAPABILITIES MSR (Intel)") },
 /* Extended state features, CPUID level 0x0000000d:1 (eax) */
     { "xsaveopt",   NC_("x86-flag", /*!/flag:xsaveopt*/  "Optimized XSAVE") },
     { "xsavec",     NC_("x86-flag", /*!/flag:xsavec*/  "XSAVEC") },
     { "xgetbv1",    NC_("x86-flag", /*!/flag:xgetbv1*/  "XGETBV with ECX = 1") },
     { "xsaves",     NC_("x86-flag", /*!/flag:xsaves*/  "XSAVES/XRSTORS") },
-/* Intel-defined CPU QoS sub-leaf, CPUID level 0x0000000F:0 (edx) */
-    { "cqm_llc",    NC_("x86-flag", /*!/flag:cqm_llc*/  "LLC QoS") },
-/* Intel-defined CPU QoS sub-leaf, CPUID level 0x0000000F:1 (edx) */
+/* Extended auxillary flags: Linux defined - fro features scatterd in various CPUID levels */
+    { "cqm_llc",        NC_("x86-flag", /*!/flag:cqm_llc*/  "LLC QoS") },
     { "cqm_occup_llc",  NC_("x86-flag", /*!/flag:cqm_occup_llc*/  "LLC occupancy monitoring") },
     { "cqm_mbm_total",  NC_("x86-flag", /*!/flag:cqm_mbm_total*/  "LLC total MBM monitoring") },
     { "cqm_mbm_local",  NC_("x86-flag", /*!/flag:cqm_mbm_local*/  "LLC local MBM monitoring") },
+    { "split_lock_detect", NC_("x86-flag", /*!/flag:split_lock_detect*/  "AC for split lock") },
 /* AMD-defined CPU features, CPUID level 0x80000008 (ebx) */
     { "clzero",         NC_("x86-flag", /*!/flag:clzero*/  "CLZERO instruction") },
     { "irperf",         NC_("x86-flag", /*!/flag:irperf*/  "instructions retired performance counter") },
@@ -289,6 +294,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "avx512_bitalg",  NC_("x86-flag", /*!/flag:avx512_bitalg*/  "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions") },
     { "avx512_vpopcntdq", NC_("x86-flag", /*!/flag:avx512_vpopcntdq*/  "POPCNT for vectors of DW/DQ") },
     { "rdpid",          NC_("x86-flag", /*!/flag:rdpid*/  "RDPID instruction") },
+    { "sgx_lc",         NC_("x86-flag", /*!/flag:sgx_lc*/  "Software Guard Extensions Launch Control") },
 /* AMD-defined CPU features, CPUID level 0x80000007 (ebx) */
     { "overflow_recov", NC_("x86-flag", /*!/flag:overflow_recov*/  "MCA overflow recovery support") },
     { "succor",         NC_("x86-flag", /*!/flag:succor*/  "uncorrectable error containment and recovery") },
@@ -317,13 +323,22 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "bug:spectre_v2",     NC_("x86-flag", /*!/bug:spectre_v2*/  "CPU is affected by Spectre variant 2 attack with indirect branches") },
     { "bug:spec_store_bypass", NC_("x86-flag", /*!/bug:spec_store_bypass*/  "CPU is affected by speculative store bypass attack") },
     { "bug:l1tf",           NC_("x86-flag", /*!/bug:l1tf*/  "CPU is affected by L1 Terminal Fault") },
-    { "bug:srso",           NC_("x86-flag", /*!/bug:srso*/  "AMD BTB untrain RETs") },
     { "bug:mds",            NC_("x86-flag", /*!/bug:mds*/  "CPU is affected by Microarchitectual data sampling") },
     { "bug:swapgs",         NC_("x86-flag", /*!/bug:swapgs*/  "CPU is affected by speculation through SWAPGS") },
     { "bug:itlb_multihit",  NC_("x86-flag", /*!/bug:itlb_multihit*/  "CPU may incur MCE during certain page attribute changes") },
+    { "bug:srbds",          NC_("x86-flag", /*!/bug:srbds*/  "CPU may leak RNG bits if not mitigated") },
+    { "bug:mmio_stale_data",NC_("x86-flag", /*!/bug:mmio_stale_data*/  "CPU is affected by Proccesor MMIO Stale Data vulnerbilities") },
     { "bug:mmio_unknown",   NC_("x86-flag", /*!/bug:mmio_unknown*/  "MMIO State Data status is unknown") },
+    { "bug:retbleed",       NC_("x86-flag", /*!/bug:retbleed*/  "CPU is affected by RETBleed") },
+    { "bug:eibrs_pbrsb",    NC_("x86-flag", /*!/bug:eibrs_pbrsb*/  "EIBRS is vulnerable to Post Barrier Address Predictions") },
+    { "bug:gds",            NC_("x86-flag", /*!/bug:gds*/  "CPU is affected by Gather Data Sampling") },
+/* bug workarounds 2 */
+    { "bug:srso",           NC_("x86-flag", /*!/bug:srso*/  "AMD BTB untrain RETs") },
+    { "bug:bhi",            NC_("x86-flag", /*!/bug:bhi*/  "CPU is affected by Branch History Injection") },
+    { "bug:spectre_v2_user",NC_("x86-flag", /*!/bug:spectre_v2_user*/  "CPU is affected by Spectre variant 2 attack between user processes") },
+    { "bug:its",            NC_("x86-flag", /*!/bug:its*/  "CPU is affected by Indirect Target Selection") },
+    { "bug:its_native_only",NC_("x86-flag", /*!/bug:its_native_only*/  "CPU is affected by ITS, VMX is not affected") },
     { "bug:vmscape",        NC_("x86-flag", /*!/bug:vmscape*/  "CPU is affected by VMSCAPE attacks from guests") },
-    { "bug:spectre_v2_user",        NC_("x86-flag", /*!/bug:spectre_v2_user*/  "CPU is affected by Spectre variant 2 attack between user processes") },
 /* power management
  * ... from arch/x86/kernel/cpu/powerflags.h */
     { "pm:ts",            NC_("x86-flag", /*!/flag:pm:ts*/  "temperature sensor")     },

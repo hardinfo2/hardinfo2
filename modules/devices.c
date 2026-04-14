@@ -203,10 +203,13 @@ gchar *processor_year(GSList * processors)
         DEBUG ("Unable to parse JSON %s %s", path, error->message);
         g_error_free(error);
         g_object_unref(parser);
-        return g_strdup("Unknown");
+        return g_strdup(_("Unknown"));
     }
     root = json_parser_get_root(parser);
-    if (!root || (json_node_get_node_type(root) != JSON_NODE_OBJECT)) goto out;
+    if (!root || (json_node_get_node_type(root) != JSON_NODE_OBJECT)) {
+        g_object_unref(parser);
+	return g_strdup(_("Unknown"));
+    }
     JsonObject *results = json_node_get_object(root);
     if ( results && json_object_has_member(results, cpuname) ) {
         const gchar *ret=json_object_get_string_member(results, cpuname);
@@ -216,10 +219,7 @@ gchar *processor_year(GSList * processors)
         }
     }
 
-    return g_strdup_printf("Unknown");
-out:
-    g_object_unref(parser);
-    return g_strdup("Unknown");
+    return g_strdup_printf(_("Unknown"));
 }
 
 gchar *processor_describe_default(GSList * processors)
@@ -273,7 +273,7 @@ gchar *processor_name_default(GSList * processors)
     ret = h_strdup_cprintf("%s%s", ret, strlen(ret) ? "; " : "", cur_str);
     g_slist_free(tmp);
     //CPU Name fixup
-    ret=strreplace(ret,"WX s","WX");
+    ret=strreplace(ret,"X s","X");
     ret=strreplace(ret,"14th Gen ","");
     ret=strreplace(ret,"13th Gen ","");
     ret=strreplace(ret,"12th Gen ","");

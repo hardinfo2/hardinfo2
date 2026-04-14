@@ -168,6 +168,58 @@ static gint proc_cmp_max_freq(Processor *a, Processor *b) {
     return 1;
 }
 
+
+static gchar *find_releaseyear_path(void)
+{
+    const gchar *config_dir = g_get_user_config_dir();
+    gchar *path;
+
+    path = g_build_filename(config_dir, "hardinfo2", "releaseyear.json", NULL);
+    if (g_file_test(path, G_FILE_TEST_EXISTS))
+        return path;
+    g_free(path);
+
+    path = g_build_filename(params.path_data, "releaseyear.json", NULL);
+    if (g_file_test(path, G_FILE_TEST_EXISTS))
+        return path;
+    g_free(path);
+
+    return NULL;
+}
+
+gchar *processor_year(GSList * processors)
+{
+    JsonParser *parser;
+    JsonNode *root;
+    GError *error=NULL;
+    gchar *path;
+    gchar* cpuname = processor_name(processors);
+    path=find_releaseyear_path();
+    parser = json_parser_new();
+    json_parser_load_from_file(parser, path, &error);
+    if(error){
+        DEBUG ("Unable to parse JSON %s %s", path, error->message);
+        g_error_free(error);
+        g_object_unref(parser);
+        return g_strdup("Unknown");
+    }
+    root = json_parser_get_root(parser);
+    if (!root || (json_node_get_node_type(root) != JSON_NODE_OBJECT)) goto out;
+    JsonObject *results = json_node_get_object(root);
+    if ( results && json_object_has_member(results, cpuname) ) {
+        const gchar *ret=json_object_get_string_member(results, cpuname);
+        if(strlen(ret)==6){
+	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],' ',ret[4],ret[5],0};
+	    return g_strdup(r);
+        }
+    }
+
+    return g_strdup_printf("Unknown");
+out:
+    g_object_unref(parser);
+    return g_strdup("Unknown");
+}
+
 gchar *processor_describe_default(GSList * processors)
 {
     int packs, cores, threads, nodes;
@@ -305,20 +357,6 @@ gchar *ldlinux_hwcaps() {
     return supported;
 }
 
-gchar *ldlinux_hwcaps_info() {
-    gchar *supported=ldlinux_hwcaps();
-
-    gchar *ret = g_strdup_printf("[%s]\n"
-			  "HWCAPS=  %s\n",
-			  _("Distro and CPU Supported Profiles"),
-			  supported
-			  );
-    g_free(supported);
-
-    return ret;
-}
-
-
 gchar *get_processor_name(void)
 {
     scan_processors(FALSE);
@@ -331,15 +369,42 @@ gchar *get_processor_desc(void)
     return processor_describe(processors);
 }
 
+gchar *get_processor_year(void)
+{
+    scan_processors(FALSE);
+    return processor_year(processors);
+}
+
 gchar *get_processor_name_and_desc(void)
 {
     scan_processors(FALSE);
     gchar* name = processor_name(processors);
     gchar* desc = processor_describe(processors);
-    gchar* nd = g_strdup_printf("%s\n%s", name, desc);
+    gchar* year = processor_year(processors);
+    gchar* nd = g_strdup_printf("%s\n%s\nReleased %s", name, desc, year);
     g_free(name);
     g_free(desc);
+    g_free(year);
     return nd;
+}
+
+gchar *ldlinux_hwcaps_info() {
+    gchar *year=get_processor_year();
+    gchar *supported=ldlinux_hwcaps();
+
+    gchar *ret = g_strdup_printf("[%s]\n"
+			  "Released=%s\n"
+                          "[%s]\n"
+			  "HWCAPS=  %s\n",
+			  _("Release Date"),
+			  year,
+			  _("Distro and CPU Supported Profiles"),
+			  supported
+			  );
+    g_free(year);
+    g_free(supported);
+
+    return ret;
 }
 
 gchar *get_storage_devices_simple(void)
@@ -769,6 +834,7 @@ const ShellModuleMethod *hi_exported_methods(void)
         {"getProcessorCount", get_processor_count},
         {"getProcessorName", get_processor_name},
         {"getProcessorDesc", get_processor_desc},
+        {"getProcessorYear", get_processor_year},
         {"getProcessorNameAndDesc", get_processor_name_and_desc},
         {"getProcessorFrequency", get_processor_max_frequency},
         {"getProcessorFrequencyDesc", get_processor_frequency_desc},
@@ -1065,6 +1131,11 @@ guchar hi_module_get_weight(void)
 void hi_module_init(void)
 {
     static SyncEntry entries[] = {
+        {
+            .name = N_("Update CPU database"),
+            .file_name = "releaseyear.json",
+	    .optional = TRUE,
+        },
         {
             .name = N_("Update PCI ID listing"),
             .file_name = "pci.ids",

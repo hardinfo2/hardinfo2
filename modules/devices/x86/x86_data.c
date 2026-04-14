@@ -222,6 +222,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "bmi2",       NC_("x86-flag", /*!/flag:bmi2*/  "2nd group bit manipulation extensions") },
     { "erms",       NC_("x86-flag", /*!/flag:erms*/  "Enhanced REP MOVSB/STOSB") },
     { "invpcid",    NC_("x86-flag", /*!/flag:invpcid*/  "Invalidate Processor Context ID") },
+    { "invpcid_single",NC_("x86-flag", /*!/flag:invpcid_single*/  "Invalidate Processor Context ID (Single)") },
     { "rtm",        NC_("x86-flag", /*!/flag:rtm*/  "Restricted Transactional Memory") },
     { "cqm",        NC_("x86-flag", /*!/flag:cqm*/  "Cache QoS Monitoring") },
     { "mpx",        NC_("x86-flag", /*!/flag:mpx*/  "Memory Protection Extension") },
@@ -257,6 +258,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "clzero",         NC_("x86-flag", /*!/flag:clzero*/  "CLZERO instruction") },
     { "irperf",         NC_("x86-flag", /*!/flag:irperf*/  "instructions retired performance counter") },
     { "xsaveerptr",     NC_("x86-flag", /*!/flag:xsaveerptr*/  "Always save/restore FP error pointers") },
+    { "wbnoinvd",       NC_("x86-flag", /*!/flag:wbnoinvd*/  "WBNOINVD instruction") },
 /* Thermal and Power Management leaf, CPUID level 0x00000006 (eax) */
     { "dtherm",         NC_("x86-flag", /*!/flag:dtherm*/  "digital thermal sensor") }, /* formerly dts */
     { "ida",            NC_("x86-flag", /*!/flag:ida*/  "Intel Dynamic Acceleration") },
@@ -335,9 +337,11 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
 /* bug workarounds 2 */
     { "bug:srso",           NC_("x86-flag", /*!/bug:srso*/  "AMD BTB untrain RETs") },
     { "bug:bhi",            NC_("x86-flag", /*!/bug:bhi*/  "CPU is affected by Branch History Injection") },
+    { "bug:ibpb_no_ret",    NC_("x86-flag", /*!/bug:ibpb_no_ret*/  "IBPB omits return target predictions") },
     { "bug:spectre_v2_user",NC_("x86-flag", /*!/bug:spectre_v2_user*/  "CPU is affected by Spectre variant 2 attack between user processes") },
     { "bug:its",            NC_("x86-flag", /*!/bug:its*/  "CPU is affected by Indirect Target Selection") },
     { "bug:its_native_only",NC_("x86-flag", /*!/bug:its_native_only*/  "CPU is affected by ITS, VMX is not affected") },
+    { "bug:tsa",            NC_("x86-flag", /*!/bug:tsa*/  "CPU is affected by Transient Scheduler Attacks") },
     { "bug:vmscape",        NC_("x86-flag", /*!/bug:vmscape*/  "CPU is affected by VMSCAPE attacks from guests") },
 /* power management
  * ... from arch/x86/kernel/cpu/powerflags.h */

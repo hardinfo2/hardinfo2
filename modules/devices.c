@@ -194,6 +194,8 @@ gchar *processor_year(GSList * processors)
     GError *error=NULL;
     gchar *path;
     gchar* cpuname = processor_name(processors);
+    cpuname=strreplace(cpuname," (","(");
+    strend(cpuname,'(');
     path=find_releaseyear_path();
     parser = json_parser_new();
     json_parser_load_from_file(parser, path, &error);
@@ -270,6 +272,25 @@ gchar *processor_name_default(GSList * processors)
     }
     ret = h_strdup_cprintf("%s%s", ret, strlen(ret) ? "; " : "", cur_str);
     g_slist_free(tmp);
+    //CPU Name fixup
+    ret=strreplace(ret,"WX s","WX");
+    ret=strreplace(ret,"14th Gen ","");
+    ret=strreplace(ret,"13th Gen ","");
+    ret=strreplace(ret,"12th Gen ","");
+    ret=strreplace(ret,"11th Gen ","");
+    ret=strreplace(ret,"10th Gen ","");
+    ret=strreplace(ret," 12-Core","");
+    ret=strreplace(ret," 10-Core","");
+    ret=strreplace(ret," 8-Core","");
+    ret=strreplace(ret," 6-Core","");
+    ret=strreplace(ret," 4-Core","");
+    ret=strreplace(ret," w/","");
+    ret=strreplace(ret," with AMD","");
+    ret=strreplace(ret," +AMD","");
+    ret=strreplace(ret," + AMD","");
+    ret=strreplace(ret,"Intel Core i7 M 620","Intel Core i7 620M");
+    ret=strreplace(ret,"Intel 585","Intel Celeron 585");
+
     return ret;
 }
 

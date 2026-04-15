@@ -214,7 +214,7 @@ gchar *processor_year(GSList * processors)
     if ( results && json_object_has_member(results, cpuname) ) {
         const gchar *ret=json_object_get_string_member(results, cpuname);
         if(strlen(ret)==6){
-	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],' ',ret[4],ret[5],0};
+	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],'-',ret[4],ret[5],0};
 	    return g_strdup(r);
         }
     }

@@ -393,9 +393,10 @@ gboolean __scan_udisks2_devices(void) {
 	    else ssmlc=_("Unknown");
 
 	    if(seol==1) sseol=_("Normal");
-	    else if(seol==2) sseol=_("Warning >80% used");
-	    else if(seol==3) sseol=_("Failing >90% used");
+	    else if(seol==2) sseol=_("Warning >80%% used");
+	    else if(seol==3) sseol=_("Failing >90%% used");
 	    else sseol=_("Unknown");
+	    sseol=strreplace(sseol,"%%","%");
 
 	    if(seol || smlc || sslc || sdate)
                 moreinfo = h_strdup_cprintf(_("[Self-monitoring ExtCSD]\n"

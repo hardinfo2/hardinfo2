@@ -402,7 +402,7 @@ gchar *get_processor_name_and_desc(void)
     gchar* name = processor_name(processors);
     gchar* desc = processor_describe(processors);
     gchar* year = processor_year(processors);
-    gchar* nd = g_strdup_printf("%s\n%s\nReleased %s", name, desc, year);
+    gchar* nd = g_strdup_printf("%s\n%s\n%s %s", name, desc, _("Released"), year);
     g_free(name);
     g_free(desc);
     g_free(year);

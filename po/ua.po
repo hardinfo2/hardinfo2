@@ -6,15 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 00:51+0100\n"
+"POT-Creation-Date: 2026-04-17 00:53+0200\n"
 "PO-Revision-Date: 2026-03-09 17:50+0200\n"
 "Last-Translator: Sergiy Golovko <cappelikan@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
+"X-Poedit-Basepath: ../\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #: hardinfo2/cpu_util.c:29
@@ -33,7 +35,8 @@ msgstr "Масштабування частоти"
 msgid "Minimum"
 msgstr "Мінімум"
 
-#: hardinfo2/cpu_util.c:210 hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:212 hardinfo2/dt_util.c:560 modules/devices/gpu.c:269 modules/devices/gpu.c:270
+#: hardinfo2/cpu_util.c:210 hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:212
+#: hardinfo2/dt_util.c:560 modules/devices/gpu.c:269 modules/devices/gpu.c:270
 msgid "kHz"
 msgstr "кГц"
 
@@ -57,12 +60,17 @@ msgstr "нс"
 msgid "Governor"
 msgstr "Governor"
 
-#: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:1004 modules/devices/gpu.c:215 modules/devices/pci.c:169 modules/devices/usb.c:140
+#: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:1087
+#: modules/devices/gpu.c:215 modules/devices/pci.c:169
+#: modules/devices/usb.c:140
 msgid "Driver"
 msgstr "Водій"
 
-#: hardinfo2/cpu_util.c:227 modules/computer.c:791 modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477 modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
-#: modules/devices/riscv/processor.c:348 modules/devices/x86/processor.c:283 modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
+#: hardinfo2/cpu_util.c:227 modules/computer.c:791
+#: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
+#: modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
+#: modules/devices/riscv/processor.c:348 modules/devices/x86/processor.c:283
+#: modules/devices/x86/processor.c:387 modules/devices/x86/processor.c:525
 msgid "(Not Available)"
 msgstr "(Немає в наявності)"
 
@@ -70,7 +78,8 @@ msgstr "(Немає в наявності)"
 msgid "Socket"
 msgstr "Розетка"
 
-#: hardinfo2/cpu_util.c:240 hardinfo2/cpu_util.c:242 modules/devices/gpu.c:211 modules/devices/gpu.c:301
+#: hardinfo2/cpu_util.c:240 hardinfo2/cpu_util.c:242 modules/devices/gpu.c:211
+#: modules/devices/gpu.c:301
 msgid "Core"
 msgstr "Ядро"
 
@@ -82,7 +91,8 @@ msgstr "Книга"
 msgid "Drawer"
 msgstr "Шухляда"
 
-#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:748 modules/devices/riscv/processor.c:555 modules/devices/x86/processor.c:753
+#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:763
+#: modules/devices/riscv/processor.c:555 modules/devices/x86/processor.c:753
 msgid "Topology"
 msgstr "Топологія"
 
@@ -106,10 +116,16 @@ msgstr "Основна дошка"
 msgid "Chassis"
 msgstr "Шасі"
 
-#: hardinfo2/dmi_util.c:29 modules/computer.c:549 modules/computer.c:1119 modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563 modules/devices.c:99
-#: modules/devices/e2k/processor.c:363 modules/devices/ia64/processor.c:159 modules/devices/loongarch64/processor.c:93 modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
-#: modules/devices/parisc/processor.c:154 modules/devices/ppc/processor.c:157 modules/devices/riscv/processor.c:588 modules/devices/s390/processor.c:131 modules/devices/sh/processor.c:83
-#: modules/devices/sparc/processor.c:74 modules/devices/x86/processor.c:647
+#: hardinfo2/dmi_util.c:29 modules/computer.c:549 modules/computer.c:1119
+#: modules/devices.c:99 modules/devices/alpha/processor.c:87
+#: modules/devices/arm/processor.c:563 modules/devices/e2k/processor.c:363
+#: modules/devices/ia64/processor.c:159
+#: modules/devices/loongarch64/processor.c:93
+#: modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
+#: modules/devices/parisc/processor.c:154 modules/devices/ppc/processor.c:157
+#: modules/devices/riscv/processor.c:588 modules/devices/s390/processor.c:131
+#: modules/devices/sh/processor.c:83 modules/devices/sparc/processor.c:74
+#: modules/devices/x86/processor.c:647
 msgid "Processor"
 msgstr "Процесор"
 
@@ -121,8 +137,9 @@ msgstr "Контролер пам'яті"
 msgid "Memory Module"
 msgstr "Модуль пам'яті"
 
-#: hardinfo2/dmi_util.c:32 modules/devices/arm/processor.c:572 modules/devices/e2k/processor.c:372 modules/devices/parisc/processor.c:163 modules/devices/riscv/processor.c:597
-#: modules/devices/x86/processor.c:663
+#: hardinfo2/dmi_util.c:32 modules/devices/arm/processor.c:572
+#: modules/devices/e2k/processor.c:372 modules/devices/parisc/processor.c:163
+#: modules/devices/riscv/processor.c:597 modules/devices/x86/processor.c:663
 msgid "Cache"
 msgstr "Кеш"
 
@@ -294,7 +311,9 @@ msgstr "Вежа"
 msgid "Portable"
 msgstr "Портативний"
 
-#: hardinfo2/dmi_util.c:246 modules/computer.c:459 modules/computer.c:461 modules/computer.c:472 modules/computer.c:474 modules/computer.c:498 modules/computer.c:500
+#: hardinfo2/dmi_util.c:246 modules/computer.c:459 modules/computer.c:461
+#: modules/computer.c:472 modules/computer.c:474 modules/computer.c:498
+#: modules/computer.c:500
 msgid "Laptop"
 msgstr "Ноутбук"
 
@@ -450,7 +469,8 @@ msgstr "Невідомий тест \"%s\"\n"
 msgid "Don't know what to do. Exiting."
 msgstr "Не знаю що робити. Вихід."
 
-#: hardinfo2/usb_util.c:296 modules/devices/monitors.c:408 modules/devices/storage.c:335 modules/devices/storage.c:357
+#: hardinfo2/usb_util.c:296 modules/devices/monitors.c:408
+#: modules/devices/storage.c:335 modules/devices/storage.c:357
 msgid "(None)"
 msgstr "(Жодного)"
 
@@ -516,71 +536,79 @@ msgstr "%.1f TiB"
 msgid "%.1f PiB"
 msgstr "%.1f PiB"
 
-#: hardinfo2/util.c:305
+#: hardinfo2/util.c:306
 msgid "Error"
 msgstr "Помилка"
 
-#: hardinfo2/util.c:305 hardinfo2/util.c:321
+#: hardinfo2/util.c:306 hardinfo2/util.c:322
 msgid "Warning"
 msgstr "УВАГА"
 
-#: hardinfo2/util.c:320
+#: hardinfo2/util.c:321
 msgid "Fatal Error"
 msgstr "Фатальна помилка"
 
-#: hardinfo2/util.c:349
+#: hardinfo2/util.c:351
 msgid "do not print status messages to standard output"
 msgstr "не друкувати повідомлення про статус на стандартний вивід"
 
-#: hardinfo2/util.c:355
+#: hardinfo2/util.c:357
 msgid "creates a report and prints to standard output"
 msgstr "створює звіт і друкує на стандартний вихід"
 
-#: hardinfo2/util.c:361
+#: hardinfo2/util.c:363
 msgid "chooses a report format ([text], html)"
 msgstr "вибирає формат звіту ([текст], html)"
 
-#: hardinfo2/util.c:367
+#: hardinfo2/util.c:369
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr "пошук теми у звіті CLI (-t getlist показує доступні)"
 
-#: hardinfo2/util.c:373
+#: hardinfo2/util.c:375
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr "шукати тему в кешованому звіті CLI (-t getlist показує доступні)"
 
-#: hardinfo2/util.c:379
+#: hardinfo2/util.c:381
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
-msgstr "запустити єдиний тест, напр.-b 'FPU FFT' (за замовчуванням виконуються всі тести)"
+msgstr ""
+"запустити єдиний тест, напр.-b 'FPU FFT' (за замовчуванням виконуються всі "
+"тести)"
 
-#: hardinfo2/util.c:385
+#: hardinfo2/util.c:387
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
-msgstr "примітка користувача додається до результатів порівняльного тесту.Group-MachineName-ServerReq"
+msgstr ""
+"примітка користувача додається до результатів порівняльного тесту.Group-"
+"MachineName-ServerReq"
 
-#: hardinfo2/util.c:391
+#: hardinfo2/util.c:393
 msgid "benchmark result format ([short], conf, shell)"
 msgstr "формат результатів тестування ([короткий], конф, оболонка)"
 
-#: hardinfo2/util.c:397
-msgid "maximum number of benchmark results to include (-1 for no limit, default is 250)"
-msgstr "максимальна кількість результатів порівняльного тесту для включення (-1 без обмежень, за замовчуванням 250)"
+#: hardinfo2/util.c:399
+msgid ""
+"maximum number of benchmark results to include (-1 for no limit, default is "
+"250)"
+msgstr ""
+"максимальна кількість результатів порівняльного тесту для включення (-1 без "
+"обмежень, за замовчуванням 250)"
 
-#: hardinfo2/util.c:403
+#: hardinfo2/util.c:405
 msgid "shows program version and quit"
 msgstr "показує версію програми та виходить"
 
-#: hardinfo2/util.c:409
+#: hardinfo2/util.c:411
 msgid "do not run benchmarks"
 msgstr "не запускайте тести"
 
-#: hardinfo2/util.c:415
+#: hardinfo2/util.c:417
 msgid "show all details"
 msgstr "показати всі деталі"
 
-#: hardinfo2/util.c:420
+#: hardinfo2/util.c:422
 msgid "- System Information and Benchmark"
 msgstr "- Інформація про систему та тест"
 
-#: hardinfo2/util.c:430
+#: hardinfo2/util.c:432
 #, c-format
 msgid ""
 "Unrecognized arguments.\n"
@@ -589,22 +617,25 @@ msgstr ""
 "Невизнані аргументи.\n"
 "Спробуйте ``%s --help'' для отримання додаткової інформації.\n"
 
-#: hardinfo2/util.c:471
+#: hardinfo2/util.c:473
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
 "User Note params are optional and usernote can be left blank.\n"
-"Have only a group, group-MachineName and also a special request to server for the return benchmark data from server\n"
+"Have only a group, group-MachineName and also a special request to server "
+"for the return benchmark data from server\n"
 msgstr ""
 "Примітка користувача недійсна (літери+цифри Group-MachineName-ServerReq)\n"
-"Параметри примітки користувача необов’язкові, і примітку користувача можна залишити пустою.\n"
-"Майте лише групу, group-MachineName, а також спеціальний запит до сервера для повернення контрольних даних із сервера\n"
+"Параметри примітки користувача необов’язкові, і примітку користувача можна "
+"залишити пустою.\n"
+"Майте лише групу, group-MachineName, а також спеціальний запит до сервера "
+"для повернення контрольних даних із сервера\n"
 
-#: hardinfo2/util.c:962
+#: hardinfo2/util.c:965
 #, c-format
 msgid "Scanning: %s..."
 msgstr "Сканування: %s..."
 
-#: hardinfo2/util.c:972 shell/shell.c:304
+#: hardinfo2/util.c:975 shell/shell.c:304
 msgid "Done."
 msgstr "Готово."
 
@@ -616,33 +647,52 @@ msgstr "Оновити список постачальників"
 msgid "Check Update Version"
 msgstr "Перевірте версію оновлення"
 
-#: hardinfo2/vendor.c:385 modules/computer.c:591 modules/computer.c:819 modules/computer/os.c:201 modules/computer/os.c:392 modules/computer/os.c:427 modules/computer/os.c:747 modules/computer/os.c:810
-#: modules/devices.c:616 modules/devices.c:767 modules/devices/firmware.c:151 modules/devices/printers.c:106 modules/devices/printers.c:113 modules/devices/printers.c:123 modules/devices/printers.c:138
-#: modules/devices/printers.c:147 modules/devices/printers.c:256 modules/devices/spd-decode.c:364 modules/devices/storage.c:389 modules/devices/storage.c:393 modules/devices/storage.c:398
-#: modules/devices/storage.c:407 modules/devices/usb.c:150
+#: hardinfo2/vendor.c:385 modules/computer.c:591 modules/computer.c:819
+#: modules/computer/os.c:201 modules/computer/os.c:392
+#: modules/computer/os.c:427 modules/computer/os.c:747
+#: modules/computer/os.c:810 modules/devices.c:206 modules/devices.c:211
+#: modules/devices.c:222 modules/devices.c:698 modules/devices.c:849
+#: modules/devices/firmware.c:151 modules/devices/printers.c:106
+#: modules/devices/printers.c:113 modules/devices/printers.c:123
+#: modules/devices/printers.c:138 modules/devices/printers.c:147
+#: modules/devices/printers.c:256 modules/devices/spd-decode.c:364
+#: modules/devices/storage.c:389 modules/devices/storage.c:393
+#: modules/devices/storage.c:398 modules/devices/storage.c:408
+#: modules/devices/usb.c:150
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: shell/callbacks.c:497 shell/shell.c:555
+#: shell/callbacks.c:498 shell/shell.c:555
 msgid "System Information and Benchmark"
 msgstr "Інформація про систему та тест"
 
-#: shell/callbacks.c:501
+#: shell/callbacks.c:502
 msgid ""
-"HardInfo2 is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2 or later.\n"
+"HardInfo2 is free software; you can redistribute it and/or modify it under "
+"the terms of the GNU General Public License as published by the Free "
+"Software Foundation, version 2 or later.\n"
 "\n"
-"This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU "
-"General Public License for more details.\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
 "\n"
-"You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 51 "
+"Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
-"HardInfo2 є безкоштовним програмним забезпеченням;ви можете поширювати його та/або змінювати відповідно до умов GNU General Public License, опублікованого Free Software Foundation, версії 2 або "
-"новішої.\n"
+"HardInfo2 є безкоштовним програмним забезпеченням;ви можете поширювати його "
+"та/або змінювати відповідно до умов GNU General Public License, "
+"опублікованого Free Software Foundation, версії 2 або новішої.\n"
 "\n"
-"Ця програма розповсюджується в надії, що вона буде корисною, але БЕЗ ЖОДНИХ ГАРАНТІЙ;навіть без неявної гарантії ПРИДАТНОСТІ ДЛЯ ПРОДАЖУ чи ВІДПОВІДНОСТІ ДЛЯ КОНКРЕТНОЇ МЕТИ.Додаткову інформацію "
-"див. у Загальній публічній ліцензії GNU.\n"
+"Ця програма розповсюджується в надії, що вона буде корисною, але БЕЗ ЖОДНИХ "
+"ГАРАНТІЙ;навіть без неявної гарантії ПРИДАТНОСТІ ДЛЯ ПРОДАЖУ чи "
+"ВІДПОВІДНОСТІ ДЛЯ КОНКРЕТНОЇ МЕТИ.Додаткову інформацію див. у Загальній "
+"публічній ліцензії GNU.\n"
 "\n"
-"Ви мали отримати копію GNU General Public License разом із цією програмою;якщо ні, напишіть до Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+"Ви мали отримати копію GNU General Public License разом із цією програмою;"
+"якщо ні, напишіть до Free Software Foundation, Inc., 51 Franklin St, Fifth "
+"Floor, Boston, MA 02110-1301 USA"
 
 #: shell/menu.c:37
 msgid "_Information"
@@ -928,6 +978,293 @@ msgstr "_Синхронізувати"
 msgid "Synchronizing: %s"
 msgstr "Синхронізація: %s"
 
+#: modules/benchmark.c:352
+msgid "This Machine"
+msgstr "Ця машина"
+
+#: modules/benchmark.c:578 modules/benchmark.c:589 modules/benchmark.c:601
+msgid "Results"
+msgstr "Результати"
+
+#: modules/benchmark.c:579 modules/benchmark/bench_results.c:436
+#: modules/benchmark/bench_results.c:503
+msgid "GPU"
+msgstr "GPU"
+
+#: modules/benchmark.c:590 modules/benchmark/bench_results.c:438
+#: modules/benchmark/bench_results.c:507 modules/computer.c:1120
+#: modules/devices.c:109
+msgid "Storage"
+msgstr "Зберігання"
+
+#: modules/benchmark.c:601 modules/benchmark/bench_results.c:434
+#: modules/benchmark/bench_results.c:502
+msgid "CPU Config"
+msgstr "Конфігурація процесора"
+
+#: modules/benchmark.c:602 modules/devices/sparc/processor.c:75
+msgid "CPU"
+msgstr "ЦП"
+
+#: modules/benchmark.c:687
+#, c-format
+msgid "Benchmarking: <b>%s</b>."
+msgstr "Порівняльний аналіз: <b>%s</b>."
+
+#: modules/benchmark.c:694
+#, c-format
+msgid "Benchmarking: %s"
+msgstr "Порівняльний аналіз: %s"
+
+#: modules/benchmark.c:698
+msgid "Stop"
+msgstr "СТІЙ"
+
+#: modules/benchmark.c:711
+msgid ""
+"Please do not move your mouse\n"
+"or press any keys."
+msgstr ""
+"Будь ласка, не рухайте мишею\n"
+"або натисніть будь-яку клавішу."
+
+#: modules/benchmark.c:773
+msgid "Benchmarks"
+msgstr "Еталонні показники"
+
+#: modules/benchmark.c:783
+msgid "Perform tasks and compare with other systems"
+msgstr "Виконуйте завдання та порівнюйте з іншими системами"
+
+#: modules/benchmark.c:949
+msgid "Receive benchmark results"
+msgstr "Отримайте результати тестування"
+
+#. !/ Used for an unknown value. Having it in only one place cleans up the .po
+#. * line references
+#: modules/benchmark/bench_results.c:34 modules/computer.c:41
+#: modules/computer/display.c:39 modules/computer/display.c:56
+#: modules/computer/os.c:414 modules/computer/os.c:471 modules/devices.c:828
+#: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
+#: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
+#: modules/devices/gpu.c:130 modules/devices/gpu.c:216
+#: modules/devices/gpu.c:217 modules/devices/gpu.c:236
+#: modules/devices/inputdevices.c:57 modules/devices/monitors.c:28
+#: modules/devices/monitors.c:29 modules/devices/monitors.c:152
+#: modules/devices/monitors.c:161 modules/devices/pci.c:25
+#: modules/devices/pci.c:170 modules/devices/pci.c:171
+#: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
+#: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
+#: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
+#: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
+#: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27
+#: modules/devices/storage.c:336 modules/devices/storage.c:365
+#: modules/devices/storage.c:516 modules/devices/usb.c:29
+#: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
+#: includes/spd-decode.h:25
+msgid "(Unknown)"
+msgstr "(невідомо)"
+
+#: modules/benchmark/bench_results.c:263 modules/devices.c:664
+#: modules/devices.c:672 modules/devices.c:700
+#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:511
+#: modules/devices/arm/processor.c:524 modules/devices/arm/processor.c:567
+#: modules/devices/arm/processor.c:799 modules/devices/e2k/processor.c:369
+#: modules/devices/e2k/processor.c:406 modules/devices/gpu.c:125
+#: modules/devices/gpu.c:127 modules/devices/gpu.c:133
+#: modules/devices/gpu.c:135 modules/devices/gpu.c:239
+#: modules/devices/gpu.c:241 modules/devices/ia64/processor.c:167
+#: modules/devices/ia64/processor.c:196
+#: modules/devices/loongarch64/processor.c:98
+#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
+#: modules/devices/parisc/processor.c:158
+#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
+#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:382
+#: modules/devices/riscv/processor.c:395 modules/devices/riscv/processor.c:593
+#: modules/devices/riscv/processor.c:628 modules/devices/s390/processor.c:160
+#: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
+#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
+#: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
+#: modules/devices/x86/processor.c:793
+msgid "MHz"
+msgstr "МГц"
+
+#: modules/benchmark/bench_results.c:295 modules/devices.c:234
+#, c-format
+msgid "%d physical processor"
+msgid_plural "%d physical processors"
+msgstr[0] "%d physical processor"
+msgstr[1] "%d physical processors"
+msgstr[2] "%d physical processors"
+
+#: modules/benchmark/bench_results.c:296 modules/devices.c:235
+#, c-format
+msgid "%d core"
+msgid_plural "%d cores"
+msgstr[0] "%d core"
+msgstr[1] "%d cores"
+msgstr[2] "%d cores"
+
+#: modules/benchmark/bench_results.c:297 modules/devices.c:236
+#, c-format
+msgid "%d thread"
+msgid_plural "%d threads"
+msgstr[0] "%d thread"
+msgstr[1] "%d threads"
+msgstr[2] "%d threads"
+
+#: modules/benchmark/bench_results.c:302 modules/devices.c:238
+#, c-format
+msgid "%d NUMA node"
+msgid_plural "%d NUMA nodes"
+msgstr[0] "%d NUMA node"
+msgstr[1] "%d NUMA nodes"
+msgstr[2] "%d NUMA nodes"
+
+#. !/NP procs; NC cores across NN nodes; NT threads
+#: modules/benchmark/bench_results.c:306
+#, c-format
+msgid "%s; %s across %s; %s"
+msgstr "%s;%s поперек %s;%s"
+
+#. !/NP procs; NC cores; NT threads
+#: modules/benchmark/bench_results.c:311
+#, c-format
+msgid "%s; %s; %s"
+msgstr "%s;%s;%s"
+
+#: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
+#: modules/computer.c:1017 modules/devices/dmi_memory.c:639
+#: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
+#: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
+#: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517
+#: modules/network/net.c:416 modules/network/net.c:440
+#: modules/network/net.c:441
+msgid "MiB"
+msgstr "MiB"
+
+#: modules/benchmark/bench_results.c:390 modules/benchmark/bench_results.c:509
+msgid "kiB"
+msgstr "kiB"
+
+#: modules/benchmark/bench_results.c:398 modules/benchmark/bench_results.c:454
+#, c-format
+msgid "%d-bit"
+msgstr "%d-bit"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Benchmark Result"
+msgstr "Результат тестування"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Threads"
+msgstr "Threads"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "Elapsed Time"
+msgstr "Час, що минув"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "seconds"
+msgstr "секунди"
+
+#: modules/benchmark/bench_results.c:421 modules/computer/languages.c:101
+#: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:368
+#: modules/devices/gpu.c:209 modules/devices/ia64/processor.c:166
+#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167
+#: modules/devices/ppc/processor.c:159
+msgid "Revision"
+msgstr "Ревізія"
+
+#: modules/benchmark/bench_results.c:422 modules/benchmark/bench_results.c:487
+msgid "Extra Information"
+msgstr "Додаткова інформація"
+
+#: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
+#: modules/computer.c:615
+msgid "Note"
+msgstr "Примітка"
+
+#: modules/benchmark/bench_results.c:425 modules/benchmark/bench_results.c:490
+msgid ""
+"This result is from an old version of HardInfo. Results might not be "
+"comparable to current version. Some details are missing."
+msgstr ""
+"Цей результат отримано зі старої версії HardInfo.Результати можуть бути не "
+"порівнянними з поточною версією.Деякі деталі відсутні."
+
+#: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494
+#: modules/devices/sh/processor.c:85
+msgid "Machine"
+msgstr "Машина"
+
+#: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494
+#: modules/devices/devicetree.c:130 modules/devices/dmi.c:48
+msgid "Board"
+msgstr "Дошка"
+
+#: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
+#: modules/computer.c:551
+msgid "Machine Type"
+msgstr "Тип машини"
+
+#: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:499
+msgid "CPU Name"
+msgstr "Назва ЦП"
+
+#: modules/benchmark/bench_results.c:433 modules/benchmark/bench_results.c:500
+msgid "CPU Description"
+msgstr "Опис ЦП"
+
+#: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
+msgid "Threads Available"
+msgstr "Threads Available"
+
+#: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
+#: modules/computer.c:562
+msgid "OpenGL Renderer"
+msgstr "OpenGL Renderer"
+
+#: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
+#: modules/computer.c:140 modules/computer.c:550 modules/computer.c:1119
+#: modules/devices/gpu.c:212
+msgid "Memory"
+msgstr "Пам'ять"
+
+#: modules/benchmark/bench_results.c:440 modules/benchmark/bench_results.c:511
+msgid "Pointer Size"
+msgstr "Розмір покажчика"
+
+#: modules/benchmark/bench_results.c:485 modules/devices/dmi_memory.c:859
+#: modules/devices/firmware.c:246 modules/devices/monitors.c:492
+#: modules/devices/x86/processor.c:692
+msgid "Result"
+msgstr "Результат"
+
+#: modules/benchmark/bench_results.c:497
+msgid "Linux Kernel"
+msgstr "Ядро Linux"
+
+#: modules/benchmark/bench_results.c:498
+msgid "Linux OS"
+msgstr "ОС Linux"
+
+#: modules/benchmark/bench_results.c:509
+msgid "Physical Memory"
+msgstr "Фізична пам'ять"
+
+#: modules/benchmark/bench_results.c:513
+msgid "Handles"
+msgstr "Ручки"
+
+#: modules/benchmark/bench_results.c:513
+msgid "mid"
+msgstr "середина"
+
+#: modules/benchmark/bench_results.c:514
+msgid "cfg_val"
+msgstr "cfg_val"
+
 #: modules/benchmark/benches.c:172
 msgid "CPU Blowfish (Single-thread)"
 msgstr "ЦП Blowfish (однопотоковий)"
@@ -1048,253 +1385,10 @@ msgstr ""
 msgid "Results in MB/s. Higher is better."
 msgstr "Результати в МБ/с.Що вище, то краще."
 
-#: modules/benchmark/benches.c:394 modules/benchmark/benches.c:398 modules/benchmark/benches.c:402
+#: modules/benchmark/benches.c:394 modules/benchmark/benches.c:398
+#: modules/benchmark/benches.c:402
 msgid "Results in FPS. Higher is better."
 msgstr "Результати в FPS.Що вище, то краще."
-
-#. !/ Used for an unknown value. Having it in only one place cleans up the .po
-#. * line references
-#: modules/benchmark/bench_results.c:34 modules/computer.c:41 modules/computer/display.c:39 modules/computer/display.c:56 modules/computer/os.c:414 modules/computer/os.c:471 modules/devices.c:746
-#: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835 modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122 modules/devices/gpu.c:130 modules/devices/gpu.c:216
-#: modules/devices/gpu.c:217 modules/devices/gpu.c:236 modules/devices/inputdevices.c:57 modules/devices/monitors.c:28 modules/devices/monitors.c:29 modules/devices/monitors.c:152
-#: modules/devices/monitors.c:161 modules/devices/pci.c:25 modules/devices/pci.c:170 modules/devices/pci.c:171 modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
-#: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363 modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
-#: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27 modules/devices/storage.c:336 modules/devices/storage.c:365 modules/devices/storage.c:515 modules/devices/usb.c:29
-#: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24 includes/spd-decode.h:25
-msgid "(Unknown)"
-msgstr "(невідомо)"
-
-#: modules/benchmark/bench_results.c:263 modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524 modules/devices/arm/processor.c:567
-#: modules/devices/arm/processor.c:783 modules/devices.c:582 modules/devices.c:590 modules/devices.c:618 modules/devices/e2k/processor.c:369 modules/devices/e2k/processor.c:406
-#: modules/devices/gpu.c:125 modules/devices/gpu.c:127 modules/devices/gpu.c:133 modules/devices/gpu.c:135 modules/devices/gpu.c:239 modules/devices/gpu.c:241 modules/devices/ia64/processor.c:167
-#: modules/devices/ia64/processor.c:196 modules/devices/loongarch64/processor.c:98 modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77 modules/devices/parisc/processor.c:158
-#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160 modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:382 modules/devices/riscv/processor.c:395
-#: modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:628 modules/devices/s390/processor.c:160 modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
-#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317 modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658 modules/devices/x86/processor.c:793
-msgid "MHz"
-msgstr "МГц"
-
-#: modules/benchmark/bench_results.c:295 modules/devices.c:180
-#, c-format
-msgid "%d physical processor"
-msgid_plural "%d physical processors"
-msgstr[0] "%d physical processor"
-msgstr[1] "%d physical processors"
-msgstr[2] "%d physical processors"
-
-#: modules/benchmark/bench_results.c:296 modules/devices.c:181
-#, c-format
-msgid "%d core"
-msgid_plural "%d cores"
-msgstr[0] "%d core"
-msgstr[1] "%d cores"
-msgstr[2] "%d cores"
-
-#: modules/benchmark/bench_results.c:297 modules/devices.c:182
-#, c-format
-msgid "%d thread"
-msgid_plural "%d threads"
-msgstr[0] "%d thread"
-msgstr[1] "%d threads"
-msgstr[2] "%d threads"
-
-#: modules/benchmark/bench_results.c:302 modules/devices.c:184
-#, c-format
-msgid "%d NUMA node"
-msgid_plural "%d NUMA nodes"
-msgstr[0] "%d NUMA node"
-msgstr[1] "%d NUMA nodes"
-msgstr[2] "%d NUMA nodes"
-
-#. !/NP procs; NC cores across NN nodes; NT threads
-#: modules/benchmark/bench_results.c:306
-#, c-format
-msgid "%s; %s across %s; %s"
-msgstr "%s;%s поперек %s;%s"
-
-#. !/NP procs; NC cores; NT threads
-#: modules/benchmark/bench_results.c:311
-#, c-format
-msgid "%s; %s; %s"
-msgstr "%s;%s;%s"
-
-#: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510 modules/computer.c:1017 modules/devices/dmi_memory.c:639 modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
-#: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837 modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517 modules/network/net.c:416 modules/network/net.c:440
-#: modules/network/net.c:441
-msgid "MiB"
-msgstr "MiB"
-
-#: modules/benchmark/bench_results.c:390 modules/benchmark/bench_results.c:509
-msgid "kiB"
-msgstr "kiB"
-
-#: modules/benchmark/bench_results.c:398 modules/benchmark/bench_results.c:454
-#, c-format
-msgid "%d-bit"
-msgstr "%d-bit"
-
-#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
-msgid "Benchmark Result"
-msgstr "Результат тестування"
-
-#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
-msgid "Threads"
-msgstr "Threads"
-
-#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
-msgid "Elapsed Time"
-msgstr "Час, що минув"
-
-#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
-msgid "seconds"
-msgstr "секунди"
-
-#: modules/benchmark/bench_results.c:421 modules/computer/languages.c:101 modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:368 modules/devices/gpu.c:209
-#: modules/devices/ia64/processor.c:166 modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167 modules/devices/ppc/processor.c:159
-msgid "Revision"
-msgstr "Ревізія"
-
-#: modules/benchmark/bench_results.c:422 modules/benchmark/bench_results.c:487
-msgid "Extra Information"
-msgstr "Додаткова інформація"
-
-#: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489 modules/computer.c:615
-msgid "Note"
-msgstr "Примітка"
-
-#: modules/benchmark/bench_results.c:425 modules/benchmark/bench_results.c:490
-msgid "This result is from an old version of HardInfo. Results might not be comparable to current version. Some details are missing."
-msgstr "Цей результат отримано зі старої версії HardInfo.Результати можуть бути не порівнянними з поточною версією.Деякі деталі відсутні."
-
-#: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494 modules/devices/sh/processor.c:85
-msgid "Machine"
-msgstr "Машина"
-
-#: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494 modules/devices/devicetree.c:130 modules/devices/dmi.c:48
-msgid "Board"
-msgstr "Дошка"
-
-#: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496 modules/computer.c:551
-msgid "Machine Type"
-msgstr "Тип машини"
-
-#: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:499
-msgid "CPU Name"
-msgstr "Назва ЦП"
-
-#: modules/benchmark/bench_results.c:433 modules/benchmark/bench_results.c:500
-msgid "CPU Description"
-msgstr "Опис ЦП"
-
-#: modules/benchmark/bench_results.c:434 modules/benchmark/bench_results.c:502 modules/benchmark.c:601
-msgid "CPU Config"
-msgstr "Конфігурація процесора"
-
-#: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
-msgid "Threads Available"
-msgstr "Threads Available"
-
-#: modules/benchmark/bench_results.c:436 modules/benchmark/bench_results.c:503 modules/benchmark.c:579
-msgid "GPU"
-msgstr "GPU"
-
-#: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505 modules/computer.c:562
-msgid "OpenGL Renderer"
-msgstr "OpenGL Renderer"
-
-#: modules/benchmark/bench_results.c:438 modules/benchmark/bench_results.c:507 modules/benchmark.c:590 modules/computer.c:1120 modules/devices.c:109
-msgid "Storage"
-msgstr "Зберігання"
-
-#: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509 modules/computer.c:140 modules/computer.c:550 modules/computer.c:1119 modules/devices/gpu.c:212
-msgid "Memory"
-msgstr "Пам'ять"
-
-#: modules/benchmark/bench_results.c:440 modules/benchmark/bench_results.c:511
-msgid "Pointer Size"
-msgstr "Розмір покажчика"
-
-#: modules/benchmark/bench_results.c:485 modules/devices/dmi_memory.c:859 modules/devices/firmware.c:246 modules/devices/monitors.c:492 modules/devices/x86/processor.c:692
-msgid "Result"
-msgstr "Результат"
-
-#: modules/benchmark/bench_results.c:497
-msgid "Linux Kernel"
-msgstr "Ядро Linux"
-
-#: modules/benchmark/bench_results.c:498
-msgid "Linux OS"
-msgstr "ОС Linux"
-
-#: modules/benchmark/bench_results.c:509
-msgid "Physical Memory"
-msgstr "Фізична пам'ять"
-
-#: modules/benchmark/bench_results.c:513
-msgid "Handles"
-msgstr "Ручки"
-
-#: modules/benchmark/bench_results.c:513
-msgid "mid"
-msgstr "середина"
-
-#: modules/benchmark/bench_results.c:514
-msgid "cfg_val"
-msgstr "cfg_val"
-
-#: modules/benchmark.c:352
-msgid "This Machine"
-msgstr "Ця машина"
-
-#: modules/benchmark.c:578 modules/benchmark.c:589 modules/benchmark.c:601
-msgid "Results"
-msgstr "Результати"
-
-#: modules/benchmark.c:602 modules/devices/sparc/processor.c:75
-msgid "CPU"
-msgstr "ЦП"
-
-#: modules/benchmark.c:687
-#, c-format
-msgid "Benchmarking: <b>%s</b>."
-msgstr "Порівняльний аналіз: <b>%s</b>."
-
-#: modules/benchmark.c:694
-#, c-format
-msgid "Benchmarking: %s"
-msgstr "Порівняльний аналіз: %s"
-
-#: modules/benchmark.c:698
-msgid "Stop"
-msgstr "СТІЙ"
-
-#: modules/benchmark.c:711
-msgid ""
-"Please do not move your mouse\n"
-"or press any keys."
-msgstr ""
-"Будь ласка, не рухайте мишею\n"
-"або натисніть будь-яку клавішу."
-
-#: modules/benchmark.c:773
-msgid "Benchmarks"
-msgstr "Еталонні показники"
-
-#: modules/benchmark.c:783
-msgid "Perform tasks and compare with other systems"
-msgstr "Виконуйте завдання та порівнюйте з іншими системами"
-
-#: modules/benchmark.c:949
-msgid "Receive benchmark results"
-msgstr "Отримайте результати тестування"
-
-#: modules/computer/alsa.c:26 modules/computer.c:566
-msgid "Audio Devices"
-msgstr "Аудіопристрої"
-
-#: modules/computer/alsa.c:34
-msgid "Audio Adapter"
-msgstr "Аудіоадаптер"
 
 #: modules/computer.c:96 modules/devices/firmware.c:74
 msgid "Summary"
@@ -1521,8 +1615,11 @@ msgstr "Не знайдено"
 msgid "Program"
 msgstr "Програма"
 
-#: modules/computer.c:367 modules/computer.c:593 modules/computer.c:595 modules/computer.c:797 modules/computer/modules.c:197 modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
-#: modules/devices/dmi.c:57 modules/devices/firmware.c:75 modules/devices/inputdevices.c:173 modules/devices/monitors.c:406
+#: modules/computer.c:367 modules/computer.c:593 modules/computer.c:595
+#: modules/computer.c:797 modules/computer/modules.c:197
+#: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
+#: modules/devices/dmi.c:57 modules/devices/firmware.c:75
+#: modules/devices/inputdevices.c:173 modules/devices/monitors.c:406
 msgid "Version"
 msgstr "Версія"
 
@@ -1530,11 +1627,13 @@ msgstr "Версія"
 msgid "Field"
 msgstr "Поле"
 
-#: modules/computer.c:386 modules/computer.c:720 modules/computer/modules.c:195 modules/computer/modules.c:196 modules/devices/arm/processor.c:747 modules/devices/riscv/processor.c:554
+#: modules/computer.c:386 modules/computer.c:720 modules/computer/modules.c:195
+#: modules/computer/modules.c:196 modules/devices/arm/processor.c:762
+#: modules/devices/riscv/processor.c:554
 msgid "Description"
 msgstr "Опис"
 
-#: modules/computer.c:386 modules/devices.c:1003
+#: modules/computer.c:386 modules/devices.c:1086
 msgid "Value"
 msgstr "Значення"
 
@@ -1590,6 +1689,10 @@ msgstr "Адаптер дисплея"
 #: modules/computer.c:563
 msgid "Session Display Server"
 msgstr "Сервер відображення сеансів"
+
+#: modules/computer.c:566 modules/computer/alsa.c:26
+msgid "Audio Devices"
+msgstr "Аудіопристрої"
 
 #: modules/computer.c:567 modules/devices.c:108
 msgid "Input Devices"
@@ -1719,9 +1822,15 @@ msgstr "Вразливості ЦП"
 msgid "Loaded Modules"
 msgstr "Завантажені модулі"
 
-#: modules/computer.c:719 modules/computer.c:747 modules/computer.c:889 modules/computer/languages.c:95 modules/computer/modules.c:195 modules/devices/arm/processor.c:746 modules/devices/dmi.c:38
-#: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:364 modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160 modules/devices/inputdevices.c:168 modules/devices/monitors.c:400
-#: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:553 modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:752 modules/network.c:497
+#: modules/computer.c:719 modules/computer.c:747 modules/computer.c:889
+#: modules/computer/languages.c:95 modules/computer/modules.c:195
+#: modules/devices/arm/processor.c:761 modules/devices/dmi.c:38
+#: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:364
+#: modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160
+#: modules/devices/inputdevices.c:168 modules/devices/monitors.c:400
+#: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:553
+#: modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:752
+#: modules/network.c:497
 msgid "Name"
 msgstr "Ім'я"
 
@@ -1753,9 +1862,14 @@ msgstr "Точка монтування"
 msgid "Usage"
 msgstr "Використання"
 
-#: modules/computer.c:762 modules/devices/arm/processor.c:800 modules/devices.c:1027 modules/devices.c:1041 modules/devices/e2k/processor.c:422 modules/devices/gpu.c:85 modules/devices/gpu.c:93
-#: modules/devices/gpu.c:299 modules/devices/pci.c:123 modules/devices/pci.c:131 modules/devices/pci.c:175 modules/devices/riscv/processor.c:645 modules/devices/storage.c:48
-#: modules/devices/storage.c:57 modules/devices/usb.c:173 modules/devices/usb.c:185 modules/devices/x86/processor.c:814
+#: modules/computer.c:762 modules/devices.c:1110 modules/devices.c:1124
+#: modules/devices/arm/processor.c:816 modules/devices/e2k/processor.c:422
+#: modules/devices/gpu.c:85 modules/devices/gpu.c:93 modules/devices/gpu.c:299
+#: modules/devices/pci.c:123 modules/devices/pci.c:131
+#: modules/devices/pci.c:175 modules/devices/riscv/processor.c:645
+#: modules/devices/storage.c:48 modules/devices/storage.c:57
+#: modules/devices/usb.c:173 modules/devices/usb.c:185
+#: modules/devices/x86/processor.c:814
 msgid "Device"
 msgstr "Пристрій"
 
@@ -1763,7 +1877,9 @@ msgstr "Пристрій"
 msgid "Session"
 msgstr "Сесія"
 
-#: modules/computer.c:786 modules/devices.c:1004 modules/devices.c:1041 modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729 modules/devices/inputdevices.c:169 modules/devices/spd-decode.c:1540
+#: modules/computer.c:786 modules/devices.c:1087 modules/devices.c:1124
+#: modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729
+#: modules/devices/inputdevices.c:169 modules/devices/spd-decode.c:1540
 #: modules/devices/x86/processor.c:715
 msgid "Type"
 msgstr "Тип"
@@ -1780,11 +1896,20 @@ msgstr "Поточне відображуване ім'я"
 msgid "X Server"
 msgstr "Сервер X"
 
-#: modules/computer.c:796 modules/computer.c:836 modules/computer.c:859 modules/devices.c:1041 modules/devices/dmi.c:40 modules/devices/dmi.c:46 modules/devices/dmi.c:50 modules/devices/dmi.c:55
-#: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873 modules/devices/e2k/processor.c:365 modules/devices/firmware.c:75 modules/devices/firmware.c:169 modules/devices/firmware.c:174
-#: modules/devices/firmware.c:221 modules/devices/gpu.c:84 modules/devices/gpu.c:92 modules/devices/gpu.c:298 modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:171
-#: modules/devices/monitors.c:399 modules/devices/pci.c:122 modules/devices/pci.c:130 modules/devices/storage.c:47 modules/devices/storage.c:56 modules/devices/storage.c:311
-#: modules/devices/storage.c:657 modules/devices/storage.c:862 modules/devices/usb.c:172 modules/devices/x86/processor.c:654
+#: modules/computer.c:796 modules/computer.c:836 modules/computer.c:859
+#: modules/devices.c:1124 modules/devices/dmi.c:40 modules/devices/dmi.c:46
+#: modules/devices/dmi.c:50 modules/devices/dmi.c:55
+#: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873
+#: modules/devices/e2k/processor.c:365 modules/devices/firmware.c:75
+#: modules/devices/firmware.c:169 modules/devices/firmware.c:174
+#: modules/devices/firmware.c:221 modules/devices/gpu.c:84
+#: modules/devices/gpu.c:92 modules/devices/gpu.c:298
+#: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:171
+#: modules/devices/monitors.c:399 modules/devices/pci.c:122
+#: modules/devices/pci.c:130 modules/devices/storage.c:47
+#: modules/devices/storage.c:56 modules/devices/storage.c:311
+#: modules/devices/storage.c:658 modules/devices/storage.c:863
+#: modules/devices/usb.c:172 modules/devices/x86/processor.c:654
 msgid "Vendor"
 msgstr "Продавець"
 
@@ -1829,12 +1954,16 @@ msgstr "Рендерер"
 msgid "Direct Rendering"
 msgstr "Прямий рендеринг"
 
-#: modules/computer.c:839 modules/computer/modules.c:177 modules/computer/modules.c:178 modules/devices/inputdevices.c:180 modules/devices/printers.c:145 modules/devices/spd-decode.c:888
+#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/inputdevices.c:180
+#: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
 #: modules/devices/spd-decode.c:1135
 msgid "Yes"
 msgstr "Так"
 
-#: modules/computer.c:839 modules/computer/modules.c:177 modules/computer/modules.c:178 modules/devices/printers.c:145 modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
+#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/printers.c:145
+#: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
 msgid "No"
 msgstr "Ні"
 
@@ -1915,11 +2044,14 @@ msgstr "ID групи"
 msgid "%0.1f %s available to Linux"
 msgstr "%0.1f %s доступний для Linux"
 
-#: modules/computer.c:1015 modules/devices/dmi_memory.c:637 modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789 modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1515
+#: modules/computer.c:1015 modules/devices/dmi_memory.c:637
+#: modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789
+#: modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1515
 msgid "GiB"
 msgstr "GiB"
 
-#: modules/computer.c:1019 modules/computer/memory_usage.c:73 modules/computer/modules.c:195
+#: modules/computer.c:1019 modules/computer/memory_usage.c:73
+#: modules/computer/modules.c:195
 msgid "KiB"
 msgstr "KiB"
 
@@ -1948,16 +2080,27 @@ msgid "<i><b>lsmod</b></i> is required."
 msgstr "Потрібен <i><b>lsmod</b></i>."
 
 #: modules/computer.c:1190
-msgid "X.org's <i><b>xrandr</b></i> utility provides additional details when available."
-msgstr "Утиліта <i><b>xrandr</b></i> X.org надає додаткові відомості, якщо вони доступні."
+msgid ""
+"X.org's <i><b>xrandr</b></i> utility provides additional details when "
+"available."
+msgstr ""
+"Утиліта <i><b>xrandr</b></i> X.org надає додаткові відомості, якщо вони "
+"доступні."
 
 #: modules/computer.c:1191
-msgid "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
+msgid ""
+"Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr "Утиліта <i><b>glxinfo</b></i> Mesa потрібна для інформації OpenGL."
 
 #: modules/computer.c:1192
-msgid "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
-msgstr "Утиліта <i><b>vulkaninfo</b></i> Vulkan потрібна для інформації Vulkan."
+msgid ""
+"Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
+msgstr ""
+"Утиліта <i><b>vulkaninfo</b></i> Vulkan потрібна для інформації Vulkan."
+
+#: modules/computer/alsa.c:34
+msgid "Audio Adapter"
+msgstr "Аудіоадаптер"
 
 #: modules/computer/filesystem.c:87
 msgid "Filesystem"
@@ -1975,7 +2118,9 @@ msgstr "Читання-Писання"
 msgid "Read-Only"
 msgstr "Тільки для читання"
 
-#: modules/computer/filesystem.c:90 modules/devices.c:1027 modules/devices/dmi_memory.c:733 modules/devices/dmi_memory.c:766 modules/devices/dmi_memory.c:805 modules/devices/dmi_memory.c:872
+#: modules/computer/filesystem.c:90 modules/devices.c:1110
+#: modules/devices/dmi_memory.c:733 modules/devices/dmi_memory.c:766
+#: modules/devices/dmi_memory.c:805 modules/devices/dmi_memory.c:872
 #: modules/devices/spd-decode.c:1547
 msgid "Size"
 msgstr "Розмір"
@@ -1992,7 +2137,8 @@ msgstr "В наявності"
 msgid "Locale Information"
 msgstr "Інформація про мову"
 
-#: modules/computer/languages.c:96 modules/devices/gpu.c:272 modules/devices/spd-decode.c:1536
+#: modules/computer/languages.c:96 modules/devices/gpu.c:272
+#: modules/devices/spd-decode.c:1536
 msgid "Source"
 msgstr "Джерело"
 
@@ -2042,7 +2188,9 @@ msgstr "Пам'ять, наявна в основній пам'яті та у ф
 
 #: modules/computer/memory_usage.c:136
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr "Значення HighTotal може змінюватися в залежності від типу використовуваного ядра"
+msgstr ""
+"Значення HighTotal може змінюватися в залежності від типу використовуваного "
+"ядра"
 
 #: modules/computer/memory_usage.c:137
 msgid "Amount of memory that is not directly mapped into kernel space"
@@ -2050,11 +2198,14 @@ msgstr "Обсяг пам'яті, який безпосередньо не ві�
 
 #: modules/computer/memory_usage.c:138
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr "Значення LowTotal може змінюватися в залежності від типу використовуваного ядра"
+msgstr ""
+"Значення LowTotal може змінюватися в залежності від типу використовуваного "
+"ядра"
 
 #: modules/computer/memory_usage.c:139
 msgid "Total and free memory directly mapped into kernel space"
-msgstr "Загальна та вільна пам’ять безпосередньо відображаються в просторі ядра"
+msgstr ""
+"Загальна та вільна пам’ять безпосередньо відображаються в просторі ядра"
 
 #: modules/computer/memory_usage.c:140
 msgid "Available memory for allocation to any process, without swapping"
@@ -2062,7 +2213,8 @@ msgstr "Доступна пам'ять для виділення будь-яко
 
 #: modules/computer/memory_usage.c:141
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
-msgstr "Пам'ять у буферному кеші, тимчасове сховище для необроблених блоків диска"
+msgstr ""
+"Пам'ять у буферному кеші, тимчасове сховище для необроблених блоків диска"
 
 #: modules/computer/memory_usage.c:142
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
@@ -2070,11 +2222,13 @@ msgstr "Пам'ять у кеші сторінок (diskcache, спільна п
 
 #: modules/computer/memory_usage.c:143
 msgid "Memory used more recently and not swapped out or reclaimed"
-msgstr "Пам'ять, яка використовувалася нещодавно, не була замінена чи відновлена"
+msgstr ""
+"Пам'ять, яка використовувалася нещодавно, не була замінена чи відновлена"
 
 #: modules/computer/memory_usage.c:144
 msgid "Memory not been used recently and can be swapped out or reclaimed"
-msgstr "Пам'ять нещодавно не використовувалася, її можна замінити або відновити"
+msgstr ""
+"Пам'ять нещодавно не використовувалася, її можна замінити або відновити"
 
 #: modules/computer/memory_usage.c:145
 msgid "Anonymous memory used more recently and not swapped out"
@@ -2090,7 +2244,8 @@ msgstr "Кеш-пам'ять сторінок використовувалася
 
 #: modules/computer/memory_usage.c:148
 msgid "Pagecache memory reclaimable without huge performance impact"
-msgstr "Відновлення пам’яті кешу сторінок без значного впливу на продуктивність"
+msgstr ""
+"Відновлення пам’яті кешу сторінок без значного впливу на продуктивність"
 
 #: modules/computer/memory_usage.c:149
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
@@ -2098,7 +2253,8 @@ msgstr "Сторінки, які не можна вилучити, не можн
 
 #: modules/computer/memory_usage.c:150
 msgid "Pages locked to memory using the mlock() system call"
-msgstr "Сторінки, заблоковані в пам’яті за допомогою системного виклику mlock()"
+msgstr ""
+"Сторінки, заблоковані в пам’яті за допомогою системного виклику mlock()"
 
 #: modules/computer/memory_usage.c:151
 msgid "Memory consumed by the zswap backend (compressed size)"
@@ -2118,7 +2274,9 @@ msgstr "Пам'ять, яка активно записується на дис�
 
 #: modules/computer/memory_usage.c:155
 msgid "Non-file backed pages mapped into userspace page tables"
-msgstr "Сторінки, що не містять файлів, відображаються в таблицях сторінок простору користувача"
+msgstr ""
+"Сторінки, що не містять файлів, відображаються в таблицях сторінок простору "
+"користувача"
 
 #: modules/computer/memory_usage.c:156
 msgid "Files which have been mmapped, such as libraries"
@@ -2166,11 +2324,13 @@ msgstr "Пам'ять, що використовується для буфері
 
 #: modules/computer/memory_usage.c:167
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr "Пам'ять, яку використовує FUSE для тимчасових буферів зворотного запису"
+msgstr ""
+"Пам'ять, яку використовує FUSE для тимчасових буферів зворотного запису"
 
 #: modules/computer/memory_usage.c:168
 msgid "Total memory currently available to be allocated on the system"
-msgstr "Загальна кількість пам’яті, яка наразі доступна для виділення в системі"
+msgstr ""
+"Загальна кількість пам’яті, яка наразі доступна для виділення в системі"
 
 #: modules/computer/memory_usage.c:169
 msgid "The amount of memory presently allocated on the system"
@@ -2198,23 +2358,30 @@ msgstr "Обсяг пам'яті, який ядро ​​визначає як 
 
 #: modules/computer/memory_usage.c:175
 msgid "Non-file backed huge pages mapped into userspace page tables"
-msgstr "Величезні сторінки, що не підтримуються файлами, відображаються в таблицях сторінок простору користувача"
+msgstr ""
+"Величезні сторінки, що не підтримуються файлами, відображаються в таблицях "
+"сторінок простору користувача"
 
 #: modules/computer/memory_usage.c:176
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
-msgstr "Пам'ять, яку використовують shmem і tmpfs, виділена величезними сторінками"
+msgstr ""
+"Пам'ять, яку використовують shmem і tmpfs, виділена величезними сторінками"
 
 #: modules/computer/memory_usage.c:177
 msgid "Shared memory mapped into userspace with huge pages"
-msgstr "Спільна пам’ять відображена в просторі користувача з величезними сторінками"
+msgstr ""
+"Спільна пам’ять відображена в просторі користувача з величезними сторінками"
 
 #: modules/computer/memory_usage.c:178
 msgid "Memory used for fs data (page cache) allocated with huge pages"
-msgstr "Пам'ять, що використовується для даних fs (кеш сторінок), виділених величезним сторінкам"
+msgstr ""
+"Пам'ять, що використовується для даних fs (кеш сторінок), виділених "
+"величезним сторінкам"
 
 #: modules/computer/memory_usage.c:179
 msgid "Page cache mapped into userspace with huge pages"
-msgstr "Кеш сторінок зіставляється з простором користувача з величезними сторінками"
+msgstr ""
+"Кеш сторінок зіставляється з простором користувача з величезними сторінками"
 
 #: modules/computer/memory_usage.c:180
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
@@ -2246,11 +2413,14 @@ msgstr "Кількість величезних сторінок надлишо�
 
 #: modules/computer/memory_usage.c:187
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr "Величезний розмір сторінки, використовується в поєднанні з параметром hugepages"
+msgstr ""
+"Величезний розмір сторінки, використовується в поєднанні з параметром "
+"hugepages"
 
 #: modules/computer/memory_usage.c:188
 msgid "Total amount of memory consumed by huge pages of all sizes"
-msgstr "Загальний обсяг пам’яті, який споживають величезні сторінки всіх розмірів"
+msgstr ""
+"Загальний обсяг пам’яті, який споживають величезні сторінки всіх розмірів"
 
 #: modules/computer/memory_usage.c:189
 msgid "Breakdown of page table sizes of 4k size"
@@ -2268,8 +2438,11 @@ msgstr "Розбивка розмірів таблиці сторінок роз
 msgid "Update kernel module icon table"
 msgstr "Оновити таблицю значків модуля ядра"
 
-#: modules/computer/modules.c:163 modules/computer/modules.c:164 modules/computer/modules.c:165 modules/computer/modules.c:166 modules/computer/modules.c:167 modules/computer/modules.c:168
-#: modules/devices/dmi.c:117 modules/devices/firmware.c:246 modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
+#: modules/computer/modules.c:163 modules/computer/modules.c:164
+#: modules/computer/modules.c:165 modules/computer/modules.c:166
+#: modules/computer/modules.c:167 modules/computer/modules.c:168
+#: modules/devices/dmi.c:117 modules/devices/firmware.c:246
+#: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
 msgid "(Not available)"
 msgstr "(Недоступно)"
 
@@ -2313,7 +2486,8 @@ msgstr "Ліцензія"
 msgid "Dependencies"
 msgstr "Залежності"
 
-#: modules/computer/os.c:157 modules/computer/os.c:158 modules/computer/os.c:160 modules/computer/os.c:161
+#: modules/computer/os.c:157 modules/computer/os.c:158
+#: modules/computer/os.c:160 modules/computer/os.c:161
 msgid "GNU C Library"
 msgstr "Бібліотека GNU C"
 
@@ -2427,33 +2601,187 @@ msgstr "ID користувача"
 msgid "Default Shell"
 msgstr "Оболонка за замовчуванням"
 
-#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:800 modules/devices.c:1027 modules/devices/devicetree.c:131 modules/devices/e2k/processor.c:367
-#: modules/devices/e2k/processor.c:422 modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165 modules/devices/loongarch64/processor.c:96 modules/devices/m68k/processor.c:84
-#: modules/devices/mips/processor.c:75 modules/devices/monitors.c:401 modules/devices/parisc/processor.c:155 modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:589
-#: modules/devices/riscv/processor.c:645 modules/devices/s390/processor.c:132 modules/devices/x86/processor.c:814
+#: modules/devices.c:100
+msgid "Graphics Processors"
+msgstr "Графічні процесори"
+
+#: modules/devices.c:101 modules/devices/monitors.c:446
+#: modules/devices/monitors.c:492
+msgid "Monitors"
+msgstr "Монітори"
+
+#: modules/devices.c:102 modules/devices/pci.c:196
+msgid "PCI Devices"
+msgstr "Пристрої PCI"
+
+#: modules/devices.c:103 modules/devices/usb.c:212
+msgid "USB Devices"
+msgstr "USB-пристрої"
+
+#: modules/devices.c:104
+msgid "Firmware"
+msgstr "Прошивка"
+
+#: modules/devices.c:106
+msgid "Battery"
+msgstr "Акумулятор"
+
+#: modules/devices.c:107
+msgid "Sensors"
+msgstr "Датчики"
+
+#: modules/devices.c:110
+msgid "System DMI"
+msgstr "Система DMI"
+
+#: modules/devices.c:111
+msgid "Memory Devices"
+msgstr "Пристрої пам'яті"
+
+#: modules/devices.c:113 modules/devices.c:115
+msgid "Device Tree"
+msgstr "Дерево пристроїв"
+
+#: modules/devices.c:117
+msgid "Resources"
+msgstr "Ресурси"
+
+#: modules/devices.c:405
+msgid "Released"
+msgstr ""
+
+#: modules/devices.c:420
+msgid "Release Date"
+msgstr ""
+
+#: modules/devices.c:422
+msgid "Distro and CPU Supported Profiles"
+msgstr "Підтримувані профілі дистрибутива та ЦП"
+
+#: modules/devices.c:826
+msgid "WSL2"
+msgstr "WSL2"
+
+#: modules/devices.c:1086
+msgid "Sensor"
+msgstr "Датчик"
+
+#: modules/devices.c:1110 modules/devices/alpha/processor.c:88
+#: modules/devices/arm/processor.c:816 modules/devices/devicetree.c:131
+#: modules/devices/e2k/processor.c:367 modules/devices/e2k/processor.c:422
+#: modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165
+#: modules/devices/loongarch64/processor.c:96
+#: modules/devices/m68k/processor.c:84 modules/devices/mips/processor.c:75
+#: modules/devices/monitors.c:401 modules/devices/parisc/processor.c:155
+#: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:589
+#: modules/devices/riscv/processor.c:645 modules/devices/s390/processor.c:132
+#: modules/devices/x86/processor.c:814
 msgid "Model"
 msgstr "Модель"
+
+#: modules/devices.c:1144 modules/devices/dmi_memory.c:806
+msgid "Devices"
+msgstr "Пристрої"
+
+#: modules/devices.c:1156
+msgid "Update CPU database"
+msgstr ""
+
+#: modules/devices.c:1161
+msgid "Update PCI ID listing"
+msgstr "Оновіть список PCI ID"
+
+#: modules/devices.c:1166
+msgid "Update USB ID listing"
+msgstr "Оновіть список ідентифікаторів USB"
+
+#: modules/devices.c:1171
+msgid "Update EDID vendor codes"
+msgstr "Оновіть коди постачальників EDID"
+
+#: modules/devices.c:1176
+msgid "Update IEEE OUI vendor codes"
+msgstr "Оновіть коди постачальників IEEE OUI"
+
+#: modules/devices.c:1181
+msgid "Update SD card manufacturer information"
+msgstr "Оновіть інформацію про виробника SD-карти"
+
+#: modules/devices.c:1188
+msgid "Update CPU flags database"
+msgstr "Оновлення бази даних прапорів ЦП"
+
+#: modules/devices.c:1225
+msgid "Gathers information about hardware devices"
+msgstr "Збирає інформацію про апаратні пристрої"
+
+#: modules/devices.c:1245
+msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
+msgstr "Копія <i><b>pci.ids</b></i> недоступна в системі."
+
+#: modules/devices.c:1248
+msgid "A full <i><b>pci.ids</b></i> is not available on the system."
+msgstr "Повний <i><b>pci.ids</b></i> недоступний у системі."
+
+#: modules/devices.c:1255 modules/devices/dmi_memory.c:937
+msgid ""
+"Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
+"--now (SystemD distro)"
+msgstr ""
+"Переконайтеся, що службу hardinfo2 увімкнено+запущено: sudo systemctl enable "
+"hardinfo2 --now (дистрибутив SystemD)"
+
+#: modules/devices.c:1256
+msgid ""
+"Add yourself to hardinfo2 group:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"Logout/Reboot for groups to be updated..."
+msgstr ""
+"Додайте себе до групи hardinfo2:\n"
+"sudo usermod -a -G hardinfo2 $ КОРИСТУВАЧ\n"
+"Вийти/перезавантажити групи для оновлення..."
+
+#: modules/devices.c:1262
+msgid ""
+"Any NVMe storage devices present are not listed.\n"
+"<b><i>udisks2</i></b> is required for NVMe devices."
+msgstr ""
+"Усі наявні пристрої зберігання NVMe не вказано.\n"
+"<b><i>udisks2</i></b> необхідний для пристроїв NVMe."
 
 #: modules/devices/alpha/processor.c:89
 msgid "Platform String"
 msgstr "Рядок платформи"
 
-#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:800 modules/devices/e2k/processor.c:369 modules/devices/e2k/processor.c:422
-#: modules/devices/ia64/processor.c:167 modules/devices/loongarch64/processor.c:98 modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77 modules/devices/parisc/processor.c:158
-#: modules/devices/ppc/processor.c:160 modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:645 modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
+#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
+#: modules/devices/arm/processor.c:816 modules/devices/e2k/processor.c:369
+#: modules/devices/e2k/processor.c:422 modules/devices/ia64/processor.c:167
+#: modules/devices/loongarch64/processor.c:98
+#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
+#: modules/devices/parisc/processor.c:158 modules/devices/ppc/processor.c:160
+#: modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:645
+#: modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
 #: modules/devices/x86/processor.c:814
 msgid "Frequency"
 msgstr "Частота"
 
-#: modules/devices/alpha/processor.c:91 modules/devices/arm/processor.c:568 modules/devices/e2k/processor.c:370 modules/devices/ia64/processor.c:168 modules/devices/m68k/processor.c:88
-#: modules/devices/mips/processor.c:78 modules/devices/parisc/processor.c:159 modules/devices/ppc/processor.c:161 modules/devices/s390/processor.c:134 modules/devices/sh/processor.c:90
+#: modules/devices/alpha/processor.c:91 modules/devices/arm/processor.c:568
+#: modules/devices/e2k/processor.c:370 modules/devices/ia64/processor.c:168
+#: modules/devices/m68k/processor.c:88 modules/devices/mips/processor.c:78
+#: modules/devices/parisc/processor.c:159 modules/devices/ppc/processor.c:161
+#: modules/devices/s390/processor.c:134 modules/devices/sh/processor.c:90
 #: modules/devices/x86/processor.c:659
 msgid "BogoMips"
 msgstr "BogoMips"
 
-#: modules/devices/alpha/processor.c:92 modules/devices/arm/processor.c:569 modules/devices/e2k/processor.c:371 modules/devices/ia64/processor.c:169 modules/devices/loongarch64/processor.c:101
-#: modules/devices/m68k/processor.c:89 modules/devices/mips/processor.c:79 modules/devices/parisc/processor.c:160 modules/devices/ppc/processor.c:162 modules/devices/riscv/processor.c:594
-#: modules/devices/s390/processor.c:135 modules/devices/sh/processor.c:91 modules/devices/sparc/processor.c:77 modules/devices/x86/processor.c:660
+#: modules/devices/alpha/processor.c:92 modules/devices/arm/processor.c:569
+#: modules/devices/e2k/processor.c:371 modules/devices/ia64/processor.c:169
+#: modules/devices/loongarch64/processor.c:101
+#: modules/devices/m68k/processor.c:89 modules/devices/mips/processor.c:79
+#: modules/devices/parisc/processor.c:160 modules/devices/ppc/processor.c:162
+#: modules/devices/riscv/processor.c:594 modules/devices/s390/processor.c:135
+#: modules/devices/sh/processor.c:91 modules/devices/sparc/processor.c:77
+#: modules/devices/x86/processor.c:660
 msgid "Byte Order"
 msgstr "Порядок байтів"
 
@@ -2479,7 +2807,8 @@ msgstr "Thumb (16-розрядний набір інструкцій)"
 #: modules/devices/arm/arm_data.c:45
 msgctxt "arm-flag"
 msgid "26-Bit Model (Processor status register folded into program counter)"
-msgstr "26-розрядна модель (реєстр стану процесора згорнутий у програмний лічильник)"
+msgstr ""
+"26-розрядна модель (реєстр стану процесора згорнутий у програмний лічильник)"
 
 #. !/flag:fastmult
 #: modules/devices/arm/arm_data.c:46
@@ -2721,21 +3050,26 @@ msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
 msgstr "Масштабоване векторне розширення на AArch64 (arch>=8)"
 
-#: modules/devices/arm/processor.c:46 modules/devices/e2k/processor.c:30 modules/devices/riscv/processor.c:36 modules/devices/x86/processor.c:149
+#: modules/devices/arm/processor.c:46 modules/devices/e2k/processor.c:30
+#: modules/devices/riscv/processor.c:36 modules/devices/x86/processor.c:149
 msgid "Cache information not available=\n"
 msgstr "Інформація про кеш недоступна=\n"
 
-#: modules/devices/arm/processor.c:52 modules/devices/e2k/processor.c:36 modules/devices/riscv/processor.c:42 modules/devices/x86/processor.c:155
+#: modules/devices/arm/processor.c:52 modules/devices/e2k/processor.c:36
+#: modules/devices/riscv/processor.c:42 modules/devices/x86/processor.c:155
 #, c-format
 msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
 msgstr "Рівень %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
 
-#: modules/devices/arm/processor.c:174 modules/devices/e2k/processor.c:163 modules/devices/riscv/processor.c:164 modules/devices/x86/processor.c:366
+#: modules/devices/arm/processor.c:174 modules/devices/e2k/processor.c:163
+#: modules/devices/riscv/processor.c:164 modules/devices/x86/processor.c:366
 msgid "Caches"
 msgstr "Тайники"
 
-#: modules/devices/arm/processor.c:225 modules/devices/arm/processor.c:242 modules/devices/e2k/processor.c:214 modules/devices/e2k/processor.c:231 modules/devices/riscv/processor.c:215
-#: modules/devices/riscv/processor.c:232 modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
+#: modules/devices/arm/processor.c:225 modules/devices/arm/processor.c:242
+#: modules/devices/e2k/processor.c:214 modules/devices/e2k/processor.c:231
+#: modules/devices/riscv/processor.c:215 modules/devices/riscv/processor.c:232
+#: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
 msgstr "Рівень %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
@@ -2744,16 +3078,20 @@ msgstr "Рівень %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets
 msgid "ARM Processor"
 msgstr "Процесор ARM"
 
-#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:524 modules/devices/x86/processor.c:609
+#: modules/devices/arm/processor.c:436 modules/devices/riscv/processor.c:524
+#: modules/devices/x86/processor.c:609
 msgid "Empty List"
 msgstr "Порожній список"
 
-#: modules/devices/arm/processor.c:461 modules/devices/gpu.c:210 modules/devices/gpu.c:300 modules/devices/riscv/processor.c:332 modules/devices/x86/processor.c:267
+#: modules/devices/arm/processor.c:461 modules/devices/gpu.c:210
+#: modules/devices/gpu.c:300 modules/devices/riscv/processor.c:332
+#: modules/devices/x86/processor.c:267
 msgid "Clocks"
 msgstr "Годинники"
 
-#: modules/devices/arm/processor.c:507 modules/devices/arm/processor.c:520 modules/devices/riscv/processor.c:378 modules/devices/riscv/processor.c:391 modules/devices/x86/processor.c:313
-#: modules/devices/x86/processor.c:326
+#: modules/devices/arm/processor.c:507 modules/devices/arm/processor.c:520
+#: modules/devices/riscv/processor.c:378 modules/devices/riscv/processor.c:391
+#: modules/devices/x86/processor.c:313 modules/devices/x86/processor.c:326
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
 msgstr "%.2f-%.2f %s=%dx\n"
@@ -2782,7 +3120,8 @@ msgstr "Впроваджувач"
 msgid "Part"
 msgstr "Частина"
 
-#: modules/devices/arm/processor.c:576 modules/devices/ia64/processor.c:162 modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:590
+#: modules/devices/arm/processor.c:576 modules/devices/ia64/processor.c:162
+#: modules/devices/parisc/processor.c:156 modules/devices/riscv/processor.c:590
 msgid "Architecture"
 msgstr "Архітектура"
 
@@ -2790,23 +3129,26 @@ msgstr "Архітектура"
 msgid "Variant"
 msgstr "Варіант"
 
-#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:598 modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
+#: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:598
+#: modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
 msgid "Capabilities"
 msgstr "Можливості"
 
-#: modules/devices/arm/processor.c:745 modules/devices/riscv/processor.c:552
+#: modules/devices/arm/processor.c:760 modules/devices/riscv/processor.c:552
 msgid "SOC/Package"
 msgstr "SOC/Пакет"
 
-#: modules/devices/arm/processor.c:749 modules/devices/riscv/processor.c:556 modules/devices/x86/processor.c:754
+#: modules/devices/arm/processor.c:764 modules/devices/riscv/processor.c:556
+#: modules/devices/x86/processor.c:754
 msgid "Logical CPU Config"
 msgstr "Логічна конфігурація ЦП"
 
-#: modules/devices/arm/processor.c:770 modules/devices/riscv/processor.c:613
+#: modules/devices/arm/processor.c:786 modules/devices/riscv/processor.c:613
 msgid "SOC/Package Information"
 msgstr "SOC/Інформація про пакет"
 
-#: modules/devices/arm/processor.c:800 modules/devices/riscv/processor.c:645 modules/devices/x86/processor.c:814
+#: modules/devices/arm/processor.c:816 modules/devices/riscv/processor.c:645
+#: modules/devices/x86/processor.c:814
 msgid "Socket:Core"
 msgstr "Розетка: сердечник"
 
@@ -2861,7 +3203,7 @@ msgstr ""
 "Онлайн=%s\n"
 "Тип живлення змінного струму=%s\n"
 
-#: modules/devices/battery.c:322
+#: modules/devices/battery.c:333
 #, c-format
 msgid ""
 "\n"
@@ -2896,7 +3238,7 @@ msgstr ""
 "Номер моделі=%s\n"
 "Серійний номер=%s\n"
 
-#: modules/devices/battery.c:437
+#: modules/devices/battery.c:450
 #, c-format
 msgid ""
 "\n"
@@ -2915,7 +3257,7 @@ msgstr ""
 "Версія драйвера APM=%s\n"
 "Версія APM BIOS=%s\n"
 
-#: modules/devices/battery.c:449
+#: modules/devices/battery.c:462
 #, c-format
 msgid ""
 "\n"
@@ -2932,7 +3274,7 @@ msgstr ""
 "Версія драйвера APM=%s\n"
 "Версія APM BIOS=%s\n"
 
-#: modules/devices/battery.c:478
+#: modules/devices/battery.c:491
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"
@@ -2940,125 +3282,9 @@ msgstr ""
 "[Без батарейок]\n"
 "No batteries found on this system=\n"
 
-#: modules/devices.c:100
-msgid "Graphics Processors"
-msgstr "Графічні процесори"
-
-#: modules/devices.c:101 modules/devices/monitors.c:446 modules/devices/monitors.c:492
-msgid "Monitors"
-msgstr "Монітори"
-
-#: modules/devices.c:102 modules/devices/pci.c:196
-msgid "PCI Devices"
-msgstr "Пристрої PCI"
-
-#: modules/devices.c:103 modules/devices/usb.c:212
-msgid "USB Devices"
-msgstr "USB-пристрої"
-
-#: modules/devices.c:104
-msgid "Firmware"
-msgstr "Прошивка"
-
-#: modules/devices.c:106
-msgid "Battery"
-msgstr "Акумулятор"
-
-#: modules/devices.c:107
-msgid "Sensors"
-msgstr "Датчики"
-
-#: modules/devices.c:110
-msgid "System DMI"
-msgstr "Система DMI"
-
-#: modules/devices.c:111
-msgid "Memory Devices"
-msgstr "Пристрої пам'яті"
-
-#: modules/devices.c:113 modules/devices.c:115
-msgid "Device Tree"
-msgstr "Дерево пристроїв"
-
-#: modules/devices.c:117
-msgid "Resources"
-msgstr "Ресурси"
-
-#: modules/devices.c:313
-msgid "Distro and CPU Supported Profiles"
-msgstr "Підтримувані профілі дистрибутива та ЦП"
-
-#: modules/devices.c:744
-msgid "WSL2"
-msgstr "WSL2"
-
-#: modules/devices.c:1003
-msgid "Sensor"
-msgstr "Датчик"
-
-#: modules/devices.c:1061 modules/devices/dmi_memory.c:806
-msgid "Devices"
-msgstr "Пристрої"
-
-#: modules/devices.c:1073
-msgid "Update PCI ID listing"
-msgstr "Оновіть список PCI ID"
-
-#: modules/devices.c:1078
-msgid "Update USB ID listing"
-msgstr "Оновіть список ідентифікаторів USB"
-
-#: modules/devices.c:1083
-msgid "Update EDID vendor codes"
-msgstr "Оновіть коди постачальників EDID"
-
-#: modules/devices.c:1088
-msgid "Update IEEE OUI vendor codes"
-msgstr "Оновіть коди постачальників IEEE OUI"
-
-#: modules/devices.c:1093
-msgid "Update SD card manufacturer information"
-msgstr "Оновіть інформацію про виробника SD-карти"
-
-#: modules/devices.c:1100
-msgid "Update CPU flags database"
-msgstr "Оновлення бази даних прапорів ЦП"
-
-#: modules/devices.c:1137
-msgid "Gathers information about hardware devices"
-msgstr "Збирає інформацію про апаратні пристрої"
-
-#: modules/devices.c:1157
-msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
-msgstr "Копія <i><b>pci.ids</b></i> недоступна в системі."
-
-#: modules/devices.c:1160
-msgid "A full <i><b>pci.ids</b></i> is not available on the system."
-msgstr "Повний <i><b>pci.ids</b></i> недоступний у системі."
-
-#: modules/devices.c:1167 modules/devices/dmi_memory.c:937
-msgid "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)"
-msgstr "Переконайтеся, що службу hardinfo2 увімкнено+запущено: sudo systemctl enable hardinfo2 --now (дистрибутив SystemD)"
-
-#: modules/devices.c:1168
-msgid ""
-"Add yourself to hardinfo2 group:\n"
-"sudo usermod -a -G hardinfo2 $USER\n"
-"Logout/Reboot for groups to be updated..."
-msgstr ""
-"Додайте себе до групи hardinfo2:\n"
-"sudo usermod -a -G hardinfo2 $ КОРИСТУВАЧ\n"
-"Вийти/перезавантажити групи для оновлення..."
-
-#: modules/devices.c:1174
-msgid ""
-"Any NVMe storage devices present are not listed.\n"
-"<b><i>udisks2</i></b> is required for NVMe devices."
-msgstr ""
-"Усі наявні пристрої зберігання NVMe не вказано.\n"
-"<b><i>udisks2</i></b> необхідний для пристроїв NVMe."
-
-#: modules/devices/devicetree.c:132 modules/devices/dmi.c:42 modules/devices/dmi.c:52 modules/devices/dmi.c:58 modules/devices/spd-decode.c:1546 modules/devices/usb.c:182
+#: modules/devices/devicetree.c:132 modules/devices/dmi.c:42
+#: modules/devices/dmi.c:52 modules/devices/dmi.c:58
+#: modules/devices/spd-decode.c:1546 modules/devices/usb.c:182
 msgid "Serial Number"
 msgstr "Серійний номер"
 
@@ -3082,11 +3308,14 @@ msgstr "Карта псевдонімів"
 msgid "Symbol Map"
 msgstr "Карта символів"
 
-#: modules/devices/dmi.c:37 modules/devices/inputdevices.c:172 modules/devices/usb.c:171
+#: modules/devices/dmi.c:37 modules/devices/inputdevices.c:172
+#: modules/devices/usb.c:171
 msgid "Product"
 msgstr "Продукт"
 
-#: modules/devices/dmi.c:39 modules/devices/e2k/processor.c:366 modules/devices/ia64/processor.c:164 modules/devices/loongarch64/processor.c:95 modules/devices/sh/processor.c:86
+#: modules/devices/dmi.c:39 modules/devices/e2k/processor.c:366
+#: modules/devices/ia64/processor.c:164
+#: modules/devices/loongarch64/processor.c:95 modules/devices/sh/processor.c:86
 msgid "Family"
 msgstr "Сім'я"
 
@@ -3122,7 +3351,8 @@ msgstr "Масив пам'яті"
 msgid "DMI Handle"
 msgstr "Ручка DMI"
 
-#: modules/devices/dmi_memory.c:670 modules/devices/dmi_memory.c:726 modules/devices/dmi_memory.c:764 modules/devices/dmi_memory.c:871
+#: modules/devices/dmi_memory.c:670 modules/devices/dmi_memory.c:726
+#: modules/devices/dmi_memory.c:764 modules/devices/dmi_memory.c:871
 msgid "Locator"
 msgstr "Локатор"
 
@@ -3198,7 +3428,8 @@ msgstr "Максимальна напруга"
 msgid "Configured Voltage"
 msgstr "Налаштована напруга"
 
-#: modules/devices/dmi_memory.c:766 modules/devices/dmi_memory.c:773 modules/devices/monitors.c:492
+#: modules/devices/dmi_memory.c:766 modules/devices/dmi_memory.c:773
+#: modules/devices/monitors.c:492
 msgid "(Empty)"
 msgstr "(Порожній)"
 
@@ -3232,7 +3463,8 @@ msgstr "Інформація про пам'ять вимагає додатко�
 
 #: modules/devices/dmi_memory.c:982
 msgid ""
-"\"More often than not, information contained in the DMI tables is inaccurate,\n"
+"\"More often than not, information contained in the DMI tables is "
+"inaccurate,\n"
 "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
 msgstr ""
 "«Найчастіше інформація, що міститься в таблицях DMI, є неточною,\n"
@@ -3287,7 +3519,9 @@ msgstr "Був зареєстрований з іншими плагінами"
 
 #: modules/devices/firmware.c:44
 msgid "Requires a reboot to apply firmware or to reload hardware"
-msgstr "Потрібне перезавантаження, щоб застосувати прошивку або перезавантажити обладнання"
+msgstr ""
+"Потрібне перезавантаження, щоб застосувати прошивку або перезавантажити "
+"обладнання"
 
 #: modules/devices/firmware.c:45
 msgid "Requires system shutdown to apply firmware"
@@ -3334,8 +3568,12 @@ msgid "Device update needs to be separately activated"
 msgstr "Оновлення пристрою потрібно активувати окремо"
 
 #: modules/devices/firmware.c:56
-msgid "Ensure the version is a valid semantic version, e.g. numbers separated with dots"
-msgstr "Переконайтеся, що версія є дійсною семантичною версією, напр.числа, розділені крапками"
+msgid ""
+"Ensure the version is a valid semantic version, e.g. numbers separated with "
+"dots"
+msgstr ""
+"Переконайтеся, що версія є дійсною семантичною версією, напр.числа, "
+"розділені крапками"
 
 #: modules/devices/firmware.c:57
 msgid "Extra metadata can be exposed about this device"
@@ -3353,7 +3591,8 @@ msgstr "Guid"
 msgid "Plugin"
 msgstr "Плагін"
 
-#: modules/devices/firmware.c:74 modules/devices/firmware.c:207 modules/network.c:545
+#: modules/devices/firmware.c:74 modules/devices/firmware.c:207
+#: modules/network.c:545
 msgid "Flags"
 msgstr "Прапори"
 
@@ -3381,7 +3620,8 @@ msgstr "Створено"
 msgid "Checksum"
 msgstr "Контрольна сума"
 
-#: modules/devices/firmware.c:77 modules/devices/usb.c:139 modules/devices/usb.c:180 modules/network.c:512
+#: modules/devices/firmware.c:77 modules/devices/usb.c:139
+#: modules/devices/usb.c:180 modules/network.c:512
 msgid "Protocol"
 msgstr "Протокол"
 
@@ -3393,27 +3633,34 @@ msgstr "Список мікропрограм"
 msgid "Requires the <i><b>fwupd</b></i> daemon."
 msgstr "Потрібен демон <i><b>fwupd</b></i>."
 
-#: modules/devices/gpu.c:94 modules/devices/pci.c:132 modules/devices/storage.c:58
+#: modules/devices/gpu.c:94 modules/devices/pci.c:132
+#: modules/devices/storage.c:58
 msgid "SVendor"
 msgstr "SVendor"
 
-#: modules/devices/gpu.c:95 modules/devices/pci.c:133 modules/devices/storage.c:59
+#: modules/devices/gpu.c:95 modules/devices/pci.c:133
+#: modules/devices/storage.c:59
 msgid "SDevice"
 msgstr "SDпристрій"
 
-#: modules/devices/gpu.c:103 modules/devices/pci.c:143 modules/devices/storage.c:70
+#: modules/devices/gpu.c:103 modules/devices/pci.c:143
+#: modules/devices/storage.c:70
 msgid "PCI Express"
 msgstr "PCI Express"
 
-#: modules/devices/gpu.c:104 modules/devices/pci.c:145 modules/devices/storage.c:73
+#: modules/devices/gpu.c:104 modules/devices/pci.c:145
+#: modules/devices/storage.c:73
 msgid "Maximum Link Width"
 msgstr "Максимальна ширина посилання"
 
-#: modules/devices/gpu.c:105 modules/devices/pci.c:147 modules/devices/storage.c:75
+#: modules/devices/gpu.c:105 modules/devices/pci.c:147
+#: modules/devices/storage.c:75
 msgid "Maximum Link Speed"
 msgstr "Максимальна швидкість з'єднання"
 
-#: modules/devices/gpu.c:105 modules/devices/pci.c:146 modules/devices/pci.c:147 modules/devices/storage.c:74 modules/devices/storage.c:75
+#: modules/devices/gpu.c:105 modules/devices/pci.c:146
+#: modules/devices/pci.c:147 modules/devices/storage.c:74
+#: modules/devices/storage.c:75
 msgid "GT/s"
 msgstr "ГТ/с"
 
@@ -3429,11 +3676,14 @@ msgstr "Версія BIOS"
 msgid "UUID"
 msgstr "UUID"
 
-#: modules/devices/gpu.c:203 modules/devices/gpu.c:295 modules/devices/inputdevices.c:167 modules/devices/pci.c:164 modules/devices/usb.c:170
+#: modules/devices/gpu.c:203 modules/devices/gpu.c:295
+#: modules/devices/inputdevices.c:167 modules/devices/pci.c:164
+#: modules/devices/usb.c:170
 msgid "Device Information"
 msgstr "Інформація про пристрій"
 
-#: modules/devices/gpu.c:205 modules/devices/gpu.c:297 modules/devices/storage.c:71
+#: modules/devices/gpu.c:205 modules/devices/gpu.c:297
+#: modules/devices/storage.c:71
 msgid "Location"
 msgstr "Розташування"
 
@@ -3441,7 +3691,8 @@ msgstr "Розташування"
 msgid "DRM Device"
 msgstr "Пристрій DRM"
 
-#: modules/devices/gpu.c:207 modules/devices/pci.c:165 modules/devices/usb.c:137 modules/devices/usb.c:178
+#: modules/devices/gpu.c:207 modules/devices/pci.c:165
+#: modules/devices/usb.c:137 modules/devices/usb.c:178
 msgid "Class"
 msgstr "Клас"
 
@@ -3469,7 +3720,8 @@ msgstr "Робочі точки (OPPv2)"
 msgid "Device Tree Node"
 msgstr "Вузол дерева пристроїв"
 
-#: modules/devices/gpu.c:306 modules/devices/monitors.c:472 modules/network/net.c:477
+#: modules/devices/gpu.c:306 modules/devices/monitors.c:472
+#: modules/network/net.c:477
 msgid "Status"
 msgstr "Статус"
 
@@ -3493,11 +3745,13 @@ msgstr "Ревізія архітектури"
 msgid "CPU regs"
 msgstr "Рег. ЦП"
 
-#: modules/devices/ia64/processor.c:171 modules/devices/loongarch64/processor.c:100
+#: modules/devices/ia64/processor.c:171
+#: modules/devices/loongarch64/processor.c:100
 msgid "Features"
 msgstr "Особливості"
 
-#: modules/devices/inputdevices.c:170 modules/devices/pci.c:174 modules/devices/usb.c:184
+#: modules/devices/inputdevices.c:170 modules/devices/pci.c:174
+#: modules/devices/usb.c:184
 msgid "Bus"
 msgstr "Bus"
 
@@ -3509,7 +3763,8 @@ msgstr "Підключено до"
 msgid "InfraRed port"
 msgstr "Інфрачервоний порт"
 
-#: modules/devices/loongarch64/processor.c:94 modules/devices/mips/processor.c:76
+#: modules/devices/loongarch64/processor.c:94
+#: modules/devices/mips/processor.c:76
 msgid "System Type"
 msgstr "Тип системи"
 
@@ -3529,7 +3784,8 @@ msgstr "FPU"
 msgid "Calibration"
 msgstr "Калібрування"
 
-#: modules/devices/monitors.c:30 modules/devices/monitors.c:254 modules/devices/monitors.c:347 modules/devices/spd-decode.c:699
+#: modules/devices/monitors.c:30 modules/devices/monitors.c:254
+#: modules/devices/monitors.c:347 modules/devices/spd-decode.c:699
 msgid "(Unspecified)"
 msgstr "(Не вказано)"
 
@@ -3546,8 +3802,11 @@ msgstr "OK"
 msgid "Fail"
 msgstr "Невдача"
 
-#: modules/devices/monitors.c:267 modules/devices/monitors.c:275 modules/devices/monitors.c:283 modules/devices/monitors.c:294 modules/devices/monitors.c:302 modules/devices/monitors.c:309
-#: modules/devices/monitors.c:317 modules/devices/monitors.c:325 modules/devices/monitors.c:333 modules/devices/monitors.c:339
+#: modules/devices/monitors.c:267 modules/devices/monitors.c:275
+#: modules/devices/monitors.c:283 modules/devices/monitors.c:294
+#: modules/devices/monitors.c:302 modules/devices/monitors.c:309
+#: modules/devices/monitors.c:317 modules/devices/monitors.c:325
+#: modules/devices/monitors.c:333 modules/devices/monitors.c:339
 msgid "(Empty List)"
 msgstr "(Пустий список)"
 
@@ -3563,7 +3822,8 @@ msgstr "Цифровий"
 msgid "Analog"
 msgstr "Аналоговий"
 
-#: modules/devices/monitors.c:392 modules/devices/usb.c:136 modules/network.c:475 modules/network.c:528 modules/network.c:545
+#: modules/devices/monitors.c:392 modules/devices/usb.c:136
+#: modules/network.c:475 modules/network.c:528 modules/network.c:545
 msgid "Interface"
 msgstr "Інтерфейс"
 
@@ -3659,7 +3919,8 @@ msgstr "Hex Dump"
 msgid "Data"
 msgstr "Дані"
 
-#: modules/devices/monitors.c:470 modules/devices/monitors.c:501 modules/devices/pci.c:172 modules/devices/usb.c:183
+#: modules/devices/monitors.c:470 modules/devices/monitors.c:501
+#: modules/devices/pci.c:172 modules/devices/usb.c:183
 msgid "Connection"
 msgstr "Підключення"
 
@@ -3962,15 +4223,19 @@ msgstr "Тип конфігурації"
 msgid "Refresh"
 msgstr "Оновити"
 
-#: modules/devices/spd-decode.c:365 modules/devices/spd-decode.c:442 modules/devices/spd-decode.c:721
+#: modules/devices/spd-decode.c:365 modules/devices/spd-decode.c:442
+#: modules/devices/spd-decode.c:721
 msgid "Timings"
 msgstr "Таймінг"
 
-#: modules/devices/spd-decode.c:589 modules/devices/spd-decode.c:858 modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:1146 modules/devices/x86/processor.c:716
+#: modules/devices/spd-decode.c:589 modules/devices/spd-decode.c:858
+#: modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:1146
+#: modules/devices/x86/processor.c:716
 msgid "Voltage"
 msgstr "Напруга"
 
-#: modules/devices/spd-decode.c:590 modules/devices/spd-decode.c:901 modules/devices/spd-decode.c:1148
+#: modules/devices/spd-decode.c:590 modules/devices/spd-decode.c:901
+#: modules/devices/spd-decode.c:1148
 msgid "JEDEC Timings"
 msgstr "Хронометраж JEDEC"
 
@@ -4010,7 +4275,8 @@ msgstr "Підтримувані затримки CAS"
 msgid "XMP Profile"
 msgstr "Профіль XMP"
 
-#: modules/devices/spd-decode.c:857 modules/devices/usb.c:177 modules/network/net.c:438
+#: modules/devices/spd-decode.c:857 modules/devices/usb.c:177
+#: modules/network/net.c:438
 msgid "Speed"
 msgstr "Швидкість"
 
@@ -4392,15 +4658,15 @@ msgstr "Нормальний"
 
 #: modules/devices/storage.c:396
 #, c-format
-msgid "Warning >80% used"
-msgstr "Попередження >80% uвикористано"
+msgid "Warning >80%% used"
+msgstr ""
 
 #: modules/devices/storage.c:397
 #, c-format
-msgid "Failing >90% used"
-msgstr "Використано більше >90% uвідмов"
+msgid "Failing >90%% used"
+msgstr ""
 
-#: modules/devices/storage.c:401
+#: modules/devices/storage.c:402
 #, c-format
 msgid ""
 "[Self-monitoring ExtCSD]\n"
@@ -4415,7 +4681,7 @@ msgstr ""
 "Статус Flash MLC=%s\n"
 "Попередній статус EOL=%s\n"
 
-#: modules/devices/storage.c:414
+#: modules/devices/storage.c:415
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
@@ -4425,15 +4691,15 @@ msgstr ""
 "Статус=%s\n"
 "Погані сектори=%"
 
-#: modules/devices/storage.c:420
+#: modules/devices/storage.c:421
 msgid "Failing"
 msgstr "Невдача"
 
-#: modules/devices/storage.c:420
+#: modules/devices/storage.c:421
 msgid "OK"
 msgstr "OK"
 
-#: modules/devices/storage.c:427
+#: modules/devices/storage.c:428
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
@@ -4441,7 +4707,7 @@ msgstr ""
 "[S.M.A.R.T.Атрибути]\n"
 "Атрибут=<tt>Значення</tt>\n"
 
-#: modules/devices/storage.c:429
+#: modules/devices/storage.c:430
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
@@ -4449,24 +4715,24 @@ msgstr ""
 "[S.M.A.R.T.Атрибути]\n"
 "Атрибут=<tt>Значення / Нормалізований / Найгірший / Поріг</tt>\n"
 
-#: modules/devices/storage.c:456
+#: modules/devices/storage.c:457
 msgid "%"
 msgid_plural "%"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: modules/devices/storage.c:502
+#: modules/devices/storage.c:503
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
 msgstr "%s=<tt>%s</tt>\n"
 
-#: modules/devices/storage.c:504
+#: modules/devices/storage.c:505
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
 msgstr "(%d) %s=<tt>%s</tt>\n"
 
-#: modules/devices/storage.c:512
+#: modules/devices/storage.c:513
 #, c-format
 msgid ""
 "[Partition table]\n"
@@ -4475,12 +4741,12 @@ msgstr ""
 "[Стіл розділів]\n"
 "Тип=%s\n"
 
-#: modules/devices/storage.c:531
+#: modules/devices/storage.c:532
 #, c-format
 msgid "Partition %s=%s\n"
 msgstr "Розділ %s=%s\n"
 
-#: modules/devices/storage.c:580
+#: modules/devices/storage.c:581
 msgid ""
 "\n"
 "[SCSI Disks]\n"
@@ -4488,7 +4754,7 @@ msgstr ""
 "\n"
 "[SCSI диски]\n"
 
-#: modules/devices/storage.c:652 modules/devices/storage.c:858
+#: modules/devices/storage.c:653 modules/devices/storage.c:859
 #, c-format
 msgid ""
 "[Device Information]\n"
@@ -4497,7 +4763,7 @@ msgstr ""
 "[Інформація про пристрій]\n"
 "Модель=%s\n"
 
-#: modules/devices/storage.c:659
+#: modules/devices/storage.c:660
 #, c-format
 msgid ""
 "Type=%s\n"
@@ -4516,7 +4782,7 @@ msgstr ""
 "ID=%d\n"
 "LUN=%d\n"
 
-#: modules/devices/storage.c:706
+#: modules/devices/storage.c:707
 msgid ""
 "\n"
 "[IDE Disks]\n"
@@ -4524,12 +4790,12 @@ msgstr ""
 "\n"
 "[IDE диски]\n"
 
-#: modules/devices/storage.c:792
+#: modules/devices/storage.c:793
 #, c-format
 msgid "Driver=%s\n"
 msgstr "Драйвер=%s\n"
 
-#: modules/devices/storage.c:864
+#: modules/devices/storage.c:865
 #, c-format
 msgid ""
 "Device Name=hd%c\n"
@@ -4540,7 +4806,7 @@ msgstr ""
 "Медіа=%s\n"
 "Кеш=%dkb\n"
 
-#: modules/devices/storage.c:874
+#: modules/devices/storage.c:875
 #, c-format
 msgid ""
 "[Geometry]\n"
@@ -4551,7 +4817,7 @@ msgstr ""
 "Фізичний=%s\n"
 "Логічно=%s\n"
 
-#: modules/devices/storage.c:884
+#: modules/devices/storage.c:885
 #, c-format
 msgid ""
 "[Capabilities]\n"
@@ -4560,7 +4826,7 @@ msgstr ""
 "[Можливості]\n"
 "%s"
 
-#: modules/devices/storage.c:891
+#: modules/devices/storage.c:892
 #, c-format
 msgid ""
 "[Speeds]\n"
@@ -4766,8 +5032,12 @@ msgstr "Інструкція з очищення рядка кешу"
 #. !/flag:dts
 #: modules/devices/x86/x86_data.c:67
 msgctxt "x86-flag"
-msgid "Debug Store (buffer for debugging and profiling instructions), or alternately: digital thermal sensor"
-msgstr "Debug Store (буфер для інструкцій з налагодження та профілювання), або альтернативно: цифровий термодатчик"
+msgid ""
+"Debug Store (buffer for debugging and profiling instructions), or "
+"alternately: digital thermal sensor"
+msgstr ""
+"Debug Store (буфер для інструкцій з налагодження та профілювання), або "
+"альтернативно: цифровий термодатчик"
 
 #. !/flag:acpi
 #: modules/devices/x86/x86_data.c:68
@@ -4820,8 +5090,13 @@ msgstr "Автоматичне керування годинником (Thermal 
 #. !/flag:ia64
 #: modules/devices/x86/x86_data.c:76
 msgctxt "x86-flag"
-msgid "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
-msgstr "64-розрядна архітектура Intel Itanium (не плутати з 64-розрядною архітектурою Intel x86 із прапорцем x86-64 або розрядом «AMD64», позначеним прапором lm)"
+msgid ""
+"Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
+"x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
+msgstr ""
+"64-розрядна архітектура Intel Itanium (не плутати з 64-розрядною "
+"архітектурою Intel x86 із прапорцем x86-64 або розрядом «AMD64», позначеним "
+"прапором lm)"
 
 #. !/flag:pbe
 #: modules/devices/x86/x86_data.c:77
@@ -4833,7 +5108,9 @@ msgstr "Підтримка пробудження Pending Break Enable (PBE# pin
 #: modules/devices/x86/x86_data.c:80
 msgctxt "x86-flag"
 msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
-msgstr "SYSCALL (швидкий системний виклик) і SYSRET (повернення від швидкого системного виклику)"
+msgstr ""
+"SYSCALL (швидкий системний виклик) і SYSRET (повернення від швидкого "
+"системного виклику)"
 
 #. !/flag:mp
 #: modules/devices/x86/x86_data.c:81
@@ -4875,7 +5152,8 @@ msgstr "Зчитування лічильника позначок часу та
 #: modules/devices/x86/x86_data.c:87
 msgctxt "x86-flag"
 msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
-msgstr "Довгий режим (x86-64: amd64, також відомий як Intel 64, тобто 64-розрядний)"
+msgstr ""
+"Довгий режим (x86-64: amd64, також відомий як Intel 64, тобто 64-розрядний)"
 
 #. !/flag:3dnow
 #: modules/devices/x86/x86_data.c:88
@@ -5003,1046 +5281,1382 @@ msgctxt "x86-flag"
 msgid "TSC does not stop in C states"
 msgstr "TSC не зупиняється в станах C"
 
-#. !/flag:extd_apicid
+#. !/flag:cpuid
 #: modules/devices/x86/x86_data.c:111
+msgctxt "x86-flag"
+msgid "CPU has CPUID instruction itself"
+msgstr ""
+
+#. !/flag:extd_apicid
+#: modules/devices/x86/x86_data.c:112
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
 msgstr "має розширений APICID (8 біт)"
 
 #. !/flag:amd_dcm
-#: modules/devices/x86/x86_data.c:112
+#: modules/devices/x86/x86_data.c:113
 msgctxt "x86-flag"
 msgid "multi-node processor"
 msgstr "багатовузловий процесор"
 
 #. !/flag:aperfmperf
-#: modules/devices/x86/x86_data.c:113
+#: modules/devices/x86/x86_data.c:114
 msgctxt "x86-flag"
 msgid "APERFMPERF"
 msgstr "APERFMPERF"
 
 #. !/flag:eagerfpu
-#: modules/devices/x86/x86_data.c:114
+#: modules/devices/x86/x86_data.c:115
 msgctxt "x86-flag"
 msgid "Non lazy FPU restore"
 msgstr "Неліниве відновлення FPU"
 
 #. !/flag:nonstop_tsc_s3
-#: modules/devices/x86/x86_data.c:115
+#: modules/devices/x86/x86_data.c:116
 msgctxt "x86-flag"
 msgid "TSC doesn't stop in S3 state"
 msgstr "TSC не зупиняється в стані S3"
 
+#. !/flag:tsc_known_freq
+#: modules/devices/x86/x86_data.c:117
+msgctxt "x86-flag"
+msgid "TSC has known frequency"
+msgstr ""
+
 #. !/flag:mce_recovery
-#: modules/devices/x86/x86_data.c:116
+#: modules/devices/x86/x86_data.c:118
 msgctxt "x86-flag"
 msgid "CPU has recoverable machine checks"
 msgstr "ЦП має відновлювані машинні перевірки"
 
 #. !/flag:pni
-#: modules/devices/x86/x86_data.c:119
+#: modules/devices/x86/x86_data.c:121
 msgctxt "x86-flag"
 msgid "SSE-3 (\"Prescott New Instructions\")"
 msgstr "SSE-3 (\"Нові інструкції Prescott\")"
 
 #. !/flag:pclmulqdq
-#: modules/devices/x86/x86_data.c:120
+#: modules/devices/x86/x86_data.c:122
 msgctxt "x86-flag"
-msgid "Perform a Carry-Less Multiplication of Quadword instruction - accelerator for GCM)"
-msgstr "Виконайте інструкцію множення чотирьох слів без переносу - прискорювач для GCM)"
+msgid ""
+"Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
+"for GCM)"
+msgstr ""
+"Виконайте інструкцію множення чотирьох слів без переносу - прискорювач для "
+"GCM)"
 
 #. !/flag:dtes64
-#: modules/devices/x86/x86_data.c:121
+#: modules/devices/x86/x86_data.c:123
 msgctxt "x86-flag"
 msgid "64-bit Debug Store"
 msgstr "64-розрядне сховище налагодження"
 
 #. !/flag:monitor
-#: modules/devices/x86/x86_data.c:122
+#: modules/devices/x86/x86_data.c:124
 msgctxt "x86-flag"
 msgid "Monitor/Mwait support (Intel SSE3 supplements)"
 msgstr "Підтримка Monitor/Mwait (доповнення Intel SSE3)"
 
 #. !/flag:ds_cpl
-#: modules/devices/x86/x86_data.c:123
+#: modules/devices/x86/x86_data.c:125
 msgctxt "x86-flag"
 msgid "CPL Qual. Debug Store"
 msgstr "CPL Qual.Магазин налагодження"
 
 #. !/flag:vmx
-#: modules/devices/x86/x86_data.c:124
+#: modules/devices/x86/x86_data.c:126
 msgctxt "x86-flag"
 msgid "Hardware virtualization, Intel VMX"
 msgstr "Апаратна віртуалізація, Intel VMX"
 
 #. !/flag:smx
-#: modules/devices/x86/x86_data.c:125
+#: modules/devices/x86/x86_data.c:127
 msgctxt "x86-flag"
 msgid "Safer mode TXT (TPM support)"
 msgstr "Безпечний режим TXT (підтримка TPM)"
 
 #. !/flag:est
-#: modules/devices/x86/x86_data.c:126
+#: modules/devices/x86/x86_data.c:128
 msgctxt "x86-flag"
 msgid "Enhanced SpeedStep"
 msgstr "Покращений SpeedStep"
 
 #. !/flag:tm2
-#: modules/devices/x86/x86_data.c:127
+#: modules/devices/x86/x86_data.c:129
 msgctxt "x86-flag"
 msgid "Thermal Monitor 2"
 msgstr "Тепловий монітор 2"
 
 #. !/flag:ssse3
-#: modules/devices/x86/x86_data.c:128
+#: modules/devices/x86/x86_data.c:130
 msgctxt "x86-flag"
 msgid "Supplemental SSE-3"
 msgstr "Додатковий SSE-3"
 
 #. !/flag:cid
-#: modules/devices/x86/x86_data.c:129
+#: modules/devices/x86/x86_data.c:131
 msgctxt "x86-flag"
 msgid "Context ID"
 msgstr "Ідентифікатор контексту"
 
 #. !/flag:sdbg
-#: modules/devices/x86/x86_data.c:130
+#: modules/devices/x86/x86_data.c:132
 msgctxt "x86-flag"
 msgid "silicon debug"
 msgstr "silicon debug"
 
 #. !/flag:fma
-#: modules/devices/x86/x86_data.c:131
+#: modules/devices/x86/x86_data.c:133
 msgctxt "x86-flag"
 msgid "Fused multiply-add"
 msgstr "Злитий множення-додавання"
 
 #. !/flag:cx16
-#: modules/devices/x86/x86_data.c:132
+#: modules/devices/x86/x86_data.c:134
 msgctxt "x86-flag"
 msgid "CMPXCHG16B"
 msgstr "CMPXCHG16B"
 
 #. !/flag:xtpr
-#: modules/devices/x86/x86_data.c:133
+#: modules/devices/x86/x86_data.c:135
 msgctxt "x86-flag"
 msgid "Send Task Priority Messages"
 msgstr "Надсилати повідомлення про пріоритет завдань"
 
 #. !/flag:pdcm
-#: modules/devices/x86/x86_data.c:134
+#: modules/devices/x86/x86_data.c:136
 msgctxt "x86-flag"
 msgid "Performance Capabilities"
 msgstr "Можливості продуктивності"
 
 #. !/flag:pcid
-#: modules/devices/x86/x86_data.c:135
+#: modules/devices/x86/x86_data.c:137
 msgctxt "x86-flag"
 msgid "Process Context Identifiers"
 msgstr "Ідентифікатори контексту процесу"
 
 #. !/flag:dca
-#: modules/devices/x86/x86_data.c:136
+#: modules/devices/x86/x86_data.c:138
 msgctxt "x86-flag"
 msgid "Direct Cache Access"
 msgstr "Прямий доступ до кешу"
 
 #. !/flag:sse4_1
-#: modules/devices/x86/x86_data.c:137
+#: modules/devices/x86/x86_data.c:139
 msgctxt "x86-flag"
 msgid "SSE-4.1"
 msgstr "SSE-4.1"
 
 #. !/flag:sse4_2
-#: modules/devices/x86/x86_data.c:138
+#: modules/devices/x86/x86_data.c:140
 msgctxt "x86-flag"
 msgid "SSE-4.2"
 msgstr "SSE-4.2"
 
 #. !/flag:x2apic
-#: modules/devices/x86/x86_data.c:139
+#: modules/devices/x86/x86_data.c:141
 msgctxt "x86-flag"
 msgid "x2APIC"
 msgstr "x2APIC"
 
 #. !/flag:movbe
-#: modules/devices/x86/x86_data.c:140
+#: modules/devices/x86/x86_data.c:142
 msgctxt "x86-flag"
 msgid "Move Data After Swapping Bytes instruction"
 msgstr "Інструкція «Перемістити дані після заміни байтів»"
 
 #. !/flag:popcnt
-#: modules/devices/x86/x86_data.c:141
+#: modules/devices/x86/x86_data.c:143
 msgctxt "x86-flag"
-msgid "Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i.e. bit count)"
-msgstr "Повернути підрахунок кількості бітів, установлених на 1 інструкцію (вага Хеммінга, тобто кількість бітів)"
+msgid ""
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
+"e. bit count)"
+msgstr ""
+"Повернути підрахунок кількості бітів, установлених на 1 інструкцію (вага "
+"Хеммінга, тобто кількість бітів)"
 
-#: modules/devices/x86/x86_data.c:142
+#: modules/devices/x86/x86_data.c:144
 msgctxt "x86-flag"
 msgid "Tsc deadline timer"
 msgstr "Таймер крайнього терміну Tsc"
 
-#. !/flag:aes/aes-ni
-#: modules/devices/x86/x86_data.c:143
+#. !/flag:aes
+#: modules/devices/x86/x86_data.c:145
+msgctxt "x86-flag"
+msgid "Advanced Encryption Standard"
+msgstr ""
+
+#. !/flag:aes-ni
+#: modules/devices/x86/x86_data.c:146
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard (New Instructions)"
 msgstr "Розширений стандарт шифрування (нові інструкції)"
 
 #. !/flag:xsave
-#: modules/devices/x86/x86_data.c:144
+#: modules/devices/x86/x86_data.c:147
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr "Зберегти розширені стани процесора: також надає XGETBY, XRSTOR, XSETBY"
 
 #. !/flag:avx
-#: modules/devices/x86/x86_data.c:145
+#: modules/devices/x86/x86_data.c:148
 msgctxt "x86-flag"
 msgid "Advanced Vector Extensions"
 msgstr "Розширені векторні розширення"
 
 #. !/flag:f16c
-#: modules/devices/x86/x86_data.c:146
+#: modules/devices/x86/x86_data.c:149
 msgctxt "x86-flag"
 msgid "16-bit fp conversions (CVT16)"
 msgstr "16-бітне перетворення fp (CVT16)"
 
 #. !/flag:rdrand
-#: modules/devices/x86/x86_data.c:147
+#: modules/devices/x86/x86_data.c:150
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
-msgstr "Читання випадкового числа з інструкції апаратного генератора випадкових чисел"
+msgstr ""
+"Читання випадкового числа з інструкції апаратного генератора випадкових чисел"
 
 #. !/flag:hypervisor
-#: modules/devices/x86/x86_data.c:148
+#: modules/devices/x86/x86_data.c:151
 msgctxt "x86-flag"
 msgid "Running on a hypervisor"
 msgstr "Запуск на гіпервізорі"
 
 #. !/flag:rng
-#: modules/devices/x86/x86_data.c:150
+#: modules/devices/x86/x86_data.c:153
 msgctxt "x86-flag"
 msgid "Random Number Generator present (xstore)"
 msgstr "Присутній генератор випадкових чисел (xstore)"
 
 #. !/flag:rng_en
-#: modules/devices/x86/x86_data.c:151
+#: modules/devices/x86/x86_data.c:154
 msgctxt "x86-flag"
 msgid "Random Number Generator enabled"
 msgstr "Генератор випадкових чисел увімкнено"
 
 #. !/flag:ace
-#: modules/devices/x86/x86_data.c:152
+#: modules/devices/x86/x86_data.c:155
 msgctxt "x86-flag"
 msgid "on-CPU crypto (xcrypt)"
 msgstr "шифрування на процесорі (xcrypt)"
 
 #. !/flag:ace_en
-#: modules/devices/x86/x86_data.c:153
+#: modules/devices/x86/x86_data.c:156
 msgctxt "x86-flag"
 msgid "on-CPU crypto enabled"
 msgstr "увімкнено шифрування на процесорі"
 
 #. !/flag:ace2
-#: modules/devices/x86/x86_data.c:154
+#: modules/devices/x86/x86_data.c:157
 msgctxt "x86-flag"
 msgid "Advanced Cryptography Engine v2"
 msgstr "Advanced Cryptography Engine v2"
 
 #. !/flag:ace2_en
-#: modules/devices/x86/x86_data.c:155
+#: modules/devices/x86/x86_data.c:158
 msgctxt "x86-flag"
 msgid "ACE v2 enabled"
 msgstr "ACE v2 увімкнено"
 
 #. !/flag:phe
-#: modules/devices/x86/x86_data.c:156
+#: modules/devices/x86/x86_data.c:159
 msgctxt "x86-flag"
 msgid "PadLock Hash Engine"
 msgstr "Механізм хешування PadLock"
 
 #. !/flag:phe_en
-#: modules/devices/x86/x86_data.c:157
+#: modules/devices/x86/x86_data.c:160
 msgctxt "x86-flag"
 msgid "PHE enabled"
 msgstr "PHE увімкнено"
 
 #. !/flag:pmm
-#: modules/devices/x86/x86_data.c:158
+#: modules/devices/x86/x86_data.c:161
 msgctxt "x86-flag"
 msgid "PadLock Montgomery Multiplier"
 msgstr "PadLock Montgomery Multiplier"
 
 #. !/flag:pmm_en
-#: modules/devices/x86/x86_data.c:159
+#: modules/devices/x86/x86_data.c:162
 msgctxt "x86-flag"
 msgid "PMM enabled"
 msgstr "PMM увімкнено"
 
 #. !/flag:lahf_lm
-#: modules/devices/x86/x86_data.c:161
+#: modules/devices/x86/x86_data.c:164
 msgctxt "x86-flag"
 msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
-msgstr "Завантажити AH із прапорів (LAHF) і зберегти AH у прапори (SAHF) у тривалому режимі"
+msgstr ""
+"Завантажити AH із прапорів (LAHF) і зберегти AH у прапори (SAHF) у тривалому "
+"режимі"
 
 #. !/flag:cmp_legacy
-#: modules/devices/x86/x86_data.c:162
+#: modules/devices/x86/x86_data.c:165
 msgctxt "x86-flag"
 msgid "If yes HyperThreading not valid"
 msgstr "Якщо так, HyperThreading недійсний"
 
 #. !/flag:svm
-#: modules/devices/x86/x86_data.c:163
+#: modules/devices/x86/x86_data.c:166
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
 msgstr "«Захищена віртуальна машина»: AMD-V"
 
 #. !/flag:extapic
-#: modules/devices/x86/x86_data.c:164
+#: modules/devices/x86/x86_data.c:167
 msgctxt "x86-flag"
 msgid "Extended APIC space"
 msgstr "Розширений простір APIC"
 
 #. !/flag:cr8_legacy
-#: modules/devices/x86/x86_data.c:165
+#: modules/devices/x86/x86_data.c:168
 msgctxt "x86-flag"
 msgid "CR8 in 32-bit mode"
 msgstr "CR8 в 32-розрядному режимі"
 
 #. !/flag:abm
-#: modules/devices/x86/x86_data.c:166
+#: modules/devices/x86/x86_data.c:169
 msgctxt "x86-flag"
 msgid "Advanced Bit Manipulation"
 msgstr "Розширена маніпуляція бітами"
 
 #. !/flag:sse4a
-#: modules/devices/x86/x86_data.c:167
+#: modules/devices/x86/x86_data.c:170
 msgctxt "x86-flag"
 msgid "SSE-4A"
 msgstr "SSE-4A"
 
 #. !/flag:misalignsse
-#: modules/devices/x86/x86_data.c:168
+#: modules/devices/x86/x86_data.c:171
 msgctxt "x86-flag"
-msgid "indicates if a general-protection exception (#GP) is generated when some legacy SSE instructions operate on unaligned data. Also depends on CR0 and Alignment Checking bit"
-msgstr "вказує, чи генерується виняткова ситуація загального захисту (#GP), коли деякі застарілі інструкції SSE працюють з невирівняними даними.Також залежить від CR0 і біта перевірки вирівнювання"
+msgid ""
+"indicates if a general-protection exception (#GP) is generated when some "
+"legacy SSE instructions operate on unaligned data. Also depends on CR0 and "
+"Alignment Checking bit"
+msgstr ""
+"вказує, чи генерується виняткова ситуація загального захисту (#GP), коли "
+"деякі застарілі інструкції SSE працюють з невирівняними даними.Також "
+"залежить від CR0 і біта перевірки вирівнювання"
 
 #. !/flag:3dnowprefetch
-#: modules/devices/x86/x86_data.c:169
+#: modules/devices/x86/x86_data.c:172
 msgctxt "x86-flag"
 msgid "3DNow prefetch instructions"
 msgstr "3DNow попередньо завантажує інструкції"
 
 #. !/flag:osvw
-#: modules/devices/x86/x86_data.c:170
+#: modules/devices/x86/x86_data.c:173
 msgctxt "x86-flag"
-msgid "indicates OS Visible Workaround, which allows the OS to work around processor errata."
-msgstr "вказує на видиме обхідне рішення ОС, яке дозволяє ОС обійти помилки процесора."
+msgid ""
+"indicates OS Visible Workaround, which allows the OS to work around "
+"processor errata."
+msgstr ""
+"вказує на видиме обхідне рішення ОС, яке дозволяє ОС обійти помилки "
+"процесора."
 
 #. !/flag:ibs
-#: modules/devices/x86/x86_data.c:171
+#: modules/devices/x86/x86_data.c:174
 msgctxt "x86-flag"
 msgid "Instruction Based Sampling"
 msgstr "Вибірка на основі інструкцій"
 
 #. !/flag:xop
-#: modules/devices/x86/x86_data.c:172
+#: modules/devices/x86/x86_data.c:175
 msgctxt "x86-flag"
 msgid "extended AVX instructions"
 msgstr "розширені інструкції AVX"
 
 #. !/flag:skinit
-#: modules/devices/x86/x86_data.c:173
+#: modules/devices/x86/x86_data.c:176
 msgctxt "x86-flag"
 msgid "SKINIT/STGI instructions"
 msgstr "Інструкції SKINIT/STGI"
 
 #. !/flag:wdt
-#: modules/devices/x86/x86_data.c:174
+#: modules/devices/x86/x86_data.c:177
 msgctxt "x86-flag"
 msgid "Watchdog timer"
 msgstr "Сторожовий таймер"
 
 #. !/flag:lwp
-#: modules/devices/x86/x86_data.c:175
+#: modules/devices/x86/x86_data.c:178
 msgctxt "x86-flag"
 msgid "Light Weight Profiling"
 msgstr "Профілювання легкої ваги"
 
 #. !/flag:fma4
-#: modules/devices/x86/x86_data.c:176
+#: modules/devices/x86/x86_data.c:179
 msgctxt "x86-flag"
 msgid "4 operands MAC instructions"
 msgstr "4 операнди MAC-інструкції"
 
 #. !/flag:tce
-#: modules/devices/x86/x86_data.c:177
+#: modules/devices/x86/x86_data.c:180
 msgctxt "x86-flag"
 msgid "translation cache extension"
 msgstr "розширення кешу перекладу"
 
 #. !/flag:nodeid_msr
-#: modules/devices/x86/x86_data.c:178
+#: modules/devices/x86/x86_data.c:181
 msgctxt "x86-flag"
 msgid "NodeId MSR"
 msgstr "NodeId MSR"
 
 #. !/flag:tbm
-#: modules/devices/x86/x86_data.c:179
+#: modules/devices/x86/x86_data.c:182
 msgctxt "x86-flag"
 msgid "Trailing Bit Manipulation"
 msgstr "Маніпуляція кінцевими бітами"
 
 #. !/flag:topoext
-#: modules/devices/x86/x86_data.c:180
+#: modules/devices/x86/x86_data.c:183
 msgctxt "x86-flag"
 msgid "Topology Extensions CPUID leafs"
 msgstr "Листи розширень топології CPUID"
 
 #. !/flag:perfctr_core
-#: modules/devices/x86/x86_data.c:181
+#: modules/devices/x86/x86_data.c:184
 msgctxt "x86-flag"
 msgid "Core Performance Counter Extensions"
 msgstr "Розширення лічильника продуктивності ядра"
 
 #. !/flag:perfctr_nb
-#: modules/devices/x86/x86_data.c:182
+#: modules/devices/x86/x86_data.c:185
 msgctxt "x86-flag"
 msgid "NB Performance Counter Extensions"
 msgstr "NB Розширення лічильника продуктивності"
 
 #. !/flag:bpext
-#: modules/devices/x86/x86_data.c:183
+#: modules/devices/x86/x86_data.c:186
 msgctxt "x86-flag"
 msgid "data breakpoint extension"
 msgstr "розширення точки зупинки даних"
 
 #. !/flag:ptsc
-#: modules/devices/x86/x86_data.c:184
+#: modules/devices/x86/x86_data.c:187
 msgctxt "x86-flag"
 msgid "performance time-stamp counter"
 msgstr "лічильник позначок часу продуктивності"
 
 #. !/flag:perfctr_l2
-#: modules/devices/x86/x86_data.c:185
+#: modules/devices/x86/x86_data.c:188
 msgctxt "x86-flag"
 msgid "L2 Performance Counter Extensions"
 msgstr "Розширення лічильника продуктивності L2"
 
 #. !/flag:mwaitx
-#: modules/devices/x86/x86_data.c:186
+#: modules/devices/x86/x86_data.c:189
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
 msgstr "Розширення MWAIT (MONITORX/MWAITX)"
 
 #. !/flag:cpb
-#: modules/devices/x86/x86_data.c:188
+#: modules/devices/x86/x86_data.c:191
+msgctxt "x86-flag"
+msgid "Intel CPUID Faulting"
+msgstr ""
+
+#. !/flag:cpb
+#: modules/devices/x86/x86_data.c:192
 msgctxt "x86-flag"
 msgid "AMD Core Performance Boost"
 msgstr "AMD Core Performance Boost"
 
 #. !/flag:epb
-#: modules/devices/x86/x86_data.c:189
+#: modules/devices/x86/x86_data.c:193
 msgctxt "x86-flag"
 msgid "IA32_ENERGY_PERF_BIAS support"
 msgstr "Підтримка IA32_ENERGY_PERF_BIAS"
 
 #. !/flag:hw_pstate
-#: modules/devices/x86/x86_data.c:190
+#: modules/devices/x86/x86_data.c:194
 msgctxt "x86-flag"
 msgid "AMD HW-PState"
 msgstr "AMD HW-PState"
 
 #. !/flag:proc_feedback
-#: modules/devices/x86/x86_data.c:191
+#: modules/devices/x86/x86_data.c:195
 msgctxt "x86-flag"
 msgid "AMD ProcFeedbackInterface"
 msgstr "Інтерфейс AMD ProcFeedback"
 
 #. !/flag:intel_pt
-#: modules/devices/x86/x86_data.c:192
+#: modules/devices/x86/x86_data.c:196
 msgctxt "x86-flag"
 msgid "Intel Processor Tracing"
 msgstr "Процесор Intel Tracing"
 
+#. !/flag:pti
+#: modules/devices/x86/x86_data.c:197
+msgctxt "x86-flag"
+msgid "Kernel PAge Table Isolation Enabled"
+msgstr ""
+
+#. !/flag:ibrs
+#: modules/devices/x86/x86_data.c:198
+msgctxt "x86-flag"
+msgid "Set/clear IBRS on kernel entry/exit"
+msgstr ""
+
+#. !/flag:ssbd
+#: modules/devices/x86/x86_data.c:199
+msgctxt "x86-flag"
+msgid "Speculative Store Bypass Disable"
+msgstr ""
+
+#. !/flag:ibrs
+#: modules/devices/x86/x86_data.c:200
+msgctxt "x86-flag"
+msgid "Indirect Branch Restricted Speculation"
+msgstr ""
+
+#. !/flag:ibpb
+#: modules/devices/x86/x86_data.c:201
+msgctxt "x86-flag"
+msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
+msgstr ""
+
+#. !/flag:stibp
+#: modules/devices/x86/x86_data.c:202
+msgctxt "x86-flag"
+msgid "Single Thread Indirect Branch Predictors"
+msgstr ""
+
+#. !/flag:ibrs_enhanced
+#: modules/devices/x86/x86_data.c:203
+msgctxt "x86-flag"
+msgid "Enhanced IBRS"
+msgstr ""
+
 #. !/flag:tpr_shadow
-#: modules/devices/x86/x86_data.c:194
+#: modules/devices/x86/x86_data.c:205
 msgctxt "x86-flag"
 msgid "Intel TPR Shadow"
 msgstr "Intel TPR Shadow"
 
 #. !/flag:vnmi
-#: modules/devices/x86/x86_data.c:195
+#: modules/devices/x86/x86_data.c:206
 msgctxt "x86-flag"
 msgid "Intel Virtual NMI"
 msgstr "Intel Virtual NMI"
 
 #. !/flag:flexpriority
-#: modules/devices/x86/x86_data.c:196
+#: modules/devices/x86/x86_data.c:207
 msgctxt "x86-flag"
 msgid "Intel FlexPriority"
 msgstr "Intel FlexPriority"
 
 #. !/flag:ept
-#: modules/devices/x86/x86_data.c:197
+#: modules/devices/x86/x86_data.c:208
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table"
 msgstr "Розширена таблиця сторінок Intel"
 
 #. !/flag:vpid
-#: modules/devices/x86/x86_data.c:198
+#: modules/devices/x86/x86_data.c:209
 msgctxt "x86-flag"
 msgid "Intel Virtual Processor ID"
 msgstr "Ідентифікатор віртуального процесора Intel"
 
 #. !/flag:vmmcall
-#: modules/devices/x86/x86_data.c:199
+#: modules/devices/x86/x86_data.c:210
 msgctxt "x86-flag"
 msgid "prefer VMMCALL to VMCALL"
 msgstr "віддають перевагу VMMCALL перед VMCALL"
 
+#. !/flag:ept_ad
+#: modules/devices/x86/x86_data.c:211
+msgctxt "x86-flag"
+msgid "Intel Extended Page Table access-dirty bit"
+msgstr ""
+
+#. !/flag:avx512_bf16
+#: modules/devices/x86/x86_data.c:213
+msgctxt "x86-flag"
+msgid "AVX512 BFLOAT16 instructions"
+msgstr ""
+
 #. !/flag:fsgsbase
-#: modules/devices/x86/x86_data.c:201
+#: modules/devices/x86/x86_data.c:215
 msgctxt "x86-flag"
 msgid "{RD/WR}{FS/GS}BASE instructions"
 msgstr "{RD/WR}{FS/GS}Інструкції BASE"
 
 #. !/flag:tsc_adjust
-#: modules/devices/x86/x86_data.c:202
+#: modules/devices/x86/x86_data.c:216
 msgctxt "x86-flag"
 msgid "TSC adjustment MSR"
 msgstr "Регулювання TSC MSR"
 
+#. !/flag:sgx
+#: modules/devices/x86/x86_data.c:217
+msgctxt "x86-flag"
+msgid "Software Guard Extensions"
+msgstr ""
+
 #. !/flag:bmi1
-#: modules/devices/x86/x86_data.c:203
+#: modules/devices/x86/x86_data.c:218
 msgctxt "x86-flag"
 msgid "1st group bit manipulation extensions"
 msgstr "1-ша група розширень для обробки бітів"
 
 #. !/flag:hle
-#: modules/devices/x86/x86_data.c:204
+#: modules/devices/x86/x86_data.c:219
 msgctxt "x86-flag"
 msgid "Hardware Lock Elision"
 msgstr "Апаратне блокування Elision"
 
 #. !/flag:avx2
-#: modules/devices/x86/x86_data.c:205
+#: modules/devices/x86/x86_data.c:220
 msgctxt "x86-flag"
 msgid "AVX2 instructions"
 msgstr "Інструкції AVX2"
 
 #. !/flag:smep
-#: modules/devices/x86/x86_data.c:206
+#: modules/devices/x86/x86_data.c:221
 msgctxt "x86-flag"
 msgid "Supervisor Mode Execution Protection"
 msgstr "Захист виконання в режимі супервізора"
 
 #. !/flag:bmi2
-#: modules/devices/x86/x86_data.c:207
+#: modules/devices/x86/x86_data.c:222
 msgctxt "x86-flag"
 msgid "2nd group bit manipulation extensions"
 msgstr "2-а група розширень для обробки бітів"
 
 #. !/flag:erms
-#: modules/devices/x86/x86_data.c:208
+#: modules/devices/x86/x86_data.c:223
 msgctxt "x86-flag"
 msgid "Enhanced REP MOVSB/STOSB"
 msgstr "Покращений REP MOVSB/STOSB"
 
 #. !/flag:invpcid
-#: modules/devices/x86/x86_data.c:209
+#: modules/devices/x86/x86_data.c:224
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID"
 msgstr "Недійсний ідентифікатор контексту процесора"
 
+#. !/flag:invpcid_single
+#: modules/devices/x86/x86_data.c:225
+msgctxt "x86-flag"
+msgid "Invalidate Processor Context ID (Single)"
+msgstr ""
+
 #. !/flag:rtm
-#: modules/devices/x86/x86_data.c:210
+#: modules/devices/x86/x86_data.c:226
 msgctxt "x86-flag"
 msgid "Restricted Transactional Memory"
 msgstr "Обмежена транзакційна пам'ять"
 
 #. !/flag:cqm
-#: modules/devices/x86/x86_data.c:211
+#: modules/devices/x86/x86_data.c:227
 msgctxt "x86-flag"
 msgid "Cache QoS Monitoring"
 msgstr "Моніторинг QoS кешу"
 
 #. !/flag:mpx
-#: modules/devices/x86/x86_data.c:212
+#: modules/devices/x86/x86_data.c:228
 msgctxt "x86-flag"
 msgid "Memory Protection Extension"
 msgstr "Розширення захисту пам'яті"
 
 #. !/flag:avx512f
-#: modules/devices/x86/x86_data.c:213
+#: modules/devices/x86/x86_data.c:229
 msgctxt "x86-flag"
 msgid "AVX-512 foundation"
 msgstr "Фундамент AVX-512"
 
 #. !/flag:avx512dq
-#: modules/devices/x86/x86_data.c:214
+#: modules/devices/x86/x86_data.c:230
 msgctxt "x86-flag"
 msgid "AVX-512 Double/Quad instructions"
 msgstr "Інструкції AVX-512 Double/Quad"
 
 #. !/flag:rdseed
-#: modules/devices/x86/x86_data.c:215
+#: modules/devices/x86/x86_data.c:231
 msgctxt "x86-flag"
 msgid "The RDSEED instruction"
 msgstr "Інструкція RDSEED"
 
 #. !/flag:adx
-#: modules/devices/x86/x86_data.c:216
+#: modules/devices/x86/x86_data.c:232
 msgctxt "x86-flag"
 msgid "The ADCX and ADOX instructions"
 msgstr "Інструкції ADCX і ADOX"
 
 #. !/flag:smap
-#: modules/devices/x86/x86_data.c:217
+#: modules/devices/x86/x86_data.c:233
 msgctxt "x86-flag"
 msgid "Supervisor Mode Access Prevention"
 msgstr "Запобігання доступу в режим супервізора"
 
+#. !/flag:avx512ifma
+#: modules/devices/x86/x86_data.c:234
+msgctxt "x86-flag"
+msgid "AVX-512 Integer Fused Multiply-Add instructions"
+msgstr ""
+
 #. !/flag:clflushopt
-#: modules/devices/x86/x86_data.c:218
+#: modules/devices/x86/x86_data.c:235
 msgctxt "x86-flag"
 msgid "CLFLUSHOPT instruction"
 msgstr "Інструкція CLFLUSHOPT"
 
 #. !/flag:clwb
-#: modules/devices/x86/x86_data.c:219
+#: modules/devices/x86/x86_data.c:236
 msgctxt "x86-flag"
 msgid "CLWB instruction"
 msgstr "КЛУБНА ІНСТРУКЦІЯ"
 
 #. !/flag:avx512pf
-#: modules/devices/x86/x86_data.c:220
+#: modules/devices/x86/x86_data.c:237
 msgctxt "x86-flag"
 msgid "AVX-512 Prefetch"
 msgstr "AVX-512 Попередня вибірка"
 
 #. !/flag:avx512er
-#: modules/devices/x86/x86_data.c:221
+#: modules/devices/x86/x86_data.c:238
 msgctxt "x86-flag"
 msgid "AVX-512 Exponential and Reciprocal"
 msgstr "AVX-512 Експоненціальний і зворотний"
 
 #. !/flag:avx512cd
-#: modules/devices/x86/x86_data.c:222
+#: modules/devices/x86/x86_data.c:239
 msgctxt "x86-flag"
 msgid "AVX-512 Conflict Detection"
 msgstr "AVX-512 Виявлення конфліктів"
 
 #. !/flag:sha_ni
-#: modules/devices/x86/x86_data.c:223
+#: modules/devices/x86/x86_data.c:240
 msgctxt "x86-flag"
 msgid "SHA1/SHA256 Instruction Extensions"
 msgstr "Розширення інструкцій SHA1/SHA256"
 
 #. !/flag:avx512bw
-#: modules/devices/x86/x86_data.c:224
+#: modules/devices/x86/x86_data.c:241
 msgctxt "x86-flag"
 msgid "AVX-512 Byte/Word instructions"
 msgstr "Інструкції AVX-512 байт/слово"
 
 #. !/flag:avx512vl
-#: modules/devices/x86/x86_data.c:225
+#: modules/devices/x86/x86_data.c:242
 msgctxt "x86-flag"
 msgid "AVX-512 128/256 Vector Length extensions"
 msgstr "AVX-512 128/256 Подовжувачі векторної довжини"
 
+#. !/flag:md_clear
+#: modules/devices/x86/x86_data.c:243
+msgctxt "x86-flag"
+msgid "VERW clears CPU buffers"
+msgstr ""
+
+#. !/flag:flush_l1d
+#: modules/devices/x86/x86_data.c:244
+msgctxt "x86-flag"
+msgid "Flush L1D cache"
+msgstr ""
+
+#. !/flag:arch_capabilities
+#: modules/devices/x86/x86_data.c:245
+msgctxt "x86-flag"
+msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
+msgstr ""
+
 #. !/flag:xsaveopt
-#: modules/devices/x86/x86_data.c:227
+#: modules/devices/x86/x86_data.c:247
 msgctxt "x86-flag"
 msgid "Optimized XSAVE"
 msgstr "Оптимізований XSAVE"
 
 #. !/flag:xsavec
-#: modules/devices/x86/x86_data.c:228
+#: modules/devices/x86/x86_data.c:248
 msgctxt "x86-flag"
 msgid "XSAVEC"
 msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
-#: modules/devices/x86/x86_data.c:229
+#: modules/devices/x86/x86_data.c:249
 msgctxt "x86-flag"
 msgid "XGETBV with ECX = 1"
 msgstr "XGETBV з ECX = 1"
 
 #. !/flag:xsaves
-#: modules/devices/x86/x86_data.c:230
+#: modules/devices/x86/x86_data.c:250
 msgctxt "x86-flag"
 msgid "XSAVES/XRSTORS"
 msgstr "XSAVES/XRSTORS"
 
 #. !/flag:cqm_llc
-#: modules/devices/x86/x86_data.c:232
+#: modules/devices/x86/x86_data.c:252
 msgctxt "x86-flag"
 msgid "LLC QoS"
 msgstr "LLC QoS"
 
 #. !/flag:cqm_occup_llc
-#: modules/devices/x86/x86_data.c:234
+#: modules/devices/x86/x86_data.c:253
 msgctxt "x86-flag"
 msgid "LLC occupancy monitoring"
 msgstr "Моніторинг зайнятості ТОВ"
 
 #. !/flag:cqm_mbm_total
-#: modules/devices/x86/x86_data.c:235
+#: modules/devices/x86/x86_data.c:254
 msgctxt "x86-flag"
 msgid "LLC total MBM monitoring"
 msgstr "ТОВ тотальний моніторинг MBM"
 
 #. !/flag:cqm_mbm_local
-#: modules/devices/x86/x86_data.c:236
+#: modules/devices/x86/x86_data.c:255
 msgctxt "x86-flag"
 msgid "LLC local MBM monitoring"
 msgstr "ТОВ локальний моніторинг МБМ"
 
+#. !/flag:split_lock_detect
+#: modules/devices/x86/x86_data.c:256
+msgctxt "x86-flag"
+msgid "AC for split lock"
+msgstr ""
+
 #. !/flag:clzero
-#: modules/devices/x86/x86_data.c:238
+#: modules/devices/x86/x86_data.c:258
 msgctxt "x86-flag"
 msgid "CLZERO instruction"
 msgstr "Інструкція CLZERO"
 
 #. !/flag:irperf
-#: modules/devices/x86/x86_data.c:239
+#: modules/devices/x86/x86_data.c:259
 msgctxt "x86-flag"
 msgid "instructions retired performance counter"
 msgstr "інструкції звільнений лічильник продуктивності"
 
+#. !/flag:xsaveerptr
+#: modules/devices/x86/x86_data.c:260
+msgctxt "x86-flag"
+msgid "Always save/restore FP error pointers"
+msgstr ""
+
+#. !/flag:wbnoinvd
+#: modules/devices/x86/x86_data.c:261
+msgctxt "x86-flag"
+msgid "WBNOINVD instruction"
+msgstr ""
+
 #. !/flag:dtherm
-#: modules/devices/x86/x86_data.c:241
+#: modules/devices/x86/x86_data.c:263
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
 msgstr "цифровий термодатчик"
 
 #. !/flag:ida
-#: modules/devices/x86/x86_data.c:242
+#: modules/devices/x86/x86_data.c:264
 msgctxt "x86-flag"
 msgid "Intel Dynamic Acceleration"
 msgstr "Динамічне прискорення Intel"
 
 #. !/flag:arat
-#: modules/devices/x86/x86_data.c:243
+#: modules/devices/x86/x86_data.c:265
 msgctxt "x86-flag"
 msgid "Always Running APIC Timer"
 msgstr "Завжди запущений таймер APIC"
 
 #. !/flag:pln
-#: modules/devices/x86/x86_data.c:244
+#: modules/devices/x86/x86_data.c:266
 msgctxt "x86-flag"
 msgid "Intel Power Limit Notification"
 msgstr "Сповіщення про обмеження потужності Intel"
 
 #. !/flag:pts
-#: modules/devices/x86/x86_data.c:245
+#: modules/devices/x86/x86_data.c:267
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
 msgstr "Термічний стан пакета Intel"
 
 #. !/flag:hwp
-#: modules/devices/x86/x86_data.c:246
+#: modules/devices/x86/x86_data.c:268
 msgctxt "x86-flag"
 msgid "Intel Hardware P-states"
 msgstr "P-стани обладнання Intel"
 
 #. !/flag:hwp_notify
-#: modules/devices/x86/x86_data.c:247
+#: modules/devices/x86/x86_data.c:269
 msgctxt "x86-flag"
 msgid "HWP notification"
 msgstr "Сповіщення HWP"
 
 #. !/flag:hwp_act_window
-#: modules/devices/x86/x86_data.c:248
+#: modules/devices/x86/x86_data.c:270
 msgctxt "x86-flag"
 msgid "HWP Activity Window"
 msgstr "Вікно активності HWP"
 
 #. !/flag:hwp_epp
-#: modules/devices/x86/x86_data.c:249
+#: modules/devices/x86/x86_data.c:271
 msgctxt "x86-flag"
 msgid "HWP Energy Performance Preference"
 msgstr "Налаштування енергоефективності HWP"
 
 #. !/flag:hwp_pkg_req
-#: modules/devices/x86/x86_data.c:250
+#: modules/devices/x86/x86_data.c:272
 msgctxt "x86-flag"
 msgid "HWP package-level request"
 msgstr "Запит на рівні пакета HWP"
 
 #. !/flag:npt
-#: modules/devices/x86/x86_data.c:252
+#: modules/devices/x86/x86_data.c:274
 msgctxt "x86-flag"
 msgid "AMD Nested Page Table support"
 msgstr "Підтримка AMD Nested Page Table"
 
 #. !/flag:lbrv
-#: modules/devices/x86/x86_data.c:253
+#: modules/devices/x86/x86_data.c:275
 msgctxt "x86-flag"
 msgid "AMD LBR Virtualization support"
 msgstr "Підтримка віртуалізації AMD LBR"
 
 #. !/flag:svm_lock
-#: modules/devices/x86/x86_data.c:254
+#: modules/devices/x86/x86_data.c:276
 msgctxt "x86-flag"
 msgid "AMD SVM locking MSR"
 msgstr "Блокування MSR AMD SVM"
 
 #. !/flag:nrip_save
-#: modules/devices/x86/x86_data.c:255
+#: modules/devices/x86/x86_data.c:277
 msgctxt "x86-flag"
 msgid "AMD SVM next_rip save"
 msgstr "Збереження AMD SVM next_rip"
 
 #. !/flag:tsc_scale
-#: modules/devices/x86/x86_data.c:256
+#: modules/devices/x86/x86_data.c:278
 msgctxt "x86-flag"
 msgid "AMD TSC scaling support"
 msgstr "Підтримка масштабування AMD TSC"
 
 #. !/flag:vmcb_clean
-#: modules/devices/x86/x86_data.c:257
+#: modules/devices/x86/x86_data.c:279
 msgctxt "x86-flag"
 msgid "AMD VMCB clean bits support"
 msgstr "Підтримка чистих бітів AMD VMCB"
 
 #. !/flag:flushbyasid
-#: modules/devices/x86/x86_data.c:258
+#: modules/devices/x86/x86_data.c:280
 msgctxt "x86-flag"
 msgid "AMD flush-by-ASID support"
 msgstr "Підтримка AMD flush-by-ASID"
 
 #. !/flag:decodeassists
-#: modules/devices/x86/x86_data.c:259
+#: modules/devices/x86/x86_data.c:281
 msgctxt "x86-flag"
 msgid "AMD Decode Assists support"
 msgstr "Підтримка AMD Decode Assists"
 
 #. !/flag:pausefilter
-#: modules/devices/x86/x86_data.c:260
+#: modules/devices/x86/x86_data.c:282
 msgctxt "x86-flag"
 msgid "AMD filtered pause intercept"
 msgstr "Перехоплення паузи з фільтром AMD"
 
 #. !/flag:pfthreshold
-#: modules/devices/x86/x86_data.c:261
+#: modules/devices/x86/x86_data.c:283
 msgctxt "x86-flag"
 msgid "AMD pause filter threshold"
 msgstr "Порогове значення фільтра паузи AMD"
 
 #. !/flag:avic
-#: modules/devices/x86/x86_data.c:262
+#: modules/devices/x86/x86_data.c:284
 msgctxt "x86-flag"
 msgid "Virtual Interrupt Controller"
 msgstr "Віртуальний контролер переривань"
 
+#. !/flag:v_vmsave_vmload
+#: modules/devices/x86/x86_data.c:285
+msgctxt "x86-flag"
+msgid "Virtual VMSAVE VMLOAD"
+msgstr ""
+
+#. !/flag:avx512vbmi
+#: modules/devices/x86/x86_data.c:287
+msgctxt "x86-flag"
+msgid "AVX512 Vector Bit Manipulation instructions"
+msgstr ""
+
+#. !/flag:umip
+#: modules/devices/x86/x86_data.c:288
+msgctxt "x86-flag"
+msgid "User Mode Instruction Protection"
+msgstr ""
+
 #. !/flag:pku
-#: modules/devices/x86/x86_data.c:264
+#: modules/devices/x86/x86_data.c:289
 msgctxt "x86-flag"
 msgid "Protection Keys for Userspace"
 msgstr "Ключі захисту для простору користувача"
 
 #. !/flag:ospke
-#: modules/devices/x86/x86_data.c:265
+#: modules/devices/x86/x86_data.c:290
 msgctxt "x86-flag"
 msgid "OS Protection Keys Enable"
 msgstr "Увімкнути ключі захисту ОС"
 
+#. !/flag:avx512_vbmi2
+#: modules/devices/x86/x86_data.c:291
+msgctxt "x86-flag"
+msgid "Additional AVX512 Vector Bit Manipulation instructions"
+msgstr ""
+
+#. !/flag:gfni
+#: modules/devices/x86/x86_data.c:292
+msgctxt "x86-flag"
+msgid "Galois Field New instructions"
+msgstr ""
+
+#. !/flag:vaes
+#: modules/devices/x86/x86_data.c:293
+msgctxt "x86-flag"
+msgid "Vector AES"
+msgstr ""
+
+#. !/flag:vpclmulqdq
+#: modules/devices/x86/x86_data.c:294
+msgctxt "x86-flag"
+msgid "Carry-Less Multiplication Double QuadWord"
+msgstr ""
+
+#. !/flag:avx512_vnni
+#: modules/devices/x86/x86_data.c:295
+msgctxt "x86-flag"
+msgid "Vector Neural Network Instructions"
+msgstr ""
+
+#. !/flag:avx512_bitalg
+#: modules/devices/x86/x86_data.c:296
+msgctxt "x86-flag"
+msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
+msgstr ""
+
+#. !/flag:avx512_vpopcntdq
+#: modules/devices/x86/x86_data.c:297
+msgctxt "x86-flag"
+msgid "POPCNT for vectors of DW/DQ"
+msgstr ""
+
+#. !/flag:rdpid
+#: modules/devices/x86/x86_data.c:298
+msgctxt "x86-flag"
+msgid "RDPID instruction"
+msgstr ""
+
+#. !/flag:sgx_lc
+#: modules/devices/x86/x86_data.c:299
+msgctxt "x86-flag"
+msgid "Software Guard Extensions Launch Control"
+msgstr ""
+
 #. !/flag:overflow_recov
-#: modules/devices/x86/x86_data.c:267
+#: modules/devices/x86/x86_data.c:301
 msgctxt "x86-flag"
 msgid "MCA overflow recovery support"
 msgstr "Підтримка відновлення переповнення MCA"
 
 #. !/flag:succor
-#: modules/devices/x86/x86_data.c:268
+#: modules/devices/x86/x86_data.c:302
 msgctxt "x86-flag"
 msgid "uncorrectable error containment and recovery"
 msgstr "локалізація та відновлення невиправних помилок"
 
 #. !/flag:smca
-#: modules/devices/x86/x86_data.c:269
+#: modules/devices/x86/x86_data.c:303
 msgctxt "x86-flag"
 msgid "Scalable MCA"
 msgstr "Масштабований MCA"
 
+#. !/flag:fsrm
+#: modules/devices/x86/x86_data.c:305
+msgctxt "x86-flag"
+msgid "Fast Short Rep Mov"
+msgstr ""
+
 #. !/bug:f00f
-#: modules/devices/x86/x86_data.c:272
+#: modules/devices/x86/x86_data.c:308
 msgctxt "x86-flag"
 msgid "Intel F00F bug"
 msgstr "Помилка Intel F00F"
 
 #. !/bug:fdiv
-#: modules/devices/x86/x86_data.c:273
+#: modules/devices/x86/x86_data.c:309
 msgctxt "x86-flag"
 msgid "FPU FDIV"
 msgstr "FPU FDIV"
 
 #. !/bug:coma
-#: modules/devices/x86/x86_data.c:274
+#: modules/devices/x86/x86_data.c:310
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
 msgstr "Cyrix 6x86 кома"
 
 #. !/bug:tlb_mmatch
-#: modules/devices/x86/x86_data.c:275
+#: modules/devices/x86/x86_data.c:311
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
 msgstr "Поправка AMD 383"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
-#: modules/devices/x86/x86_data.c:276 modules/devices/x86/x86_data.c:285
+#: modules/devices/x86/x86_data.c:312 modules/devices/x86/x86_data.c:321
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
 msgstr "Поправка AMD 400"
 
 #. !/bug:11ap
-#: modules/devices/x86/x86_data.c:277
+#: modules/devices/x86/x86_data.c:313
 msgctxt "x86-flag"
 msgid "Bad local APIC aka 11AP"
 msgstr "Поганий локальний APIC, також відомий як 11AP"
 
 #. !/bug:fxsave_leak
-#: modules/devices/x86/x86_data.c:278
+#: modules/devices/x86/x86_data.c:314
 msgctxt "x86-flag"
 msgid "FXSAVE leaks FOP/FIP/FOP"
 msgstr "FXSAVE витікає FOP/FIP/FOP"
 
 #. !/bug:clflush_monitor
-#: modules/devices/x86/x86_data.c:279
+#: modules/devices/x86/x86_data.c:315
 msgctxt "x86-flag"
 msgid "AAI65, CLFLUSH required before MONITOR"
 msgstr "AAI65, CLFLUSH потрібен перед MONITOR"
 
 #. !/bug:sysret_ss_attrs
-#: modules/devices/x86/x86_data.c:280
+#: modules/devices/x86/x86_data.c:316
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
 msgstr "SYSRET не виправляє атрибути SS"
 
 #. !/bug:espfix
-#: modules/devices/x86/x86_data.c:281
+#: modules/devices/x86/x86_data.c:317
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
 msgstr "IRET до 16-бітного SS пошкоджує старші біти ESP/RSP"
 
 #. !/bug:null_seg
-#: modules/devices/x86/x86_data.c:282
+#: modules/devices/x86/x86_data.c:318
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
 msgstr "Обнулення селектора зберігає базу"
 
 #. !/bug:swapgs_fence
-#: modules/devices/x86/x86_data.c:283
+#: modules/devices/x86/x86_data.c:319
 msgctxt "x86-flag"
 msgid "SWAPGS without input dep on GS"
 msgstr "SWAPGS без введення деп на GS"
 
 #. !/bug:monitor
-#: modules/devices/x86/x86_data.c:284
+#: modules/devices/x86/x86_data.c:320
 msgctxt "x86-flag"
 msgid "IPI required to wake up remote CPU"
 msgstr "Для активації віддаленого ЦП потрібен IPI"
 
 #. !/bug:cpu_insecure & bug:cpu_meltdown
-#: modules/devices/x86/x86_data.c:286 modules/devices/x86/x86_data.c:287
+#: modules/devices/x86/x86_data.c:322 modules/devices/x86/x86_data.c:323
 msgctxt "x86-flag"
-msgid "CPU is affected by meltdown attack and needs kernel page table isolation"
-msgstr "Процесор постраждав від атаки згортання та потребує ізоляції таблиці сторінок ядра"
+msgid ""
+"CPU is affected by meltdown attack and needs kernel page table isolation"
+msgstr ""
+"Процесор постраждав від атаки згортання та потребує ізоляції таблиці "
+"сторінок ядра"
 
 #. !/bug:spectre_v1
-#: modules/devices/x86/x86_data.c:288
+#: modules/devices/x86/x86_data.c:324
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
 msgstr "На ЦП впливає атака Spectre variant 1 з умовними розгалуженнями"
 
 #. !/bug:spectre_v2
-#: modules/devices/x86/x86_data.c:289
+#: modules/devices/x86/x86_data.c:325
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
 msgstr "На ЦП впливає атака Spectre variant 2 із непрямими розгалуженнями"
 
 #. !/bug:spec_store_bypass
-#: modules/devices/x86/x86_data.c:290
+#: modules/devices/x86/x86_data.c:326
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
 msgstr "ЦП постраждав від спекулятивної атаки в обхід магазину"
 
 #. !/bug:l1tf
-#: modules/devices/x86/x86_data.c:291
+#: modules/devices/x86/x86_data.c:327
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
 msgstr "На ЦП впливає L1 Terminal Fault"
 
+#. !/bug:mds
+#: modules/devices/x86/x86_data.c:328
+msgctxt "x86-flag"
+msgid "CPU is affected by Microarchitectual data sampling"
+msgstr ""
+
+#. !/bug:swapgs
+#: modules/devices/x86/x86_data.c:329
+msgctxt "x86-flag"
+msgid "CPU is affected by speculation through SWAPGS"
+msgstr ""
+
+#. !/bug:itlb_multihit
+#: modules/devices/x86/x86_data.c:330
+msgctxt "x86-flag"
+msgid "CPU may incur MCE during certain page attribute changes"
+msgstr ""
+
+#. !/bug:srbds
+#: modules/devices/x86/x86_data.c:331
+msgctxt "x86-flag"
+msgid "CPU may leak RNG bits if not mitigated"
+msgstr ""
+
+#. !/bug:mmio_stale_data
+#: modules/devices/x86/x86_data.c:332
+msgctxt "x86-flag"
+msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
+msgstr ""
+
+#. !/bug:mmio_unknown
+#: modules/devices/x86/x86_data.c:333
+msgctxt "x86-flag"
+msgid "MMIO State Data status is unknown"
+msgstr ""
+
+#. !/bug:retbleed
+#: modules/devices/x86/x86_data.c:334
+msgctxt "x86-flag"
+msgid "CPU is affected by RETBleed"
+msgstr ""
+
+#. !/bug:eibrs_pbrsb
+#: modules/devices/x86/x86_data.c:335
+msgctxt "x86-flag"
+msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
+msgstr ""
+
+#. !/bug:gds
+#: modules/devices/x86/x86_data.c:336
+msgctxt "x86-flag"
+msgid "CPU is affected by Gather Data Sampling"
+msgstr ""
+
+#. !/bug:srso
+#: modules/devices/x86/x86_data.c:338
+msgctxt "x86-flag"
+msgid "AMD BTB untrain RETs"
+msgstr ""
+
+#. !/bug:bhi
+#: modules/devices/x86/x86_data.c:339
+msgctxt "x86-flag"
+msgid "CPU is affected by Branch History Injection"
+msgstr ""
+
+#. !/bug:ibpb_no_ret
+#: modules/devices/x86/x86_data.c:340
+msgctxt "x86-flag"
+msgid "IBPB omits return target predictions"
+msgstr ""
+
+#. !/bug:spectre_v2_user
+#: modules/devices/x86/x86_data.c:341
+msgctxt "x86-flag"
+msgid "CPU is affected by Spectre variant 2 attack between user processes"
+msgstr ""
+
+#. !/bug:its
+#: modules/devices/x86/x86_data.c:342
+msgctxt "x86-flag"
+msgid "CPU is affected by Indirect Target Selection"
+msgstr ""
+
+#. !/bug:its_native_only
+#: modules/devices/x86/x86_data.c:343
+msgctxt "x86-flag"
+msgid "CPU is affected by ITS, VMX is not affected"
+msgstr ""
+
+#. !/bug:tsa
+#: modules/devices/x86/x86_data.c:344
+msgctxt "x86-flag"
+msgid "CPU is affected by Transient Scheduler Attacks"
+msgstr ""
+
+#. !/bug:vmscape
+#: modules/devices/x86/x86_data.c:345
+msgctxt "x86-flag"
+msgid "CPU is affected by VMSCAPE attacks from guests"
+msgstr ""
+
 #. !/flag:pm:ts
-#: modules/devices/x86/x86_data.c:294
+#: modules/devices/x86/x86_data.c:348
 msgctxt "x86-flag"
 msgid "temperature sensor"
 msgstr "датчик температури"
 
 #. !/flag:pm:fid
-#: modules/devices/x86/x86_data.c:295
+#: modules/devices/x86/x86_data.c:349
 msgctxt "x86-flag"
 msgid "frequency id control"
 msgstr "контроль частоти id"
 
 #. !/flag:pm:vid
-#: modules/devices/x86/x86_data.c:296
+#: modules/devices/x86/x86_data.c:350
 msgctxt "x86-flag"
 msgid "voltage id control"
 msgstr "контроль ідентифікації напруги"
 
 #. !/flag:pm:ttp
-#: modules/devices/x86/x86_data.c:297
+#: modules/devices/x86/x86_data.c:351
 msgctxt "x86-flag"
 msgid "thermal trip"
 msgstr "теплова подорож"
 
 #. !/flag:pm:tm
-#: modules/devices/x86/x86_data.c:298
+#: modules/devices/x86/x86_data.c:352
 msgctxt "x86-flag"
 msgid "hardware thermal control"
 msgstr "апаратний термоконтроль"
 
 #. !/flag:pm:stc
-#: modules/devices/x86/x86_data.c:299
+#: modules/devices/x86/x86_data.c:353
 msgctxt "x86-flag"
 msgid "software thermal control"
 msgstr "програмний термоконтроль"
 
 #. !/flag:pm:100mhzsteps
-#: modules/devices/x86/x86_data.c:300
+#: modules/devices/x86/x86_data.c:354
 msgctxt "x86-flag"
 msgid "100 MHz multiplier control"
 msgstr "Контроль множника 100 МГц"
 
 #. !/flag:pm:hwpstate
-#: modules/devices/x86/x86_data.c:301
+#: modules/devices/x86/x86_data.c:355
 msgctxt "x86-flag"
 msgid "hardware P-state control"
 msgstr "апаратний контроль P-state"
 
 #. !/flag:pm:cpb
-#: modules/devices/x86/x86_data.c:302
+#: modules/devices/x86/x86_data.c:356
 msgctxt "x86-flag"
 msgid "core performance boost"
 msgstr "підвищення продуктивності ядра"
 
 #. !/flag:pm:eff_freq_ro
-#: modules/devices/x86/x86_data.c:303
+#: modules/devices/x86/x86_data.c:357
 msgctxt "x86-flag"
 msgid "Readonly aperf/mperf"
 msgstr "Тільки для читання aperf/mperf"
 
 #. !/flag:pm:proc_feedback
-#: modules/devices/x86/x86_data.c:304
+#: modules/devices/x86/x86_data.c:358
 msgctxt "x86-flag"
 msgid "processor feedback interface"
 msgstr "інтерфейс зворотного зв'язку процесора"
 
 #. !/flag:pm:acc_power
-#: modules/devices/x86/x86_data.c:305
+#: modules/devices/x86/x86_data.c:359
 msgctxt "x86-flag"
 msgid "accumulated power mechanism"
 msgstr "накопичений силовий механізм"
@@ -6075,7 +6689,8 @@ msgstr "Статистика"
 msgid "Shared Directories"
 msgstr "Спільні каталоги"
 
-#: modules/network.c:475 modules/network.c:497 modules/network.c:528 modules/network/net.c:495
+#: modules/network.c:475 modules/network.c:497 modules/network.c:528
+#: modules/network/net.c:495
 msgid "IP Address"
 msgstr "IP-адреса"
 
@@ -6170,7 +6785,8 @@ msgctxt "wi-op-mode"
 msgid "(Unknown)"
 msgstr "(невідомо)"
 
-#: modules/network/net.c:268 modules/network/net.c:288 modules/network/net.c:296
+#: modules/network/net.c:268 modules/network/net.c:288
+#: modules/network/net.c:296
 msgctxt "net-if-type"
 msgid "Ethernet"
 msgstr "Ethernet"
@@ -6185,7 +6801,9 @@ msgctxt "net-if-type"
 msgid "Point-to-Point"
 msgstr "Точка-точка"
 
-#: modules/network/net.c:271 modules/network/net.c:272 modules/network/net.c:273 modules/network/net.c:274 modules/network/net.c:298
+#: modules/network/net.c:271 modules/network/net.c:272
+#: modules/network/net.c:273 modules/network/net.c:274
+#: modules/network/net.c:298
 msgctxt "net-if-type"
 msgid "Wireless"
 msgstr "Бездротовий"
@@ -6326,7 +6944,8 @@ msgstr "Отримано байтів"
 msgid "Bytes Sent"
 msgstr "Надіслано байт"
 
-#: modules/network/net.c:458 modules/network/net.c:480 modules/network/net.c:481
+#: modules/network/net.c:458 modules/network/net.c:480
+#: modules/network/net.c:481
 msgid "dBm"
 msgstr "дБм"
 
@@ -6362,7 +6981,8 @@ msgstr "Сигнал/Шум"
 msgid "Internet Protocol (IPv4)"
 msgstr "Інтернет-протокол (IPv4)"
 
-#: modules/network/net.c:495 modules/network/net.c:496 modules/network/net.c:498
+#: modules/network/net.c:495 modules/network/net.c:496
+#: modules/network/net.c:498
 msgid "(Not set)"
 msgstr "(Не встановлено)"
 
@@ -6373,3 +6993,11 @@ msgstr "Трансляційна адреса"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr "ОЗУ"
+
+#, c-format
+#~ msgid "Warning >80% used"
+#~ msgstr "Попередження >80% uвикористано"
+
+#, c-format
+#~ msgid "Failing >90% used"
+#~ msgstr "Використано більше >90% uвідмов"

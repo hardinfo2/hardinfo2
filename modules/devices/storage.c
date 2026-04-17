@@ -215,11 +215,11 @@ gboolean __scan_udisks2_devices(void) {
 	nodenext = node->next;
         ext = (u2driveext *)node->data;
         disk = ext->d;
-	if(strstr(disk->block_dev,"boot0")){
+	if(disk->block_dev && strstr(disk->block_dev,"boot0")){
 	    if(!emmc) emmc=strreplace(strdup(disk->block_dev),"boot0","");
             drives=g_slist_remove(drives, node->data);
 	}
-	if(strstr(disk->block_dev,"boot1")){
+	if(disk->block_dev && strstr(disk->block_dev,"boot1")){
             drives=g_slist_remove(drives, node->data);
 	}
 	node=nodenext;
@@ -396,7 +396,7 @@ gboolean __scan_udisks2_devices(void) {
 	    else if(seol==2) sseol=_("Warning >80%% used");
 	    else if(seol==3) sseol=_("Failing >90%% used");
 	    else sseol=_("Unknown");
-	    sseol=strreplace(sseol,"%%","%");
+	    sseol=strreplace(strdup(sseol),"%%","%");
 
 	    if(seol || smlc || sslc || sdate)
                 moreinfo = h_strdup_cprintf(_("[Self-monitoring ExtCSD]\n"
@@ -409,6 +409,7 @@ gboolean __scan_udisks2_devices(void) {
 					      ssslc,ssmlc,sseol
 					  );
 	    g_free(sdate);
+	    g_free(sseol);
 	}
 
         if (disk->smart_enabled) {

@@ -221,14 +221,12 @@ gchar *processor_year(GSList * processors)
         if(strlen(ret)==6){
 	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],'-',ret[4],ret[5],0};
 	    g_object_unref(parser);
-	    g_object_unref(results);
 	    cache_processor_year=g_strdup(r);
 	    return g_strdup(r);
         }
     }
-    g_object_unref(results);
 
-    g_object_unref(parser);
+    if(parser) g_object_unref(parser);
     cache_processor_year=g_strdup(_("Unknown"));
     return g_strdup_printf(_("Unknown"));
 }

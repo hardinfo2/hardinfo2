@@ -24,13 +24,6 @@
 #include <string.h>
 #include "x86_data.h"
 
-#ifndef C_
-#define C_(Ctx, String) String
-#endif
-#ifndef NC_
-#define NC_(Ctx, String) String
-#endif
-
 /* sources:
  *   https://unix.stackexchange.com/a/43540
  *   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/arch/x86/include/asm/cpufeatures.h?id=refs/tags/v4.9

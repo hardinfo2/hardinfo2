@@ -24,13 +24,6 @@
 #include <ctype.h>
 #include "riscv_data.h"
 
-#ifndef C_
-#define C_(Ctx, String) String
-#endif
-#ifndef NC_
-#define NC_(Ctx, String) String
-#endif
-
 static struct {
     char *name, *meaning;
 } tab_ext_meaning[] = {

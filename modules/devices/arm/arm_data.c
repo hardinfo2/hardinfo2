@@ -23,13 +23,6 @@
 #include <string.h>
 #include "arm_data.h"
 
-#ifndef C_
-#define C_(Ctx, String) String
-#endif
-#ifndef NC_
-#define NC_(Ctx, String) String
-#endif
-
 /* sources:
  *   https://unix.stackexchange.com/a/43563
  *   git:linux/arch/arm/kernel/setup.c

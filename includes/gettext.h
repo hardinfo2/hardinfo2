@@ -9,7 +9,7 @@
 #define _(STRING) gettext(STRING)
 #define N_(STRING) (STRING)
 
-#define C_(CTX, STRING) dgettext(CTX, STRING)
+#define C_(CTX, STRING) g_dpgettext2(NULL, CTX, STRING)
 #define NC_(CTX, STRING) (STRING)
 
 #endif

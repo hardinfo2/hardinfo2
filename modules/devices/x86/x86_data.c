@@ -161,7 +161,7 @@ static const struct flag_to_meaning builtin_tab_flag_meaning[] = {
     { "cr8_legacy",    NC_("x86-flag", /*!/flag:cr8_legacy*/  "CR8 in 32-bit mode") },
     { "abm",           NC_("x86-flag", /*!/flag:abm*/  "Advanced Bit Manipulation") },
     { "sse4a",         NC_("x86-flag", /*!/flag:sse4a*/  "SSE-4A") },
-    { "misalignsse",   NC_("x86-flag", /*!/flag:misalignsse*/  "indicates if a general-protection exception (#GP) is generated when some legacy SSE instructions operate on unaligned data. Also depends on CR0 and Alignment Checking bit") },
+    { "misalignsse",   NC_("x86-flag", /*!/flag:misalignsse*/  "indicates if a GP exception is generated when some legacy SSE instructions operate on unaligned data") },/* Also depends on CR0 and Alignment Checking bit*/
     { "3dnowprefetch", NC_("x86-flag", /*!/flag:3dnowprefetch*/  "3DNow prefetch instructions") },
     { "osvw",          NC_("x86-flag", /*!/flag:osvw*/  "indicates OS Visible Workaround, which allows the OS to work around processor errata.") },
     { "ibs",           NC_("x86-flag", /*!/flag:ibs*/  "Instruction Based Sampling") },

@@ -5081,8 +5081,7 @@ msgctxt "x86-flag"
 msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
 msgstr ""
 "SYSCALL (hurtig systemkald) og SYSRET (returnering fra hurtig "
-"systemkald)SYSCALL (Hurtig System Kald) og SYSRET (Returner Fra Hurtig "
-"System Kald)"
+"systemkald)"
 
 #. !/flag:mp
 #: modules/devices/x86/x86_data.c:81
@@ -5486,8 +5485,7 @@ msgstr "16-bit fp-konverteringer (CVT16)"
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
 msgstr ""
-"Læs et tilfældigt tal fra hardwarens tilfældig talgenerator.Læs tilfældigt "
-"nummer fra hardware-instruktion til generator af tilfældige tal"
+"Læs tilfældigt nummer fra hardware-instruktion til generator af tilfældige tal"
 
 #. !/flag:hypervisor
 #: modules/devices/x86/x86_data.c:151
@@ -5601,13 +5599,11 @@ msgstr "SSE-4A"
 #: modules/devices/x86/x86_data.c:171
 msgctxt "x86-flag"
 msgid ""
-"indicates if a general-protection exception (#GP) is generated when some "
-"legacy SSE instructions operate on unaligned data. Also depends on CR0 and "
-"Alignment Checking bit"
+"indicates if a GP exception is generated when some "
+"legacy SSE instructions operate on unaligned data"
 msgstr ""
-"angiver om en generel beskyttelsesundtagelse (#GP) bliver genereret når "
-"ældre SSE instruktioner opererer på ujusteret data. Afhænger af CR0 og "
-"justeringscheck bit"
+"angiver om en GP undtagelse bliver genereret når "
+"ældre SSE instruktioner opererer på ujusteret data"
 
 #. !/flag:3dnowprefetch
 #: modules/devices/x86/x86_data.c:172

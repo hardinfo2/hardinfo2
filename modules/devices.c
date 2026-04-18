@@ -187,13 +187,16 @@ static gchar *find_releaseyear_path(void)
     return NULL;
 }
 
+static gchar *cache_processor_year=NULL;
 gchar *processor_year(GSList * processors)
 {
     JsonParser *parser;
     JsonNode *root;
     GError *error=NULL;
-    gchar *path;
-    gchar* cpuname = processor_name(processors);
+    gchar *path, *cpuname;
+    if(cache_processor_year) return cache_processor_year;
+
+    cpuname = processor_name(processors);
     cpuname=strreplace(cpuname," (","(");
     strend(cpuname,'(');
     path=find_releaseyear_path();
@@ -203,11 +206,13 @@ gchar *processor_year(GSList * processors)
         DEBUG ("Unable to parse JSON %s %s", path, error->message);
         g_error_free(error);
         g_object_unref(parser);
+	cache_processor_year=g_strdup(_("Unknown"));
         return g_strdup(_("Unknown"));
     }
     root = json_parser_get_root(parser);
     if (!root || (json_node_get_node_type(root) != JSON_NODE_OBJECT)) {
         g_object_unref(parser);
+	cache_processor_year=g_strdup(_("Unknown"));
 	return g_strdup(_("Unknown"));
     }
     JsonObject *results = json_node_get_object(root);
@@ -215,10 +220,14 @@ gchar *processor_year(GSList * processors)
         const gchar *ret=json_object_get_string_member(results, cpuname);
         if(strlen(ret)==6){
 	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],'-',ret[4],ret[5],0};
+	    g_object_unref(parser);
+	    cache_processor_year=g_strdup(r);
 	    return g_strdup(r);
         }
     }
 
+    if(parser) g_object_unref(parser);
+    cache_processor_year=g_strdup(_("Unknown"));
     return g_strdup_printf(_("Unknown"));
 }
 

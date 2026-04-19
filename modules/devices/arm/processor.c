@@ -602,6 +602,8 @@ gchar *processor_name(GSList *processors) {
         { "allwinner,sun8i-h3", "Allwinner", "H3" },
         { "allwinner,sun50i-h616", "Allwinner", "H616" },//Orange PI Zero3
         { "amlogic,a311d", "Amlogic", "A311D (Vim3)" }, // VIM3
+        { "amlogic,sm1", "Amlogic", "S905X3 (BPI-M5)" },
+        { "amlogic,s4", "Amlogic", "S905W2" },
         { "amlogic,s905w", "Amlogic", "S905W" },
         { "amlogic,s912", "Amlogic", "S912" },
         { "amlogic,sc2", "Amlogic", "S905X4 (SC2)" },//Meson SC2
@@ -653,8 +655,11 @@ gchar *processor_name(GSList *processors) {
         { "mediatek,mt6735", "MediaTek", "MT6735" },
         { "mediatek,mt6732", "MediaTek", "MT6732" },
         { "nvidia,tegra", "nVidia", "Tegra-family" },
+        { "qcom,qcm6490", "Qualcomm", "QCM6490 (Dragon Q6A)"},
         { "qcom,pineapple", "Qualcomm", "Pineapple (SD8g3)"},
+        { "qcom,sm7150", "Qualcomm", "SM7150"},
         { "qcom,sm8150", "Qualcomm", "SM8150"},
+        { "qcom,sm8150", "Qualcomm", "SM8250"},
         { "qcom,sm8550", "Qualcomm", "SM8550 (SD8g2)"},
         { "qcom,msm8939", "Qualcomm", "Snapdragon 615"},
         { "qcom,msm", "Qualcomm", "Snapdragon-family"},

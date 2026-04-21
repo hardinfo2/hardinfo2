@@ -189,16 +189,18 @@ void remove_linefeed(gchar * str)
 
 void widget_set_cursor(GtkWidget * widget, GdkCursorType cursor_type)
 {
-    GdkCursor *cursor;
+    GdkCursor *cursor=NULL;
     GdkDisplay *display;
     GdkWindow *gdk_window;
 
     display = gtk_widget_get_display(widget);
-    cursor = gdk_cursor_new_for_display(display, cursor_type);
+    if(display) cursor = gdk_cursor_new_for_display(display, cursor_type);
     gdk_window = gtk_widget_get_window(widget);
-    if (cursor) {
+    if (cursor && gdk_window && display) {
         gdk_window_set_cursor(gdk_window, cursor);
         gdk_display_flush(display);
+    }
+    if(cursor){
 #if GTK_CHECK_VERSION(3, 0, 0)
         g_object_unref(cursor);
 #else

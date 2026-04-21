@@ -1108,16 +1108,12 @@ static gboolean update_field(gpointer data)
         GTK_RANGE(GTK_SCROLLED_WINDOW(shell->tree->scroll)->scrollbar))
 #endif
 
-static void
-destroy_widget(GtkWidget *widget, gpointer user_data)
-{
-    gtk_widget_destroy(widget);
+static void destroy_widget(GtkWidget *widget, gpointer user_data) {
+    if(widget) gtk_widget_destroy(widget);
 }
-
 static void detail_view_clear(DetailView *detail_view)
 {
-    gtk_container_forall(GTK_CONTAINER(shell->detail_view->view),
-                         destroy_widget, NULL);
+    gtk_container_forall(GTK_CONTAINER(shell->detail_view->view), destroy_widget, NULL);
 }
 
 static gboolean reload_section(gpointer data)
@@ -1183,19 +1179,13 @@ static gboolean rescan_section(gpointer data)
     return entry->selected;
 }
 
-static gint
-compare_float(float a, float b)
-{
-    return (a > b) - (a < b);
-}
 
-static gint
-info_tree_compare_val_func(GtkTreeModel * model,
-			   GtkTreeIter * a,
-			   GtkTreeIter * b, gpointer userdata)
+/*
+static gint compare_float(float a, float b){return (a > b) - (a < b);}
+static gint info_tree_compare_val_func(GtkTreeModel * model, GtkTreeIter * a, GtkTreeIter * b, gpointer userdata)
 {
     gint ret = 0;
-    gchar *col1, *col2;
+    gchar *col1=NULL, *col2=NULL;
 
     gtk_tree_model_get(model, a, INFO_TREE_COL_VALUE, &col1, -1);
     gtk_tree_model_get(model, b, INFO_TREE_COL_VALUE, &col2, -1);
@@ -1215,13 +1205,10 @@ info_tree_compare_val_func(GtkTreeModel * model,
     g_free(col2);
 
     return ret;
-}
+}*/
 
 static void set_view_type(ShellViewType viewtype, gboolean reload)
 {
-#if GTK_CHECK_VERSION(2, 18, 0)
-    GtkAllocation* alloc;
-#endif
     gboolean type_changed = FALSE;
     if (viewtype != shell->view_type)
         type_changed = TRUE;
@@ -1234,13 +1221,13 @@ static void set_view_type(ShellViewType viewtype, gboolean reload)
     shell->_order_type = SHELL_ORDER_DESCENDING;
 
     /* use an unsorted tree model */
-    GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
+    /*GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
 
     gtk_tree_sortable_set_sort_column_id(sortable,
         GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID,
         GTK_SORT_ASCENDING);
     gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view),
-        GTK_TREE_MODEL(sortable));
+    GTK_TREE_MODEL(sortable));*/
 
     /* reset to the default view columns */
     if (!reload) {
@@ -1276,7 +1263,7 @@ static void set_view_type(ShellViewType viewtype, gboolean reload)
 
         if (type_changed) {
 #if GTK_CHECK_VERSION(2, 18, 0)
-            alloc = g_new(GtkAllocation, 1);
+	    GtkAllocation* alloc = g_new(GtkAllocation, 1);
             gtk_widget_get_allocation(shell->hbox, alloc);
             gtk_paned_set_position(GTK_PANED(shell->vpaned), alloc->height / 2);
             g_free(alloc);
@@ -1294,7 +1281,7 @@ static void set_view_type(ShellViewType viewtype, gboolean reload)
 
         if (type_changed) {
 #if GTK_CHECK_VERSION(2, 18, 0)
-            alloc = g_new(GtkAllocation, 1);
+            GtkAllocation* alloc = g_new(GtkAllocation, 1);
             gtk_widget_get_allocation(shell->hbox, alloc);
             gtk_paned_set_position(GTK_PANED(shell->vpaned),
                     alloc->height - load_graph_get_height(shell->loadgraph) - 16);
@@ -1620,7 +1607,7 @@ static void update_progress()
     } while (gtk_tree_model_iter_next(model, &iter));
 
     /* now sort everything up. that wasn't as hard as i thought :) */
-    GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
+    /*GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
 
     gtk_tree_sortable_set_sort_func(sortable, INFO_TREE_COL_VALUE,
 				    info_tree_compare_val_func, 0, NULL);
@@ -1628,6 +1615,7 @@ static void update_progress()
 					 GTK_SORT_DESCENDING);
     gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view),
 			    GTK_TREE_MODEL(sortable));
+    */
 }
 
 void shell_set_note_from_entry(ShellModuleEntry * entry)

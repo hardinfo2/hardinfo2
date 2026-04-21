@@ -188,18 +188,19 @@ static gchar *find_releaseyear_path(void)
 }
 
 static gchar *cache_processor_year=NULL;
-gchar *processor_year(GSList * processors)
+static gchar *processor_year(GSList * processors)
 {
     JsonParser *parser;
     JsonNode *root;
     GError *error=NULL;
     gchar *path, *cpuname;
-    if(cache_processor_year) return cache_processor_year;
+    if(cache_processor_year) return g_strdup(cache_processor_year);
 
+    path=find_releaseyear_path();
+    if(!path) return g_strdup("Missing");
     cpuname = processor_name(processors);
     cpuname=strreplace(cpuname," (","(");
     strend(cpuname,'(');
-    path=find_releaseyear_path();
     parser = json_parser_new();
     json_parser_load_from_file(parser, path, &error);
     if(error){
@@ -207,12 +208,14 @@ gchar *processor_year(GSList * processors)
         g_error_free(error);
         g_object_unref(parser);
 	cache_processor_year=g_strdup(_("Unknown"));
+	g_free(cpuname);
         return g_strdup(_("Unknown"));
     }
     root = json_parser_get_root(parser);
     if (!root || (json_node_get_node_type(root) != JSON_NODE_OBJECT)) {
         g_object_unref(parser);
 	cache_processor_year=g_strdup(_("Unknown"));
+	g_free(cpuname);
 	return g_strdup(_("Unknown"));
     }
     JsonObject *results = json_node_get_object(root);
@@ -222,12 +225,13 @@ gchar *processor_year(GSList * processors)
 	    gchar r[8]={ret[0],ret[1],ret[2],ret[3],'-',ret[4],ret[5],0};
 	    g_object_unref(parser);
 	    cache_processor_year=g_strdup(r);
+	    g_free(cpuname);
 	    return g_strdup(r);
         }
     }
-
     if(parser) g_object_unref(parser);
     cache_processor_year=g_strdup(_("Unknown"));
+    g_free(cpuname);
     return g_strdup_printf(_("Unknown"));
 }
 
@@ -343,7 +347,7 @@ gchar *processor_describe_by_counting_names(GSList * processors)
 #endif
 gchar *ldlinux_hwcaps() {
     gboolean spawned;
-    gchar *cmd_line,*out=NULL,*err=NULL,*supported=g_strdup("");
+    gchar *cmd_line=NULL,*out=NULL,*err=NULL,*supported=g_strdup("");
 
     if(PTR_BITS==64){//64bit
         cmd_line=g_strdup("sh -c 'LC_ALL=C /usr/lib64/ld-linux-x86-64.so.2 --help'");
@@ -357,24 +361,30 @@ gchar *ldlinux_hwcaps() {
 	   g_free(cmd_line);
 	}
 	if (spawned && strlen(out)>=100) {
+	    gchar *t=supported;
 	    if(strstr(out,"x86-64-v1 (sup")) supported=g_strconcat(supported," x86-64-V1 ",NULL);
 	    if(strstr(out,"x86-64-v2 (sup")) supported=g_strconcat(supported," x86-64-V2 ",NULL);
 	    if(strstr(out,"x86-64-v3 (sup")) supported=g_strconcat(supported," x86-64-V3 ",NULL);
 	    if(strstr(out,"x86-64-v4 (sup")) supported=g_strconcat(supported," x86-64-V4 ",NULL);
 	    if(strstr(out,"x86-64-v5 (sup")) supported=g_strconcat(supported," x86-64-V5 ",NULL);//future
 	    if(strlen(supported)<1) supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	    g_free(t);
 	} else {
+	    gchar *t=supported;
 	    supported=g_strconcat(supported," x86-64-V1 ",NULL);
+	    g_free(t);
 	}
     } else {//32bit and others
         cmd_line=g_strdup("sh -c 'LC_ALL=C uname -m'");
 	spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
 	g_free(cmd_line);
+	gchar *t=supported;
 	if (spawned && strlen(out)>=1) {
 	    supported=g_strconcat(supported, " ",out," ", NULL);
 	}else{
 	    supported=g_strconcat(supported, " ",HARDINFO2_ARCH," ", NULL);
 	}
+	g_free(t);
     }
     if(out) g_free(out);
     if(err) g_free(err);

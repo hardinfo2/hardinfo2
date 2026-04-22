@@ -2276,7 +2276,7 @@ static ShellInfoTree *info_tree_new(void)
 
     info->col_progress = column = gtk_tree_view_column_new();
     gtk_tree_view_column_set_visible(column, FALSE);
-    gtk_tree_view_column_set_min_width(column, 240);
+    gtk_tree_view_column_set_min_width(column, 300);
     gtk_tree_view_column_set_clickable(column, TRUE);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 

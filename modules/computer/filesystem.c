@@ -29,28 +29,42 @@
 
 gchar *fs_list = NULL;
 
-void
-scan_filesystems(void)
+static gint filesystem_sort(gchar *linea, gchar *lineb)
 {
-    FILE *mtab;
-    gchar buf[1024];
+    return g_strcmp0(linea,lineb);
+    /*    gchar *sta=strstr(linea," /");
+    gchar *stb=strstr(lineb," /");
+    return g_strcmp0(sta?sta+1:NULL,stb?stb+1:NULL);*/
+}
+
+void scan_filesystems(void)
+{
+    gchar *buf;
     struct statfs sfs;
     int count = 0;
+    GList *fs=NULL,*p;
+    gchar **fslines;
 
     g_free(fs_list);
     fs_list = g_strdup("");
     moreinfo_del_with_prefix("COMP:FS");
 
-    mtab = fopen("/etc/mtab", "r");
-    if (!mtab)
-        return;
+    if(!g_file_get_contents("/etc/mtab", &buf, NULL, NULL)) return;
+    buf=strreplace(buf,"\r","");
+    fslines=g_strsplit(buf,"\n",0);
+    g_free(buf);
 
-    while (fgets(buf, 1024, mtab)) {
+    gint i=0; while(fslines && fslines[i] && strlen(fslines[i])) fs=g_list_append(fs, g_strdup(fslines[i++]));
+    g_strfreev(fslines);
+
+    fs=g_list_sort(fs,(GCompareFunc)filesystem_sort);
+    p=fs;
+    while (p && p->data) {
         gfloat size, used, avail;
-        gchar **tmp;
+        gchar **tmp=NULL;
 
-        tmp = g_strsplit(buf, " ", 0);
-        if (!statfs(tmp[1], &sfs)) {
+        tmp = g_strsplit((gchar *)p->data, " ", 0);
+        if(tmp && tmp[1]) if (!statfs(tmp[1], &sfs)) {
                 gfloat use_ratio;
 
                 size = (float) sfs.f_bsize * (float) sfs.f_blocks;
@@ -58,13 +72,14 @@ scan_filesystems(void)
                 used = size - avail;
 
                 if (size == 0.0f) {
-                        continue;
+		    p=p->next;
+                    continue;
                 }
 
                 if (avail == 0.0f) {
-                        use_ratio = 100.0f;
+                    use_ratio = 100.0f;
                 } else {
-                        use_ratio = 100.0f * (used / size);
+                    use_ratio = 100.0f * (used / size);
                 }
 
                 gchar *strsize = size_human_readable(size),
@@ -94,17 +109,16 @@ scan_filesystems(void)
                 moreinfo_add_with_prefix("COMP", key, strhash);
                 g_free(key);
 
-                fs_list = h_strdup_cprintf("$FS%d$%s%s=%.2f %% (%s of %s)|%s\n",
+                fs_list = h_strdup_cprintf("$FS%03d$%s%s=%.2f %% (%s of %s)|%s\n",
                                           fs_list,
                                           count, tmp[0], rw ? "" : "🔒",
                                           use_ratio, stravail, strsize, tmp[1]);
-
                 g_free(strsize);
                 g_free(stravail);
                 g_free(strused);
         }
-        g_strfreev(tmp);
+        g_strfreev(tmp);tmp=NULL;
+	p=p->next;
     }
-
-    fclose(mtab);
+    g_list_free(fs);
 }

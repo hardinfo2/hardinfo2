@@ -67,6 +67,15 @@ void scan_filesystems(void)
         if(tmp && tmp[1]) if (!statfs(tmp[1], &sfs)) {
                 gfloat use_ratio;
 
+		//support subvolumes like btrfs
+		gchar *atsubvol=strstr(tmp[3],"subvol=/@");
+		if(atsubvol) {
+		    gchar *newtmp0=g_strconcat(tmp[0],atsubvol+8,NULL);
+		    g_free(tmp[0]);
+		    tmp[0]=newtmp0;
+		    strend(tmp[0],',');
+		}
+
                 size = (float) sfs.f_bsize * (float) sfs.f_blocks;
                 avail = (float) sfs.f_bsize * (float) sfs.f_bavail;
                 used = size - avail;
@@ -109,7 +118,7 @@ void scan_filesystems(void)
                 moreinfo_add_with_prefix("COMP", key, strhash);
                 g_free(key);
 
-                fs_list = h_strdup_cprintf("$FS%03d$%s%s=%.2f %% (%s of %s)|%s\n",
+                fs_list = h_strdup_cprintf("$FS%d$%s%s=%.2f %% (%s of %s)|%s\n",
                                           fs_list,
                                           count, tmp[0], rw ? "" : "🔒",
                                           use_ratio, stravail, strsize, tmp[1]);

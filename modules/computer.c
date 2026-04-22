@@ -528,8 +528,8 @@ gchar *change(gchar *line){
     if(strstr(line,"[")) {if(!oneshot++) return g_strdup("[Storage]\n"); else return g_strdup("");}
     if(strstr(line,"=") && strstr(line,"|")){
       gchar **sa=g_strsplit(line,"=",2);
-      gchar **sb=g_strsplit(sa[1],"|",2);
-      gchar *out=g_strdup_printf("%s=%s (%s)",sa[0],sb[1],sb[0]);
+      gchar **sb=g_strsplit(sa[1],"|",3);//remove serial number
+      gchar *out=g_strdup_printf("%s=%s (%s)",sa[0],sb[2],sb[0]);
       g_strfreev(sa);
       g_strfreev(sb);
       return out;

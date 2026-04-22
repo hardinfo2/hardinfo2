@@ -475,9 +475,12 @@ gchar *get_storage_devices_simple(void)
 
             tmp = g_regex_replace(regex, field->value, -1, 0, "", 0, NULL); // remove html tags 
 	    tmp=strreplace(tmp,"  "," ");
-	    tmp=strreplace(tmp,"|"," ");
-            storage_devs = h_strdup_cprintf("%s\n", storage_devs, g_strstrip(tmp));
+	    gchar **ss=g_strsplit(tmp,"|",3);
             g_free(tmp);
+	    if(!ss[0]) ss[0]=g_strdup("0 B");
+	    if(!ss[2]) ss[2]=g_strdup("Unknown");
+            storage_devs = h_strdup_cprintf("%s - %s\n", storage_devs, g_strstrip(ss[0]), g_strstrip(ss[2]));
+	    g_strfreev(ss);
         }
     }
     g_regex_unref(regex);
@@ -1125,8 +1128,9 @@ gchar *callback_storage()
         "ColumnTitle$TextValue=%s\n"
         "ColumnTitle$Value=%s\n"
         "ColumnTitle$Extra1=%s\n"
+        "ColumnTitle$Extra2=%s\n"
         "ShowColumnHeaders=true\n"
-        "ViewType=1\n%s", storage_list, _("Device"), _("Size"), _("Model"), storage_icons);
+        "ViewType=1\n%s", storage_list, _("Device"), _("Size"), _("Serial Number"), _("Model"), storage_icons);
 }
 
 gchar *callback_input()

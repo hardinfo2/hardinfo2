@@ -82,6 +82,14 @@ gchar *nvme_pci_sections(pcid *p) {
     return ret;
 }
 
+static gint drives_sort(u2driveext *exta, u2driveext *extb)
+{
+  udiskd *diska,*diskb;
+  diska = exta->d;
+  diskb = extb->d;
+  return g_strcmp0(diska->block_dev,diskb->block_dev);
+}
+
 gboolean __scan_udisks2_devices(void) {
     GSList *node,*nodenext, *drives;
     u2driveext *ext;
@@ -225,6 +233,8 @@ gboolean __scan_udisks2_devices(void) {
 	node=nodenext;
     }
 
+    drives=g_slist_sort(drives,(GCompareFunc)drives_sort);
+
     for (node = drives; node != NULL; node = node->next) {
         ext = (u2driveext *)node->data;
         disk = ext->d;
@@ -281,7 +291,7 @@ gboolean __scan_udisks2_devices(void) {
         size = size_human_readable((gfloat) disk->size);
         ven_tag = vendor_list_ribbon(ext->vendors, params.fmt_opts);
 
-        udisks2_storage_list = h_strdup_cprintf("$%s$%s=%s|%s %s\n", udisks2_storage_list, devid, disk->block_dev, size, ven_tag ? ven_tag : "", disk->model);
+        udisks2_storage_list = h_strdup_cprintf("$%s$%s=%s|%s|%s %s\n", udisks2_storage_list, devid, disk->block_dev, size, disk->serial, ven_tag ? ven_tag : "", disk->model);
         storage_icons = h_strdup_cprintf("Icon$%s$%s=%s.svg\n", storage_icons, devid, disk->model, icon);
         features = h_strdup_cprintf("%s", features, disk->removable ? _("Removable"): _("Fixed"));
 

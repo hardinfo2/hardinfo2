@@ -31,6 +31,12 @@ gchar *fs_list = NULL;
 
 static gint filesystem_sort(gchar *linea, gchar *lineb)
 {
+    //Put /dev/loop last
+    if(strstr(linea,"/dev/loop")){
+        if(!strstr(lineb,"/dev/loop")) return 1;
+    }else{
+        if(strstr(lineb,"/dev/loop")) return -1;
+    }
     return g_strcmp0(linea,lineb);
     /*    gchar *sta=strstr(linea," /");
     gchar *stb=strstr(lineb," /");

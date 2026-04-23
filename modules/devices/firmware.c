@@ -144,7 +144,7 @@ gchar *fwupdmgr_get_devices_info() {
     devices = g_dbus_proxy_call_sync(proxy, "GetDevices", NULL,
                                      G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL);
 
-    if (devices) {
+    if (devices && g_variant_check_format_string(devices, "(aa{sv})", FALSE) ) {
         g_variant_get(devices, "(aa{sv})", &deviter);
         while(g_variant_iter_loop(deviter, "a{sv}", &dictiter)){
 

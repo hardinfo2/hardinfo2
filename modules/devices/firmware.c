@@ -27,7 +27,6 @@
 #define fw_msg(msg, ...) fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__) /**/
 
 #define FWUPT_INTERFACE  "org.freedesktop.fwupd"
-
 gboolean fail_no_fwupd = TRUE;
 
 char *decode_flags(guint64 flags) {
@@ -114,6 +113,76 @@ const char *find_icon(const char *lvfs_name) {
     return imap[i].hi;
 }
 
+#ifndef G_GNUC_FALLTHROUGH
+#define G_GNUC_FALLTHROUGH ;
+#endif
+gboolean g2_variant_check_format_string (GVariant    *value,
+                               const gchar *format_string,
+                               gboolean     copy_only)
+{
+  const gchar *original_format = format_string;
+  const gchar *type_string;
+  /* Interesting factoid: assuming a format string is valid, it can be
+   * converted to a type string by removing all '@' '&' and '^'
+   * characters.
+   *
+   * Instead of doing that, we can just skip those characters when
+   * comparing it to the type string of @value.
+   *
+   * For the copy-only case we can just drop the '&' from the list of
+   * characters to skip over.  A '&' will never appear in a type string
+   * so we know that it won't be possible to return %TRUE if it is in a
+   * format string.
+   */
+  type_string = g_variant_get_type_string (value);
+  while (*type_string || *format_string)
+    {
+      gchar format = *format_string++;
+      switch (format)
+        {
+        case '&':
+          if G_UNLIKELY (copy_only)
+            {
+              /* for the love of all that is good, please don't mark this string for translation... */
+              g_critical ("g_variant_check_format_string() is being called by a function with a GVariant varargs "
+                          "interface to validate the passed format string for type safety.  The passed format "
+                          "(%s) contains a '&' character which would result in a pointer being returned to the "
+                          "data inside of a GVariant instance that may no longer exist by the time the function "
+                          "returns.  Modify your code to use a format string without '&'.", original_format);
+              return FALSE;
+            }
+          G_GNUC_FALLTHROUGH;
+        case '^':
+        case '@':
+          /* ignore these 2 (or 3) */
+          continue;
+        case '?':
+          /* attempt to consume one of 'bynqiuxthdsog' */
+          {
+            char s = *type_string++;
+            if (s == '\0' || strchr ("bynqiuxthdsog", s) == NULL)
+              return FALSE;
+          }
+          continue;
+        case 'r':
+          /* ensure it's a tuple */
+          if (*type_string != '(')
+            return FALSE;
+          G_GNUC_FALLTHROUGH;
+        case '*':
+          /* consume a full type string for the '*' or 'r' */
+          if (!g_variant_type_string_scan (type_string, NULL, &type_string))
+            return FALSE;
+          continue;
+        default:
+          /* attempt to consume exactly one character equal to the format */
+          if (format != *type_string++)
+            return FALSE;
+        }
+    }
+  return TRUE;
+}
+
 gchar *fwupdmgr_get_devices_info() {
     struct Info *info = info_new();
     struct InfoGroup *this_group = NULL;
@@ -144,7 +213,7 @@ gchar *fwupdmgr_get_devices_info() {
     devices = g_dbus_proxy_call_sync(proxy, "GetDevices", NULL,
                                      G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL);
 
-    if (devices && g_variant_check_format_string(devices, "(aa{sv})", FALSE) ) {
+    if (devices && g2_variant_check_format_string(devices, "(aa{sv})", FALSE) ) {
         g_variant_get(devices, "(aa{sv})", &deviter);
         while(g_variant_iter_loop(deviter, "a{sv}", &dictiter)){
 

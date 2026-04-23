@@ -543,12 +543,13 @@ gchar *get_storage_home_models(void)
     p2=p=g_strdup(storage_list);
     while ( (np=strstr(p,"\n")) ){
       *np=0;
-      //printf("name=%s\n",p);
+      //printf("name=%s, homepath=%s\n",p,homepath);
       if(strstr(p,homepath)) {
 	  tmp = g_regex_replace(regex, strstr(p,"=")+1, -1, 0, "", 0, NULL); // remove html tags
 	  tmp = g_strstrip(strreplace(tmp,"  "," "));
 	  tmp = g_strstrip(strreplace(tmp,"| ","|"));
 	  p=strstr(tmp,"|");
+	  if(strstr(p+1,"|")) p=strstr(p+1,"|");//remove serialnumber
 	  *p=0;
 	  p++;
           g_regex_unref(regex);

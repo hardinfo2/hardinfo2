@@ -473,13 +473,14 @@ gchar *get_storage_devices_simple(void)
             if (!field->value)
                 continue;
 
-            tmp = g_regex_replace(regex, field->value, -1, 0, "", 0, NULL); // remove html tags 
+            tmp = g_regex_replace(regex, field->value, -1, 0, "", 0, NULL); // remove html tags
 	    tmp=strreplace(tmp,"  "," ");
 	    gchar **ss=g_strsplit(tmp,"|",3);
             g_free(tmp);
-	    if(!ss[0]) ss[0]=g_strdup("0 B");
-	    if(!ss[2]) ss[2]=g_strdup("Unknown");
-            storage_devs = h_strdup_cprintf("%s - %s\n", storage_devs, g_strstrip(ss[0]), g_strstrip(ss[2]));
+	    if(ss && ss[0] && ss[2])
+	        storage_devs = h_strdup_cprintf("%s - %s\n", storage_devs, g_strstrip(ss[0]), g_strstrip(ss[2]));
+	    else
+	        storage_devs = h_strdup_cprintf("0 B - Unknown\n", storage_devs);
 	    g_strfreev(ss);
         }
     }

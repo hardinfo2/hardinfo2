@@ -658,7 +658,7 @@ void __scan_scsi_devices(void)
                 }
 
                 gchar *devid = g_strdup_printf("SCSI%d", n);
-                scsi_storage_list = h_strdup_cprintf("$%s$scsi%d=|%s\n", scsi_storage_list, devid, scsi_controller, model);
+                scsi_storage_list = h_strdup_cprintf("$%s$scsi%d-%d=%s|%s|%s\n", scsi_storage_list, devid, scsi_controller, scsi_lun, _("Unknown")/*FIXME size*/, ""/*FIXME Serial*/, /*ven_tag ? ven_tag : "",*/ model);
                 storage_icons = h_strdup_cprintf("Icon$%s$%s=%s.svg\n", storage_icons, devid, model, icon);
 
                 gchar *strhash = g_strdup_printf(_("[Device Information]\n"
@@ -861,8 +861,7 @@ void __scan_ide_devices(void)
 	    n++;
 
 	    gchar *devid = g_strdup_printf("IDE%d", n);
-
-	    ide_storage_list = h_strdup_cprintf("$%s$hd%c=|%s\n", ide_storage_list, devid, iface, model);
+            ide_storage_list = h_strdup_cprintf("$%s$hd%c=%s|%s|%s\n", ide_storage_list, devid, iface, _("Unknown")/*FIXME size*/, ""/*FIXMEserial"*/, /*ven_tag ? ven_tag : "",*/ model);
 	    storage_icons =
 		h_strdup_cprintf("Icon$%s$%s=%s.svg\n", storage_icons,
 				 devid, model, g_str_equal(media, "cdrom") ? "cdrom" : "hdd");

@@ -668,10 +668,12 @@ gchar *callback_security(void)
         info_field_last());
 
     p3=computer_get_lsm();
+    gchar *landlock = computer_get_landlock_abi_version();
     info_add_group(
         info, _("Linux Security Modules"),
         info_field(_("Modules available"), p3),
         info_field(_("SELinux status"), computer_get_selinux()),
+        info_field(_("Landlock ABI version"), landlock),
         info_field_last());
 
     GDir *dir = g_dir_open("/sys/devices/system/cpu/vulnerabilities", 0, NULL);
@@ -714,6 +716,7 @@ gchar *callback_security(void)
 
     p=info_flatten(info);
     g_free(systype_str); g_free(p1); g_free(p2); g_free(p3);
+    g_free(landlock);
     return p;
 }
 

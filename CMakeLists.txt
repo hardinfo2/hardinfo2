@@ -519,6 +519,11 @@ pkg_check_modules(X11 REQUIRED x11)
 
 include(FindZLIB REQUIRED)
 
+find_path(LANDLOCK_HEADER landlock.h /usr/include/linux)
+if (LANDLOCK_HEADER)
+	add_definitions("-DHAS_LANDLOCK")
+endif ()
+
 include_directories(
 	${CMAKE_SOURCE_DIR}
 	${CMAKE_SOURCE_DIR}/includes

@@ -811,3 +811,21 @@ computer_get_lsm(void)
 
     return contents;
 }
+
+#if !defined(HAS_LANDLOCK)
+gchar *computer_get_landlock_abi_version(void) {
+  return g_strdup(_("Not built with Landlock support"));
+}
+#else
+#include <linux/landlock.h>
+#include <sys/syscall.h>
+
+gchar *computer_get_landlock_abi_version(void) {
+  int abi = (int)syscall(SYS_landlock_create_ruleset, NULL, 0,
+                         LANDLOCK_CREATE_RULESET_VERSION);
+
+  if (abi <= 0)
+    return g_strdup(_("Unknown"));
+  return g_strdup_printf(_("Version %d"), abi);
+}
+#endif

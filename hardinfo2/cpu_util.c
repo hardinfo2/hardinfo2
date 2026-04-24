@@ -48,7 +48,12 @@ gchar* get_cpu_str(const gchar* file, gint cpuid) {
     gchar *tmp0 = NULL;
     gchar *tmp1 = NULL;
     tmp0 = g_strdup_printf("/sys/devices/system/cpu/cpu%d/%s", cpuid, file);
-    g_file_get_contents(tmp0, &tmp1, NULL, NULL);
+    if (!tmp0)
+    return NULL;
+    if (!g_file_get_contents(tmp0, &tmp1, NULL, NULL)) {
+        g_free(tmp0);       
+        return NULL;
+    }
     g_free(tmp0);
     return tmp1;
 }

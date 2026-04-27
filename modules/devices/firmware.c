@@ -116,6 +116,9 @@ const char *find_icon(const char *lvfs_name) {
 #ifndef G_GNUC_FALLTHROUGH
 #define G_GNUC_FALLTHROUGH ;
 #endif
+#if GLIB_CHECK_VERSION(2,35,0)
+#define g2_variant_check_format_string g_variant_check_format_string
+#else
 gboolean g2_variant_check_format_string (GVariant    *value,
                                const gchar *format_string,
                                gboolean     copy_only)
@@ -182,6 +185,7 @@ gboolean g2_variant_check_format_string (GVariant    *value,
     }
   return TRUE;
 }
+#endif
 
 gchar *fwupdmgr_get_devices_info() {
     struct Info *info = info_new();

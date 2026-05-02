@@ -667,6 +667,7 @@ gchar *processor_name(GSList *processors) {
         { "qcom,x1p42100", "Qualcomm", "Snapdragon X Plus"},
         { "rockchip,rk3188", "Rockchip", "RK3188" }, // tablets from 2012
         { "rockchip,rk3288", "Rockchip", "RK3288" }, // Asus Tinkerboard
+        { "rockchip,rk3308", "Rockchip", "RK3308 (PiS)" }, // raxda rock pi s
         { "rockchip,rk3328", "Rockchip", "RK3328" }, // Firefly Renegade
         { "rockchip,rk3399", "Rockchip", "RK3399" }, // Firefly Renegade Elite
         { "rockchip,rk32", "Rockchip", "RK32xx-family" },

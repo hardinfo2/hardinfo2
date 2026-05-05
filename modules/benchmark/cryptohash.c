@@ -32,7 +32,7 @@ static gpointer cryptohash_for(void *in_data, gint thread_number)
 {
     unsigned int i;
     struct MD5Context md5_ctx;
-    guchar md5_checksum[16];
+    guchar md5_checksum[32];
     SHA1_CTX sha1_ctx;
     guchar sha1_checksum[20];
 

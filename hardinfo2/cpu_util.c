@@ -20,7 +20,6 @@
 #include <string.h>
 #include "hardinfo.h"
 #include "cpu_util.h"
-#include "cpubits.h"
 
 #define CPU_TOPO_NULL -9877
 
@@ -64,41 +63,64 @@ gint get_cpu_int(const char* item, int cpuid, int null_val) {
     return ret;
 }
 
-/* cpubits is 32768 bits long
- * core_ids are not unique among physical_ids
- * hack up cpubits into 128 packs of 256 cores
- * to make cores unique in cpubits */
+#define MAX_BITS 65536
+/* core_ids are not unique among physical_ids*/
 #define MAX_CORES_PER_PACK 256
-#define MAX_PACKS 128
+unsigned int cpubits_count(guint64 *base){
+    int i=0,count=0;
+    while(i<(MAX_BITS>>6)) {
+       if(*(base+i)) {
+	   int t=0;
+	   while(t<64) {
+	       if(*(base+i) & (1L<<t)) count++;
+	       t++;
+	   }
+       }
+       i++;
+    }
+    return count;
+}
+unsigned int count_from_str(gchar *str){
+    int count=0;
+    gchar *p=str,*np=NULL,*sp;
+    while(p){
+        np=strstr(p,",");
+        if(np) *np=0;
+        if(sp=strstr(p,"-")) {
+	    *sp=0;
+	    count+=atoi(sp+1)+1-atoi(p);
+        } else {
+	  count++;
+        }
+        if(np) p=np+1; else p=NULL;
+    }
+    return count;
+}
 
 int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
 {
-    cpubits *threads, *cores, *packs;
+    guint64 *cores, *packs;
     char *tmp;
-    int i, m, pack_id, core_id;
+    int i, pack_id, core_id;
 
+    *p = *c = *t = *n = 0;
     g_file_get_contents("/sys/devices/system/cpu/present", &tmp, NULL, NULL);
-    if (tmp == NULL) {
-        *p = *c = *t = *n = -1;
-        return 0;
-    }
+    if (!tmp) return 0;
+    *t=count_from_str(tmp);
+    free(tmp);
 
-    threads = cpubits_from_str(tmp);
-    cores = cpubits_from_str("");
-    packs = cpubits_from_str("");
-    m = cpubits_max(threads);
-    for (i = 0; i <= m; i++) {
+    cores = g_malloc0(MAX_BITS>>3);
+    packs = g_malloc0(MAX_BITS>>3);
+    for (i = 0; i < *t; i++) {
         pack_id = get_cpu_int("topology/physical_package_id", i, CPU_TOPO_NULL);
-        core_id = get_cpu_int("topology/core_id", i, CPU_TOPO_NULL);
-        if (pack_id < 0)
-            pack_id = 0;
-        CPUBIT_SET(packs, pack_id);
-        if (core_id >= 0) {
-            CPUBIT_SET(cores, (pack_id * MAX_CORES_PER_PACK) + core_id);
-        }
+        if (pack_id < 0 || pack_id>=MAX_BITS) pack_id = 0;
+        *(packs+(pack_id>>6)) |= (1L<<(pack_id%64));
+        core_id = pack_id*MAX_CORES_PER_PACK + get_cpu_int("topology/core_id", i, CPU_TOPO_NULL);
+	//printf("Thread=%3d PACKID=%3d COREID=%5d\n",i,pack_id,core_id);
+        if (core_id < 0 || core_id>=MAX_BITS) core_id = 0;
+	*(cores+(core_id>>6)) |= (1L<<(core_id%64));
     }
 
-    *t = cpubits_count(threads);
     *c = cpubits_count(cores);
 //HACK: Arms cores are described different in topology, only Cortex-A65 is multithreaded so this fix is for 99%
 #ifdef ARCH_arm
@@ -106,27 +128,18 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
 #endif
     *p = cpubits_count(packs);
     *n = 1;
-
-    g_free(tmp);
     g_file_get_contents("/sys/devices/system/node/possible", &tmp, NULL, NULL);
-    if (tmp != NULL) {
-        cpubits *nodes = cpubits_from_str(tmp);
-        if (nodes)
-            *n = cpubits_count(nodes);
-        free(nodes);
-    }
+    if (tmp) *n = count_from_str(tmp);
+    free(tmp);
 
-    if (!*c)
-      *c = *t; //if no cores, set to threads - probably SBC, best for benchmark
-    if (!*p)
-        *p = 1;
-    if (!*n)
-        *n = 1;
+    //sanitity check
+    if (*c<1) *c = *t; //if no cores, set to threads - probably SBC, best for benchmark
+    if (*p<1) *p = 1;
+    if (*n<1) *n = 1;
 
-    g_free(threads);
     g_free(cores);
     g_free(packs);
-    g_free(tmp);
+    //printf("CPU: %d %d %d %d\n",*p,*c,*t,*n);
     return 1;
 }
 

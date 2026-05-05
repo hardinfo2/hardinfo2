@@ -21,7 +21,7 @@
 #include "benchmark.h"
 
 /* if anything changes in this block, increment revision */
-#define BENCH_REVISION 4
+#define BENCH_REVISION 3
 #define BENCH_DATA_SIZE 65536
 #define CRUNCH_TIME 5
 #define BENCH_DATA_MD5 "c25cf5c889f7bead2ff39788eedae37b"
@@ -32,9 +32,9 @@ static gpointer cryptohash_for(void *in_data, gint thread_number)
 {
     unsigned int i;
     struct MD5Context md5_ctx;
-    static guchar md5_checksum[16];
+    guchar md5_checksum[16];
     SHA1_CTX sha1_ctx;
-    static guchar sha1_checksum[20];
+    guchar sha1_checksum[20];
 
     for (i = 0;i <= STEPS; i++) {
         if (i & 1) {
@@ -67,7 +67,7 @@ benchmark_cryptohash(void)
     //if (!SEQ(d, BENCH_DATA_MD5))
     r = benchmark_crunch_for(CRUNCH_TIME, 0, cryptohash_for, test_data);
     r.revision = BENCH_REVISION;
-    snprintf(r.extra, 511, "r:%d, d:%s", STEPS, d);
+    snprintf(r.extra, 255, "r:%d, d:%s", STEPS, d);
 
     g_free(test_data);
     g_free(d);

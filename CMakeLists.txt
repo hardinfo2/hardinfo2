@@ -681,7 +681,6 @@ add_library(sysobj_early STATIC
 	deps/sysobj_early/gui/uri_handler.c
 	deps/sysobj_early/src/util_edid.c
 	deps/sysobj_early/src/format_early.c
-	deps/sysobj_early/src/cpubits.c
 )
 set_target_properties(sysobj_early PROPERTIES COMPILE_FLAGS "-std=c99 -Wno-parentheses -Werror=implicit-function-declaration")
 target_link_libraries(sysobj_early m)

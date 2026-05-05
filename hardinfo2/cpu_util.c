@@ -97,11 +97,21 @@ unsigned int count_from_str(gchar *str){
     return count;
 }
 
+static int cached=0;
+static int cpu_cached[4];
 int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
 {
     guint64 *cores, *packs;
     char *tmp;
     int i, pack_id, core_id;
+
+    if(cached){
+        *p=cpu_cached[0];
+        *c=cpu_cached[1];
+        *t=cpu_cached[2];
+        *n=cpu_cached[3];
+	return 1;
+    }
 
     *p = *c = *t = *n = 0;
     g_file_get_contents("/sys/devices/system/cpu/present", &tmp, NULL, NULL);
@@ -140,6 +150,13 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
     g_free(cores);
     g_free(packs);
     //printf("CPU: %d %d %d %d\n",*p,*c,*t,*n);
+
+    cpu_cached[0]=*p;
+    cpu_cached[1]=*c;
+    cpu_cached[2]=*t;
+    cpu_cached[3]=*n;
+    cached=1;
+
     return 1;
 }
 

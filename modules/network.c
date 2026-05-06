@@ -121,7 +121,7 @@ static gchar *__statistics = NULL;
 void scan_statistics(gboolean reload)
 {
     gboolean spawned;
-    gchar *out=NULL,*err=NULL,*p,*netstat_path,*command_line=NULL,*names[6];
+    gchar *out=NULL,*err=NULL,*topic=NULL,*p,*netstat_path,*command_line=NULL,*names[6];
     int line = 0,ip=0;
 
     SCAN_START();
@@ -136,12 +136,6 @@ void scan_statistics(gboolean reload)
     spawned = g_spawn_command_line_sync(command_line, &out, &err, NULL, NULL);
 
     if (spawned && out) {
-        if(ip){
-	    out=strreplace(out,"RX:","");
-	    out=strreplace(out,"TX:","");
-	    out=strreplace(out,"RX errors","");
-	    out=strreplace(out,"TX errors","");
-	}
         p=out;
         while (p && *p) {
 	    if (!isspace(*p)) {
@@ -155,26 +149,36 @@ void scan_statistics(gboolean reload)
 		line=0;
 	    } else {
 		while (*p && isspace(*p)) p++;
-		gchar *np=p;
-		while (*np && (*np!='\n')) np++;
-		if(*np && (*np=='\n')) {*np=0;} else np=NULL;
+		gchar *np=strchr(p,'\n');
+		if(np) *np=0;
                 if(ip){
 		    if(strstr(p,"/")) {
 		      // __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, p);
 		    } else {
-		        if(strstr(p,":")){
-			  gchar **sv=strsplit_multi(strstr(p,":")+1," ",6);
-		          int i=0;while(i<6 && sv[i]) {
-			      g_free(names[i]); names[i]=NULL;
-			      if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
-			      //if(names[i] && strlen(names[i])==0) {g_free(names[i]);names[i]=NULL;}
-			      i++;
-			  }
-			  g_strfreev(sv);
+		        gchar *tp;
+		        if(tp=strstr(p,":")){
+			    *tp='\0';
+			    topic=NULL;
+			    if(strstr(p,"TX")) topic="TX-";
+			    if(strstr(p,"RX")) topic="RX-";
+			    *tp=':';
+			    p=tp+1;
+			    while (*p && isspace(*p)) p++;
+			    gchar **sv=strsplit_multi(p," ",6);
+		            int i=0;while(i<6 && sv[i]) {
+			        g_free(names[i]); names[i]=NULL;
+			        if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
+			        i++;
+			    }
+			    g_strfreev(sv);
 			} else {
-			  gchar **sv=strsplit_multi(p," ",6);
-			  int i=0;while(i<6 && sv[i]) {if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, g_strconcat(names[i],": ",sv[i],NULL)); i++;}
-			  g_strfreev(sv);
+			    gchar **sv=strsplit_multi(p," ",6);
+			    int i=0;while(i<6 && sv[i]) {
+			        if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s%s\n", __statistics, line++, topic?topic:"" , g_strconcat(names[i],": ",sv[i],NULL));
+				g_free(names[i]); names[i]=NULL;
+				i++;
+			    }
+			    g_strfreev(sv);
 			}
 		    }
 		} else {

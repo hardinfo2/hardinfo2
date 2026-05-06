@@ -156,7 +156,7 @@ void scan_statistics(gboolean reload)
 		      // __statistics = h_strdup_cprintf(">#%d=%s\n", __statistics, line++, p);
 		    } else {
 		        gchar *tp;
-		        if(tp=strstr(p,":")){
+		        if( (tp=strstr(p,":")) ){
 			    *tp='\0';
 			    topic=NULL;
 			    if(strstr(p,"TX")) topic="TX-";

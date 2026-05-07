@@ -167,7 +167,7 @@ void scan_statistics(gboolean reload)
 			    gchar **sv=strsplit_multi(p," ",6);
 		            int i=0;while(i<6 && sv[i]) {
 			        g_free(names[i]); names[i]=NULL;
-			        if(sv[i]) names[i]=g_strdup(g_strstrip(sv[i]));
+			        if(sv[i] && strlen(sv[i])>1) names[i]=g_strdup(g_strstrip(sv[i]));
 			        i++;
 			    }
 			    g_strfreev(sv);

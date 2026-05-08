@@ -1097,22 +1097,27 @@ gchar *callback_gpu()
 
 gchar *callback_sensors()
 {
-    return g_strdup_printf("%s\n"
-                           "[$ShellParam$]\n"
-                           "ViewType=2\n"
-                           "LoadGraphSuffix=\n"
-                           "ColumnTitle$TextValue=%s\n"
-                           "ColumnTitle$Value=%s\n"
-                           "ColumnTitle$Extra1=%s\n"
-                           "ShowColumnHeaders=true\n"
-                           "RescanInterval=5000\n"
-                           "%s\n"
-                           "%s",
-                           sensors,
-                           _("Sensor"), _("Value"),
-                                SENSORS_GROUP_BY_TYPE ? _("Driver"): _("Type"),
-                           lginterval,
-                           sensor_icons);
+    static const gchar *natural_cols[] = { "TextValue", NULL };
+    return shell_param_insert_natural_sort(
+              g_strdup_printf(
+                  "%s\n"
+                  "[$ShellParam$]\n"
+                  "ViewType=2\n"
+                  "LoadGraphSuffix=\n"
+                  "ColumnTitle$TextValue=%s\n"
+                  "ColumnTitle$Value=%s\n"
+                  "ColumnTitle$Extra1=%s\n"
+                  "ShowColumnHeaders=true\n"
+                  "RescanInterval=5000\n"
+                  "%s\n"
+                  "%s",
+                      sensors,
+                      _("Sensor"),
+                      _("Value"),
+                      SENSORS_GROUP_BY_TYPE ? _("Driver"): _("Type"),
+                      lginterval,
+                      sensor_icons),
+              natural_cols);
 }
 
 gchar *callback_printers()

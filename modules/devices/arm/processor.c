@@ -789,7 +789,7 @@ gchar *processor_get_info(GSList * processors)
     GSList *l;
     gchar *icons=g_strdup("");
 
-    tmp = g_strdup_printf("$!CPU_META$%s=\n", _("SOC/Package Information") );
+    tmp = g_strdup_printf("$!CPU_META$%s=|Summary\n", "all" );
 
     meta = processor_meta(processors);
     moreinfo_add_with_prefix("DEV", "CPU_META", meta);
@@ -799,10 +799,13 @@ gchar *processor_get_info(GSList * processors)
 
         icons = h_strdup_cprintf("Icon$CPU%d$cpu%d=processor.svg\n", icons, processor->id, processor->id);
 
-        tmp = g_strdup_printf("%s$CPU%d$%s=%.2f %s\n",
-                  tmp, processor->id,
-                  processor->model_name,
-                  processor->cpu_mhz, _("MHz"));
+        tmp = g_strdup_printf("%s$CPU%d$cpu%d=%.2f %s|%s|%d:%d\n",
+                  tmp, processor->id, processor->id,
+		  processor->cpu_mhz, _("MHz"),
+		  processor->model_name,
+		  processor->cputopo->socket_id,
+                  processor->cputopo->core_id);
+
 
         hashkey = g_strdup_printf("CPU%d", processor->id);
         moreinfo_add_with_prefix("DEV", hashkey,

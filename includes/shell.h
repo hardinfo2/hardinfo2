@@ -125,6 +125,7 @@ struct _ShellInfoTree {
     GtkWidget		*scroll;
     GtkWidget		*view;
     GtkTreeModel        *model;
+    GtkTreeModel  *sort_model;
     GtkTreeSelection	*selection;
 
     GtkTreeViewColumn	 *col_progress, *col_value, *col_extra1, *col_extra2, *col_textvalue;

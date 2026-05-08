@@ -844,33 +844,33 @@ static gboolean select_marked_or_first_item(gpointer data)
     GtkTreeIter first, it;
     gboolean found_selection = FALSE;
     gchar *datacol;
+    GtkTreeModel *sort_model = shell->info_tree->sort_model;
 
-    if (gtk_tree_model_get_iter_first(shell->info_tree->model, &first)) {
+    if (gtk_tree_model_get_iter_first(sort_model, &first)) {
         it = first;
-        while (gtk_tree_model_iter_next(shell->info_tree->model, &it)) {
-            gtk_tree_model_get(shell->info_tree->model, &it, INFO_TREE_COL_DATA, &datacol, -1);
+        do {
+            gtk_tree_model_get(sort_model, &it, INFO_TREE_COL_DATA, &datacol, -1);
 
             if (key_is_highlighted(datacol)) {
                 gtk_tree_selection_select_iter(shell->info_tree->selection, &it);
 
-		//scoll to selected this machine benchmark
-		GtkTreePath *path=gtk_tree_model_get_path(shell->info_tree->model, &it);
-	        gtk_tree_view_scroll_to_cell (GTK_TREE_VIEW(shell->info_tree->view), path, NULL, TRUE, 0.5, 0.0);
-		gtk_tree_path_free(path);
+                /* scroll to selected item */
+                GtkTreePath *path = gtk_tree_model_get_path(sort_model, &it);
+                gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(shell->info_tree->view), path, NULL, TRUE, 0.5, 0.0);
+                gtk_tree_path_free(path);
 
                 found_selection = TRUE;
-		g_free(datacol);
-		return FALSE;
+                g_free(datacol);
+                return FALSE;
             }
             g_free(datacol);
-        }
+        } while (gtk_tree_model_iter_next(sort_model, &it));
 
         if (!found_selection)
             gtk_tree_selection_select_iter(shell->info_tree->selection, &first);
     }
     return FALSE;
 }
-
 
 static void
 check_for_updates(void)
@@ -1039,31 +1039,38 @@ static gboolean update_field(gpointer data)
     /* if the entry is still selected, update it */
     if (fu->entry->selected && fu->entry->fieldfunc) {
         gchar *value = fu->entry->fieldfunc(fu->field_name);
-	gdouble v;
+        gdouble v;
 
         if (item->is_iter) {
             /*
              * this function is also used to feed the load graph when ViewType
              * is SHELL_VIEW_LOAD_GRAPH
              */
-            if (shell->view_type == SHELL_VIEW_LOAD_GRAPH &&
-                gtk_tree_selection_iter_is_selected(shell->info_tree->selection,
-                                                    item->iter)) {
-
-                load_graph_set_title(shell->loadgraph, fu->field_name);
-                v=atof(value);
-		//fix KiB->Bytes for UberGraph (GTK3)
+            if (shell->view_type == SHELL_VIEW_LOAD_GRAPH) {
+                GtkTreeIter sort_iter;
+                if (gtk_tree_model_sort_convert_child_iter_to_iter(
+                        GTK_TREE_MODEL_SORT(shell->info_tree->sort_model),
+                        &sort_iter, item->iter)) {
+                    if (gtk_tree_selection_iter_is_selected(shell->info_tree->selection,
+                                                            &sort_iter)) {
+                        load_graph_set_title(shell->loadgraph, fu->field_name);
+                        v = atof(value);
+                        /* fix KiB->Bytes for UberGraph (GTK3) */
 #if GTK_CHECK_VERSION(3, 0, 0)
-                if(strstr(value,"KiB")) v*=1024;
+                        if (strstr(value, "KiB"))
+                            v *= 1024;
 #endif
-                load_graph_update(shell->loadgraph, v);
+                        load_graph_update(shell->loadgraph, v);
+                    }
+                }
             }
 
             GtkTreeStore *store = GTK_TREE_STORE(shell->info_tree->model);
             gtk_tree_store_set(store, item->iter, INFO_TREE_COL_VALUE, value, -1);
         } else {
             GList *children = gtk_container_get_children(GTK_CONTAINER(item->widget));
-	    if(children && children->next->data && value) gtk_label_set_markup(GTK_LABEL(children->next->data), value);
+            if (children && children->next->data && value)
+                gtk_label_set_markup(GTK_LABEL(children->next->data), value);
             g_list_free(children);
         }
 
@@ -1120,24 +1127,23 @@ static gboolean reload_section(gpointer data)
 {
     ShellModuleEntry *entry = (ShellModuleEntry *)data;
 
-    /* if the entry is still selected, update it */
     if (entry->selected) {
         GtkTreePath *path = NULL;
         GtkTreeIter iter;
         double pos_info_scroll;
         double pos_detail_scroll;
 
-	/*Freeze window updates*/
-	gdk_window_freeze_updates(gtk_widget_get_window(shell->window));
+        /* Freeze window updates */
+        gdk_window_freeze_updates(gtk_widget_get_window(shell->window));
 
         /* save current position */
         pos_info_scroll = RANGE_GET_VALUE(info_tree, vscrollbar);
         pos_detail_scroll = RANGE_GET_VALUE(detail_view, vscrollbar);
 
-        /* gets the current selected path */
+        /* gets the current selected path from the sort model */
         if (gtk_tree_selection_get_selected(shell->info_tree->selection,
-                                            &shell->info_tree->model, &iter)) {
-            path = gtk_tree_model_get_path(shell->info_tree->model, &iter);
+                                            &shell->info_tree->sort_model, &iter)) {
+            path = gtk_tree_model_get_path(shell->info_tree->sort_model, &iter);
         }
 
         /* update the information, clear the treeview and populate it again */
@@ -1153,20 +1159,20 @@ static gboolean reload_section(gpointer data)
         }
 
         /* restore position */
-        if(pos_info_scroll) {
-	    if(strcmp(shell->selected_module->name,_("Network"))==0) {
-	      int ii=5;while(ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) {;}
-	    }
-	    RANGE_SET_VALUE(info_tree, vscrollbar, pos_info_scroll);
-	}
-        if(pos_detail_scroll) RANGE_SET_VALUE(detail_view, vscrollbar, pos_detail_scroll);
+        if (pos_info_scroll) {
+            if (strcmp(shell->selected_module->name, _("Network")) == 0) {
+                int ii = 5;
+                while (ii-- && gtk_events_pending() && !gtk_main_iteration_do(FALSE)) { ; }
+            }
+            RANGE_SET_VALUE(info_tree, vscrollbar, pos_info_scroll);
+        }
+        if (pos_detail_scroll)
+            RANGE_SET_VALUE(detail_view, vscrollbar, pos_detail_scroll);
 
-	/*UnFreeze widget updates*/
+        /* UnFreeze widget updates */
         gdk_window_thaw_updates(gtk_widget_get_window(shell->window));
     }
 
-
-    /* destroy the timeout: it'll be set up again */
     return FALSE;
 }
 
@@ -1668,7 +1674,7 @@ static void module_selected_show_info_list(GKeyFile *key_file,
 
     gtk_tree_store_clear(store);
 
-    g_object_ref(shell->info_tree->model);
+    g_object_ref(shell->info_tree->sort_model);
     gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view), NULL);
 
     gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(shell->info_tree->view), FALSE);
@@ -1697,8 +1703,19 @@ static void module_selected_show_info_list(GKeyFile *key_file,
         g_strfreev(keys);
     }
 
-    g_object_unref(shell->info_tree->model);
-    gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view), shell->info_tree->model);
+    g_object_unref(shell->info_tree->sort_model);
+    gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view), shell->info_tree->sort_model);
+
+    if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
+        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                             INFO_TREE_COL_PROGRESS,
+                                             GTK_SORT_DESCENDING);
+    } else if (shell->view_type != SHELL_VIEW_NORMAL) {
+        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                             INFO_TREE_COL_NAME,
+                                             GTK_SORT_ASCENDING);
+    }
+
     gtk_tree_view_expand_all(GTK_TREE_VIEW(shell->info_tree->view));
     gtk_tree_view_set_show_expanders(GTK_TREE_VIEW(shell->info_tree->view), ngroups > 1);
 }
@@ -2225,7 +2242,7 @@ static void module_selected(gpointer data)
 static void info_selected(GtkTreeSelection * ts, gpointer data)
 {
     ShellInfoTree *info = (ShellInfoTree *) data;
-    GtkTreeModel *model = GTK_TREE_MODEL(info->model);
+    GtkTreeModel *model = GTK_TREE_MODEL(info->sort_model);
     GtkTreeIter parent;
     gchar *datacol, *mi_tag;
 
@@ -2249,6 +2266,7 @@ static ShellInfoTree *info_tree_new(void)
     ShellInfoTree *info;
     GtkWidget *treeview, *scroll;
     GtkTreeModel *model;
+    GtkTreeModel *sort_model;
     GtkTreeStore *store;
     GtkTreeViewColumn *column;
     GtkCellRenderer *cr_text, *cr_pbuf, *cr_progress;
@@ -2269,7 +2287,8 @@ static ShellInfoTree *info_tree_new(void)
 			   G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_FLOAT,
                            G_TYPE_STRING, G_TYPE_STRING);
     model = GTK_TREE_MODEL(store);
-    treeview = gtk_tree_view_new_with_model(model);
+    sort_model = gtk_tree_model_sort_new_with_model(model);
+    treeview = gtk_tree_view_new_with_model(sort_model);
 
     gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
     gtk_tree_view_set_headers_clickable(GTK_TREE_VIEW(treeview), TRUE);
@@ -2287,10 +2306,12 @@ static ShellInfoTree *info_tree_new(void)
     gtk_tree_view_column_add_attribute(column, cr_progress, "text",
 				       INFO_TREE_COL_VALUE);
     gtk_tree_view_column_set_visible(column, FALSE);
+    gtk_tree_view_column_set_sort_column_id(column, INFO_TREE_COL_PROGRESS);
 
     info->col_textvalue = column = gtk_tree_view_column_new();
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     gtk_tree_view_column_set_clickable(column, TRUE);
+    gtk_tree_view_column_set_sort_column_id(column, INFO_TREE_COL_NAME);
 
     cr_pbuf = gtk_cell_renderer_pixbuf_new();
     gtk_tree_view_column_pack_start(column, cr_pbuf, FALSE);
@@ -2306,6 +2327,7 @@ static ShellInfoTree *info_tree_new(void)
     gtk_tree_view_column_set_visible(column, FALSE);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     gtk_tree_view_column_set_clickable(column, TRUE);
+    gtk_tree_view_column_set_sort_column_id(column, INFO_TREE_COL_EXTRA1);
 
     cr_text = gtk_cell_renderer_text_new();
     gtk_tree_view_column_pack_start(column, cr_text, FALSE);
@@ -2316,6 +2338,7 @@ static ShellInfoTree *info_tree_new(void)
     gtk_tree_view_column_set_visible(column, FALSE);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     gtk_tree_view_column_set_clickable(column, TRUE);
+    gtk_tree_view_column_set_sort_column_id(column, INFO_TREE_COL_EXTRA2);
 
     cr_text = gtk_cell_renderer_text_new();
     gtk_tree_view_column_pack_start(column, cr_text, FALSE);
@@ -2325,6 +2348,7 @@ static ShellInfoTree *info_tree_new(void)
     info->col_value = column = gtk_tree_view_column_new();
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     gtk_tree_view_column_set_clickable(column, TRUE);
+    gtk_tree_view_column_set_sort_column_id(column, INFO_TREE_COL_VALUE);
 
     cr_text = gtk_cell_renderer_text_new();
     gtk_tree_view_column_pack_start(column, cr_text, FALSE);
@@ -2340,6 +2364,7 @@ static ShellInfoTree *info_tree_new(void)
     info->scroll = scroll;
     info->view = treeview;
     info->model = model;
+    info->sort_model = sort_model;
     info->selection = sel;
 
     gtk_widget_show_all(scroll);

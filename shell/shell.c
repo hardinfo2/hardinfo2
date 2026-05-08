@@ -1663,7 +1663,8 @@ void shell_clear_field_updates(void)
 static void module_selected_show_info_list(GKeyFile *key_file,
                                            ShellModuleEntry *entry,
                                            gchar **groups,
-                                           gsize ngroups)
+                                           gsize ngroups,
+                                           gboolean reload)
 {
 #if GTK_CHECK_VERSION(3, 0, 0)
     GtkCssProvider *provider;
@@ -1706,14 +1707,16 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     g_object_unref(shell->info_tree->sort_model);
     gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view), shell->info_tree->sort_model);
 
-    if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
-        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
-                                             INFO_TREE_COL_PROGRESS,
-                                             GTK_SORT_DESCENDING);
-    } else if (shell->view_type != SHELL_VIEW_NORMAL) {
-        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
-                                             INFO_TREE_COL_NAME,
-                                             GTK_SORT_ASCENDING);
+    if (!reload) {
+        if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
+            gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                                 INFO_TREE_COL_PROGRESS,
+                                                 GTK_SORT_DESCENDING);
+        } else if (shell->view_type != SHELL_VIEW_NORMAL) {
+            gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                                 INFO_TREE_COL_NAME,
+                                                 GTK_SORT_ASCENDING);
+        }
     }
 
     gtk_tree_view_expand_all(GTK_TREE_VIEW(shell->info_tree->view));
@@ -1925,7 +1928,7 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
     if (shell->view_type == SHELL_VIEW_DETAIL) {
         module_selected_show_info_detail(key_file, entry, groups);
     } else {
-        module_selected_show_info_list(key_file, entry, groups, ngroups);
+        module_selected_show_info_list(key_file, entry, groups, ngroups, reload);
     }
 
     g_strfreev(groups);

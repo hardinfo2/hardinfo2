@@ -83,6 +83,80 @@ gchar *lginterval = NULL;
  * Code :) ********************************************************************
  */
 
+static gint natural_strcmp(const gchar *a, const gchar *b) {
+    const gchar *pa, *pb;
+    gint len_a, len_b;
+
+    if (!a && !b)
+        return 0;
+    if (!a)
+        return -1;
+    if (!b)
+        return 1;
+
+    while (*a && *b) {
+        if ((g_ascii_isdigit(*a) || (*a == '-' || *a == '+') && g_ascii_isdigit(*(a+1))) &&
+            (g_ascii_isdigit(*b) || (*b == '-' || *b == '+') && g_ascii_isdigit(*(b+1)))) {
+
+            gboolean neg_a = (*a == '-');
+            gboolean neg_b = (*b == '-');
+
+            if (*a == '-' || *a == '+')
+                a++;
+            if (*b == '-' || *b == '+')
+                b++;
+
+            while (*a == '0')
+                a++;
+            while (*b == '0')
+                b++;
+
+            pa = a;
+            pb = b;
+
+            while (g_ascii_isdigit(*a))
+                a++;
+            while (g_ascii_isdigit(*b))
+                b++;
+
+            len_a = a - pa;
+            len_b = b - pb;
+
+            if (neg_a == neg_b) {
+                if (len_a != len_b)
+                    return neg_a ? (len_b - len_a) : (len_a - len_b);
+                while (pa < a) {
+                    if (*pa != *pb)
+                        return neg_a ? (*pb - *pa) : (*pa - *pb);
+                    pa++; pb++;
+                }
+            } else {
+                return neg_a ? -1 : 1;
+            }
+        } else {
+            if (*a != *b)
+                return (guchar)*a - (guchar)*b;
+            a++; b++;
+        }
+    }
+    return *a ? 1 : (*b ? -1 : 0);
+}
+
+static gint info_tree_natural_compare(GtkTreeModel *model,
+                                      GtkTreeIter  *a,
+                                      GtkTreeIter  *b,
+                                      gpointer      user_data)
+{
+    gint col = GPOINTER_TO_INT(user_data);
+    gchar *str_a = NULL, *str_b = NULL;
+    gtk_tree_model_get(model, a, col, &str_a, -1);
+    gtk_tree_model_get(model, b, col, &str_b, -1);
+    gint ret = natural_strcmp(str_a, str_b);
+    g_free(str_a);
+    g_free(str_b);
+    return ret;
+}
+
 Shell *shell_get_main_shell(void)
 {
     return shell;
@@ -1335,6 +1409,9 @@ static void group_handle_special(GKeyFile *key_file,
 
     gboolean headers_visible = FALSE;
     gint i;
+    const gchar *start;
+    gchar *col_name;
+    gchar *eq;
 
     for (i = 0; keys[i]; i++) {
         gchar *key = keys[i];
@@ -1408,6 +1485,25 @@ static void group_handle_special(GKeyFile *key_file,
         } else if (g_str_equal(key, "OrderType")) {
             shell->_order_type =
                 g_key_file_get_integer(key_file, group, key, NULL);
+        } else if (g_str_has_prefix(key, "NaturalSort$")) {
+            start = g_utf8_strchr(key, -1, '$') + 1;
+            col_name = g_strdup(start);
+            eq = strchr(col_name, '=');
+
+            if (eq)
+                eq = '\0';
+
+            if (g_str_equal(col_name, "TextValue")) {
+                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_NAME);
+            } else if (g_str_equal(col_name, "Value")) {
+                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_VALUE);
+            } else if (g_str_equal(col_name, "Extra1")) {
+                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA1);
+            } else if (g_str_equal(col_name, "Extra2")) {
+                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA2);
+            }
+
+            g_free(col_name);
         } else if (g_str_has_prefix(key, "Icon$")) {
             struct UpdateTableItem *item;
 
@@ -1671,8 +1767,13 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     provider = gtk_css_provider_new();
 #endif
     GtkTreeStore *store = GTK_TREE_STORE(shell->info_tree->model);
+    GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->sort_model);
+    static const gint col_ids[] = { INFO_TREE_COL_NAME, INFO_TREE_COL_VALUE,
+                                    INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2
+    };
     gint i;
 
+    shell->info_tree->natural_sort_columns = 0;
     gtk_tree_store_clear(store);
 
     g_object_ref(shell->info_tree->sort_model);
@@ -1706,6 +1807,14 @@ static void module_selected_show_info_list(GKeyFile *key_file,
 
     g_object_unref(shell->info_tree->sort_model);
     gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view), shell->info_tree->sort_model);
+
+    for (guint i = 0; i < G_N_ELEMENTS(col_ids); i++) {
+        if (shell->info_tree->natural_sort_columns & (1 << col_ids[i])) {
+            gtk_tree_sortable_set_sort_func(sortable, col_ids[i],
+                                            info_tree_natural_compare,
+                                            GINT_TO_POINTER(col_ids[i]), NULL);
+        }
+    }
 
     if (!reload) {
         if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
@@ -2369,6 +2478,7 @@ static ShellInfoTree *info_tree_new(void)
     info->model = model;
     info->sort_model = sort_model;
     info->selection = sel;
+    info->natural_sort_columns = 0;
 
     gtk_widget_show_all(scroll);
 

@@ -372,21 +372,28 @@ gchar *callback_dev(void)
 gchar *callback_memory_usage()
 {
     extern gchar *lginterval;
-    return g_strdup_printf("[Memory]\n"
-               "%s\n"
-               "[$ShellParam$]\n"
-               "ViewType=2\n"
-               "LoadGraphSuffix= kB\n"
-               "RescanInterval=2000\n"
-	       "ColumnTitle$TextValue=%s\n"
-	       "ColumnTitle$Extra1=%s\n"
-               "ColumnTitle$Value=%s\n"
-               "ShowColumnHeaders=true\n"
-               "%s\n", meminfo,
-	       _("Field"), _("Description"), _("Value"), /* column labels */
-               lginterval);
-}
+    static const gchar *natural_cols[] = { "Value", NULL };
 
+    return shell_param_insert_natural_sort(
+                g_strdup_printf(
+                  "[Memory]\n"
+                  "%s\n"
+                  "[$ShellParam$]\n"
+                  "ViewType=2\n"
+                  "LoadGraphSuffix= kB\n"
+                  "RescanInterval=2000\n"
+                  "ColumnTitle$TextValue=%s\n"
+                  "ColumnTitle$Extra1=%s\n"
+                  "ColumnTitle$Value=%s\n"
+                  "ShowColumnHeaders=true\n"
+                  "%s\n",
+                    meminfo,
+                    _("Field"),
+                    _("Description"),
+                    _("Value"), /* column labels */
+                    lginterval),
+              natural_cols);
+}
 
 gchar *computer_get_machinetype(int english)
 {

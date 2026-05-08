@@ -110,5 +110,7 @@ void info_set_normalize_percentage(struct Info *info, gboolean setting);
 void info_set_view_type(struct Info *info, ShellViewType setting);
 void info_set_reload_interval(struct Info *info, int setting);
 
+gchar *shell_param_insert_natural_sort(gchar *config_string, const gchar **column_names);
+
 gchar *info_flatten(struct Info *info);
 struct Info *info_unflatten(const gchar *str);

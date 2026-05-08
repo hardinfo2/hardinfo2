@@ -1501,6 +1501,8 @@ static void group_handle_special(GKeyFile *key_file,
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA1);
             } else if (g_str_equal(col_name, "Extra2")) {
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA2);
+            } else if (g_str_equal(col_name, "Progress")) {
+                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_PROGRESS);
             }
 
             g_free(col_name);
@@ -1520,6 +1522,8 @@ static void group_handle_special(GKeyFile *key_file,
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_EXTRA1);
             } else if (g_str_equal(col_name, "Extra2")) {
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_EXTRA2);
+            } else if (g_str_equal(col_name, "Progress")) {
+                shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_PROGRESS);
             }
 
             g_free(col_name);
@@ -1788,8 +1792,8 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     GtkTreeStore *store = GTK_TREE_STORE(shell->info_tree->model);
     GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->sort_model);
     static const gint col_ids[] = { INFO_TREE_COL_NAME, INFO_TREE_COL_VALUE,
-                                    INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2
-    };
+                                    INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2,
+                                    INFO_TREE_COL_PROGRESS };
     gint i;
 
     shell->info_tree->natural_sort_columns = 0;

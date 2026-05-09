@@ -1493,8 +1493,7 @@ static void group_handle_special(GKeyFile *key_file,
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA1);
             else if (g_str_equal(col_name, "Extra2"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA2);
-            else if (g_str_equal(col_name, "Progress"))
-                shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_PROGRESS);
+            /* natural sort on progress view is unavailable */
         } else if (g_str_has_prefix(key, "NoSort$")) {
             gchar *col_name = g_utf8_strchr(key, -1, '$') + 1;
 
@@ -1872,6 +1871,10 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     }
 
     for (x = 0; x < G_N_ELEMENTS(col_ids); x++) {
+        /* natural sort on progress view is unavailable */
+        if (col_ids[x] == INFO_TREE_COL_PROGRESS)
+            continue;
+
         if (shell->info_tree->natural_sort_columns & (1 << col_ids[x])) {
             gtk_tree_sortable_set_sort_func(sortable, col_ids[x],
                                             info_tree_natural_compare,

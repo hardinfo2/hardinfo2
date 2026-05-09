@@ -581,7 +581,7 @@ static gchar *benchmark_include_results_internal(bench_value this_machine_value,
                              _("GPU"),
                              benchmark,
                              results),
-                      (const gchar *[]){"TextValue", NULL});
+                      (const gchar *[]){"Progress", "TextValue", NULL});
     }else if(strstr(benchmark,"Storage")){//Storage
         output = shell_param_insert_no_sort(
                       g_strdup_printf("[$ShellParam$]\n"
@@ -597,7 +597,7 @@ static gchar *benchmark_include_results_internal(bench_value this_machine_value,
                              _("Storage"),
                              benchmark,
                              results),
-                      (const gchar *[]){"TextValue", NULL});
+                      (const gchar *[]){"Progress", "TextValue", NULL});
     } else {//CPU
         output = shell_param_insert_no_sort(
                       g_strdup_printf("[$ShellParam$]\n"
@@ -615,7 +615,7 @@ static gchar *benchmark_include_results_internal(bench_value this_machine_value,
                              _("CPU"),
                              benchmark,
                              results),
-                      (const gchar *[]){"TextValue", "Extra1", NULL});
+                      (const gchar *[]){"Extra1", "Progress", "TextValue", NULL});
     }
     g_free(path);
     g_free(results);

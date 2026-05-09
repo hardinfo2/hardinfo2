@@ -2445,16 +2445,6 @@ static void info_selected(GtkTreeSelection * ts, gpointer data)
     g_free(mi_tag);
 }
 
-static void on_sort_column_changed(GtkTreeSortable *sortable, gpointer user_data)
-{
-    /* on progress views */
-    if (shell->view_type == SHELL_VIEW_PROGRESS ||
-        shell->view_type == SHELL_VIEW_PROGRESS_DUAL)
-    {
-        g_idle_add(select_marked_or_first_item, NULL);
-    }
-}
-
 static ShellInfoTree *info_tree_new(void)
 {
     ShellInfoTree *info;
@@ -2483,9 +2473,6 @@ static ShellInfoTree *info_tree_new(void)
     model = GTK_TREE_MODEL(store);
     sort_model = gtk_tree_model_sort_new_with_model(model);
     treeview = gtk_tree_view_new_with_model(sort_model);
-
-    g_signal_connect(sort_model, "sort-column-changed",
-                    G_CALLBACK(on_sort_column_changed), NULL);
 
     gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
     gtk_tree_view_set_headers_clickable(GTK_TREE_VIEW(treeview), TRUE);

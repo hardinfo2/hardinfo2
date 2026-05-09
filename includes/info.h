@@ -115,6 +115,7 @@ gchar *shell_param_insert_no_sort(gchar *config_string, const gchar **column_nam
 gchar *shell_param_insert_default_sort_col(gchar *config_string,
                                            const gchar *column_name,
                                            gboolean descending);
+gchar *shell_param_insert_date_sort_col(gchar *config_string, const gchar *column_name);
 
 gchar *info_flatten(struct Info *info);
 struct Info *info_unflatten(const gchar *str);

@@ -157,6 +157,57 @@ static gint info_tree_natural_compare(GtkTreeModel *model,
     return ret;
 }
 
+static time_t parse_boot_date(const char *str) {
+    /* format: "Www Mmm dd hh:mm:ss yyyy" or "Www Mmm d hh:mm:ss yyyy" */
+    struct tm tm = {0};
+    char mon[4] = {0};
+    int day, year, hour, min, sec, i;
+    static const char *months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NULL };
+
+    if (sscanf(str, "%*3s %3s %d %d:%d:%d %d", mon, &day, &hour, &min, &sec, &year) >= 6) {
+        for (i = 0; months[i]; i++) {
+            if (g_ascii_strcasecmp(mon, months[i]) == 0) {
+              tm.tm_mon = i;
+              break;
+            }
+        }
+
+        tm.tm_mday = day;
+        tm.tm_year = year - 1900;
+        tm.tm_hour = hour;
+        tm.tm_min = min;
+        tm.tm_sec = sec;
+
+        return mktime(&tm);
+    }
+
+    return 0;
+}
+
+static gint info_tree_date_compare(GtkTreeModel *model, GtkTreeIter *a,
+                                   GtkTreeIter *b, gpointer user_data)
+{
+    gint col = GPOINTER_TO_INT(user_data);
+    gchar *str_a = NULL, *str_b = NULL;
+
+    gtk_tree_model_get(model, a, col, &str_a, -1);
+    gtk_tree_model_get(model, b, col, &str_b, -1);
+
+    time_t ta = parse_boot_date(str_a);
+    time_t tb = parse_boot_date(str_b);
+
+    g_free(str_a);
+    g_free(str_b);
+
+    if (ta < tb)
+        return -1;
+    if (ta > tb)
+        return 1;
+
+    return 0;
+}
+
 Shell *shell_get_main_shell(void)
 {
     return shell;
@@ -1529,6 +1580,12 @@ static void group_handle_special(GKeyFile *key_file,
                     ? GTK_SORT_DESCENDING : GTK_SORT_ASCENDING;
             }
             g_free(value);
+        } else if (g_str_has_prefix(key, "DateSort$")) {
+            gchar *col_name = g_utf8_strchr(key, -1, '$') + 1;
+
+            /* only support text value view */
+            if (g_str_equal(col_name, "TextValue"))
+                shell->info_tree->date_sort_columns |= (1 << INFO_TREE_COL_NAME);
         } else if (g_str_has_prefix(key, "Icon$")) {
             struct UpdateTableItem *item;
 
@@ -1802,6 +1859,7 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     shell->info_tree->natural_sort_columns = 0;
     shell->info_tree->nosort_columns = 0;
     shell->info_tree->default_sort_column = -1;
+    shell->info_tree->date_sort_columns = 0;
 
     gtk_tree_store_clear(store);
 
@@ -1868,6 +1926,12 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_PROGRESS)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_progress, FALSE);
         gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_progress, -1);
+    }
+
+    if (shell->info_tree->date_sort_columns & (1 << INFO_TREE_COL_NAME)) {
+        gtk_tree_sortable_set_sort_func(sortable, INFO_TREE_COL_NAME,
+                                        info_tree_date_compare,
+                                        GINT_TO_POINTER(INFO_TREE_COL_NAME), NULL);
     }
 
     for (x = 0; x < G_N_ELEMENTS(col_ids); x++) {

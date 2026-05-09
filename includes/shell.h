@@ -130,6 +130,9 @@ struct _ShellInfoTree {
     guint natural_sort_columns;
     guint nosort_columns;
     gint default_sort_column;  /* -1: default behavior */
+    /* date_sort_columns - works with text value view colunm with format:
+     * "Www Mmm dd hh:mm:ss yyyy" or "Www Mmm d hh:mm:ss yyyy" */
+    guint date_sort_columns;
     GtkSortType default_sort_order;
 
     GtkTreeViewColumn	 *col_progress, *col_value, *col_extra1, *col_extra2, *col_textvalue;

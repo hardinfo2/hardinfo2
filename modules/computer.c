@@ -745,7 +745,7 @@ gchar *callback_boots(void)
     info_set_column_title(info, "Value", _("Kernel Version"));
     info_set_column_headers_visible(info, TRUE);
 
-    return info_flatten(info);
+    return shell_param_insert_date_sort_col(info_flatten(info), "TextValue");
 }
 
 gchar *callback_locales(void)

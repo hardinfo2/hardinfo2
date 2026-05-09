@@ -129,6 +129,8 @@ struct _ShellInfoTree {
     GtkTreeSelection	*selection;
     guint natural_sort_columns;
     guint nosort_columns;
+    gint default_sort_column;  /* -1: default behavior */
+    GtkSortType default_sort_order;
 
     GtkTreeViewColumn	 *col_progress, *col_value, *col_extra1, *col_extra2, *col_textvalue;
 };

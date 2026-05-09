@@ -776,7 +776,7 @@ gchar *callback_fs(void)
     info_set_zebra_visible(info, TRUE);
     info_set_normalize_percentage(info, FALSE);
 
-    return info_flatten(info);
+    return shell_param_insert_default_sort_col(info_flatten(info), "TextValue", FALSE);
 }
 
 gchar *callback_display(void)

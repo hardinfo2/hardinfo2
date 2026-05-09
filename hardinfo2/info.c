@@ -505,6 +505,23 @@ gchar *shell_param_insert_no_sort(gchar *config_string, const gchar **column_nam
     return config_string;
 }
 
+gchar *shell_param_insert_default_sort_col(gchar *config_string,
+                                           const gchar *column_name,
+                                           gboolean descending)
+{
+    gchar *param;
+    const gchar *params[2];
+
+    param = g_strdup_printf("DefaultSort$%s=%s", column_name,
+                            descending ? "desc" : "asc");
+    params[0] = param;
+    params[1] = NULL;
+
+    config_string = shell_param_insert_keys(config_string, params);
+    g_free(param);
+    return config_string;
+}
+
 gchar *info_flatten(struct Info *info)
 {
     /* This is a scaffolding method: eventually the HardInfo shell should

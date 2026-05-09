@@ -1409,9 +1409,6 @@ static void group_handle_special(GKeyFile *key_file,
 
     gboolean headers_visible = FALSE;
     gint i;
-    const gchar *start;
-    gchar *col_name;
-    gchar *eq;
 
     for (i = 0; keys[i]; i++) {
         gchar *key = keys[i];
@@ -1486,47 +1483,53 @@ static void group_handle_special(GKeyFile *key_file,
             shell->_order_type =
                 g_key_file_get_integer(key_file, group, key, NULL);
         } else if (g_str_has_prefix(key, "NaturalSort$")) {
-            start = g_utf8_strchr(key, -1, '$') + 1;
-            col_name = g_strdup(start);
-            eq = strchr(col_name, '=');
+            gchar *col_name = g_utf8_strchr(key, -1, '$') + 1;
 
-            if (eq)
-                eq = '\0';
-
-            if (g_str_equal(col_name, "TextValue")) {
+            if (g_str_equal(col_name, "TextValue"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_NAME);
-            } else if (g_str_equal(col_name, "Value")) {
+            else if (g_str_equal(col_name, "Value"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_VALUE);
-            } else if (g_str_equal(col_name, "Extra1")) {
+            else if (g_str_equal(col_name, "Extra1"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA1);
-            } else if (g_str_equal(col_name, "Extra2")) {
+            else if (g_str_equal(col_name, "Extra2"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_EXTRA2);
-            } else if (g_str_equal(col_name, "Progress")) {
+            else if (g_str_equal(col_name, "Progress"))
                 shell->info_tree->natural_sort_columns |= (1 << INFO_TREE_COL_PROGRESS);
-            }
-
-            g_free(col_name);
         } else if (g_str_has_prefix(key, "NoSort$")) {
-            start = g_utf8_strchr(key, -1, '$') + 1;
-            col_name = g_strdup(start);
-            eq = strchr(col_name, '=');
+            gchar *col_name = g_utf8_strchr(key, -1, '$') + 1;
 
-            if (eq)
-                eq = '\0';
-
-            if (g_str_equal(col_name, "TextValue")) {
+            if (g_str_equal(col_name, "TextValue"))
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_NAME);
-            } else if (g_str_equal(col_name, "Value")) {
+            else if (g_str_equal(col_name, "Value"))
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_VALUE);
-            } else if (g_str_equal(col_name, "Extra1")) {
+            else if (g_str_equal(col_name, "Extra1"))
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_EXTRA1);
-            } else if (g_str_equal(col_name, "Extra2")) {
+            else if (g_str_equal(col_name, "Extra2"))
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_EXTRA2);
-            } else if (g_str_equal(col_name, "Progress")) {
+            else if (g_str_equal(col_name, "Progress"))
                 shell->info_tree->nosort_columns |= (1 << INFO_TREE_COL_PROGRESS);
-            }
+        } else if (g_str_has_prefix(key, "DefaultSort$")) {
+            const gchar *col_name = g_utf8_strchr(key, -1, '$') + 1;
+            gchar *value = g_key_file_get_value(key_file, group, key, NULL);
+            gint cid = -1;
 
-            g_free(col_name);
+            if (g_str_equal(col_name, "TextValue"))
+                cid = INFO_TREE_COL_NAME;
+            else if (g_str_equal(col_name, "Value"))
+                cid = INFO_TREE_COL_VALUE;
+            else if (g_str_equal(col_name, "Extra1"))
+                cid = INFO_TREE_COL_EXTRA1;
+            else if (g_str_equal(col_name, "Extra2"))
+                cid = INFO_TREE_COL_EXTRA2;
+            else if (g_str_equal(col_name, "Progress"))
+                cid = INFO_TREE_COL_PROGRESS;
+            if (cid > -1 && value) {
+                shell->info_tree->default_sort_column = cid;
+                shell->info_tree->default_sort_order =
+                    (g_str_equal(value, "desc") || g_str_equal(value, "descending"))
+                    ? GTK_SORT_DESCENDING : GTK_SORT_ASCENDING;
+            }
+            g_free(value);
         } else if (g_str_has_prefix(key, "Icon$")) {
             struct UpdateTableItem *item;
 
@@ -1795,9 +1798,12 @@ static void module_selected_show_info_list(GKeyFile *key_file,
                                     INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2,
                                     INFO_TREE_COL_PROGRESS };
     gint i;
+    guint x;
 
     shell->info_tree->natural_sort_columns = 0;
     shell->info_tree->nosort_columns = 0;
+    shell->info_tree->default_sort_column = -1;
+
     gtk_tree_store_clear(store);
 
     g_object_ref(shell->info_tree->sort_model);
@@ -1846,47 +1852,51 @@ static void module_selected_show_info_list(GKeyFile *key_file,
     /* disable sort here */
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_NAME)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_textvalue, FALSE);
-        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_textvalue,
-                                                 GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID);
+        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_textvalue, -1);
     }
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_VALUE)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_value, FALSE);
-        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_value,
-                                                 GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID);
+        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_value, -1);
     }
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_EXTRA1)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_extra1, FALSE);
-        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_extra1,
-                                                 GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID);
+        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_extra1, -1);
     }
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_EXTRA2)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_extra2, FALSE);
-        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_extra2,
-                                                 GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID);
+        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_extra2, -1);
     }
     if (shell->info_tree->nosort_columns & (1 << INFO_TREE_COL_PROGRESS)) {
         gtk_tree_view_column_set_clickable(shell->info_tree->col_progress, FALSE);
-        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_progress,
-                                                 GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID);
+        gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_progress, -1);
     }
 
-    for (guint i = 0; i < G_N_ELEMENTS(col_ids); i++) {
-        if (shell->info_tree->natural_sort_columns & (1 << col_ids[i])) {
-            gtk_tree_sortable_set_sort_func(sortable, col_ids[i],
+    for (x = 0; x < G_N_ELEMENTS(col_ids); x++) {
+        if (shell->info_tree->natural_sort_columns & (1 << col_ids[x])) {
+            gtk_tree_sortable_set_sort_func(sortable, col_ids[x],
                                             info_tree_natural_compare,
-                                            GINT_TO_POINTER(col_ids[i]), NULL);
+                                            GINT_TO_POINTER(col_ids[x]), NULL);
         }
     }
 
     if (!reload) {
-        if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
-            gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
-                                                 INFO_TREE_COL_PROGRESS,
-                                                 GTK_SORT_DESCENDING);
-        } else if (shell->view_type != SHELL_VIEW_NORMAL) {
-            gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(shell->info_tree->sort_model),
-                                                 INFO_TREE_COL_NAME,
-                                                 GTK_SORT_ASCENDING);
+        if (shell->info_tree->default_sort_column > -1) {
+            gtk_tree_sortable_set_sort_column_id(
+                GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                  shell->info_tree->default_sort_column,
+                                  shell->info_tree->default_sort_order);
+        } else {
+            if (shell->view_type == SHELL_VIEW_PROGRESS || shell->view_type == SHELL_VIEW_PROGRESS_DUAL) {
+                gtk_tree_sortable_set_sort_column_id(
+                    GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                      INFO_TREE_COL_PROGRESS,
+                                      GTK_SORT_DESCENDING);
+            } else if (shell->view_type != SHELL_VIEW_NORMAL) {
+                gtk_tree_sortable_set_sort_column_id(
+                    GTK_TREE_SORTABLE(shell->info_tree->sort_model),
+                                      INFO_TREE_COL_NAME,
+                                      GTK_SORT_ASCENDING);
+            }
         }
     }
 
@@ -2542,6 +2552,8 @@ static ShellInfoTree *info_tree_new(void)
     info->selection = sel;
     info->natural_sort_columns = 0;
     info->nosort_columns = 0;
+    info->default_sort_column = -1;
+    info->default_sort_order  = GTK_SORT_ASCENDING;
 
     gtk_widget_show_all(scroll);
 

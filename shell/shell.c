@@ -142,16 +142,27 @@ static gint natural_strcmp(const gchar *a, const gchar *b) {
     return *a ? 1 : (*b ? -1 : 0);
 }
 
-static gint info_tree_natural_compare(GtkTreeModel *model,
-                                      GtkTreeIter  *a,
-                                      GtkTreeIter  *b,
-                                      gpointer      user_data)
+static gint info_tree_natural_compare(GtkTreeModel *model, GtkTreeIter *a,
+                                      GtkTreeIter *b, gpointer user_data)
 {
     gint col = GPOINTER_TO_INT(user_data);
     gchar *str_a = NULL, *str_b = NULL;
     gtk_tree_model_get(model, a, col, &str_a, -1);
     gtk_tree_model_get(model, b, col, &str_b, -1);
     gint ret = natural_strcmp(str_a, str_b);
+    g_free(str_a);
+    g_free(str_b);
+    return ret;
+}
+
+static gint info_tree_default_strcmp(GtkTreeModel *model, GtkTreeIter *a,
+                                    GtkTreeIter *b, gpointer user_data)
+{
+    gint col = GPOINTER_TO_INT(user_data);
+    gchar *str_a = NULL, *str_b = NULL;
+    gtk_tree_model_get(model, a, col, &str_a, -1);
+    gtk_tree_model_get(model, b, col, &str_b, -1);
+    gint ret = g_strcmp0(str_a, str_b);
     g_free(str_a);
     g_free(str_b);
     return ret;
@@ -164,6 +175,9 @@ static time_t parse_boot_date(const char *str) {
     int day, year, hour, min, sec, i;
     static const char *months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NULL };
+
+    if (!str)
+        return 0;
 
     if (sscanf(str, "%*3s %3s %d %d:%d:%d %d", mon, &day, &hour, &min, &sec, &year) >= 6) {
         for (i = 0; months[i]; i++) {
@@ -1850,9 +1864,9 @@ static void module_selected_show_info_list(GKeyFile *key_file,
 #endif
     GtkTreeStore *store = GTK_TREE_STORE(shell->info_tree->model);
     GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->sort_model);
+    /* to set natrual sort and date sort, ignore progress col */
     static const gint col_ids[] = { INFO_TREE_COL_NAME, INFO_TREE_COL_VALUE,
-                                    INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2,
-                                    INFO_TREE_COL_PROGRESS };
+                                    INFO_TREE_COL_EXTRA1, INFO_TREE_COL_EXTRA2 };
     gint i;
     guint x;
 
@@ -1928,22 +1942,19 @@ static void module_selected_show_info_list(GKeyFile *key_file,
         gtk_tree_view_column_set_sort_column_id(shell->info_tree->col_progress, -1);
     }
 
-    if (shell->info_tree->date_sort_columns & (1 << INFO_TREE_COL_NAME)) {
-        gtk_tree_sortable_set_sort_func(sortable, INFO_TREE_COL_NAME,
-                                        info_tree_date_compare,
-                                        GINT_TO_POINTER(INFO_TREE_COL_NAME), NULL);
-    }
-
     for (x = 0; x < G_N_ELEMENTS(col_ids); x++) {
-        /* natural sort on progress view is unavailable */
-        if (col_ids[x] == INFO_TREE_COL_PROGRESS)
-            continue;
+        GtkTreeIterCompareFunc func = info_tree_default_strcmp;
 
-        if (shell->info_tree->natural_sort_columns & (1 << col_ids[x])) {
-            gtk_tree_sortable_set_sort_func(sortable, col_ids[x],
-                                            info_tree_natural_compare,
-                                            GINT_TO_POINTER(col_ids[x]), NULL);
+        if ((shell->info_tree->date_sort_columns & (1 << col_ids[x]))
+              /* date sort only for name col */
+              && col_ids[x] == INFO_TREE_COL_NAME) {
+            func = info_tree_date_compare;
+        } else if (shell->info_tree->natural_sort_columns & (1 << col_ids[x])) {
+            func = info_tree_natural_compare;
         }
+
+        gtk_tree_sortable_set_sort_func(sortable, col_ids[x], func,
+                                        GINT_TO_POINTER(col_ids[x]), NULL);
     }
 
     if (!reload) {

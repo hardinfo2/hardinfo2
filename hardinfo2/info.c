@@ -407,6 +407,134 @@ static void flatten_shell_param_global(GString *output, const struct Info *info)
     }
 }
 
+gchar *info_add_natural_sort_params(gchar *flat_string, const gchar **column_names)
+{
+    const gchar *shell_param_header = "[$ShellParam$]\n";
+    const gchar *insert_pos;
+    GString *buffer;
+    guint offset, i;
+
+    if (!flat_string || !column_names || !column_names[0])
+        return g_strdup(flat_string);
+
+    insert_pos = strstr(flat_string, shell_param_header);
+    if (!insert_pos) {
+        return g_strdup(flat_string);
+    }
+
+    offset = (guint)(insert_pos - flat_string) + strlen(shell_param_header);
+    buffer = g_string_new_len(flat_string, offset);
+
+    for (i = 0; column_names[i] != NULL; i++) {
+        g_string_append_printf(buffer, "NaturalSort$%s=1\n", column_names[i]);
+    }
+    g_string_append(buffer, flat_string + offset);
+
+    g_free(flat_string);
+    return g_string_free(buffer, FALSE);
+}
+
+gchar *shell_param_insert_keys(gchar *config_string, const gchar **params)
+{
+    const gchar *header = "[$ShellParam$]\n";
+    const gchar *pos;
+    GString *buffer;
+    guint offset;
+    int i;
+
+    if (!config_string || !params || !params[0])
+        return config_string;
+
+    pos = strstr(config_string, header);
+    if (!pos)
+        return config_string;
+
+    offset = (guint)(pos - config_string) + strlen(header);
+    buffer = g_string_new_len(config_string, offset);
+
+    for (i = 0; params[i]; i++) {
+        g_string_append_printf(buffer, "%s\n", params[i]);
+    }
+
+    g_string_append(buffer, config_string + offset);
+    g_free(config_string);
+    return g_string_free(buffer, FALSE);
+}
+
+gchar *shell_param_insert_natural_sort(gchar *config_string, const gchar **column_names)
+{
+    if (!column_names || !column_names[0])
+        return config_string;
+
+    guint n = g_strv_length((gchar **)column_names);
+    guint i;
+    const gchar **keys = g_new(const gchar *, n + 1);
+
+    for (i = 0; i < n; i++)
+        keys[i] = g_strdup_printf("NaturalSort$%s=1", column_names[i]);
+    keys[n] = NULL;
+
+    config_string = shell_param_insert_keys(config_string, keys);
+
+    for (i = 0; i < n; i++)
+        g_free((gchar *)keys[i]);
+    g_free(keys);
+
+    return config_string;
+}
+
+gchar *shell_param_insert_no_sort(gchar *config_string, const gchar **column_names)
+{
+    if (!column_names || !column_names[0])
+        return config_string;
+
+    guint n = g_strv_length((gchar **)column_names);
+    guint i;
+    const gchar **keys = g_new(const gchar *, n + 1);
+
+    for (i = 0; i < n; i++)
+        keys[i] = g_strdup_printf("NoSort$%s=1", column_names[i]);
+    keys[n] = NULL;
+
+    config_string = shell_param_insert_keys(config_string, keys);
+
+    for (i = 0; i < n; i++)
+        g_free((gchar *)keys[i]);
+    g_free(keys);
+
+    return config_string;
+}
+
+gchar *shell_param_insert_default_sort_col(gchar *config_string,
+                                           const gchar *column_name,
+                                           gboolean descending)
+{
+    gchar *param;
+    const gchar *params[2];
+
+    param = g_strdup_printf("DefaultSort$%s=%s", column_name,
+                            descending ? "desc" : "asc");
+    params[0] = param;
+    params[1] = NULL;
+
+    config_string = shell_param_insert_keys(config_string, params);
+    g_free(param);
+    return config_string;
+}
+
+gchar *shell_param_insert_date_sort_col(gchar *config_string, const gchar *column_name)
+{
+    gchar *param = g_strdup_printf("DateSort$%s=1", column_name);
+    const gchar *params[2];
+
+    params[0] = param;
+    params[1] = NULL;
+
+    config_string = shell_param_insert_keys(config_string, params);
+    g_free(param);
+    return config_string;
+}
+
 gchar *info_flatten(struct Info *info)
 {
     /* This is a scaffolding method: eventually the HardInfo shell should

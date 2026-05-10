@@ -372,21 +372,31 @@ gchar *callback_dev(void)
 gchar *callback_memory_usage()
 {
     extern gchar *lginterval;
-    return g_strdup_printf("[Memory]\n"
-               "%s\n"
-               "[$ShellParam$]\n"
-               "ViewType=2\n"
-               "LoadGraphSuffix= kB\n"
-               "RescanInterval=2000\n"
-	       "ColumnTitle$TextValue=%s\n"
-	       "ColumnTitle$Extra1=%s\n"
-               "ColumnTitle$Value=%s\n"
-               "ShowColumnHeaders=true\n"
-               "%s\n", meminfo,
-	       _("Field"), _("Description"), _("Value"), /* column labels */
-               lginterval);
-}
+    static const gchar *natural_cols[] = { "Value", NULL };
+    static const gchar *nosort_cols[] = { "Extra1", NULL };
 
+    return shell_param_insert_no_sort(
+              shell_param_insert_natural_sort(
+                  g_strdup_printf(
+                      "[Memory]\n"
+                      "%s\n"
+                      "[$ShellParam$]\n"
+                      "ViewType=2\n"
+                      "LoadGraphSuffix= kB\n"
+                      "RescanInterval=2000\n"
+                      "ColumnTitle$TextValue=%s\n"
+                      "ColumnTitle$Extra1=%s\n"
+                      "ColumnTitle$Value=%s\n"
+                      "ShowColumnHeaders=true\n"
+                      "%s\n",
+                        meminfo,
+                        _("Field"),
+                        _("Description"),
+                        _("Value"), /* column labels */
+                        lginterval),
+                  natural_cols),
+              nosort_cols);
+}
 
 gchar *computer_get_machinetype(int english)
 {
@@ -713,6 +723,7 @@ gchar *callback_security(void)
 gchar *callback_modules(void)
 {
     struct Info *info = info_new();
+    static const gchar *nosort_cols[] = { "Value", NULL };
 
     info_add_computed_group(info, _("Loaded Modules"), module_list);
 
@@ -721,7 +732,7 @@ gchar *callback_modules(void)
     info_set_column_headers_visible(info, TRUE);
     info_set_view_type(info, SHELL_VIEW_DUAL);
 
-    return info_flatten(info);
+    return shell_param_insert_no_sort(info_flatten(info), nosort_cols);
 }
 
 gchar *callback_boots(void)
@@ -734,7 +745,7 @@ gchar *callback_boots(void)
     info_set_column_title(info, "Value", _("Kernel Version"));
     info_set_column_headers_visible(info, TRUE);
 
-    return info_flatten(info);
+    return shell_param_insert_date_sort_col(info_flatten(info), "TextValue");
 }
 
 gchar *callback_locales(void)
@@ -765,7 +776,7 @@ gchar *callback_fs(void)
     info_set_zebra_visible(info, TRUE);
     info_set_normalize_percentage(info, FALSE);
 
-    return info_flatten(info);
+    return shell_param_insert_default_sort_col(info_flatten(info), "TextValue", FALSE);
 }
 
 gchar *callback_display(void)

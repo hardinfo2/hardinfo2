@@ -1042,7 +1042,9 @@ void scan_usb(gboolean reload)
 
 gchar *callback_processors()
 {
-    return processor_get_info(processors);
+    static const gchar *natural_cols[] = { "TextValue", "Extra2", NULL };
+    return shell_param_insert_natural_sort(processor_get_info(processors),
+                                           natural_cols);
 }
 
 gchar *callback_dmi()
@@ -1095,22 +1097,27 @@ gchar *callback_gpu()
 
 gchar *callback_sensors()
 {
-    return g_strdup_printf("%s\n"
-                           "[$ShellParam$]\n"
-                           "ViewType=2\n"
-                           "LoadGraphSuffix=\n"
-                           "ColumnTitle$TextValue=%s\n"
-                           "ColumnTitle$Value=%s\n"
-                           "ColumnTitle$Extra1=%s\n"
-                           "ShowColumnHeaders=true\n"
-                           "RescanInterval=5000\n"
-                           "%s\n"
-                           "%s",
-                           sensors,
-                           _("Sensor"), _("Value"),
-                                SENSORS_GROUP_BY_TYPE ? _("Driver"): _("Type"),
-                           lginterval,
-                           sensor_icons);
+    static const gchar *natural_cols[] = { "TextValue", NULL };
+    return shell_param_insert_natural_sort(
+              g_strdup_printf(
+                  "%s\n"
+                  "[$ShellParam$]\n"
+                  "ViewType=2\n"
+                  "LoadGraphSuffix=\n"
+                  "ColumnTitle$TextValue=%s\n"
+                  "ColumnTitle$Value=%s\n"
+                  "ColumnTitle$Extra1=%s\n"
+                  "ShowColumnHeaders=true\n"
+                  "RescanInterval=5000\n"
+                  "%s\n"
+                  "%s",
+                      sensors,
+                      _("Sensor"),
+                      _("Value"),
+                      SENSORS_GROUP_BY_TYPE ? _("Driver"): _("Type"),
+                      lginterval,
+                      sensor_icons),
+              natural_cols);
 }
 
 gchar *callback_printers()
@@ -1124,15 +1131,25 @@ gchar *callback_printers()
 
 gchar *callback_storage()
 {
-    return g_strdup_printf("%s\n"
-        "[$ShellParam$]\n"
-        "ReloadInterval=5000\n"
-        "ColumnTitle$TextValue=%s\n"
-        "ColumnTitle$Value=%s\n"
-        "ColumnTitle$Extra1=%s\n"
-        "ColumnTitle$Extra2=%s\n"
-        "ShowColumnHeaders=true\n"
-        "ViewType=1\n%s", storage_list, _("Device"), _("Size"), _("Serial Number"), _("Model"), storage_icons);
+    static const gchar *natural_cols[] = { "Extra2", NULL };
+    return shell_param_insert_natural_sort(
+              g_strdup_printf(
+                  "%s\n"
+                  "[$ShellParam$]\n"
+                  "ReloadInterval=5000\n"
+                  "ColumnTitle$TextValue=%s\n"
+                  "ColumnTitle$Value=%s\n"
+                  "ColumnTitle$Extra1=%s\n"
+                  "ColumnTitle$Extra2=%s\n"
+                  "ShowColumnHeaders=true\n"
+                  "ViewType=1\n%s",
+                      storage_list,
+                      _("Device"),
+                      _("Size"),
+                      _("Serial Number"),
+                      _("Model"),
+                      storage_icons),
+              natural_cols);
 }
 
 gchar *callback_input()

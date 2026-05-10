@@ -567,39 +567,55 @@ static gchar *benchmark_include_results_internal(bench_value this_machine_value,
     }
     g_slist_free(result_list);
     if(strstr(benchmark,"GPU")){//GPU
-        output = g_strdup_printf("[$ShellParam$]\n"
-                             "Zebra=1\n"
-                             "OrderType=%d\n"
-                             "ViewType=4\n"
-                             "ColumnTitle$Progress=%s\n"  /* Results */
-                             "ColumnTitle$TextValue=%s\n" /* GPU */
-                             "ShowColumnHeaders=true\n"
-                             "[%s]\n%s",
-                             order_type, _("Results"),
-                             _("GPU"), benchmark, results);
+        output = shell_param_insert_no_sort(
+                      g_strdup_printf("[$ShellParam$]\n"
+                          "Zebra=1\n"
+                          "OrderType=%d\n"
+                          "ViewType=4\n"
+                          "ColumnTitle$Progress=%s\n"  /* Results */
+                          "ColumnTitle$TextValue=%s\n" /* GPU */
+                          "ShowColumnHeaders=true\n"
+                          "[%s]\n%s",
+                             order_type,
+                             _("Results"),
+                             _("GPU"),
+                             benchmark,
+                             results),
+                      (const gchar *[]){"Progress", "TextValue", NULL});
     }else if(strstr(benchmark,"Storage")){//Storage
-        output = g_strdup_printf("[$ShellParam$]\n"
-                             "Zebra=1\n"
-                             "OrderType=%d\n"
-                             "ViewType=4\n"
-                             "ColumnTitle$Progress=%s\n"  /* Results */
-                             "ColumnTitle$TextValue=%s\n" /* GPU */
-                             "ShowColumnHeaders=true\n"
-                             "[%s]\n%s",
-                             order_type, _("Results"),
-                             _("Storage"), benchmark, results);
+        output = shell_param_insert_no_sort(
+                      g_strdup_printf("[$ShellParam$]\n"
+                          "Zebra=1\n"
+                          "OrderType=%d\n"
+                          "ViewType=4\n"
+                          "ColumnTitle$Progress=%s\n"  /* Results */
+                          "ColumnTitle$TextValue=%s\n" /* GPU */
+                          "ShowColumnHeaders=true\n"
+                          "[%s]\n%s",
+                             order_type,
+                             _("Results"),
+                             _("Storage"),
+                             benchmark,
+                             results),
+                      (const gchar *[]){"Progress", "TextValue", NULL});
     } else {//CPU
-        output = g_strdup_printf("[$ShellParam$]\n"
-                             "Zebra=1\n"
-                             "OrderType=%d\n"
-                             "ViewType=4\n"
-                             "ColumnTitle$Extra1=%s\n"    /* CPU Clock */
-                             "ColumnTitle$Progress=%s\n"  /* Results */
-                             "ColumnTitle$TextValue=%s\n" /* CPU */
-                             "ShowColumnHeaders=true\n"
-                             "[%s]\n%s",
-                             order_type, _("CPU Config"), _("Results"),
-                             _("CPU"), benchmark, results);
+        output = shell_param_insert_no_sort(
+                      g_strdup_printf("[$ShellParam$]\n"
+                          "Zebra=1\n"
+                          "OrderType=%d\n"
+                          "ViewType=4\n"
+                          "ColumnTitle$Extra1=%s\n"    /* CPU Clock */
+                          "ColumnTitle$Progress=%s\n"  /* Results */
+                          "ColumnTitle$TextValue=%s\n" /* CPU */
+                          "ShowColumnHeaders=true\n"
+                          "[%s]\n%s",
+                             order_type,
+                             _("CPU Config"),
+                             _("Results"),
+                             _("CPU"),
+                             benchmark,
+                             results),
+                      (const gchar *[]){"Extra1", "Progress", "TextValue", NULL});
     }
     g_free(path);
     g_free(results);

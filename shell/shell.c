@@ -1983,7 +1983,10 @@ static void module_selected_show_info_list(GKeyFile *key_file,
 }
 
 static gboolean detail_activate_link (GtkLabel *label, gchar *uri, gpointer user_data) {
-    return uri_open(uri);
+    if (g_str_has_prefix(uri, "http://") || g_str_has_prefix(uri, "https://")) {
+         return uri_open(uri);
+    }
+    return false;
 }
 
 static gchar *vendor_info_markup(const Vendor *v) {
@@ -2809,19 +2812,16 @@ void key_get_components(const gchar *key, gchar **flags, gchar **tag, gchar **na
         gchar *s = g_utf8_strchr(f+1, -1, '$');
         if(s==NULL) {
 	    DEBUG("ERROR NOT FOUND");
-        }else{
-	  *(g_utf8_strchr(f+1, -1, '$') + 1) = 0;
-	  if (flags)
-	    *flags = g_strdup(f);
-	  if (tag)
-	    *tag = key_mi_tag(f);
+        } else {
+	    *(s+1) = 0;
+	    if (flags) *flags = g_strdup(f);
+	    if (tag) *tag = key_mi_tag(f);
 	}
 	g_free(f);
     } else
         np = key;
 
-    if (name)
-        *name = g_strdup(np);
+    if (name) *name = g_strdup(np);
     if (label) {
         *label = g_strdup(np);
         gchar *lbp = g_utf8_strchr(*label, -1, '#');

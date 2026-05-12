@@ -1102,7 +1102,7 @@ void shell_init(GSList * modules)
         close(fd);
 	g_free(buf);
     }
-    free(path);
+    g_free(path);
     if(sscanf(VERSION,"%u.%u.%u",&a1,&a2,&a3)==3) app_ver=a1*10000+a2*100+a3;
     if(app_ver && (latest_ver > app_ver)){
         shell_action_set_property("UpdateAction", "visible-horizontal", TRUE);

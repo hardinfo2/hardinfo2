@@ -1723,8 +1723,8 @@ static void update_progress()
 	}
 
 	gtk_tree_store_set(store, &iter, INFO_TREE_COL_PROGRESS, pct,
-			   INFO_TREE_COL_VALUE, strreplacechr(formatted, ",",
-							      '.'), -1);
+		           INFO_TREE_COL_VALUE,
+			   strreplace_chr(formatted, ',', '.'), -1);
 
 	g_free(tmp);
     } while (gtk_tree_model_iter_next(model, &iter));

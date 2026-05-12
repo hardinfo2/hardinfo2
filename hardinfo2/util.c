@@ -515,16 +515,6 @@ gchar *strreplace_chr(gchar * string, gchar replace, gchar new_char)
     for (s = string; *s; s++) if (*s==replace) *s = new_char;
     return string;
 }
-/* Copyright: Jens Låås, SLU 2002 */
-gchar *strreplacechr(gchar * string, gchar * replace, gchar new_char)
-{
-    gchar *s;
-    for (s = string; *s; s++)
-	if (strchr(replace, *s))
-	    *s = new_char;
-
-    return string;
-}
 //Note: frees incomming string - use like st=strreplace(st,"saa","ac");
 gchar *strreplace(gchar *string, gchar *replace, gchar *replacement)
 {

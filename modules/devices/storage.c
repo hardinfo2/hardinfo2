@@ -799,7 +799,7 @@ void __scan_ide_devices(void)
 				    || strstr(buf, "write"))
 				   && strstr(buf, "kB/s")) {
 			    speed =
-				g_strconcat(speed ? speed : "", strreplacechr(g_strstrip(buf), ":", '='), "\n", NULL);
+				g_strconcat(speed ? speed : "", strreplace_chr(g_strstrip(buf), ':', '='), "\n", NULL);
 			} else if (strstr(buf, "Device seems to be")) {
 			    driver = g_strdup_printf(_("Driver=%s\n"), strchr(buf, ':') + 1);
 			}

@@ -105,7 +105,7 @@ void scan_filesystems(void)
 
                 gboolean rw = strstr(tmp[3], "rw") != NULL;
 
-                strreplacechr(tmp[0], "#", '_');
+                strreplace_chr(tmp[0], '#', '_');
                 strhash = g_strdup_printf("[%s]\n"
                         "%s=%s\n"
                         "%s=%s\n"

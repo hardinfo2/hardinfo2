@@ -86,7 +86,7 @@ __scan_input_devices(void)
 
         switch (*tmp) {
         case 'N':
-            tmp = strreplacechr(tmp + strlen("N: Name="), "=", ':');
+            tmp = strreplace_chr(tmp + strlen("N: Name="), '=', ':');
             name = g_strdup(tmp);
             remove_quotes(name);
             break;

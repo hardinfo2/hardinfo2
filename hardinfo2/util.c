@@ -600,6 +600,7 @@ gchar *module_call_method(gchar * method)
 
     function = g_hash_table_lookup(__module_methods, method);
     if(function) f=function();
+    return f;
     ret=g_strdup(f);
     g_free(f);
 
@@ -618,6 +619,7 @@ gchar *module_call_method_param(gchar * method, gchar * parameter)
 
     function = g_hash_table_lookup(__module_methods, method);
     if(function) f=function(parameter);
+    return f;
     ret=g_strdup(f);
     g_free(f);
 
@@ -1361,37 +1363,23 @@ gboolean hardinfo_spawn_command_line_sync(const gchar *command_line,
 }
 
 
-#define MAX_STRWRAP 10000
-gchar *strwrap(const gchar *st, size_t w, gchar delimiter)
+gchar *strwrap(gchar *st, size_t w, gchar delimiter)
 {
-  gchar retst[MAX_STRWRAP];
-  gchar *rst=retst;
-  const gchar *ist=st;
-  int first=1;
+  gchar *ist=st;
   size_t len;
 
   if(!st) return NULL;
 
   //disable wrap for CLI text
-  if(params.create_report && !(params.fmt_opts & FMT_OPT_HTML)) return g_strdup(st);
+  if(params.create_report && !(params.fmt_opts & FMT_OPT_HTML)) return st;
 
-  while(((len=strlen(ist)) > 0) && (((rst-retst)+w+2)<MAX_STRWRAP)){
-    if(len>w) len=w;
-    while((len>1) && (*(ist+len)!=0)&&(*(ist+len)!=delimiter)) len--;
-    if(len==1) {len=strlen(ist);if(len>w) len=w;}
-    if(!first) {
-      *rst++=13;
-      strncpy(rst,ist,len);
-    }else{
-      strncpy(rst,ist,len);
-    }
-    rst+=len;
-    ist+=len;
-    if(*ist==delimiter) ist++;
-    if(*ist==0x20) ist++;
-    first=0;
+  while( (len=strlen(ist)) > 0 ){
+      if(len>w) len=w;
+      while( (len>1) && (*(ist+len)!=0) && (*(ist+len)!=delimiter)) len--;
+      if(len==1) {len=strlen(ist); if(len>w) len=w;}//delimiter not found cut at width
+      if(*(ist+len)) *(ist+len)=13;
+      ist+=len;
   }
-  *rst=0;
 
-  return g_strdup(retst);
+  return st;
 }

@@ -263,19 +263,19 @@ gchar *cputopo_section_str(cpu_topology_data *cputd)
         return g_strdup("");
 
     if (cputd->socket_id != CPU_TOPO_NULL && cputd->socket_id != -1)
-        sprintf(sock_str, "%s=%d\n", _("Socket"), cputd->socket_id);
+        snprintf(sock_str, sizeof(sock_str), "%s=%d\n", _("Socket"), cputd->socket_id);
     else
-        sprintf(sock_str, "%s=%s\n", _("Socket"), na);
+        snprintf(sock_str, sizeof(sock_str), "%s=%s\n", _("Socket"), na);
 
     if (cputd->core_id != CPU_TOPO_NULL)
-        sprintf(core_str, "%s=%d\n", _("Core"), cputd->core_id);
+        snprintf(core_str, sizeof(core_str), "%s=%d\n", _("Core"), cputd->core_id);
     else
-        sprintf(core_str, "%s=%s\n", _("Core"), na);
+        snprintf(core_str, sizeof(core_str), "%s=%s\n", _("Core"), na);
 
     if (cputd->book_id != CPU_TOPO_NULL)
-        sprintf(core_str, "%s=%d\n", _("Book"), cputd->book_id);
-    if (cputd->book_id != CPU_TOPO_NULL)
-        sprintf(core_str, "%s=%d\n", _("Drawer"), cputd->drawer_id);
+        snprintf(book_str, sizeof(book_str), "%s=%d\n", _("Book"), cputd->book_id);
+    if (cputd->drawer_id != CPU_TOPO_NULL)
+        snprintf(drawer_str, sizeof(drawer_str), "%s=%d\n", _("Drawer"), cputd->drawer_id);
 
     return g_strdup_printf(
                     "[%s]\n"

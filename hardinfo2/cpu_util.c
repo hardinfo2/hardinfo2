@@ -117,7 +117,7 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
     g_file_get_contents("/sys/devices/system/cpu/present", &tmp, NULL, NULL);
     if (!tmp) return 0;
     *t=count_from_str(tmp);
-    free(tmp);
+    g_free(tmp);
 
     cores = g_malloc0(MAX_BITS>>3);
     packs = g_malloc0(MAX_BITS>>3);
@@ -140,7 +140,7 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
     *n = 1;
     g_file_get_contents("/sys/devices/system/node/possible", &tmp, NULL, NULL);
     if (tmp) *n = count_from_str(tmp);
-    free(tmp);
+    g_free(tmp);
 
     //sanitity check
     if (*c<1) *c = *t; //if no cores, set to threads - probably SBC, best for benchmark

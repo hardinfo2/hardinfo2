@@ -581,7 +581,7 @@ void info_remove_group(struct Info *info, guint index)
 
     grp = &g_array_index(info->groups, struct InfoGroup, index);
     free_group_fields(grp);
-    g_free(grp->name);
+    //g_free(grp->name);//This should be freed here as it takes from strings allocated - defined as const - larger cleanup needed
     g_array_remove_index(info->groups, index);
 }
 

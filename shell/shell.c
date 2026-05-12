@@ -1,6 +1,7 @@
 /*
- *    HardInfo - Displays System Information
+ *    Hardinfo2 - System information and benchmark
  *    Copyright (C) 2003-2007 L. A. F. Pereira <l@tia.mat.br>
+ *    Copyright (C) 2024-2026 hardinfo2 project
  *
  *    This program is free software; you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -249,8 +250,7 @@ void shell_clear_tree_models(Shell *shell)
     if(shell){
         if(shell->tree && shell->tree->model) gtk_tree_store_clear(GTK_TREE_STORE(shell->tree->model));
         if(shell->info_tree && shell->info_tree->model) gtk_tree_store_clear(GTK_TREE_STORE(shell->info_tree->model));
-        //if(shell->info_tree && shell->info_tree->view) gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(shell->info_tree->view), FALSE);
-  }
+    }
 }
 
 void shell_clear_timeouts(Shell *shell)
@@ -408,7 +408,6 @@ void shell_status_set_percentage(gint percentage)
 
 void shell_view_set_enabled(gboolean setting)
 {
-    //DEBUG("SHELL_VIEW=%s\n",setting?"Normal":"Busy");
     if (!params.gui_running)
 	return;
     if (setting) {
@@ -431,7 +430,6 @@ void shell_view_set_enabled(gboolean setting)
 
 void shell_status_set_enabled(gboolean setting)
 {
-    //DEBUG("SHELL_STATUS=%d\n",setting?1:0);
     if (!params.gui_running)
 	return;
 
@@ -472,7 +470,6 @@ void shell_do_reload(gboolean reload)
 
 void shell_status_update(const gchar * message)
 {
-    //DEBUG("Shell_status_update %s",message);
     if (params.gui_running) {
         if(gtk_widget_get_visible(shell->status)) gtk_label_set_markup(GTK_LABEL(shell->status), message);
     } else if (!params.quiet) {
@@ -504,11 +501,9 @@ static void stylechange2_me(void)
     gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
     gint darkmode=0;
     if((color.red+color.green+color.blue)>=1.5) darkmode=1;
-    //printf("STYLEUPDATE: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
     //
     if((update==2) && params.darkmode && (!darkmode) ) {
         if(newgnome){
-	    //printf("We need to change GTK_THEME to dark\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","HighContrastInverse", NULL);
@@ -517,12 +512,10 @@ static void stylechange2_me(void)
 	    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
 	    darkmode=0;
 	    if((color.red+color.green+color.blue)>=1.5) darkmode=1;
-	    //printf("STYLEUPDATE2: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
 	}
     }
     if((update==2) && !params.darkmode && darkmode){
         if(newgnome){
-	    //printf("We need to change GTK_THEME to light\n");
             GtkSettings *set;
 	    set=gtk_settings_get_default();
 	    g_object_set(set,"gtk-theme-name","Adwaita", NULL);
@@ -531,13 +524,11 @@ static void stylechange2_me(void)
 	    gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
 	    darkmode=0;
 	    if((color.red+color.green+color.blue)>=1.5) darkmode=1;
-	    //printf("STYLEUPDATE2: Color=%3.1f dark=%d update=%d\n",color.red+color.green+color.blue,darkmode,update);
 	}
     }
     //Wrong dark/light fixing
     if((darkmode!=params.darkmode) && (update==1)){
         params.darkmode=darkmode;
-        //printf("FIXING - COLOR %f %f %f, DARKMODE=%d\n",color.red,color.green,color.blue, params.darkmode);
         //update theme
         cb_disable_theme();
     }
@@ -549,7 +540,6 @@ static void stylechange2_me(void)
 static void stylechange_signal(void)
 {
     int newDark=-1;
-    //printf("Stylechange_signal %s %s %s\n",(ng_theme?ng_theme:"X"),(og_theme?og_theme:"X"),(ogi_theme?ogi_theme:"X"));
     //new gnome using only normal/dark mode
     if(settings){
         //FIXME get dynamic scaling info
@@ -563,7 +553,6 @@ static void stylechange_signal(void)
 	        ng_theme=theme;
                 if(strstr(theme,"Dark")||strstr(theme,"dark")) newDark=1;
                 if(strstr(theme,"Light")||strstr(theme,"light")||strstr(theme,"default")) newDark=0;
-	        //printf("NewDARK NewGnome=%s Dark=%d\n", theme, newDark);
 	    } else g_free(theme);
 	}
 	//older gnome using themes with dark in theme-name
@@ -574,7 +563,6 @@ static void stylechange_signal(void)
 		if(og_theme) g_free(og_theme);
 		og_theme=theme;
 		if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;}
-		//printf("NewDARK OldGTK-Theme=%s Dark=%d\n", theme, newDark);
 	    } else g_free(theme);
         }
 	//older gnome using themes with dark in theme-name
@@ -585,20 +573,16 @@ static void stylechange_signal(void)
 		if(ogi_theme) g_free(ogi_theme);
 		ogi_theme=theme;
 		if(strstr(theme,"Dark")||strstr(theme,"dark")) {newDark=1;}
-		//printf("NewDARK OldIcon-Theme=%s Dark=%d\n", theme, newDark);
 	    } else g_free(theme);
         }
     }
-    //
     if(newDark==1){
         if(params.darkmode!=1) {
-	    //printf("Change to dark\n");
 	    params.darkmode=1;
             update=2;
         }
     }else if(newDark==0) {
         if(params.darkmode!=0) {
-	    //printf("Change to Light\n");
 	    params.darkmode=0;
             update=2;
         }
@@ -613,7 +597,6 @@ static void stylechange_signal(void)
 static void stylechange_updated(void)
 {
     if(!update) update=1;
-    //printf("GTK style signal -> Check Update=%d\n",update);
     stylechange2_me();
 }
 #endif
@@ -713,10 +696,8 @@ static void create_window(void)
     GdkRGBA color;
     gtk_style_context_lookup_color(sctx, "theme_text_color", &color);
     if((color.red+color.green+color.blue)>=1.5) params.darkmode=1;
-    //printf("INIT PARAM.DARKMODE Color=%3.1f =>%d\n",color.red+color.green+color.blue,params.darkmode);
     //
     g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_updated, NULL);
-    //g_signal_connect_after(G_OBJECT(shell->window), "draw", stylechange_updated, NULL);
     if(g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE))
         settings=g_settings_new("org.gnome.desktop.interface");
     if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
@@ -730,7 +711,6 @@ static void create_window(void)
 	}
 	if(keys) g_strfreev(keys);
 	//register settings at startup
-	//printf("Init GSettings newgnome=%d\n",newgnome);
 	if(newgnome) {
 	    ng_theme = g_settings_get_string(settings, "color-scheme");
 	    if(strstr(ng_theme,"Dark")||strstr(ng_theme,"dark")) {params.darkmode=1;update=2;}
@@ -760,12 +740,10 @@ static void create_window(void)
     gtk_box_pack_end(GTK_BOX(vbox), hbox, FALSE, FALSE, 3);
 
     shell->progress = gtk_progress_bar_new();
-    //gtk_widget_set_size_request(shell->progress, 80, 10);
 #if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_set_valign(GTK_WIDGET(shell->progress), GTK_ALIGN_CENTER);
 #else
     //Results in conversion error - just disable for GTK2
-    //gtk_misc_set_alignment(GTK_MISC(shell->progress), 0.0, 0.5);
 #endif
     gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(shell->progress),0.10);
     gtk_widget_hide(shell->progress);
@@ -835,7 +813,6 @@ static void create_window(void)
     //Check packaging
     gchar *pkgok=NULL,*p;
     //minimum of packages installed by hardinfo2 package - as specified on README.md
-    //pkgok=g_strdup("TESTING\n");//for testing - always triggers
     if(!check_program("awk"))                                     {p=pkgok;pkgok=g_strconcat("gawk\n", pkgok, NULL);g_free(p);}
     if(!check_program("dmidecode"))                               {p=pkgok;pkgok=g_strconcat("dmidecode\n", pkgok, NULL);g_free(p);}
     if(!check_program("xdg-open"))                                {p=pkgok;pkgok=g_strconcat("xdg-open / xdg-utils\n", pkgok, NULL);g_free(p);}
@@ -857,25 +834,12 @@ static void create_window(void)
 			 GTK_MESSAGE_ERROR,
 			 GTK_BUTTONS_CLOSE,
 			 _("<b>Hardinfo2 not packaged correctly</b>\n\nMissing packages:\n\n%s\n\nPlease fix by installing manually"),
-			 pkgok);//PACK_REQ);
+			 pkgok);
         gtk_dialog_run (GTK_DIALOG (pkgdialog));
         gtk_widget_destroy (pkgdialog);
 	g_free(pkgok);
     }
 }
-
-/*static void view_menu_select_entry(gpointer data, gpointer data2)
-{
-    GtkTreePath *path;
-    GtkTreeIter *iter = (GtkTreeIter *) data2;
-
-    path = gtk_tree_model_get_path(shell->tree->model, iter);
-
-    gtk_tree_selection_select_path(shell->tree->selection, path);
-    gtk_tree_view_set_cursor(GTK_TREE_VIEW(shell->tree->view), path, NULL,
-			     FALSE);
-    gtk_tree_path_free(path);
-}*/
 
 
 void shell_add_modules_to_gui(gpointer _shell_module, gpointer _shell_tree)
@@ -1156,7 +1120,6 @@ void shell_init(GSList * modules)
     gtk_widget_hide(shell->notebook);
     gtk_widget_hide(shell->note->event_box);
 
-    /* Should select Computer Summary (note: not Computer/Summary) */
     g_idle_add(select_first_tree_item, NULL);
 }
 
@@ -1167,8 +1130,6 @@ static gboolean update_field(gpointer data)
 
     fu = (ShellFieldUpdate *)data;
     g_return_val_if_fail(fu != NULL, FALSE);
-
-    //DEBUG("update_field [%s]", fu->field_name);
 
     item = g_hash_table_lookup(update_tbl, fu->field_name);
     if (!item) {
@@ -1325,33 +1286,6 @@ static gboolean rescan_section(gpointer data)
 }
 
 
-/*
-static gint compare_float(float a, float b){return (a > b) - (a < b);}
-static gint info_tree_compare_val_func(GtkTreeModel * model, GtkTreeIter * a, GtkTreeIter * b, gpointer userdata)
-{
-    gint ret = 0;
-    gchar *col1=NULL, *col2=NULL;
-
-    gtk_tree_model_get(model, a, INFO_TREE_COL_VALUE, &col1, -1);
-    gtk_tree_model_get(model, b, INFO_TREE_COL_VALUE, &col2, -1);
-
-    if (!col1 && !col2)
-        ret = 0;
-    else if (!col1)
-        ret = -1;
-    else if (!col2)
-        ret = 1;
-    else if (shell->_order_type == SHELL_ORDER_ASCENDING)
-        ret = compare_float(atof(col2), atof(col1));
-    else
-        ret = compare_float(atof(col1), atof(col2));
-
-    g_free(col1);
-    g_free(col2);
-
-    return ret;
-}*/
-
 static void set_view_type(ShellViewType viewtype, gboolean reload)
 {
     gboolean type_changed = FALSE;
@@ -1364,15 +1298,6 @@ static void set_view_type(ShellViewType viewtype, gboolean reload)
     shell->normalize_percentage = TRUE;
     shell->view_type = viewtype;
     shell->_order_type = SHELL_ORDER_DESCENDING;
-
-    /* use an unsorted tree model */
-    /*GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
-
-    gtk_tree_sortable_set_sort_column_id(sortable,
-        GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID,
-        GTK_SORT_ASCENDING);
-    gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view),
-    GTK_TREE_MODEL(sortable));*/
 
     /* reset to the default view columns */
     if (!reload) {
@@ -1804,16 +1729,6 @@ static void update_progress()
 	g_free(tmp);
     } while (gtk_tree_model_iter_next(model, &iter));
 
-    /* now sort everything up. that wasn't as hard as i thought :) */
-    /*GtkTreeSortable *sortable = GTK_TREE_SORTABLE(shell->info_tree->model);
-
-    gtk_tree_sortable_set_sort_func(sortable, INFO_TREE_COL_VALUE,
-				    info_tree_compare_val_func, 0, NULL);
-    gtk_tree_sortable_set_sort_column_id(sortable, INFO_TREE_COL_VALUE,
-					 GTK_SORT_DESCENDING);
-    gtk_tree_view_set_model(GTK_TREE_VIEW(shell->info_tree->view),
-			    GTK_TREE_MODEL(sortable));
-    */
 }
 
 void shell_set_note_from_entry(ShellModuleEntry * entry)

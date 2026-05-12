@@ -581,7 +581,7 @@ void info_remove_group(struct Info *info, guint index)
 
     grp = &g_array_index(info->groups, struct InfoGroup, index);
     free_group_fields(grp);
-
+    g_free(grp->name);
     g_array_remove_index(info->groups, index);
 }
 
@@ -708,7 +708,6 @@ struct Info *info_unflatten(const gchar *str)
         g_free(group_name);
         g_strfreev(keys);
     }
-
     g_key_file_free(key_file);
 
     return info;

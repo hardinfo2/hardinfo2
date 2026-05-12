@@ -163,7 +163,7 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
 cpufreq_data *cpufreq_new(gint id)
 {
     cpufreq_data *cpufd;
-    cpufd = malloc(sizeof(cpufreq_data));
+    cpufd = g_malloc(sizeof(cpufreq_data));
     if (cpufd) {
         memset(cpufd, 0, sizeof(cpufreq_data));
         cpufd->id = id;
@@ -197,6 +197,7 @@ void cpufreq_free(cpufreq_data *cpufd)
     if (cpufd) {
         g_free(cpufd->scaling_driver);
         g_free(cpufd->scaling_governor);
+        g_free(cpufd->shared_list);
     }
     g_free(cpufd);
 }
@@ -204,7 +205,7 @@ void cpufreq_free(cpufreq_data *cpufd)
 cpu_topology_data *cputopo_new(gint id)
 {
     cpu_topology_data *cputd;
-    cputd = malloc(sizeof(cpu_topology_data));
+    cputd = g_malloc(sizeof(cpu_topology_data));
     if (cputd) {
         memset(cputd, 0, sizeof(cpu_topology_data));
         cputd->id = id;

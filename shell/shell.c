@@ -2720,21 +2720,20 @@ const gchar *key_get_name(const gchar *key) {
 void key_get_components(const gchar *key, gchar **flags, gchar **tag, gchar **name, gchar **label, gchar **dis) {
     if (!key || !*key) return;
 
-    const gchar *np = g_utf8_strchr(key+1, -1, '$') + 1;
+    const gchar *np = g_utf8_strchr(key+1, -1, '$');
+    if(np) np++;
+
     if (*key == '$' && np) {
         /* is flagged */
         gchar *f = g_strdup(key);
         gchar *s = g_utf8_strchr(f+1, -1, '$');
-        if(s==NULL) {
-	    DEBUG("ERROR NOT FOUND");
-        } else {
-	    *(s+1) = 0;
-	    if (flags) *flags = g_strdup(f);
-	    if (tag) *tag = key_mi_tag(f);
-	}
+	*(s+1) = 0;
+	if (flags) *flags = g_strdup(f);
+	if (tag) *tag = key_mi_tag(f);
 	g_free(f);
-    } else
+    } else {
         np = key;
+    }
 
     if (name) *name = g_strdup(np);
     if (label) {

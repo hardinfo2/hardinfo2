@@ -448,7 +448,7 @@ char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *
     if (full) {
         p = full;
         while( (next_nl = strchr(p, '\n')) ) {
-            strend(p, '\n');
+            *next_nl=0;
             if (!(sscanf(p, "Handle 0x%X", &ch) > 0) ) {
                 if (!handle || *handle == ch) {
                     while(*p == '\t') p++;
@@ -462,6 +462,7 @@ char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *
                     }
                 }
             }
+	    *next_nl='\n';
             p = next_nl + 1;
         }
         free(full);

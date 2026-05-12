@@ -629,15 +629,13 @@ gchar *callback_os(void)
     p=info_flatten(info);
     g_free(distro);
     g_free(distro_icon);
-    g_free(p1);
-    g_free(p2);
     return p;
 
 }
 
 gchar *callback_security(void)
 {
-    gchar *st=NULL, *systype_str=NULL, *p,*p1,*p2,*p3;
+    gchar *systype_str=NULL, *p,*p1,*p2,*p3;
     int systype=get_systype();
 
     if( systype>=0 ) {
@@ -703,11 +701,10 @@ gchar *callback_security(void)
                 g_strstr_len(contents, -1, "vulnerable"))
                 icon = "circle_red_x.svg";
 
-	    st=strwrap(contents,90,',');
-	    g_free(contents);
             info_group_add_fields(vulns,
                                   info_field(g_strdup(vuln),
-                                             st, .icon = icon,
+                                             strwrap(contents,90,','),
+					     .icon = icon,
                                              .free_name_on_flatten = TRUE),
                                   info_field_last());
         }
@@ -716,7 +713,7 @@ gchar *callback_security(void)
     }
 
     p=info_flatten(info);
-    g_free(systype_str); g_free(p1); g_free(p2); g_free(p3); g_free(st);
+    g_free(systype_str); g_free(p1); g_free(p2); g_free(p3);
     return p;
 }
 

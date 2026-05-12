@@ -99,6 +99,7 @@ int main(int argc, char **argv)
 	g2_key_file_save_to_file(key_file, conf_path, NULL);
 #endif
     }
+    g_free(appver);
     g_free(conf_path);
     g_key_file_free(key_file);
 
@@ -204,8 +205,10 @@ int main(int argc, char **argv)
 
 	    gchar *file=g_build_filename(g_get_user_config_dir(), "hardinfo2", "cachedreport", NULL);
 	    FILE *io=fopen(file,"w");
-	    fputs(report,io);
-	    fclose(io);
+	    if(io){
+	        fputs(report,io);
+	        fclose(io);
+	    }
 	}
 
 	if(params.topic){
@@ -265,6 +268,9 @@ int main(int argc, char **argv)
     vendor_cleanup();
     pci_cleanup();
     dmidecode_cache_free();
+    g_free(params.path_lib);
+    g_free(params.path_data);
+    g_free(params.path_locale);
     DEBUG("unloading modules");
     module_unload_all(modules);
     DEBUG("finished");

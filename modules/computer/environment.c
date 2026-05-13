@@ -34,13 +34,12 @@ void scan_env_var(gboolean reload)
     g_free(_env);
 
     //read environment to GList
-    _env = g_strdup_printf("[%s]\n", _("Environment Variables") );
     for (i = 0, envlist = g_listenv(); envlist[i]; i++) {
         st=strwrap(g_strdup(g_getenv(envlist[i])),80,':');
 	//remove curly braces
 	st=strreplace(st,"{","");
 	st=strreplace(st,"}","");
-        list = g_list_prepend(list, g_strdup_printf("%s=%s\n", envlist[i], st));
+        list = g_list_prepend(list, g_strdup_printf("$%d$%s=%s\n", i, envlist[i], st));
         g_free(st);
     }
     g_strfreev(envlist);
@@ -63,5 +62,13 @@ void scan_env_var(gboolean reload)
 
 gchar *callback_env_var(void)
 {
-    return g_strdup(_env);
+    struct Info *info = info_new();
+
+    info_add_computed_group(info, _("Environment Variables"), _env);
+    info_set_column_title(info, "TextValue", _("Variable"));
+    info_set_column_title(info, "Value", _("Value"));
+    info_set_column_headers_visible(info, TRUE);
+    //info_set_view_type(info, SHELL_VIEW_DUAL);
+
+    return info_flatten(info);
 }

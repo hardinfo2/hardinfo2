@@ -366,13 +366,13 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 	{
 	 .long_name = "topic",
 	 .short_name = 't',
-	 .arg = G_OPTION_ARG_STRING,
+	 .arg = G_OPTION_ARG_FILENAME,
 	 .arg_data = &topic,
 	 .description = N_("search for a topic in CLI report (-t getlist shows available)")},
 	{
 	 .long_name = "topic-cache",
 	 .short_name = 'c',
-	 .arg = G_OPTION_ARG_STRING,
+	 .arg = G_OPTION_ARG_FILENAME,
 	 .arg_data = &topiccached,
 	 .description = N_("search for a topic in Cached CLI report (-t getlist shows available)")},
 	{
@@ -426,13 +426,17 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
     g_option_context_set_help_enabled(ctx, TRUE);
 
     g_option_context_add_main_entries(ctx, options, *(argv)[0]);
-    g_option_context_parse(ctx, argc, argv, NULL);
+
+    gchar **args=g_strdupv(*argv);
+    GError *error=NULL;
+    g_option_context_parse_strv(ctx, &args, &error);
+    g_strfreev(args);
 
     g_option_context_free(ctx);
 
-    if (*argc >= 2) {
-	g_print(_("Unrecognized arguments.\n"
-		"Try ``%s --help'' for more information.\n"), *(argv)[0]);
+    if (error){
+        //g_print("Error passing arguments\n%s\n", error->message);
+	g_print(_("Unrecognized arguments.\nTry ``%s --help'' for more information.\n"), *(argv)[0]);
 	exit(1);
     }
 

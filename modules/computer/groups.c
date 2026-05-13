@@ -48,8 +48,12 @@ void scan_groups_do(void)
 	if(!members) members=g_strdup(_("None"));
         gchar *key = g_strdup_printf("GROUP%s", group_->gr_name);
         gchar *val = g_strdup_printf("[%s]\n"
+		                     "%s=%s\n"
+		                     "%s=%d\n"
 		                     "%s=%s\n",
 				     _("Group Information"),
+				     _("Group Name"), group_->gr_name,
+				     _("Group ID"), (gint) group_->gr_gid,
 				     _("Members"), members);
 
         list=g_list_prepend(list,g_strdup_printf("%s,%s,%d,%s", key, group_->gr_name, group_->gr_gid, val));

@@ -67,6 +67,8 @@ static void info_selected_show_extra(const gchar *tag);
 static gboolean reload_section(gpointer data);
 static gboolean rescan_section(gpointer data);
 static gboolean update_field(gpointer data);
+static gboolean is_search_supported_for_current_view(void);
+static void update_search_widgets_state(void);
 #if GTK_CHECK_VERSION(3,0,0)
 static GSettings *settings=NULL;
 #endif
@@ -198,6 +200,282 @@ static time_t parse_boot_date(const char *str) {
     }
 
     return 0;
+}
+
+static GtkWidget *search_entry = NULL;
+static GtkWidget *search_button = NULL;
+
+// state for "find next"
+static gchar *current_search_text = NULL;
+static GtkTreePath *last_search_path = NULL;
+static gboolean search_wrapped = FALSE;
+
+static gboolean check_node_for_search_match(GtkTreeModel *model, GtkTreeIter *iter,
+                                            const gchar *search_text) {
+    for (int col = 0; col < INFO_TREE_NCOL; col++) {
+        GValue value = G_VALUE_INIT;
+        gtk_tree_model_get_value(model, iter, col, &value);
+
+        if (G_VALUE_TYPE(&value) == G_TYPE_STRING) {
+            const gchar *cell_text = g_value_get_string(&value);
+
+            if (cell_text && strlen(cell_text) > 0) {
+                gchar *cell_lower = g_utf8_strdown(cell_text, -1);
+                gchar *search_lower = g_utf8_strdown(search_text, -1);
+
+                if (strstr(cell_lower, search_lower)) {
+                    g_free(cell_lower);
+                    g_free(search_lower);
+                    g_value_unset(&value);
+                    return TRUE;
+                }
+                g_free(cell_lower);
+                g_free(search_lower);
+            }
+        }
+        g_value_unset(&value);
+    }
+    return FALSE;
+}
+
+static void select_and_scroll_to_found_item(GtkWidget *tree_view, GtkTreeModel *model,
+                                            GtkTreeIter *iter) {
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+
+    if (selection) {
+        gtk_tree_selection_select_iter(selection, iter);
+
+        GtkTreePath *path = gtk_tree_model_get_path(model, iter);
+        if (path) {
+            gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.0);
+
+            if (last_search_path) {
+                gtk_tree_path_free(last_search_path);
+            }
+            last_search_path = gtk_tree_path_copy(path);
+            gtk_tree_path_free(path);
+        }
+    }
+}
+
+static gboolean search_tree_view(GtkWidget *tree_view, const gchar *search_text,
+                                 gboolean find_next) {
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    gboolean valid;
+    gboolean found = FALSE;
+    GtkTreePath *start_path = NULL;
+
+    if (!search_text || strlen(search_text) == 0)
+        return FALSE;
+
+    if (!tree_view || !GTK_IS_TREE_VIEW(tree_view))
+        return FALSE;
+
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
+    if (!model)
+        return FALSE;
+
+    if (find_next && last_search_path) {
+        start_path = gtk_tree_path_copy(last_search_path);
+        gtk_tree_path_next(start_path);
+
+        if (!gtk_tree_model_get_iter(model, &iter, start_path)) {
+            gtk_tree_path_free(start_path);
+            start_path = gtk_tree_path_new_first();
+        }
+    } else {
+        start_path = gtk_tree_path_new_first();
+
+        if (last_search_path) {
+            gtk_tree_path_free(last_search_path);
+            last_search_path = NULL;
+        }
+
+        search_wrapped = FALSE;
+    }
+
+    valid = gtk_tree_model_get_iter(model, &iter, start_path);
+
+    while (valid && !found) {
+        if (check_node_for_search_match(model, &iter, search_text)) {
+            select_and_scroll_to_found_item(tree_view, model, &iter);
+            found = TRUE;
+        }
+
+        if (!found)
+            valid = gtk_tree_model_iter_next(model, &iter);
+    }
+
+    if (!found && find_next && !search_wrapped) {
+        search_wrapped = TRUE;
+        gtk_tree_path_free(start_path);
+        start_path = gtk_tree_path_new_first();
+        valid = gtk_tree_model_get_iter(model, &iter, start_path);
+
+        while (valid && !found) {
+            GtkTreePath *current_path = gtk_tree_model_get_path(model, &iter);
+            if (last_search_path && gtk_tree_path_compare(current_path, last_search_path) >= 0) {
+                gtk_tree_path_free(current_path);
+                break;
+            }
+            gtk_tree_path_free(current_path);
+
+            if (check_node_for_search_match(model, &iter, search_text)) {
+                select_and_scroll_to_found_item(tree_view, model, &iter);
+                found = TRUE;
+            }
+
+            if (!found) {
+                valid = gtk_tree_model_iter_next(model, &iter);
+            }
+        }
+    }
+
+    search_wrapped = FALSE;
+    gtk_tree_path_free(start_path);
+    return found;
+}
+
+static gboolean reset_search_background(gpointer data) {
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_override_background_color(GTK_WIDGET(data), GTK_STATE_FLAG_NORMAL, NULL);
+#else
+    gtk_widget_modify_base(GTK_WIDGET(data), GTK_STATE_NORMAL, NULL);
+#endif
+    return FALSE; // Run only once
+}
+
+static void update_search_widgets_state(void) {
+    if (!search_entry || !search_button) return;
+
+    gboolean supported = is_search_supported_for_current_view();
+
+    gtk_widget_set_sensitive(search_entry, supported);
+    gtk_widget_set_sensitive(search_button, supported);
+
+    if (supported) {
+        gtk_widget_set_tooltip_text(search_entry, _("Enter text to search"));
+        gtk_widget_set_tooltip_text(search_button, _("Click to search"));
+    } else {
+        gtk_widget_set_tooltip_text(search_entry, _("Search not available"));
+        gtk_widget_set_tooltip_text(search_button, _("Search not available"));
+    }
+
+    if (!supported)
+        gtk_entry_set_text(GTK_ENTRY(search_entry), "");
+}
+
+static gboolean is_search_supported_for_current_view(void) {
+    Shell *shell = shell_get_main_shell();
+
+    if (!shell)
+        return FALSE;
+
+    return (shell->view_type == SHELL_VIEW_NORMAL
+            || shell->view_type == SHELL_VIEW_DUAL
+            || shell->view_type == SHELL_VIEW_PROGRESS
+            || shell->view_type == SHELL_VIEW_PROGRESS_DUAL
+            || shell->view_type == SHELL_VIEW_LOAD_GRAPH);
+}
+
+static void on_search_clicked(GtkWidget *widget, gpointer data) {
+    if (!search_entry) return;
+
+    const gchar *search_text = gtk_entry_get_text(GTK_ENTRY(search_entry));
+    Shell *shell_ptr = shell_get_main_shell();
+
+    if (shell_ptr) {
+        if (shell_ptr->view_type == SHELL_VIEW_DETAIL) {
+#if GTK_CHECK_VERSION(3, 0, 0)
+            GdkRGBA rgba = {1.0, 0.0, 0.0, 0.3};
+            gtk_widget_override_background_color(search_entry, GTK_STATE_FLAG_NORMAL, &rgba);
+#else
+            GdkColor color = {0, 0xFFFF, 0xAAAA, 0xAAAA};
+            gtk_widget_modify_base(search_entry, GTK_STATE_NORMAL, &color);
+#endif
+            g_timeout_add(1000, reset_search_background, search_entry);
+            gtk_editable_select_region(GTK_EDITABLE(search_entry), 0, 0);
+            return;
+        }
+    }
+
+    gboolean find_next = FALSE;
+
+    if (current_search_text && search_text &&
+        strcmp(current_search_text, search_text) == 0) {
+        find_next = TRUE;
+    } else {
+        if (current_search_text)
+            g_free(current_search_text);
+
+        current_search_text = g_strdup(search_text);
+
+        if (last_search_path) {
+            gtk_tree_path_free(last_search_path);
+            last_search_path = NULL;
+        }
+
+        search_wrapped = FALSE;
+    }
+
+    if (shell_ptr && search_text && strlen(search_text) > 0) {
+        gboolean found = FALSE;
+
+        if (shell_ptr->info_tree && shell_ptr->info_tree->view) {
+            found = search_tree_view(shell_ptr->info_tree->view, search_text, find_next);
+        }
+
+        if (!found) {
+#if GTK_CHECK_VERSION(3, 0, 0)
+            GdkRGBA rgba = {1.0, 0.0, 0.0, 0.15};
+            gtk_widget_override_background_color(search_entry, GTK_STATE_FLAG_NORMAL, &rgba);
+#else
+            GdkColor color = {0, 0xFFFF, 0xCCCC, 0xCCCC};
+            gtk_widget_modify_base(search_entry, GTK_STATE_NORMAL, &color);
+#endif
+            g_timeout_add(1000, reset_search_background, search_entry);
+        } else {
+#if GTK_CHECK_VERSION(3, 0, 0)
+            GdkRGBA rgba = {0.0, 1.0, 0.0, 0.1};
+            gtk_widget_override_background_color(search_entry, GTK_STATE_FLAG_NORMAL, &rgba);
+#else
+            GdkColor color = {0, 0xAAAA, 0xFFFF, 0xAAAA};
+            gtk_widget_modify_base(search_entry, GTK_STATE_NORMAL, &color);
+#endif
+            g_timeout_add(1000, reset_search_background, search_entry);
+        }
+
+        gtk_editable_select_region(GTK_EDITABLE(search_entry), 0, 0);
+    }
+}
+
+static gboolean select_all_text(gpointer data) {
+    if (data && GTK_IS_EDITABLE(data))
+        gtk_editable_select_region(GTK_EDITABLE(data), 0, -1);
+
+    return FALSE; // Run only once
+}
+
+static gboolean on_search_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data) {
+    g_timeout_add(10, select_all_text, widget);
+    return FALSE;
+}
+
+static void on_search_activate(GtkWidget *widget, gpointer data) {
+    on_search_clicked(widget, data);
+    // Text unselection handled in on_search_clicked
+}
+
+static gboolean on_search_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data) {
+    if ((event->keyval == GDK_KEY_f || event->keyval == GDK_KEY_F) && (event->state & GDK_CONTROL_MASK)) {
+        if (search_entry) {
+            gtk_widget_grab_focus(search_entry);
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static gint info_tree_date_compare(GtkTreeModel *model, GtkTreeIter *a,
@@ -731,6 +1009,37 @@ static void create_window(void)
 
     menu_init(shell);
 
+    g_signal_connect(G_OBJECT(shell->window), "key-press-event", G_CALLBACK(on_search_key_press), NULL);
+
+    GtkWidget *toolbar = gtk_ui_manager_get_widget(shell->ui_manager, "/MainMenuBarAction");
+
+    if (toolbar && GTK_IS_TOOLBAR(toolbar)) {
+        GtkToolItem *separator = gtk_separator_tool_item_new();
+        gtk_separator_tool_item_set_draw(GTK_SEPARATOR_TOOL_ITEM(separator), FALSE);
+        gtk_tool_item_set_expand(separator, TRUE);
+        gtk_toolbar_insert(GTK_TOOLBAR(toolbar), separator, -1);
+        gtk_widget_show(GTK_WIDGET(separator));
+
+        search_entry = gtk_entry_new();
+        gtk_widget_set_size_request(search_entry, 150, -1);
+        GtkToolItem *entry_item = gtk_tool_item_new();
+        gtk_container_add(GTK_CONTAINER(entry_item), search_entry);
+        gtk_toolbar_insert(GTK_TOOLBAR(toolbar), entry_item, -1);
+        gtk_widget_show_all(GTK_WIDGET(entry_item));
+        g_signal_connect(G_OBJECT(search_entry), "activate", G_CALLBACK(on_search_activate), NULL);
+        g_signal_connect(G_OBJECT(search_entry), "button-press-event", G_CALLBACK(on_search_button_press), NULL);
+        g_timeout_add(100, select_all_text, search_entry);
+
+        search_button = gtk_button_new_with_label(_("Search"));
+        GtkToolItem *button_item = gtk_tool_item_new();
+        gtk_container_add(GTK_CONTAINER(button_item), search_button);
+        gtk_toolbar_insert(GTK_TOOLBAR(toolbar), button_item, -1);
+        gtk_widget_show_all(GTK_WIDGET(button_item));
+        g_signal_connect(G_OBJECT(search_button), "clicked", G_CALLBACK(on_search_clicked), NULL);
+
+        update_search_widgets_state();
+    }
+
 #if GTK_CHECK_VERSION(3, 0, 0)
     hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
 #else
@@ -809,6 +1118,8 @@ static void create_window(void)
 #endif
 
     gtk_widget_show(shell->window);
+
+    g_timeout_add(100, (GSourceFunc)update_search_widgets_state, NULL);
 
     //Check packaging
     gchar *pkgok=NULL,*p;
@@ -2122,6 +2433,8 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
     }
 
     shell_set_note_from_entry(entry);
+
+    update_search_widgets_state();
 
     //Scroll to selected item or first
     if(entry->flags & MODULE_FLAG_BENCHMARK){

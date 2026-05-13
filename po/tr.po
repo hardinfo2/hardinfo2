@@ -10,66 +10,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-17 00:53+0200\n"
+"POT-Creation-Date: 2026-05-13 22:02+0800\n"
 "PO-Revision-Date: 2026-03-31 13:54+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: hardinfo2/cpu_util.c:29
+#: hardinfo2/cpu_util.c:28
 msgid "Little Endian"
 msgstr "Küçük Endian"
 
-#: hardinfo2/cpu_util.c:31
+#: hardinfo2/cpu_util.c:30
 msgid "Big Endian"
 msgstr "Büyük Endian"
 
-#: hardinfo2/cpu_util.c:209 hardinfo2/cpu_util.c:220 modules/devices/gpu.c:268
+#: hardinfo2/cpu_util.c:240 hardinfo2/cpu_util.c:251 modules/devices/gpu.c:268
 msgid "Frequency Scaling"
 msgstr "Frekans Ölçeklendirme"
 
-#: hardinfo2/cpu_util.c:210 modules/devices/gpu.c:269
+#: hardinfo2/cpu_util.c:241 modules/devices/gpu.c:269
 msgid "Minimum"
 msgstr "En düşük"
 
-#: hardinfo2/cpu_util.c:210 hardinfo2/cpu_util.c:211 hardinfo2/cpu_util.c:212
+#: hardinfo2/cpu_util.c:241 hardinfo2/cpu_util.c:242 hardinfo2/cpu_util.c:243
 #: hardinfo2/dt_util.c:560 modules/devices/gpu.c:269 modules/devices/gpu.c:270
 msgid "kHz"
 msgstr "kHz"
 
-#: hardinfo2/cpu_util.c:211 modules/devices/gpu.c:270
+#: hardinfo2/cpu_util.c:242 modules/devices/gpu.c:270
 msgid "Maximum"
 msgstr "En yüksek"
 
-#: hardinfo2/cpu_util.c:212
+#: hardinfo2/cpu_util.c:243
 msgid "Current"
 msgstr "Güncel"
 
-#: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:271
+#: hardinfo2/cpu_util.c:244 modules/devices/gpu.c:271
 msgid "Transition Latency"
 msgstr "Geçiş Gecikmesi"
 
-#: hardinfo2/cpu_util.c:213 modules/devices/gpu.c:271
+#: hardinfo2/cpu_util.c:244 modules/devices/gpu.c:271
 msgid "ns"
 msgstr "ns"
 
-#: hardinfo2/cpu_util.c:214
+#: hardinfo2/cpu_util.c:245
 msgid "Governor"
 msgstr "Yönetici"
 
-#: hardinfo2/cpu_util.c:215 hardinfo2/cpu_util.c:221 modules/devices.c:1087
+#: hardinfo2/cpu_util.c:246 hardinfo2/cpu_util.c:252 modules/devices.c:1118
 #: modules/devices/gpu.c:215 modules/devices/pci.c:169
 #: modules/devices/usb.c:140
 msgid "Driver"
 msgstr "Sürücü"
 
-#: hardinfo2/cpu_util.c:227 modules/computer.c:791
+#: hardinfo2/cpu_util.c:258 modules/computer.c:799
 #: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
 #: modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
 #: modules/devices/riscv/processor.c:348 modules/devices/x86/processor.c:283
@@ -77,29 +77,29 @@ msgstr "Sürücü"
 msgid "(Not Available)"
 msgstr "(Mevcut değil)"
 
-#: hardinfo2/cpu_util.c:235 hardinfo2/cpu_util.c:237
+#: hardinfo2/cpu_util.c:266 hardinfo2/cpu_util.c:268
 msgid "Socket"
 msgstr "Yuva"
 
-#: hardinfo2/cpu_util.c:240 hardinfo2/cpu_util.c:242 modules/devices/gpu.c:211
+#: hardinfo2/cpu_util.c:271 hardinfo2/cpu_util.c:273 modules/devices/gpu.c:211
 #: modules/devices/gpu.c:301
 msgid "Core"
 msgstr "Çekirdek"
 
-#: hardinfo2/cpu_util.c:245
+#: hardinfo2/cpu_util.c:276
 msgid "Book"
 msgstr "Kitap"
 
-#: hardinfo2/cpu_util.c:247
+#: hardinfo2/cpu_util.c:278
 msgid "Drawer"
 msgstr "Çekmece"
 
-#: hardinfo2/cpu_util.c:253 modules/devices/arm/processor.c:763
+#: hardinfo2/cpu_util.c:284 modules/devices/arm/processor.c:769
 #: modules/devices/riscv/processor.c:555 modules/devices/x86/processor.c:753
 msgid "Topology"
 msgstr "Topoloji"
 
-#: hardinfo2/cpu_util.c:254
+#: hardinfo2/cpu_util.c:285
 msgid "ID"
 msgstr "ID"
 
@@ -119,9 +119,9 @@ msgstr "Taban Kurulu"
 msgid "Chassis"
 msgstr "Şasi"
 
-#: hardinfo2/dmi_util.c:29 modules/computer.c:549 modules/computer.c:1119
-#: modules/devices.c:99 modules/devices/alpha/processor.c:87
-#: modules/devices/arm/processor.c:563 modules/devices/e2k/processor.c:363
+#: hardinfo2/dmi_util.c:29 modules/computer.c:559 modules/computer.c:1127
+#: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563
+#: modules/devices.c:99 modules/devices/e2k/processor.c:363
 #: modules/devices/ia64/processor.c:159
 #: modules/devices/loongarch64/processor.c:93
 #: modules/devices/m68k/processor.c:83 modules/devices/mips/processor.c:74
@@ -314,9 +314,9 @@ msgstr "Kule"
 msgid "Portable"
 msgstr "Taşınabilir"
 
-#: hardinfo2/dmi_util.c:246 modules/computer.c:459 modules/computer.c:461
-#: modules/computer.c:472 modules/computer.c:474 modules/computer.c:498
-#: modules/computer.c:500
+#: hardinfo2/dmi_util.c:246 modules/computer.c:469 modules/computer.c:471
+#: modules/computer.c:482 modules/computer.c:484 modules/computer.c:508
+#: modules/computer.c:510
 msgid "Laptop"
 msgstr "Dizüstü"
 
@@ -429,7 +429,7 @@ msgid "Stick PC"
 msgstr "Çubuk PC"
 
 #. !/ %d will be latest year of copyright
-#: hardinfo2/hardinfo.c:109
+#: hardinfo2/hardinfo.c:110
 #, c-format
 msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
@@ -438,7 +438,7 @@ msgstr ""
 "Telif Hakkı (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Projesi.\n"
 "\n"
 
-#: hardinfo2/hardinfo.c:111
+#: hardinfo2/hardinfo.c:112
 #, c-format
 msgid ""
 "Compile-time options:\n"
@@ -463,17 +463,17 @@ msgstr ""
 "  Yerel ayar        :  %s\n"
 "  Derlendiği ortam   :  %s\n"
 
-#: hardinfo2/hardinfo.c:160
+#: hardinfo2/hardinfo.c:161
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
 msgstr "Bilinmeyen kıyaslama ``%s''\n"
 
-#: hardinfo2/hardinfo.c:262
+#: hardinfo2/hardinfo.c:265
 msgid "Don't know what to do. Exiting."
 msgstr "Ne yapacağımı bilmiyorum. Çıkılıyor."
 
 #: hardinfo2/usb_util.c:296 modules/devices/monitors.c:408
-#: modules/devices/storage.c:335 modules/devices/storage.c:357
+#: modules/devices/storage.c:345 modules/devices/storage.c:367
 msgid "(None)"
 msgstr "(Yok)"
 
@@ -535,57 +535,57 @@ msgstr "%.1f TB"
 msgid "%.1f PiB"
 msgstr "%.1f PB"
 
-#: hardinfo2/util.c:306
+#: hardinfo2/util.c:308
 msgid "Error"
 msgstr "Hata"
 
-#: hardinfo2/util.c:306 hardinfo2/util.c:322
+#: hardinfo2/util.c:308 hardinfo2/util.c:324
 msgid "Warning"
 msgstr "Uyarı"
 
-#: hardinfo2/util.c:321
+#: hardinfo2/util.c:323
 msgid "Fatal Error"
 msgstr "Ölümcül Hata"
 
-#: hardinfo2/util.c:351
+#: hardinfo2/util.c:353
 msgid "do not print status messages to standard output"
 msgstr "durum mesajlarını standart çıktıya yazdırma"
 
-#: hardinfo2/util.c:357
+#: hardinfo2/util.c:359
 msgid "creates a report and prints to standard output"
 msgstr "bir rapor oluşturur ve standart çıktıya basar"
 
-#: hardinfo2/util.c:363
+#: hardinfo2/util.c:365
 msgid "chooses a report format ([text], html)"
 msgstr "bir rapor biçimi seçer ([metin], html)"
 
-#: hardinfo2/util.c:369
+#: hardinfo2/util.c:371
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr "CLI raporunda bir konu arayın (-t getlist mevcut konuları gösterir)"
 
-#: hardinfo2/util.c:375
+#: hardinfo2/util.c:377
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr ""
 "önbelleğe alınmış CLI raporunda bir konu arayın (-t getlist mevcut olanları "
 "gösterir)"
 
-#: hardinfo2/util.c:381
+#: hardinfo2/util.c:383
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr ""
 "tek bir kıyaslama çalıştır örneğin -b 'FPU FFT' (Varsayılan olarak tüm "
 "Kıyaslamalar çalışır)"
 
-#: hardinfo2/util.c:387
+#: hardinfo2/util.c:389
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
 "karşılaştırma sonuçlarına eklenmiş kullanıcı notu. Grup-MakineAdı-"
 "Sunucuİsteği"
 
-#: hardinfo2/util.c:393
+#: hardinfo2/util.c:395
 msgid "benchmark result format ([short], conf, shell)"
 msgstr "karşılaştırma sonuç biçimi ([kısa], conf, kabuk)"
 
-#: hardinfo2/util.c:399
+#: hardinfo2/util.c:401
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
 "250)"
@@ -593,23 +593,23 @@ msgstr ""
 "dahil edilecek maksimum karşılaştırma sonucu sayısı (sınırsız için -1, "
 "varsayılan 250'dur)"
 
-#: hardinfo2/util.c:405
+#: hardinfo2/util.c:407
 msgid "shows program version and quit"
 msgstr "program sürümünü gösterir ve çıkış"
 
-#: hardinfo2/util.c:411
+#: hardinfo2/util.c:413
 msgid "do not run benchmarks"
 msgstr "kıyaslama yapmayın"
 
-#: hardinfo2/util.c:417
+#: hardinfo2/util.c:419
 msgid "show all details"
 msgstr "tüm detayları göster"
 
-#: hardinfo2/util.c:422
+#: hardinfo2/util.c:424
 msgid "- System Information and Benchmark"
 msgstr "- Sistem Bilgisi ve Karşılaştırma"
 
-#: hardinfo2/util.c:432
+#: hardinfo2/util.c:434
 #, c-format
 msgid ""
 "Unrecognized arguments.\n"
@@ -618,7 +618,7 @@ msgstr ""
 "Tanınmayan argümanlar.\n"
 "Daha fazla bilgi için ``%s --help '' deneyin.\n"
 
-#: hardinfo2/util.c:473
+#: hardinfo2/util.c:475
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
 "User Note params are optional and usernote can be left blank.\n"
@@ -631,12 +631,12 @@ msgstr ""
 "Sadece bir grup, grup-makine adı ve sunucudan kıyaslama verilerinin "
 "döndürülmesi için sunucuya özel bir istek ekleyin\n"
 
-#: hardinfo2/util.c:965
+#: hardinfo2/util.c:959
 #, c-format
 msgid "Scanning: %s..."
 msgstr "Taranıyor: %s..."
 
-#: hardinfo2/util.c:975 shell/shell.c:304
+#: hardinfo2/util.c:969 shell/shell.c:719
 msgid "Done."
 msgstr "Bitti."
 
@@ -648,22 +648,24 @@ msgstr "Satıcı listesini güncelleyin"
 msgid "Check Update Version"
 msgstr "Güncelleme Sürümünü Kontrol Edin"
 
-#: hardinfo2/vendor.c:385 modules/computer.c:591 modules/computer.c:819
+#: hardinfo2/vendor.c:385 modules/computer.c:601 modules/computer.c:827
 #: modules/computer/os.c:201 modules/computer/os.c:392
 #: modules/computer/os.c:427 modules/computer/os.c:747
-#: modules/computer/os.c:810 modules/devices.c:206 modules/devices.c:211
-#: modules/devices.c:222 modules/devices.c:698 modules/devices.c:849
-#: modules/devices/firmware.c:151 modules/devices/printers.c:106
+#: modules/computer/os.c:810 modules/devices.c:210 modules/devices.c:212
+#: modules/devices.c:217 modules/devices.c:219 modules/devices.c:233
+#: modules/devices.c:235 modules/devices.c:722 modules/devices.c:873
+#: modules/devices/firmware.c:224 modules/devices/printers.c:106
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
-#: modules/devices/printers.c:256 modules/devices/spd-decode.c:364
-#: modules/devices/storage.c:389 modules/devices/storage.c:393
-#: modules/devices/storage.c:398 modules/devices/storage.c:408
+#: modules/devices/printers.c:257 modules/devices/spd-decode.c:364
+#: modules/devices/storage.c:399 modules/devices/storage.c:403
+#: modules/devices/storage.c:408 modules/devices/storage.c:418
+#: modules/devices/storage.c:661 modules/devices/storage.c:864
 #: modules/devices/usb.c:150
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: shell/callbacks.c:498 shell/shell.c:555
+#: shell/callbacks.c:498 shell/shell.c:955
 msgid "System Information and Benchmark"
 msgstr "Sistem Bilgileri ve Karşılaştırma"
 
@@ -871,16 +873,32 @@ msgstr "_Tümünü Seç"
 msgid "_Generate"
 msgstr "_Oluştur"
 
-#: shell/shell.c:240 modules/benchmark/bench_results.c:484
+#: shell/shell.c:358
+msgid "Enter text to search"
+msgstr ""
+
+#: shell/shell.c:359
+msgid "Click to search"
+msgstr ""
+
+#: shell/shell.c:361 shell/shell.c:362
+msgid "Search not available"
+msgstr ""
+
+#: shell/shell.c:657 modules/benchmark/bench_results.c:484
 msgid "Benchmark"
 msgstr "Karşılaştırma"
 
-#: shell/shell.c:550
+#: shell/shell.c:950
 #, c-format
 msgid "%s - System Information and Benchmark"
 msgstr "%s - Sistem Bilgileri ve Karşılaştırma"
 
-#: shell/shell.c:720
+#: shell/shell.c:1033
+msgid "Search"
+msgstr ""
+
+#: shell/shell.c:1147
 #, c-format
 msgid ""
 "<b>Hardinfo2 not packaged correctly</b>\n"
@@ -899,28 +917,28 @@ msgstr ""
 "\n"
 "Lütfen manuel olarak yükleyerek düzeltin"
 
-#: shell/shell.c:1161 modules/network.c:573
+#: shell/shell.c:1574 modules/network.c:577
 msgid "Network"
 msgstr "Ağ"
 
-#: shell/shell.c:1734
+#: shell/shell.c:2230
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:1741
+#: shell/shell.c:2237
 msgid "Support URL"
 msgstr "Destek URL"
 
-#: shell/shell.c:1752
+#: shell/shell.c:2248
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: shell/shell.c:2088
+#: shell/shell.c:2586
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Özet</b>"
 
-#: shell/shell.c:2193
+#: shell/shell.c:2691
 msgid "Updating..."
 msgstr "Güncelleniyor..."
 
@@ -949,7 +967,7 @@ msgstr "(iptal edildi)"
 msgid "(failed)"
 msgstr "(hatalı)"
 
-#: shell/syncmanager.c:693 modules/benchmark.c:943
+#: shell/syncmanager.c:693 modules/benchmark.c:959
 msgid "Send benchmark results"
 msgstr "Karşılaştırma sonucunu gönder"
 
@@ -977,289 +995,6 @@ msgstr "_Eşzamanla"
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "Eşitleniyor: %s"
-
-#: modules/benchmark.c:352
-msgid "This Machine"
-msgstr "Bu Makine"
-
-#: modules/benchmark.c:578 modules/benchmark.c:589 modules/benchmark.c:601
-msgid "Results"
-msgstr "Sonuç"
-
-#: modules/benchmark.c:579 modules/benchmark/bench_results.c:436
-#: modules/benchmark/bench_results.c:503
-msgid "GPU"
-msgstr "GPU"
-
-#: modules/benchmark.c:590 modules/benchmark/bench_results.c:438
-#: modules/benchmark/bench_results.c:507 modules/computer.c:1120
-#: modules/devices.c:109
-msgid "Storage"
-msgstr "Depolama"
-
-#: modules/benchmark.c:601 modules/benchmark/bench_results.c:434
-#: modules/benchmark/bench_results.c:502
-msgid "CPU Config"
-msgstr "CPU Yapılandırması"
-
-#: modules/benchmark.c:602 modules/devices/sparc/processor.c:75
-msgid "CPU"
-msgstr "İşlemci"
-
-#: modules/benchmark.c:687
-#, c-format
-msgid "Benchmarking: <b>%s</b>."
-msgstr "Karşılaştırılıyor: <b>%s</b>."
-
-#: modules/benchmark.c:694
-#, c-format
-msgid "Benchmarking: %s"
-msgstr "Karşılaştırma: %s"
-
-#: modules/benchmark.c:698
-msgid "Stop"
-msgstr "Durdur"
-
-#: modules/benchmark.c:711
-msgid ""
-"Please do not move your mouse\n"
-"or press any keys."
-msgstr ""
-"Lütfen farenizi hareket ettirmeyin\n"
-"veya herhangi bir tuşa basmayın."
-
-#: modules/benchmark.c:773
-msgid "Benchmarks"
-msgstr "Kıyaslamalar"
-
-#: modules/benchmark.c:783
-msgid "Perform tasks and compare with other systems"
-msgstr "Görevleri yerine getir ve diğer sistemler ile karşılaştır"
-
-#: modules/benchmark.c:949
-msgid "Receive benchmark results"
-msgstr "Karşılaştırma sonuçlarını al"
-
-#. !/ Used for an unknown value. Having it in only one place cleans up the .po
-#. * line references
-#: modules/benchmark/bench_results.c:34 modules/computer.c:41
-#: modules/computer/display.c:39 modules/computer/display.c:56
-#: modules/computer/os.c:414 modules/computer/os.c:471 modules/devices.c:828
-#: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
-#: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
-#: modules/devices/gpu.c:130 modules/devices/gpu.c:216
-#: modules/devices/gpu.c:217 modules/devices/gpu.c:236
-#: modules/devices/inputdevices.c:57 modules/devices/monitors.c:28
-#: modules/devices/monitors.c:29 modules/devices/monitors.c:152
-#: modules/devices/monitors.c:161 modules/devices/pci.c:25
-#: modules/devices/pci.c:170 modules/devices/pci.c:171
-#: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
-#: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
-#: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
-#: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
-#: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27
-#: modules/devices/storage.c:336 modules/devices/storage.c:365
-#: modules/devices/storage.c:516 modules/devices/usb.c:29
-#: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
-#: includes/spd-decode.h:25
-msgid "(Unknown)"
-msgstr "(Bilinmeyen)"
-
-#: modules/benchmark/bench_results.c:263 modules/devices.c:664
-#: modules/devices.c:672 modules/devices.c:700
-#: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:511
-#: modules/devices/arm/processor.c:524 modules/devices/arm/processor.c:567
-#: modules/devices/arm/processor.c:799 modules/devices/e2k/processor.c:369
-#: modules/devices/e2k/processor.c:406 modules/devices/gpu.c:125
-#: modules/devices/gpu.c:127 modules/devices/gpu.c:133
-#: modules/devices/gpu.c:135 modules/devices/gpu.c:239
-#: modules/devices/gpu.c:241 modules/devices/ia64/processor.c:167
-#: modules/devices/ia64/processor.c:196
-#: modules/devices/loongarch64/processor.c:98
-#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
-#: modules/devices/parisc/processor.c:158
-#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
-#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:382
-#: modules/devices/riscv/processor.c:395 modules/devices/riscv/processor.c:593
-#: modules/devices/riscv/processor.c:628 modules/devices/s390/processor.c:160
-#: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
-#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
-#: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
-#: modules/devices/x86/processor.c:793
-msgid "MHz"
-msgstr "MHz"
-
-#: modules/benchmark/bench_results.c:295 modules/devices.c:234
-#, c-format
-msgid "%d physical processor"
-msgid_plural "%d physical processors"
-msgstr[0] "%d fiziksel işlemci"
-msgstr[1] "%d fiziksel işlemci"
-
-#: modules/benchmark/bench_results.c:296 modules/devices.c:235
-#, c-format
-msgid "%d core"
-msgid_plural "%d cores"
-msgstr[0] "%d çekirdek"
-msgstr[1] "%d çekirdek"
-
-#: modules/benchmark/bench_results.c:297 modules/devices.c:236
-#, c-format
-msgid "%d thread"
-msgid_plural "%d threads"
-msgstr[0] "%d iş parçacığı"
-msgstr[1] "%d iş parçacığı"
-
-#: modules/benchmark/bench_results.c:302 modules/devices.c:238
-#, c-format
-msgid "%d NUMA node"
-msgid_plural "%d NUMA nodes"
-msgstr[0] "%d NUMA düğümü"
-msgstr[1] "%d NUMA düğümü"
-
-#. !/NP procs; NC cores across NN nodes; NT threads
-#: modules/benchmark/bench_results.c:306
-#, c-format
-msgid "%s; %s across %s; %s"
-msgstr "%s; %s / %s; %s"
-
-#. !/NP procs; NC cores; NT threads
-#: modules/benchmark/bench_results.c:311
-#, c-format
-msgid "%s; %s; %s"
-msgstr "%s; %s; %s"
-
-#: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
-#: modules/computer.c:1017 modules/devices/dmi_memory.c:639
-#: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
-#: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
-#: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517
-#: modules/network/net.c:416 modules/network/net.c:440
-#: modules/network/net.c:441
-msgid "MiB"
-msgstr "MiB"
-
-#: modules/benchmark/bench_results.c:390 modules/benchmark/bench_results.c:509
-msgid "kiB"
-msgstr "kiB"
-
-#: modules/benchmark/bench_results.c:398 modules/benchmark/bench_results.c:454
-#, c-format
-msgid "%d-bit"
-msgstr "%d-bit"
-
-#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
-msgid "Benchmark Result"
-msgstr "Kıyaslama Sonucu"
-
-#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
-msgid "Threads"
-msgstr "İş Parçacığı"
-
-#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
-msgid "Elapsed Time"
-msgstr "Geçen Süre"
-
-#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
-msgid "seconds"
-msgstr "saniye"
-
-#: modules/benchmark/bench_results.c:421 modules/computer/languages.c:101
-#: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:368
-#: modules/devices/gpu.c:209 modules/devices/ia64/processor.c:166
-#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167
-#: modules/devices/ppc/processor.c:159
-msgid "Revision"
-msgstr "Revizyon"
-
-#: modules/benchmark/bench_results.c:422 modules/benchmark/bench_results.c:487
-msgid "Extra Information"
-msgstr "Ek Bilgi"
-
-#: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
-#: modules/computer.c:615
-msgid "Note"
-msgstr "Not"
-
-#: modules/benchmark/bench_results.c:425 modules/benchmark/bench_results.c:490
-msgid ""
-"This result is from an old version of HardInfo. Results might not be "
-"comparable to current version. Some details are missing."
-msgstr ""
-"Bu sonuç HardInfo'nun eski bir sürümündendir. Sonuçlar güncel sürümle "
-"karşılaştırılabilir olmayabilir. Bazı ayrıntılar eksik."
-
-#: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494
-#: modules/devices/sh/processor.c:85
-msgid "Machine"
-msgstr "Makine"
-
-#: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494
-#: modules/devices/devicetree.c:130 modules/devices/dmi.c:48
-msgid "Board"
-msgstr "Kart"
-
-#: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
-#: modules/computer.c:551
-msgid "Machine Type"
-msgstr "Makine Türü"
-
-#: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:499
-msgid "CPU Name"
-msgstr "CPU Adı"
-
-#: modules/benchmark/bench_results.c:433 modules/benchmark/bench_results.c:500
-msgid "CPU Description"
-msgstr "CPU Açıklaması"
-
-#: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
-msgid "Threads Available"
-msgstr "Mevcut İş Parçacığı"
-
-#: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
-#: modules/computer.c:562
-msgid "OpenGL Renderer"
-msgstr "OpenGL İşleyici"
-
-#: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
-#: modules/computer.c:140 modules/computer.c:550 modules/computer.c:1119
-#: modules/devices/gpu.c:212
-msgid "Memory"
-msgstr "Bellek"
-
-#: modules/benchmark/bench_results.c:440 modules/benchmark/bench_results.c:511
-msgid "Pointer Size"
-msgstr "İşaretçi Boyutu"
-
-#: modules/benchmark/bench_results.c:485 modules/devices/dmi_memory.c:859
-#: modules/devices/firmware.c:246 modules/devices/monitors.c:492
-#: modules/devices/x86/processor.c:692
-msgid "Result"
-msgstr "Sonuç"
-
-#: modules/benchmark/bench_results.c:497
-msgid "Linux Kernel"
-msgstr "Linux Çekirdeği"
-
-#: modules/benchmark/bench_results.c:498
-msgid "Linux OS"
-msgstr "Linux OS"
-
-#: modules/benchmark/bench_results.c:509
-msgid "Physical Memory"
-msgstr "Fiziksel Hafıza"
-
-#: modules/benchmark/bench_results.c:513
-msgid "Handles"
-msgstr "İşleyiciler"
-
-#: modules/benchmark/bench_results.c:513
-msgid "mid"
-msgstr "orta"
-
-#: modules/benchmark/bench_results.c:514
-msgid "cfg_val"
-msgstr "cfg_val"
 
 #: modules/benchmark/benches.c:172
 msgid "CPU Blowfish (Single-thread)"
@@ -1388,11 +1123,300 @@ msgstr "MB/s cinsinden sonuçlar. Daha yüksek daha iyidir."
 msgid "Results in FPS. Higher is better."
 msgstr "FPS olarak sonuçlar. Daha yüksek daha iyidir."
 
-#: modules/computer.c:96 modules/devices/firmware.c:74
+#. !/ Used for an unknown value. Having it in only one place cleans up the .po
+#. * line references
+#: modules/benchmark/bench_results.c:34 modules/computer.c:41
+#: modules/computer/display.c:39 modules/computer/display.c:56
+#: modules/computer/os.c:414 modules/computer/os.c:471 modules/devices.c:852
+#: modules/devices/dmi_memory.c:699 modules/devices/dmi_memory.c:835
+#: modules/devices/gpu.c:40 modules/devices/gpu.c:58 modules/devices/gpu.c:122
+#: modules/devices/gpu.c:130 modules/devices/gpu.c:216
+#: modules/devices/gpu.c:217 modules/devices/gpu.c:236
+#: modules/devices/inputdevices.c:57 modules/devices/monitors.c:28
+#: modules/devices/monitors.c:29 modules/devices/monitors.c:152
+#: modules/devices/monitors.c:161 modules/devices/pci.c:25
+#: modules/devices/pci.c:170 modules/devices/pci.c:171
+#: modules/devices/spd-decode.c:358 modules/devices/spd-decode.c:359
+#: modules/devices/spd-decode.c:362 modules/devices/spd-decode.c:363
+#: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
+#: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
+#: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27
+#: modules/devices/storage.c:346 modules/devices/storage.c:375
+#: modules/devices/storage.c:527 modules/devices/usb.c:29
+#: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
+#: includes/spd-decode.h:25
+msgid "(Unknown)"
+msgstr "(Bilinmeyen)"
+
+#: modules/benchmark/bench_results.c:263 modules/devices/alpha/processor.c:90
+#: modules/devices/arm/processor.c:511 modules/devices/arm/processor.c:524
+#: modules/devices/arm/processor.c:567 modules/devices/arm/processor.c:804
+#: modules/devices.c:688 modules/devices.c:696 modules/devices.c:724
+#: modules/devices/e2k/processor.c:369 modules/devices/e2k/processor.c:406
+#: modules/devices/gpu.c:125 modules/devices/gpu.c:127
+#: modules/devices/gpu.c:133 modules/devices/gpu.c:135
+#: modules/devices/gpu.c:239 modules/devices/gpu.c:241
+#: modules/devices/ia64/processor.c:167 modules/devices/ia64/processor.c:196
+#: modules/devices/loongarch64/processor.c:98
+#: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
+#: modules/devices/parisc/processor.c:158
+#: modules/devices/parisc/processor.c:191 modules/devices/ppc/processor.c:160
+#: modules/devices/ppc/processor.c:187 modules/devices/riscv/processor.c:382
+#: modules/devices/riscv/processor.c:395 modules/devices/riscv/processor.c:593
+#: modules/devices/riscv/processor.c:627 modules/devices/s390/processor.c:160
+#: modules/devices/sh/processor.c:87 modules/devices/sh/processor.c:88
+#: modules/devices/sh/processor.c:89 modules/devices/x86/processor.c:317
+#: modules/devices/x86/processor.c:330 modules/devices/x86/processor.c:658
+#: modules/devices/x86/processor.c:793
+msgid "MHz"
+msgstr "MHz"
+
+#: modules/benchmark/bench_results.c:295 modules/devices.c:247
+#, c-format
+msgid "%d physical processor"
+msgid_plural "%d physical processors"
+msgstr[0] "%d fiziksel işlemci"
+msgstr[1] "%d fiziksel işlemci"
+
+#: modules/benchmark/bench_results.c:296 modules/devices.c:248
+#, c-format
+msgid "%d core"
+msgid_plural "%d cores"
+msgstr[0] "%d çekirdek"
+msgstr[1] "%d çekirdek"
+
+#: modules/benchmark/bench_results.c:297 modules/devices.c:249
+#, c-format
+msgid "%d thread"
+msgid_plural "%d threads"
+msgstr[0] "%d iş parçacığı"
+msgstr[1] "%d iş parçacığı"
+
+#: modules/benchmark/bench_results.c:302 modules/devices.c:251
+#, c-format
+msgid "%d NUMA node"
+msgid_plural "%d NUMA nodes"
+msgstr[0] "%d NUMA düğümü"
+msgstr[1] "%d NUMA düğümü"
+
+#. !/NP procs; NC cores across NN nodes; NT threads
+#: modules/benchmark/bench_results.c:306
+#, c-format
+msgid "%s; %s across %s; %s"
+msgstr "%s; %s / %s; %s"
+
+#. !/NP procs; NC cores; NT threads
+#: modules/benchmark/bench_results.c:311
+#, c-format
+msgid "%s; %s; %s"
+msgstr "%s; %s; %s"
+
+#: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
+#: modules/computer.c:1025 modules/devices/dmi_memory.c:639
+#: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
+#: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
+#: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517
+#: modules/network/net.c:416 modules/network/net.c:440
+#: modules/network/net.c:441
+msgid "MiB"
+msgstr "MiB"
+
+#: modules/benchmark/bench_results.c:390 modules/benchmark/bench_results.c:509
+msgid "kiB"
+msgstr "kiB"
+
+#: modules/benchmark/bench_results.c:398 modules/benchmark/bench_results.c:454
+#, c-format
+msgid "%d-bit"
+msgstr "%d-bit"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Benchmark Result"
+msgstr "Kıyaslama Sonucu"
+
+#: modules/benchmark/bench_results.c:419 modules/benchmark/bench_results.c:484
+msgid "Threads"
+msgstr "İş Parçacığı"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "Elapsed Time"
+msgstr "Geçen Süre"
+
+#: modules/benchmark/bench_results.c:420 modules/benchmark/bench_results.c:486
+msgid "seconds"
+msgstr "saniye"
+
+#: modules/benchmark/bench_results.c:421 modules/computer/languages.c:101
+#: modules/devices/arm/processor.c:578 modules/devices/e2k/processor.c:368
+#: modules/devices/gpu.c:209 modules/devices/ia64/processor.c:166
+#: modules/devices/loongarch64/processor.c:97 modules/devices/pci.c:167
+#: modules/devices/ppc/processor.c:159
+msgid "Revision"
+msgstr "Revizyon"
+
+#: modules/benchmark/bench_results.c:422 modules/benchmark/bench_results.c:487
+msgid "Extra Information"
+msgstr "Ek Bilgi"
+
+#: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
+#: modules/computer.c:625
+msgid "Note"
+msgstr "Not"
+
+#: modules/benchmark/bench_results.c:425 modules/benchmark/bench_results.c:490
+msgid ""
+"This result is from an old version of HardInfo. Results might not be "
+"comparable to current version. Some details are missing."
+msgstr ""
+"Bu sonuç HardInfo'nun eski bir sürümündendir. Sonuçlar güncel sürümle "
+"karşılaştırılabilir olmayabilir. Bazı ayrıntılar eksik."
+
+#: modules/benchmark/bench_results.c:429 modules/benchmark/bench_results.c:494
+#: modules/devices/sh/processor.c:85
+msgid "Machine"
+msgstr "Makine"
+
+#: modules/benchmark/bench_results.c:430 modules/benchmark/bench_results.c:494
+#: modules/devices/devicetree.c:130 modules/devices/dmi.c:48
+msgid "Board"
+msgstr "Kart"
+
+#: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
+#: modules/computer.c:561
+msgid "Machine Type"
+msgstr "Makine Türü"
+
+#: modules/benchmark/bench_results.c:432 modules/benchmark/bench_results.c:499
+msgid "CPU Name"
+msgstr "CPU Adı"
+
+#: modules/benchmark/bench_results.c:433 modules/benchmark/bench_results.c:500
+msgid "CPU Description"
+msgstr "CPU Açıklaması"
+
+#: modules/benchmark/bench_results.c:434 modules/benchmark/bench_results.c:502
+#: modules/benchmark.c:613
+msgid "CPU Config"
+msgstr "CPU Yapılandırması"
+
+#: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
+msgid "Threads Available"
+msgstr "Mevcut İş Parçacığı"
+
+#: modules/benchmark/bench_results.c:436 modules/benchmark/bench_results.c:503
+#: modules/benchmark.c:581
+msgid "GPU"
+msgstr "GPU"
+
+#: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
+#: modules/computer.c:572
+msgid "OpenGL Renderer"
+msgstr "OpenGL İşleyici"
+
+#: modules/benchmark/bench_results.c:438 modules/benchmark/bench_results.c:507
+#: modules/benchmark.c:597 modules/computer.c:1128 modules/devices.c:109
+msgid "Storage"
+msgstr "Depolama"
+
+#: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
+#: modules/computer.c:140 modules/computer.c:560 modules/computer.c:1127
+#: modules/devices/gpu.c:212
+msgid "Memory"
+msgstr "Bellek"
+
+#: modules/benchmark/bench_results.c:440 modules/benchmark/bench_results.c:511
+msgid "Pointer Size"
+msgstr "İşaretçi Boyutu"
+
+#: modules/benchmark/bench_results.c:485 modules/devices/dmi_memory.c:859
+#: modules/devices/firmware.c:319 modules/devices/monitors.c:492
+#: modules/devices/x86/processor.c:692
+msgid "Result"
+msgstr "Sonuç"
+
+#: modules/benchmark/bench_results.c:497
+msgid "Linux Kernel"
+msgstr "Linux Çekirdeği"
+
+#: modules/benchmark/bench_results.c:498
+msgid "Linux OS"
+msgstr "Linux OS"
+
+#: modules/benchmark/bench_results.c:509
+msgid "Physical Memory"
+msgstr "Fiziksel Hafıza"
+
+#: modules/benchmark/bench_results.c:513
+msgid "Handles"
+msgstr "İşleyiciler"
+
+#: modules/benchmark/bench_results.c:513
+msgid "mid"
+msgstr "orta"
+
+#: modules/benchmark/bench_results.c:514
+msgid "cfg_val"
+msgstr "cfg_val"
+
+#: modules/benchmark.c:352
+msgid "This Machine"
+msgstr "Bu Makine"
+
+#: modules/benchmark.c:580 modules/benchmark.c:596 modules/benchmark.c:614
+msgid "Results"
+msgstr "Sonuç"
+
+#: modules/benchmark.c:615 modules/devices/sparc/processor.c:75
+msgid "CPU"
+msgstr "İşlemci"
+
+#: modules/benchmark.c:703
+#, c-format
+msgid "Benchmarking: <b>%s</b>."
+msgstr "Karşılaştırılıyor: <b>%s</b>."
+
+#: modules/benchmark.c:710
+#, c-format
+msgid "Benchmarking: %s"
+msgstr "Karşılaştırma: %s"
+
+#: modules/benchmark.c:714
+msgid "Stop"
+msgstr "Durdur"
+
+#: modules/benchmark.c:727
+msgid ""
+"Please do not move your mouse\n"
+"or press any keys."
+msgstr ""
+"Lütfen farenizi hareket ettirmeyin\n"
+"veya herhangi bir tuşa basmayın."
+
+#: modules/benchmark.c:789
+msgid "Benchmarks"
+msgstr "Kıyaslamalar"
+
+#: modules/benchmark.c:799
+msgid "Perform tasks and compare with other systems"
+msgstr "Görevleri yerine getir ve diğer sistemler ile karşılaştır"
+
+#: modules/benchmark.c:965
+msgid "Receive benchmark results"
+msgstr "Karşılaştırma sonuçlarını al"
+
+#: modules/computer/alsa.c:26 modules/computer.c:576
+msgid "Audio Devices"
+msgstr "Ses Aygıtları"
+
+#: modules/computer/alsa.c:34
+msgid "Audio Adapter"
+msgstr "Ses Adaptörü"
+
+#: modules/computer.c:96 modules/devices/firmware.c:73
 msgid "Summary"
 msgstr "Özet"
 
-#: modules/computer.c:97 modules/computer.c:552 modules/computer.c:1118
+#: modules/computer.c:97 modules/computer.c:562 modules/computer.c:1126
 msgid "Operating System"
 msgstr "İşletim Sistemi"
 
@@ -1404,7 +1428,7 @@ msgstr "Güvenlik"
 msgid "Kernel Modules"
 msgstr "Çekirdek Modülleri"
 
-#: modules/computer.c:100 modules/computer.c:731
+#: modules/computer.c:100 modules/computer.c:739
 msgid "Boots"
 msgstr "Açılış"
 
@@ -1420,7 +1444,7 @@ msgstr "Hafıza Kullanımı"
 msgid "Filesystems"
 msgstr "Dosya Sistemleri"
 
-#: modules/computer.c:104 modules/computer.c:558
+#: modules/computer.c:104 modules/computer.c:568
 msgid "Display"
 msgstr "Ekran"
 
@@ -1432,7 +1456,7 @@ msgstr "Ortam Değişkenleri"
 msgid "Development"
 msgstr "Geliştirme"
 
-#: modules/computer.c:111 modules/computer.c:876
+#: modules/computer.c:111 modules/computer.c:884
 msgid "Users"
 msgstr "Kullanıcılar"
 
@@ -1445,15 +1469,15 @@ msgstr "Gruplar"
 msgid "%dMB (%dMB used)"
 msgstr "%dMB (%dMB kullanılan)"
 
-#: modules/computer.c:144 modules/computer.c:611
+#: modules/computer.c:144 modules/computer.c:621
 msgid "Uptime"
 msgstr "Çalışma Süresi"
 
-#: modules/computer.c:146 modules/computer.c:554
+#: modules/computer.c:146 modules/computer.c:564
 msgid "Date/Time"
 msgstr "Tarih/Saat"
 
-#: modules/computer.c:151 modules/computer.c:612
+#: modules/computer.c:151 modules/computer.c:622
 msgid "Load Average"
 msgstr "Yük Ortalaması"
 
@@ -1613,471 +1637,467 @@ msgstr "Bulunamadı"
 msgid "Program"
 msgstr "Uygulama"
 
-#: modules/computer.c:367 modules/computer.c:593 modules/computer.c:595
-#: modules/computer.c:797 modules/computer/modules.c:197
+#: modules/computer.c:367 modules/computer.c:603 modules/computer.c:605
+#: modules/computer.c:805 modules/computer/modules.c:197
 #: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
-#: modules/devices/dmi.c:57 modules/devices/firmware.c:75
+#: modules/devices/dmi.c:57 modules/devices/firmware.c:74
 #: modules/devices/inputdevices.c:173 modules/devices/monitors.c:406
 msgid "Version"
 msgstr "Sürüm"
 
-#: modules/computer.c:386
+#: modules/computer.c:393
 msgid "Field"
 msgstr "Alan"
 
-#: modules/computer.c:386 modules/computer.c:720 modules/computer/modules.c:195
-#: modules/computer/modules.c:196 modules/devices/arm/processor.c:762
+#: modules/computer.c:394 modules/computer.c:728 modules/computer/modules.c:195
+#: modules/computer/modules.c:196 modules/devices/arm/processor.c:768
 #: modules/devices/riscv/processor.c:554
 msgid "Description"
 msgstr "Tanım"
 
-#: modules/computer.c:386 modules/devices.c:1086
+#: modules/computer.c:395 modules/devices.c:1117
 msgid "Value"
 msgstr "Değer"
 
-#: modules/computer.c:401 modules/computer.c:403
+#: modules/computer.c:411 modules/computer.c:413
 msgid "Virtual (Xen)"
 msgstr "Sanal (Xen)"
 
-#: modules/computer.c:410 modules/computer.c:412
+#: modules/computer.c:420 modules/computer.c:422
 msgid "Virtual (VirtualBox)"
 msgstr "Sanal (VirtualBox)"
 
-#: modules/computer.c:417 modules/computer.c:419
+#: modules/computer.c:427 modules/computer.c:429
 msgid "Virtual (VMware)"
 msgstr "Sanal (VMware)"
 
-#: modules/computer.c:427 modules/computer.c:429
+#: modules/computer.c:437 modules/computer.c:439
 msgid "Virtual (QEMU)"
 msgstr "Sanal (QEMU)"
 
-#: modules/computer.c:437 modules/computer.c:439
+#: modules/computer.c:447 modules/computer.c:449
 msgid "Virtual (WSL2)"
 msgstr "Sanal (WSL2)"
 
-#: modules/computer.c:452 modules/computer.c:454
+#: modules/computer.c:462 modules/computer.c:464
 msgid "Single-board computer"
 msgstr "Tek kartlı bilgisayar"
 
-#: modules/computer.c:511 modules/computer.c:513
+#: modules/computer.c:521 modules/computer.c:523
 msgid "Unknown physical machine type"
 msgstr "Bilinmeyen fiziksel makine türü"
 
-#: modules/computer.c:548 modules/computer.c:1072
+#: modules/computer.c:558 modules/computer.c:1080
 msgid "Computer"
 msgstr "Bilgisayar"
 
-#: modules/computer.c:553 modules/computer.c:605
+#: modules/computer.c:563 modules/computer.c:615
 msgid "User Name"
 msgstr "Kullanıcı Adı"
 
-#: modules/computer.c:559
+#: modules/computer.c:569
 msgid "Resolution"
 msgstr "Çözünürlük"
 
-#: modules/computer.c:559 modules/computer.c:802
+#: modules/computer.c:569 modules/computer.c:810
 #, c-format
 msgid "%dx%d pixels"
 msgstr "%dx%d piksel"
 
-#: modules/computer.c:561
+#: modules/computer.c:571
 msgid "Display Adapter"
 msgstr "Görüntü Bağdaştırıcısı"
 
-#: modules/computer.c:563
+#: modules/computer.c:573
 msgid "Session Display Server"
 msgstr "Oturum Görüntüleme Sunucusu"
 
-#: modules/computer.c:566 modules/computer/alsa.c:26
-msgid "Audio Devices"
-msgstr "Ses Aygıtları"
-
-#: modules/computer.c:567 modules/devices.c:108
+#: modules/computer.c:577 modules/devices.c:108
 msgid "Input Devices"
 msgstr "Giriş Aygıtları"
 
-#: modules/computer.c:593
+#: modules/computer.c:603
 msgid "Kernel"
 msgstr "Çekirdek"
 
-#: modules/computer.c:594
+#: modules/computer.c:604
 msgid "Command Line"
 msgstr "Komut Satırı"
 
-#: modules/computer.c:596
+#: modules/computer.c:606
 msgid "C Library"
 msgstr "C Kütüphanesi"
 
-#: modules/computer.c:597
+#: modules/computer.c:607
 msgid "Distribution"
 msgstr "Dağıtım"
 
-#: modules/computer.c:603
+#: modules/computer.c:613
 msgid "Current Session"
 msgstr "Mevcut Oturum"
 
-#: modules/computer.c:604
+#: modules/computer.c:614
 msgid "Computer Name"
 msgstr "Bilgisayar Adı"
 
-#: modules/computer.c:606 modules/computer/languages.c:99
+#: modules/computer.c:616 modules/computer/languages.c:99
 msgid "Language"
 msgstr "Dil"
 
-#: modules/computer.c:607 modules/computer/users.c:52
+#: modules/computer.c:617 modules/computer/users.c:52
 msgid "Home Directory"
 msgstr "Ev Dizini"
 
-#: modules/computer.c:608
+#: modules/computer.c:618
 msgid "Desktop Environment"
 msgstr "Masaüstü Ortamı"
 
-#: modules/computer.c:611
+#: modules/computer.c:621
 msgid "Misc"
 msgstr "Çeşitli"
 
-#: modules/computer.c:616
+#: modules/computer.c:626
 msgid "Logo"
 msgstr "Logo"
 
-#: modules/computer.c:616
+#: modules/computer.c:626
 msgid "belongs to distro and may be reg. trademark"
 msgstr "dağıtım şirketine aittir ve tescilli ticari marka olabilir"
 
-#: modules/computer.c:634
+#: modules/computer.c:642
 msgid "Root Only System"
 msgstr "Sadece Root Sistemi"
 
-#: modules/computer.c:635
+#: modules/computer.c:643
 msgid "Single User System"
 msgstr "Tek Kullanıcı Sistemi"
 
-#: modules/computer.c:636
+#: modules/computer.c:644
 msgid "Multi User System"
 msgstr "Çok Kullanıcılı Sistem"
 
-#: modules/computer.c:643
+#: modules/computer.c:651
 msgid "HardInfo2"
 msgstr "HardInfo2"
 
-#: modules/computer.c:644
+#: modules/computer.c:652
 msgid "HardInfo2 running as"
 msgstr "HardInfo2 çalışıyor"
 
-#: modules/computer.c:644
+#: modules/computer.c:652
 msgid "Superuser"
 msgstr "Yetkili Kullanıcı"
 
-#: modules/computer.c:644
+#: modules/computer.c:652
 msgid "User"
 msgstr "Kullanıcı"
 
-#: modules/computer.c:645
+#: modules/computer.c:653
 msgid "User System Type"
 msgstr "Kullanıcı Sistem Türü"
 
-#: modules/computer.c:645
+#: modules/computer.c:653
 msgid "Hardinfo2 Service not enabled/started"
 msgstr "Hardinfo2 Hizmeti etkinleştirilmedi/başlatılmadı"
 
-#: modules/computer.c:649
+#: modules/computer.c:657
 msgid "Health"
 msgstr "Sağlık"
 
-#: modules/computer.c:651
+#: modules/computer.c:659
 msgid "Available entropy in /dev/random"
 msgstr "/dev/random'da mevcut entropi"
 
-#: modules/computer.c:657
+#: modules/computer.c:665
 msgid "Hardening Features"
 msgstr "Sertleştirme Özellikleri"
 
-#: modules/computer.c:658
+#: modules/computer.c:666
 msgid "ASLR"
 msgstr "ASLR"
 
-#: modules/computer.c:659
+#: modules/computer.c:667
 msgid "dmesg"
 msgstr "dmesg"
 
-#: modules/computer.c:664
+#: modules/computer.c:672
 msgid "Linux Security Modules"
 msgstr "Linux Güvenlik Modülleri"
 
-#: modules/computer.c:665
+#: modules/computer.c:673
 msgid "Modules available"
 msgstr "Mevcut Modüller"
 
-#: modules/computer.c:666
+#: modules/computer.c:674
 msgid "SELinux status"
 msgstr "SELinux durumu"
 
-#: modules/computer.c:672
+#: modules/computer.c:680
 msgid "CPU Vulnerabilities"
 msgstr "CPU Güvenlik Açıkları"
 
-#: modules/computer.c:717
+#: modules/computer.c:725
 msgid "Loaded Modules"
 msgstr "Yüklü Modüller"
 
-#: modules/computer.c:719 modules/computer.c:747 modules/computer.c:889
+#: modules/computer.c:727 modules/computer.c:755 modules/computer.c:897
 #: modules/computer/languages.c:95 modules/computer/modules.c:195
-#: modules/devices/arm/processor.c:761 modules/devices/dmi.c:38
+#: modules/devices/arm/processor.c:767 modules/devices/dmi.c:38
 #: modules/devices/dmi.c:49 modules/devices/e2k/processor.c:364
 #: modules/devices/gpu.c:307 modules/devices/ia64/processor.c:160
 #: modules/devices/inputdevices.c:168 modules/devices/monitors.c:400
 #: modules/devices/monitors.c:502 modules/devices/riscv/processor.c:553
 #: modules/devices/sh/processor.c:84 modules/devices/x86/processor.c:752
-#: modules/network.c:497
+#: modules/network.c:501
 msgid "Name"
 msgstr "İsim"
 
-#: modules/computer.c:733
+#: modules/computer.c:741
 msgid "Date & Time"
 msgstr "Tarih & Zaman"
 
-#: modules/computer.c:734
+#: modules/computer.c:742
 msgid "Kernel Version"
 msgstr "Çekirdek Sürümü"
 
-#: modules/computer.c:744
+#: modules/computer.c:752
 msgid "Available Languages"
 msgstr "Mevcut Diller"
 
-#: modules/computer.c:746
+#: modules/computer.c:754
 msgid "Language Code"
 msgstr "Dil Kodu"
 
-#: modules/computer.c:758
+#: modules/computer.c:766
 msgid "Mounted File Systems"
 msgstr "Bağlı Dosya Sistemleri"
 
-#: modules/computer.c:760 modules/computer/filesystem.c:89
+#: modules/computer.c:768 modules/computer/filesystem.c:119
 msgid "Mount Point"
 msgstr "Bağlantı Noktası"
 
-#: modules/computer.c:761
+#: modules/computer.c:769
 msgid "Usage"
 msgstr "Kullanım"
 
-#: modules/computer.c:762 modules/devices.c:1110 modules/devices.c:1124
-#: modules/devices/arm/processor.c:816 modules/devices/e2k/processor.c:422
-#: modules/devices/gpu.c:85 modules/devices/gpu.c:93 modules/devices/gpu.c:299
-#: modules/devices/pci.c:123 modules/devices/pci.c:131
-#: modules/devices/pci.c:175 modules/devices/riscv/processor.c:645
-#: modules/devices/storage.c:48 modules/devices/storage.c:57
-#: modules/devices/usb.c:173 modules/devices/usb.c:185
-#: modules/devices/x86/processor.c:814
+#: modules/computer.c:770 modules/devices/arm/processor.c:825
+#: modules/devices.c:1148 modules/devices.c:1167
+#: modules/devices/e2k/processor.c:422 modules/devices/gpu.c:85
+#: modules/devices/gpu.c:93 modules/devices/gpu.c:299 modules/devices/pci.c:123
+#: modules/devices/pci.c:131 modules/devices/pci.c:175
+#: modules/devices/riscv/processor.c:647 modules/devices/storage.c:48
+#: modules/devices/storage.c:57 modules/devices/usb.c:173
+#: modules/devices/usb.c:185 modules/devices/x86/processor.c:814
 msgid "Device"
 msgstr "Aygıt"
 
-#: modules/computer.c:785
+#: modules/computer.c:793
 msgid "Session"
 msgstr "Oturum"
 
-#: modules/computer.c:786 modules/devices.c:1087 modules/devices.c:1124
+#: modules/computer.c:794 modules/devices.c:1118 modules/devices.c:1167
 #: modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729
 #: modules/devices/inputdevices.c:169 modules/devices/spd-decode.c:1540
 #: modules/devices/x86/processor.c:715
 msgid "Type"
 msgstr "Tür"
 
-#: modules/computer.c:789
+#: modules/computer.c:797
 msgid "Wayland"
 msgstr "Wayland"
 
-#: modules/computer.c:790 modules/computer.c:795
+#: modules/computer.c:798 modules/computer.c:803
 msgid "Current Display Name"
 msgstr "Mevcut Görünen Ad"
 
-#: modules/computer.c:794
+#: modules/computer.c:802
 msgid "X Server"
 msgstr "X Sunucusu"
 
-#: modules/computer.c:796 modules/computer.c:836 modules/computer.c:859
-#: modules/devices.c:1124 modules/devices/dmi.c:40 modules/devices/dmi.c:46
+#: modules/computer.c:804 modules/computer.c:844 modules/computer.c:867
+#: modules/devices.c:1167 modules/devices/dmi.c:40 modules/devices/dmi.c:46
 #: modules/devices/dmi.c:50 modules/devices/dmi.c:55
 #: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873
-#: modules/devices/e2k/processor.c:365 modules/devices/firmware.c:75
-#: modules/devices/firmware.c:169 modules/devices/firmware.c:174
-#: modules/devices/firmware.c:221 modules/devices/gpu.c:84
+#: modules/devices/e2k/processor.c:365 modules/devices/firmware.c:74
+#: modules/devices/firmware.c:242 modules/devices/firmware.c:247
+#: modules/devices/firmware.c:294 modules/devices/gpu.c:84
 #: modules/devices/gpu.c:92 modules/devices/gpu.c:298
 #: modules/devices/ia64/processor.c:161 modules/devices/inputdevices.c:171
 #: modules/devices/monitors.c:399 modules/devices/pci.c:122
 #: modules/devices/pci.c:130 modules/devices/storage.c:47
-#: modules/devices/storage.c:56 modules/devices/storage.c:311
-#: modules/devices/storage.c:658 modules/devices/storage.c:863
+#: modules/devices/storage.c:56 modules/devices/storage.c:321
+#: modules/devices/storage.c:669 modules/devices/storage.c:873
 #: modules/devices/usb.c:172 modules/devices/x86/processor.c:654
 msgid "Vendor"
 msgstr "Satıcı"
 
-#: modules/computer.c:798
+#: modules/computer.c:806
 msgid "Release Number"
 msgstr "Sürüm No"
 
-#: modules/computer.c:806
+#: modules/computer.c:814
 msgid "Screens"
 msgstr "Ekranlar"
 
-#: modules/computer.c:812
+#: modules/computer.c:820
 msgid "Disconnected"
 msgstr "Bağlantı Kesildi"
 
-#: modules/computer.c:815
+#: modules/computer.c:823
 msgid "Connected"
 msgstr "Bağlandı"
 
-#: modules/computer.c:823
+#: modules/computer.c:831
 msgid "Unused"
 msgstr "Kullanılmıyor"
 
-#: modules/computer.c:824
+#: modules/computer.c:832
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
 msgstr "%dx%d piksel, uzaklık (%d, %d)"
 
-#: modules/computer.c:833
+#: modules/computer.c:841
 msgid "Outputs (XRandR)"
 msgstr "Çıkışlar (XRandR)"
 
-#: modules/computer.c:835
+#: modules/computer.c:843
 msgid "OpenGL (GLX)"
 msgstr "OpenGL (GLX)"
 
-#: modules/computer.c:837
+#: modules/computer.c:845
 msgid "Renderer"
 msgstr "Oluşturucu"
 
-#: modules/computer.c:838
+#: modules/computer.c:846
 msgid "Direct Rendering"
 msgstr "Doğrudan İşleme"
 
-#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer.c:847 modules/computer/modules.c:177
 #: modules/computer/modules.c:178 modules/devices/inputdevices.c:180
 #: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
 #: modules/devices/spd-decode.c:1135
 msgid "Yes"
 msgstr "Evet"
 
-#: modules/computer.c:839 modules/computer/modules.c:177
+#: modules/computer.c:847 modules/computer/modules.c:177
 #: modules/computer/modules.c:178 modules/devices/printers.c:145
 #: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
 msgid "No"
 msgstr "Hayır"
 
-#: modules/computer.c:840
+#: modules/computer.c:848
 msgid "Version (Compatibility)"
 msgstr "Sürüm (Uyumluluk)"
 
-#: modules/computer.c:841
+#: modules/computer.c:849
 msgid "Shading Language Version (Compatibility)"
 msgstr "Gölgelendirme Dili Sürümü (Uyumluluk)"
 
-#: modules/computer.c:842
+#: modules/computer.c:850
 msgid "Version (Core)"
 msgstr "Sürüm (Çekirdek)"
 
-#: modules/computer.c:843
+#: modules/computer.c:851
 msgid "Shading Language Version (Core)"
 msgstr "Gölgelendirme Dili Sürümü (Çekirdek)"
 
-#: modules/computer.c:844
+#: modules/computer.c:852
 msgid "Version (ES)"
 msgstr "Sürüm (ES)"
 
-#: modules/computer.c:845
+#: modules/computer.c:853
 msgid "Shading Language Version (ES)"
 msgstr "Gölgeleme Dili Sürümü (ES)"
 
-#: modules/computer.c:846
+#: modules/computer.c:854
 msgid "GLX Version"
 msgstr "GLX Sürümü"
 
-#: modules/computer.c:854
+#: modules/computer.c:862
 msgid "Vulkan"
 msgstr "Vulkan"
 
-#: modules/computer.c:855
+#: modules/computer.c:863
 msgid "Instance Version"
 msgstr "Örnek Sürüm"
 
-#: modules/computer.c:857
+#: modules/computer.c:865
 msgid "Api Version"
 msgstr "API Sürümü"
 
-#: modules/computer.c:858
+#: modules/computer.c:866
 msgid "Driver Version"
 msgstr "Sürücü Sürümü"
 
-#: modules/computer.c:860
+#: modules/computer.c:868
 msgid "Device Type"
 msgstr "Aygıt Türü"
 
-#: modules/computer.c:861
+#: modules/computer.c:869
 msgid "Device Name"
 msgstr "Aygıt Adı"
 
-#: modules/computer.c:862
+#: modules/computer.c:870
 msgid "Driver Name"
 msgstr "Sürücü Adı"
 
-#: modules/computer.c:863
+#: modules/computer.c:871
 msgid "Driver Info"
 msgstr "Sürücü Bilgileri"
 
-#: modules/computer.c:864
+#: modules/computer.c:872
 msgid "Conformance Version"
 msgstr "Uygunluk Sürümü"
 
-#: modules/computer.c:887
+#: modules/computer.c:895
 msgid "Group"
 msgstr "Grup"
 
-#: modules/computer.c:890 modules/computer/users.c:51
+#: modules/computer.c:898 modules/computer/users.c:51
 msgid "Group ID"
 msgstr "Grup ID"
 
-#: modules/computer.c:1013
+#: modules/computer.c:1021
 #, c-format
 msgid "%0.1f %s available to Linux"
 msgstr "Linux için %0.1f%s kullanılabilir"
 
-#: modules/computer.c:1015 modules/devices/dmi_memory.c:637
+#: modules/computer.c:1023 modules/devices/dmi_memory.c:637
 #: modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789
 #: modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1515
 msgid "GiB"
 msgstr "GB"
 
-#: modules/computer.c:1019 modules/computer/memory_usage.c:73
+#: modules/computer.c:1027 modules/computer/memory_usage.c:73
 #: modules/computer/modules.c:195
 msgid "KiB"
 msgstr "KB"
 
-#: modules/computer.c:1091
+#: modules/computer.c:1099
 msgid "Motherboard"
 msgstr "Anakart"
 
-#: modules/computer.c:1119
+#: modules/computer.c:1127
 msgid "Graphics"
 msgstr "Ekran Kartı"
 
-#: modules/computer.c:1120 modules/devices.c:105
+#: modules/computer.c:1128 modules/devices.c:105
 msgid "Printers"
 msgstr "Yazıcılar"
 
-#: modules/computer.c:1120
+#: modules/computer.c:1128
 msgid "Audio"
 msgstr "Ses"
 
-#: modules/computer.c:1171
+#: modules/computer.c:1179
 msgid "Gathers high-level computer information"
 msgstr "Üst düzey bilgisayar bilgilerini toplar"
 
-#: modules/computer.c:1182
+#: modules/computer.c:1190
 msgid "<i><b>lsmod</b></i> is required."
 msgstr "<i><b>lsmod</b></i> gerekli."
 
-#: modules/computer.c:1190
+#: modules/computer.c:1198
 msgid ""
 "X.org's <i><b>xrandr</b></i> utility provides additional details when "
 "available."
@@ -2085,50 +2105,46 @@ msgstr ""
 "X.org <i><b>xrandr</b></i> yardımcı programı, var olduğunda ek ayrıntılar "
 "sağlar."
 
-#: modules/computer.c:1191
+#: modules/computer.c:1199
 msgid ""
 "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr "Mesa <i><b>glxinfo</b></i> OpenGL bilgisi için gerekli."
 
-#: modules/computer.c:1192
+#: modules/computer.c:1200
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
 "Vulkan bilgileri için Vulkan'ın <i><b>vulkaninfo</b></i> yardımcı programı "
 "gereklidir."
 
-#: modules/computer/alsa.c:34
-msgid "Audio Adapter"
-msgstr "Ses Adaptörü"
-
-#: modules/computer/filesystem.c:87
+#: modules/computer/filesystem.c:117
 msgid "Filesystem"
 msgstr "Dosya Sistemi"
 
-#: modules/computer/filesystem.c:88
+#: modules/computer/filesystem.c:118
 msgid "Mounted As"
 msgstr "Olarak Bağlandı"
 
-#: modules/computer/filesystem.c:88
+#: modules/computer/filesystem.c:118
 msgid "Read-Write"
 msgstr "Okuma-Yazma"
 
-#: modules/computer/filesystem.c:88
+#: modules/computer/filesystem.c:118
 msgid "Read-Only"
 msgstr "Salt Okunur"
 
-#: modules/computer/filesystem.c:90 modules/devices.c:1110
+#: modules/computer/filesystem.c:120 modules/devices.c:1149
 #: modules/devices/dmi_memory.c:733 modules/devices/dmi_memory.c:766
 #: modules/devices/dmi_memory.c:805 modules/devices/dmi_memory.c:872
 #: modules/devices/spd-decode.c:1547
 msgid "Size"
 msgstr "Boyut"
 
-#: modules/computer/filesystem.c:91
+#: modules/computer/filesystem.c:121
 msgid "Used"
 msgstr "Kullanılan"
 
-#: modules/computer/filesystem.c:92
+#: modules/computer/filesystem.c:122
 msgid "Available"
 msgstr "Uygulanabilir"
 
@@ -2434,7 +2450,7 @@ msgstr "Çekirdek modülü simge tablosunu güncelle"
 #: modules/computer/modules.c:163 modules/computer/modules.c:164
 #: modules/computer/modules.c:165 modules/computer/modules.c:166
 #: modules/computer/modules.c:167 modules/computer/modules.c:168
-#: modules/devices/dmi.c:117 modules/devices/firmware.c:246
+#: modules/devices/dmi.c:117 modules/devices/firmware.c:319
 #: modules/devices/x86/processor.c:694 modules/devices/x86/processor.c:695
 msgid "(Not available)"
 msgstr "(Mevcut değil)"
@@ -2594,165 +2610,30 @@ msgstr "Kullanıcı Kimliği"
 msgid "Default Shell"
 msgstr "Varsayılan Shell"
 
-#: modules/devices.c:100
-msgid "Graphics Processors"
-msgstr "Ekran Kartı İşlemcisi"
-
-#: modules/devices.c:101 modules/devices/monitors.c:446
-#: modules/devices/monitors.c:492
-msgid "Monitors"
-msgstr "Ekranlar"
-
-#: modules/devices.c:102 modules/devices/pci.c:196
-msgid "PCI Devices"
-msgstr "PCI Aygıtlar"
-
-#: modules/devices.c:103 modules/devices/usb.c:212
-msgid "USB Devices"
-msgstr "USB Aygıtlar"
-
-#: modules/devices.c:104
-msgid "Firmware"
-msgstr "Aygıt Yazılımı"
-
-#: modules/devices.c:106
-msgid "Battery"
-msgstr "Batarya"
-
-#: modules/devices.c:107
-msgid "Sensors"
-msgstr "Sensörler"
-
-#: modules/devices.c:110
-msgid "System DMI"
-msgstr "Sistem DMI"
-
-#: modules/devices.c:111
-msgid "Memory Devices"
-msgstr "Hafıza Aygıtları"
-
-#: modules/devices.c:113 modules/devices.c:115
-msgid "Device Tree"
-msgstr "Aygıt Ağacı"
-
-#: modules/devices.c:117
-msgid "Resources"
-msgstr "Kaynaklar"
-
-#: modules/devices.c:405
-msgid "Released"
-msgstr ""
-
-#: modules/devices.c:420
-msgid "Release Date"
-msgstr ""
-
-#: modules/devices.c:422
-msgid "Distro and CPU Supported Profiles"
-msgstr "Dağıtım ve İşlemci Destekli Profiller"
-
-#: modules/devices.c:826
-msgid "WSL2"
-msgstr "WSL2"
-
-#: modules/devices.c:1086
-msgid "Sensor"
-msgstr "Sensör"
-
-#: modules/devices.c:1110 modules/devices/alpha/processor.c:88
-#: modules/devices/arm/processor.c:816 modules/devices/devicetree.c:131
+#: modules/devices/alpha/processor.c:88 modules/devices/arm/processor.c:825
+#: modules/devices.c:1151 modules/devices/devicetree.c:131
 #: modules/devices/e2k/processor.c:367 modules/devices/e2k/processor.c:422
 #: modules/devices/gpu.c:116 modules/devices/ia64/processor.c:165
 #: modules/devices/loongarch64/processor.c:96
 #: modules/devices/m68k/processor.c:84 modules/devices/mips/processor.c:75
 #: modules/devices/monitors.c:401 modules/devices/parisc/processor.c:155
 #: modules/devices/ppc/processor.c:158 modules/devices/riscv/processor.c:589
-#: modules/devices/riscv/processor.c:645 modules/devices/s390/processor.c:132
+#: modules/devices/riscv/processor.c:647 modules/devices/s390/processor.c:132
 #: modules/devices/x86/processor.c:814
 msgid "Model"
 msgstr "Model"
-
-#: modules/devices.c:1144 modules/devices/dmi_memory.c:806
-msgid "Devices"
-msgstr "Aygıtlar"
-
-#: modules/devices.c:1156
-msgid "Update CPU database"
-msgstr ""
-
-#: modules/devices.c:1161
-msgid "Update PCI ID listing"
-msgstr "PCI kimlik listesini güncelle"
-
-#: modules/devices.c:1166
-msgid "Update USB ID listing"
-msgstr "USB ID listeleme güncelle"
-
-#: modules/devices.c:1171
-msgid "Update EDID vendor codes"
-msgstr "EDID üretici kodlarını güncelle"
-
-#: modules/devices.c:1176
-msgid "Update IEEE OUI vendor codes"
-msgstr "IEEE OUI üretici kodlarını güncelle"
-
-#: modules/devices.c:1181
-msgid "Update SD card manufacturer information"
-msgstr "SD kart üretici bilgisini güncelle"
-
-#: modules/devices.c:1188
-msgid "Update CPU flags database"
-msgstr "İşlemci bayrakları veri tabanını güncelle"
-
-#: modules/devices.c:1225
-msgid "Gathers information about hardware devices"
-msgstr "Donanım aygıtları hakkında bilgi toplar"
-
-#: modules/devices.c:1245
-msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
-msgstr "Sistemde bir <i><b>pci.ids</b></i> kopyası yok."
-
-#: modules/devices.c:1248
-msgid "A full <i><b>pci.ids</b></i> is not available on the system."
-msgstr "Sistemde eksiksiz bir <i><b>pci.ids</b></i> yok."
-
-#: modules/devices.c:1255 modules/devices/dmi_memory.c:937
-msgid ""
-"Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
-"--now (SystemD distro)"
-msgstr ""
-"hardinfo2 servisinin etkinleştirildiğinden ve başlatıldığından emin olun: "
-"sudo systemctl enable hardinfo2 --now (SystemD distro)"
-
-#: modules/devices.c:1256
-msgid ""
-"Add yourself to hardinfo2 group:\n"
-"sudo usermod -a -G hardinfo2 $USER\n"
-"Logout/Reboot for groups to be updated..."
-msgstr ""
-"Kendinizi hardinfo2 grubuna ekleyin:\n"
-"sudo usermod -a -G hardinfo2 $USER\n"
-"Ve grupların güncellenmesi için Çıkış yapın/Yeniden başlatın..."
-
-#: modules/devices.c:1262
-msgid ""
-"Any NVMe storage devices present are not listed.\n"
-"<b><i>udisks2</i></b> is required for NVMe devices."
-msgstr ""
-"Mevcut herhangi bir NVMe depolama aygıtı listelenmemiştir.\n"
-"NVMe aygıtları için <b><i>udisks2</i></b> gereklidir."
 
 #: modules/devices/alpha/processor.c:89
 msgid "Platform String"
 msgstr "Platform Stringi"
 
 #: modules/devices/alpha/processor.c:90 modules/devices/arm/processor.c:567
-#: modules/devices/arm/processor.c:816 modules/devices/e2k/processor.c:369
+#: modules/devices/arm/processor.c:825 modules/devices/e2k/processor.c:369
 #: modules/devices/e2k/processor.c:422 modules/devices/ia64/processor.c:167
 #: modules/devices/loongarch64/processor.c:98
 #: modules/devices/m68k/processor.c:87 modules/devices/mips/processor.c:77
 #: modules/devices/parisc/processor.c:158 modules/devices/ppc/processor.c:160
-#: modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:645
+#: modules/devices/riscv/processor.c:593 modules/devices/riscv/processor.c:647
 #: modules/devices/sh/processor.c:87 modules/devices/x86/processor.c:658
 #: modules/devices/x86/processor.c:814
 msgid "Frequency"
@@ -2779,266 +2660,266 @@ msgid "Byte Order"
 msgstr "Bayt Sırası"
 
 #. !/flag:swp
-#: modules/devices/arm/arm_data.c:42
+#: modules/devices/arm/arm_data.c:35
 msgctxt "arm-flag"
 msgid "SWP instruction (atomic read-modify-write)"
 msgstr "SWP talimatı (atomik okuma-değiştirme-yazma)"
 
 #. !/flag:half
-#: modules/devices/arm/arm_data.c:43
+#: modules/devices/arm/arm_data.c:36
 msgctxt "arm-flag"
 msgid "Half-word loads and stores"
 msgstr "Yarım kelime yüklemeleri ve depolar"
 
 #. !/flag:thumb
-#: modules/devices/arm/arm_data.c:44
+#: modules/devices/arm/arm_data.c:37
 msgctxt "arm-flag"
 msgid "Thumb (16-bit instruction set)"
 msgstr "Başparmak (16 bit komut seti)"
 
 #. !/flag:26bit
-#: modules/devices/arm/arm_data.c:45
+#: modules/devices/arm/arm_data.c:38
 msgctxt "arm-flag"
 msgid "26-Bit Model (Processor status register folded into program counter)"
 msgstr "26 Bit Modeli (İşlemci durum kaydı program sayacına katlanmış)"
 
 #. !/flag:fastmult
-#: modules/devices/arm/arm_data.c:46
+#: modules/devices/arm/arm_data.c:39
 msgctxt "arm-flag"
 msgid "32x32->64-bit multiplication"
 msgstr "32x32-> 64-bit çarpma"
 
 #. !/flag:fpa
-#: modules/devices/arm/arm_data.c:47
+#: modules/devices/arm/arm_data.c:40
 msgctxt "arm-flag"
 msgid "Floating point accelerator"
 msgstr "Kayan nokta hızlandırıcı"
 
 #. !/flag:vfp
-#: modules/devices/arm/arm_data.c:48
+#: modules/devices/arm/arm_data.c:41
 msgctxt "arm-flag"
 msgid "VFP (early SIMD vector floating point instructions)"
 msgstr "VFP (erken SIMD vektör kayan nokta talimatları)"
 
 #. !/flag:edsp
-#: modules/devices/arm/arm_data.c:49
+#: modules/devices/arm/arm_data.c:42
 msgctxt "arm-flag"
 msgid "DSP extensions (the 'e' variant of the ARM9 CPUs, and all others above)"
 msgstr "DSP uzantıları (ARM9 CPU'ların 'e' çeşidi ve yukarıdakilerin tümü)"
 
 #. !/flag:java
-#: modules/devices/arm/arm_data.c:50
+#: modules/devices/arm/arm_data.c:43
 msgctxt "arm-flag"
 msgid "Jazelle (Java bytecode accelerator)"
 msgstr "Jazelle (Java bayt kodu hızlandırıcı)"
 
 #. !/flag:iwmmxt
-#: modules/devices/arm/arm_data.c:51
+#: modules/devices/arm/arm_data.c:44
 msgctxt "arm-flag"
 msgid "SIMD instructions similar to Intel MMX"
 msgstr "Intel MMX'e benzer SIMD talimatları"
 
 #. !/flag:crunch
-#: modules/devices/arm/arm_data.c:52
+#: modules/devices/arm/arm_data.c:45
 msgctxt "arm-flag"
 msgid "MaverickCrunch coprocessor (if kernel support enabled)"
 msgstr "MaverickCrunch yardımcı işlemcisi (çekirdek desteği etkinse)"
 
 #. !/flag:thumbee
-#: modules/devices/arm/arm_data.c:53
+#: modules/devices/arm/arm_data.c:46
 msgctxt "arm-flag"
 msgid "ThumbEE"
 msgstr "ThumbEE"
 
 #. !/flag:neon
-#: modules/devices/arm/arm_data.c:54
+#: modules/devices/arm/arm_data.c:47
 msgctxt "arm-flag"
 msgid "Advanced SIMD/NEON on AArch32"
 msgstr "AArch32'de gelişmiş SIMD / NEON"
 
 #. !/flag:evtstrm
-#: modules/devices/arm/arm_data.c:55
+#: modules/devices/arm/arm_data.c:48
 msgctxt "arm-flag"
 msgid "Kernel event stream using generic architected timer"
 msgstr "Genel mimarili zamanlayıcı kullanan çekirdek olay akışı"
 
 #. !/flag:vfpv3
-#: modules/devices/arm/arm_data.c:56
+#: modules/devices/arm/arm_data.c:49
 msgctxt "arm-flag"
 msgid "VFP version 3"
 msgstr "VFP sürüm 3"
 
 #. !/flag:vfpv3d16
-#: modules/devices/arm/arm_data.c:57
+#: modules/devices/arm/arm_data.c:50
 msgctxt "arm-flag"
 msgid "VFP version 3 with 16 D-registers"
 msgstr "16 D-yazmaçlı VFP sürüm 3"
 
 #. !/flag:vfpv4
-#: modules/devices/arm/arm_data.c:58
+#: modules/devices/arm/arm_data.c:51
 msgctxt "arm-flag"
 msgid "VFP version 4 with fast context switching"
 msgstr "Hızlı içerik değiştirme özelliğine sahip VFP sürüm 4"
 
 #. !/flag:vfpd32
-#: modules/devices/arm/arm_data.c:59
+#: modules/devices/arm/arm_data.c:52
 msgctxt "arm-flag"
 msgid "VFP with 32 D-registers"
 msgstr "32 D kayıtlı VFP"
 
 #. !/flag:tls
-#: modules/devices/arm/arm_data.c:60
+#: modules/devices/arm/arm_data.c:53
 msgctxt "arm-flag"
 msgid "TLS register"
 msgstr "TLS kaydı"
 
 #. !/flag:idiva
-#: modules/devices/arm/arm_data.c:61
+#: modules/devices/arm/arm_data.c:54
 msgctxt "arm-flag"
 msgid "SDIV and UDIV hardware division in ARM mode"
 msgstr "ARM modunda SDIV ve UDIV donanım bölümü"
 
 #. !/flag:idivt
-#: modules/devices/arm/arm_data.c:62
+#: modules/devices/arm/arm_data.c:55
 msgctxt "arm-flag"
 msgid "SDIV and UDIV hardware division in Thumb mode"
 msgstr "Başparmak modunda SDIV ve UDIV donanım bölümü"
 
 #. !/flag:lpae
-#: modules/devices/arm/arm_data.c:63
+#: modules/devices/arm/arm_data.c:56
 msgctxt "arm-flag"
 msgid "40-bit Large Physical Address Extension"
 msgstr "40 bit Büyük Fiziksel Adres Uzantısı"
 
 #. !/flag:pmull
-#: modules/devices/arm/arm_data.c:65
+#: modules/devices/arm/arm_data.c:58
 msgctxt "arm-flag"
 msgid "64x64->128-bit F2m multiplication (arch>=8)"
 msgstr "64x64-> 128-bit F2m çarpma (arch> 8)"
 
 #. !/flag:aes
-#: modules/devices/arm/arm_data.c:66
+#: modules/devices/arm/arm_data.c:59
 msgctxt "arm-flag"
 msgid "Crypto:AES (arch>=8)"
 msgstr "Kripto: AES (arch> 8)"
 
 #. !/flag:sha1
-#: modules/devices/arm/arm_data.c:67
+#: modules/devices/arm/arm_data.c:60
 msgctxt "arm-flag"
 msgid "Crypto:SHA1 (arch>=8)"
 msgstr "Kripto: SHA1 (arch> 8)"
 
 #. !/flag:sha2
-#: modules/devices/arm/arm_data.c:68
+#: modules/devices/arm/arm_data.c:61
 msgctxt "arm-flag"
 msgid "Crypto:SHA2 (arch>=8)"
 msgstr "Kripto: SHA2 (arch> 8)"
 
 #. !/flag:crc32
-#: modules/devices/arm/arm_data.c:69
+#: modules/devices/arm/arm_data.c:62
 msgctxt "arm-flag"
 msgid "CRC32 checksum instructions (arch>=8)"
 msgstr "CRC32 sağlama toplamı talimatları (arch> 8)"
 
 #. !/flag:fp
-#: modules/devices/arm/arm_data.c:71
+#: modules/devices/arm/arm_data.c:64
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
 msgstr "AArch64'te kayan nokta (arch>=8)"
 
 #. !/flag:asimd
-#: modules/devices/arm/arm_data.c:72
+#: modules/devices/arm/arm_data.c:65
 msgctxt "arm-flag"
 msgid "Advanced SIMD/NEON on AArch64 (arch>=8)"
 msgstr "AArch64'te gelişmiş SIMD / NEON (arch> 8)"
 
 #. !/flag:atomics
-#: modules/devices/arm/arm_data.c:73
+#: modules/devices/arm/arm_data.c:66
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerindeki atomik talimatlar"
 
 #. !/flag:fphp
-#: modules/devices/arm/arm_data.c:74
+#: modules/devices/arm/arm_data.c:67
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
 msgstr "AArch64'te (arch>=8) yarı hassasiyetli kayan nokta"
 
 #. !/flag:asimdhp
-#: modules/devices/arm/arm_data.c:75
+#: modules/devices/arm/arm_data.c:68
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerinde BFloat16 ile Gelişmiş SIMD"
 
 #. !/flag:cpuid
-#: modules/devices/arm/arm_data.c:76
+#: modules/devices/arm/arm_data.c:69
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
 msgstr "CPU özellikleri AArch64 (arch>=8) üzerinde okunabilir"
 
 #. !/flag:asimdrdm
-#: modules/devices/arm/arm_data.c:77
+#: modules/devices/arm/arm_data.c:70
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
 msgstr "Gelişmiş SIMD yuvarlama AArch64'te Double MulAcc (arch>=8)"
 
 #. !/flag:jscvt
-#: modules/devices/arm/arm_data.c:78
+#: modules/devices/arm/arm_data.c:71
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerinde JavaScript dönüşümü"
 
 #. !/flag:fcma
-#: modules/devices/arm/arm_data.c:79
+#: modules/devices/arm/arm_data.c:72
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
 msgstr "AArch64 üzerinde karmaşık sayı SIMD (arch>=8)"
 
 #. !/flag:lrcpc
-#: modules/devices/arm/arm_data.c:80
+#: modules/devices/arm/arm_data.c:73
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
 msgstr "AArch64'te (arch>=8) zayıf sürüm tutarlılığı"
 
 #. !/flag:dcpop
-#: modules/devices/arm/arm_data.c:81
+#: modules/devices/arm/arm_data.c:74
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
 msgstr ""
 "AArch64 (arch>=8) üzerinde Kalıcılık Noktasına kadar veri önbelleği temizliği"
 
 #. !/flag:sha3
-#: modules/devices/arm/arm_data.c:82
+#: modules/devices/arm/arm_data.c:75
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerindeki SHA-3 talimatları"
 
 #. !/flag:sm3
-#: modules/devices/arm/arm_data.c:83
+#: modules/devices/arm/arm_data.c:76
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerindeki SM3 talimatları"
 
 #. !/flag:sm4
-#: modules/devices/arm/arm_data.c:84
+#: modules/devices/arm/arm_data.c:77
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerindeki SM4 talimatları"
 
 #. !/flag:asimddp
-#: modules/devices/arm/arm_data.c:85
+#: modules/devices/arm/arm_data.c:78
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerinde SIMD Nokta Ürünü"
 
 #. !/flag:sha512
-#: modules/devices/arm/arm_data.c:86
+#: modules/devices/arm/arm_data.c:79
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
 msgstr "AArch64 (arch>=8) üzerindeki SHA512 talimatları"
 
 #. !/flag:sve
-#: modules/devices/arm/arm_data.c:87
+#: modules/devices/arm/arm_data.c:80
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
 msgstr "AArch64'te Ölçeklenebilir Vektör Uzantısı (arch>=8)"
@@ -3127,20 +3008,16 @@ msgstr "Versiyon"
 msgid "Capabilities"
 msgstr "Yetenekler"
 
-#: modules/devices/arm/processor.c:760 modules/devices/riscv/processor.c:552
+#: modules/devices/arm/processor.c:766 modules/devices/riscv/processor.c:552
 msgid "SOC/Package"
 msgstr "SOC/Paket"
 
-#: modules/devices/arm/processor.c:764 modules/devices/riscv/processor.c:556
+#: modules/devices/arm/processor.c:770 modules/devices/riscv/processor.c:556
 #: modules/devices/x86/processor.c:754
 msgid "Logical CPU Config"
 msgstr "Mantıksal CPU Yapılandırması"
 
-#: modules/devices/arm/processor.c:786 modules/devices/riscv/processor.c:613
-msgid "SOC/Package Information"
-msgstr "SOC/Paket Bilgileri"
-
-#: modules/devices/arm/processor.c:816 modules/devices/riscv/processor.c:645
+#: modules/devices/arm/processor.c:825 modules/devices/riscv/processor.c:647
 #: modules/devices/x86/processor.c:814
 msgid "Socket:Core"
 msgstr "Yuva:Çekirdek"
@@ -3275,11 +3152,146 @@ msgstr ""
 "[Pil yok]\n"
 "Bu sistemde pil bulunamadı =\n"
 
-#: modules/devices/devicetree.c:132 modules/devices/dmi.c:42
-#: modules/devices/dmi.c:52 modules/devices/dmi.c:58
+#: modules/devices.c:100
+msgid "Graphics Processors"
+msgstr "Ekran Kartı İşlemcisi"
+
+#: modules/devices.c:101 modules/devices/monitors.c:446
+#: modules/devices/monitors.c:492
+msgid "Monitors"
+msgstr "Ekranlar"
+
+#: modules/devices.c:102 modules/devices/pci.c:196
+msgid "PCI Devices"
+msgstr "PCI Aygıtlar"
+
+#: modules/devices.c:103 modules/devices/usb.c:212
+msgid "USB Devices"
+msgstr "USB Aygıtlar"
+
+#: modules/devices.c:104
+msgid "Firmware"
+msgstr "Aygıt Yazılımı"
+
+#: modules/devices.c:106
+msgid "Battery"
+msgstr "Batarya"
+
+#: modules/devices.c:107
+msgid "Sensors"
+msgstr "Sensörler"
+
+#: modules/devices.c:110
+msgid "System DMI"
+msgstr "Sistem DMI"
+
+#: modules/devices.c:111
+msgid "Memory Devices"
+msgstr "Hafıza Aygıtları"
+
+#: modules/devices.c:113 modules/devices.c:115
+msgid "Device Tree"
+msgstr "Aygıt Ağacı"
+
+#: modules/devices.c:117
+msgid "Resources"
+msgstr "Kaynaklar"
+
+#: modules/devices.c:424
+msgid "Released"
+msgstr ""
+
+#: modules/devices.c:439
+msgid "Release Date"
+msgstr ""
+
+#: modules/devices.c:441
+msgid "Distro and CPU Supported Profiles"
+msgstr "Dağıtım ve İşlemci Destekli Profiller"
+
+#: modules/devices.c:850
+msgid "WSL2"
+msgstr "WSL2"
+
+#: modules/devices.c:1116
+msgid "Sensor"
+msgstr "Sensör"
+
+#: modules/devices.c:1150 modules/devices/devicetree.c:132
+#: modules/devices/dmi.c:42 modules/devices/dmi.c:52 modules/devices/dmi.c:58
 #: modules/devices/spd-decode.c:1546 modules/devices/usb.c:182
 msgid "Serial Number"
 msgstr "Seri Numarası"
+
+#: modules/devices.c:1187 modules/devices/dmi_memory.c:806
+msgid "Devices"
+msgstr "Aygıtlar"
+
+#: modules/devices.c:1199
+msgid "Update CPU database"
+msgstr ""
+
+#: modules/devices.c:1204
+msgid "Update PCI ID listing"
+msgstr "PCI kimlik listesini güncelle"
+
+#: modules/devices.c:1209
+msgid "Update USB ID listing"
+msgstr "USB ID listeleme güncelle"
+
+#: modules/devices.c:1214
+msgid "Update EDID vendor codes"
+msgstr "EDID üretici kodlarını güncelle"
+
+#: modules/devices.c:1219
+msgid "Update IEEE OUI vendor codes"
+msgstr "IEEE OUI üretici kodlarını güncelle"
+
+#: modules/devices.c:1224
+msgid "Update SD card manufacturer information"
+msgstr "SD kart üretici bilgisini güncelle"
+
+#: modules/devices.c:1231
+msgid "Update CPU flags database"
+msgstr "İşlemci bayrakları veri tabanını güncelle"
+
+#: modules/devices.c:1268
+msgid "Gathers information about hardware devices"
+msgstr "Donanım aygıtları hakkında bilgi toplar"
+
+#: modules/devices.c:1288
+msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
+msgstr "Sistemde bir <i><b>pci.ids</b></i> kopyası yok."
+
+#: modules/devices.c:1291
+msgid "A full <i><b>pci.ids</b></i> is not available on the system."
+msgstr "Sistemde eksiksiz bir <i><b>pci.ids</b></i> yok."
+
+#: modules/devices.c:1298 modules/devices/dmi_memory.c:937
+msgid ""
+"Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
+"--now (SystemD distro)"
+msgstr ""
+"hardinfo2 servisinin etkinleştirildiğinden ve başlatıldığından emin olun: "
+"sudo systemctl enable hardinfo2 --now (SystemD distro)"
+
+#: modules/devices.c:1299
+msgid ""
+"Add yourself to hardinfo2 group:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"Logout/Reboot for groups to be updated..."
+msgstr ""
+"Kendinizi hardinfo2 grubuna ekleyin:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"Ve grupların güncellenmesi için Çıkış yapın/Yeniden başlatın..."
+
+#: modules/devices.c:1305
+msgid ""
+"Any NVMe storage devices present are not listed.\n"
+"<b><i>udisks2</i></b> is required for NVMe devices."
+msgstr ""
+"Mevcut herhangi bir NVMe depolama aygıtı listelenmemiştir.\n"
+"NVMe aygıtları için <b><i>udisks2</i></b> gereklidir."
 
 #: modules/devices/devicetree.c:133 modules/devices/gpu.c:305
 msgid "Compatible"
@@ -3478,91 +3490,91 @@ msgctxt "cache-type"
 msgid "Unified"
 msgstr "Birleşik"
 
-#: modules/devices/firmware.c:36
+#: modules/devices/firmware.c:35
 msgid "Device cannot be removed easily"
 msgstr "Cihaz kolayca çıkarılamaz"
 
-#: modules/devices/firmware.c:37
+#: modules/devices/firmware.c:36
 msgid "Device is updatable in this or any other mode"
 msgstr "Cihaz, bu veya başka herhangi bir modda güncellenebilir"
 
-#: modules/devices/firmware.c:38
+#: modules/devices/firmware.c:37
 msgid "Update can only be done from offline mode"
 msgstr "Güncelleme yalnızca çevrimdışı moddan yapılabilir"
 
-#: modules/devices/firmware.c:39
+#: modules/devices/firmware.c:38
 msgid "Requires AC power"
 msgstr "AC gücü gerektirir"
 
-#: modules/devices/firmware.c:40
+#: modules/devices/firmware.c:39
 msgid "Is locked and can be unlocked"
 msgstr "Kilitli ve kilidi açılabilir"
 
-#: modules/devices/firmware.c:41
+#: modules/devices/firmware.c:40
 msgid "Is found in current metadata"
 msgstr "Mevcut meta verilerde bulunur"
 
-#: modules/devices/firmware.c:42
+#: modules/devices/firmware.c:41
 msgid "Requires a bootloader mode to be manually enabled by the user"
 msgstr ""
 "Kullanıcı tarafından manuel olarak etkinleştirilecek bir önyükleyici modu "
 "gerektirir"
 
-#: modules/devices/firmware.c:43
+#: modules/devices/firmware.c:42
 msgid "Has been registered with other plugins"
 msgstr "Diğer eklentilere kayıtlı"
 
-#: modules/devices/firmware.c:44
+#: modules/devices/firmware.c:43
 msgid "Requires a reboot to apply firmware or to reload hardware"
 msgstr ""
 "Donanım yazılımı uygulamak veya donanımı yeniden yüklemek için yeniden "
 "başlatma gerektirir"
 
-#: modules/devices/firmware.c:45
+#: modules/devices/firmware.c:44
 msgid "Requires system shutdown to apply firmware"
 msgstr "Aygıt yazılımını uygulamak için sistemin kapatılmasını gerektirir"
 
-#: modules/devices/firmware.c:46
+#: modules/devices/firmware.c:45
 msgid "Has been reported to a metadata server"
 msgstr "Bir meta veri sunucusuna rapor edildi"
 
-#: modules/devices/firmware.c:47
+#: modules/devices/firmware.c:46
 msgid "User has been notified"
 msgstr "Kullanıcı bilgilendirildi"
 
-#: modules/devices/firmware.c:48
+#: modules/devices/firmware.c:47
 msgid "Always use the runtime version rather than the bootloader"
 msgstr "Her zaman önyükleyici yerine çalışma zamanı sürümünü kullanın"
 
-#: modules/devices/firmware.c:49
+#: modules/devices/firmware.c:48
 msgid "Install composite firmware on the parent before the child"
 msgstr "Çocuktan önce ebeveyne kompozit üretici yazılımı yükleyin"
 
-#: modules/devices/firmware.c:50
+#: modules/devices/firmware.c:49
 msgid "Is currently in bootloader mode"
 msgstr "Şu anda önyükleyici modunda"
 
-#: modules/devices/firmware.c:51
+#: modules/devices/firmware.c:50
 msgid "The hardware is waiting to be replugged"
 msgstr "Donanım yeniden takılmayı bekliyor"
 
-#: modules/devices/firmware.c:52
+#: modules/devices/firmware.c:51
 msgid "Ignore validation safety checks when flashing this device"
 msgstr "Bu cihazı flashlarken doğrulama güvenlik kontrollerini göz ardı edin"
 
-#: modules/devices/firmware.c:53
+#: modules/devices/firmware.c:52
 msgid "Requires the update to be retried with a new plugin"
 msgstr "Güncellemenin yeni bir eklentiyle yeniden denenmesini gerektirir"
 
-#: modules/devices/firmware.c:54
+#: modules/devices/firmware.c:53
 msgid "Do not add instance IDs from the device baseclass"
 msgstr "Cihaz temel sınıfından örnek kimlikleri eklemeyin"
 
-#: modules/devices/firmware.c:55
+#: modules/devices/firmware.c:54
 msgid "Device update needs to be separately activated"
 msgstr "Cihaz güncellemesinin ayrı olarak etkinleştirilmesi gerekiyor"
 
-#: modules/devices/firmware.c:56
+#: modules/devices/firmware.c:55
 msgid ""
 "Ensure the version is a valid semantic version, e.g. numbers separated with "
 "dots"
@@ -3570,61 +3582,61 @@ msgstr ""
 "Sürümün geçerli bir anlamsal sürüm olduğundan emin olun, ör. noktalarla "
 "ayrılmış sayılar"
 
-#: modules/devices/firmware.c:57
+#: modules/devices/firmware.c:56
 msgid "Extra metadata can be exposed about this device"
 msgstr "Bu cihazla ilgili ekstra meta veriler ifşa edilebilir"
 
-#: modules/devices/firmware.c:74
+#: modules/devices/firmware.c:73
 msgid "DeviceId"
 msgstr "Cihaz Kimliği"
 
-#: modules/devices/firmware.c:74 modules/devices/firmware.c:189
+#: modules/devices/firmware.c:73 modules/devices/firmware.c:262
 msgid "Guid"
 msgstr "Kılavuz"
 
-#: modules/devices/firmware.c:74
+#: modules/devices/firmware.c:73
 msgid "Plugin"
 msgstr "Eklenti"
 
-#: modules/devices/firmware.c:74 modules/devices/firmware.c:207
-#: modules/network.c:545
+#: modules/devices/firmware.c:73 modules/devices/firmware.c:280
+#: modules/network.c:549
 msgid "Flags"
 msgstr "Flama"
 
-#: modules/devices/firmware.c:75
+#: modules/devices/firmware.c:74
 msgid "VendorId"
 msgstr "Satıcı kimliği"
 
-#: modules/devices/firmware.c:75
+#: modules/devices/firmware.c:74
 msgid "VersionBootloader"
 msgstr "Sürüm Önyükleyici"
 
-#: modules/devices/firmware.c:76 modules/devices/firmware.c:181
+#: modules/devices/firmware.c:75 modules/devices/firmware.c:254
 msgid "Icon"
 msgstr "Simge"
 
-#: modules/devices/firmware.c:76
+#: modules/devices/firmware.c:75
 msgid "InstallDuration"
 msgstr "Kurulum Süresi"
 
-#: modules/devices/firmware.c:76 modules/devices/firmware.c:199
+#: modules/devices/firmware.c:75 modules/devices/firmware.c:272
 msgid "Created"
 msgstr "Oluşturuldu"
 
-#: modules/devices/firmware.c:76 modules/devices/monitors.c:409
+#: modules/devices/firmware.c:75 modules/devices/monitors.c:409
 msgid "Checksum"
 msgstr "Sağlama toplamı"
 
-#: modules/devices/firmware.c:77 modules/devices/usb.c:139
-#: modules/devices/usb.c:180 modules/network.c:512
+#: modules/devices/firmware.c:76 modules/devices/usb.c:139
+#: modules/devices/usb.c:180 modules/network.c:516
 msgid "Protocol"
 msgstr "Protokol"
 
-#: modules/devices/firmware.c:245
+#: modules/devices/firmware.c:318
 msgid "Firmware List"
 msgstr "Yazılım Listesi"
 
-#: modules/devices/firmware.c:257
+#: modules/devices/firmware.c:330
 msgid "Requires the <i><b>fwupd</b></i> daemon."
 msgstr "<i><b>fwupd</b></i> arka plan hizmetine ihtiyaç duyar."
 
@@ -3818,7 +3830,7 @@ msgid "Analog"
 msgstr "Analog"
 
 #: modules/devices/monitors.c:392 modules/devices/usb.c:136
-#: modules/network.c:475 modules/network.c:528 modules/network.c:545
+#: modules/network.c:479 modules/network.c:532 modules/network.c:549
 msgid "Interface"
 msgstr "Arayüz"
 
@@ -4015,7 +4027,7 @@ msgstr ""
 msgid "[Printers (CUPS)]\n"
 msgstr "[Yazıcılar (CUPS)]\n"
 
-#: modules/devices/printers.c:277
+#: modules/devices/printers.c:278
 msgid ""
 "[Printers]\n"
 "No printers found=\n"
@@ -4027,137 +4039,137 @@ msgstr ""
 msgid "uarch"
 msgstr "uarch"
 
-#: modules/devices/riscv/riscv_data.c:37
+#: modules/devices/riscv/riscv_data.c:30
 msgctxt "rv-ext"
 msgid "RISC-V 32-bit"
 msgstr "RISC-V 32-bit"
 
-#: modules/devices/riscv/riscv_data.c:38
+#: modules/devices/riscv/riscv_data.c:31
 msgctxt "rv-ext"
 msgid "RISC-V 64-bit"
 msgstr "RISC-V 64-bit"
 
-#: modules/devices/riscv/riscv_data.c:39
+#: modules/devices/riscv/riscv_data.c:32
 msgctxt "rv-ext"
 msgid "RISC-V 128-bit"
 msgstr "RISC-V 128-bit"
 
-#: modules/devices/riscv/riscv_data.c:40
+#: modules/devices/riscv/riscv_data.c:33
 msgctxt "rv-ext"
 msgid "Base embedded integer instructions (15 registers)"
 msgstr "Temel gömülü tamsayı talimatları (15 kayıt)"
 
-#: modules/devices/riscv/riscv_data.c:41
+#: modules/devices/riscv/riscv_data.c:34
 msgctxt "rv-ext"
 msgid "Base integer instructions (31 registers)"
 msgstr "Temel tamsayı talimatları (31 kayıt)"
 
-#: modules/devices/riscv/riscv_data.c:42
+#: modules/devices/riscv/riscv_data.c:35
 msgctxt "rv-ext"
 msgid "Hardware integer multiply and divide"
 msgstr "Donanım tamsayı çarpma ve bölme"
 
-#: modules/devices/riscv/riscv_data.c:43
+#: modules/devices/riscv/riscv_data.c:36
 msgctxt "rv-ext"
 msgid "Atomic memory operations"
 msgstr "Atomik hafıza işlemleri"
 
-#: modules/devices/riscv/riscv_data.c:44
+#: modules/devices/riscv/riscv_data.c:37
 msgctxt "rv-ext"
 msgid "Compressed 16-bit instructions"
 msgstr "Sıkıştırılmış 16 bit talimatlar"
 
-#: modules/devices/riscv/riscv_data.c:45
+#: modules/devices/riscv/riscv_data.c:38
 msgctxt "rv-ext"
 msgid "Floating-point instructions, single-precision"
 msgstr "Kayan nokta talimatları, tek kesinlik"
 
-#: modules/devices/riscv/riscv_data.c:46
+#: modules/devices/riscv/riscv_data.c:39
 msgctxt "rv-ext"
 msgid "Floating-point instructions, double-precision"
 msgstr "Kayan nokta talimatları, çift kesinlik"
 
-#: modules/devices/riscv/riscv_data.c:47
+#: modules/devices/riscv/riscv_data.c:40
 msgctxt "rv-ext"
 msgid "Floating-point instructions, quad-precision"
 msgstr "Kayan nokta talimatları, dörtlü hassasiyet"
 
-#: modules/devices/riscv/riscv_data.c:48
+#: modules/devices/riscv/riscv_data.c:41
 msgctxt "rv-ext"
 msgid "Bit manipulation instructions"
 msgstr "Bit işleme talimatları"
 
-#: modules/devices/riscv/riscv_data.c:49
+#: modules/devices/riscv/riscv_data.c:42
 msgctxt "rv-ext"
 msgid "Vector operations"
 msgstr "Vektör işlemleri"
 
-#: modules/devices/riscv/riscv_data.c:50
+#: modules/devices/riscv/riscv_data.c:43
 msgctxt "rv-ext"
 msgid "Scalar Cryptography"
 msgstr "Skaler Kriptografi"
 
-#: modules/devices/riscv/riscv_data.c:51
+#: modules/devices/riscv/riscv_data.c:44
 msgctxt "rv-ext"
 msgid "Base Counters and Timers"
 msgstr "Temel Sayıcılar ve Zamanlayıcılar"
 
-#: modules/devices/riscv/riscv_data.c:52
+#: modules/devices/riscv/riscv_data.c:45
 msgctxt "rv-ext"
 msgid "Control and Status Register"
 msgstr "Kontrol ve Durum Kaydı"
 
-#: modules/devices/riscv/riscv_data.c:53
+#: modules/devices/riscv/riscv_data.c:46
 msgctxt "rv-ext"
 msgid "Instruction-Fetch Fence"
 msgstr "Talimat-Getirme Çiti"
 
-#: modules/devices/riscv/riscv_data.c:54
+#: modules/devices/riscv/riscv_data.c:47
 msgctxt "rv-ext"
 msgid "Hardware performance counters"
 msgstr "Donanım performans sayaçları"
 
-#: modules/devices/riscv/riscv_data.c:55
+#: modules/devices/riscv/riscv_data.c:48
 msgctxt "rv-ext"
 msgid "Accell Index addresses"
 msgstr "Accell Endeksi adresleri"
 
-#: modules/devices/riscv/riscv_data.c:56
+#: modules/devices/riscv/riscv_data.c:49
 msgctxt "rv-ext"
 msgid "Basic bit-manipulation"
 msgstr "Temel bit manipülasyonu"
 
-#: modules/devices/riscv/riscv_data.c:57
+#: modules/devices/riscv/riscv_data.c:50
 msgctxt "rv-ext"
 msgid "Supervisor-level Instructions"
 msgstr "Süpervizör düzeyindeki talimatlar"
 
-#: modules/devices/riscv/riscv_data.c:58
+#: modules/devices/riscv/riscv_data.c:51
 msgctxt "rv-ext"
 msgid "User Mode"
 msgstr "Kullanıcı Modu"
 
-#: modules/devices/riscv/riscv_data.c:59
+#: modules/devices/riscv/riscv_data.c:52
 msgctxt "rv-ext"
 msgid "Transactional memory"
 msgstr "İşlem belleği"
 
-#: modules/devices/riscv/riscv_data.c:60
+#: modules/devices/riscv/riscv_data.c:53
 msgctxt "rv-ext"
 msgid "Packed SIMD instructions"
 msgstr "Paketli SIMD talimatları"
 
-#: modules/devices/riscv/riscv_data.c:61
+#: modules/devices/riscv/riscv_data.c:54
 msgctxt "rv-ext"
 msgid "Decimal floating-point instructions"
 msgstr "Ondalık kayan nokta talimatları"
 
-#: modules/devices/riscv/riscv_data.c:62
+#: modules/devices/riscv/riscv_data.c:55
 msgctxt "rv-ext"
 msgid "Dynamically translated languages"
 msgstr "Dinamik olarak çevrilmiş diller"
 
-#: modules/devices/riscv/riscv_data.c:63
+#: modules/devices/riscv/riscv_data.c:56
 msgctxt "rv-ext"
 msgid "User-level interrupts"
 msgstr "Kullanıcı düzeyinde kesintiler"
@@ -4307,243 +4319,243 @@ msgstr "Üretim Tarihi (Yıl / Hafta)"
 msgid "NVMe Controller"
 msgstr "NVMe Denetleyici"
 
-#: modules/devices/storage.c:143
+#: modules/devices/storage.c:151
 msgid "Read Error Rate"
 msgstr "Hata Oranını Oku"
 
-#: modules/devices/storage.c:144
+#: modules/devices/storage.c:152
 msgid "Throughput Performance"
 msgstr "Verimlilik Performansı"
 
-#: modules/devices/storage.c:145
+#: modules/devices/storage.c:153
 msgid "Spin-Up Time"
 msgstr "Döndürme Süresi"
 
-#: modules/devices/storage.c:146
+#: modules/devices/storage.c:154
 msgid "Start/Stop Count"
 msgstr "Sayımı Başlat/Durdur"
 
-#: modules/devices/storage.c:147
+#: modules/devices/storage.c:155
 msgid "Reallocated Sector Count"
 msgstr "Yeniden Tahsis Edilen Sektör Sayısı"
 
-#: modules/devices/storage.c:148
+#: modules/devices/storage.c:156
 msgid "Read Channel Margin"
 msgstr "Kanal Toleransını Oku"
 
-#: modules/devices/storage.c:149
+#: modules/devices/storage.c:157
 msgid "Seek Error Rate"
 msgstr "Hata Oranı Ara"
 
-#: modules/devices/storage.c:150
+#: modules/devices/storage.c:158
 msgid "Seek Timer Performance"
 msgstr "Zamanlayıcı Performansı Arayın"
 
-#: modules/devices/storage.c:151 modules/devices/storage.c:190
+#: modules/devices/storage.c:159 modules/devices/storage.c:198
 msgid "Power-On Hours"
 msgstr "Açılış Saatleri"
 
-#: modules/devices/storage.c:152
+#: modules/devices/storage.c:160
 msgid "Spin Retry Count"
 msgstr "Tekrar deneme sayısı"
 
-#: modules/devices/storage.c:153
+#: modules/devices/storage.c:161
 msgid "Calibration Retry Count"
 msgstr "Kalibrasyon Yeniden Deneme Sayısı"
 
-#: modules/devices/storage.c:154
+#: modules/devices/storage.c:162
 msgid "Power Cycle Count"
 msgstr "Güç Döngüsü Sayısı"
 
-#: modules/devices/storage.c:155 modules/devices/storage.c:172
+#: modules/devices/storage.c:163 modules/devices/storage.c:180
 msgid "Soft Read Error Rate"
 msgstr "Yumuşak Okuma Hata Oranı"
 
-#: modules/devices/storage.c:156
+#: modules/devices/storage.c:164
 msgid "Runtime Bad Block"
 msgstr "Çalışma Zamanı Hata Engelleme"
 
-#: modules/devices/storage.c:157
+#: modules/devices/storage.c:165
 msgid "End-to-End error"
 msgstr "Uçtan Uca hata"
 
-#: modules/devices/storage.c:158
+#: modules/devices/storage.c:166
 msgid "Reported Uncorrectable Errors"
 msgstr "Bildirilen Düzeltilemez Hatalar"
 
-#: modules/devices/storage.c:159
+#: modules/devices/storage.c:167
 msgid "Command Timeout"
 msgstr "Komut Zaman Aşımı"
 
-#: modules/devices/storage.c:160
+#: modules/devices/storage.c:168
 msgid "High Fly Writes"
 msgstr "Yüksek Uçan Yazılar"
 
-#: modules/devices/storage.c:161
+#: modules/devices/storage.c:169
 msgid "Airflow Temperature"
 msgstr "Hava Akışı Sıcaklığı"
 
-#: modules/devices/storage.c:162
+#: modules/devices/storage.c:170
 msgid "G-sense Error Rate"
 msgstr "G-sense Hata Oranı"
 
-#: modules/devices/storage.c:163
+#: modules/devices/storage.c:171
 msgid "Power-off Retract Count"
 msgstr "Kapanma Geri Çekme Sayısı"
 
-#: modules/devices/storage.c:164
+#: modules/devices/storage.c:172
 msgid "Load Cycle Count"
 msgstr "Yük Döngüsü Sayısı"
 
-#: modules/devices/storage.c:165 modules/devices/storage.c:188
+#: modules/devices/storage.c:173 modules/devices/storage.c:196
 msgid "Temperature"
 msgstr "Sıcaklık"
 
-#: modules/devices/storage.c:166
+#: modules/devices/storage.c:174
 msgid "Hardware ECC Recovered"
 msgstr "Donanım ECC'si Kurtarıldı"
 
-#: modules/devices/storage.c:167
+#: modules/devices/storage.c:175
 msgid "Reallocation Event Count"
 msgstr "Yeniden Tahsis Olay Sayısı"
 
-#: modules/devices/storage.c:168
+#: modules/devices/storage.c:176
 msgid "Current Pending Sector Count"
 msgstr "Mevcut Bekleyen Sektör Sayısı"
 
-#: modules/devices/storage.c:169
+#: modules/devices/storage.c:177
 msgid "Uncorrectable Sector Count"
 msgstr "Düzeltilemez Sektör Sayısı"
 
-#: modules/devices/storage.c:170
+#: modules/devices/storage.c:178
 msgid "UltraDMA CRC Error Count"
 msgstr "UltraDMA CRC Hata Sayısı"
 
-#: modules/devices/storage.c:171
+#: modules/devices/storage.c:179
 msgid "Multi-Zone Error Rate"
 msgstr "Çoklu Bölge Hata Oranı"
 
-#: modules/devices/storage.c:173
+#: modules/devices/storage.c:181
 msgid "Run Out Cancel"
 msgstr "Bitti İptal"
 
-#: modules/devices/storage.c:174
+#: modules/devices/storage.c:182
 msgid "Flying Height"
 msgstr "Uçan Yükseklik"
 
-#: modules/devices/storage.c:175
+#: modules/devices/storage.c:183
 msgid "Spin High Current"
 msgstr "Yüksek Akım Spin"
 
-#: modules/devices/storage.c:176
+#: modules/devices/storage.c:184
 msgid "Spin Buzz"
 msgstr "Buzz çevirin"
 
-#: modules/devices/storage.c:177
+#: modules/devices/storage.c:185
 msgid "Offline Seek Performance"
 msgstr "Çevrimdışı Arama Performansı"
 
-#: modules/devices/storage.c:178
+#: modules/devices/storage.c:186
 msgid "Disk Shift"
 msgstr "Disk Kaydırma"
 
-#: modules/devices/storage.c:179
+#: modules/devices/storage.c:187
 msgid "G-Sense Error Rate"
 msgstr "G-Sense Hata Oranı"
 
-#: modules/devices/storage.c:180
+#: modules/devices/storage.c:188
 msgid "Loaded Hours"
 msgstr "Yüklenen Saatler"
 
-#: modules/devices/storage.c:181
+#: modules/devices/storage.c:189
 msgid "Load/Unload Retry Count"
 msgstr "Yükleme/Kaldırma Yeniden Deneme Sayısı"
 
-#: modules/devices/storage.c:182
+#: modules/devices/storage.c:190
 msgid "Load Friction"
 msgstr "Yük Sürtünmesi"
 
-#: modules/devices/storage.c:183
+#: modules/devices/storage.c:191
 msgid "Load/Unload Cycle Count"
 msgstr "Yükleme/Boşaltma Döngü Sayısı"
 
-#: modules/devices/storage.c:184
+#: modules/devices/storage.c:192
 msgid "Load-in time"
 msgstr "Yükleme süresi"
 
-#: modules/devices/storage.c:185
+#: modules/devices/storage.c:193
 msgid "Torque Amplification Count"
 msgstr "Tork Yükseltme Sayısı"
 
-#: modules/devices/storage.c:186
+#: modules/devices/storage.c:194
 msgid "Power-Off Retract Count"
 msgstr "Kapanma Geri Çekme Sayısı"
 
-#: modules/devices/storage.c:187
+#: modules/devices/storage.c:195
 msgid "GMR Head Amplitude"
 msgstr "GMR Baş Genliği"
 
-#: modules/devices/storage.c:189
+#: modules/devices/storage.c:197
 msgid "Endurance Remaining"
 msgstr "Kalan Dayanıklılık"
 
-#: modules/devices/storage.c:191
+#: modules/devices/storage.c:199
 msgid "Good Block Rate"
 msgstr "İyi Blok Oranı"
 
-#: modules/devices/storage.c:192
+#: modules/devices/storage.c:200
 msgid "Head Flying Hours"
 msgstr "Baş Uçan Saatler"
 
-#: modules/devices/storage.c:193
+#: modules/devices/storage.c:201
 msgid "Read Error Retry Rate"
 msgstr "Hata Yeniden Deneme Oranını Oku"
 
-#: modules/devices/storage.c:194
+#: modules/devices/storage.c:202
 msgid "Total LBAs Written"
 msgstr "Yazılan Toplam LBA'lar"
 
-#: modules/devices/storage.c:195
+#: modules/devices/storage.c:203
 msgid "Total LBAs Read"
 msgstr "Toplam LBA Okuma"
 
-#: modules/devices/storage.c:196
+#: modules/devices/storage.c:204
 msgid "Wear leveling Count"
 msgstr "Aşınma Dengeleme Sayısı"
 
-#: modules/devices/storage.c:197
+#: modules/devices/storage.c:205
 msgid "Total Used Reserved Block Count"
 msgstr "Toplam Kullanılan Ayrılmış Blok Sayısı"
 
-#: modules/devices/storage.c:198
+#: modules/devices/storage.c:206
 msgid "Total Program Fail Count"
 msgstr "Toplam Program Başarısızlık Sayısı"
 
-#: modules/devices/storage.c:199
+#: modules/devices/storage.c:207
 msgid "Total Erase Fail Count"
 msgstr "Toplam Silme Başarısızlık Sayısı"
 
-#: modules/devices/storage.c:200
+#: modules/devices/storage.c:208
 msgid "Available Reserved Space"
 msgstr "Kullanılabilir Ayrılmış Alan"
 
-#: modules/devices/storage.c:201
+#: modules/devices/storage.c:209
 msgid "Program Fail Count"
 msgstr "Program Başarısızlık Sayısı"
 
-#: modules/devices/storage.c:202
+#: modules/devices/storage.c:210
 msgid "Erase Fail Count"
 msgstr "Silme Başarısızlık Sayısı"
 
-#: modules/devices/storage.c:203
+#: modules/devices/storage.c:211
 msgid "TA Counter Increased"
 msgstr "TA Sayacı Arttı"
 
-#: modules/devices/storage.c:204
+#: modules/devices/storage.c:212
 msgid "Total Unused Reserved Block Count"
 msgstr "Toplam Kullanılmayan Ayrılmış Blok Sayısı"
 
-#: modules/devices/storage.c:209
+#: modules/devices/storage.c:217
 msgid ""
 "\n"
 "[UDisks2]\n"
@@ -4551,35 +4563,35 @@ msgstr ""
 "\n"
 "[UDisks2]\n"
 
-#: modules/devices/storage.c:286
+#: modules/devices/storage.c:296
 msgid "Removable"
 msgstr "Çıkarılabilir"
 
-#: modules/devices/storage.c:286
+#: modules/devices/storage.c:296
 msgid "Fixed"
 msgstr "Onarıldı"
 
-#: modules/devices/storage.c:289
+#: modules/devices/storage.c:299
 msgid "Ejectable"
 msgstr "Çıkarılabilir"
 
-#: modules/devices/storage.c:292
+#: modules/devices/storage.c:302
 msgid "Self-monitoring (S.M.A.R.T.)"
 msgstr "Kendi kendini izleme (S.M.A.R.T.)"
 
-#: modules/devices/storage.c:295 modules/devices/x86/processor.c:664
+#: modules/devices/storage.c:305 modules/devices/x86/processor.c:664
 msgid "Power Management"
 msgstr "Güç Yönetimi"
 
-#: modules/devices/storage.c:298
+#: modules/devices/storage.c:308
 msgid "Advanced Power Management"
 msgstr "Gelişmiş Güç Yönetimi"
 
-#: modules/devices/storage.c:301
+#: modules/devices/storage.c:311
 msgid "Automatic Acoustic Management"
 msgstr "Otomatik Akustik Yönetimi"
 
-#: modules/devices/storage.c:304
+#: modules/devices/storage.c:314
 #, c-format
 msgid ""
 "[Drive Information]\n"
@@ -4588,7 +4600,7 @@ msgstr ""
 "[Sürücü Bilgileri]\n"
 "Model=%s\n"
 
-#: modules/devices/storage.c:314
+#: modules/devices/storage.c:324
 #, c-format
 msgid ""
 "Revision=%s\n"
@@ -4603,12 +4615,12 @@ msgstr ""
 "Boyut =%s\n"
 "Özellikler =%s\n"
 
-#: modules/devices/storage.c:329
+#: modules/devices/storage.c:339
 #, c-format
 msgid "Rotation Rate=%d RPM\n"
 msgstr "Döndürme Oranı =%d RPM\n"
 
-#: modules/devices/storage.c:332
+#: modules/devices/storage.c:342
 #, c-format
 msgid ""
 "Media=%s\n"
@@ -4617,51 +4629,51 @@ msgstr ""
 "Medya =%s\n"
 "Medya uyumluluğu =%s\n"
 
-#: modules/devices/storage.c:339
+#: modules/devices/storage.c:349
 #, c-format
 msgid "Connection bus=%s\n"
 msgstr "Bağlantı veri yolu =%s\n"
 
-#: modules/devices/storage.c:351
+#: modules/devices/storage.c:361
 msgid "WWN"
 msgstr "WWN"
 
-#: modules/devices/storage.c:352
+#: modules/devices/storage.c:362
 msgid "EUI "
 msgstr "EUI "
 
-#: modules/devices/storage.c:357
+#: modules/devices/storage.c:367
 msgid "WWN / EUI"
 msgstr "WWN / EUI"
 
-#: modules/devices/storage.c:361
+#: modules/devices/storage.c:371
 #, c-format
 msgid "$^$%s=[%s] %s\n"
 msgstr "$^$%s=[%s] %s\n"
 
-#: modules/devices/storage.c:363
+#: modules/devices/storage.c:373
 msgid "IEEE OUI"
 msgstr "IEEE OUI"
 
-#: modules/devices/storage.c:388 modules/devices/storage.c:392
+#: modules/devices/storage.c:398 modules/devices/storage.c:402
 msgid "Lifetime exceeded"
 msgstr "Ömür süresi aşıldı"
 
-#: modules/devices/storage.c:395
+#: modules/devices/storage.c:405
 msgid "Normal"
 msgstr "Normal"
 
-#: modules/devices/storage.c:396
+#: modules/devices/storage.c:406
 #, c-format
 msgid "Warning >80%% used"
 msgstr ""
 
-#: modules/devices/storage.c:397
+#: modules/devices/storage.c:407
 #, c-format
 msgid "Failing >90%% used"
 msgstr ""
 
-#: modules/devices/storage.c:402
+#: modules/devices/storage.c:412
 #, c-format
 msgid ""
 "[Self-monitoring ExtCSD]\n"
@@ -4676,7 +4688,7 @@ msgstr ""
 "MLC Flash Durumu=%s\n"
 "Ömr Sonu Öncesi Durum=%s\n"
 
-#: modules/devices/storage.c:415
+#: modules/devices/storage.c:426
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
@@ -4686,15 +4698,15 @@ msgstr ""
 "Durum=%s\n"
 "Kötü Sektör=%"
 
-#: modules/devices/storage.c:421
+#: modules/devices/storage.c:432
 msgid "Failing"
 msgstr "Başarısız"
 
-#: modules/devices/storage.c:421
+#: modules/devices/storage.c:432
 msgid "OK"
 msgstr "Tamam"
 
-#: modules/devices/storage.c:428
+#: modules/devices/storage.c:439
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
@@ -4702,7 +4714,7 @@ msgstr ""
 "[S.M.A.R.T. Nitelikleri]\n"
 "Nitelikler=<tt>Value</tt>\n"
 
-#: modules/devices/storage.c:430
+#: modules/devices/storage.c:441
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
@@ -4710,23 +4722,23 @@ msgstr ""
 "[S.M.A.R.T. Öznitelikleri]\n"
 "Nitelik=<tt>Değer      / Normalleştirilmiş / En Kötü / Eşik</tt>\n"
 
-#: modules/devices/storage.c:457
+#: modules/devices/storage.c:468
 msgid "%"
 msgid_plural "%"
 msgstr[0] "%"
 msgstr[1] "%"
 
-#: modules/devices/storage.c:503
+#: modules/devices/storage.c:514
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
 msgstr "%s=<tt>%s</tt>\n"
 
-#: modules/devices/storage.c:505
+#: modules/devices/storage.c:516
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
 msgstr "(%d) %s=<tt>%s</tt>\n"
 
-#: modules/devices/storage.c:513
+#: modules/devices/storage.c:524
 #, c-format
 msgid ""
 "[Partition table]\n"
@@ -4735,12 +4747,12 @@ msgstr ""
 "[Bölüm tablosu]\n"
 "Tür =%s\n"
 
-#: modules/devices/storage.c:532
+#: modules/devices/storage.c:543
 #, c-format
 msgid "Partition %s=%s\n"
 msgstr "Bölüm %s=%s\n"
 
-#: modules/devices/storage.c:581
+#: modules/devices/storage.c:592
 msgid ""
 "\n"
 "[SCSI Disks]\n"
@@ -4748,7 +4760,7 @@ msgstr ""
 "\n"
 "[SCSI Disks]\n"
 
-#: modules/devices/storage.c:653 modules/devices/storage.c:859
+#: modules/devices/storage.c:664 modules/devices/storage.c:869
 #, c-format
 msgid ""
 "[Device Information]\n"
@@ -4757,7 +4769,7 @@ msgstr ""
 "[Cihaz bilgisi]\n"
 "Model=%s\n"
 
-#: modules/devices/storage.c:660
+#: modules/devices/storage.c:671
 #, c-format
 msgid ""
 "Type=%s\n"
@@ -4776,7 +4788,7 @@ msgstr ""
 "Kimlik=%d\n"
 "LUN=%d\n"
 
-#: modules/devices/storage.c:707
+#: modules/devices/storage.c:718
 msgid ""
 "\n"
 "[IDE Disks]\n"
@@ -4784,12 +4796,12 @@ msgstr ""
 "\n"
 "[IDE Disks]\n"
 
-#: modules/devices/storage.c:793
+#: modules/devices/storage.c:804
 #, c-format
 msgid "Driver=%s\n"
 msgstr "Sürücü=%s\n"
 
-#: modules/devices/storage.c:865
+#: modules/devices/storage.c:875
 #, c-format
 msgid ""
 "Device Name=hd%c\n"
@@ -4800,7 +4812,7 @@ msgstr ""
 "Medya=%s\n"
 "Önbellek=%dkb\n"
 
-#: modules/devices/storage.c:875
+#: modules/devices/storage.c:885
 #, c-format
 msgid ""
 "[Geometry]\n"
@@ -4811,7 +4823,7 @@ msgstr ""
 "Fiziksel=%s\n"
 "Mantıksal=%s\n"
 
-#: modules/devices/storage.c:885
+#: modules/devices/storage.c:895
 #, c-format
 msgid ""
 "[Capabilities]\n"
@@ -4820,7 +4832,7 @@ msgstr ""
 "[Yetenekler]\n"
 "%s"
 
-#: modules/devices/storage.c:892
+#: modules/devices/storage.c:902
 #, c-format
 msgid ""
 "[Speeds]\n"
@@ -4910,121 +4922,121 @@ msgid "Package Information"
 msgstr "Paket Bilgisi"
 
 #. !/flag:fpu
-#: modules/devices/x86/x86_data.c:48
+#: modules/devices/x86/x86_data.c:41
 msgctxt "x86-flag"
 msgid "Onboard FPU (floating point support)"
 msgstr "Yerleşik FPU (kayan nokta desteği)"
 
 #. !/flag:vme
-#: modules/devices/x86/x86_data.c:49
+#: modules/devices/x86/x86_data.c:42
 msgctxt "x86-flag"
 msgid "Virtual 8086 mode enhancements"
 msgstr "Sanal 8086 modu geliştirmeleri"
 
 #. !/flag:de
-#: modules/devices/x86/x86_data.c:50
+#: modules/devices/x86/x86_data.c:43
 msgctxt "x86-flag"
 msgid "Debugging Extensions (CR4.DE)"
 msgstr "Uzantılarda Hata Ayıklama (CR4.DE)"
 
 #. !/flag:pse
-#: modules/devices/x86/x86_data.c:51
+#: modules/devices/x86/x86_data.c:44
 msgctxt "x86-flag"
 msgid "Page Size Extensions (4MB memory pages)"
 msgstr "Sayfa Boyutu Uzantıları (4MB bellek sayfaları)"
 
 #. !/flag:tsc
-#: modules/devices/x86/x86_data.c:52
+#: modules/devices/x86/x86_data.c:45
 msgctxt "x86-flag"
 msgid "Time Stamp Counter (RDTSC)"
 msgstr "Zaman Damgası Sayacı (RDTSC)"
 
 #. !/flag:msr
-#: modules/devices/x86/x86_data.c:53
+#: modules/devices/x86/x86_data.c:46
 msgctxt "x86-flag"
 msgid "Model-Specific Registers (RDMSR, WRMSR)"
 msgstr "Modele Özgü Kayıtlar (RDMSR, WRMSR)"
 
 #. !/flag:pae
-#: modules/devices/x86/x86_data.c:54
+#: modules/devices/x86/x86_data.c:47
 msgctxt "x86-flag"
 msgid "Physical Address Extensions (support for more than 4GB of RAM)"
 msgstr "Fiziksel Adres Uzantıları (4GB'dan fazla RAM desteği)"
 
 #. !/flag:mce
-#: modules/devices/x86/x86_data.c:55
+#: modules/devices/x86/x86_data.c:48
 msgctxt "x86-flag"
 msgid "Machine Check Exception"
 msgstr "Makine Kontrolü İstisnası"
 
 #. !/flag:cx8
-#: modules/devices/x86/x86_data.c:56
+#: modules/devices/x86/x86_data.c:49
 msgctxt "x86-flag"
 msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
 msgstr "CMPXCHG8 talimatı (64-bit karşılaştırma ve değiştirme)"
 
 #. !/flag:apic
-#: modules/devices/x86/x86_data.c:57
+#: modules/devices/x86/x86_data.c:50
 msgctxt "x86-flag"
 msgid "Onboard APIC"
 msgstr "Yerleşik APIC"
 
 #. !/flag:sep
-#: modules/devices/x86/x86_data.c:58
+#: modules/devices/x86/x86_data.c:51
 msgctxt "x86-flag"
 msgid "SYSENTER/SYSEXIT"
 msgstr "SİS GİRİŞ/SİS ÇIKIŞ"
 
 #. !/flag:mtrr
-#: modules/devices/x86/x86_data.c:59
+#: modules/devices/x86/x86_data.c:52
 msgctxt "x86-flag"
 msgid "Memory Type Range Registers"
 msgstr "Bellek Tipi Aralık Kayıtları"
 
 #. !/flag:pge
-#: modules/devices/x86/x86_data.c:60
+#: modules/devices/x86/x86_data.c:53
 msgctxt "x86-flag"
 msgid "Page Global Enable (global bit in PDEs and PTEs)"
 msgstr "Sayfa Genel Etkinleştir (Pde'lerde ve Pte'lerde genel bit)"
 
 #. !/flag:mca
-#: modules/devices/x86/x86_data.c:61
+#: modules/devices/x86/x86_data.c:54
 msgctxt "x86-flag"
 msgid "Machine Check Architecture"
 msgstr "Makine Kontrol Mimarisi"
 
 #. !/flag:cmov
-#: modules/devices/x86/x86_data.c:62
+#: modules/devices/x86/x86_data.c:55
 msgctxt "x86-flag"
 msgid "CMOV instructions (conditional move) (also FCMOV)"
 msgstr "CMOV talimatları (koşullu hareket) (ayrıca FCMOV)"
 
 #. !/flag:pat
-#: modules/devices/x86/x86_data.c:63
+#: modules/devices/x86/x86_data.c:56
 msgctxt "x86-flag"
 msgid "Page Attribute Table"
 msgstr "Sayfa Öznitelik Tablosu"
 
 #. !/flag:pse36
-#: modules/devices/x86/x86_data.c:64
+#: modules/devices/x86/x86_data.c:57
 msgctxt "x86-flag"
 msgid "36-bit PSEs (huge pages)"
 msgstr "36 bit PSE'ler (büyük sayfalar)"
 
 #. !/flag:pn
-#: modules/devices/x86/x86_data.c:65
+#: modules/devices/x86/x86_data.c:58
 msgctxt "x86-flag"
 msgid "Processor serial number"
 msgstr "İşlemci seri numarası"
 
 #. !/flag:clflush
-#: modules/devices/x86/x86_data.c:66
+#: modules/devices/x86/x86_data.c:59
 msgctxt "x86-flag"
 msgid "Cache Line Flush instruction"
 msgstr "Önbellek Hat Temizleme talimatı"
 
 #. !/flag:dts
-#: modules/devices/x86/x86_data.c:67
+#: modules/devices/x86/x86_data.c:60
 msgctxt "x86-flag"
 msgid ""
 "Debug Store (buffer for debugging and profiling instructions), or "
@@ -5034,55 +5046,55 @@ msgstr ""
 "arabellek) veya alternatif olarak: dijital sıcaklık sensörü"
 
 #. !/flag:acpi
-#: modules/devices/x86/x86_data.c:68
+#: modules/devices/x86/x86_data.c:61
 msgctxt "x86-flag"
 msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
 msgstr "MSR aracılığıyla ACPI (sıcaklık izleme ve saat hızı modülasyonu)"
 
 #. !/flag:mmx
-#: modules/devices/x86/x86_data.c:69
+#: modules/devices/x86/x86_data.c:62
 msgctxt "x86-flag"
 msgid "Multimedia Extensions"
 msgstr "Multimedya Uzantıları"
 
 #. !/flag:fxsr
-#: modules/devices/x86/x86_data.c:70
+#: modules/devices/x86/x86_data.c:63
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
 msgstr "FXSAVE/FXRSTOR, CR4.OSFXSR"
 
 #. !/flag:sse
-#: modules/devices/x86/x86_data.c:71
+#: modules/devices/x86/x86_data.c:64
 msgctxt "x86-flag"
 msgid "Intel SSE vector instructions"
 msgstr "Intel SSE vektör talimatları"
 
 #. !/flag:sse2
-#: modules/devices/x86/x86_data.c:72
+#: modules/devices/x86/x86_data.c:65
 msgctxt "x86-flag"
 msgid "SSE2"
 msgstr "SSE2"
 
 #. !/flag:ss
-#: modules/devices/x86/x86_data.c:73
+#: modules/devices/x86/x86_data.c:66
 msgctxt "x86-flag"
 msgid "CPU self snoop"
 msgstr "CPU kendini gözetleme"
 
 #. !/flag:ht
-#: modules/devices/x86/x86_data.c:74
+#: modules/devices/x86/x86_data.c:67
 msgctxt "x86-flag"
 msgid "Hyper-Threading"
 msgstr "Yüksek-İş parçacığı"
 
 #. !/flag:tm
-#: modules/devices/x86/x86_data.c:75
+#: modules/devices/x86/x86_data.c:68
 msgctxt "x86-flag"
 msgid "Automatic clock control (Thermal Monitor)"
 msgstr "Otomatik saat kontrolü (Sıcaklık Monitör)"
 
 #. !/flag:ia64
-#: modules/devices/x86/x86_data.c:76
+#: modules/devices/x86/x86_data.c:69
 msgctxt "x86-flag"
 msgid ""
 "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
@@ -5093,243 +5105,243 @@ msgstr ""
 "karıştırılmamalıdır)"
 
 #. !/flag:pbe
-#: modules/devices/x86/x86_data.c:77
+#: modules/devices/x86/x86_data.c:70
 msgctxt "x86-flag"
 msgid "Pending Break Enable (PBE# pin) wakeup support"
 msgstr "Beklemede Arayı Etkinleştirme (PBE # pin) uyandırma desteği"
 
 #. !/flag:syscall
-#: modules/devices/x86/x86_data.c:80
+#: modules/devices/x86/x86_data.c:73
 msgctxt "x86-flag"
 msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
 msgstr ""
 "SYSCALL (Hızlı Sistem Çağrısı) ve SYSRET (Hızlı Sistem Çağrısından Dönüş)"
 
 #. !/flag:mp
-#: modules/devices/x86/x86_data.c:81
+#: modules/devices/x86/x86_data.c:74
 msgctxt "x86-flag"
 msgid "Multiprocessing Capable."
 msgstr "Çoklu İşlem Yeteneği."
 
 #. !/flag:nx
-#: modules/devices/x86/x86_data.c:82
+#: modules/devices/x86/x86_data.c:75
 msgctxt "x86-flag"
 msgid "Execute Disable"
 msgstr "Devre Dışı Bırak"
 
 #. !/flag:mmxext
-#: modules/devices/x86/x86_data.c:83
+#: modules/devices/x86/x86_data.c:76
 msgctxt "x86-flag"
 msgid "AMD MMX extensions"
 msgstr "AMD MMX uzantıları"
 
 #. !/flag:fxsr_opt
-#: modules/devices/x86/x86_data.c:84
+#: modules/devices/x86/x86_data.c:77
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR optimizations"
 msgstr "FXSAVE / FXRSTOR optimizasyonları"
 
 #. !/flag:pdpe1gb
-#: modules/devices/x86/x86_data.c:85
+#: modules/devices/x86/x86_data.c:78
 msgctxt "x86-flag"
 msgid "One GB pages (allows hugepagesz=1G)"
 msgstr "Bir GB sayfa (büyüksayfalar = 1G'ye izin verir)"
 
 #. !/flag:rdtscp
-#: modules/devices/x86/x86_data.c:86
+#: modules/devices/x86/x86_data.c:79
 msgctxt "x86-flag"
 msgid "Read Time-Stamp Counter and Processor ID"
 msgstr "Zaman Damgası Sayacını ve İşlemci Kimliğini Oku"
 
 #. !/flag:lm
-#: modules/devices/x86/x86_data.c:87
+#: modules/devices/x86/x86_data.c:80
 msgctxt "x86-flag"
 msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
 msgstr ""
 "Uzun Mod (x86-64: amd64, Intel 64 olarak da bilinir, yani 64 bit özellikli)"
 
 #. !/flag:3dnow
-#: modules/devices/x86/x86_data.c:88
+#: modules/devices/x86/x86_data.c:81
 msgctxt "x86-flag"
 msgid "3DNow! (AMD vector instructions, competing with Intel's SSE1)"
 msgstr "3BŞimdi! (Intel'in SSE1 ile rekabet eden AMD vektör talimatları)"
 
 #. !/flag:3dnowext
-#: modules/devices/x86/x86_data.c:89
+#: modules/devices/x86/x86_data.c:82
 msgctxt "x86-flag"
 msgid "AMD 3DNow! extensions"
 msgstr "AMD 3BŞimdi! uzantıları"
 
 #. !/flag:recovery
-#: modules/devices/x86/x86_data.c:91
+#: modules/devices/x86/x86_data.c:84
 msgctxt "x86-flag"
 msgid "CPU in recovery mode"
 msgstr "Kurtarma modunda CPU"
 
 #. !/flag:longrun
-#: modules/devices/x86/x86_data.c:92
+#: modules/devices/x86/x86_data.c:85
 msgctxt "x86-flag"
 msgid "Longrun power control"
 msgstr "Uzun süreli güç kontrolü"
 
 #. !/flag:lrti
-#: modules/devices/x86/x86_data.c:93
+#: modules/devices/x86/x86_data.c:86
 msgctxt "x86-flag"
 msgid "LongRun table interface"
 msgstr "Uzun koşu tablo arayüzü"
 
 #. !/flag:cxmmx
-#: modules/devices/x86/x86_data.c:95
+#: modules/devices/x86/x86_data.c:88
 msgctxt "x86-flag"
 msgid "Cyrix MMX extensions"
 msgstr "Cyrix MMX uzantıları"
 
 #. !/flag:k6_mtrr
-#: modules/devices/x86/x86_data.c:96
+#: modules/devices/x86/x86_data.c:89
 msgctxt "x86-flag"
 msgid "AMD K6 nonstandard MTRRs"
 msgstr "AMD K6 standart olmayan MTRR'ler"
 
 #. !/flag:cyrix_arr
-#: modules/devices/x86/x86_data.c:97
+#: modules/devices/x86/x86_data.c:90
 msgctxt "x86-flag"
 msgid "Cyrix ARRs (= MTRRs)"
 msgstr "Cyrix ARRs (= MTRRs)"
 
 #. !/flag:centaur_mcr
-#: modules/devices/x86/x86_data.c:98
+#: modules/devices/x86/x86_data.c:91
 msgctxt "x86-flag"
 msgid "Centaur MCRs (= MTRRs)"
 msgstr "Centaur MCRs (= MTRRs)"
 
 #. !/flag:constant_tsc
-#: modules/devices/x86/x86_data.c:99
+#: modules/devices/x86/x86_data.c:92
 msgctxt "x86-flag"
 msgid "TSC ticks at a constant rate"
 msgstr "TSC sabit bir oranda geçiyor"
 
 #. !/flag:up
-#: modules/devices/x86/x86_data.c:100
+#: modules/devices/x86/x86_data.c:93
 msgctxt "x86-flag"
 msgid "SMP kernel running on UP"
 msgstr "UP'de çalışan SMP çekirdeği"
 
 #. !/flag:art
-#: modules/devices/x86/x86_data.c:101
+#: modules/devices/x86/x86_data.c:94
 msgctxt "x86-flag"
 msgid "Always-Running Timer"
 msgstr "Her Zaman Çalışan Zamanlayıcı"
 
 #. !/flag:arch_perfmon
-#: modules/devices/x86/x86_data.c:102
+#: modules/devices/x86/x86_data.c:95
 msgctxt "x86-flag"
 msgid "Intel Architectural PerfMon"
 msgstr "Intel Mimari PerfMon"
 
 #. !/flag:pebs
-#: modules/devices/x86/x86_data.c:103
+#: modules/devices/x86/x86_data.c:96
 msgctxt "x86-flag"
 msgid "Precise-Event Based Sampling"
 msgstr "Kesin Olay Bazlı Örnekleme"
 
 #. !/flag:bts
-#: modules/devices/x86/x86_data.c:104
+#: modules/devices/x86/x86_data.c:97
 msgctxt "x86-flag"
 msgid "Branch Trace Store"
 msgstr "Şube İzleme Mağazası"
 
 #. !/flag:rep_good
-#: modules/devices/x86/x86_data.c:105
+#: modules/devices/x86/x86_data.c:98
 msgctxt "x86-flag"
 msgid "rep microcode works well"
 msgstr "rep mikro kodu iyi çalışıyor"
 
 #. !/flag:acc_power
-#: modules/devices/x86/x86_data.c:106
+#: modules/devices/x86/x86_data.c:99
 msgctxt "x86-flag"
 msgid "AMD accumulated power mechanism"
 msgstr "AMD birikmiş güç mekanizması"
 
 #. !/flag:nopl
-#: modules/devices/x86/x86_data.c:107
+#: modules/devices/x86/x86_data.c:100
 msgctxt "x86-flag"
 msgid "The NOPL (0F 1F) instructions"
 msgstr "NOPL (0F 1F) talimatları"
 
 #. !/flag:xtopology
-#: modules/devices/x86/x86_data.c:108
+#: modules/devices/x86/x86_data.c:101
 msgctxt "x86-flag"
 msgid "cpu topology enum extensions"
 msgstr "cpu topolojisi numaralandırma uzantıları"
 
 #. !/flag:tsc_reliable
-#: modules/devices/x86/x86_data.c:109
+#: modules/devices/x86/x86_data.c:102
 msgctxt "x86-flag"
 msgid "TSC is known to be reliable"
 msgstr "TSC'nin güvenilir olduğu biliniyor"
 
 #. !/flag:nonstop_tsc
-#: modules/devices/x86/x86_data.c:110
+#: modules/devices/x86/x86_data.c:103
 msgctxt "x86-flag"
 msgid "TSC does not stop in C states"
 msgstr "TSC, C bölgelerinde durmuyor"
 
 #. !/flag:cpuid
-#: modules/devices/x86/x86_data.c:111
+#: modules/devices/x86/x86_data.c:104
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
 msgstr ""
 
 #. !/flag:extd_apicid
-#: modules/devices/x86/x86_data.c:112
+#: modules/devices/x86/x86_data.c:105
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
 msgstr "genişletilmiş APICID (8 bit)"
 
 #. !/flag:amd_dcm
-#: modules/devices/x86/x86_data.c:113
+#: modules/devices/x86/x86_data.c:106
 msgctxt "x86-flag"
 msgid "multi-node processor"
 msgstr "çok düğümlü işlemci"
 
 #. !/flag:aperfmperf
-#: modules/devices/x86/x86_data.c:114
+#: modules/devices/x86/x86_data.c:107
 msgctxt "x86-flag"
 msgid "APERFMPERF"
 msgstr "APERFMPERF"
 
 #. !/flag:eagerfpu
-#: modules/devices/x86/x86_data.c:115
+#: modules/devices/x86/x86_data.c:108
 msgctxt "x86-flag"
 msgid "Non lazy FPU restore"
 msgstr "Tembel olmayan FPU geri yüklemesi"
 
 #. !/flag:nonstop_tsc_s3
-#: modules/devices/x86/x86_data.c:116
+#: modules/devices/x86/x86_data.c:109
 msgctxt "x86-flag"
 msgid "TSC doesn't stop in S3 state"
 msgstr "TSC S3 durumunda durmuyor"
 
 #. !/flag:tsc_known_freq
-#: modules/devices/x86/x86_data.c:117
+#: modules/devices/x86/x86_data.c:110
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
 msgstr ""
 
 #. !/flag:mce_recovery
-#: modules/devices/x86/x86_data.c:118
+#: modules/devices/x86/x86_data.c:111
 msgctxt "x86-flag"
 msgid "CPU has recoverable machine checks"
 msgstr "CPU'da kurtarılabilir makine kontrolleri var"
 
 #. !/flag:pni
-#: modules/devices/x86/x86_data.c:121
+#: modules/devices/x86/x86_data.c:114
 msgctxt "x86-flag"
 msgid "SSE-3 (\"Prescott New Instructions\")"
 msgstr "SSE-3 (“Prescott Yeni Talimatlar”)"
 
 #. !/flag:pclmulqdq
-#: modules/devices/x86/x86_data.c:122
+#: modules/devices/x86/x86_data.c:115
 msgctxt "x86-flag"
 msgid ""
 "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
@@ -5339,127 +5351,127 @@ msgstr ""
 "hızlandırıcı)"
 
 #. !/flag:dtes64
-#: modules/devices/x86/x86_data.c:123
+#: modules/devices/x86/x86_data.c:116
 msgctxt "x86-flag"
 msgid "64-bit Debug Store"
 msgstr "64-bit Hata Ayıklama Deposu"
 
 #. !/flag:monitor
-#: modules/devices/x86/x86_data.c:124
+#: modules/devices/x86/x86_data.c:117
 msgctxt "x86-flag"
 msgid "Monitor/Mwait support (Intel SSE3 supplements)"
 msgstr "Monitor / Mwait desteği (Intel SSE3 ekleri)"
 
 #. !/flag:ds_cpl
-#: modules/devices/x86/x86_data.c:125
+#: modules/devices/x86/x86_data.c:118
 msgctxt "x86-flag"
 msgid "CPL Qual. Debug Store"
 msgstr "CPL Kalitesi Hata Ayıklama Deposu"
 
 #. !/flag:vmx
-#: modules/devices/x86/x86_data.c:126
+#: modules/devices/x86/x86_data.c:119
 msgctxt "x86-flag"
 msgid "Hardware virtualization, Intel VMX"
 msgstr "Donanım sanallaştırma, Intel VMX"
 
 #. !/flag:smx
-#: modules/devices/x86/x86_data.c:127
+#: modules/devices/x86/x86_data.c:120
 msgctxt "x86-flag"
 msgid "Safer mode TXT (TPM support)"
 msgstr "Daha güvenli mod TXT (TPM desteği)"
 
 #. !/flag:est
-#: modules/devices/x86/x86_data.c:128
+#: modules/devices/x86/x86_data.c:121
 msgctxt "x86-flag"
 msgid "Enhanced SpeedStep"
 msgstr "Gelişmiş Hız Adımı"
 
 #. !/flag:tm2
-#: modules/devices/x86/x86_data.c:129
+#: modules/devices/x86/x86_data.c:122
 msgctxt "x86-flag"
 msgid "Thermal Monitor 2"
 msgstr "Sıcaklık Monitörü 2"
 
 #. !/flag:ssse3
-#: modules/devices/x86/x86_data.c:130
+#: modules/devices/x86/x86_data.c:123
 msgctxt "x86-flag"
 msgid "Supplemental SSE-3"
 msgstr "Tamamlayıcı SSE-3"
 
 #. !/flag:cid
-#: modules/devices/x86/x86_data.c:131
+#: modules/devices/x86/x86_data.c:124
 msgctxt "x86-flag"
 msgid "Context ID"
 msgstr "Bağlam Kimliği"
 
 #. !/flag:sdbg
-#: modules/devices/x86/x86_data.c:132
+#: modules/devices/x86/x86_data.c:125
 msgctxt "x86-flag"
 msgid "silicon debug"
 msgstr "silikon hata ayıklama"
 
 #. !/flag:fma
-#: modules/devices/x86/x86_data.c:133
+#: modules/devices/x86/x86_data.c:126
 msgctxt "x86-flag"
 msgid "Fused multiply-add"
 msgstr "Kaynaşmış çarpma-ekleme"
 
 #. !/flag:cx16
-#: modules/devices/x86/x86_data.c:134
+#: modules/devices/x86/x86_data.c:127
 msgctxt "x86-flag"
 msgid "CMPXCHG16B"
 msgstr "CMPXCHG16B"
 
 #. !/flag:xtpr
-#: modules/devices/x86/x86_data.c:135
+#: modules/devices/x86/x86_data.c:128
 msgctxt "x86-flag"
 msgid "Send Task Priority Messages"
 msgstr "Görev Öncelikli Mesajları Gönderin"
 
 #. !/flag:pdcm
-#: modules/devices/x86/x86_data.c:136
+#: modules/devices/x86/x86_data.c:129
 msgctxt "x86-flag"
 msgid "Performance Capabilities"
 msgstr "Performans Yetenekleri"
 
 #. !/flag:pcid
-#: modules/devices/x86/x86_data.c:137
+#: modules/devices/x86/x86_data.c:130
 msgctxt "x86-flag"
 msgid "Process Context Identifiers"
 msgstr "İşlem Bağlam Tanımlayıcıları"
 
 #. !/flag:dca
-#: modules/devices/x86/x86_data.c:138
+#: modules/devices/x86/x86_data.c:131
 msgctxt "x86-flag"
 msgid "Direct Cache Access"
 msgstr "Doğrudan Önbellek Erişimi"
 
 #. !/flag:sse4_1
-#: modules/devices/x86/x86_data.c:139
+#: modules/devices/x86/x86_data.c:132
 msgctxt "x86-flag"
 msgid "SSE-4.1"
 msgstr "SSE-4.1"
 
 #. !/flag:sse4_2
-#: modules/devices/x86/x86_data.c:140
+#: modules/devices/x86/x86_data.c:133
 msgctxt "x86-flag"
 msgid "SSE-4.2"
 msgstr "SSE-4.2"
 
 #. !/flag:x2apic
-#: modules/devices/x86/x86_data.c:141
+#: modules/devices/x86/x86_data.c:134
 msgctxt "x86-flag"
 msgid "x2APIC"
 msgstr "x2APIC"
 
 #. !/flag:movbe
-#: modules/devices/x86/x86_data.c:142
+#: modules/devices/x86/x86_data.c:135
 msgctxt "x86-flag"
 msgid "Move Data After Swapping Bytes instruction"
 msgstr "Bayt Değiştirildikten Sonra Verileri Taşı talimatı"
 
 #. !/flag:popcnt
-#: modules/devices/x86/x86_data.c:143
+#: modules/devices/x86/x86_data.c:136
 msgctxt "x86-flag"
 msgid ""
 "Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
@@ -5468,25 +5480,25 @@ msgstr ""
 "1 komuta ayarlanmış Bit Sayısı Sayısını döndür (Hamming ağırlığı, yani bit "
 "sayısı)"
 
-#: modules/devices/x86/x86_data.c:144
+#: modules/devices/x86/x86_data.c:137
 msgctxt "x86-flag"
 msgid "Tsc deadline timer"
 msgstr "Tsc son tarih zamanlayıcı"
 
 #. !/flag:aes
-#: modules/devices/x86/x86_data.c:145
+#: modules/devices/x86/x86_data.c:138
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
 msgstr ""
 
 #. !/flag:aes-ni
-#: modules/devices/x86/x86_data.c:146
+#: modules/devices/x86/x86_data.c:139
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard (New Instructions)"
 msgstr "Gelişmiş Şifreleme Standardı (Yeni Talimatlar)"
 
 #. !/flag:xsave
-#: modules/devices/x86/x86_data.c:147
+#: modules/devices/x86/x86_data.c:140
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr ""
@@ -5494,152 +5506,148 @@ msgstr ""
 "sağlar"
 
 #. !/flag:avx
-#: modules/devices/x86/x86_data.c:148
+#: modules/devices/x86/x86_data.c:141
 msgctxt "x86-flag"
 msgid "Advanced Vector Extensions"
 msgstr "Gelişmiş Vektör Uzantıları"
 
 #. !/flag:f16c
-#: modules/devices/x86/x86_data.c:149
+#: modules/devices/x86/x86_data.c:142
 msgctxt "x86-flag"
 msgid "16-bit fp conversions (CVT16)"
 msgstr "16 bit fp dönüşümleri (CVT16)"
 
 #. !/flag:rdrand
-#: modules/devices/x86/x86_data.c:150
+#: modules/devices/x86/x86_data.c:143
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
 msgstr "Donanım rasgele sayı üreteci talimatından Rasgele Sayı okuyun"
 
 #. !/flag:hypervisor
-#: modules/devices/x86/x86_data.c:151
+#: modules/devices/x86/x86_data.c:144
 msgctxt "x86-flag"
 msgid "Running on a hypervisor"
 msgstr "Bir hiper yönetici üzerinde çalıştırma"
 
 #. !/flag:rng
-#: modules/devices/x86/x86_data.c:153
+#: modules/devices/x86/x86_data.c:146
 msgctxt "x86-flag"
 msgid "Random Number Generator present (xstore)"
 msgstr "Rastgele Sayı Üreticisi mevcut (xstore)"
 
 #. !/flag:rng_en
-#: modules/devices/x86/x86_data.c:154
+#: modules/devices/x86/x86_data.c:147
 msgctxt "x86-flag"
 msgid "Random Number Generator enabled"
 msgstr "Rastgele Sayı Üreticisi etkinleştirildi"
 
 #. !/flag:ace
-#: modules/devices/x86/x86_data.c:155
+#: modules/devices/x86/x86_data.c:148
 msgctxt "x86-flag"
 msgid "on-CPU crypto (xcrypt)"
 msgstr "CPU üzerinde kripto (xcrypt)"
 
 #. !/flag:ace_en
-#: modules/devices/x86/x86_data.c:156
+#: modules/devices/x86/x86_data.c:149
 msgctxt "x86-flag"
 msgid "on-CPU crypto enabled"
 msgstr "CPU üzerinde kripto etkin"
 
 #. !/flag:ace2
-#: modules/devices/x86/x86_data.c:157
+#: modules/devices/x86/x86_data.c:150
 msgctxt "x86-flag"
 msgid "Advanced Cryptography Engine v2"
 msgstr "Gelişmiş Şifreleme Motoru v2"
 
 #. !/flag:ace2_en
-#: modules/devices/x86/x86_data.c:158
+#: modules/devices/x86/x86_data.c:151
 msgctxt "x86-flag"
 msgid "ACE v2 enabled"
 msgstr "ACE v2 etkin"
 
 #. !/flag:phe
-#: modules/devices/x86/x86_data.c:159
+#: modules/devices/x86/x86_data.c:152
 msgctxt "x86-flag"
 msgid "PadLock Hash Engine"
 msgstr "PadLock Karma Motoru"
 
 #. !/flag:phe_en
-#: modules/devices/x86/x86_data.c:160
+#: modules/devices/x86/x86_data.c:153
 msgctxt "x86-flag"
 msgid "PHE enabled"
 msgstr "PHE etkin"
 
 #. !/flag:pmm
-#: modules/devices/x86/x86_data.c:161
+#: modules/devices/x86/x86_data.c:154
 msgctxt "x86-flag"
 msgid "PadLock Montgomery Multiplier"
 msgstr "PadLock Montgomery Çarpanı"
 
 #. !/flag:pmm_en
-#: modules/devices/x86/x86_data.c:162
+#: modules/devices/x86/x86_data.c:155
 msgctxt "x86-flag"
 msgid "PMM enabled"
 msgstr "PMM etkin"
 
 #. !/flag:lahf_lm
-#: modules/devices/x86/x86_data.c:164
+#: modules/devices/x86/x86_data.c:157
 msgctxt "x86-flag"
 msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
 msgstr ""
 "AH'yi Flags'den (LAHF) yükleyin ve AH'yi Flags'e (SAHF) uzun modda kaydedin"
 
 #. !/flag:cmp_legacy
-#: modules/devices/x86/x86_data.c:165
+#: modules/devices/x86/x86_data.c:158
 msgctxt "x86-flag"
 msgid "If yes HyperThreading not valid"
 msgstr "Evetse, HyperThreading geçerli değil"
 
 #. !/flag:svm
-#: modules/devices/x86/x86_data.c:166
+#: modules/devices/x86/x86_data.c:159
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
 msgstr "“Güvenli sanal makine“: AMD-V"
 
 #. !/flag:extapic
-#: modules/devices/x86/x86_data.c:167
+#: modules/devices/x86/x86_data.c:160
 msgctxt "x86-flag"
 msgid "Extended APIC space"
 msgstr "Genişletilmiş APIC alanı"
 
 #. !/flag:cr8_legacy
-#: modules/devices/x86/x86_data.c:168
+#: modules/devices/x86/x86_data.c:161
 msgctxt "x86-flag"
 msgid "CR8 in 32-bit mode"
 msgstr "32 bit modunda CR8"
 
 #. !/flag:abm
-#: modules/devices/x86/x86_data.c:169
+#: modules/devices/x86/x86_data.c:162
 msgctxt "x86-flag"
 msgid "Advanced Bit Manipulation"
 msgstr "Gelişmiş Bit Manipülasyonu"
 
 #. !/flag:sse4a
-#: modules/devices/x86/x86_data.c:170
+#: modules/devices/x86/x86_data.c:163
 msgctxt "x86-flag"
 msgid "SSE-4A"
 msgstr "SSE-4A"
 
 #. !/flag:misalignsse
-#: modules/devices/x86/x86_data.c:171
+#: modules/devices/x86/x86_data.c:164
 msgctxt "x86-flag"
 msgid ""
-"indicates if a general-protection exception (#GP) is generated when some "
-"legacy SSE instructions operate on unaligned data. Also depends on CR0 and "
-"Alignment Checking bit"
+"indicates if a GP exception is generated when some legacy SSE instructions "
+"operate on unaligned data"
 msgstr ""
-"bazı eski SSE talimatları hizalanmamış veriler üzerinde çalışırken bir genel "
-"koruma istisnasının (#GP) oluşturulup oluşturulmadığını belirtir. Ayrıca CR0 "
-"ve Hizalama Kontrol bitine bağlıdır"
 
 #. !/flag:3dnowprefetch
-#: modules/devices/x86/x86_data.c:172
+#: modules/devices/x86/x86_data.c:165
 msgctxt "x86-flag"
 msgid "3DNow prefetch instructions"
 msgstr "3BŞimdi önceden getirme talimatları"
 
 #. !/flag:osvw
-#: modules/devices/x86/x86_data.c:173
+#: modules/devices/x86/x86_data.c:166
 msgctxt "x86-flag"
 msgid ""
 "indicates OS Visible Workaround, which allows the OS to work around "
@@ -5649,806 +5657,806 @@ msgstr ""
 "Sistemi Görünür Geçici Çözümünü belirtir."
 
 #. !/flag:ibs
-#: modules/devices/x86/x86_data.c:174
+#: modules/devices/x86/x86_data.c:167
 msgctxt "x86-flag"
 msgid "Instruction Based Sampling"
 msgstr "Talimat Tabanlı Örnekleme"
 
 #. !/flag:xop
-#: modules/devices/x86/x86_data.c:175
+#: modules/devices/x86/x86_data.c:168
 msgctxt "x86-flag"
 msgid "extended AVX instructions"
 msgstr "genişletilmiş AVX talimatları"
 
 #. !/flag:skinit
-#: modules/devices/x86/x86_data.c:176
+#: modules/devices/x86/x86_data.c:169
 msgctxt "x86-flag"
 msgid "SKINIT/STGI instructions"
 msgstr "SKINIT / STGI talimatları"
 
 #. !/flag:wdt
-#: modules/devices/x86/x86_data.c:177
+#: modules/devices/x86/x86_data.c:170
 msgctxt "x86-flag"
 msgid "Watchdog timer"
 msgstr "Watchdog zamanlayıcı"
 
 #. !/flag:lwp
-#: modules/devices/x86/x86_data.c:178
+#: modules/devices/x86/x86_data.c:171
 msgctxt "x86-flag"
 msgid "Light Weight Profiling"
 msgstr "Hafif Profilleme"
 
 #. !/flag:fma4
-#: modules/devices/x86/x86_data.c:179
+#: modules/devices/x86/x86_data.c:172
 msgctxt "x86-flag"
 msgid "4 operands MAC instructions"
 msgstr "4 işlenen MAC talimatları"
 
 #. !/flag:tce
-#: modules/devices/x86/x86_data.c:180
+#: modules/devices/x86/x86_data.c:173
 msgctxt "x86-flag"
 msgid "translation cache extension"
 msgstr "çeviri önbellek uzantısı"
 
 #. !/flag:nodeid_msr
-#: modules/devices/x86/x86_data.c:181
+#: modules/devices/x86/x86_data.c:174
 msgctxt "x86-flag"
 msgid "NodeId MSR"
 msgstr "NodeId MSR"
 
 #. !/flag:tbm
-#: modules/devices/x86/x86_data.c:182
+#: modules/devices/x86/x86_data.c:175
 msgctxt "x86-flag"
 msgid "Trailing Bit Manipulation"
 msgstr "Sondaki Bit Manipülasyonu"
 
 #. !/flag:topoext
-#: modules/devices/x86/x86_data.c:183
+#: modules/devices/x86/x86_data.c:176
 msgctxt "x86-flag"
 msgid "Topology Extensions CPUID leafs"
 msgstr "Topoloji Uzantıları CPUID yaprakları"
 
 #. !/flag:perfctr_core
-#: modules/devices/x86/x86_data.c:184
+#: modules/devices/x86/x86_data.c:177
 msgctxt "x86-flag"
 msgid "Core Performance Counter Extensions"
 msgstr "Çekirdek Performans Sayacı Uzantıları"
 
 #. !/flag:perfctr_nb
-#: modules/devices/x86/x86_data.c:185
+#: modules/devices/x86/x86_data.c:178
 msgctxt "x86-flag"
 msgid "NB Performance Counter Extensions"
 msgstr "NB Performans Sayacı Uzantıları"
 
 #. !/flag:bpext
-#: modules/devices/x86/x86_data.c:186
+#: modules/devices/x86/x86_data.c:179
 msgctxt "x86-flag"
 msgid "data breakpoint extension"
 msgstr "veri kesme noktası uzantısı"
 
 #. !/flag:ptsc
-#: modules/devices/x86/x86_data.c:187
+#: modules/devices/x86/x86_data.c:180
 msgctxt "x86-flag"
 msgid "performance time-stamp counter"
 msgstr "performans zaman damgası sayacı"
 
 #. !/flag:perfctr_l2
-#: modules/devices/x86/x86_data.c:188
+#: modules/devices/x86/x86_data.c:181
 msgctxt "x86-flag"
 msgid "L2 Performance Counter Extensions"
 msgstr "L2 Performans Sayacı Uzantıları"
 
 #. !/flag:mwaitx
-#: modules/devices/x86/x86_data.c:189
+#: modules/devices/x86/x86_data.c:182
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
 msgstr "MWAIT uzantısı (MONITORX / MWAITX)"
 
 #. !/flag:cpb
-#: modules/devices/x86/x86_data.c:191
+#: modules/devices/x86/x86_data.c:184
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
 msgstr ""
 
 #. !/flag:cpb
-#: modules/devices/x86/x86_data.c:192
+#: modules/devices/x86/x86_data.c:185
 msgctxt "x86-flag"
 msgid "AMD Core Performance Boost"
 msgstr "AMD Çekirdek Performans Artışı"
 
 #. !/flag:epb
-#: modules/devices/x86/x86_data.c:193
+#: modules/devices/x86/x86_data.c:186
 msgctxt "x86-flag"
 msgid "IA32_ENERGY_PERF_BIAS support"
 msgstr "IA32_ENERJİ_PERFORMANS_EĞİLİMİ desteği"
 
 #. !/flag:hw_pstate
-#: modules/devices/x86/x86_data.c:194
+#: modules/devices/x86/x86_data.c:187
 msgctxt "x86-flag"
 msgid "AMD HW-PState"
 msgstr "AMD HW-PState"
 
 #. !/flag:proc_feedback
-#: modules/devices/x86/x86_data.c:195
+#: modules/devices/x86/x86_data.c:188
 msgctxt "x86-flag"
 msgid "AMD ProcFeedbackInterface"
 msgstr "AMD Pro Geri Bildirim Arayüzü"
 
 #. !/flag:intel_pt
-#: modules/devices/x86/x86_data.c:196
+#: modules/devices/x86/x86_data.c:189
 msgctxt "x86-flag"
 msgid "Intel Processor Tracing"
 msgstr "Intel İşlemci İzleme"
 
 #. !/flag:pti
-#: modules/devices/x86/x86_data.c:197
+#: modules/devices/x86/x86_data.c:190
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
 msgstr ""
 
 #. !/flag:ibrs
-#: modules/devices/x86/x86_data.c:198
+#: modules/devices/x86/x86_data.c:191
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
 msgstr ""
 
 #. !/flag:ssbd
-#: modules/devices/x86/x86_data.c:199
+#: modules/devices/x86/x86_data.c:192
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
 msgstr ""
 
 #. !/flag:ibrs
-#: modules/devices/x86/x86_data.c:200
+#: modules/devices/x86/x86_data.c:193
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
 msgstr ""
 
 #. !/flag:ibpb
-#: modules/devices/x86/x86_data.c:201
+#: modules/devices/x86/x86_data.c:194
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
 msgstr ""
 
 #. !/flag:stibp
-#: modules/devices/x86/x86_data.c:202
+#: modules/devices/x86/x86_data.c:195
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
 msgstr ""
 
 #. !/flag:ibrs_enhanced
-#: modules/devices/x86/x86_data.c:203
+#: modules/devices/x86/x86_data.c:196
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
 msgstr ""
 
 #. !/flag:tpr_shadow
-#: modules/devices/x86/x86_data.c:205
+#: modules/devices/x86/x86_data.c:198
 msgctxt "x86-flag"
 msgid "Intel TPR Shadow"
 msgstr "Intel TPR Gölgesi"
 
 #. !/flag:vnmi
-#: modules/devices/x86/x86_data.c:206
+#: modules/devices/x86/x86_data.c:199
 msgctxt "x86-flag"
 msgid "Intel Virtual NMI"
 msgstr "Intel Sanal NMI"
 
 #. !/flag:flexpriority
-#: modules/devices/x86/x86_data.c:207
+#: modules/devices/x86/x86_data.c:200
 msgctxt "x86-flag"
 msgid "Intel FlexPriority"
 msgstr "Intel Flex Önceliği"
 
 #. !/flag:ept
-#: modules/devices/x86/x86_data.c:208
+#: modules/devices/x86/x86_data.c:201
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table"
 msgstr "Intel Genişletilmiş Sayfa Tablosu"
 
 #. !/flag:vpid
-#: modules/devices/x86/x86_data.c:209
+#: modules/devices/x86/x86_data.c:202
 msgctxt "x86-flag"
 msgid "Intel Virtual Processor ID"
 msgstr "Intel Sanal İşlemci Kimliği"
 
 #. !/flag:vmmcall
-#: modules/devices/x86/x86_data.c:210
+#: modules/devices/x86/x86_data.c:203
 msgctxt "x86-flag"
 msgid "prefer VMMCALL to VMCALL"
 msgstr "VMMCALL'u VMCALL'a tercih edin"
 
 #. !/flag:ept_ad
-#: modules/devices/x86/x86_data.c:211
+#: modules/devices/x86/x86_data.c:204
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
 msgstr ""
 
 #. !/flag:avx512_bf16
-#: modules/devices/x86/x86_data.c:213
+#: modules/devices/x86/x86_data.c:206
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
 msgstr ""
 
 #. !/flag:fsgsbase
-#: modules/devices/x86/x86_data.c:215
+#: modules/devices/x86/x86_data.c:208
 msgctxt "x86-flag"
 msgid "{RD/WR}{FS/GS}BASE instructions"
 msgstr "{RD/WR}{FS/GS}TABAN talimatları"
 
 #. !/flag:tsc_adjust
-#: modules/devices/x86/x86_data.c:216
+#: modules/devices/x86/x86_data.c:209
 msgctxt "x86-flag"
 msgid "TSC adjustment MSR"
 msgstr "TSC ayarı MSR"
 
 #. !/flag:sgx
-#: modules/devices/x86/x86_data.c:217
+#: modules/devices/x86/x86_data.c:210
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
 msgstr ""
 
 #. !/flag:bmi1
-#: modules/devices/x86/x86_data.c:218
+#: modules/devices/x86/x86_data.c:211
 msgctxt "x86-flag"
 msgid "1st group bit manipulation extensions"
 msgstr "1. grup bit manipülasyon uzantıları"
 
 #. !/flag:hle
-#: modules/devices/x86/x86_data.c:219
+#: modules/devices/x86/x86_data.c:212
 msgctxt "x86-flag"
 msgid "Hardware Lock Elision"
 msgstr "Donanım Kilidi Elision"
 
 #. !/flag:avx2
-#: modules/devices/x86/x86_data.c:220
+#: modules/devices/x86/x86_data.c:213
 msgctxt "x86-flag"
 msgid "AVX2 instructions"
 msgstr "AVX2 talimatları"
 
 #. !/flag:smep
-#: modules/devices/x86/x86_data.c:221
+#: modules/devices/x86/x86_data.c:214
 msgctxt "x86-flag"
 msgid "Supervisor Mode Execution Protection"
 msgstr "Süpervizör Modu Yürütme Koruması"
 
 #. !/flag:bmi2
-#: modules/devices/x86/x86_data.c:222
+#: modules/devices/x86/x86_data.c:215
 msgctxt "x86-flag"
 msgid "2nd group bit manipulation extensions"
 msgstr "2. grup bit işleme uzantıları"
 
 #. !/flag:erms
-#: modules/devices/x86/x86_data.c:223
+#: modules/devices/x86/x86_data.c:216
 msgctxt "x86-flag"
 msgid "Enhanced REP MOVSB/STOSB"
 msgstr "Gelişmiş REP MOVSB / STOSB"
 
 #. !/flag:invpcid
-#: modules/devices/x86/x86_data.c:224
+#: modules/devices/x86/x86_data.c:217
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID"
 msgstr "İşlemci Bağlam Kimliğini Geçersiz Kıl"
 
 #. !/flag:invpcid_single
-#: modules/devices/x86/x86_data.c:225
+#: modules/devices/x86/x86_data.c:218
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
 msgstr ""
 
 #. !/flag:rtm
-#: modules/devices/x86/x86_data.c:226
+#: modules/devices/x86/x86_data.c:219
 msgctxt "x86-flag"
 msgid "Restricted Transactional Memory"
 msgstr "Sınırlandırılmış İşlem Belleği"
 
 #. !/flag:cqm
-#: modules/devices/x86/x86_data.c:227
+#: modules/devices/x86/x86_data.c:220
 msgctxt "x86-flag"
 msgid "Cache QoS Monitoring"
 msgstr "Önbellek QoS İzleme"
 
 #. !/flag:mpx
-#: modules/devices/x86/x86_data.c:228
+#: modules/devices/x86/x86_data.c:221
 msgctxt "x86-flag"
 msgid "Memory Protection Extension"
 msgstr "Bellek Koruma Uzantısı"
 
 #. !/flag:avx512f
-#: modules/devices/x86/x86_data.c:229
+#: modules/devices/x86/x86_data.c:222
 msgctxt "x86-flag"
 msgid "AVX-512 foundation"
 msgstr "AVX-512 temeli"
 
 #. !/flag:avx512dq
-#: modules/devices/x86/x86_data.c:230
+#: modules/devices/x86/x86_data.c:223
 msgctxt "x86-flag"
 msgid "AVX-512 Double/Quad instructions"
 msgstr "AVX-512 Çift / Dörtlü talimatlar"
 
 #. !/flag:rdseed
-#: modules/devices/x86/x86_data.c:231
+#: modules/devices/x86/x86_data.c:224
 msgctxt "x86-flag"
 msgid "The RDSEED instruction"
 msgstr "RDSEED talimatı"
 
 #. !/flag:adx
-#: modules/devices/x86/x86_data.c:232
+#: modules/devices/x86/x86_data.c:225
 msgctxt "x86-flag"
 msgid "The ADCX and ADOX instructions"
 msgstr "ADCX ve ADOX talimatları"
 
 #. !/flag:smap
-#: modules/devices/x86/x86_data.c:233
+#: modules/devices/x86/x86_data.c:226
 msgctxt "x86-flag"
 msgid "Supervisor Mode Access Prevention"
 msgstr "Gözetmen Modu Erişim Engelleme"
 
 #. !/flag:avx512ifma
-#: modules/devices/x86/x86_data.c:234
+#: modules/devices/x86/x86_data.c:227
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
 msgstr ""
 
 #. !/flag:clflushopt
-#: modules/devices/x86/x86_data.c:235
+#: modules/devices/x86/x86_data.c:228
 msgctxt "x86-flag"
 msgid "CLFLUSHOPT instruction"
 msgstr "CLFLUSHOPT talimatı"
 
 #. !/flag:clwb
-#: modules/devices/x86/x86_data.c:236
+#: modules/devices/x86/x86_data.c:229
 msgctxt "x86-flag"
 msgid "CLWB instruction"
 msgstr "CLWB talimatı"
 
 #. !/flag:avx512pf
-#: modules/devices/x86/x86_data.c:237
+#: modules/devices/x86/x86_data.c:230
 msgctxt "x86-flag"
 msgid "AVX-512 Prefetch"
 msgstr "AVX-512 Ön Getirme"
 
 #. !/flag:avx512er
-#: modules/devices/x86/x86_data.c:238
+#: modules/devices/x86/x86_data.c:231
 msgctxt "x86-flag"
 msgid "AVX-512 Exponential and Reciprocal"
 msgstr "AVX-512 Üstel ve Karşılıklı"
 
 #. !/flag:avx512cd
-#: modules/devices/x86/x86_data.c:239
+#: modules/devices/x86/x86_data.c:232
 msgctxt "x86-flag"
 msgid "AVX-512 Conflict Detection"
 msgstr "AVX-512 Çakışma Algılama"
 
 #. !/flag:sha_ni
-#: modules/devices/x86/x86_data.c:240
+#: modules/devices/x86/x86_data.c:233
 msgctxt "x86-flag"
 msgid "SHA1/SHA256 Instruction Extensions"
 msgstr "SHA1 / SHA256 Talimat Uzantıları"
 
 #. !/flag:avx512bw
-#: modules/devices/x86/x86_data.c:241
+#: modules/devices/x86/x86_data.c:234
 msgctxt "x86-flag"
 msgid "AVX-512 Byte/Word instructions"
 msgstr "AVX-512 Bayt / Kelime talimatları"
 
 #. !/flag:avx512vl
-#: modules/devices/x86/x86_data.c:242
+#: modules/devices/x86/x86_data.c:235
 msgctxt "x86-flag"
 msgid "AVX-512 128/256 Vector Length extensions"
 msgstr "AVX-512 128/256 Vektör Uzunluğu uzantıları"
 
 #. !/flag:md_clear
-#: modules/devices/x86/x86_data.c:243
+#: modules/devices/x86/x86_data.c:236
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
 msgstr ""
 
 #. !/flag:flush_l1d
-#: modules/devices/x86/x86_data.c:244
+#: modules/devices/x86/x86_data.c:237
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
 msgstr ""
 
 #. !/flag:arch_capabilities
-#: modules/devices/x86/x86_data.c:245
+#: modules/devices/x86/x86_data.c:238
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
 msgstr ""
 
 #. !/flag:xsaveopt
-#: modules/devices/x86/x86_data.c:247
+#: modules/devices/x86/x86_data.c:240
 msgctxt "x86-flag"
 msgid "Optimized XSAVE"
 msgstr "Optimize edilmiş XSAVE"
 
 #. !/flag:xsavec
-#: modules/devices/x86/x86_data.c:248
+#: modules/devices/x86/x86_data.c:241
 msgctxt "x86-flag"
 msgid "XSAVEC"
 msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
-#: modules/devices/x86/x86_data.c:249
+#: modules/devices/x86/x86_data.c:242
 msgctxt "x86-flag"
 msgid "XGETBV with ECX = 1"
 msgstr "ECX = 1 ile XGETBV"
 
 #. !/flag:xsaves
-#: modules/devices/x86/x86_data.c:250
+#: modules/devices/x86/x86_data.c:243
 msgctxt "x86-flag"
 msgid "XSAVES/XRSTORS"
 msgstr "XSAVES/XRSTORS"
 
 #. !/flag:cqm_llc
-#: modules/devices/x86/x86_data.c:252
+#: modules/devices/x86/x86_data.c:245
 msgctxt "x86-flag"
 msgid "LLC QoS"
 msgstr "LLC QoS"
 
 #. !/flag:cqm_occup_llc
-#: modules/devices/x86/x86_data.c:253
+#: modules/devices/x86/x86_data.c:246
 msgctxt "x86-flag"
 msgid "LLC occupancy monitoring"
 msgstr "LLC doluluk izleme"
 
 #. !/flag:cqm_mbm_total
-#: modules/devices/x86/x86_data.c:254
+#: modules/devices/x86/x86_data.c:247
 msgctxt "x86-flag"
 msgid "LLC total MBM monitoring"
 msgstr "LLC toplam MBM izleme"
 
 #. !/flag:cqm_mbm_local
-#: modules/devices/x86/x86_data.c:255
+#: modules/devices/x86/x86_data.c:248
 msgctxt "x86-flag"
 msgid "LLC local MBM monitoring"
 msgstr "LLC yerel MBM izleme"
 
 #. !/flag:split_lock_detect
-#: modules/devices/x86/x86_data.c:256
+#: modules/devices/x86/x86_data.c:249
 msgctxt "x86-flag"
 msgid "AC for split lock"
 msgstr ""
 
 #. !/flag:clzero
-#: modules/devices/x86/x86_data.c:258
+#: modules/devices/x86/x86_data.c:251
 msgctxt "x86-flag"
 msgid "CLZERO instruction"
 msgstr "CLZERO talimatı"
 
 #. !/flag:irperf
-#: modules/devices/x86/x86_data.c:259
+#: modules/devices/x86/x86_data.c:252
 msgctxt "x86-flag"
 msgid "instructions retired performance counter"
 msgstr "talimatlar emekli performans sayacı"
 
 #. !/flag:xsaveerptr
-#: modules/devices/x86/x86_data.c:260
+#: modules/devices/x86/x86_data.c:253
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
 msgstr ""
 
 #. !/flag:wbnoinvd
-#: modules/devices/x86/x86_data.c:261
+#: modules/devices/x86/x86_data.c:254
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
 msgstr ""
 
 #. !/flag:dtherm
-#: modules/devices/x86/x86_data.c:263
+#: modules/devices/x86/x86_data.c:256
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
 msgstr "dijital sıcaklık sensörü"
 
 #. !/flag:ida
-#: modules/devices/x86/x86_data.c:264
+#: modules/devices/x86/x86_data.c:257
 msgctxt "x86-flag"
 msgid "Intel Dynamic Acceleration"
 msgstr "Intel Dinamik Hızlandırma"
 
 #. !/flag:arat
-#: modules/devices/x86/x86_data.c:265
+#: modules/devices/x86/x86_data.c:258
 msgctxt "x86-flag"
 msgid "Always Running APIC Timer"
 msgstr "Daima Çalışan APIC Zamanlayıcı"
 
 #. !/flag:pln
-#: modules/devices/x86/x86_data.c:266
+#: modules/devices/x86/x86_data.c:259
 msgctxt "x86-flag"
 msgid "Intel Power Limit Notification"
 msgstr "Intel Güç Sınırı Bildirimi"
 
 #. !/flag:pts
-#: modules/devices/x86/x86_data.c:267
+#: modules/devices/x86/x86_data.c:260
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
 msgstr "Intel Paket Sıcaklık Durumu"
 
 #. !/flag:hwp
-#: modules/devices/x86/x86_data.c:268
+#: modules/devices/x86/x86_data.c:261
 msgctxt "x86-flag"
 msgid "Intel Hardware P-states"
 msgstr "Intel Donanım P durumları"
 
 #. !/flag:hwp_notify
-#: modules/devices/x86/x86_data.c:269
+#: modules/devices/x86/x86_data.c:262
 msgctxt "x86-flag"
 msgid "HWP notification"
 msgstr "HWP bildirimi"
 
 #. !/flag:hwp_act_window
-#: modules/devices/x86/x86_data.c:270
+#: modules/devices/x86/x86_data.c:263
 msgctxt "x86-flag"
 msgid "HWP Activity Window"
 msgstr "HWP Etkinlik Penceresi"
 
 #. !/flag:hwp_epp
-#: modules/devices/x86/x86_data.c:271
+#: modules/devices/x86/x86_data.c:264
 msgctxt "x86-flag"
 msgid "HWP Energy Performance Preference"
 msgstr "HWP Enerji Performans Tercihi"
 
 #. !/flag:hwp_pkg_req
-#: modules/devices/x86/x86_data.c:272
+#: modules/devices/x86/x86_data.c:265
 msgctxt "x86-flag"
 msgid "HWP package-level request"
 msgstr "HWP paket düzeyinde istek"
 
 #. !/flag:npt
-#: modules/devices/x86/x86_data.c:274
+#: modules/devices/x86/x86_data.c:267
 msgctxt "x86-flag"
 msgid "AMD Nested Page Table support"
 msgstr "AMD İç İçe Sayfa Tablosu desteği"
 
 #. !/flag:lbrv
-#: modules/devices/x86/x86_data.c:275
+#: modules/devices/x86/x86_data.c:268
 msgctxt "x86-flag"
 msgid "AMD LBR Virtualization support"
 msgstr "AMD LBR Sanallaştırma desteği"
 
 #. !/flag:svm_lock
-#: modules/devices/x86/x86_data.c:276
+#: modules/devices/x86/x86_data.c:269
 msgctxt "x86-flag"
 msgid "AMD SVM locking MSR"
 msgstr "AMD SVM kilitleme MSR"
 
 #. !/flag:nrip_save
-#: modules/devices/x86/x86_data.c:277
+#: modules/devices/x86/x86_data.c:270
 msgctxt "x86-flag"
 msgid "AMD SVM next_rip save"
 msgstr "AMD SVM sonraki_rip kaydetme"
 
 #. !/flag:tsc_scale
-#: modules/devices/x86/x86_data.c:278
+#: modules/devices/x86/x86_data.c:271
 msgctxt "x86-flag"
 msgid "AMD TSC scaling support"
 msgstr "AMD TSC ölçeklendirme desteği"
 
 #. !/flag:vmcb_clean
-#: modules/devices/x86/x86_data.c:279
+#: modules/devices/x86/x86_data.c:272
 msgctxt "x86-flag"
 msgid "AMD VMCB clean bits support"
 msgstr "AMD VMCB temiz bit desteği"
 
 #. !/flag:flushbyasid
-#: modules/devices/x86/x86_data.c:280
+#: modules/devices/x86/x86_data.c:273
 msgctxt "x86-flag"
 msgid "AMD flush-by-ASID support"
 msgstr "AMD flush-by-ASID desteği"
 
 #. !/flag:decodeassists
-#: modules/devices/x86/x86_data.c:281
+#: modules/devices/x86/x86_data.c:274
 msgctxt "x86-flag"
 msgid "AMD Decode Assists support"
 msgstr "AMD Decode Assists desteği"
 
 #. !/flag:pausefilter
-#: modules/devices/x86/x86_data.c:282
+#: modules/devices/x86/x86_data.c:275
 msgctxt "x86-flag"
 msgid "AMD filtered pause intercept"
 msgstr "AMD filtreli duraklatma engellemesi"
 
 #. !/flag:pfthreshold
-#: modules/devices/x86/x86_data.c:283
+#: modules/devices/x86/x86_data.c:276
 msgctxt "x86-flag"
 msgid "AMD pause filter threshold"
 msgstr "AMD duraklatma filtresi eşiği"
 
 #. !/flag:avic
-#: modules/devices/x86/x86_data.c:284
+#: modules/devices/x86/x86_data.c:277
 msgctxt "x86-flag"
 msgid "Virtual Interrupt Controller"
 msgstr "Sanal Kesme Denetleyicisi"
 
 #. !/flag:v_vmsave_vmload
-#: modules/devices/x86/x86_data.c:285
+#: modules/devices/x86/x86_data.c:278
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
 msgstr ""
 
 #. !/flag:avx512vbmi
-#: modules/devices/x86/x86_data.c:287
+#: modules/devices/x86/x86_data.c:280
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
 msgstr ""
 
 #. !/flag:umip
-#: modules/devices/x86/x86_data.c:288
+#: modules/devices/x86/x86_data.c:281
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
 msgstr ""
 
 #. !/flag:pku
-#: modules/devices/x86/x86_data.c:289
+#: modules/devices/x86/x86_data.c:282
 msgctxt "x86-flag"
 msgid "Protection Keys for Userspace"
 msgstr "Kullanıcı Alanı için Koruma Anahtarları"
 
 #. !/flag:ospke
-#: modules/devices/x86/x86_data.c:290
+#: modules/devices/x86/x86_data.c:283
 msgctxt "x86-flag"
 msgid "OS Protection Keys Enable"
 msgstr "İşletim Sistemi Koruma Anahtarlarını Etkinleştir"
 
 #. !/flag:avx512_vbmi2
-#: modules/devices/x86/x86_data.c:291
+#: modules/devices/x86/x86_data.c:284
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
 msgstr ""
 
 #. !/flag:gfni
-#: modules/devices/x86/x86_data.c:292
+#: modules/devices/x86/x86_data.c:285
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
 msgstr ""
 
 #. !/flag:vaes
-#: modules/devices/x86/x86_data.c:293
+#: modules/devices/x86/x86_data.c:286
 msgctxt "x86-flag"
 msgid "Vector AES"
 msgstr ""
 
 #. !/flag:vpclmulqdq
-#: modules/devices/x86/x86_data.c:294
+#: modules/devices/x86/x86_data.c:287
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
 msgstr ""
 
 #. !/flag:avx512_vnni
-#: modules/devices/x86/x86_data.c:295
+#: modules/devices/x86/x86_data.c:288
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
 msgstr ""
 
 #. !/flag:avx512_bitalg
-#: modules/devices/x86/x86_data.c:296
+#: modules/devices/x86/x86_data.c:289
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
 msgstr ""
 
 #. !/flag:avx512_vpopcntdq
-#: modules/devices/x86/x86_data.c:297
+#: modules/devices/x86/x86_data.c:290
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
 msgstr ""
 
 #. !/flag:rdpid
-#: modules/devices/x86/x86_data.c:298
+#: modules/devices/x86/x86_data.c:291
 msgctxt "x86-flag"
 msgid "RDPID instruction"
 msgstr ""
 
 #. !/flag:sgx_lc
-#: modules/devices/x86/x86_data.c:299
+#: modules/devices/x86/x86_data.c:292
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
 msgstr ""
 
 #. !/flag:overflow_recov
-#: modules/devices/x86/x86_data.c:301
+#: modules/devices/x86/x86_data.c:294
 msgctxt "x86-flag"
 msgid "MCA overflow recovery support"
 msgstr "MCA taşma kurtarma desteği"
 
 #. !/flag:succor
-#: modules/devices/x86/x86_data.c:302
+#: modules/devices/x86/x86_data.c:295
 msgctxt "x86-flag"
 msgid "uncorrectable error containment and recovery"
 msgstr "düzeltilemez hata önleme ve kurtarma"
 
 #. !/flag:smca
-#: modules/devices/x86/x86_data.c:303
+#: modules/devices/x86/x86_data.c:296
 msgctxt "x86-flag"
 msgid "Scalable MCA"
 msgstr "Ölçeklenebilir MCA"
 
 #. !/flag:fsrm
-#: modules/devices/x86/x86_data.c:305
+#: modules/devices/x86/x86_data.c:298
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
 msgstr ""
 
 #. !/bug:f00f
-#: modules/devices/x86/x86_data.c:308
+#: modules/devices/x86/x86_data.c:301
 msgctxt "x86-flag"
 msgid "Intel F00F bug"
 msgstr "Intel F00F hatası"
 
 #. !/bug:fdiv
-#: modules/devices/x86/x86_data.c:309
+#: modules/devices/x86/x86_data.c:302
 msgctxt "x86-flag"
 msgid "FPU FDIV"
 msgstr "FPU FDIV"
 
 #. !/bug:coma
-#: modules/devices/x86/x86_data.c:310
+#: modules/devices/x86/x86_data.c:303
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
 msgstr "Cyrix 6x86 coma"
 
 #. !/bug:tlb_mmatch
-#: modules/devices/x86/x86_data.c:311
+#: modules/devices/x86/x86_data.c:304
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
 msgstr "AMD Erratum 383"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
-#: modules/devices/x86/x86_data.c:312 modules/devices/x86/x86_data.c:321
+#: modules/devices/x86/x86_data.c:305 modules/devices/x86/x86_data.c:314
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
 msgstr "AMD Erratum 400"
 
 #. !/bug:11ap
-#: modules/devices/x86/x86_data.c:313
+#: modules/devices/x86/x86_data.c:306
 msgctxt "x86-flag"
 msgid "Bad local APIC aka 11AP"
 msgstr "Kötü yerel APIC, 11AP"
 
 #. !/bug:fxsave_leak
-#: modules/devices/x86/x86_data.c:314
+#: modules/devices/x86/x86_data.c:307
 msgctxt "x86-flag"
 msgid "FXSAVE leaks FOP/FIP/FOP"
 msgstr "FXSAVE FOP/FIP/FOP sızdırıyor"
 
 #. !/bug:clflush_monitor
-#: modules/devices/x86/x86_data.c:315
+#: modules/devices/x86/x86_data.c:308
 msgctxt "x86-flag"
 msgid "AAI65, CLFLUSH required before MONITOR"
 msgstr "AAI65, CLFLUSH MONITOR'dan önce gereklidir"
 
 #. !/bug:sysret_ss_attrs
-#: modules/devices/x86/x86_data.c:316
+#: modules/devices/x86/x86_data.c:309
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
 msgstr "SYSRET, SS özniteliklerini düzeltmiyor"
 
 #. !/bug:espfix
-#: modules/devices/x86/x86_data.c:317
+#: modules/devices/x86/x86_data.c:310
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
 msgstr "IRET to 16-bit SS, ESP/RSP yüksek bitlerini bozar"
 
 #. !/bug:null_seg
-#: modules/devices/x86/x86_data.c:318
+#: modules/devices/x86/x86_data.c:311
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
 msgstr "Bir seçiciyi geçersiz kılmak, tabanı korur"
 
 #. !/bug:swapgs_fence
-#: modules/devices/x86/x86_data.c:319
+#: modules/devices/x86/x86_data.c:312
 msgctxt "x86-flag"
 msgid "SWAPGS without input dep on GS"
 msgstr "GS üzerinde giriş deposu olmayan SWAPGS"
 
 #. !/bug:monitor
-#: modules/devices/x86/x86_data.c:320
+#: modules/devices/x86/x86_data.c:313
 msgctxt "x86-flag"
 msgid "IPI required to wake up remote CPU"
 msgstr "Uzak CPU'yu uyandırmak için IPI gerekli"
 
 #. !/bug:cpu_insecure & bug:cpu_meltdown
-#: modules/devices/x86/x86_data.c:322 modules/devices/x86/x86_data.c:323
+#: modules/devices/x86/x86_data.c:315 modules/devices/x86/x86_data.c:316
 msgctxt "x86-flag"
 msgid ""
 "CPU is affected by meltdown attack and needs kernel page table isolation"
@@ -6457,199 +6465,199 @@ msgstr ""
 "ihtiyaç duyar"
 
 #. !/bug:spectre_v1
-#: modules/devices/x86/x86_data.c:324
+#: modules/devices/x86/x86_data.c:317
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
 msgstr "CPU, koşullu dallara sahip Hayalet varyant 1 saldırısından etkilenir"
 
 #. !/bug:spectre_v2
-#: modules/devices/x86/x86_data.c:325
+#: modules/devices/x86/x86_data.c:318
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
 msgstr "CPU, dolaylı dallarla Hayalet varyant 2 saldırısından etkilenir"
 
 #. !/bug:spec_store_bypass
-#: modules/devices/x86/x86_data.c:326
+#: modules/devices/x86/x86_data.c:319
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
 msgstr "CPU, spekülatif mağaza baypas saldırısından etkilenir"
 
 #. !/bug:l1tf
-#: modules/devices/x86/x86_data.c:327
+#: modules/devices/x86/x86_data.c:320
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
 msgstr "CPU, L1 Terminal Arızasından etkilenir"
 
 #. !/bug:mds
-#: modules/devices/x86/x86_data.c:328
+#: modules/devices/x86/x86_data.c:321
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
 msgstr ""
 
 #. !/bug:swapgs
-#: modules/devices/x86/x86_data.c:329
+#: modules/devices/x86/x86_data.c:322
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
 msgstr ""
 
 #. !/bug:itlb_multihit
-#: modules/devices/x86/x86_data.c:330
+#: modules/devices/x86/x86_data.c:323
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
 msgstr ""
 
 #. !/bug:srbds
-#: modules/devices/x86/x86_data.c:331
+#: modules/devices/x86/x86_data.c:324
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
 msgstr ""
 
 #. !/bug:mmio_stale_data
-#: modules/devices/x86/x86_data.c:332
+#: modules/devices/x86/x86_data.c:325
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
 msgstr ""
 
 #. !/bug:mmio_unknown
-#: modules/devices/x86/x86_data.c:333
+#: modules/devices/x86/x86_data.c:326
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
 msgstr ""
 
 #. !/bug:retbleed
-#: modules/devices/x86/x86_data.c:334
+#: modules/devices/x86/x86_data.c:327
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
 msgstr ""
 
 #. !/bug:eibrs_pbrsb
-#: modules/devices/x86/x86_data.c:335
+#: modules/devices/x86/x86_data.c:328
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
 msgstr ""
 
 #. !/bug:gds
-#: modules/devices/x86/x86_data.c:336
+#: modules/devices/x86/x86_data.c:329
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
 msgstr ""
 
 #. !/bug:srso
-#: modules/devices/x86/x86_data.c:338
+#: modules/devices/x86/x86_data.c:331
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
 msgstr ""
 
 #. !/bug:bhi
-#: modules/devices/x86/x86_data.c:339
+#: modules/devices/x86/x86_data.c:332
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
 msgstr ""
 
 #. !/bug:ibpb_no_ret
-#: modules/devices/x86/x86_data.c:340
+#: modules/devices/x86/x86_data.c:333
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
 msgstr ""
 
 #. !/bug:spectre_v2_user
-#: modules/devices/x86/x86_data.c:341
+#: modules/devices/x86/x86_data.c:334
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
 msgstr ""
 
 #. !/bug:its
-#: modules/devices/x86/x86_data.c:342
+#: modules/devices/x86/x86_data.c:335
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
 msgstr ""
 
 #. !/bug:its_native_only
-#: modules/devices/x86/x86_data.c:343
+#: modules/devices/x86/x86_data.c:336
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
 msgstr ""
 
 #. !/bug:tsa
-#: modules/devices/x86/x86_data.c:344
+#: modules/devices/x86/x86_data.c:337
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
 msgstr ""
 
 #. !/bug:vmscape
-#: modules/devices/x86/x86_data.c:345
+#: modules/devices/x86/x86_data.c:338
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
 msgstr ""
 
 #. !/flag:pm:ts
-#: modules/devices/x86/x86_data.c:348
+#: modules/devices/x86/x86_data.c:341
 msgctxt "x86-flag"
 msgid "temperature sensor"
 msgstr "sıcaklık sensörü"
 
 #. !/flag:pm:fid
-#: modules/devices/x86/x86_data.c:349
+#: modules/devices/x86/x86_data.c:342
 msgctxt "x86-flag"
 msgid "frequency id control"
 msgstr "frekans kimliği kontrolü"
 
 #. !/flag:pm:vid
-#: modules/devices/x86/x86_data.c:350
+#: modules/devices/x86/x86_data.c:343
 msgctxt "x86-flag"
 msgid "voltage id control"
 msgstr "voltaj kimliği kontrolü"
 
 #. !/flag:pm:ttp
-#: modules/devices/x86/x86_data.c:351
+#: modules/devices/x86/x86_data.c:344
 msgctxt "x86-flag"
 msgid "thermal trip"
 msgstr "ısı gezisi"
 
 #. !/flag:pm:tm
-#: modules/devices/x86/x86_data.c:352
+#: modules/devices/x86/x86_data.c:345
 msgctxt "x86-flag"
 msgid "hardware thermal control"
 msgstr "donanım ısı kontrolü"
 
 #. !/flag:pm:stc
-#: modules/devices/x86/x86_data.c:353
+#: modules/devices/x86/x86_data.c:346
 msgctxt "x86-flag"
 msgid "software thermal control"
 msgstr "yazılım ısı kontrolü"
 
 #. !/flag:pm:100mhzsteps
-#: modules/devices/x86/x86_data.c:354
+#: modules/devices/x86/x86_data.c:347
 msgctxt "x86-flag"
 msgid "100 MHz multiplier control"
 msgstr "100 MHz çarpan kontrolü"
 
 #. !/flag:pm:hwpstate
-#: modules/devices/x86/x86_data.c:355
+#: modules/devices/x86/x86_data.c:348
 msgctxt "x86-flag"
 msgid "hardware P-state control"
 msgstr "donanım P durumu kontrolü"
 
 #. !/flag:pm:cpb
-#: modules/devices/x86/x86_data.c:356
+#: modules/devices/x86/x86_data.c:349
 msgctxt "x86-flag"
 msgid "core performance boost"
 msgstr "çekirdek performans artışı"
 
 #. !/flag:pm:eff_freq_ro
-#: modules/devices/x86/x86_data.c:357
+#: modules/devices/x86/x86_data.c:350
 msgctxt "x86-flag"
 msgid "Readonly aperf/mperf"
 msgstr "Salt okunur aperf/mperf"
 
 #. !/flag:pm:proc_feedback
-#: modules/devices/x86/x86_data.c:358
+#: modules/devices/x86/x86_data.c:351
 msgctxt "x86-flag"
 msgid "processor feedback interface"
 msgstr "işlemci geri bildirim arayüzü"
 
 #. !/flag:pm:acc_power
-#: modules/devices/x86/x86_data.c:359
+#: modules/devices/x86/x86_data.c:352
 msgctxt "x86-flag"
 msgid "accumulated power mechanism"
 msgstr "birikmiş güç mekanizması"
@@ -6666,7 +6674,7 @@ msgstr "IP Bağlantıları"
 msgid "Routing Table"
 msgstr "Yönlendirme Tablosu"
 
-#: modules/network.c:64 modules/network.c:474
+#: modules/network.c:64 modules/network.c:478
 msgid "ARP Table"
 msgstr "ARP Tablosu"
 
@@ -6682,64 +6690,64 @@ msgstr "İstatistikler"
 msgid "Shared Directories"
 msgstr "Paylaşılan Dizinler"
 
-#: modules/network.c:475 modules/network.c:497 modules/network.c:528
+#: modules/network.c:479 modules/network.c:501 modules/network.c:532
 #: modules/network/net.c:495
 msgid "IP Address"
 msgstr "IP Adresi"
 
-#: modules/network.c:475
+#: modules/network.c:479
 msgid "MAC Address"
 msgstr "MAC Adresi"
 
-#: modules/network.c:484
+#: modules/network.c:488
 msgid "SAMBA"
 msgstr "SAMBA"
 
-#: modules/network.c:485
+#: modules/network.c:489
 msgid "NFS"
 msgstr "NFS"
 
-#: modules/network.c:496
+#: modules/network.c:500
 msgid "Name Servers"
 msgstr "İsim Sunucuları"
 
-#: modules/network.c:511
+#: modules/network.c:515
 msgid "Connections"
 msgstr "Bağlantılar"
 
-#: modules/network.c:512
+#: modules/network.c:516
 msgid "Local Address"
 msgstr "Yerel Adres"
 
-#: modules/network.c:512
+#: modules/network.c:516
 msgid "Foreign Address"
 msgstr "Yabancı Adres"
 
-#: modules/network.c:512
+#: modules/network.c:516
 msgid "State"
 msgstr "Durum"
 
-#: modules/network.c:528
+#: modules/network.c:532
 msgid "Sent"
 msgstr "Gönderilen"
 
-#: modules/network.c:528
+#: modules/network.c:532
 msgid "Received"
 msgstr "Alınan"
 
-#: modules/network.c:544
+#: modules/network.c:548
 msgid "IP routing table"
 msgstr "IP yönlendirme tablosu"
 
-#: modules/network.c:545
+#: modules/network.c:549
 msgid "Destination/Gateway"
 msgstr "Hedef/Ağ Geçidi"
 
-#: modules/network.c:545 modules/network/net.c:496
+#: modules/network.c:549 modules/network/net.c:496
 msgid "Mask"
 msgstr "Mask"
 
-#: modules/network.c:606
+#: modules/network.c:610
 msgid "Gathers information about this computer's network connection"
 msgstr "Bu bilgisayarın ağ bağlantısı hakkında bilgi toplar"
 
@@ -6986,6 +6994,19 @@ msgstr "Yayın adresi"
 #: includes/spd-decode.h:28
 msgid "RAM"
 msgstr "RAM"
+
+#~ msgid "SOC/Package Information"
+#~ msgstr "SOC/Paket Bilgileri"
+
+#~ msgctxt "x86-flag"
+#~ msgid ""
+#~ "indicates if a general-protection exception (#GP) is generated when some "
+#~ "legacy SSE instructions operate on unaligned data. Also depends on CR0 "
+#~ "and Alignment Checking bit"
+#~ msgstr ""
+#~ "bazı eski SSE talimatları hizalanmamış veriler üzerinde çalışırken bir "
+#~ "genel koruma istisnasının (#GP) oluşturulup oluşturulmadığını belirtir. "
+#~ "Ayrıca CR0 ve Hizalama Kontrol bitine bağlıdır"
 
 #, c-format
 #~ msgid "Warning >80% used"

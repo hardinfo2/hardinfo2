@@ -41,7 +41,7 @@ do
     msgmerge -q -N "$f" hardinfo2.pot > tmp.po
 
     # set/reset the X-Poedit-Basepath header
-    grep -v '"X-Poedit-Basepath\:[^"]*"' tmp.po | sed 's:\("Language\:[^"]*"\):\1\n"X-Poedit-Basepath\: ../\\n":' >"$f"
+    grep -v '"X-Poedit-Basepath:[^"]*"' tmp.po | sed 's/\("Language:[^"]*"\)/\1\n"X-Poedit-Basepath: ..\\n"/' >"$f"
 
     rm -f tmp.po
 

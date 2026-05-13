@@ -882,8 +882,12 @@ gchar *callback_users(void)
     struct Info *info = info_new();
 
     info_add_computed_group(info, _("Users"), users);
+    info_set_column_title(info, "TextValue", _("Login"));
+    info_set_column_title(info, "Value", _("Name"));
+    info_set_column_title(info, "Extra1", _("User ID"));
+    info_set_column_headers_visible(info, TRUE);
     info_set_view_type(info, SHELL_VIEW_DUAL);
-    info_set_reload_interval(info, 10000);
+    //info_set_reload_interval(info, 10000);
 
     return info_flatten(info);
 }
@@ -897,7 +901,8 @@ gchar *callback_groups(void)
     info_set_column_title(info, "TextValue", _("Name"));
     info_set_column_title(info, "Value", _("Group ID"));
     info_set_column_headers_visible(info, TRUE);
-    info_set_reload_interval(info, 10000);
+    info_set_view_type(info, SHELL_VIEW_DUAL);
+    //info_set_reload_interval(info, 10000);
 
     return info_flatten(info);
 }

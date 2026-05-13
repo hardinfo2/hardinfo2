@@ -42,18 +42,18 @@ void scan_users_do(void)
     while (passwd_) {
         gchar *key = g_strdup_printf("USER%s", passwd_->pw_name);
         gchar *val = g_strdup_printf("[%s]\n"
-                "%s=%d\n"
-                "%s=%d\n"
-                "%s=%s\n"
-                "%s=%s\n",
-                _("User Information"),
-                _("User ID"), (gint) passwd_->pw_uid,
-                _("Group ID"), (gint) passwd_->pw_gid,
-                _("Home Directory"), passwd_->pw_dir,
-                _("Default Shell"), passwd_->pw_shell);
+				     "%s=%d\n"
+				     "%s=%d\n"
+				     "%s=%s\n"
+				     "%s=%s\n",
+				     _("User Information"),
+				     _("User ID"), (gint) passwd_->pw_uid,
+				     _("Group ID"), (gint) passwd_->pw_gid,
+				     _("Home Directory"), passwd_->pw_dir,
+				     _("Default Shell"), passwd_->pw_shell);
 
         strend(passwd_->pw_gecos, ',');
-        list = g_list_prepend(list, g_strdup_printf("%s,%s,%s,%s", key, passwd_->pw_name, passwd_->pw_gecos, val));
+        list = g_list_prepend(list, g_strdup_printf("%s,%s,%s,%s,%d", key, passwd_->pw_name, passwd_->pw_gecos, val, passwd_->pw_uid));
         passwd_ = getpwent();
         g_free(key);
         g_free(val);
@@ -66,9 +66,9 @@ void scan_users_do(void)
 
 
     while (list) {
-        char **datas = g_strsplit(list->data,",",4);
+        char **datas = g_strsplit(list->data,",",5);
         if (datas[0]) {
-	    users = h_strdup_cprintf("$%s$%s=%s\n", users, datas[0], datas[1], datas[2]);
+	    users = h_strdup_cprintf("$%s$%s=%s|%s\n", users, datas[0], datas[1], datas[2], datas[4]);
 	    moreinfo_add_with_prefix("COMP", datas[0], g_strdup(datas[3]));
 	}
 	g_strfreev(datas);

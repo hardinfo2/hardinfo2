@@ -38,7 +38,21 @@ void scan_groups_do(void)
     groups = g_strdup("");
 
     while (group_) {
-        list=g_list_prepend(list,g_strdup_printf("%s=%d\n", group_->gr_name, group_->gr_gid));
+        gchar *members=NULL, **p;
+        for(p=group_->gr_mem; *p != NULL; p++){
+	    if(members)
+	        members=h_strdup_cprintf(", %s", members, *p);
+	    else
+	        members=g_strdup(*p);
+	}
+	if(!members) members=g_strdup(_("None"));
+        gchar *key = g_strdup_printf("GROUP%s", group_->gr_name);
+        gchar *val = g_strdup_printf("[%s]\n"
+		                     "%s=%s\n",
+				     _("Group Information"),
+				     _("Members"), members);
+
+        list=g_list_prepend(list,g_strdup_printf("%s,%s,%d,%s", key, group_->gr_name, group_->gr_gid, val));
         group_ = getgrent();
     }
     
@@ -48,7 +62,12 @@ void scan_groups_do(void)
     list=g_list_sort(list,(GCompareFunc)comparGroups);
 
     while (list) {
-        groups = h_strdup_cprintf("%s", groups, (char *)list->data);
+        char **datas = g_strsplit(list->data,",",4);
+	if(datas[0]){
+            groups = h_strdup_cprintf("$%s$%s=%s\n", groups, datas[0], datas[1], datas[2]);
+	    moreinfo_add_with_prefix("COMP", datas[0], g_strdup(datas[3]));
+	}
+        g_strfreev(datas);
 
         //next and free
         a=list;

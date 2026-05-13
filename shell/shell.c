@@ -361,9 +361,6 @@ static void update_search_widgets_state(void) {
         gtk_widget_set_tooltip_text(search_entry, _("Search not available"));
         gtk_widget_set_tooltip_text(search_button, _("Search not available"));
     }
-
-    if (!supported)
-        gtk_entry_set_text(GTK_ENTRY(search_entry), "");
 }
 
 static gboolean is_search_supported_for_current_view(void) {

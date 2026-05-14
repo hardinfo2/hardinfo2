@@ -329,6 +329,7 @@ log_handler(const gchar * log_domain,
 }
 #endif
 
+
 void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 {
     static gint create_report = FALSE;
@@ -427,10 +428,15 @@ void parameters_init(int *argc, char ***argv, ProgramParameters * param)
 
     g_option_context_add_main_entries(ctx, options, *(argv)[0]);
 
-    gchar **args=g_strdupv(*argv);
     GError *error=NULL;
+#if GLIB_CHECK_VERSION(2,40,0)
+    gchar **args=g_strdupv(*argv);
     g_option_context_parse_strv(ctx, &args, &error);
     g_strfreev(args);
+#else
+    //we cannot support UniCode parameters on older distro
+    g_option_context_parse(ctx, argc, argv, &error);
+#endif
 
     g_option_context_free(ctx);
 

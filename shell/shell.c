@@ -183,11 +183,13 @@ static time_t parse_boot_date(const char *str) {
         return 0;
 
     if (sscanf(str, "%*3s %3s %d %d:%d:%d %d", mon, &day, &hour, &min, &sec, &year) >= 6) {
-        for (i = 0; months[i]; i++) {
+        i=0;
+        while(months[i]) {
             if (g_ascii_strcasecmp(mon, months[i]) == 0) {
               tm.tm_mon = i;
               break;
             }
+	    i++;
         }
 
         tm.tm_mday = day;
@@ -210,9 +212,10 @@ static gchar *current_search_text = NULL;
 static GtkTreePath *last_search_path = NULL;
 static gboolean search_wrapped = FALSE;
 
-static gboolean check_node_for_search_match(GtkTreeModel *model, GtkTreeIter *iter,
-                                            const gchar *search_text) {
-    for (int col = 0; col < INFO_TREE_NCOL; col++) {
+static gboolean check_node_for_search_match(GtkTreeModel *model, GtkTreeIter *iter, const gchar *search_text)
+{
+    int col = 0;
+    while(col < INFO_TREE_NCOL) {
         GValue value = G_VALUE_INIT;
         gtk_tree_model_get_value(model, iter, col, &value);
 
@@ -234,6 +237,7 @@ static gboolean check_node_for_search_match(GtkTreeModel *model, GtkTreeIter *it
             }
         }
         g_value_unset(&value);
+	col++;
     }
     return FALSE;
 }
@@ -446,7 +450,7 @@ static void on_search_clicked(GtkWidget *widget, gpointer data) {
 }
 
 static gboolean on_search_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data) {
-    if ((event->keyval == GDK_KEY_f || event->keyval == GDK_KEY_F) && (event->state & GDK_CONTROL_MASK)) {
+    if ((event->keyval == 'f' || event->keyval == 'F') && (event->state & GDK_CONTROL_MASK)) {
         if (search_entry) {
             gtk_widget_grab_focus(search_entry);
             return TRUE;

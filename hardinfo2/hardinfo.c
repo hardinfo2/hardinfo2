@@ -76,7 +76,7 @@ int main(int argc, char **argv)
     appver = g_key_file_get_string(key_file, "Application", "Version", NULL);
     if(appver){
         if(strcmp(appver,VERSION)) cleanUserData=true;
-    } else {appver="OLD";cleanUserData=true;}
+    } else {appver=g_strdup("OLD");cleanUserData=true;}
 
     if(cleanUserData){
         DEBUG("Cleaning User Data.... (%s<>%s)\n",appver,VERSION);

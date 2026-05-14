@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 16:10+0800\n"
+"POT-Creation-Date: 2026-05-15 00:58+0800\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -602,7 +602,8 @@ msgid ""
 msgstr ""
 "用户注释无效 (字母+数字 组-机器名-服务器请求)\n"
 "用户注释参数是可选的，可以留空。\n"
-"只有一个组、组-机器名，以及向服务器发出特殊请求以返回来自服务器的基准测试数据\n"
+"只有一个组、组-机器名，以及向服务器发出特殊请求以返回来自服务器的基准测试数"
+"据\n"
 
 #: hardinfo2/util.c:969
 #, c-format
@@ -638,11 +639,11 @@ msgstr "检查版本更新"
 msgid "Unknown"
 msgstr "未知"
 
-#: shell/callbacks.c:498 shell/shell.c:937
+#: shell/callbacks.c:499 shell/shell.c:937
 msgid "System Information and Benchmark"
 msgstr "系统信息和基准测试"
 
-#: shell/callbacks.c:502
+#: shell/callbacks.c:503
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -657,11 +658,14 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
-"HardInfo2 是自由软件；您可以按照自由软件基金会发布的 GNU 通用公共许可证的条款重新分发和/或修改它，许可证版本为第 2 版或更高版本。\n"
+"HardInfo2 是自由软件；您可以按照自由软件基金会发布的 GNU 通用公共许可证的条款"
+"重新分发和/或修改它，许可证版本为第 2 版或更高版本。\n"
 "\n"
-"这个程序的发布是希望它能有用，但没有任何担保；甚至没有适销性或针对特定用途的隐含保证。有关更多详细信息，请参阅 GNU 通用公共许可证。\n"
+"这个程序的发布是希望它能有用，但没有任何担保；甚至没有适销性或针对特定用途的"
+"隐含保证。有关更多详细信息，请参阅 GNU 通用公共许可证。\n"
 "\n"
-"您应该随同本程序收到一份 GNU 通用公共许可证的副本；如果没有，请写信给自由软件基金会，地址为 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+"您应该随同本程序收到一份 GNU 通用公共许可证的副本；如果没有，请写信给自由软件"
+"基金会，地址为 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
 
 #: shell/menu.c:37
 msgid "_Information"
@@ -721,7 +725,7 @@ msgstr "报告错误(_B)"
 
 #: shell/menu.c:92
 msgid "_About HardInfo2"
-msgstr "关于 HardInfo(_A)"
+msgstr "关于 HardInfo2 (_A)"
 
 #: shell/menu.c:93
 msgid "Displays program version information"
@@ -879,28 +883,36 @@ msgstr ""
 "\n"
 "请通过手动安装修复"
 
-#: shell/shell.c:1554 modules/network.c:577
+#: shell/shell.c:1367
+msgid "Copy selected row"
+msgstr "复制所选行"
+
+#: shell/shell.c:1368
+msgid "Copy all rows"
+msgstr "复制全部"
+
+#: shell/shell.c:1743 modules/network.c:577
 msgid "Network"
 msgstr "网络"
 
-#: shell/shell.c:2210
+#: shell/shell.c:2399
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:2217
+#: shell/shell.c:2406
 msgid "Support URL"
 msgstr "支持 URL"
 
-#: shell/shell.c:2228
+#: shell/shell.c:2417
 msgid "Wikipedia"
 msgstr "维基百科"
 
-#: shell/shell.c:2566
+#: shell/shell.c:2755
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → 概要</b>"
 
-#: shell/shell.c:2687
+#: shell/shell.c:2876
 msgid "Updating..."
 msgstr "正在更新..."
 
@@ -1343,8 +1355,7 @@ msgstr "停止"
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
-msgstr ""
-"请不要移动鼠标或按任何键。"
+msgstr "请不要移动鼠标或按任何键。"
 
 #: modules/benchmark.c:789
 msgid "Benchmarks"
@@ -3020,6 +3031,7 @@ msgid ""
 "State=%s\n"
 "Capacity=%s %% / %s\n"
 "Battery Usage=%.0f W\n"
+"Time remaining=%02dh %02dm\n"
 "Battery Health=%.0f %%\n"
 "Design Full Energy=%.3f Wh\n"
 "Current Full Energy=%.3f Wh\n"
@@ -3032,7 +3044,7 @@ msgid ""
 "Serial Number=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:450
+#: modules/devices/battery.c:457
 #, c-format
 msgid ""
 "\n"
@@ -3044,7 +3056,7 @@ msgid ""
 "APM BIOS version=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:462
+#: modules/devices/battery.c:469
 #, c-format
 msgid ""
 "\n"
@@ -3055,7 +3067,7 @@ msgid ""
 "APM BIOS version=%s\n"
 msgstr ""
 
-#: modules/devices/battery.c:491
+#: modules/devices/battery.c:498
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"
@@ -4942,7 +4954,9 @@ msgctxt "x86-flag"
 msgid ""
 "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
 "x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
-msgstr "Intel Itanium 架构 64位（不要与Intel的64位x86架构混淆，后者由标志x86-64或\"AMD64\"位表示）"
+msgstr ""
+"Intel Itanium 架构 64位（不要与Intel的64位x86架构混淆，后者由标志x86-64或"
+"\"AMD64\"位表示）"
 
 #. !/flag:pbe
 #: modules/devices/x86/x86_data.c:70
@@ -5310,8 +5324,8 @@ msgstr "字节交换后移动数据指令"
 #: modules/devices/x86/x86_data.c:136
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
-"e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
 msgstr "返回设置为 1 的位数计数指令（汉明权重，即位计数）"
 
 #: modules/devices/x86/x86_data.c:137

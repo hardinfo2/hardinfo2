@@ -23,65 +23,7 @@
 
 gchar *smb_shares_list = NULL;
 
-void scan_samba_from_string(gchar *str, gsize length);
-void scan_samba_usershares(void);
-
-void
-scan_samba(void)
-{
-    gchar *str;
-    gsize length;
-
-    if (smb_shares_list) {
-        g_free(smb_shares_list);
-        smb_shares_list = g_strdup("");
-    }
-
-    if (g_file_get_contents("/etc/samba/smb.conf",
-                            &str, &length, NULL)) {
-        shell_status_update("Scanning SAMBA shares...");
-        scan_samba_from_string(str, length);
-        g_free(str);
-    }
-
-    scan_samba_usershares();
-}
-
-void
-scan_samba_usershares(void)
-{
-    gboolean spawned;
-    int status;
-    gchar *out, *err, *p, *next_nl;
-    gchar *usershare, *cmdline;
-    gsize length;
-
-    spawned = hardinfo_spawn_command_line_sync("net usershare list",
-            &out, &err, &status, NULL);
-
-    if (spawned && status == 0 && out != NULL) {
-        shell_status_update("Scanning SAMBA user shares...");
-        p = out;
-        while((next_nl = strchr(p, '\n'))) {
-	    strend(p, '\n');
-            cmdline = g_strdup_printf("net usershare info '%s'",p);
-            if (hardinfo_spawn_command_line_sync(cmdline,
-                        &usershare, NULL, NULL, NULL)) {
-                length = strlen(usershare);
-                scan_samba_from_string(usershare, length);
-                g_free(usershare);
-            }
-            g_free(cmdline);
-
-            p = next_nl + 1;
-        }
-        g_free(out);
-        g_free(err);
-    }
-}
-
-void
-scan_samba_from_string(gchar *str, gsize length)
+void scan_samba_from_string(gchar *str, gsize length)
 {
     GKeyFile *keyfile;
     GError *error = NULL;
@@ -119,4 +61,57 @@ scan_samba_from_string(gchar *str, gsize length)
   cleanup:
     g_key_file_free(keyfile);
 }
+
+
+void scan_samba_usershares(void)
+{
+    gboolean spawned;
+    int status;
+    gchar *out, *err, *p, *next_nl;
+    gchar *usershare, *cmdline;
+    gsize length;
+
+    spawned = hardinfo_spawn_command_line_sync("net usershare list",
+            &out, &err, &status, NULL);
+
+    if (spawned && status == 0 && out != NULL) {
+        p = out;
+        while((next_nl = strchr(p, '\n'))) {
+	    strend(p, '\n');
+            cmdline = g_strdup_printf("net usershare info '%s'",p);
+            if (hardinfo_spawn_command_line_sync(cmdline,
+                        &usershare, NULL, NULL, NULL)) {
+                length = strlen(usershare);
+                scan_samba_from_string(usershare, length);
+                g_free(usershare);
+            }
+            g_free(cmdline);
+
+            p = next_nl + 1;
+        }
+        g_free(out);
+        g_free(err);
+    }
+}
+
+void scan_samba(void)
+{
+    gchar *str;
+    gsize length;
+
+    if (smb_shares_list) {
+        g_free(smb_shares_list);
+        smb_shares_list = g_strdup("");
+    }
+
+    if (g_file_get_contents("/etc/samba/smb.conf",
+                            &str, &length, NULL)) {
+        shell_status_update("Scanning SAMBA shares...");
+        scan_samba_from_string(str, length);
+        g_free(str);
+    }
+
+    scan_samba_usershares();
+}
+
 

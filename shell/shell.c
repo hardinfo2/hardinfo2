@@ -2743,7 +2743,7 @@ static void info_selected(GtkTreeSelection * ts, gpointer data)
     if (!gtk_tree_selection_get_selected(ts, &model, &parent))
 	return;
 
-    if (shell->view_type == SHELL_VIEW_NORMAL ||
+    if (/*shell->view_type == SHELL_VIEW_NORMAL ||*/
         shell->view_type == SHELL_VIEW_PROGRESS) {
         gtk_tree_selection_unselect_all(ts);
         return;

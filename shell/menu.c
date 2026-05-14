@@ -89,7 +89,7 @@ static GtkActionEntry entries[] = {
      G_CALLBACK(cb_report_bug)},
 
     {"AboutAction", NULL,
-     N_("_About HardInfo2"), "<control>A",
+     N_("_About HardInfo2"), NULL,
      N_("Displays program version information"),
      G_CALLBACK(cb_about)},
 

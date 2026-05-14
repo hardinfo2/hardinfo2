@@ -355,11 +355,9 @@ static void update_search_widgets_state(void) {
     gtk_widget_set_sensitive(search_button, supported);
 
     if (supported) {
-        gtk_widget_set_tooltip_text(search_entry, _("Enter text to search"));
-        gtk_widget_set_tooltip_text(search_button, _("Click to search"));
+        gtk_widget_set_tooltip_text(search_entry, _("Enter text to search, double-click to select all"));
     } else {
         gtk_widget_set_tooltip_text(search_entry, _("Search not available"));
-        gtk_widget_set_tooltip_text(search_button, _("Search not available"));
     }
 }
 

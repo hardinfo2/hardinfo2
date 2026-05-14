@@ -25,10 +25,10 @@
 #include <stdint.h>  /* for *int*_t types */
 #include <glib.h>
 
-typedef struct _edid edid;
+typedef struct _edid __edid;
 
 typedef struct {
-    edid *e;
+    __edid *e;
     uint32_t offset;
 } edid_addy;
 

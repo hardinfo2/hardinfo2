@@ -447,23 +447,6 @@ static void on_search_clicked(GtkWidget *widget, gpointer data) {
     }
 }
 
-static gboolean select_all_text(gpointer data) {
-    if (data && GTK_IS_EDITABLE(data))
-        gtk_editable_select_region(GTK_EDITABLE(data), 0, -1);
-
-    return FALSE; // Run only once
-}
-
-static gboolean on_search_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data) {
-    g_timeout_add(10, select_all_text, widget);
-    return FALSE;
-}
-
-static void on_search_activate(GtkWidget *widget, gpointer data) {
-    on_search_clicked(widget, data);
-    // Text unselection handled in on_search_clicked
-}
-
 static gboolean on_search_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data) {
     if ((event->keyval == GDK_KEY_f || event->keyval == GDK_KEY_F) && (event->state & GDK_CONTROL_MASK)) {
         if (search_entry) {
@@ -1023,9 +1006,7 @@ static void create_window(void)
         gtk_container_add(GTK_CONTAINER(entry_item), search_entry);
         gtk_toolbar_insert(GTK_TOOLBAR(toolbar), entry_item, -1);
         gtk_widget_show_all(GTK_WIDGET(entry_item));
-        g_signal_connect(G_OBJECT(search_entry), "activate", G_CALLBACK(on_search_activate), NULL);
-        g_signal_connect(G_OBJECT(search_entry), "button-press-event", G_CALLBACK(on_search_button_press), NULL);
-        g_timeout_add(100, select_all_text, search_entry);
+        g_signal_connect(G_OBJECT(search_entry), "activate", G_CALLBACK(on_search_clicked), NULL);
 
         search_button = gtk_button_new_with_label(_("Search"));
         GtkToolItem *button_item = gtk_tool_item_new();
@@ -2654,6 +2635,7 @@ static void module_selected(gpointer data)
     GtkTreeIter iter, parent;
     ShellModuleEntry *entry;
     static ShellModuleEntry *current = NULL;
+    static gchar *current_module_name = NULL;
     static gboolean updating = FALSE;
 
     /* Gets the currently selected item on the left-side TreeView; if there is
@@ -2679,6 +2661,21 @@ static void module_selected(gpointer data)
     }
 
     gtk_tree_model_get(model, &parent, TREE_COL_MODULE, &shell->selected_module, -1);
+
+    gboolean module_changed = FALSE;
+
+    if (shell->selected_module && shell->selected_module->name) {
+        if (!current_module_name) {
+            /* assume module changed at first time */
+            module_changed = TRUE;
+            current_module_name = g_strdup(shell->selected_module->name);
+        } else if (strcmp(current_module_name, shell->selected_module->name) != 0) {
+            module_changed = TRUE;
+            g_free(current_module_name);
+            current_module_name = g_strdup(shell->selected_module->name);
+        }
+    }
+
     /* Get the current selection and shows its related info */
     gtk_tree_model_get(model, &iter, TREE_COL_MODULE_ENTRY, &entry, -1);
     if (entry && !entry->selected) {
@@ -2711,6 +2708,11 @@ static void module_selected(gpointer data)
         shell_action_set_enabled("RefreshAction", TRUE);
         //shell_action_set_enabled("CopyAction", TRUE);
         shell_status_set_enabled(FALSE);
+
+        /* clear search text when module changes */
+        if (module_changed && search_entry) {
+            gtk_entry_set_text(GTK_ENTRY(search_entry), "");
+        }
     } else {
         shell_status_set_enabled(TRUE);
         shell_set_title(shell, NULL);

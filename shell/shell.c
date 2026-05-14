@@ -1184,7 +1184,7 @@ void shell_add_modules_to_gui(gpointer _shell_module, gpointer _shell_tree)
 
 static void destroy_update_tbl_value(gpointer data)
 {
-    struct UpdateTableItem *item = data;
+    struct UpdateTableItem *item = (struct UpdateTableItem *)data;
 
     if (item->is_iter) {
         gtk_tree_iter_free(item->iter);
@@ -1193,6 +1193,195 @@ static void destroy_update_tbl_value(gpointer data)
     }
 
     g_free(item);
+}
+
+static void append_row_to_clipboard_text(GString *clipboard_text, GtkTreeView *treeview,
+                                          const gchar *name, const gchar *value,
+                                          const gchar *extra1, const gchar *extra2,
+                                          gdouble progress) {
+    Shell *shell = shell_get_main_shell();
+    GtkTreeViewColumn *column;
+    gchar *progress_text;
+    struct {
+        const gchar *text;
+        gboolean visible;
+        int column_id;
+    } columns[5];
+    int column_count = 0;
+
+    if (value && *value) {
+        progress_text = g_strdup(value);
+    } else {
+        /* fallback: format value of progress */
+        progress_text = g_strdup_printf("%.1f%%", progress);
+    }
+
+    if (shell && shell->info_tree && treeview) {
+        GList *columns_list = gtk_tree_view_get_columns(GTK_TREE_VIEW(treeview));
+        GList *iter;
+
+        for (iter = columns_list; iter; iter = iter->next) {
+            column = GTK_TREE_VIEW_COLUMN(iter->data);
+
+            if (column && gtk_tree_view_column_get_visible(column)) {
+                if (column == shell->info_tree->col_progress) {
+                    columns[column_count].text = progress_text;
+                    columns[column_count].visible = TRUE;
+                    columns[column_count].column_id = INFO_TREE_COL_PROGRESS;
+                    column_count++;
+                } else if (column == shell->info_tree->col_textvalue) {
+                    columns[column_count].text = name;
+                    columns[column_count].visible = TRUE;
+                    columns[column_count].column_id = INFO_TREE_COL_NAME;
+                    column_count++;
+                } else if (column == shell->info_tree->col_value) {
+                    columns[column_count].text = value;
+                    columns[column_count].visible = TRUE;
+                    columns[column_count].column_id = INFO_TREE_COL_VALUE;
+                    column_count++;
+                } else if (column == shell->info_tree->col_extra1) {
+                    columns[column_count].text = extra1;
+                    columns[column_count].visible = TRUE;
+                    columns[column_count].column_id = INFO_TREE_COL_EXTRA1;
+                    column_count++;
+                } else if (column == shell->info_tree->col_extra2) {
+                    columns[column_count].text = extra2;
+                    columns[column_count].visible = TRUE;
+                    columns[column_count].column_id = INFO_TREE_COL_EXTRA2;
+                    column_count++;
+                }
+            }
+        }
+
+        g_list_free(columns_list);
+    } else {
+        columns[0].text = progress_text;
+        columns[0].visible = !!progress_text;
+        columns[0].column_id = INFO_TREE_COL_PROGRESS;
+
+        columns[1].text = name;
+        columns[1].visible = !!name;
+        columns[1].column_id = INFO_TREE_COL_NAME;
+
+        columns[2].text = value;
+        columns[2].visible = !!value;
+        columns[2].column_id = INFO_TREE_COL_VALUE;
+
+        columns[3].text = extra1;
+        columns[3].visible = !!extra1;
+        columns[3].column_id = INFO_TREE_COL_EXTRA1;
+
+        columns[4].text = extra2;
+        columns[4].visible = !!extra2;
+        columns[4].column_id = INFO_TREE_COL_EXTRA2;
+
+        column_count = 5;
+    }
+
+    gboolean first = TRUE;
+    gint i;
+
+    /* append text with display order */
+    for (i = 0; i < column_count; i++) {
+        if (columns[i].visible && columns[i].text) {
+            if (!first)
+                g_string_append(clipboard_text, "\t");
+
+            g_string_append(clipboard_text, columns[i].text);
+            first = FALSE;
+        }
+
+        if (columns[i].column_id == INFO_TREE_COL_PROGRESS && columns[i].text) {
+            g_free((gchar*)columns[i].text);
+        }
+    }
+}
+
+static void copy_rows_to_clipboard(GtkTreeView *treeview, gboolean copy_all) {
+    GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+    GString *clipboard_text = g_string_new("");
+    GtkTreeIter iter;
+    gboolean valid = FALSE;
+
+    if (copy_all) {
+        valid = gtk_tree_model_get_iter_first(model, &iter);
+    } else {
+        GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
+        valid = gtk_tree_selection_get_selected(selection, &model, &iter);
+    }
+
+    gboolean first = TRUE;
+
+    do {
+        if (!valid)
+            break;
+
+        gchar *name = NULL, *value = NULL, *extra1 = NULL, *extra2 = NULL;
+        gdouble progress = 0.0;
+        gtk_tree_model_get(model, &iter,
+                            INFO_TREE_COL_NAME, &name,
+                            INFO_TREE_COL_VALUE, &value,
+                            INFO_TREE_COL_EXTRA1, &extra1,
+                            INFO_TREE_COL_EXTRA2, &extra2,
+                            INFO_TREE_COL_PROGRESS, &progress,
+                            -1);
+
+        if (!first)
+            g_string_append(clipboard_text, "\n");
+
+        append_row_to_clipboard_text(clipboard_text, treeview, name, value, extra1, extra2, progress);
+
+        g_free(name);
+        g_free(value);
+        g_free(extra1);
+        g_free(extra2);
+
+        first = FALSE;
+
+        if (copy_all) {
+            valid = gtk_tree_model_iter_next(model, &iter);
+        } else {
+            valid = FALSE;
+        }
+    } while (valid);
+
+    GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+    gtk_clipboard_set_text(clipboard, clipboard_text->str, -1);
+
+    g_string_free(clipboard_text, TRUE);
+}
+
+static void copy_selected_row_to_clipboard(GtkWidget *menu_item, gpointer user_data) {
+    GtkTreeView *treeview = GTK_TREE_VIEW(user_data);
+    copy_rows_to_clipboard(treeview, FALSE);
+}
+
+static void copy_all_rows_to_clipboard(GtkWidget *menu_item, gpointer user_data) {
+    GtkTreeView *treeview = GTK_TREE_VIEW(user_data);
+    copy_rows_to_clipboard(treeview, TRUE);
+}
+
+static gboolean on_info_tree_popup_menu(GtkWidget *treeview, GdkEventButton *event, gpointer user_data) {
+    if (event->type == GDK_BUTTON_PRESS && event->button == 3) { // right click button
+        GtkWidget *menu = gtk_menu_new();
+        GtkWidget *copy_row_item = gtk_menu_item_new_with_label(_("Copy selected row"));
+        GtkWidget *copy_all_item = gtk_menu_item_new_with_label(_("Copy all rows"));
+
+        g_signal_connect(copy_row_item, "activate", G_CALLBACK(copy_selected_row_to_clipboard), treeview);
+        g_signal_connect(copy_all_item, "activate", G_CALLBACK(copy_all_rows_to_clipboard), treeview);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_row_item);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_all_item);
+        gtk_widget_show_all(menu);
+
+#if GTK_CHECK_VERSION(3, 22, 0)
+        gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent*)event);
+#else
+        gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, event->button, event->time);
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 DetailView *detail_view_new(void)
@@ -2786,6 +2975,9 @@ static ShellInfoTree *info_tree_new(void)
 
     gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
     gtk_tree_view_set_headers_clickable(GTK_TREE_VIEW(treeview), TRUE);
+
+    gtk_widget_add_events(treeview, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(treeview, "button-press-event", G_CALLBACK(on_info_tree_popup_menu), treeview);
 
     info->col_progress = column = gtk_tree_view_column_new();
     gtk_tree_view_column_set_visible(column, FALSE);

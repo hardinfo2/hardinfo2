@@ -382,6 +382,7 @@ void cb_about()
 	"Amstelchen",
 	"lucascastro",
 	"topazus",
+	"Arondight",
 	"More contributors in GitHub",
 	"",
 	"Based on work by:",

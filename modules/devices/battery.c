@@ -334,6 +334,7 @@ __scan_battery_sysfs_add_battery(const gchar *name)
         "State=%s\n"
         "Capacity=%s %% / %s\n"
 	"Battery Usage=%.0f W\n"
+	"Time remaining=%02dh %02dm\n"
         "Battery Health=%.0f %%\n"
         "Design Full Energy=%.3f Wh\n"
         "Current Full Energy=%.3f Wh\n"
@@ -349,6 +350,12 @@ __scan_battery_sysfs_add_battery(const gchar *name)
         status,
         capacity, capacity_level,
 	voltage_now*current_now!=0?voltage_now*current_now:-1,
+	current_now<0?
+	    current_now?(int)(full_current*atof(capacity)/100/-current_now):-1 :
+	    current_now?(int)(full_current*(100-atof(capacity))/100/current_now):-1,
+	current_now<0?
+	    current_now?(int)(full_current*atof(capacity)*60/100/-current_now)%60:-1 :
+	    current_now?(int)(full_current*(100-atof(capacity))*60/100/current_now)%60:-1,
 	full_design>0?(full_current*100.0)/full_design:-1,
 	voltage>0?full_design*voltage:-1,
         voltage>0?full_current*voltage:-1,

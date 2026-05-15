@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 11:41+0200\n"
+"POT-Creation-Date: 2026-05-15 14:42+0200\n"
 "PO-Revision-Date: 2026-04-17 00:40+0200\n"
 "Last-Translator: hwspeedy\n"
 "Language-Team: \n"
@@ -905,28 +905,36 @@ msgstr ""
 "\n"
 "Venligst fix ved at installere manuelt"
 
-#: shell/shell.c:1554 modules/network.c:577
+#: shell/shell.c:1367
+msgid "Copy selected row"
+msgstr "Kopiér den markerede række"
+
+#: shell/shell.c:1368
+msgid "Copy all rows"
+msgstr "Kopiér alle rækker"
+
+#: shell/shell.c:1743 modules/network.c:577
 msgid "Network"
 msgstr "Netværk"
 
-#: shell/shell.c:2210
+#: shell/shell.c:2399
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:2217
+#: shell/shell.c:2406
 msgid "Support URL"
 msgstr "Support URL"
 
-#: shell/shell.c:2228
+#: shell/shell.c:2417
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: shell/shell.c:2566
+#: shell/shell.c:2755
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Resume</b>"
 
-#: shell/shell.c:2687
+#: shell/shell.c:2876
 msgid "Updating..."
 msgstr "Opdaterer..."
 
@@ -3082,6 +3090,7 @@ msgid ""
 "State=%s\n"
 "Capacity=%s %% / %s\n"
 "Battery Usage=%.0f W\n"
+"Time remaining=%02dh %02dm\n"
 "Battery Health=%.0f %%\n"
 "Design Full Energy=%.3f Wh\n"
 "Current Full Energy=%.3f Wh\n"
@@ -3098,6 +3107,7 @@ msgstr ""
 "Status=%s\n"
 "Kapacitet=%s %% / %s\n"
 "Batteri forbrug=%.0f W\n"
+"Tid tilbage=%02dt %02dm\n"
 "Batteri helbred=%.0f %%\n"
 "Designet Fuld Energi=%.3f Wh\n"
 "Nuværende Fuld Energi=%.3f Wh\n"
@@ -3109,7 +3119,7 @@ msgstr ""
 "Model Nummer=%s\n"
 "Serie Nummer=%s\n"
 
-#: modules/devices/battery.c:450
+#: modules/devices/battery.c:457
 #, c-format
 msgid ""
 "\n"
@@ -3128,7 +3138,7 @@ msgstr ""
 "APM-driverversion=%s\n"
 "APM BIOS-version=%s\n"
 
-#: modules/devices/battery.c:462
+#: modules/devices/battery.c:469
 #, c-format
 msgid ""
 "\n"
@@ -3145,7 +3155,7 @@ msgstr ""
 "APM-driverversion=%s\n"
 "APM BIOS-version=%s\n"
 
-#: modules/devices/battery.c:491
+#: modules/devices/battery.c:498
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"

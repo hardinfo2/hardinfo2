@@ -44,6 +44,7 @@ computer_get_memory(void)
         if (g_str_has_prefix(tmp[0], "MemTotal")) mi->total = atoi(tmp[1]);
         else if (g_str_has_prefix(tmp[0], "MemFree")) mi->free = atoi(tmp[1]);
         else if (g_str_has_prefix(tmp[0], "Cached")) mi->cached = atoi(tmp[1]);
+        else if (g_str_has_prefix(tmp[0], "Zswapped")) mi->zswapped = atoi(tmp[1]);
 
         g_strfreev(tmp);
     }
@@ -51,10 +52,11 @@ computer_get_memory(void)
 
     mi->used = mi->total - mi->free;
 
-    mi->total  /= 1000;
-    mi->cached /= 1000;
-    mi->used   /= 1000;
-    mi->free   /= 1000;
+    mi->total    /= 1000;
+    mi->cached   /= 1000;
+    mi->used     /= 1000;
+    mi->free     /= 1000;
+    mi->zswapped /= 1000;
 
     mi->used -= mi->cached;
     mi->ratio = 1 - (gdouble) mi->used / mi->total;

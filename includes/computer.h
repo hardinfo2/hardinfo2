@@ -110,10 +110,18 @@ struct _OperatingSystem {
     gchar *boots;
 
     gchar *entropy_avail;
+
+    struct {
+        gchar *compressor;
+        int max_pool_percent;
+        int accept_threshold_percent;
+        gboolean shrinker_enabled;
+        gboolean enabled;
+    } zswap;
 };
 
 struct _MemoryInfo {
-    gint total, used, free, cached;
+    gint total, used, free, cached, zswapped;
     gfloat ratio;
 };
 

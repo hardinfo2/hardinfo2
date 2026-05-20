@@ -1414,7 +1414,9 @@ static void copy_detail_view_to_clipboard(GtkWidget *menu_item, gpointer user_da
     DetailView *detail_view = (DetailView *)user_data;
     GString *clipboard_text = g_string_new("");
     gboolean first = TRUE;
-    GList *positioned_labels, *iter;
+    /* collect_labels_with_positions may not change this, so it should be NULL */
+    GList *positioned_labels = NULL;
+    GList *iter;
 
     collect_labels_with_positions(GTK_WIDGET(detail_view->view), &positioned_labels, GTK_CONTAINER(detail_view->view));
     /* sort by position (top to bottom, left to right) */

@@ -1351,6 +1351,113 @@ static void copy_rows_to_clipboard(GtkTreeView *treeview, gboolean copy_all) {
     g_string_free(clipboard_text, TRUE);
 }
 
+static gchar* remove_html_tags(const gchar *text) {
+    if (!text)
+        return NULL;
+
+    GString *result = g_string_new("");
+    gboolean in_tag = FALSE;
+
+    for (gint i = 0; text[i] != '\0'; i++) {
+        if (text[i] == '<') {
+            in_tag = TRUE;
+        } else if (text[i] == '>') {
+            in_tag = FALSE;
+        } else if (!in_tag) {
+            g_string_append_c(result, text[i]);
+        }
+    }
+
+    return g_string_free(result, FALSE);
+}
+
+/* sort by position */
+static gint compare_widget_positions(gconstpointer a, gconstpointer b) {
+    const PositionedWidget *pa = (const PositionedWidget *)a;
+    const PositionedWidget *pb = (const PositionedWidget *)b;
+
+    /* sort from top to bottom */
+    if (pa->y != pb->y)
+        return pa->y - pb->y;
+
+    /* sort from left to right */
+    return pa->x - pb->x;
+}
+
+static void collect_labels_with_positions(GtkWidget *widget, GList **labels, GtkContainer *toplevel) {
+    if (GTK_IS_LABEL(widget)) {
+        /* get position relative to the detail view container */
+        gint x, y;
+
+        if (gtk_widget_translate_coordinates(widget, GTK_WIDGET(toplevel), 0, 0, &x, &y)) {
+            PositionedWidget *pw = g_new0(PositionedWidget, 1);
+            pw->widget = widget;
+            pw->x = x;
+            pw->y = y;
+            *labels = g_list_prepend(*labels, pw);
+        }
+    } else if (GTK_IS_CONTAINER(widget)) {
+        /* process recursively */
+        GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
+        GList *iter = children;
+
+        while (iter) {
+            collect_labels_with_positions(GTK_WIDGET(iter->data), labels, toplevel);
+            iter = iter->next;
+        }
+
+        g_list_free(children);
+    }
+}
+
+static void copy_detail_view_to_clipboard(GtkWidget *menu_item, gpointer user_data) {
+    DetailView *detail_view = (DetailView *)user_data;
+    GString *clipboard_text = g_string_new("");
+    gboolean first = TRUE;
+    /* collect_labels_with_positions may not change this, so it should be NULL */
+    GList *positioned_labels = NULL;
+    GList *iter;
+
+    collect_labels_with_positions(GTK_WIDGET(detail_view->view), &positioned_labels, GTK_CONTAINER(detail_view->view));
+    /* sort by position (top to bottom, left to right) */
+    positioned_labels = g_list_sort(positioned_labels, compare_widget_positions);
+
+    /* get text by position in order */
+    for (iter = positioned_labels; iter; iter = iter->next) {
+        PositionedWidget *pw = (PositionedWidget *)iter->data;
+
+        if (GTK_IS_LABEL(pw->widget)) {
+            gchar *text = NULL;
+            g_object_get(pw->widget, "label", &text, NULL);
+
+            if (text && *text) {
+                /* remove HTML <> */
+                gchar *clean_text = remove_html_tags(text);
+
+                if (clean_text && *clean_text) {
+                    if (!first)
+                        g_string_append(clipboard_text, "\n");
+
+                    g_string_append(clipboard_text, clean_text);
+                    first = FALSE;
+                }
+
+                g_free(clean_text);
+            }
+
+            g_free(text);
+        }
+
+        g_free(pw);
+    }
+
+    g_list_free(positioned_labels);
+
+    GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+    gtk_clipboard_set_text(clipboard, clipboard_text->str, -1);
+    g_string_free(clipboard_text, TRUE);
+}
+
 static void copy_selected_row_to_clipboard(GtkWidget *menu_item, gpointer user_data) {
     GtkTreeView *treeview = GTK_TREE_VIEW(user_data);
     copy_rows_to_clipboard(treeview, FALSE);
@@ -1367,6 +1474,11 @@ static gboolean on_info_tree_popup_menu(GtkWidget *treeview, GdkEventButton *eve
         GtkWidget *copy_row_item = gtk_menu_item_new_with_label(_("Copy selected row"));
         GtkWidget *copy_all_item = gtk_menu_item_new_with_label(_("Copy all rows"));
 
+        GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+        gboolean has_selection = gtk_tree_selection_get_selected(selection, NULL, NULL);
+
+        /* disable copy row item if no selection */
+        gtk_widget_set_sensitive(copy_row_item, has_selection);
         g_signal_connect(copy_row_item, "activate", G_CALLBACK(copy_selected_row_to_clipboard), treeview);
         g_signal_connect(copy_all_item, "activate", G_CALLBACK(copy_all_rows_to_clipboard), treeview);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_row_item);
@@ -1382,6 +1494,44 @@ static gboolean on_info_tree_popup_menu(GtkWidget *treeview, GdkEventButton *eve
     }
 
     return FALSE;
+}
+
+static gboolean on_detail_view_popup_menu(GtkWidget *widget, GdkEventButton *event, gpointer user_data) {
+    if (event->type == GDK_BUTTON_PRESS && event->button == 3) { // right click button
+        GtkWidget *menu = gtk_menu_new();
+        GtkWidget *copy_all_item = gtk_menu_item_new_with_label(_("Copy all text"));
+
+        g_signal_connect(copy_all_item, "activate", G_CALLBACK(copy_detail_view_to_clipboard), user_data);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_all_item);
+        gtk_widget_show_all(menu);
+#if GTK_CHECK_VERSION(3, 22, 0)
+        gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent*)event);
+#else
+        gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, event->button, event->time);
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/* disable context menus recursively */
+static void disable_context_menus(GtkWidget *widget) {
+    if (GTK_IS_LABEL(widget)) {
+        gtk_label_set_selectable(GTK_LABEL(widget), FALSE);
+    }
+
+    /* process recursively if a container */
+    if (GTK_IS_CONTAINER(widget)) {
+        GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
+        GList *iter = children;
+        while (iter) {
+            GtkWidget *child = GTK_WIDGET(iter->data);
+            disable_context_menus(child);
+            iter = iter->next;
+        }
+        g_list_free(children);
+    }
 }
 
 DetailView *detail_view_new(void)
@@ -1406,6 +1556,12 @@ DetailView *detail_view_new(void)
     gtk_scrolled_window_add_with_viewport(
         GTK_SCROLLED_WINDOW(detail_view->scroll), detail_view->view);
 #endif
+
+    /* enable right-click context menu for detail view */
+    gtk_widget_add_events(detail_view->scroll, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(detail_view->scroll, "button-press-event", G_CALLBACK(on_detail_view_popup_menu), detail_view);
+    gtk_widget_add_events(detail_view->view, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(detail_view->view, "button-press-event", G_CALLBACK(on_detail_view_popup_menu), detail_view);
 
     gtk_widget_show_all(detail_view->scroll);
 
@@ -2552,6 +2708,9 @@ static void module_selected_show_info_detail(GKeyFile *key_file,
 
         g_strfreev(keys);
         g_free(group_label);
+
+        /* disable right-click context menus for all new widgets  */
+        disable_context_menus(GTK_WIDGET(shell->detail_view->view));
     }
 }
 
@@ -2816,6 +2975,8 @@ static void shell_show_detail_view(void)
     g_free(detail);
     g_key_file_free(keyfile);
 
+    /* disable right-click context menus for all new widgets  */
+    disable_context_menus(GTK_WIDGET(shell->detail_view->view));
     shell_view_set_enabled(TRUE);
 }
 

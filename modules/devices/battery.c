@@ -349,13 +349,13 @@ __scan_battery_sysfs_add_battery(const gchar *name)
         name,
         status,
         capacity, capacity_level,
-	voltage_now*current_now!=0?voltage_now*current_now:-1,
+	voltage_now*current_now!=0?voltage_now*current_now:0,
 	current_now<0?
-	    current_now?(int)(full_current*atof(capacity)/100/-current_now):-1 :
-	    current_now?(int)(full_current*(100-atof(capacity))/100/current_now):-1,
+	    current_now?(int)(full_current*atof(capacity)/100/-current_now):0 :
+	    current_now?(int)(full_current*(100-atof(capacity))/100/current_now):0,
 	current_now<0?
-	    current_now?(int)(full_current*atof(capacity)*60/100/-current_now)%60:-1 :
-	    current_now?(int)(full_current*(100-atof(capacity))*60/100/current_now)%60:-1,
+	    current_now?(int)(full_current*atof(capacity)*60/100/-current_now)%60:0 :
+	    current_now?(int)(full_current*(100-atof(capacity))*60/100/current_now)%60:0,
 	full_design>0?(full_current*100.0)/full_design:-1,
 	voltage>0?full_design*voltage:-1,
         voltage>0?full_current*voltage:-1,

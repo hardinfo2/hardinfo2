@@ -2699,10 +2699,10 @@ msgstr ""
 #: modules/devices.c:1255 modules/devices/dmi_memory.c:937
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
-"--now (SystemD distro)"
+"--now (systemd distro)"
 msgstr ""
 "Se till att tjänsten hardinfo2 är aktiverad+startad: sudo systemctl enable "
-"hardinfo2 --now (SystemD-distro)"
+"hardinfo2 --now (systemd-distro)"
 
 #: modules/devices.c:1256
 msgid ""

@@ -2710,10 +2710,10 @@ msgstr "Um <i><b>pci.ids</b></i> completo não está disponível no sistema."
 #: modules/devices.c:1255 modules/devices/dmi_memory.c:937
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
-"--now (SystemD distro)"
+"--now (systemd distro)"
 msgstr ""
 "Certifique-se de que o serviço hardinfo2 esteja habilitado+iniciado: sudo "
-"systemctl enable hardinfo2 --now (SystemD distro)"
+"systemctl enable hardinfo2 --now (distro systemd)"
 
 #: modules/devices.c:1256
 msgid ""

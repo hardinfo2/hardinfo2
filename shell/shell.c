@@ -1351,26 +1351,61 @@ static void copy_rows_to_clipboard(GtkTreeView *treeview, gboolean copy_all) {
     g_string_free(clipboard_text, TRUE);
 }
 
-/* get widget's text content recursively */
-static void extract_text_content(GtkWidget *widget, GString *buffer, gboolean *first) {
+static gchar* remove_html_tags(const gchar *text) {
+    if (!text)
+        return NULL;
+
+    GString *result = g_string_new("");
+    gboolean in_tag = FALSE;
+
+    for (gint i = 0; text[i] != '\0'; i++) {
+        if (text[i] == '<') {
+            in_tag = TRUE;
+        } else if (text[i] == '>') {
+            in_tag = FALSE;
+        } else if (!in_tag) {
+            g_string_append_c(result, text[i]);
+        }
+    }
+
+    return g_string_free(result, FALSE);
+}
+
+/* sort by position */
+static gint compare_widget_positions(gconstpointer a, gconstpointer b) {
+    const PositionedWidget *pa = (const PositionedWidget *)a;
+    const PositionedWidget *pb = (const PositionedWidget *)b;
+
+    /* sort from top to bottom */
+    if (pa->y != pb->y)
+        return pa->y - pb->y;
+
+    /* sort from left to right */
+    return pa->x - pb->x;
+}
+
+static void collect_labels_with_positions(GtkWidget *widget, GList **labels, GtkContainer *toplevel) {
     if (GTK_IS_LABEL(widget)) {
-        gchar *text = NULL;
-        g_object_get(widget, "label", &text, NULL);
+        /* get position relative to the detail view container */
+        gint x, y;
 
-        if (text && *text) {
-            if (!*first)
-                g_string_append(buffer, "\n");
-
-            g_string_append(buffer, text);
-            *first = FALSE;
+        if (gtk_widget_translate_coordinates(widget, GTK_WIDGET(toplevel), 0, 0, &x, &y)) {
+            PositionedWidget *pw = g_new0(PositionedWidget, 1);
+            pw->widget = widget;
+            pw->x = x;
+            pw->y = y;
+            *labels = g_list_prepend(*labels, pw);
         }
-        g_free(text);
     } else if (GTK_IS_CONTAINER(widget)) {
-        /* handle recursively */
+        /* process recursively */
         GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
-        for (GList *iter = children; iter; iter = iter->next) {
-            extract_text_content(GTK_WIDGET(iter->data), buffer, first);
+        GList *iter = children;
+
+        while (iter) {
+            collect_labels_with_positions(GTK_WIDGET(iter->data), labels, toplevel);
+            iter = iter->next;
         }
+
         g_list_free(children);
     }
 }
@@ -1379,8 +1414,45 @@ static void copy_detail_view_to_clipboard(GtkWidget *menu_item, gpointer user_da
     DetailView *detail_view = (DetailView *)user_data;
     GString *clipboard_text = g_string_new("");
     gboolean first = TRUE;
+    GList *positioned_labels, *iter;
 
-    extract_text_content(GTK_WIDGET(detail_view->view), clipboard_text, &first);
+    collect_labels_with_positions(GTK_WIDGET(detail_view->view), &positioned_labels, GTK_CONTAINER(detail_view->view));
+    /* sort by position (top to bottom, left to right) */
+    positioned_labels = g_list_sort(positioned_labels, compare_widget_positions);
+
+    /* get text by position in order */
+    for (iter = positioned_labels; iter; iter = iter->next) {
+        PositionedWidget *pw = (PositionedWidget *)iter->data;
+
+        if (GTK_IS_LABEL(pw->widget)) {
+            gchar *text = NULL;
+            g_object_get(pw->widget, "label", &text, NULL);
+
+            if (text && *text) {
+                /* remove HTML <> */
+                gchar *clean_text = remove_html_tags(text);
+
+                if (clean_text && *clean_text) {
+                    if (!first)
+                        g_string_append(clipboard_text, "\n");
+
+                    g_string_append(clipboard_text, clean_text);
+                    first = FALSE;
+                }
+
+                if (clean_text)
+                    g_free(clean_text);
+            }
+
+            if (text)
+                g_free(text);
+        }
+
+        g_free(pw);
+    }
+
+    g_list_free(positioned_labels);
+
     GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
     gtk_clipboard_set_text(clipboard, clipboard_text->str, -1);
     g_string_free(clipboard_text, TRUE);
@@ -1452,9 +1524,11 @@ static void disable_context_menus(GtkWidget *widget) {
     /* process recursively if a container */
     if (GTK_IS_CONTAINER(widget)) {
         GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
-        for (GList *iter = children; iter; iter = iter->next) {
+        GList *iter = children;
+        while (iter) {
             GtkWidget *child = GTK_WIDGET(iter->data);
             disable_context_menus(child);
+            iter = iter->next;
         }
         g_list_free(children);
     }

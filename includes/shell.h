@@ -36,6 +36,8 @@ typedef struct _ShellModuleEntry	ShellModuleEntry;
 typedef struct _ShellFieldUpdate	ShellFieldUpdate;
 typedef struct _ShellFieldUpdateSource	ShellFieldUpdateSource;
 
+typedef struct _PositionedWidget PositionedWidget;
+
 typedef enum {
     SHELL_ORDER_DESCENDING,
     SHELL_ORDER_ASCENDING,
@@ -186,6 +188,11 @@ struct _ShellFieldUpdate {
 struct _ShellFieldUpdateSource {
     guint		 source_id;
     ShellFieldUpdate	*sfu;
+};
+
+struct _PositionedWidget {
+    GtkWidget *widget;
+    gint x, y;
 };
 
 void		shell_init(GSList *modules);

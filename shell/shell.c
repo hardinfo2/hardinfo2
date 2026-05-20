@@ -1442,12 +1442,10 @@ static void copy_detail_view_to_clipboard(GtkWidget *menu_item, gpointer user_da
                     first = FALSE;
                 }
 
-                if (clean_text)
-                    g_free(clean_text);
+                g_free(clean_text);
             }
 
-            if (text)
-                g_free(text);
+            g_free(text);
         }
 
         g_free(pw);

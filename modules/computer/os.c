@@ -747,6 +747,34 @@ static Distro detect_distro(void)
     return (Distro) { .distro = g_strdup(_("Unknown")) };
 }
 
+static void get_zswap_info(OperatingSystem *os)
+{
+    char *val;
+
+    val = h_sysfs_read_string("/sys/module/zswap/parameters", "enabled");
+    if (!val) {
+        memset(&os->zswap, 0, sizeof(os->zswap));
+        return;
+    }
+    os->zswap.enabled = g_str_equal(val, "Y");
+    g_free(val);
+
+    val =
+        h_sysfs_read_string("/sys/module/zswap/parameters", "shrinker_enabled");
+    os->zswap.shrinker_enabled = val && g_str_equal(val, "Y");
+    g_free(val);
+
+    os->zswap.compressor =
+        h_sysfs_read_string("/sys/module/zswap/parameters", "compressor");
+    if (!os->zswap.compressor)
+        os->zswap.compressor = g_strdup(_("Unknown"));
+
+    os->zswap.max_pool_percent =
+        h_sysfs_read_int("/sys/module/zswap/parameters", "max_pool_percent");
+    os->zswap.accept_threshold_percent = h_sysfs_read_int(
+        "/sys/module/zswap/parameters", "accept_threshold_percent");
+}
+
 OperatingSystem *computer_get_os(void)
 {
     struct utsname utsbuf;
@@ -782,6 +810,8 @@ OperatingSystem *computer_get_os(void)
     }
 
     os->entropy_avail = computer_get_entropy_avail();
+
+    get_zswap_info(os);
 
     return os;
 }

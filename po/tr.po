@@ -2719,10 +2719,10 @@ msgstr "Sistemde eksiksiz bir <i><b>pci.ids</b></i> yok."
 #: modules/devices.c:1255 modules/devices/dmi_memory.c:937
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
-"--now (SystemD distro)"
+"--now (systemd distro)"
 msgstr ""
 "hardinfo2 servisinin etkinleştirildiğinden ve başlatıldığından emin olun: "
-"sudo systemctl enable hardinfo2 --now (SystemD distro)"
+"sudo systemctl enable hardinfo2 --now (systemd distro)"
 
 #: modules/devices.c:1256
 msgid ""

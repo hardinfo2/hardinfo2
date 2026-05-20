@@ -1295,7 +1295,7 @@ const gchar *hi_note_func(gint entry)
     if (entry == ENTRY_RESOURCES) {
         if (root_required_for_resources()) {
 	    int systype=get_systype();
-	    if(systype<0) return _("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (SystemD distro)");
+	    if(systype<0) return _("Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 --now (systemd distro)");
 	    return _("Add yourself to hardinfo2 group:\nsudo usermod -a -G hardinfo2 $USER\nLogout/Reboot for groups to be updated...");
         }
 	return NULL;

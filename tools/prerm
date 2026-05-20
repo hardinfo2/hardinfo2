@@ -13,10 +13,10 @@ if [ -e /bin/wslinfo ] ; then
 else
   if [ -e /bin/systemctl ] ; then
     if [ $REINSTALL -eq 1 ] ; then
-      echo "Service Reinstall... (SystemD)"
+      echo "Service Reinstall... (systemd)"
     else
       systemctl disable hardinfo2
-      echo "Service Removed... (SystemD)"
+      echo "Service Removed... (systemd)"
     fi
   elif [ -e /sbin/chkconfig ] ; then
     chkconfig hardinfo2 off

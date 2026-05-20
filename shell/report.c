@@ -818,7 +818,7 @@ report_create_inner_from_module_list(ReportContext * ctx, GSList * modules)
 	    //Filter benchmarkresults for reports
 	    } else if (!params.force_all_details && (entry->flags & MODULE_FLAG_BENCHMARK)) {
 	        int i=params.max_bench_results;
-	        params.max_bench_results=25;
+	        if(params.max_bench_results!=0) params.max_bench_results=25;
 		entry->scan_func(FALSE);
 	        report_table(ctx, module_entry_function(entry));
 		params.max_bench_results=i;

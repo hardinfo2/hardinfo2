@@ -1358,7 +1358,8 @@ static gchar* remove_html_tags(const gchar *text) {
     GString *result = g_string_new("");
     gboolean in_tag = FALSE;
 
-    for (gint i = 0; text[i] != '\0'; i++) {
+    gint i = 0;
+    while (text[i]) {
         if (text[i] == '<') {
             in_tag = TRUE;
         } else if (text[i] == '>') {
@@ -1366,6 +1367,7 @@ static gchar* remove_html_tags(const gchar *text) {
         } else if (!in_tag) {
             g_string_append_c(result, text[i]);
         }
+	i++;
     }
 
     return g_string_free(result, FALSE);

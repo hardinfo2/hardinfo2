@@ -658,10 +658,33 @@ gchar *callback_os(void)
 
 }
 
+static gchar *enroll_name=NULL;
+static int enroll_before;
+static int enroll_after;
+gchar *fixline_enrolled(gchar *line){
+    gchar *p;
+    if(strstr(line,"Issuer:") && (p=strstr(line,"=")) ) {
+        enroll_name=g_strdup(p+1);
+    }
+    if(strstr(line,"Not Before: ") && (p=strstr(line,"GMT")) ) {
+        enroll_before=atoi(p-5);
+    }
+    if(strstr(line,"Not After : ") && (p=strstr(line,"GMT")) ) {
+        enroll_after=atoi(p-5);
+	if(!enroll_name) enroll_name=g_strdup(_("Unknown"));
+	gchar *ret=g_strdup_printf("%s (%d-%d)",enroll_name, enroll_before, enroll_after);
+	g_free(enroll_name);
+	enroll_name=NULL;
+	return ret;
+    }
+    return g_strdup(""); //remove line
+}
 gchar *callback_security(void)
 {
     gchar *systype_str=NULL, *p,*p1,*p2,*p3;
     int systype=get_systype();
+    gboolean found;
+    gchar *output1=NULL, *output2=NULL, *error=NULL;
 
     if( systype>=0 ) {
         if( systype==0 ) systype_str=g_strdup(_("Root Only System"));
@@ -677,6 +700,37 @@ gchar *callback_security(void)
         info_field(_("HardInfo2 running as"), (getuid() == 0) ? _("Superuser") : _("User")),
         info_field(_("User System Type"), (systype_str!=NULL) ? systype_str : _("Hardinfo2 Service not enabled/started")),
         info_field_last());
+
+    found = hardinfo_spawn_command_line_sync("mokutil --sb-state", &output1, &error , NULL, NULL);
+    if(!found) {
+        gchar *p,*t;
+        g_free(error);error=NULL;
+        found=hardinfo_spawn_command_line_sync("bootctl", &output1, &error , NULL, NULL);
+	if(found && output1 && (p=strstr(output1,":")) ) {
+	    t=output1;
+	    output1=g_strdup(p+2);
+	    g_free(t);
+	}
+    }
+    if(found){
+        strend(output1,'\n');
+        found = hardinfo_spawn_command_line_sync("mokutil --list-enrolled", &output2, &error , NULL, NULL);
+
+	if(!found)
+	    output2=g_strdup(_("Not found"));
+	else
+            output2=fixline(output2, fixline_enrolled);
+
+	gchar *icon="circle_yellow_exclaim.svg";
+	if(strstr(output1,"enabled")) icon = "circle_green_check.svg";
+	if(strstr(output1,"disabled")||strstr(output1,"Not")) icon = "circle_red_x.svg";
+        info_add_group(
+            info, _("Linux Boot"),
+            info_field(_("Secure Boot State"), output1, .icon = icon),
+            info_field(_("Boot Certificates"), output2),
+            info_field_last());
+    }
+    g_free(error);
 
     info_add_group(
         info, _("Health"),
@@ -741,6 +795,7 @@ gchar *callback_security(void)
 
     p=info_flatten(info);
     g_free(systype_str); g_free(p1); g_free(p2); g_free(p3);
+    g_free(output1); g_free(output2);
     g_free(landlock);
     return p;
 }

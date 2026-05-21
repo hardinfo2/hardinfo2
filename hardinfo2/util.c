@@ -552,7 +552,7 @@ gchar* fixline(gchar *st, gchar* handle_line(gchar*)) {
 	if(s) {
 	    if(newst){
 	        t=newst;
-		if(strlen(s)) {newst=g_strconcat(t,s,"\n",NULL);g_free(t);}
+		if(strlen(s)) {newst=g_strconcat(t,"\n",s,NULL);g_free(t);}
 		g_free(s);s=st;
 	    } else {
 	      if(strlen(s)) newst=s; else {g_free(s);s=st;}

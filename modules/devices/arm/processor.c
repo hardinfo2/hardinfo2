@@ -675,6 +675,7 @@ gchar *processor_name(GSList *processors) {
         { "rockchip,rk3566", "Rockchip", "RK3566" },
         { "rockchip,rk3588", "Rockchip", "RK3588" }, // rk3588-orangepi-5-max
         { "samsung,exynos5250", "Samsung", "Exynos 5250" },
+        { "samsung,exynos990", "Samsung", "Exynos 990" },
         { "sprd,sc9863a", "Unisoc", "SC9864A" },
         { "ti,omap5432", "Texas Instruments", "OMAP5432" },
         { "ti,omap5430", "Texas Instruments", "OMAP5430" },

@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # yetist <yetist@gmail.com>, 2018.
 # Kane Wang <wangqiang1@kylinos.cn>, 2025.
+# 秦凡东 <qinfandong@kylinos.cn>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 00:58+0800\n"
+"POT-Creation-Date: 2026-05-21 10:34+0800\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -68,7 +69,7 @@ msgstr "调速器"
 msgid "Driver"
 msgstr "驱动"
 
-#: hardinfo2/cpu_util.c:258 modules/computer.c:799
+#: hardinfo2/cpu_util.c:258 modules/computer.c:827
 #: modules/devices/arm/processor.c:195 modules/devices/arm/processor.c:477
 #: modules/devices/e2k/processor.c:184 modules/devices/riscv/processor.c:185
 #: modules/devices/riscv/processor.c:348 modules/devices/x86/processor.c:283
@@ -78,7 +79,7 @@ msgstr "(不可用)"
 
 #: hardinfo2/cpu_util.c:266 hardinfo2/cpu_util.c:268
 msgid "Socket"
-msgstr "套接字"
+msgstr "插槽"
 
 #: hardinfo2/cpu_util.c:271 hardinfo2/cpu_util.c:273 modules/devices/gpu.c:211
 #: modules/devices/gpu.c:301
@@ -118,7 +119,7 @@ msgstr "主板"
 msgid "Chassis"
 msgstr "机箱"
 
-#: hardinfo2/dmi_util.c:29 modules/computer.c:559 modules/computer.c:1132
+#: hardinfo2/dmi_util.c:29 modules/computer.c:563 modules/computer.c:1160
 #: modules/devices/alpha/processor.c:87 modules/devices/arm/processor.c:563
 #: modules/devices.c:99 modules/devices/e2k/processor.c:363
 #: modules/devices/ia64/processor.c:159
@@ -291,7 +292,7 @@ msgstr "未知的机箱类型"
 
 #: hardinfo2/dmi_util.c:240
 msgid "Desktop"
-msgstr "桌面"
+msgstr "台式机"
 
 #: hardinfo2/dmi_util.c:241
 msgid "Low-profile Desktop"
@@ -307,15 +308,15 @@ msgstr "小型机箱"
 
 #: hardinfo2/dmi_util.c:244
 msgid "Tower"
-msgstr "全塔机箱"
+msgstr "塔式机箱"
 
 #: hardinfo2/dmi_util.c:245
 msgid "Portable"
 msgstr "便携式"
 
-#: hardinfo2/dmi_util.c:246 modules/computer.c:469 modules/computer.c:471
-#: modules/computer.c:482 modules/computer.c:484 modules/computer.c:508
-#: modules/computer.c:510
+#: hardinfo2/dmi_util.c:246 modules/computer.c:473 modules/computer.c:475
+#: modules/computer.c:486 modules/computer.c:488 modules/computer.c:512
+#: modules/computer.c:514
 msgid "Laptop"
 msgstr "笔记本电脑"
 
@@ -434,6 +435,8 @@ msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
 msgstr ""
+"版权所有 (C) 2003-2023 L. A. F. Pereira。 2024-%d Hardinfo2 项目。\n"
+"\n"
 
 #: hardinfo2/hardinfo.c:112
 #, c-format
@@ -449,6 +452,16 @@ msgid ""
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
+"编译时选项：\n"
+"  发布版本：%s (%s)\n"
+"  LibSoup 版本：%s\n"
+"  OpenGL 版本：%s\n"
+"  Vulkan 版本：%s\n"
+"  GTK 版本：%s\n"
+"  数据目录：%s\n"
+"  库目录：%s\n"
+"  语言环境：%s\n"
+"  编译平台：%s\n"
 
 #: hardinfo2/hardinfo.c:161
 #, c-format
@@ -622,10 +635,11 @@ msgstr "更新供应商列表"
 msgid "Check Update Version"
 msgstr "检查版本更新"
 
-#: hardinfo2/vendor.c:385 modules/computer.c:601 modules/computer.c:827
+#: hardinfo2/vendor.c:385 modules/computer.c:605 modules/computer.c:855
 #: modules/computer/os.c:201 modules/computer/os.c:392
 #: modules/computer/os.c:427 modules/computer/os.c:747
-#: modules/computer/os.c:810 modules/devices.c:210 modules/devices.c:212
+#: modules/computer/os.c:770 modules/computer/os.c:840
+#: modules/computer/os.c:858 modules/devices.c:210 modules/devices.c:212
 #: modules/devices.c:217 modules/devices.c:219 modules/devices.c:233
 #: modules/devices.c:235 modules/devices.c:722 modules/devices.c:873
 #: modules/devices/firmware.c:224 modules/devices/printers.c:106
@@ -697,7 +711,7 @@ msgstr "同步"
 
 #: shell/menu.c:52
 msgid "Send benchmark results and receive updated data from the network"
-msgstr "发送基准测试结构并通过网络更新数据"
+msgstr "发送基准测试结果并通过网络更新数据"
 
 #: shell/menu.c:56 shell/menu.c:57
 msgid "Update Available"
@@ -717,7 +731,7 @@ msgstr "用户手册(_H)"
 
 #: shell/menu.c:82
 msgid "_Update HardInfo2"
-msgstr "升级 Hardinfo2 (_U)"
+msgstr "升级 HardInfo2 (_U)"
 
 #: shell/menu.c:87
 msgid "_Report bug"
@@ -817,7 +831,7 @@ msgstr "报告已保存。"
 
 #: shell/report.c:1104
 msgid "Error while creating the report."
-msgstr "在创建报表时出错。"
+msgstr "在创建报告时出错。"
 
 #: shell/report.c:1206
 msgid "Generate Report"
@@ -883,36 +897,40 @@ msgstr ""
 "\n"
 "请通过手动安装修复"
 
-#: shell/shell.c:1367
+#: shell/shell.c:1476
 msgid "Copy selected row"
 msgstr "复制所选行"
 
-#: shell/shell.c:1368
+#: shell/shell.c:1477
 msgid "Copy all rows"
-msgstr "复制全部"
+msgstr "复制全部行"
 
-#: shell/shell.c:1743 modules/network.c:577
+#: shell/shell.c:1504
+msgid "Copy all text"
+msgstr "复制全部文本"
+
+#: shell/shell.c:1901 modules/network.c:577
 msgid "Network"
 msgstr "网络"
 
-#: shell/shell.c:2399
+#: shell/shell.c:2557
 msgid "URL"
 msgstr "URL"
 
-#: shell/shell.c:2406
+#: shell/shell.c:2564
 msgid "Support URL"
 msgstr "支持 URL"
 
-#: shell/shell.c:2417
+#: shell/shell.c:2575
 msgid "Wikipedia"
 msgstr "维基百科"
 
-#: shell/shell.c:2755
+#: shell/shell.c:2916
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → 概要</b>"
 
-#: shell/shell.c:2876
+#: shell/shell.c:3039
 msgid "Updating..."
 msgstr "正在更新..."
 
@@ -984,31 +1002,31 @@ msgstr "CPU Blowfish (多核心)"
 
 #: modules/benchmark/benches.c:196
 msgid "CPU Zlib"
-msgstr ""
+msgstr "CPU 压缩测试 (Zlib)"
 
 #: modules/benchmark/benches.c:204
 msgid "CPU CryptoHash"
-msgstr ""
+msgstr "CPU 加密哈希 (CryptoHash)"
 
 #: modules/benchmark/benches.c:212
 msgid "CPU Fibonacci"
-msgstr ""
+msgstr "CPU 斐波那契数列"
 
 #: modules/benchmark/benches.c:220
 msgid "CPU N-Queens"
-msgstr ""
+msgstr "CPU N皇后问题"
 
 #: modules/benchmark/benches.c:228
 msgid "FPU FFT"
-msgstr ""
+msgstr "FPU 快速傅里叶变换"
 
 #: modules/benchmark/benches.c:236
 msgid "FPU Raytracing (Single-thread)"
-msgstr "FPU Raytracing (单线程)"
+msgstr "FPU 光线追踪 (单线程)"
 
 #: modules/benchmark/benches.c:244
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "内部网络速度（本机）"
 
 #: modules/benchmark/benches.c:252
 msgid "SysBench CPU (Single-thread)"
@@ -1180,7 +1198,7 @@ msgid "%s; %s; %s"
 msgstr "%s; %s; %s"
 
 #: modules/benchmark/bench_results.c:385 modules/benchmark/bench_results.c:510
-#: modules/computer.c:1030 modules/devices/dmi_memory.c:639
+#: modules/computer.c:1058 modules/devices/dmi_memory.c:639
 #: modules/devices/dmi_memory.c:649 modules/devices/dmi_memory.c:703
 #: modules/devices/dmi_memory.c:791 modules/devices/dmi_memory.c:837
 #: modules/devices/dmi_memory.c:920 modules/devices/spd-decode.c:1517
@@ -1227,7 +1245,7 @@ msgid "Extra Information"
 msgstr "额外信息"
 
 #: modules/benchmark/bench_results.c:424 modules/benchmark/bench_results.c:489
-#: modules/computer.c:625
+#: modules/computer.c:648
 msgid "Note"
 msgstr "注解"
 
@@ -1249,7 +1267,7 @@ msgid "Board"
 msgstr "主板"
 
 #: modules/benchmark/bench_results.c:431 modules/benchmark/bench_results.c:496
-#: modules/computer.c:561
+#: modules/computer.c:565
 msgid "Machine Type"
 msgstr "机器类型"
 
@@ -1268,7 +1286,7 @@ msgstr "CPU 配置"
 
 #: modules/benchmark/bench_results.c:435 modules/benchmark/bench_results.c:502
 msgid "Threads Available"
-msgstr "多线程可用"
+msgstr "可用线程"
 
 #: modules/benchmark/bench_results.c:436 modules/benchmark/bench_results.c:503
 #: modules/benchmark.c:581
@@ -1276,17 +1294,17 @@ msgid "GPU"
 msgstr "GPU"
 
 #: modules/benchmark/bench_results.c:437 modules/benchmark/bench_results.c:505
-#: modules/computer.c:572
+#: modules/computer.c:576
 msgid "OpenGL Renderer"
 msgstr "OpenGL 渲染器"
 
 #: modules/benchmark/bench_results.c:438 modules/benchmark/bench_results.c:507
-#: modules/benchmark.c:597 modules/computer.c:1133 modules/devices.c:109
+#: modules/benchmark.c:597 modules/computer.c:1161 modules/devices.c:109
 msgid "Storage"
 msgstr "存储器"
 
 #: modules/benchmark/bench_results.c:439 modules/benchmark/bench_results.c:509
-#: modules/computer.c:140 modules/computer.c:560 modules/computer.c:1132
+#: modules/computer.c:140 modules/computer.c:564 modules/computer.c:1160
 #: modules/devices/gpu.c:212
 msgid "Memory"
 msgstr "内存"
@@ -1319,7 +1337,7 @@ msgstr "句柄"
 
 #: modules/benchmark/bench_results.c:513
 msgid "mid"
-msgstr "中等"
+msgstr "机器 ID"
 
 #: modules/benchmark/bench_results.c:514
 msgid "cfg_val"
@@ -1367,9 +1385,9 @@ msgstr "执行任务并和其他系统比较"
 
 #: modules/benchmark.c:965
 msgid "Receive benchmark results"
-msgstr "接受基准测试结果"
+msgstr "接收基准测试结果"
 
-#: modules/computer/alsa.c:26 modules/computer.c:576
+#: modules/computer/alsa.c:26 modules/computer.c:580
 msgid "Audio Devices"
 msgstr "音频设备"
 
@@ -1381,7 +1399,7 @@ msgstr "音频适配器"
 msgid "Summary"
 msgstr "概要"
 
-#: modules/computer.c:97 modules/computer.c:562 modules/computer.c:1131
+#: modules/computer.c:97 modules/computer.c:566 modules/computer.c:1159
 msgid "Operating System"
 msgstr "操作系统"
 
@@ -1393,7 +1411,7 @@ msgstr "安全"
 msgid "Kernel Modules"
 msgstr "内核模块"
 
-#: modules/computer.c:100 modules/computer.c:739
+#: modules/computer.c:100 modules/computer.c:767
 msgid "Boots"
 msgstr "启动"
 
@@ -1403,13 +1421,13 @@ msgstr "语言"
 
 #: modules/computer.c:102
 msgid "Memory Usage"
-msgstr "内存占用 "
+msgstr "内存占用"
 
 #: modules/computer.c:103
 msgid "Filesystems"
 msgstr "文件系统"
 
-#: modules/computer.c:104 modules/computer.c:568
+#: modules/computer.c:104 modules/computer.c:572
 msgid "Display"
 msgstr "显示"
 
@@ -1421,7 +1439,7 @@ msgstr "环境变量"
 msgid "Development"
 msgstr "开发"
 
-#: modules/computer.c:111 modules/computer.c:884
+#: modules/computer.c:111 modules/computer.c:912
 msgid "Users"
 msgstr "用户"
 
@@ -1429,385 +1447,435 @@ msgstr "用户"
 msgid "Groups"
 msgstr "组"
 
-#: modules/computer.c:142
+#: modules/computer.c:143
+#, c-format
+msgid "%dMB (%dMB used, %dMB compressed)"
+msgstr "%dMB（已使用 %dMB，压缩 %dMB）"
+
+#: modules/computer.c:145
 #, c-format
 msgid "%dMB (%dMB used)"
 msgstr "%dMB (%dMB 已使用)"
 
-#: modules/computer.c:144 modules/computer.c:621
+#: modules/computer.c:148 modules/computer.c:625
 msgid "Uptime"
-msgstr "启动时间"
+msgstr "运行时间"
 
-#: modules/computer.c:146 modules/computer.c:564
+#: modules/computer.c:150 modules/computer.c:568
 msgid "Date/Time"
 msgstr "日期/时间"
 
-#: modules/computer.c:151 modules/computer.c:622
+#: modules/computer.c:155 modules/computer.c:626
 msgid "Load Average"
 msgstr "负载均值"
 
-#: modules/computer.c:268
+#: modules/computer.c:272
 msgid "Scripting Languages"
 msgstr "脚本语言"
 
-#: modules/computer.c:269
+#: modules/computer.c:273
 msgid "Gambas3 (gbr3)"
 msgstr "Gambas3 (gbr3)"
 
-#: modules/computer.c:270
+#: modules/computer.c:274
 msgid "Python (default)"
 msgstr "Python (默认)"
 
-#: modules/computer.c:271
+#: modules/computer.c:275
 msgid "Python2"
 msgstr "Python2"
 
-#: modules/computer.c:272
+#: modules/computer.c:276
 msgid "Python3"
 msgstr "Python3"
 
-#: modules/computer.c:273
+#: modules/computer.c:277
 msgid "Perl"
 msgstr "Perl"
 
-#: modules/computer.c:274
+#: modules/computer.c:278
 msgid "Rakudo (Perl6)"
 msgstr "Rakudo (Perl6)"
 
-#: modules/computer.c:275
+#: modules/computer.c:279
 msgid "PHP"
 msgstr "PHP"
 
-#: modules/computer.c:276
+#: modules/computer.c:280
 msgid "Ruby"
 msgstr "Ruby"
 
-#: modules/computer.c:277
+#: modules/computer.c:281
 msgid "Bash"
 msgstr "Bash"
 
-#: modules/computer.c:278
+#: modules/computer.c:282
 msgid "JavaScript (Node.js)"
 msgstr "JavaScript (Node.js)"
 
-#: modules/computer.c:279
+#: modules/computer.c:283
 msgid "awk"
 msgstr "awk"
 
-#: modules/computer.c:280
+#: modules/computer.c:284
 msgid "Compilers"
 msgstr "编译器"
 
-#: modules/computer.c:281
+#: modules/computer.c:285
 msgid "C (GCC)"
 msgstr "C (GCC)"
 
-#: modules/computer.c:282
+#: modules/computer.c:286
 msgid "C (Clang)"
 msgstr "C (Clang)"
 
-#: modules/computer.c:283
+#: modules/computer.c:287
 msgid "D (dmd)"
 msgstr "D (dmd)"
 
-#: modules/computer.c:284
+#: modules/computer.c:288
 msgid "Gambas3 (gbc3)"
 msgstr "Gambas3 (gbc3)"
 
-#: modules/computer.c:285
+#: modules/computer.c:289
 msgid "Java"
 msgstr "Java"
 
-#: modules/computer.c:286
+#: modules/computer.c:290
 msgid ".NET"
 msgstr ".NET"
 
-#: modules/computer.c:287
+#: modules/computer.c:291
 msgid "Vala"
 msgstr "Vala"
 
-#: modules/computer.c:288
+#: modules/computer.c:292
 msgid "Haskell (GHC)"
 msgstr "Haskell (GHC)"
 
-#: modules/computer.c:289
+#: modules/computer.c:293
 msgid "FreePascal"
 msgstr "FreePascal"
 
-#: modules/computer.c:290
+#: modules/computer.c:294
 msgid "Go"
 msgstr "Go"
 
-#: modules/computer.c:291
+#: modules/computer.c:295
 msgid "Rust"
 msgstr "Rust"
 
-#: modules/computer.c:292
+#: modules/computer.c:296
 msgid "Tools"
 msgstr "工具"
 
-#: modules/computer.c:293
+#: modules/computer.c:297
 msgid "make"
 msgstr "make"
 
-#: modules/computer.c:294
+#: modules/computer.c:298
 msgid "ninja"
 msgstr "ninja"
 
-#: modules/computer.c:295
+#: modules/computer.c:299
 msgid "GDB"
 msgstr "GDB"
 
-#: modules/computer.c:296
+#: modules/computer.c:300
 msgid "LLDB"
 msgstr "LLDB"
 
-#: modules/computer.c:297
+#: modules/computer.c:301
 msgid "strace"
 msgstr "strace"
 
-#: modules/computer.c:298
+#: modules/computer.c:302
 msgid "valgrind"
 msgstr "valgrind"
 
-#: modules/computer.c:299
+#: modules/computer.c:303
 msgid "QMake"
 msgstr "QMake"
 
-#: modules/computer.c:300
+#: modules/computer.c:304
 msgid "CMake"
 msgstr "CMake"
 
-#: modules/computer.c:301
+#: modules/computer.c:305
 msgid "Gambas3 IDE"
 msgstr "Gambas3 IDE"
 
-#: modules/computer.c:302
+#: modules/computer.c:306
 msgid "Radare2"
 msgstr "Radare2"
 
-#: modules/computer.c:303
+#: modules/computer.c:307
 msgid "ltrace"
 msgstr "ltrace"
 
-#: modules/computer.c:304
+#: modules/computer.c:308
 msgid "Powershell"
 msgstr "Powershell"
 
-#: modules/computer.c:345
+#: modules/computer.c:349
 msgid "Not found"
 msgstr "未发现"
 
-#: modules/computer.c:367
+#: modules/computer.c:371
 msgid "Program"
 msgstr "程序"
 
-#: modules/computer.c:367 modules/computer.c:603 modules/computer.c:605
-#: modules/computer.c:805 modules/computer/modules.c:197
+#: modules/computer.c:371 modules/computer.c:607 modules/computer.c:609
+#: modules/computer.c:833 modules/computer/modules.c:197
 #: modules/devices/dmi.c:41 modules/devices/dmi.c:47 modules/devices/dmi.c:51
 #: modules/devices/dmi.c:57 modules/devices/firmware.c:74
 #: modules/devices/inputdevices.c:173 modules/devices/monitors.c:406
 msgid "Version"
 msgstr "版本"
 
-#: modules/computer.c:393
+#: modules/computer.c:397
 msgid "Field"
 msgstr "域"
 
-#: modules/computer.c:394 modules/computer.c:728 modules/computer/modules.c:195
+#: modules/computer.c:398 modules/computer.c:756 modules/computer/modules.c:195
 #: modules/computer/modules.c:196 modules/devices/arm/processor.c:768
 #: modules/devices/riscv/processor.c:554
 msgid "Description"
 msgstr "描述"
 
-#: modules/computer.c:395 modules/computer/environment.c:69
+#: modules/computer.c:399 modules/computer/environment.c:69
 #: modules/devices.c:1117
 msgid "Value"
 msgstr "数值"
 
-#: modules/computer.c:411 modules/computer.c:413
+#: modules/computer.c:415 modules/computer.c:417
 msgid "Virtual (Xen)"
 msgstr "虚拟化 (Xen)"
 
-#: modules/computer.c:420 modules/computer.c:422
+#: modules/computer.c:424 modules/computer.c:426
 msgid "Virtual (VirtualBox)"
 msgstr "虚拟化 (VirtualBox)"
 
-#: modules/computer.c:427 modules/computer.c:429
+#: modules/computer.c:431 modules/computer.c:433
 msgid "Virtual (VMware)"
 msgstr "虚拟化 (VMware)"
 
-#: modules/computer.c:437 modules/computer.c:439
+#: modules/computer.c:441 modules/computer.c:443
 msgid "Virtual (QEMU)"
 msgstr "虚拟化 (QEMU)"
 
-#: modules/computer.c:447 modules/computer.c:449
+#: modules/computer.c:451 modules/computer.c:453
 msgid "Virtual (WSL2)"
 msgstr "虚拟化 (WSL2)"
 
-#: modules/computer.c:462 modules/computer.c:464
+#: modules/computer.c:466 modules/computer.c:468
 msgid "Single-board computer"
 msgstr "开发板"
 
-#: modules/computer.c:521 modules/computer.c:523
+#: modules/computer.c:525 modules/computer.c:527
 msgid "Unknown physical machine type"
 msgstr "未知的物理机类型"
 
-#: modules/computer.c:558 modules/computer.c:1085
+#: modules/computer.c:562 modules/computer.c:1113
 msgid "Computer"
 msgstr "计算机"
 
-#: modules/computer.c:563 modules/computer.c:615
+#: modules/computer.c:567 modules/computer.c:619
 msgid "User Name"
 msgstr "用户名"
 
-#: modules/computer.c:569
+#: modules/computer.c:573
 msgid "Resolution"
-msgstr "解决方案"
+msgstr "分辨率"
 
-#: modules/computer.c:569 modules/computer.c:810
+#: modules/computer.c:573 modules/computer.c:838
 #, c-format
 msgid "%dx%d pixels"
 msgstr "%dx%d 像素"
 
-#: modules/computer.c:571
+#: modules/computer.c:575
 msgid "Display Adapter"
 msgstr "显示适配器"
 
-#: modules/computer.c:573
+#: modules/computer.c:577
 msgid "Session Display Server"
 msgstr "会话显示服务器"
 
-#: modules/computer.c:577 modules/devices.c:108
+#: modules/computer.c:581 modules/devices.c:108
 msgid "Input Devices"
 msgstr "输入设备"
 
-#: modules/computer.c:603
+#: modules/computer.c:607
 msgid "Kernel"
 msgstr "内核"
 
-#: modules/computer.c:604
+#: modules/computer.c:608
 msgid "Command Line"
 msgstr "命令行"
 
-#: modules/computer.c:606
+#: modules/computer.c:610
 msgid "C Library"
 msgstr "C 库"
 
-#: modules/computer.c:607
+#: modules/computer.c:611
 msgid "Distribution"
 msgstr "发行版"
 
-#: modules/computer.c:613
+#: modules/computer.c:617
 msgid "Current Session"
 msgstr "当前会话"
 
-#: modules/computer.c:614
+#: modules/computer.c:618
 msgid "Computer Name"
 msgstr "计算机名称"
 
-#: modules/computer.c:616 modules/computer/languages.c:99
+#: modules/computer.c:620 modules/computer/languages.c:99
 msgid "Language"
 msgstr "语言"
 
-#: modules/computer.c:617 modules/computer/users.c:52
+#: modules/computer.c:621 modules/computer/users.c:52
 msgid "Home Directory"
 msgstr "主目录"
 
-#: modules/computer.c:618
+#: modules/computer.c:622
 msgid "Desktop Environment"
 msgstr "桌面环境"
 
-#: modules/computer.c:621
+#: modules/computer.c:625
 msgid "Misc"
 msgstr "其它"
 
-#: modules/computer.c:626
+#: modules/computer.c:634 modules/computer.c:643
+msgid "Memory Compression (ZSwap)"
+msgstr "内存压缩 (ZSwap)"
+
+#: modules/computer.c:635 modules/computer.c:644
+msgid "Compression"
+msgstr "压缩"
+
+#: modules/computer.c:636
+msgid "N/A"
+msgstr "不适用"
+
+#: modules/computer.c:637
+msgid "Shrinker Enabled"
+msgstr "已启用 Shrinker"
+
+#: modules/computer.c:638 modules/computer.c:875 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/inputdevices.c:180
+#: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
+#: modules/devices/spd-decode.c:1135
+msgid "Yes"
+msgstr "是"
+
+#: modules/computer.c:638 modules/computer.c:875 modules/computer/modules.c:177
+#: modules/computer/modules.c:178 modules/devices/printers.c:145
+#: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
+msgid "No"
+msgstr "否"
+
+#: modules/computer.c:639
+msgid "Maximum Pool Percent"
+msgstr "最大池百分比"
+
+#: modules/computer.c:640
+msgid "Accept Threshold Percent"
+msgstr "接受阈值百分比"
+
+#: modules/computer.c:644 modules/computer/os.c:421 modules/computer/os.c:831
+msgid "Disabled"
+msgstr "已禁用"
+
+#: modules/computer.c:649
 msgid "Logo"
 msgstr "标识"
 
-#: modules/computer.c:626
+#: modules/computer.c:649
 msgid "belongs to distro and may be reg. trademark"
 msgstr "属于发行版，可能是注册商标"
 
-#: modules/computer.c:642
+#: modules/computer.c:667
 msgid "Root Only System"
 msgstr "单 root 系统"
 
-#: modules/computer.c:643
+#: modules/computer.c:668
 msgid "Single User System"
 msgstr "单用户系统"
 
-#: modules/computer.c:644
+#: modules/computer.c:669
 msgid "Multi User System"
 msgstr "多用户系统"
 
-#: modules/computer.c:651
+#: modules/computer.c:676
 msgid "HardInfo2"
 msgstr "HardInfo2"
 
-#: modules/computer.c:652
+#: modules/computer.c:677
 msgid "HardInfo2 running as"
 msgstr "HardInfo2 以"
 
-#: modules/computer.c:652
+#: modules/computer.c:677
 msgid "Superuser"
 msgstr "超级用户"
 
-#: modules/computer.c:652
+#: modules/computer.c:677
 msgid "User"
 msgstr "用户"
 
-#: modules/computer.c:653
+#: modules/computer.c:678
 msgid "User System Type"
 msgstr "用户系统类型"
 
-#: modules/computer.c:653
+#: modules/computer.c:678
 msgid "Hardinfo2 Service not enabled/started"
-msgstr "Hardinfo2 服务器没有启用或启动"
+msgstr "Hardinfo2 服务未启用或未启动"
 
-#: modules/computer.c:657
+#: modules/computer.c:682
 msgid "Health"
 msgstr "健康"
 
-#: modules/computer.c:659
+#: modules/computer.c:684
 msgid "Available entropy in /dev/random"
 msgstr "/dev/random 中可用的熵"
 
-#: modules/computer.c:665
+#: modules/computer.c:690
 msgid "Hardening Features"
 msgstr "强化特性"
 
-#: modules/computer.c:666
+#: modules/computer.c:691
 msgid "ASLR"
 msgstr "ASLR"
 
-#: modules/computer.c:667
+#: modules/computer.c:692
 msgid "dmesg"
 msgstr "dmesg"
 
-#: modules/computer.c:672
+#: modules/computer.c:698
 msgid "Linux Security Modules"
 msgstr "Linux 安全模块"
 
-#: modules/computer.c:673
+#: modules/computer.c:699
 msgid "Modules available"
 msgstr "可用模块"
 
-#: modules/computer.c:674
+#: modules/computer.c:700
 msgid "SELinux status"
-msgstr "SElinux 状态"
+msgstr "SELinux 状态"
 
-#: modules/computer.c:680
+#: modules/computer.c:701
+msgid "Landlock ABI version"
+msgstr "Landlock ABI 版本"
+
+#: modules/computer.c:707
 msgid "CPU Vulnerabilities"
 msgstr "CPU 硬件漏洞"
 
-#: modules/computer.c:725
+#: modules/computer.c:753
 msgid "Loaded Modules"
 msgstr "已加载的模块"
 
-#: modules/computer.c:727 modules/computer.c:755 modules/computer.c:886
-#: modules/computer.c:901 modules/computer/languages.c:95
+#: modules/computer.c:755 modules/computer.c:783 modules/computer.c:914
+#: modules/computer.c:929 modules/computer/languages.c:95
 #: modules/computer/modules.c:195 modules/devices/arm/processor.c:767
 #: modules/devices/dmi.c:38 modules/devices/dmi.c:49
 #: modules/devices/e2k/processor.c:364 modules/devices/gpu.c:307
@@ -1818,35 +1886,35 @@ msgstr "已加载的模块"
 msgid "Name"
 msgstr "名称"
 
-#: modules/computer.c:741
+#: modules/computer.c:769
 msgid "Date & Time"
 msgstr "日期和时间"
 
-#: modules/computer.c:742
+#: modules/computer.c:770
 msgid "Kernel Version"
 msgstr "内核版本"
 
-#: modules/computer.c:752
+#: modules/computer.c:780
 msgid "Available Languages"
 msgstr "可用语言"
 
-#: modules/computer.c:754
+#: modules/computer.c:782
 msgid "Language Code"
 msgstr "语言代码"
 
-#: modules/computer.c:766
+#: modules/computer.c:794
 msgid "Mounted File Systems"
 msgstr "已挂载的文件系统"
 
-#: modules/computer.c:768 modules/computer/filesystem.c:119
+#: modules/computer.c:796 modules/computer/filesystem.c:119
 msgid "Mount Point"
 msgstr "挂载点"
 
-#: modules/computer.c:769
+#: modules/computer.c:797
 msgid "Usage"
 msgstr "使用"
 
-#: modules/computer.c:770 modules/devices/arm/processor.c:825
+#: modules/computer.c:798 modules/devices/arm/processor.c:825
 #: modules/devices.c:1148 modules/devices.c:1167
 #: modules/devices/e2k/processor.c:422 modules/devices/gpu.c:85
 #: modules/devices/gpu.c:93 modules/devices/gpu.c:299 modules/devices/pci.c:123
@@ -1857,30 +1925,30 @@ msgstr "使用"
 msgid "Device"
 msgstr "设备"
 
-#: modules/computer.c:793
+#: modules/computer.c:821
 msgid "Session"
 msgstr "会话"
 
-#: modules/computer.c:794 modules/devices.c:1118 modules/devices.c:1167
+#: modules/computer.c:822 modules/devices.c:1118 modules/devices.c:1167
 #: modules/devices/dmi.c:56 modules/devices/dmi_memory.c:729
 #: modules/devices/inputdevices.c:169 modules/devices/spd-decode.c:1540
 #: modules/devices/x86/processor.c:715
 msgid "Type"
 msgstr "类别"
 
-#: modules/computer.c:797
+#: modules/computer.c:825
 msgid "Wayland"
 msgstr "Wayland"
 
-#: modules/computer.c:798 modules/computer.c:803
+#: modules/computer.c:826 modules/computer.c:831
 msgid "Current Display Name"
 msgstr "当前显示名称"
 
-#: modules/computer.c:802
+#: modules/computer.c:830
 msgid "X Server"
 msgstr "X 服务器"
 
-#: modules/computer.c:804 modules/computer.c:844 modules/computer.c:867
+#: modules/computer.c:832 modules/computer.c:872 modules/computer.c:895
 #: modules/devices.c:1167 modules/devices/dmi.c:40 modules/devices/dmi.c:46
 #: modules/devices/dmi.c:50 modules/devices/dmi.c:55
 #: modules/devices/dmi_memory.c:730 modules/devices/dmi_memory.c:873
@@ -1897,193 +1965,180 @@ msgstr "X 服务器"
 msgid "Vendor"
 msgstr "供应商"
 
-#: modules/computer.c:806
+#: modules/computer.c:834
 msgid "Release Number"
 msgstr "发行编号"
 
-#: modules/computer.c:814
+#: modules/computer.c:842
 msgid "Screens"
 msgstr "屏幕"
 
-#: modules/computer.c:820
+#: modules/computer.c:848
 msgid "Disconnected"
 msgstr "已断开"
 
-#: modules/computer.c:823
+#: modules/computer.c:851
 msgid "Connected"
 msgstr "已连接"
 
-#: modules/computer.c:831
+#: modules/computer.c:859
 msgid "Unused"
 msgstr "未使用"
 
-#: modules/computer.c:832
+#: modules/computer.c:860
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
 msgstr "%dx%d 像素, (%d, %d) 偏移"
 
-#: modules/computer.c:841
+#: modules/computer.c:869
 msgid "Outputs (XRandR)"
 msgstr "Outputs (XRandR)"
 
-#: modules/computer.c:843
+#: modules/computer.c:871
 msgid "OpenGL (GLX)"
 msgstr "OpenGL (GLX)"
 
-#: modules/computer.c:845
+#: modules/computer.c:873
 msgid "Renderer"
 msgstr "渲染器"
 
-#: modules/computer.c:846
+#: modules/computer.c:874
 msgid "Direct Rendering"
 msgstr "直接渲染"
 
-#: modules/computer.c:847 modules/computer/modules.c:177
-#: modules/computer/modules.c:178 modules/devices/inputdevices.c:180
-#: modules/devices/printers.c:145 modules/devices/spd-decode.c:888
-#: modules/devices/spd-decode.c:1135
-msgid "Yes"
-msgstr "是"
-
-#: modules/computer.c:847 modules/computer/modules.c:177
-#: modules/computer/modules.c:178 modules/devices/printers.c:145
-#: modules/devices/spd-decode.c:886 modules/devices/spd-decode.c:1132
-msgid "No"
-msgstr "否"
-
-#: modules/computer.c:848
+#: modules/computer.c:876
 msgid "Version (Compatibility)"
 msgstr "版本（兼容性）"
 
-#: modules/computer.c:849
+#: modules/computer.c:877
 msgid "Shading Language Version (Compatibility)"
 msgstr "着色语言版本（兼容性）"
 
-#: modules/computer.c:850
+#: modules/computer.c:878
 msgid "Version (Core)"
 msgstr "版本（核心）"
 
-#: modules/computer.c:851
+#: modules/computer.c:879
 msgid "Shading Language Version (Core)"
 msgstr "着色语言版本（核心）"
 
-#: modules/computer.c:852
+#: modules/computer.c:880
 msgid "Version (ES)"
 msgstr "版本 (ES)"
 
-#: modules/computer.c:853
+#: modules/computer.c:881
 msgid "Shading Language Version (ES)"
 msgstr "着色语言版本（ES）"
 
-#: modules/computer.c:854
+#: modules/computer.c:882
 msgid "GLX Version"
 msgstr "GLX 版本"
 
-#: modules/computer.c:862
+#: modules/computer.c:890
 msgid "Vulkan"
 msgstr "Vulkan"
 
-#: modules/computer.c:863
+#: modules/computer.c:891
 msgid "Instance Version"
 msgstr "实例版本"
 
-#: modules/computer.c:865
+#: modules/computer.c:893
 msgid "Api Version"
-msgstr "Api 版本"
+msgstr "API 版本"
 
-#: modules/computer.c:866
+#: modules/computer.c:894
 msgid "Driver Version"
 msgstr "驱动版本"
 
-#: modules/computer.c:868
+#: modules/computer.c:896
 msgid "Device Type"
 msgstr "设备类型"
 
-#: modules/computer.c:869
+#: modules/computer.c:897
 msgid "Device Name"
 msgstr "设备名称"
 
-#: modules/computer.c:870
+#: modules/computer.c:898
 msgid "Driver Name"
 msgstr "驱动名称"
 
-#: modules/computer.c:871
+#: modules/computer.c:899
 msgid "Driver Info"
 msgstr "驱动信息"
 
-#: modules/computer.c:872
+#: modules/computer.c:900
 msgid "Conformance Version"
 msgstr "符合性版本"
 
-#: modules/computer.c:885
+#: modules/computer.c:913
 msgid "Login"
 msgstr "登录"
 
-#: modules/computer.c:887 modules/computer/users.c:50
+#: modules/computer.c:915 modules/computer/users.c:50
 msgid "User ID"
 msgstr "用户标识"
 
-#: modules/computer.c:899
+#: modules/computer.c:927
 msgid "Group"
 msgstr "组"
 
-#: modules/computer.c:902 modules/computer/groups.c:56
+#: modules/computer.c:930 modules/computer/groups.c:56
 #: modules/computer/users.c:51
 msgid "Group ID"
 msgstr "组标识"
 
-#: modules/computer.c:1026
+#: modules/computer.c:1054
 #, c-format
 msgid "%0.1f %s available to Linux"
 msgstr "%0.1f %s 可用于 Linux"
 
-#: modules/computer.c:1028 modules/devices/dmi_memory.c:637
+#: modules/computer.c:1056 modules/devices/dmi_memory.c:637
 #: modules/devices/dmi_memory.c:647 modules/devices/dmi_memory.c:789
 #: modules/devices/dmi_memory.c:918 modules/devices/spd-decode.c:1515
 msgid "GiB"
 msgstr "GiB"
 
-#: modules/computer.c:1032 modules/computer/memory_usage.c:73
+#: modules/computer.c:1060 modules/computer/memory_usage.c:73
 #: modules/computer/modules.c:195
 msgid "KiB"
 msgstr "KiB"
 
-#: modules/computer.c:1104
+#: modules/computer.c:1132
 msgid "Motherboard"
 msgstr "主板"
 
-#: modules/computer.c:1132
+#: modules/computer.c:1160
 msgid "Graphics"
 msgstr "图形"
 
-#: modules/computer.c:1133 modules/devices.c:105
+#: modules/computer.c:1161 modules/devices.c:105
 msgid "Printers"
 msgstr "打印机"
 
-#: modules/computer.c:1133
+#: modules/computer.c:1161
 msgid "Audio"
 msgstr "音频"
 
-#: modules/computer.c:1184
+#: modules/computer.c:1212
 msgid "Gathers high-level computer information"
 msgstr "收集计算机高层信息"
 
-#: modules/computer.c:1195
+#: modules/computer.c:1223
 msgid "<i><b>lsmod</b></i> is required."
 msgstr "需要<i><b>lsmod</b></i>。"
 
-#: modules/computer.c:1203
+#: modules/computer.c:1231
 msgid ""
 "X.org's <i><b>xrandr</b></i> utility provides additional details when "
 "available."
 msgstr "当 X.org 的 <i><b>xrandr</b></i> 工具可用时，可提供更多信息。"
 
-#: modules/computer.c:1204
+#: modules/computer.c:1232
 msgid ""
 "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr "OpenGL 信息需要 Mesa 的 <i><b>glxinfo</b></i> 工具。"
 
-#: modules/computer.c:1205
+#: modules/computer.c:1233
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr "Vulkan 信息需要 Vulkan 的 <i><b>vulkaninfo</b></i> 工具。"
@@ -2146,11 +2201,11 @@ msgstr "区域信息"
 #: modules/computer/languages.c:96 modules/devices/gpu.c:272
 #: modules/devices/spd-decode.c:1536
 msgid "Source"
-msgstr "源代码"
+msgstr "来源"
 
 #: modules/computer/languages.c:97
 msgid "Address"
-msgstr "住址"
+msgstr "地址"
 
 #: modules/computer/languages.c:98
 msgid "E-mail"
@@ -2158,11 +2213,11 @@ msgstr "电子邮件"
 
 #: modules/computer/languages.c:100
 msgid "Territory"
-msgstr "领土"
+msgstr "地区"
 
 #: modules/computer/languages.c:102 modules/devices/dmi.c:45
 msgid "Date"
-msgstr "时间"
+msgstr "日期"
 
 #: modules/computer/languages.c:103
 msgid "Codeset"
@@ -2471,7 +2526,7 @@ msgstr "依赖"
 #: modules/computer/os.c:157 modules/computer/os.c:158
 #: modules/computer/os.c:160 modules/computer/os.c:161
 msgid "GNU C Library"
-msgstr "GNU C库"
+msgstr "GNU C 库"
 
 #: modules/computer/os.c:159
 msgid "musl C Library"
@@ -2528,10 +2583,6 @@ msgstr "允许访问（以超级用户运行）"
 msgid "Access forbidden? (running as superuser)"
 msgstr "拒绝访问？（以超级用户运行）"
 
-#: modules/computer/os.c:421 modules/computer/os.c:801
-msgid "Disabled"
-msgstr "已禁用"
-
 #: modules/computer/os.c:423
 msgid "Partially enabled (mmap base+stack+VDSO base)"
 msgstr "部分启用（mmap 基址+堆栈+VDSO 基址）"
@@ -2563,13 +2614,22 @@ msgstr "%d 位（中）"
 msgid "%d bits (healthy)"
 msgstr "%d 位（健康）"
 
-#: modules/computer/os.c:796
+#: modules/computer/os.c:826
 msgid "Not installed"
 msgstr "未安装"
 
-#: modules/computer/os.c:799
+#: modules/computer/os.c:829
 msgid "Enabled"
 msgstr "已启用"
+
+#: modules/computer/os.c:847
+msgid "Not built with Landlock support"
+msgstr "编译时未包含 Landlock 支持"
+
+#: modules/computer/os.c:859
+#, c-format
+msgid "Version %d"
+msgstr "版本 %d"
 
 #: modules/computer/users.c:49
 msgid "User Information"
@@ -2590,7 +2650,7 @@ msgstr "默认 Shell"
 #: modules/devices/riscv/processor.c:647 modules/devices/s390/processor.c:132
 #: modules/devices/x86/processor.c:814
 msgid "Model"
-msgstr "模型"
+msgstr "型号"
 
 #: modules/devices/alpha/processor.c:89
 msgid "Platform String"
@@ -2914,7 +2974,7 @@ msgstr "缓存"
 #: modules/devices/x86/processor.c:417 modules/devices/x86/processor.c:434
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr ""
+msgstr "级别 %d (%s)#%d=%dx %dKB (%dKB)，%d路组相联，%d 组\n"
 
 #: modules/devices/arm/processor.c:365
 msgid "ARM Processor"
@@ -2936,7 +2996,7 @@ msgstr "时钟"
 #: modules/devices/x86/processor.c:313 modules/devices/x86/processor.c:326
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
-msgstr ""
+msgstr "%.2f-%.2f %s=%dx\n"
 
 #: modules/devices/arm/processor.c:564
 msgid "Linux Name"
@@ -2969,7 +3029,7 @@ msgstr "架构"
 
 #: modules/devices/arm/processor.c:577
 msgid "Variant"
-msgstr "变量"
+msgstr "变体"
 
 #: modules/devices/arm/processor.c:579 modules/devices/riscv/processor.c:598
 #: modules/devices/sparc/processor.c:78 modules/devices/x86/processor.c:666
@@ -3002,6 +3062,14 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[电池：%s]\n"
+"状态=%s（负载：%s）\n"
+"容量=%s / %s (%.2f%%)\n"
+"电池技术=%s (%s)\n"
+"制造商=%s\n"
+"型号=%s\n"
+"序列号=%s\n"
 
 #: modules/devices/battery.c:269
 #, c-format
@@ -3013,6 +3081,12 @@ msgid ""
 "Voltage now=%.3f V\n"
 "Voltage max design=%.3f V\n"
 msgstr ""
+"\n"
+"[交流电源：%s]\n"
+"在线=%s\n"
+"交流电源类型=%s\n"
+"当前电压=%.3f V\n"
+"设计最大电压=%.3f V\n"
 
 #: modules/devices/battery.c:283
 #, c-format
@@ -3022,6 +3096,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[交流电源：%s]\n"
+"在线=%s\n"
+"交流电源类型=%s\n"
 
 #: modules/devices/battery.c:333
 #, c-format
@@ -3043,6 +3121,22 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[电池：%s]\n"
+"状态=%s\n"
+"容量=%s %% / %s\n"
+"电池消耗=%.0f W\n"
+"剩余时间=%02dh %02dm\n"
+"电池健康度=%.0f %%\n"
+"设计总能量=%.3f Wh\n"
+"当前总能量=%.3f Wh\n"
+"设计总容量=%.3f Ah\n"
+"当前总容量=%.3f Ah\n"
+"设计电压=%.3f V\n"
+"电池技术=%s\n"
+"制造商=%s\n"
+"型号=%s\n"
+"序列号=%s\n"
 
 #: modules/devices/battery.c:457
 #, c-format
@@ -3055,6 +3149,13 @@ msgid ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 msgstr ""
+"\n"
+"[电池 (APM)]\n"
+"电量=%d%%\n"
+"剩余电量=%s / %s\n"
+"供电方式=%s\n"
+"APM 驱动版本=%s\n"
+"APM BIOS 版本=%s\n"
 
 #: modules/devices/battery.c:469
 #, c-format
@@ -3066,6 +3167,12 @@ msgid ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 msgstr ""
+"\n"
+"[电池 (APM)]\n"
+"电量=%d%%\n"
+"供电方式=%s\n"
+"APM 驱动版本=%s\n"
+"APM BIOS 版本=%s\n"
 
 #: modules/devices/battery.c:498
 msgid ""
@@ -3195,6 +3302,8 @@ msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (systemd distro)"
 msgstr ""
+"确保 hardinfo2 服务已启用并启动：sudo systemctl enable hardinfo2 --now （适用"
+"于 systemd 发行版）"
 
 #: modules/devices.c:1299
 msgid ""
@@ -3202,12 +3311,17 @@ msgid ""
 "sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"将您自己添加到 hardinfo2 组：\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"注销/重启以更新组..."
 
 #: modules/devices.c:1305
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
+"存在的 NVMe 存储设备未列出。\n"
+"NVMe 设备需要 <b><i>udisks2</i></b>。"
 
 #: modules/devices/devicetree.c:133 modules/devices/gpu.c:305
 msgid "Compatible"
@@ -3311,7 +3425,7 @@ msgstr "DMI 句柄（阵列、插槽）"
 
 #: modules/devices/dmi_memory.c:727 modules/devices/dmi_memory.c:765
 msgid "Bank Locator"
-msgstr "存储库定位器"
+msgstr "Bank 定位器"
 
 #: modules/devices/dmi_memory.c:728 modules/devices/spd-decode.c:1539
 msgid "Form Factor"
@@ -3335,7 +3449,7 @@ msgstr "数据宽度/总宽度"
 
 #: modules/devices/dmi_memory.c:737
 msgid "Rank"
-msgstr "排名"
+msgstr "Rank"
 
 #: modules/devices/dmi_memory.c:738
 msgid "Minimum Voltage"
@@ -3356,11 +3470,11 @@ msgstr "（空）"
 
 #: modules/devices/dmi_memory.c:804
 msgid "Serial Presence Detect (SPD) Summary"
-msgstr ""
+msgstr "串行存在检测 (SPD) 概要"
 
 #: modules/devices/dmi_memory.c:860
 msgid "(Not available - See hint box below)"
-msgstr ""
+msgstr "（不可用 - 见下方提示框）"
 
 #: modules/devices/dmi_memory.c:932
 msgid "No DMI available"
@@ -3375,6 +3489,8 @@ msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"将您自己添加到 hardinfo2 组：sudo usermod -a -G hardinfo2 $USER\n"
+"注销/重启以更新组..."
 
 #: modules/devices/dmi_memory.c:948
 msgid "Memory Information requires more Setup:"
@@ -3386,6 +3502,8 @@ msgid ""
 "inaccurate,\n"
 "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
 msgstr ""
+"“DMI 表中的信息通常不准确、不完整或根本就是错误的。” -<i><b>dmidecode</b></"
+"i> 手册页"
 
 #: modules/devices/e2k/processor.c:51
 msgctxt "cache-type"
@@ -3468,29 +3586,29 @@ msgstr "硬件正在等待重新插入"
 
 #: modules/devices/firmware.c:51
 msgid "Ignore validation safety checks when flashing this device"
-msgstr ""
+msgstr "刷写此设备时忽略验证安全检查"
 
 #: modules/devices/firmware.c:52
 msgid "Requires the update to be retried with a new plugin"
-msgstr ""
+msgstr "需要使用新插件重试更新"
 
 #: modules/devices/firmware.c:53
 msgid "Do not add instance IDs from the device baseclass"
-msgstr ""
+msgstr "不添加来自设备基类的实例 ID"
 
 #: modules/devices/firmware.c:54
 msgid "Device update needs to be separately activated"
-msgstr ""
+msgstr "设备更新需要单独激活"
 
 #: modules/devices/firmware.c:55
 msgid ""
 "Ensure the version is a valid semantic version, e.g. numbers separated with "
 "dots"
-msgstr ""
+msgstr "确保版本是有效的语义版本，例如用点分隔的数字"
 
 #: modules/devices/firmware.c:56
 msgid "Extra metadata can be exposed about this device"
-msgstr ""
+msgstr "可以公开有关此设备的额外元数据"
 
 #: modules/devices/firmware.c:73
 msgid "DeviceId"
@@ -3498,11 +3616,11 @@ msgstr "设备 ID"
 
 #: modules/devices/firmware.c:73 modules/devices/firmware.c:262
 msgid "Guid"
-msgstr ""
+msgstr "Guid"
 
 #: modules/devices/firmware.c:73
 msgid "Plugin"
-msgstr ""
+msgstr "插件"
 
 #: modules/devices/firmware.c:73 modules/devices/firmware.c:280
 #: modules/network.c:549
@@ -3515,7 +3633,7 @@ msgstr "供应商 ID"
 
 #: modules/devices/firmware.c:74
 msgid "VersionBootloader"
-msgstr ""
+msgstr "引导加载程序版本"
 
 #: modules/devices/firmware.c:75 modules/devices/firmware.c:254
 msgid "Icon"
@@ -3523,7 +3641,7 @@ msgstr "图标"
 
 #: modules/devices/firmware.c:75
 msgid "InstallDuration"
-msgstr ""
+msgstr "安装时长"
 
 #: modules/devices/firmware.c:75 modules/devices/firmware.c:272
 msgid "Created"
@@ -3549,27 +3667,27 @@ msgstr "需要 <i><b>fwupd</b></i> 服务"
 #: modules/devices/gpu.c:94 modules/devices/pci.c:132
 #: modules/devices/storage.c:58
 msgid "SVendor"
-msgstr ""
+msgstr "子供应商"
 
 #: modules/devices/gpu.c:95 modules/devices/pci.c:133
 #: modules/devices/storage.c:59
 msgid "SDevice"
-msgstr ""
+msgstr "子设备"
 
 #: modules/devices/gpu.c:103 modules/devices/pci.c:143
 #: modules/devices/storage.c:70
 msgid "PCI Express"
-msgstr ""
+msgstr "PCI Express"
 
 #: modules/devices/gpu.c:104 modules/devices/pci.c:145
 #: modules/devices/storage.c:73
 msgid "Maximum Link Width"
-msgstr "最大带宽"
+msgstr "最大链路宽度"
 
 #: modules/devices/gpu.c:105 modules/devices/pci.c:147
 #: modules/devices/storage.c:75
 msgid "Maximum Link Speed"
-msgstr "最高速度"
+msgstr "最大链路速度"
 
 #: modules/devices/gpu.c:105 modules/devices/pci.c:146
 #: modules/devices/pci.c:147 modules/devices/storage.c:74
@@ -3700,20 +3818,20 @@ msgstr "校正"
 #: modules/devices/monitors.c:30 modules/devices/monitors.c:254
 #: modules/devices/monitors.c:347 modules/devices/spd-decode.c:699
 msgid "(Unspecified)"
-msgstr ""
+msgstr "（未指定）"
 
 #: modules/devices/monitors.c:229
 #, c-format
 msgid "Week %d of %d"
-msgstr ""
+msgstr "%d 年第 %d 周"
 
 #: modules/devices/monitors.c:239
 msgid "Ok"
-msgstr ""
+msgstr "正常"
 
 #: modules/devices/monitors.c:239
 msgid "Fail"
-msgstr ""
+msgstr "失败"
 
 #: modules/devices/monitors.c:267 modules/devices/monitors.c:275
 #: modules/devices/monitors.c:283 modules/devices/monitors.c:294
@@ -3721,19 +3839,19 @@ msgstr ""
 #: modules/devices/monitors.c:317 modules/devices/monitors.c:325
 #: modules/devices/monitors.c:333 modules/devices/monitors.c:339
 msgid "(Empty List)"
-msgstr ""
+msgstr "（空列表）"
 
 #: modules/devices/monitors.c:391
 msgid "Signal Type"
-msgstr ""
+msgstr "信号类型"
 
 #: modules/devices/monitors.c:391
 msgid "Digital"
-msgstr ""
+msgstr "数字"
 
 #: modules/devices/monitors.c:391
 msgid "Analog"
-msgstr ""
+msgstr "模拟"
 
 #: modules/devices/monitors.c:392 modules/devices/usb.c:136
 #: modules/network.c:479 modules/network.c:532 modules/network.c:549
@@ -3742,19 +3860,19 @@ msgstr "接口"
 
 #: modules/devices/monitors.c:393
 msgid "Bits per Color Channel"
-msgstr ""
+msgstr "每色彩通道位数"
 
 #: modules/devices/monitors.c:394
 msgid "Speaker Allocation"
-msgstr ""
+msgstr "扬声器分配"
 
 #: modules/devices/monitors.c:395
 msgid "Output (Max)"
-msgstr ""
+msgstr "输出（最大）"
 
 #: modules/devices/monitors.c:398
 msgid "EDID Device"
-msgstr ""
+msgstr "EDID 设备"
 
 #: modules/devices/monitors.c:402
 msgid "Serial"
@@ -3766,51 +3884,51 @@ msgstr "生产日期"
 
 #: modules/devices/monitors.c:404
 msgid "EDID Meta"
-msgstr ""
+msgstr "EDID 元数据"
 
 #: modules/devices/monitors.c:405
 msgid "Data Size"
-msgstr ""
+msgstr "数据大小"
 
 #: modules/devices/monitors.c:405
 msgid "bytes"
-msgstr ""
+msgstr "字节"
 
 #: modules/devices/monitors.c:407
 msgid "Extension Blocks"
-msgstr ""
+msgstr "扩展块"
 
 #: modules/devices/monitors.c:408
 msgid "Extended to"
-msgstr ""
+msgstr "扩展至"
 
 #: modules/devices/monitors.c:410
 msgid "EDID Descriptors"
-msgstr ""
+msgstr "EDID 描述符"
 
 #: modules/devices/monitors.c:411
 msgid "Detailed Timing Descriptors (DTD)"
-msgstr ""
+msgstr "详细时序描述符 (DTD)"
 
 #: modules/devices/monitors.c:412
 msgid "Established Timings Bitmap (ETB)"
-msgstr ""
+msgstr "标准时序位图 (ETB)"
 
 #: modules/devices/monitors.c:413
 msgid "Standard Timings (STD)"
-msgstr ""
+msgstr "标准时序 (STD)"
 
 #: modules/devices/monitors.c:414
 msgid "E-EDID Extension Blocks"
-msgstr ""
+msgstr "E-EDID 扩展块"
 
 #: modules/devices/monitors.c:415
 msgid "EIA/CEA-861 Data Blocks"
-msgstr ""
+msgstr "EIA/CEA-861 数据块"
 
 #: modules/devices/monitors.c:416
 msgid "EIA/CEA-861 Short Audio Descriptors"
-msgstr ""
+msgstr "EIA/CEA-861 简短音频描述符"
 
 #: modules/devices/monitors.c:417
 msgid "EIA/CEA-861 Short Video Descriptors"
@@ -3855,11 +3973,11 @@ msgstr "S版本"
 
 #: modules/devices/pci.c:144 modules/devices/storage.c:72
 msgid "Link Width"
-msgstr "带宽"
+msgstr "链路宽度"
 
 #: modules/devices/pci.c:146 modules/devices/storage.c:74
 msgid "Link Speed"
-msgstr "速度"
+msgstr "链路速度"
 
 #: modules/devices/pci.c:173
 msgid "Domain"
@@ -3879,35 +3997,35 @@ msgstr "POWER 处理器"
 
 #: modules/devices/printers.c:88
 msgid "⚬ Can do black and white printing=\n"
-msgstr ""
+msgstr "⚬ 支持黑白打印=\n"
 
 #: modules/devices/printers.c:90
 msgid "⚬ Can do color printing=\n"
-msgstr ""
+msgstr "⚬ 支持彩色打印=\n"
 
 #: modules/devices/printers.c:92
 msgid "⚬ Can do duplexing=\n"
-msgstr ""
+msgstr "⚬ 支持双面打印=\n"
 
 #: modules/devices/printers.c:94
 msgid "⚬ Can do staple output=\n"
-msgstr ""
+msgstr "⚬ 支持装订输出=\n"
 
 #: modules/devices/printers.c:96
 msgid "⚬ Can do copies=\n"
-msgstr ""
+msgstr "⚬ 支持复印=\n"
 
 #: modules/devices/printers.c:98
 msgid "⚬ Can collate copies=\n"
-msgstr ""
+msgstr "⚬ 支持分页复印=\n"
 
 #: modules/devices/printers.c:100
 msgid "⚬ Printer is rejecting jobs=\n"
-msgstr ""
+msgstr "⚬ 打印机拒绝任务=\n"
 
 #: modules/devices/printers.c:102
 msgid "⚬ Printer was automatically discovered and added=\n"
-msgstr ""
+msgstr "⚬ 打印机自动发现并添加=\n"
 
 #: modules/devices/printers.c:117
 msgid "Idle"
@@ -3931,7 +4049,7 @@ msgstr ""
 
 #: modules/devices/printers.c:213
 msgid "[Printers (CUPS)]\n"
-msgstr ""
+msgstr "[打印机 (CUPS)]\n"
 
 #: modules/devices/printers.c:278
 msgid ""
@@ -3943,7 +4061,7 @@ msgstr ""
 
 #: modules/devices/riscv/processor.c:591
 msgid "uarch"
-msgstr ""
+msgstr "微架构"
 
 #: modules/devices/riscv/riscv_data.c:30
 msgctxt "rv-ext"
@@ -3963,42 +4081,42 @@ msgstr "RISC-V 128位"
 #: modules/devices/riscv/riscv_data.c:33
 msgctxt "rv-ext"
 msgid "Base embedded integer instructions (15 registers)"
-msgstr ""
+msgstr "基础嵌入式整数指令（15个寄存器）"
 
 #: modules/devices/riscv/riscv_data.c:34
 msgctxt "rv-ext"
 msgid "Base integer instructions (31 registers)"
-msgstr ""
+msgstr "基础整数指令（31个寄存器）"
 
 #: modules/devices/riscv/riscv_data.c:35
 msgctxt "rv-ext"
 msgid "Hardware integer multiply and divide"
-msgstr ""
+msgstr "硬件整数乘法和除法"
 
 #: modules/devices/riscv/riscv_data.c:36
 msgctxt "rv-ext"
 msgid "Atomic memory operations"
-msgstr ""
+msgstr "原子内存操作"
 
 #: modules/devices/riscv/riscv_data.c:37
 msgctxt "rv-ext"
 msgid "Compressed 16-bit instructions"
-msgstr ""
+msgstr "压缩16位指令"
 
 #: modules/devices/riscv/riscv_data.c:38
 msgctxt "rv-ext"
 msgid "Floating-point instructions, single-precision"
-msgstr ""
+msgstr "浮点指令，单精度"
 
 #: modules/devices/riscv/riscv_data.c:39
 msgctxt "rv-ext"
 msgid "Floating-point instructions, double-precision"
-msgstr ""
+msgstr "浮点指令，双精度"
 
 #: modules/devices/riscv/riscv_data.c:40
 msgctxt "rv-ext"
 msgid "Floating-point instructions, quad-precision"
-msgstr ""
+msgstr "浮点指令，四精度"
 
 #: modules/devices/riscv/riscv_data.c:41
 msgctxt "rv-ext"
@@ -4139,7 +4257,7 @@ msgstr "刷新"
 #: modules/devices/spd-decode.c:365 modules/devices/spd-decode.c:442
 #: modules/devices/spd-decode.c:721
 msgid "Timings"
-msgstr ""
+msgstr "时序"
 
 #: modules/devices/spd-decode.c:589 modules/devices/spd-decode.c:858
 #: modules/devices/spd-decode.c:899 modules/devices/spd-decode.c:1146
@@ -4150,31 +4268,31 @@ msgstr "电压"
 #: modules/devices/spd-decode.c:590 modules/devices/spd-decode.c:901
 #: modules/devices/spd-decode.c:1148
 msgid "JEDEC Timings"
-msgstr ""
+msgstr "JEDEC 时序"
 
 #: modules/devices/spd-decode.c:697
 msgid "Ranks"
-msgstr ""
+msgstr "Rank"
 
 #: modules/devices/spd-decode.c:698
 msgid "IO Pins per Chip"
-msgstr ""
+msgstr "每芯片 IO 引脚数"
 
 #: modules/devices/spd-decode.c:699
 msgid "Die count"
-msgstr ""
+msgstr "晶粒数"
 
 #: modules/devices/spd-decode.c:700
 msgid "Thermal Sensor"
-msgstr ""
+msgstr "温度传感器"
 
 #: modules/devices/spd-decode.c:700
 msgid "Present"
-msgstr ""
+msgstr "存在"
 
 #: modules/devices/spd-decode.c:700
 msgid "Not present"
-msgstr ""
+msgstr "不存在"
 
 #: modules/devices/spd-decode.c:701
 msgid "Supported Voltages"
@@ -4182,7 +4300,7 @@ msgstr "支持的电压"
 
 #: modules/devices/spd-decode.c:705
 msgid "Supported CAS Latencies"
-msgstr ""
+msgstr "支持的 CAS 延迟"
 
 #: modules/devices/spd-decode.c:856
 msgid "XMP Profile"
@@ -4195,19 +4313,19 @@ msgstr "速度"
 
 #: modules/devices/spd-decode.c:859
 msgid "XMP Timings"
-msgstr ""
+msgstr "XMP 时序"
 
 #: modules/devices/spd-decode.c:900
 msgid "XMP"
-msgstr ""
+msgstr "XMP"
 
 #: modules/devices/spd-decode.c:1535
 msgid "Serial Presence Detect (SPD)"
-msgstr ""
+msgstr "串行存在检测 (SPD)"
 
 #: modules/devices/spd-decode.c:1538
 msgid "SPD Revision"
-msgstr ""
+msgstr "SPD 修订版本"
 
 #: modules/devices/spd-decode.c:1541
 msgid "Module Vendor"
@@ -4219,7 +4337,7 @@ msgstr "DRAM 供应商"
 
 #: modules/devices/spd-decode.c:1548
 msgid "Manufacturing Date (Year / Week)"
-msgstr ""
+msgstr "制造日期（年/周）"
 
 #: modules/devices/storage.c:46 modules/devices/storage.c:55
 msgid "NVMe Controller"
@@ -4343,145 +4461,147 @@ msgstr "多区域错误率"
 
 #: modules/devices/storage.c:181
 msgid "Run Out Cancel"
-msgstr ""
+msgstr "耗竭取消"
 
 #: modules/devices/storage.c:182
 msgid "Flying Height"
-msgstr ""
+msgstr "飞行高度"
 
 #: modules/devices/storage.c:183
 msgid "Spin High Current"
-msgstr ""
+msgstr "旋转高电流"
 
 #: modules/devices/storage.c:184
 msgid "Spin Buzz"
-msgstr ""
+msgstr "旋转蜂鸣"
 
 #: modules/devices/storage.c:185
 msgid "Offline Seek Performance"
-msgstr ""
+msgstr "离线寻道性能"
 
 #: modules/devices/storage.c:186
 msgid "Disk Shift"
-msgstr ""
+msgstr "磁盘偏移"
 
 #: modules/devices/storage.c:187
 msgid "G-Sense Error Rate"
-msgstr ""
+msgstr "G-sense 错误率"
 
 #: modules/devices/storage.c:188
 msgid "Loaded Hours"
-msgstr ""
+msgstr "加载小时数"
 
 #: modules/devices/storage.c:189
 msgid "Load/Unload Retry Count"
-msgstr ""
+msgstr "加载/卸载重试计数"
 
 #: modules/devices/storage.c:190
 msgid "Load Friction"
-msgstr ""
+msgstr "加载摩擦"
 
 #: modules/devices/storage.c:191
 msgid "Load/Unload Cycle Count"
-msgstr ""
+msgstr "加载/卸载周期计数"
 
 #: modules/devices/storage.c:192
 msgid "Load-in time"
-msgstr ""
+msgstr "加载时间"
 
 #: modules/devices/storage.c:193
 msgid "Torque Amplification Count"
-msgstr ""
+msgstr "扭矩放大计数"
 
 #: modules/devices/storage.c:194
 msgid "Power-Off Retract Count"
-msgstr ""
+msgstr "断电回缩计数"
 
 #: modules/devices/storage.c:195
 msgid "GMR Head Amplitude"
-msgstr ""
+msgstr "GMR 磁头振幅"
 
 #: modules/devices/storage.c:197
 msgid "Endurance Remaining"
-msgstr ""
+msgstr "剩余寿命"
 
 #: modules/devices/storage.c:199
 msgid "Good Block Rate"
-msgstr ""
+msgstr "好块率"
 
 #: modules/devices/storage.c:200
 msgid "Head Flying Hours"
-msgstr ""
+msgstr "磁头飞行小时数"
 
 #: modules/devices/storage.c:201
 msgid "Read Error Retry Rate"
-msgstr ""
+msgstr "读取错误重试率"
 
 #: modules/devices/storage.c:202
 msgid "Total LBAs Written"
-msgstr ""
+msgstr "总写入 LBA 数"
 
 #: modules/devices/storage.c:203
 msgid "Total LBAs Read"
-msgstr ""
+msgstr "总读取 LBA 数"
 
 #: modules/devices/storage.c:204
 msgid "Wear leveling Count"
-msgstr ""
+msgstr "磨损均衡计数"
 
 #: modules/devices/storage.c:205
 msgid "Total Used Reserved Block Count"
-msgstr ""
+msgstr "已使用预留块总数"
 
 #: modules/devices/storage.c:206
 msgid "Total Program Fail Count"
-msgstr ""
+msgstr "编程失败总数"
 
 #: modules/devices/storage.c:207
 msgid "Total Erase Fail Count"
-msgstr ""
+msgstr "擦除失败总数"
 
 #: modules/devices/storage.c:208
 msgid "Available Reserved Space"
-msgstr ""
+msgstr "可用预留空间"
 
 #: modules/devices/storage.c:209
 msgid "Program Fail Count"
-msgstr ""
+msgstr "编程失败计数"
 
 #: modules/devices/storage.c:210
 msgid "Erase Fail Count"
-msgstr ""
+msgstr "擦除失败计数"
 
 #: modules/devices/storage.c:211
 msgid "TA Counter Increased"
-msgstr ""
+msgstr "TA 计数器增加"
 
 #: modules/devices/storage.c:212
 msgid "Total Unused Reserved Block Count"
-msgstr ""
+msgstr "未使用预留块总数"
 
 #: modules/devices/storage.c:217
 msgid ""
 "\n"
 "[UDisks2]\n"
 msgstr ""
+"\n"
+"[UDisks2]\n"
 
 #: modules/devices/storage.c:296
 msgid "Removable"
-msgstr ""
+msgstr "可移动"
 
 #: modules/devices/storage.c:296
 msgid "Fixed"
-msgstr ""
+msgstr "固定"
 
 #: modules/devices/storage.c:299
 msgid "Ejectable"
-msgstr ""
+msgstr "可弹出"
 
 #: modules/devices/storage.c:302
 msgid "Self-monitoring (S.M.A.R.T.)"
-msgstr ""
+msgstr "自我监测 (S.M.A.R.T.)"
 
 #: modules/devices/storage.c:305 modules/devices/x86/processor.c:664
 msgid "Power Management"
@@ -4493,7 +4613,7 @@ msgstr "高级电源管理"
 
 #: modules/devices/storage.c:311
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "自动声音管理"
 
 #: modules/devices/storage.c:314
 #, c-format
@@ -4501,6 +4621,8 @@ msgid ""
 "[Drive Information]\n"
 "Model=%s\n"
 msgstr ""
+"[驱动器信息]\n"
+"型号=%s\n"
 
 #: modules/devices/storage.c:324
 #, c-format
@@ -4511,11 +4633,16 @@ msgid ""
 "Size=%s\n"
 "Features=%s\n"
 msgstr ""
+"修订版本=%s\n"
+"块设备=%s\n"
+"序列号=%s\n"
+"大小=%s\n"
+"功能=%s\n"
 
 #: modules/devices/storage.c:339
 #, c-format
 msgid "Rotation Rate=%d RPM\n"
-msgstr ""
+msgstr "转速=%d RPM\n"
 
 #: modules/devices/storage.c:342
 #, c-format
@@ -4523,36 +4650,38 @@ msgid ""
 "Media=%s\n"
 "Media compatibility=%s\n"
 msgstr ""
+"介质=%s\n"
+"介质兼容性=%s\n"
 
 #: modules/devices/storage.c:349
 #, c-format
 msgid "Connection bus=%s\n"
-msgstr ""
+msgstr "连接总线=%s\n"
 
 #: modules/devices/storage.c:361
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 #: modules/devices/storage.c:362
 msgid "EUI "
-msgstr ""
+msgstr "EUI"
 
 #: modules/devices/storage.c:367
 msgid "WWN / EUI"
-msgstr ""
+msgstr "WWN / EUI"
 
 #: modules/devices/storage.c:371
 #, c-format
 msgid "$^$%s=[%s] %s\n"
-msgstr ""
+msgstr "$^$%s=[%s] %s\n"
 
 #: modules/devices/storage.c:373
 msgid "IEEE OUI"
-msgstr ""
+msgstr "IEEE OUI"
 
 #: modules/devices/storage.c:398 modules/devices/storage.c:402
 msgid "Lifetime exceeded"
-msgstr ""
+msgstr "寿命超限"
 
 #: modules/devices/storage.c:405
 msgid "Normal"
@@ -4561,12 +4690,12 @@ msgstr "正常"
 #: modules/devices/storage.c:406
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "警告 >80%% 已用"
 
 #: modules/devices/storage.c:407
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "故障 >90%% 已用"
 
 #: modules/devices/storage.c:412
 #, c-format
@@ -4577,6 +4706,11 @@ msgid ""
 "MLC Flash Status=%s\n"
 "Pre EOL Status=%s\n"
 msgstr ""
+"[自我监测 ExtCSD]\n"
+"生产日期=%s\n"
+"SLC Flash 状态=%s\n"
+"MLC Flash 状态=%s\n"
+"寿命终止前状态=%s\n"
 
 #: modules/devices/storage.c:426
 msgid ""
@@ -4584,41 +4718,48 @@ msgid ""
 "Status=%s\n"
 "Bad Sectors=%"
 msgstr ""
+"[自我监测 (S.M.A.R.T.)]\n"
+"状态=%s\n"
+"坏扇区=%"
 
 #: modules/devices/storage.c:432
 msgid "Failing"
-msgstr ""
+msgstr "故障"
 
 #: modules/devices/storage.c:432
 msgid "OK"
-msgstr ""
+msgstr "正常"
 
 #: modules/devices/storage.c:439
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
+"[S.M.A.R.T. 属性]\n"
+"属性=<tt>值</tt>\n"
 
 #: modules/devices/storage.c:441
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
 msgstr ""
+"[S.M.A.R.T. 属性]\n"
+"属性=<tt>值 / 标准值 / 最差值 / 阈值</tt>\n"
 
 #: modules/devices/storage.c:468
 msgid "%"
 msgid_plural "%"
-msgstr[0] ""
+msgstr[0] "%"
 
 #: modules/devices/storage.c:514
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "%s=<tt>%s</tt>\n"
 
 #: modules/devices/storage.c:516
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "(%d) %s=<tt>%s</tt>\n"
 
 #: modules/devices/storage.c:524
 #, c-format
@@ -4626,17 +4767,21 @@ msgid ""
 "[Partition table]\n"
 "Type=%s\n"
 msgstr ""
+"[分区表]\n"
+"类型=%s\n"
 
 #: modules/devices/storage.c:543
 #, c-format
 msgid "Partition %s=%s\n"
-msgstr ""
+msgstr "分区 %s=%s\n"
 
 #: modules/devices/storage.c:592
 msgid ""
 "\n"
 "[SCSI Disks]\n"
 msgstr ""
+"\n"
+"[SCSI 磁盘]\n"
 
 #: modules/devices/storage.c:664 modules/devices/storage.c:869
 #, c-format
@@ -4644,6 +4789,8 @@ msgid ""
 "[Device Information]\n"
 "Model=%s\n"
 msgstr ""
+"[设备信息]\n"
+"型号=%s\n"
 
 #: modules/devices/storage.c:671
 #, c-format
@@ -4656,17 +4803,26 @@ msgid ""
 "ID=%d\n"
 "LUN=%d\n"
 msgstr ""
+"类型=%s\n"
+"修订版本=%s\n"
+"[SCSI 控制器]\n"
+"控制器=scsi%d\n"
+"通道=%d\n"
+"ID=%d\n"
+"LUN=%d\n"
 
 #: modules/devices/storage.c:718
 msgid ""
 "\n"
 "[IDE Disks]\n"
 msgstr ""
+"\n"
+"[IDE 磁盘]\n"
 
 #: modules/devices/storage.c:804
 #, c-format
 msgid "Driver=%s\n"
-msgstr ""
+msgstr "驱动=%s\n"
 
 #: modules/devices/storage.c:875
 #, c-format
@@ -4675,6 +4831,9 @@ msgid ""
 "Media=%s\n"
 "Cache=%dkb\n"
 msgstr ""
+"设备名称=hd%c\n"
+"介质=%s\n"
+"缓存=%dkb\n"
 
 #: modules/devices/storage.c:885
 #, c-format
@@ -4683,6 +4842,9 @@ msgid ""
 "Physical=%s\n"
 "Logical=%s\n"
 msgstr ""
+"[几何结构]\n"
+"物理=%s\n"
+"逻辑=%s\n"
 
 #: modules/devices/storage.c:895
 #, c-format
@@ -4690,6 +4852,8 @@ msgid ""
 "[Capabilities]\n"
 "%s"
 msgstr ""
+"[功能]\n"
+"%s"
 
 #: modules/devices/storage.c:902
 #, c-format
@@ -4697,14 +4861,16 @@ msgid ""
 "[Speeds]\n"
 "%s"
 msgstr ""
+"[速度]\n"
+"%s"
 
 #: modules/devices/usb.c:138 modules/devices/usb.c:179
 msgid "Sub-class"
-msgstr ""
+msgstr "子类"
 
 #: modules/devices/usb.c:147 modules/network/net.c:474
 msgid "Mb/s"
-msgstr ""
+msgstr "Mb/s"
 
 #: modules/devices/usb.c:174
 msgid "Manufacturer"
@@ -4712,11 +4878,11 @@ msgstr "制造商"
 
 #: modules/devices/usb.c:175
 msgid "Max Current"
-msgstr ""
+msgstr "最大电流"
 
 #: modules/devices/usb.c:175
 msgid "mA"
-msgstr ""
+msgstr "mA"
 
 #: modules/devices/usb.c:176
 msgid "USB Version"
@@ -4756,19 +4922,19 @@ msgstr "kb"
 
 #: modules/devices/x86/processor.c:665
 msgid "Bug Workarounds"
-msgstr ""
+msgstr "漏洞变通方法"
 
 #: modules/devices/x86/processor.c:692
 msgid "Socket Information"
-msgstr "Socket 信息"
+msgstr "插槽信息"
 
 #: modules/devices/x86/processor.c:713
 msgid "CPU Socket"
-msgstr ""
+msgstr "CPU 插槽"
 
 #: modules/devices/x86/processor.c:717
 msgid "External Clock"
-msgstr ""
+msgstr "外部时钟"
 
 #: modules/devices/x86/processor.c:718
 msgid "Max Frequency"
@@ -4776,7 +4942,7 @@ msgstr "最大频率"
 
 #: modules/devices/x86/processor.c:751
 msgid "Package Information"
-msgstr ""
+msgstr "封装信息"
 
 #. !/flag:fpu
 #: modules/devices/x86/x86_data.c:41
@@ -5324,8 +5490,8 @@ msgstr "字节交换后移动数据指令"
 #: modules/devices/x86/x86_data.c:136
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
-"i.e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
+"e. bit count)"
 msgstr "返回设置为 1 的位数计数指令（汉明权重，即位计数）"
 
 #: modules/devices/x86/x86_data.c:137
@@ -5469,13 +5635,13 @@ msgstr "32位模式下的 CR8"
 #: modules/devices/x86/x86_data.c:162
 msgctxt "x86-flag"
 msgid "Advanced Bit Manipulation"
-msgstr ""
+msgstr "高级位操作"
 
 #. !/flag:sse4a
 #: modules/devices/x86/x86_data.c:163
 msgctxt "x86-flag"
 msgid "SSE-4A"
-msgstr ""
+msgstr "SSE-4A"
 
 #. !/flag:misalignsse
 #: modules/devices/x86/x86_data.c:164
@@ -5483,13 +5649,13 @@ msgctxt "x86-flag"
 msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
-msgstr ""
+msgstr "指示当某些传统SSE指令在未对齐数据上操作时是否生成一般保护异常"
 
 #. !/flag:3dnowprefetch
 #: modules/devices/x86/x86_data.c:165
 msgctxt "x86-flag"
 msgid "3DNow prefetch instructions"
-msgstr ""
+msgstr "3DNow 预取指令"
 
 #. !/flag:osvw
 #: modules/devices/x86/x86_data.c:166
@@ -5497,939 +5663,939 @@ msgctxt "x86-flag"
 msgid ""
 "indicates OS Visible Workaround, which allows the OS to work around "
 "processor errata."
-msgstr ""
+msgstr "表示操作系统可见的变通方法，允许操作系统绕过处理器勘误。"
 
 #. !/flag:ibs
 #: modules/devices/x86/x86_data.c:167
 msgctxt "x86-flag"
 msgid "Instruction Based Sampling"
-msgstr ""
+msgstr "基于指令的采样"
 
 #. !/flag:xop
 #: modules/devices/x86/x86_data.c:168
 msgctxt "x86-flag"
 msgid "extended AVX instructions"
-msgstr ""
+msgstr "扩展 AVX 指令"
 
 #. !/flag:skinit
 #: modules/devices/x86/x86_data.c:169
 msgctxt "x86-flag"
 msgid "SKINIT/STGI instructions"
-msgstr ""
+msgstr "SKINIT/STGI 指令"
 
 #. !/flag:wdt
 #: modules/devices/x86/x86_data.c:170
 msgctxt "x86-flag"
 msgid "Watchdog timer"
-msgstr ""
+msgstr "看门狗定时器"
 
 #. !/flag:lwp
 #: modules/devices/x86/x86_data.c:171
 msgctxt "x86-flag"
 msgid "Light Weight Profiling"
-msgstr ""
+msgstr "轻量级分析"
 
 #. !/flag:fma4
 #: modules/devices/x86/x86_data.c:172
 msgctxt "x86-flag"
 msgid "4 operands MAC instructions"
-msgstr ""
+msgstr "4 操作数 MAC 指令"
 
 #. !/flag:tce
 #: modules/devices/x86/x86_data.c:173
 msgctxt "x86-flag"
 msgid "translation cache extension"
-msgstr ""
+msgstr "转换缓存扩展"
 
 #. !/flag:nodeid_msr
 #: modules/devices/x86/x86_data.c:174
 msgctxt "x86-flag"
 msgid "NodeId MSR"
-msgstr ""
+msgstr "NodeId MSR"
 
 #. !/flag:tbm
 #: modules/devices/x86/x86_data.c:175
 msgctxt "x86-flag"
 msgid "Trailing Bit Manipulation"
-msgstr ""
+msgstr "尾部位操作"
 
 #. !/flag:topoext
 #: modules/devices/x86/x86_data.c:176
 msgctxt "x86-flag"
 msgid "Topology Extensions CPUID leafs"
-msgstr ""
+msgstr "拓扑扩展 CPUID 叶"
 
 #. !/flag:perfctr_core
 #: modules/devices/x86/x86_data.c:177
 msgctxt "x86-flag"
 msgid "Core Performance Counter Extensions"
-msgstr ""
+msgstr "核心性能计数器扩展"
 
 #. !/flag:perfctr_nb
 #: modules/devices/x86/x86_data.c:178
 msgctxt "x86-flag"
 msgid "NB Performance Counter Extensions"
-msgstr ""
+msgstr "北桥性能计数器扩展"
 
 #. !/flag:bpext
 #: modules/devices/x86/x86_data.c:179
 msgctxt "x86-flag"
 msgid "data breakpoint extension"
-msgstr ""
+msgstr "数据断点扩展"
 
 #. !/flag:ptsc
 #: modules/devices/x86/x86_data.c:180
 msgctxt "x86-flag"
 msgid "performance time-stamp counter"
-msgstr ""
+msgstr "性能时间戳计数器"
 
 #. !/flag:perfctr_l2
 #: modules/devices/x86/x86_data.c:181
 msgctxt "x86-flag"
 msgid "L2 Performance Counter Extensions"
-msgstr ""
+msgstr "L2 性能计数器扩展"
 
 #. !/flag:mwaitx
 #: modules/devices/x86/x86_data.c:182
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
-msgstr ""
+msgstr "MWAIT 扩展 (MONITORX/MWAITX)"
 
 #. !/flag:cpb
 #: modules/devices/x86/x86_data.c:184
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "Intel CPUID 故障"
 
 #. !/flag:cpb
 #: modules/devices/x86/x86_data.c:185
 msgctxt "x86-flag"
 msgid "AMD Core Performance Boost"
-msgstr ""
+msgstr "AMD 核心性能加速"
 
 #. !/flag:epb
 #: modules/devices/x86/x86_data.c:186
 msgctxt "x86-flag"
 msgid "IA32_ENERGY_PERF_BIAS support"
-msgstr ""
+msgstr "IA32_ENERGY_PERF_BIAS 支持"
 
 #. !/flag:hw_pstate
 #: modules/devices/x86/x86_data.c:187
 msgctxt "x86-flag"
 msgid "AMD HW-PState"
-msgstr ""
+msgstr "AMD HW-PState"
 
 #. !/flag:proc_feedback
 #: modules/devices/x86/x86_data.c:188
 msgctxt "x86-flag"
 msgid "AMD ProcFeedbackInterface"
-msgstr ""
+msgstr "AMD ProcFeedbackInterface"
 
 #. !/flag:intel_pt
 #: modules/devices/x86/x86_data.c:189
 msgctxt "x86-flag"
 msgid "Intel Processor Tracing"
-msgstr ""
+msgstr "Intel 处理器跟踪"
 
 #. !/flag:pti
 #: modules/devices/x86/x86_data.c:190
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "内核页表隔离已启用"
 
 #. !/flag:ibrs
 #: modules/devices/x86/x86_data.c:191
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "在内核进入/退出时设置/清除 IBRS"
 
 #. !/flag:ssbd
 #: modules/devices/x86/x86_data.c:192
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "禁用投机存储绕过"
 
 #. !/flag:ibrs
 #: modules/devices/x86/x86_data.c:193
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "间接分支受限投机"
 
 #. !/flag:ibpb
 #: modules/devices/x86/x86_data.c:194
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
+msgstr "间接分支预测屏障，无保证的 RSB 刷新"
 
 #. !/flag:stibp
 #: modules/devices/x86/x86_data.c:195
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "单线程间接分支预测器"
 
 #. !/flag:ibrs_enhanced
 #: modules/devices/x86/x86_data.c:196
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "增强型 IBRS"
 
 #. !/flag:tpr_shadow
 #: modules/devices/x86/x86_data.c:198
 msgctxt "x86-flag"
 msgid "Intel TPR Shadow"
-msgstr ""
+msgstr "Intel TPR 影子"
 
 #. !/flag:vnmi
 #: modules/devices/x86/x86_data.c:199
 msgctxt "x86-flag"
 msgid "Intel Virtual NMI"
-msgstr ""
+msgstr "Intel 虚拟 NMI"
 
 #. !/flag:flexpriority
 #: modules/devices/x86/x86_data.c:200
 msgctxt "x86-flag"
 msgid "Intel FlexPriority"
-msgstr ""
+msgstr "Intel FlexPriority"
 
 #. !/flag:ept
 #: modules/devices/x86/x86_data.c:201
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table"
-msgstr ""
+msgstr "Intel 扩展页表"
 
 #. !/flag:vpid
 #: modules/devices/x86/x86_data.c:202
 msgctxt "x86-flag"
 msgid "Intel Virtual Processor ID"
-msgstr ""
+msgstr "Intel 虚拟处理器 ID"
 
 #. !/flag:vmmcall
 #: modules/devices/x86/x86_data.c:203
 msgctxt "x86-flag"
 msgid "prefer VMMCALL to VMCALL"
-msgstr ""
+msgstr "优先使用 VMMCALL 而非 VMCALL"
 
 #. !/flag:ept_ad
 #: modules/devices/x86/x86_data.c:204
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "Intel 扩展页表访问脏位"
 
 #. !/flag:avx512_bf16
 #: modules/devices/x86/x86_data.c:206
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512 BFLOAT16 指令"
 
 #. !/flag:fsgsbase
 #: modules/devices/x86/x86_data.c:208
 msgctxt "x86-flag"
 msgid "{RD/WR}{FS/GS}BASE instructions"
-msgstr ""
+msgstr "{RD/WR}{FS/GS}BASE 指令"
 
 #. !/flag:tsc_adjust
 #: modules/devices/x86/x86_data.c:209
 msgctxt "x86-flag"
 msgid "TSC adjustment MSR"
-msgstr ""
+msgstr "TSC 调整 MSR"
 
 #. !/flag:sgx
 #: modules/devices/x86/x86_data.c:210
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "软件保护扩展"
 
 #. !/flag:bmi1
 #: modules/devices/x86/x86_data.c:211
 msgctxt "x86-flag"
 msgid "1st group bit manipulation extensions"
-msgstr ""
+msgstr "第一组位操作扩展"
 
 #. !/flag:hle
 #: modules/devices/x86/x86_data.c:212
 msgctxt "x86-flag"
 msgid "Hardware Lock Elision"
-msgstr ""
+msgstr "硬件锁省略"
 
 #. !/flag:avx2
 #: modules/devices/x86/x86_data.c:213
 msgctxt "x86-flag"
 msgid "AVX2 instructions"
-msgstr ""
+msgstr "AVX2 指令"
 
 #. !/flag:smep
 #: modules/devices/x86/x86_data.c:214
 msgctxt "x86-flag"
 msgid "Supervisor Mode Execution Protection"
-msgstr ""
+msgstr "监管模式执行保护"
 
 #. !/flag:bmi2
 #: modules/devices/x86/x86_data.c:215
 msgctxt "x86-flag"
 msgid "2nd group bit manipulation extensions"
-msgstr ""
+msgstr "第二组位操作扩展"
 
 #. !/flag:erms
 #: modules/devices/x86/x86_data.c:216
 msgctxt "x86-flag"
 msgid "Enhanced REP MOVSB/STOSB"
-msgstr ""
+msgstr "增强型 REP MOVSB/STOSB"
 
 #. !/flag:invpcid
 #: modules/devices/x86/x86_data.c:217
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID"
-msgstr ""
+msgstr "使处理器上下文 ID 无效"
 
 #. !/flag:invpcid_single
 #: modules/devices/x86/x86_data.c:218
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "使处理器上下文 ID 无效（单个）"
 
 #. !/flag:rtm
 #: modules/devices/x86/x86_data.c:219
 msgctxt "x86-flag"
 msgid "Restricted Transactional Memory"
-msgstr ""
+msgstr "受限事务内存"
 
 #. !/flag:cqm
 #: modules/devices/x86/x86_data.c:220
 msgctxt "x86-flag"
 msgid "Cache QoS Monitoring"
-msgstr ""
+msgstr "缓存 QoS 监控"
 
 #. !/flag:mpx
 #: modules/devices/x86/x86_data.c:221
 msgctxt "x86-flag"
 msgid "Memory Protection Extension"
-msgstr ""
+msgstr "内存保护扩展"
 
 #. !/flag:avx512f
 #: modules/devices/x86/x86_data.c:222
 msgctxt "x86-flag"
 msgid "AVX-512 foundation"
-msgstr ""
+msgstr "AVX-512 基础"
 
 #. !/flag:avx512dq
 #: modules/devices/x86/x86_data.c:223
 msgctxt "x86-flag"
 msgid "AVX-512 Double/Quad instructions"
-msgstr ""
+msgstr "AVX-512 双/四 指令"
 
 #. !/flag:rdseed
 #: modules/devices/x86/x86_data.c:224
 msgctxt "x86-flag"
 msgid "The RDSEED instruction"
-msgstr ""
+msgstr "RDSEED 指令"
 
 #. !/flag:adx
 #: modules/devices/x86/x86_data.c:225
 msgctxt "x86-flag"
 msgid "The ADCX and ADOX instructions"
-msgstr ""
+msgstr "ADCX 和 ADOX 指令"
 
 #. !/flag:smap
 #: modules/devices/x86/x86_data.c:226
 msgctxt "x86-flag"
 msgid "Supervisor Mode Access Prevention"
-msgstr ""
+msgstr "监管模式访问阻止"
 
 #. !/flag:avx512ifma
 #: modules/devices/x86/x86_data.c:227
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
-msgstr ""
+msgstr "AVX-512 整数融合乘加指令"
 
 #. !/flag:clflushopt
 #: modules/devices/x86/x86_data.c:228
 msgctxt "x86-flag"
 msgid "CLFLUSHOPT instruction"
-msgstr ""
+msgstr "CLFLUSHOPT 指令"
 
 #. !/flag:clwb
 #: modules/devices/x86/x86_data.c:229
 msgctxt "x86-flag"
 msgid "CLWB instruction"
-msgstr ""
+msgstr "CLWB 指令"
 
 #. !/flag:avx512pf
 #: modules/devices/x86/x86_data.c:230
 msgctxt "x86-flag"
 msgid "AVX-512 Prefetch"
-msgstr ""
+msgstr "AVX-512 预取"
 
 #. !/flag:avx512er
 #: modules/devices/x86/x86_data.c:231
 msgctxt "x86-flag"
 msgid "AVX-512 Exponential and Reciprocal"
-msgstr ""
+msgstr "AVX-512 指数和倒数"
 
 #. !/flag:avx512cd
 #: modules/devices/x86/x86_data.c:232
 msgctxt "x86-flag"
 msgid "AVX-512 Conflict Detection"
-msgstr ""
+msgstr "AVX-512 冲突检测"
 
 #. !/flag:sha_ni
 #: modules/devices/x86/x86_data.c:233
 msgctxt "x86-flag"
 msgid "SHA1/SHA256 Instruction Extensions"
-msgstr ""
+msgstr "SHA1/SHA256 指令扩展"
 
 #. !/flag:avx512bw
 #: modules/devices/x86/x86_data.c:234
 msgctxt "x86-flag"
 msgid "AVX-512 Byte/Word instructions"
-msgstr ""
+msgstr "AVX-512 字节/字 指令"
 
 #. !/flag:avx512vl
 #: modules/devices/x86/x86_data.c:235
 msgctxt "x86-flag"
 msgid "AVX-512 128/256 Vector Length extensions"
-msgstr ""
+msgstr "AVX-512 128/256 向量长度扩展"
 
 #. !/flag:md_clear
 #: modules/devices/x86/x86_data.c:236
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "VERW 清除 CPU 缓冲区"
 
 #. !/flag:flush_l1d
 #: modules/devices/x86/x86_data.c:237
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "刷新 L1D 缓存"
 
 #. !/flag:arch_capabilities
 #: modules/devices/x86/x86_data.c:238
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
 
 #. !/flag:xsaveopt
 #: modules/devices/x86/x86_data.c:240
 msgctxt "x86-flag"
 msgid "Optimized XSAVE"
-msgstr ""
+msgstr "优化的 XSAVE"
 
 #. !/flag:xsavec
 #: modules/devices/x86/x86_data.c:241
 msgctxt "x86-flag"
 msgid "XSAVEC"
-msgstr ""
+msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
 #: modules/devices/x86/x86_data.c:242
 msgctxt "x86-flag"
 msgid "XGETBV with ECX = 1"
-msgstr ""
+msgstr "ECX=1 的 XGETBV"
 
 #. !/flag:xsaves
 #: modules/devices/x86/x86_data.c:243
 msgctxt "x86-flag"
 msgid "XSAVES/XRSTORS"
-msgstr ""
+msgstr "XSAVES/XRSTORS"
 
 #. !/flag:cqm_llc
 #: modules/devices/x86/x86_data.c:245
 msgctxt "x86-flag"
 msgid "LLC QoS"
-msgstr ""
+msgstr "LLC QoS"
 
 #. !/flag:cqm_occup_llc
 #: modules/devices/x86/x86_data.c:246
 msgctxt "x86-flag"
 msgid "LLC occupancy monitoring"
-msgstr ""
+msgstr "LLC 占用监控"
 
 #. !/flag:cqm_mbm_total
 #: modules/devices/x86/x86_data.c:247
 msgctxt "x86-flag"
 msgid "LLC total MBM monitoring"
-msgstr ""
+msgstr "LLC 总 MBM 监控"
 
 #. !/flag:cqm_mbm_local
 #: modules/devices/x86/x86_data.c:248
 msgctxt "x86-flag"
 msgid "LLC local MBM monitoring"
-msgstr ""
+msgstr "LLC 本地 MBM 监控"
 
 #. !/flag:split_lock_detect
 #: modules/devices/x86/x86_data.c:249
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "分裂锁的 AC"
 
 #. !/flag:clzero
 #: modules/devices/x86/x86_data.c:251
 msgctxt "x86-flag"
 msgid "CLZERO instruction"
-msgstr ""
+msgstr "CLZERO 指令"
 
 #. !/flag:irperf
 #: modules/devices/x86/x86_data.c:252
 msgctxt "x86-flag"
 msgid "instructions retired performance counter"
-msgstr ""
+msgstr "已退役指令性能计数器"
 
 #. !/flag:xsaveerptr
 #: modules/devices/x86/x86_data.c:253
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr ""
+msgstr "始终保存/恢复 FP 错误指针"
 
 #. !/flag:wbnoinvd
 #: modules/devices/x86/x86_data.c:254
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD 指令"
 
 #. !/flag:dtherm
 #: modules/devices/x86/x86_data.c:256
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
-msgstr ""
+msgstr "数字温度传感器"
 
 #. !/flag:ida
 #: modules/devices/x86/x86_data.c:257
 msgctxt "x86-flag"
 msgid "Intel Dynamic Acceleration"
-msgstr ""
+msgstr "Intel 动态加速"
 
 #. !/flag:arat
 #: modules/devices/x86/x86_data.c:258
 msgctxt "x86-flag"
 msgid "Always Running APIC Timer"
-msgstr ""
+msgstr "始终运行的 APIC 定时器"
 
 #. !/flag:pln
 #: modules/devices/x86/x86_data.c:259
 msgctxt "x86-flag"
 msgid "Intel Power Limit Notification"
-msgstr ""
+msgstr "Intel 功率限制通知"
 
 #. !/flag:pts
 #: modules/devices/x86/x86_data.c:260
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
-msgstr ""
+msgstr "Intel 封装热状态"
 
 #. !/flag:hwp
 #: modules/devices/x86/x86_data.c:261
 msgctxt "x86-flag"
 msgid "Intel Hardware P-states"
-msgstr ""
+msgstr "Intel 硬件 P 状态"
 
 #. !/flag:hwp_notify
 #: modules/devices/x86/x86_data.c:262
 msgctxt "x86-flag"
 msgid "HWP notification"
-msgstr ""
+msgstr "HWP 通知"
 
 #. !/flag:hwp_act_window
 #: modules/devices/x86/x86_data.c:263
 msgctxt "x86-flag"
 msgid "HWP Activity Window"
-msgstr ""
+msgstr "HWP 活动窗口"
 
 #. !/flag:hwp_epp
 #: modules/devices/x86/x86_data.c:264
 msgctxt "x86-flag"
 msgid "HWP Energy Performance Preference"
-msgstr ""
+msgstr "HWP 能源性能偏好"
 
 #. !/flag:hwp_pkg_req
 #: modules/devices/x86/x86_data.c:265
 msgctxt "x86-flag"
 msgid "HWP package-level request"
-msgstr ""
+msgstr "HWP 封装级请求"
 
 #. !/flag:npt
 #: modules/devices/x86/x86_data.c:267
 msgctxt "x86-flag"
 msgid "AMD Nested Page Table support"
-msgstr ""
+msgstr "AMD 嵌套页表支持"
 
 #. !/flag:lbrv
 #: modules/devices/x86/x86_data.c:268
 msgctxt "x86-flag"
 msgid "AMD LBR Virtualization support"
-msgstr ""
+msgstr "AMD LBR 虚拟化支持"
 
 #. !/flag:svm_lock
 #: modules/devices/x86/x86_data.c:269
 msgctxt "x86-flag"
 msgid "AMD SVM locking MSR"
-msgstr ""
+msgstr "AMD SVM 锁定 MSR"
 
 #. !/flag:nrip_save
 #: modules/devices/x86/x86_data.c:270
 msgctxt "x86-flag"
 msgid "AMD SVM next_rip save"
-msgstr ""
+msgstr "AMD SVM next_rip 保存"
 
 #. !/flag:tsc_scale
 #: modules/devices/x86/x86_data.c:271
 msgctxt "x86-flag"
 msgid "AMD TSC scaling support"
-msgstr ""
+msgstr "AMD TSC 缩放支持"
 
 #. !/flag:vmcb_clean
 #: modules/devices/x86/x86_data.c:272
 msgctxt "x86-flag"
 msgid "AMD VMCB clean bits support"
-msgstr ""
+msgstr "AMD VMCB 清理位支持"
 
 #. !/flag:flushbyasid
 #: modules/devices/x86/x86_data.c:273
 msgctxt "x86-flag"
 msgid "AMD flush-by-ASID support"
-msgstr ""
+msgstr "AMD 按 ASID 刷新支持"
 
 #. !/flag:decodeassists
 #: modules/devices/x86/x86_data.c:274
 msgctxt "x86-flag"
 msgid "AMD Decode Assists support"
-msgstr ""
+msgstr "AMD 解码辅助支持"
 
 #. !/flag:pausefilter
 #: modules/devices/x86/x86_data.c:275
 msgctxt "x86-flag"
 msgid "AMD filtered pause intercept"
-msgstr ""
+msgstr "AMD 过滤暂停拦截"
 
 #. !/flag:pfthreshold
 #: modules/devices/x86/x86_data.c:276
 msgctxt "x86-flag"
 msgid "AMD pause filter threshold"
-msgstr ""
+msgstr "AMD 暂停过滤阈值"
 
 #. !/flag:avic
 #: modules/devices/x86/x86_data.c:277
 msgctxt "x86-flag"
 msgid "Virtual Interrupt Controller"
-msgstr ""
+msgstr "虚拟中断控制器"
 
 #. !/flag:v_vmsave_vmload
 #: modules/devices/x86/x86_data.c:278
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "虚拟 VMSAVE VMLOAD"
 
 #. !/flag:avx512vbmi
 #: modules/devices/x86/x86_data.c:280
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512 向量位操作指令"
 
 #. !/flag:umip
 #: modules/devices/x86/x86_data.c:281
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "用户模式指令保护"
 
 #. !/flag:pku
 #: modules/devices/x86/x86_data.c:282
 msgctxt "x86-flag"
 msgid "Protection Keys for Userspace"
-msgstr ""
+msgstr "用户空间保护键"
 
 #. !/flag:ospke
 #: modules/devices/x86/x86_data.c:283
 msgctxt "x86-flag"
 msgid "OS Protection Keys Enable"
-msgstr ""
+msgstr "OS 保护键启用"
 
 #. !/flag:avx512_vbmi2
 #: modules/devices/x86/x86_data.c:284
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "附加 AVX512 向量位操作指令"
 
 #. !/flag:gfni
 #: modules/devices/x86/x86_data.c:285
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "伽罗瓦域新指令"
 
 #. !/flag:vaes
 #: modules/devices/x86/x86_data.c:286
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "向量 AES"
 
 #. !/flag:vpclmulqdq
 #: modules/devices/x86/x86_data.c:287
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "无进位乘法双四字"
 
 #. !/flag:avx512_vnni
 #: modules/devices/x86/x86_data.c:288
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "向量神经网络指令"
 
 #. !/flag:avx512_bitalg
 #: modules/devices/x86/x86_data.c:289
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "支持 VPOPCNT[B,W] 和 VPSHUF-BITQMB 指令"
 
 #. !/flag:avx512_vpopcntdq
 #: modules/devices/x86/x86_data.c:290
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "DW/DQ 向量的 POPCNT"
 
 #. !/flag:rdpid
 #: modules/devices/x86/x86_data.c:291
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID 指令"
 
 #. !/flag:sgx_lc
 #: modules/devices/x86/x86_data.c:292
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "软件保护扩展启动控制"
 
 #. !/flag:overflow_recov
 #: modules/devices/x86/x86_data.c:294
 msgctxt "x86-flag"
 msgid "MCA overflow recovery support"
-msgstr ""
+msgstr "MCA 溢出恢复支持"
 
 #. !/flag:succor
 #: modules/devices/x86/x86_data.c:295
 msgctxt "x86-flag"
 msgid "uncorrectable error containment and recovery"
-msgstr ""
+msgstr "不可纠正错误遏制和恢复"
 
 #. !/flag:smca
 #: modules/devices/x86/x86_data.c:296
 msgctxt "x86-flag"
 msgid "Scalable MCA"
-msgstr ""
+msgstr "可扩展 MCA"
 
 #. !/flag:fsrm
 #: modules/devices/x86/x86_data.c:298
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "快速短 REP MOV"
 
 #. !/bug:f00f
 #: modules/devices/x86/x86_data.c:301
 msgctxt "x86-flag"
 msgid "Intel F00F bug"
-msgstr ""
+msgstr "Intel F00F bug"
 
 #. !/bug:fdiv
 #: modules/devices/x86/x86_data.c:302
 msgctxt "x86-flag"
 msgid "FPU FDIV"
-msgstr ""
+msgstr "FPU FDIV"
 
 #. !/bug:coma
 #: modules/devices/x86/x86_data.c:303
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
-msgstr ""
+msgstr "Cyrix 6x86 coma"
 
 #. !/bug:tlb_mmatch
 #: modules/devices/x86/x86_data.c:304
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
-msgstr ""
+msgstr "AMD 勘误 383"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
 #: modules/devices/x86/x86_data.c:305 modules/devices/x86/x86_data.c:314
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
-msgstr ""
+msgstr "AMD 勘误 400"
 
 #. !/bug:11ap
 #: modules/devices/x86/x86_data.c:306
 msgctxt "x86-flag"
 msgid "Bad local APIC aka 11AP"
-msgstr ""
+msgstr "错误的本地 APIC 又称 11AP"
 
 #. !/bug:fxsave_leak
 #: modules/devices/x86/x86_data.c:307
 msgctxt "x86-flag"
 msgid "FXSAVE leaks FOP/FIP/FOP"
-msgstr ""
+msgstr "FXSAVE 泄漏 FOP/FIP/FOP"
 
 #. !/bug:clflush_monitor
 #: modules/devices/x86/x86_data.c:308
 msgctxt "x86-flag"
 msgid "AAI65, CLFLUSH required before MONITOR"
-msgstr ""
+msgstr "AAI65，MONITOR 之前需要 CLFLUSH"
 
 #. !/bug:sysret_ss_attrs
 #: modules/devices/x86/x86_data.c:309
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
-msgstr ""
+msgstr "SYSRET 不修正 SS 属性"
 
 #. !/bug:espfix
 #: modules/devices/x86/x86_data.c:310
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
-msgstr ""
+msgstr "IRET 到 16 位 SS 会破坏 ESP/RSP 高位"
 
 #. !/bug:null_seg
 #: modules/devices/x86/x86_data.c:311
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
-msgstr ""
+msgstr "清零选择器会保留基址"
 
 #. !/bug:swapgs_fence
 #: modules/devices/x86/x86_data.c:312
 msgctxt "x86-flag"
 msgid "SWAPGS without input dep on GS"
-msgstr ""
+msgstr "SWAPGS 无输入依赖 GS"
 
 #. !/bug:monitor
 #: modules/devices/x86/x86_data.c:313
 msgctxt "x86-flag"
 msgid "IPI required to wake up remote CPU"
-msgstr ""
+msgstr "需要 IPI 唤醒远程 CPU"
 
 #. !/bug:cpu_insecure & bug:cpu_meltdown
 #: modules/devices/x86/x86_data.c:315 modules/devices/x86/x86_data.c:316
 msgctxt "x86-flag"
 msgid ""
 "CPU is affected by meltdown attack and needs kernel page table isolation"
-msgstr ""
+msgstr "CPU 受熔毁攻击影响，需要内核页表隔离"
 
 #. !/bug:spectre_v1
 #: modules/devices/x86/x86_data.c:317
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
-msgstr ""
+msgstr "CPU 受 Spectre 变体 1 攻击（条件分支）影响"
 
 #. !/bug:spectre_v2
 #: modules/devices/x86/x86_data.c:318
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
-msgstr ""
+msgstr "CPU 受 Spectre 变体 2 攻击（间接分支）影响"
 
 #. !/bug:spec_store_bypass
 #: modules/devices/x86/x86_data.c:319
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
-msgstr ""
+msgstr "CPU 受投机存储绕过攻击影响"
 
 #. !/bug:l1tf
 #: modules/devices/x86/x86_data.c:320
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
-msgstr ""
+msgstr "CPU 受 L1 终端错误影响"
 
 #. !/bug:mds
 #: modules/devices/x86/x86_data.c:321
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "CPU 受微架构数据采样影响"
 
 #. !/bug:swapgs
 #: modules/devices/x86/x86_data.c:322
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "CPU 受通过 SWAPGS 的投机影响"
 
 #. !/bug:itlb_multihit
 #: modules/devices/x86/x86_data.c:323
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
-msgstr ""
+msgstr "在某些页属性更改期间 CPU 可能发生 MCE"
 
 #. !/bug:srbds
 #: modules/devices/x86/x86_data.c:324
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
-msgstr ""
+msgstr "若不缓解，CPU 可能泄漏 RNG 位"
 
 #. !/bug:mmio_stale_data
 #: modules/devices/x86/x86_data.c:325
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
-msgstr ""
+msgstr "CPU 受处理器 MMIO 过时数据漏洞影响"
 
 #. !/bug:mmio_unknown
 #: modules/devices/x86/x86_data.c:326
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "MMIO 状态数据状态未知"
 
 #. !/bug:retbleed
 #: modules/devices/x86/x86_data.c:327
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "CPU 受 RETBleed 影响"
 
 #. !/bug:eibrs_pbrsb
 #: modules/devices/x86/x86_data.c:328
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "EIBRS 易受后屏障地址预测影响"
 
 #. !/bug:gds
 #: modules/devices/x86/x86_data.c:329
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "CPU 受 Gather Data Sampling 影响"
 
 #. !/bug:srso
 #: modules/devices/x86/x86_data.c:331
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD BTB 去训练 RETs"
 
 #. !/bug:bhi
 #: modules/devices/x86/x86_data.c:332
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr ""
+msgstr "CPU 受分支历史注入影响"
 
 #. !/bug:ibpb_no_ret
 #: modules/devices/x86/x86_data.c:333
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr ""
+msgstr "IBPB 忽略返回目标预测"
 
 #. !/bug:spectre_v2_user
 #: modules/devices/x86/x86_data.c:334
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
-msgstr ""
+msgstr "CPU 受用户进程间 Spectre 变体 2 攻击影响"
 
 #. !/bug:its
 #: modules/devices/x86/x86_data.c:335
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "CPU 受间接目标选择影响"
 
 #. !/bug:its_native_only
 #: modules/devices/x86/x86_data.c:336
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "CPU 受 ITS 影响，VMX 不受影响"
 
 #. !/bug:tsa
 #: modules/devices/x86/x86_data.c:337
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "CPU 受瞬态调度器攻击影响"
 
 #. !/bug:vmscape
 #: modules/devices/x86/x86_data.c:338
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "CPU 受来自客户机的 VMSCAPE 攻击影响"
 
 #. !/flag:pm:ts
 #: modules/devices/x86/x86_data.c:341
@@ -6542,7 +6708,7 @@ msgstr "MAC 地址"
 
 #: modules/network.c:488
 msgid "SAMBA"
-msgstr ""
+msgstr "Samba"
 
 #: modules/network.c:489
 msgid "NFS"
@@ -6600,27 +6766,27 @@ msgstr "自动"
 #: modules/network/net.c:75
 msgctxt "wi-op-mode"
 msgid "Ad-Hoc"
-msgstr ""
+msgstr "Ad-Hoc"
 
 #: modules/network/net.c:76
 msgctxt "wi-op-mode"
 msgid "Managed"
-msgstr ""
+msgstr "Managed"
 
 #: modules/network/net.c:77
 msgctxt "wi-op-mode"
 msgid "Master"
-msgstr "主声道"
+msgstr "Master"
 
 #: modules/network/net.c:78
 msgctxt "wi-op-mode"
 msgid "Repeater"
-msgstr ""
+msgstr "Repeater"
 
 #: modules/network/net.c:79
 msgctxt "wi-op-mode"
 msgid "Secondary"
-msgstr ""
+msgstr "Secondary"
 
 #: modules/network/net.c:80
 msgctxt "wi-op-mode"
@@ -6663,7 +6829,7 @@ msgstr "以太网（TAP）"
 #: modules/network/net.c:277
 msgctxt "net-if-type"
 msgid "Parallel Line Internet Protocol"
-msgstr ""
+msgstr "并行线路互联网协议"
 
 #: modules/network/net.c:278
 msgctxt "net-if-type"
@@ -6673,17 +6839,17 @@ msgstr "红外线"
 #: modules/network/net.c:279 modules/network/net.c:297
 msgctxt "net-if-type"
 msgid "Serial Line Internet Protocol"
-msgstr ""
+msgstr "串行线路互联网协议"
 
 #: modules/network/net.c:280
 msgctxt "net-if-type"
 msgid "Integrated Services Digital Network"
-msgstr ""
+msgstr "综合业务数字网"
 
 #: modules/network/net.c:281
 msgctxt "net-if-type"
 msgid "IPv6-over-IPv4 Tunnel"
-msgstr ""
+msgstr "IPv6-over-IPv4 隧道"
 
 #: modules/network/net.c:282
 msgctxt "net-if-type"
@@ -6698,7 +6864,7 @@ msgstr "VMWare 虚拟网络接口"
 #: modules/network/net.c:284
 msgctxt "net-if-type"
 msgid "Personal Area Network (PAN)"
-msgstr ""
+msgstr "个人区域网（PAN）"
 
 #: modules/network/net.c:285
 msgctxt "net-if-type"
@@ -6718,12 +6884,12 @@ msgstr "Hamachi 虚拟个人网络"
 #: modules/network/net.c:289
 msgctxt "net-if-type"
 msgid "Intermediate Functional Block"
-msgstr ""
+msgstr "中间功能块"
 
 #: modules/network/net.c:290
 msgctxt "net-if-type"
 msgid "GRE Network Tunnel"
-msgstr ""
+msgstr "GRE 网络隧道"
 
 #: modules/network/net.c:291
 msgctxt "net-if-type"
@@ -6733,7 +6899,7 @@ msgstr "Mesh 网络"
 #: modules/network/net.c:292
 msgctxt "net-if-type"
 msgid "Wireless Master Interface"
-msgstr ""
+msgstr "无线主接口"
 
 #: modules/network/net.c:293
 msgctxt "net-if-type"
@@ -6776,7 +6942,7 @@ msgstr "MTU"
 
 #: modules/network/net.c:439
 msgid "Transfer Details"
-msgstr ""
+msgstr "传输详情"
 
 #: modules/network/net.c:440
 msgid "Bytes Received"
@@ -6809,7 +6975,7 @@ msgstr "比特率"
 
 #: modules/network/net.c:475
 msgid "Transmission Power"
-msgstr ""
+msgstr "发射功率"
 
 #: modules/network/net.c:478
 msgid "Link Quality"

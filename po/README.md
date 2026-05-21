@@ -15,20 +15,20 @@ This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
 hardinfo2.pot now has 1379 strings (+10), with 67 c-format strings
-- [x] da.po : (0 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (921 / 1379 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (534 / 1379 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (737 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1216 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] ka.po : (334 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (308 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (104 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (298 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [x] ru.po : (0 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] sv.po : (83 / 1379 remain untranslated, needs work/fuzzy: 1)
-- [ ] tr.po : (71 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] ua.po : (71 / 1379 remain untranslated, needs work/fuzzy: 0)
-- [ ] zh_CN.po : (344 / 1379 remain untranslated, needs work/fuzzy: 0)
+- [ ] da.po : (12 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (932 / 1390 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (545 / 1390 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (748 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1227 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] ka.po : (345 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (319 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (115 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (309 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] ru.po : (12 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] sv.po : (94 / 1390 remain untranslated, needs work/fuzzy: 1)
+- [ ] tr.po : (82 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [ ] ua.po : (82 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [x] zh_CN.po : (0 / 1390 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 

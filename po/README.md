@@ -14,7 +14,7 @@ Status
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1379 strings (+10), with 67 c-format strings
+hardinfo2.pot now has 1390 strings (+21), with 69 c-format strings
 - [ ] da.po : (12 / 1390 remain untranslated, needs work/fuzzy: 0)
 - [ ] de.po : (932 / 1390 remain untranslated, needs work/fuzzy: 2)
 - [ ] es.po : (545 / 1390 remain untranslated, needs work/fuzzy: 18)
@@ -24,7 +24,7 @@ hardinfo2.pot now has 1379 strings (+10), with 67 c-format strings
 - [ ] ko.po : (319 / 1390 remain untranslated, needs work/fuzzy: 0)
 - [ ] pt_BR.po : (115 / 1390 remain untranslated, needs work/fuzzy: 0)
 - [ ] pt.po : (309 / 1390 remain untranslated, needs work/fuzzy: 0)
-- [ ] ru.po : (12 / 1390 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1390 remain untranslated, needs work/fuzzy: 0)
 - [ ] sv.po : (94 / 1390 remain untranslated, needs work/fuzzy: 1)
 - [ ] tr.po : (82 / 1390 remain untranslated, needs work/fuzzy: 0)
 - [ ] ua.po : (82 / 1390 remain untranslated, needs work/fuzzy: 0)

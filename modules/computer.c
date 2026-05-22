@@ -706,10 +706,13 @@ gchar *callback_security(void)
         gchar *p,*t;
         g_free(error); error=NULL;
         found=hardinfo_spawn_command_line_sync("bootctl", &output1, &error , NULL, NULL);
-	if(found && output1 && (p=strstr(output1,":")) ) {
+	if(found && output1 && (p=strstr(output1,"Secure Boot:")) ) {
 	    t=output1;
-	    output1=g_strdup(p+2);
+	    output1=g_strdup(p+13);
 	    g_free(t);
+	} else {
+	    g_free(output1);
+	    output1=NULL;
 	}
     }
     if(found && output1){

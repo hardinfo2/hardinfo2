@@ -702,9 +702,9 @@ gchar *callback_security(void)
         info_field_last());
 
     found = hardinfo_spawn_command_line_sync("mokutil --sb-state", &output1, &error , NULL, NULL);
-    if(!found) {
+    if(!found || !output1) {
         gchar *p,*t;
-        g_free(error);error=NULL;
+        g_free(error); error=NULL;
         found=hardinfo_spawn_command_line_sync("bootctl", &output1, &error , NULL, NULL);
 	if(found && output1 && (p=strstr(output1,":")) ) {
 	    t=output1;
@@ -712,16 +712,16 @@ gchar *callback_security(void)
 	    g_free(t);
 	}
     }
-    if(found){
+    if(found && output1){
         strend(output1,'\n');
+	g_free(error); error=NULL;
         found = hardinfo_spawn_command_line_sync("mokutil --list-enrolled", &output2, &error , NULL, NULL);
 
-	if(!found)
-	    output2=g_strdup(_("Not found"));
-	else
+	if(found && output2)
             output2=fixline(output2, fixline_enrolled);
+	if(!output2) output2=g_strdup(_("Not found"));
 
-	gchar *icon="circle_yellow_exclaim.svg";
+	const gchar *icon="circle_yellow_exclaim.svg";
 	if(strstr(output1,"enabled")) icon = "circle_green_check.svg";
 	if(strstr(output1,"disabled")||strstr(output1,"Not")) icon = "circle_red_x.svg";
         info_add_group(

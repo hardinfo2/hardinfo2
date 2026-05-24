@@ -458,6 +458,47 @@ void cb_about()
     about = gtk_about_dialog_new();
     gtk_window_set_transient_for(GTK_WINDOW(about), GTK_WINDOW(shell->window));
 
+#if GTK_CHECK_VERSION(3, 12, 0)
+    /* Restore credits viewport's background in about page. The global CSS "viewport { background-color:unset }"
+     * makes it's background transparent, text will overlap during animation.
+     */
+    {
+        GtkWidget *stack, *viewport;
+        GtkCssProvider *css;
+        GList *children, *l;
+
+        children = gtk_container_get_children(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(about))));
+        children = gtk_container_get_children(GTK_CONTAINER(children->data));
+        stack = NULL;
+
+        for (l = children; l; l = l->next) {
+            if (GTK_IS_STACK(l->data)) {
+                stack = l->data;
+                break;
+            }
+        }
+
+        g_list_free(children);
+
+        if (stack) {
+            /* Get credits page's viewport */
+            children = gtk_container_get_children(GTK_CONTAINER(gtk_stack_get_child_by_name(GTK_STACK(stack), "credits")));
+            viewport = gtk_bin_get_child(GTK_BIN(children->data));
+
+            g_list_free(children);
+
+            /* Apply new CSS to restore background */
+            gtk_style_context_add_class(gtk_widget_get_style_context(viewport), "hardinfo2-credits-viewport");
+            css = gtk_css_provider_new();
+            gtk_css_provider_load_from_data(css, ".hardinfo2-credits-viewport { background-color: @theme_base_color; }",
+                                            -1, NULL);
+            gtk_style_context_add_provider_for_screen(gtk_widget_get_screen(GTK_WIDGET(about)),
+                                                      GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_USER);
+            g_object_unref(css);
+        }
+    }
+#endif
+
 #if GTK_CHECK_VERSION(2, 12, 0)
     gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(about), "Hardinfo2");
 #else

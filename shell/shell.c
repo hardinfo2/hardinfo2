@@ -3050,7 +3050,7 @@ static void module_selected(gpointer data)
 	}
         RANGE_SET_VALUE(info_tree, hscrollbar, 0.0);
 
-        if (shell->view_type == SHELL_VIEW_DETAIL) {
+        if (shell->view_type == SHELL_VIEW_DETAIL || shell->view_type == SHELL_VIEW_DUAL) {
             RANGE_SET_VALUE(detail_view, vscrollbar, 0.0);
             RANGE_SET_VALUE(detail_view, hscrollbar, 0.0);
         }

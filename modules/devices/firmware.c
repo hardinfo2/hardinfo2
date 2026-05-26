@@ -24,8 +24,6 @@
 #include <gio/gio.h>
 #include "util_sysobj.h" /* for SEQ() and appf() */
 
-#define fw_msg(msg, ...) fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__) /**/
-
 #define FWUPT_INTERFACE  "org.freedesktop.fwupd"
 gboolean fail_no_fwupd = TRUE;
 
@@ -92,18 +90,19 @@ const char *find_icon(const char *lvfs_name) {
      * in the fwupd source. */
     static const
     struct { char *lvfs, *hi; } imap[] = {
-        { "applications-internet", "internet.svg" },
-        { "audio-card", "audio.svg" },
-        { "computer", "computer.svg" },
-        { "drive-harddisk", "hdd.svg" },
-        { "input-gaming", "joystick.svg" },
-        { "input-tablet", NULL },
-        { "network-modem", "wireless.svg" },
-        { "preferences-desktop-keyboard", "keyboard.svg" },
-        { "thunderbolt", NULL },
-        { "touchpad-disabled", NULL },
+        { "application-certificate", "security" },
+        { "applications-internet", "internet" },
+        { "audio-card", "audio" },
+        { "computer", "computer" },
+        { "drive-harddisk", "hdd" },
+        { "input-gaming", "joystick" },
+	//{ "input-tablet", NULL },
+        { "network-modem", "wireless" },
+        { "preferences-desktop-keyboard", "keyboard" },
+        //{ "thunderbolt", NULL },
+        //{ "touchpad-disabled", NULL },
         /* default */
-        { NULL, "memory.svg" } /* a device with firmware maybe */
+        { NULL, "memory" } /* a device with firmware maybe */
     };
     unsigned int i = 0;
     for(; imap[i].lvfs; i++) {
@@ -187,19 +186,25 @@ gboolean g2_variant_check_format_string (GVariant    *value,
 }
 #endif
 
+gint compareFW (gpointer a, gpointer b) {return strcmp( (char*)a, (char*)b );}
+
+
 gchar *fwupdmgr_get_devices_info() {
-    struct Info *info = info_new();
-    struct InfoGroup *this_group = NULL;
+    gchar *info = NULL;
+    gchar *this_group = NULL, *icon_list=NULL;
     gboolean has_vendor_field = FALSE;
     gboolean updatable = FALSE;
     const Vendor *gv = NULL;
-    int gc = 0;
+    GList *list=NULL, *a;
 
     GDBusConnection *conn;
     GDBusProxy *proxy;
     GVariant *devices, *value;
     GVariantIter *deviter, *dictiter, *iter;
     const gchar *key, *tmpstr;
+    int t=0;
+
+    moreinfo_del_with_prefix("DEV:FW");
 
     conn = g_bus_get_sync(G_BUS_TYPE_SYSTEM, NULL, NULL);
     if (!conn) {g_free(info); return g_strdup("");}
@@ -221,16 +226,16 @@ gchar *fwupdmgr_get_devices_info() {
         g_variant_get(devices, "(aa{sv})", &deviter);
         while(g_variant_iter_loop(deviter, "a{sv}", &dictiter)){
 
-            this_group = info_add_group(info, _("Unknown"), info_field_last());
-            this_group->sort = INFO_GROUP_SORT_NAME_DESCENDING;
             has_vendor_field = FALSE;
             updatable = FALSE;
             gv = NULL;
+	    if(info) {g_free(info);info=NULL;}
+	    info=g_strdup("");
 
             while (g_variant_iter_loop(dictiter, "{&sv}", &key, &value)) {
                 if (SEQ(key, "Name")) {
                     tmpstr = g_variant_get_string(value, NULL);
-                    this_group->name = hardinfo_clean_grpname(tmpstr, 0);
+                    this_group = hardinfo_clean_grpname(tmpstr, 0);
                     gv = vendor_match(tmpstr, NULL);
                 } else if (SEQ(key, "Vendor")) {
                     has_vendor_field = TRUE;
@@ -238,68 +243,53 @@ gchar *fwupdmgr_get_devices_info() {
 
                     const Vendor* v = vendor_match(tmpstr, NULL);
                     if (v) {
-                        info_group_add_field(this_group,
-                            info_field(_("Vendor"), v->name,
-                            .value_has_vendor = TRUE,
-                            .free_value_on_flatten = FALSE) );
+		        info=h_strconcat(info, _("Vendor"), "=", v->name, "\n", NULL);
                     } else {
-                        info_group_add_field(this_group,
-                            info_field(_("Vendor"), g_strdup(tmpstr),
-                            .free_value_on_flatten = TRUE) );
+		        info=h_strconcat(info, _("Vendor"), "=", tmpstr, "\n", NULL);
                     }
                 } else if (SEQ(key, "Icon")) {
                     g_variant_get(value, "as", &iter);
                     while (g_variant_iter_loop(iter, "s", &tmpstr)) {
-                        info_group_add_field(this_group,
-                            info_field(_("Icon"), g_strdup(tmpstr),
-                            .free_value_on_flatten = TRUE,
-                            .icon = g_strdup(find_icon(tmpstr)) ) );
+		        info=h_strconcat(info, _("Icon"), "=", tmpstr, "\n", NULL);
                     }
                 } else if (SEQ(key, "Guid")) {
                     g_variant_get(value, "as", &iter);
                     while (g_variant_iter_loop(iter, "s", &tmpstr)) {
-                        info_group_add_field(this_group,
-                            info_field(_("Guid"), g_strdup(tmpstr),
-                            .tag = g_strdup_printf("guid%d", gc++),
-                            .free_value_on_flatten = TRUE) );
+		        info=h_strconcat(info, _("Guid"), "=", tmpstr, "\n", NULL);
                     }
                     g_variant_iter_free(iter);
                 } else if (SEQ(key, "Created")) {
                     guint64 created = g_variant_get_uint64(value);
                     GDateTime *dt = g_date_time_new_from_unix_local(created);
+		    gchar *s;
                     if (dt) {
-                        info_group_add_field(this_group,
-                            info_field(_("Created"), g_date_time_format(dt, "%x"),
-                            .free_value_on_flatten = TRUE) );
+		        info=h_strconcat(info, _("Created"), "=", (s=g_date_time_format(dt, "%x")), "\n", NULL);
+			g_free(s);
                         g_date_time_unref(dt);
                     }
                 } else if (SEQ(key, "Flags")) {
                     guint64 flags = g_variant_get_uint64(value);
                     updatable = (gboolean)(flags & (1u << 1));
-                    info_group_add_field(this_group,
-                            info_field(_("Flags"), decode_flags(flags),
-                            .free_value_on_flatten = TRUE) );
+		    info=h_strconcat(info, _("Flags"), "=", decode_flags(flags), "\n", NULL);
                 } else {
                     if (g_variant_is_of_type(value, G_VARIANT_TYPE_STRING)) {
-                        info_group_add_field(this_group,
-                            info_field(find_translation(key),
-                            g_variant_dup_string(value, NULL),
-                            .free_value_on_flatten = TRUE) );
+		        info=h_strconcat(info, find_translation(key), "=", g_variant_dup_string(value, NULL), "\n", NULL);
                     }
                 }
             }
 
             if (gv && !has_vendor_field) {
-                info_group_add_field(this_group,
-                    info_field(_("Vendor"), gv->name,
-                        .value_has_vendor = TRUE,
-                        .free_value_on_flatten = FALSE) );
+	        info=h_strconcat(info, _("Vendor"), gv->name, NULL);
             }
 
             // hide devices that are not updatable
-            if (!updatable) {
-                info_remove_group(info, info->groups->len - 1);
+            if (updatable) {
+	        gchar *fwkey = g_strdup_printf("FW%d",t++);
+	        list=g_list_prepend(list, g_strdup_printf("%s,%s,%s", this_group, fwkey, info));
+		g_free(fwkey);
             }
+	    g_free(info); info=NULL;
+	    g_free(this_group); this_group=NULL;
         }
         g_variant_iter_free(deviter);
         g_variant_unref(devices);
@@ -308,12 +298,35 @@ gchar *fwupdmgr_get_devices_info() {
     g_object_unref(proxy);
     g_object_unref(conn);
 
-    gchar *ret = NULL;
-    if (info->groups->len) {
-        info_set_view_type(info, SHELL_VIEW_DETAIL);
-        ret = info_flatten(info);
+
+    gchar *firmware=NULL, *ret=NULL, *s;
+    if (list) {
+        firmware=g_strdup_printf("[%s]\n",_("Firmware"));
+        //sort
+        list=g_list_sort(list,(GCompareFunc)compareFW);
+        while (list) {
+	    char **datas = g_strsplit(list->data,",",3);
+	    if (datas[0]) {
+	        firmware = h_strdup_cprintf("$!%s$=%s\n", firmware, datas[1], datas[0]);
+	        moreinfo_add_with_prefix("DEV", datas[1], g_strconcat("[", _("Firmware"), "]\n", _("Firmware"), "=", datas[0], "\n", datas[2], NULL));
+		if( (s=strstr(datas[2],"Icon=")) ){
+		    s+=5;
+		    strend(s,'\n');
+		    icon_list=h_strdup_cprintf("Icon$%s$=%s.svg\n", icon_list, datas[1], find_icon(s));
+		}
+	    }
+	    g_strfreev(datas);
+
+	    //next and free
+	    a=list;
+	    list=list->next;
+	    free(a->data);
+	    g_list_free_1(a);
+	}
+
+	ret = g_strconcat(firmware, "[$ShellParam$]\n", "ViewType=1\n", icon_list, NULL);
+	g_free(firmware);
     } else {
-        g_free(info);
         ret = g_strdup_printf("[%s]\n%s=%s\n" "[$ShellParam$]\nViewType=0\n",
                 _("Firmware List"),
                 _("Result"), _("(Not available)") );

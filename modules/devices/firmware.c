@@ -309,7 +309,7 @@ gchar *fwupdmgr_get_devices_info() {
 	    if (datas[0]) {
 	        firmware = h_strdup_cprintf("$!%s$=%s\n", firmware, datas[1], datas[0]);
 	        moreinfo_add_with_prefix("DEV", datas[1], g_strconcat("[", _("Firmware"), "]\n", _("Firmware"), "=", datas[0], "\n", datas[2], NULL));
-		if( (s=strstr(datas[2],"Icon=")) ){
+		if( (s=strstr(datas[2],_("Icon"))) ){
 		    s+=5;
 		    strend(s,'\n');
 		    icon_list=h_strdup_cprintf("Icon$%s$=%s.svg\n", icon_list, datas[1], find_icon(s));

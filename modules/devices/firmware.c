@@ -307,6 +307,7 @@ gchar *fwupdmgr_get_devices_info() {
         while (list) {
 	    char **datas = g_strsplit(list->data,",",3);
 	    if (datas[0]) {
+	        datas[2]=strreplace(datas[2],"\\","");
 	        firmware = h_strdup_cprintf("$!%s$=%s\n", firmware, datas[1], datas[0]);
 	        moreinfo_add_with_prefix("DEV", datas[1], g_strconcat("[", _("Firmware"), "]\n", _("Firmware"), "=", datas[0], "\n", datas[2], NULL));
 		if( (s=strstr(datas[2],_("Icon"))) ){

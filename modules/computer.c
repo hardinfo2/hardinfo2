@@ -702,6 +702,7 @@ gchar *callback_security(void)
         info_field_last());
 
     found = hardinfo_spawn_command_line_sync("mokutil --sb-state", &output1, &error , NULL, NULL);
+    if(found && (!output1 || !strlen(output1))  && error) { g_free(output1); output1=error; error=NULL; }
     if(!found || !output1) {
         gchar *p,*t;
         g_free(error); error=NULL;
@@ -726,7 +727,7 @@ gchar *callback_security(void)
 
 	const gchar *icon="circle_yellow_exclaim.svg";
 	if(strstr(output1,"enabled")) icon = "circle_green_check.svg";
-	if(strstr(output1,"disabled")||strstr(output1,"Not")) icon = "circle_red_x.svg";
+	if(strstr(output1,"disabled")||strstr(output1,"Not")||strstr(output1,"doesn't")) icon = "circle_red_x.svg";
         info_add_group(
             info, _("Linux Boot"),
             info_field(_("Secure Boot State"), output1, .icon = icon),

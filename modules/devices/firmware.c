@@ -93,14 +93,17 @@ const char *find_icon(const char *lvfs_name) {
         { "application-certificate", "security" },
         { "applications-internet", "internet" },
         { "audio-card", "audio" },
+        { "camera-web", "camera-web" },
         { "computer", "computer" },
         { "drive-harddisk", "hdd" },
         { "input-gaming", "joystick" },
 	//{ "input-tablet", NULL },
+        { "media-memory", "chip" },
         { "network-modem", "wireless" },
         { "preferences-desktop-keyboard", "keyboard" },
         //{ "thunderbolt", NULL },
         //{ "touchpad-disabled", NULL },
+        { "UEFI", "mb" },
         /* default */
         { NULL, "memory" } /* a device with firmware maybe */
     };
@@ -317,6 +320,8 @@ gchar *fwupdmgr_get_devices_info() {
 		    s+=5;
 		    strend(s,'\n');
 		    icon_list=h_strdup_cprintf("Icon$%s$=%s.svg\n", icon_list, datas[1], find_icon(s));
+		} else if(strstr(datas[0],"UEFI")){
+		    icon_list=h_strdup_cprintf("Icon$%s$=%s.svg\n", icon_list, datas[1], find_icon("UEFI"));
 		}
 	    }
 	    g_strfreev(datas);

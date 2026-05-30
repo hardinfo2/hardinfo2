@@ -254,8 +254,11 @@ gchar *fwupdmgr_get_devices_info() {
                     }
                 } else if (SEQ(key, "Guid")) {
                     g_variant_get(value, "as", &iter);
+                    gint guid_index = 1;
                     while (g_variant_iter_loop(iter, "s", &tmpstr)) {
-		        info=h_strconcat(info, _("Guid"), "=", tmpstr, "\n", NULL);
+                        gchar *guid_key = g_strdup_printf("%s%d", _("Guid"), guid_index++);
+                        info = h_strconcat(info, guid_key, "=", tmpstr, "\n", NULL);
+                        g_free(guid_key);
                     }
                     g_variant_iter_free(iter);
                 } else if (SEQ(key, "Created")) {

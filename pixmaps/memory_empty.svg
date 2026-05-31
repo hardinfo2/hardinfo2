@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   version="1.1"
+   viewBox="0 0 512 512"
+   id="svg8"
+   sodipodi:docname="memory_empty.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter8"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix8" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter9"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix9" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter10"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix10" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter11"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix11" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter12"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix12" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter13"
+       x="-0.0044050051"
+       y="-0.00022048085"
+       width="1.0088098"
+       height="1.0002205">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix13" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter14"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix14" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter15"
+       x="-0.0049522811"
+       y="-0.0081008602"
+       width="1.0099032"
+       height="1.0162021">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix15" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.828125"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-width="3072"
+     inkscape:window-height="1659"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <path
+     d="m200 410v-51.7l23.4-0.0192v51.7l285 0.01v-135c-5.48-0.01-13.9-4.17-13.9-14.2 5e-3 -10 8.41-14.2 13.9-14.2l5e-3 -26.1c-5.48-0.01-13.9-4.17-13.9-14.2 5e-3 -10 8.41-14.2 13.9-14.2l0.0108-90.7h-505l-0.0105 90.7c5.49 0 13.9 4.16 13.9 14.2 0 10-8.4 14.2-13.9 14.2l-0.0105 26.1c5.49 0 13.9 4.16 13.9 14.2 0 10-8.39 14.2-13.9 14.2v135z"
+     style="fill:#47a64f;stroke-width:5;stroke:#008f39;filter:url(#filter15)"
+     id="path1" />
+  <path
+     d="m3.51 356-6.5e-6 54.4 198-1e-5v-33c-0.0771-15.5 19.8-15.6 19.8 0.257l-6e-3 32.7 287 0.01v-54.4z"
+     fill="#008f39"
+     id="path2"
+     style="filter:url(#filter14)" />
+  <path
+     d="m71.1 282v35l-13.4 8.84v35.5m-0.0284-79.3-0.0922 20.1-28.7 18.7v40.5m282-79.3-1e-5 25.4 24.5 17.3v36.7m-3.93-79.4v16.2l33 22.3v40.9m30.8-79.5v79.4m19.8-79.4v46.2l10.2 11.4v21.7m7.66-79.3 0.315 35.9 20 13.2 0.759 30.3m-3.69-79.4v26.4l32.3 23.3 0.315 29.6m-192-79.3-0.13 36.6 14.3 9.14 0.315 33.7m-78.5-79.3-0.111 22.5 47.8 34.5 0.407 22.3m-62.8-79.3-0.111 29.1 30.5 22.3 0.334 28m-55.2-79.4 0.445 45.2-13.4 9.65v24.5m-4.12-79.3 0.111 36.6-25.4 18.8v24m-38-79.4 0.63 28.9 9.8 14.7v35.7m-29.8-79.4v79.4"
+     style="fill:none;stroke-width:4;stroke:#008f39;filter:url(#filter13)"
+     id="path3" />
+  <path
+     d="m27.5 374c-12.2 0-9.47 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.47 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.47 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.47 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm70.3 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.48 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38zm29.8 0c-12.2 0-9.47 0.358-9.92 38h19.8c-0.426-37.6 2.03-38-9.92-38z"
+     fill="#ffce54"
+     id="path4"
+     style="filter:url(#filter12)" />
+  <path
+     d="m58.2 194v72.6h56.5v-72.6zm112 0v72.6h56.5v-72.6zm112 0v72.6h56.5v-72.6zm112 0v72.6h56.5v-72.6z"
+     fill="#656d78"
+     id="path5"
+     style="filter:url(#filter11)" />
+  <path
+     d="m44.1 176 0.0155 109h84.7v-109zm112 0 0.0154 109h84.7v-109zm112 0 0.0154 109h84.7v-109zm112 0 0.0136 109h84.7v-109zm-308 36.3h28.3l-0.0155 36.3-28.2 0.0193zm112 0h28.3l-0.0154 36.3-28.2 0.0193zm112 0h28.3l-0.0154 36.3-28.2 0.0193zm112 0h28.3l-0.0136 36.3-28.2 0.0193z"
+     fill="#434a54"
+     id="path6"
+     style="filter:url(#filter10)" />
+  <path
+     d="m47.9 149v10.1h23.3v-10.1zm53.8 0v10.1h23.3v-10.1zm58.2 0v10.1h23.3v-10.1zm53.8 0v10.1h23.3v-10.1zm58.2 0v10.1h23.3v-10.1zm53.8 0v10.1h23.3v-10.1zm58.2 0v10.1h23.3v-10.1zm53.8 0v10.1h23.3v-10.1z"
+     fill="#c2a58d"
+     id="path7"
+     style="filter:url(#filter9)" />
+  <path
+     d="m44.1 148v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm31.3 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm35.7 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm31.3 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm35.7 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm31.3 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm35.7 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9zm31.3 0v11.9h8.4v-11.9zm22.5 0v11.9h8.4v-11.9z"
+     fill="#dedede"
+     id="path8"
+     style="filter:url(#filter8)" />
+</svg>

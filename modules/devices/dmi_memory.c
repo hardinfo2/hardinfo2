@@ -46,7 +46,7 @@ static const dmi_type dta = 16; /* array */
 static const dmi_type dtm = 17; /* socket */
 static const char mem_icon[] = "memory.svg";
 static const char array_icon[] = "computer.svg";
-static const char empty_icon[] = "module.svg";
+static const char empty_icon[] = "memory_empty.svg";
 
 
 dmi_mem_size dmi_read_memory_str_to_MiB(const char *memstr) {

@@ -962,7 +962,7 @@ static void create_window(void)
         settings=g_settings_new("org.gnome.desktop.interface");
     if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
     //Cinnamon has color-scheme but does not update it depending on dark/light/default
-    if(!g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.cinnamon.desktop.interface",FALSE))
+    if(!strstr(g_getenv("XDG_CURRENT_DESKTOP"),"innamon"))
       if(settings) {//get settings about newgnome
         gchar **keys=NULL;
 	int i=0;

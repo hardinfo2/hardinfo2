@@ -961,17 +961,19 @@ static void create_window(void)
     if(g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE))
         settings=g_settings_new("org.gnome.desktop.interface");
     if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
-    //Cinnamon has color-scheme but does not update it depending on dark/light/default
-    if(!strstr(g_getenv("XDG_CURRENT_DESKTOP"),"innamon"))
-      if(settings) {//get settings about newgnome
+    const gchar *env=g_getenv("XDG_CURRENT_DESKTOP");
+    if(settings) {//get settings about newgnome
         gchar **keys=NULL;
 	int i=0;
-	if(!newgnome) keys=g_settings_list_keys(settings);
-	while(!newgnome && keys && (keys[i]!=NULL)){
-	    if(strcmp(keys[i],"color-scheme")==0) newgnome=1;
-	    i++;
+	//Cinnamon has color-scheme but does not update it depending on dark/light/default
+	if(!env || !strstr(env,"innamon")){
+	    if(!newgnome) keys=g_settings_list_keys(settings);
+	    while(!newgnome && keys && (keys[i]!=NULL)){
+	        if(strcmp(keys[i],"color-scheme")==0) newgnome=1;
+		i++;
+	    }
+	    if(keys) g_strfreev(keys);
 	}
-	if(keys) g_strfreev(keys);
 	//register settings at startup
 	if(newgnome) {
 	    ng_theme = g_settings_get_string(settings, "color-scheme");

@@ -519,10 +519,14 @@ pkg_check_modules(X11 REQUIRED x11)
 
 include(FindZLIB REQUIRED)
 
+#slackware and slint does not have landlock in glibc
+if(${distro} MATCHES "Slackware" OR ${distro} MATCHES "Slint")
+else()
 find_path(LANDLOCK_HEADER landlock.h /usr/include/linux)
 if (LANDLOCK_HEADER)
-	add_definitions("-DHAS_LANDLOCK")
-endif ()
+   add_definitions("-DHAS_LANDLOCK")
+endif()
+endif()
 
 include_directories(
 	${CMAKE_SOURCE_DIR}

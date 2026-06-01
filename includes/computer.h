@@ -118,6 +118,14 @@ struct _OperatingSystem {
         gboolean shrinker_enabled;
         gboolean enabled;
     } zswap;
+    struct {
+        gchar *compressor;
+        unsigned long disksize;
+        unsigned long compsize;
+        unsigned long datasize;
+        unsigned long totalsize;
+        gboolean enabled;
+    } zram;
 };
 
 struct _MemoryInfo {

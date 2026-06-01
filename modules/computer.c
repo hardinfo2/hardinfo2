@@ -139,8 +139,8 @@ gchar *hi_get_field(gchar * field)
 
     if (g_str_equal0(label, _("Memory"))) {
         MemoryInfo *mi = computer_get_memory();
-        if (mi->zswapped) {
-            tmp = g_strdup_printf(_("%dMB (%dMB used, %dMB compressed)"), mi->total, mi->used, mi->zswapped);
+	if (mi->zswapped || computer->os->zram.enabled) {
+	  tmp = g_strdup_printf(_("%dMB (%dMB used, %dMB compressed)"), mi->total, mi->used, mi->zswapped + (int)(computer->os->zram.datasize>>20));
         } else {
             tmp = g_strdup_printf(_("%dMB (%dMB used)"), mi->total, mi->used);
         }
@@ -628,6 +628,27 @@ gchar *callback_os(void)
 
     gchar *maximum_pool_percent = NULL;
     gchar *accept_thresh_percent = NULL;
+    gchar *disksize = NULL;
+    gchar *datasize = NULL;
+    gchar *compsize = NULL;
+    gchar *totalsize = NULL;
+    gchar *compratio = NULL;
+    if (computer->os->zram.enabled) {
+        disksize = size_human_readable((float)computer->os->zram.disksize);
+        datasize = size_human_readable((float)computer->os->zram.datasize);
+        compsize = size_human_readable((float)computer->os->zram.compsize);
+        totalsize = size_human_readable((float)computer->os->zram.totalsize);
+        compratio = g_strdup_printf("%.0f%%", (float)((100*(computer->os->zram.datasize - computer->os->zram.totalsize)) / computer->os->zram.datasize));
+        info_add_group(info, _("Memory Compression (ZRam)"),
+                       info_field(_("Compression"), computer->os->zram.compressor ? : _("N/A")),
+                           info_field(_("Compression Ratio"), compratio),
+                           info_field(_("Disk Size"), disksize),
+		           info_field(_("Data Size"), datasize),
+                           info_field(_("Compressed Size"), compsize),
+                           info_field(_("Total Size"), totalsize),
+                           info_field_last()
+		       );
+    }
     if (computer->os->zswap.enabled) {
         maximum_pool_percent = g_strdup_printf("%d%%", computer->os->zswap.max_pool_percent);
         accept_thresh_percent = g_strdup_printf("%d%%", computer->os->zswap.accept_threshold_percent);
@@ -639,8 +660,9 @@ gchar *callback_os(void)
                        info_field(_("Maximum Pool Percent"), maximum_pool_percent),
                        info_field(_("Accept Threshold Percent"), accept_thresh_percent),
                        info_field_last());
-    } else {
-        info_add_group(info, _("Memory Compression (ZSwap)"),
+    }
+    if(!computer->os->zram.enabled && !computer->os->zswap.enabled) {
+        info_add_group(info, _("Memory Compression (ZSwap/ZRam)"),
                        info_field(_("Compression"), _("Disabled")),
                        info_field_last());
     }
@@ -652,6 +674,11 @@ gchar *callback_os(void)
     p=info_flatten(info);
     g_free(distro);
     g_free(distro_icon);
+    g_free(disksize);
+    g_free(datasize);
+    g_free(compsize);
+    g_free(totalsize);
+    g_free(compratio);
     g_free(maximum_pool_percent);
     g_free(accept_thresh_percent);
     return p;

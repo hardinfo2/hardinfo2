@@ -747,6 +747,48 @@ static Distro detect_distro(void)
     return (Distro) { .distro = g_strdup(_("Unknown")) };
 }
 
+static void get_zram_info(OperatingSystem *os)
+{
+    char *val;
+
+    val = h_sysfs_read_string("/sys/block/zram0", "disksize");
+    if (!val) {
+        memset(&os->zram, 0, sizeof(os->zram));
+        return;
+    }
+    os->zram.enabled = 1;
+    os->zram.disksize = atol(val);
+    g_free(val);
+
+    val = h_sysfs_read_string("/sys/block/zram0", "mm_stat");
+    if(val) {
+        if(sscanf(val, "%lu %lu %lu ", &os->zram.datasize, &os->zram.compsize, &os->zram.totalsize) != 3){
+	    os->zram.datasize=0;
+	    os->zram.compsize=0;
+	    os->zram.totalsize=0;
+	}
+	g_free(val);
+    }
+
+    val = h_sysfs_read_string("/sys/block/zram0", "comp_algorithm");
+    if (val) {
+        gchar *p,*e;
+	p=strchr(val,'[');
+	e=strchr(val,']');
+	if(p && e) {
+	    *e=0;
+	    os->zram.compressor=g_strdup(p+1);
+	    *e=']';
+	    g_free(val);
+	} else {
+	    os->zram.compressor=val;
+	}
+    } else {
+        os->zram.compressor = g_strdup(_("Unknown"));
+    }
+
+}
+
 static void get_zswap_info(OperatingSystem *os)
 {
     char *val;
@@ -811,6 +853,7 @@ OperatingSystem *computer_get_os(void)
 
     os->entropy_avail = computer_get_entropy_avail();
 
+    get_zram_info(os);
     get_zswap_info(os);
 
     return os;

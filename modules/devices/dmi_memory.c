@@ -866,6 +866,7 @@ gchar *memory_devices_get_info() {
             "ColumnTitle$Extra2=%s\n"  /* Vendor */
             "ColumnTitle$Value=%s\n"     /* Part */
             "ShowColumnHeaders=true\n"
+            "NaturalSort$TextValue=1\n"
             "%s",
             ret,
             _("Locator"),

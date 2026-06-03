@@ -37,7 +37,8 @@ echo "(as of $GITVER $GITHASH)"
 
 for f in *.po
 do
-    msgmerge -q -N "$f" hardinfo2.pot > tmp.po
+#   remove "--no-location" below to add translation locations in files
+    msgmerge --no-location -q -N "$f" hardinfo2.pot > tmp.po
 
     # set/reset the X-Poedit-Basepath header
     grep -v '"X-Poedit-Basepath:[^"]*"' tmp.po | sed 's|\("Language:[^"]*"\)|\1\n"X-Poedit-Basepath: ../\\n"|' >"$f"

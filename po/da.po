@@ -563,9 +563,7 @@ msgstr "søg efter overskrifter i CLI rapport (-t getlist viser tilgængelige)"
 
 #: hardinfo2/util.c:378
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
-msgstr ""
-"Søg efter et emne i den lagrede CLI-rapport (-t getlist viser de "
-"tilgængelige emner)."
+msgstr "Søg efter et emne i den lagrede CLI-rapport (-t getlist viser de tilgængelige emner)"
 
 #: hardinfo2/util.c:384
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
@@ -868,7 +866,7 @@ msgstr "_Generer"
 
 #: shell/shell.c:362
 msgid "Enter text to search, double-click to select all"
-msgstr "Indtast tekst, du vil søge efter, og dobbeltklik for at markere alt."
+msgstr "Indtast tekst, du vil søge efter, og dobbeltklik for at markere alt"
 
 #: shell/shell.c:364
 msgid "Search not available"
@@ -2692,7 +2690,7 @@ msgstr "Aktiveret"
 
 #: modules/computer/os.c:890
 msgid "Not built with Landlock support"
-msgstr "Ikke bygget med understøttelse af Landlock."
+msgstr "Ikke bygget med understøttelse af Landlock"
 
 #: modules/computer/os.c:902
 #, c-format
@@ -5383,7 +5381,7 @@ msgstr "TSC stopper ikke i C-tilstande"
 #: modules/devices/x86/x86_data.c:104
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr "CPU’en har sin egen CPUID-instruktion."
+msgstr "CPU’en har sin egen CPUID-instruktion"
 
 #. !/flag:extd_apicid
 #: modules/devices/x86/x86_data.c:105
@@ -5419,7 +5417,7 @@ msgstr "TSC stopper ikke i S3-tilstand"
 #: modules/devices/x86/x86_data.c:110
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr "TSC har en kendt frekvens."
+msgstr "TSC har en kendt frekvens"
 
 #. !/flag:mce_recovery
 #: modules/devices/x86/x86_data.c:111
@@ -5885,33 +5883,31 @@ msgstr "Intel-processorsporing"
 #: modules/devices/x86/x86_data.c:190
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr "Isolering af kernel-sidetabeller aktiveret."
+msgstr "Isolering af kernel-sidetabeller aktiveret"
 
 #. !/flag:ibrs
 #: modules/devices/x86/x86_data.c:191
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr "Indstil/nulstil IBRS ved ind- og udgang af kernen."
+msgstr "Indstil/nulstil IBRS ved ind- og udgang af kernen"
 
 #. !/flag:ssbd
 #: modules/devices/x86/x86_data.c:192
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr "Deaktiver spekulativ hukommelsesadgangs-omgåelse."
+msgstr "Deaktiver spekulativ hukommelsesadgangs-omgåelse"
 
 #. !/flag:ibrs
 #: modules/devices/x86/x86_data.c:193
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr "Indirekte filial – begrænset spekulation."
+msgstr "Indirekte filial – begrænset spekulation"
 
 #. !/flag:ibpb
 #: modules/devices/x86/x86_data.c:194
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
-"Indirekte forudsigelsesbarriere for forgreninger uden garanteret tømning af "
-"RSB-bufferen."
+msgstr "Indirekte forudsigelsesbarriere for forgreninger uden garanteret tømning af RSB-bufferen"
 
 #. !/flag:stibp
 #: modules/devices/x86/x86_data.c:195
@@ -6091,9 +6087,7 @@ msgstr "Forebyggelse af adgang til supervisortilstand"
 #: modules/devices/x86/x86_data.c:227
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
-msgstr ""
-"AVX-512-instruktioner til heltal, der kombinerer multiplikations- og "
-"additionsoperationer."
+msgstr "AVX-512-instruktioner til heltal, der kombinerer multiplikations- og additionsoperationer"
 
 #. !/flag:clflushopt
 #: modules/devices/x86/x86_data.c:228
@@ -6147,13 +6141,13 @@ msgstr "AVX-512 128/256 Vector Længde forlængere"
 #: modules/devices/x86/x86_data.c:236
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr "VERW tømmer CPU-bufferne."
+msgstr "VERW tømmer CPU-bufferne"
 
 #. !/flag:flush_l1d
 #: modules/devices/x86/x86_data.c:237
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr "Tøm L1D-cachen."
+msgstr "Tøm L1D-cachen"
 
 #. !/flag:arch_capabilities
 #: modules/devices/x86/x86_data.c:238
@@ -6213,7 +6207,7 @@ msgstr "LLC lokal MBM-overvågning"
 #: modules/devices/x86/x86_data.c:249
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr "AC til delt lås."
+msgstr "AC til delt lås"
 
 #. !/flag:clzero
 #: modules/devices/x86/x86_data.c:251
@@ -6231,7 +6225,7 @@ msgstr "instruktioner pensioneret præstationstæller"
 #: modules/devices/x86/x86_data.c:253
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr "Gem/gendan altid FP-fejlpegerne."
+msgstr "Gem/gendan altid FP-fejlpegerne"
 
 #. !/flag:wbnoinvd
 #: modules/devices/x86/x86_data.c:254
@@ -6399,7 +6393,7 @@ msgstr "OS beskyttelsesnøgler aktiveret"
 #: modules/devices/x86/x86_data.c:284
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr "Yderligere AVX512-vektorinstruktioner til bitmanipulation."
+msgstr "Yderligere AVX512-vektorinstruktioner til bitmanipulation"
 
 #. !/flag:gfni
 #: modules/devices/x86/x86_data.c:285
@@ -6417,7 +6411,7 @@ msgstr "Vektor-AES"
 #: modules/devices/x86/x86_data.c:287
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr "Multiplikation uden carry-over, dobbelt quadword."
+msgstr "Multiplikation uden carry-over, dobbelt quadword"
 
 #. !/flag:avx512_vnni
 #: modules/devices/x86/x86_data.c:288
@@ -6429,7 +6423,7 @@ msgstr "Instruktioner til vektorbaserede neurale netværk"
 #: modules/devices/x86/x86_data.c:289
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr "Understøttelse af VPOPCNT[B,W]- og VPSHUF-BITQMB-instruktioner."
+msgstr "Understøttelse af VPOPCNT[B,W]- og VPSHUF-BITQMB-instruktioner"
 
 #. !/flag:avx512_vpopcntdq
 #: modules/devices/x86/x86_data.c:290
@@ -6471,7 +6465,7 @@ msgstr "Skalerbar MCA"
 #: modules/devices/x86/x86_data.c:298
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr "Hurtige, korte, gentagne bevægelser."
+msgstr "Hurtige, korte, gentagne bevægelser"
 
 #. !/bug:f00f
 #: modules/devices/x86/x86_data.c:301
@@ -6589,109 +6583,103 @@ msgstr "CPU er påvirket af L1 Terminal Fault"
 #: modules/devices/x86/x86_data.c:321
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr "CPU’en påvirkes af mikroarkitekturbaseret dataindsamling."
+msgstr "CPU’en påvirkes af mikroarkitekturbaseret dataindsamling"
 
 #. !/bug:swapgs
 #: modules/devices/x86/x86_data.c:322
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr "CPU'en påvirkes af spekulativ eksekvering via SWAPGS."
+msgstr "CPU'en påvirkes af spekulativ eksekvering via SWAPGS"
 
 #. !/bug:itlb_multihit
 #: modules/devices/x86/x86_data.c:323
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
-msgstr "CPU’en kan opleve MCE-fejl under visse ændringer af sideattributter."
+msgstr "CPU’en kan opleve MCE-fejl under visse ændringer af sideattributter"
 
 #. !/bug:srbds
 #: modules/devices/x86/x86_data.c:324
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
-msgstr ""
-"CPU’en kan potentielt lække tilfældige bits, hvis der ikke træffes "
-"foranstaltninger for at forhindre det."
+msgstr "CPU’en kan potentielt lække tilfældige bits, hvis der ikke træffes foranstaltninger for at forhindre det"
 
 #. !/bug:mmio_stale_data
 #: modules/devices/x86/x86_data.c:325
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
-msgstr ""
-"CPU’en er sårbar over for sikkerhedshuller relateret til forældede data i "
-"processorens MMIO (Memory-Mapped Input/Output)."
+msgstr "CPU’en er sårbar over for sikkerhedshuller relateret til forældede data i processorens MMIO (Memory-Mapped Input/Output)"
 
 #. !/bug:mmio_unknown
 #: modules/devices/x86/x86_data.c:326
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr "Status for MMIO-statussen er ukendt."
+msgstr "Status for MMIO-statussen er ukendt"
 
 #. !/bug:retbleed
 #: modules/devices/x86/x86_data.c:327
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr "CPU’en er sårbar over for RETBleed."
+msgstr "CPU’en er sårbar over for RETBleed"
 
 #. !/bug:eibrs_pbrsb
 #: modules/devices/x86/x86_data.c:328
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr "EIBRS er sårbar over for forudsigelser om adresser efter barrieren."
+msgstr "EIBRS er sårbar over for forudsigelser om adresser efter barrieren"
 
 #. !/bug:gds
 #: modules/devices/x86/x86_data.c:329
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr "CPU-en påvirkes af dataindsamlingssampling."
+msgstr "CPU-en påvirkes af dataindsamlingssampling"
 
 #. !/bug:srso
 #: modules/devices/x86/x86_data.c:331
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr "AMD BTB-enheden er ikke trænet til at genkende RET-instruktioner."
+msgstr "AMD BTB-enheden er ikke trænet til at genkende RET-instruktioner"
 
 #. !/bug:bhi
 #: modules/devices/x86/x86_data.c:332
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr "CPU'en er sårbar over for Branch History Injection-angreb."
+msgstr "CPU'en er sårbar over for Branch History Injection-angreb"
 
 #. !/bug:ibpb_no_ret
 #: modules/devices/x86/x86_data.c:333
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr "IBPB udelader forudsigelser om fremtidige afkast."
+msgstr "IBPB udelader forudsigelser om fremtidige afkast"
 
 #. !/bug:spectre_v2_user
 #: modules/devices/x86/x86_data.c:334
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
-msgstr ""
-"CPU'en er sårbar over for Spectre-variant 2-angrebet, når der er tale om "
-"kommunikation mellem brugerprocesser."
+msgstr "CPU'en er sårbar over for Spectre-variant 2-angrebet, når der er tale om kommunikation mellem brugerprocesser"
 
 #. !/bug:its
 #: modules/devices/x86/x86_data.c:335
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr "CPU'en påvirkes af indirekte målvalg."
+msgstr "CPU'en påvirkes af indirekte målvalg"
 
 #. !/bug:its_native_only
 #: modules/devices/x86/x86_data.c:336
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr "CPU er påvirket af ITS, VMX er ikke påvirket."
+msgstr "CPU er påvirket af ITS, VMX er ikke påvirket"
 
 #. !/bug:tsa
 #: modules/devices/x86/x86_data.c:337
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr "CPU'en er sårbar over for midlertidige scheduler-angreb."
+msgstr "CPU'en er sårbar over for midlertidige scheduler-angreb"
 
 #. !/bug:vmscape
 #: modules/devices/x86/x86_data.c:338
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr "CPU'en er sårbar over for VMSCAPE-angreb fra virtuelle maskiner."
+msgstr "CPU'en er sårbar over for VMSCAPE-angreb fra virtuelle maskiner"
 
 #. !/flag:pm:ts
 #: modules/devices/x86/x86_data.c:341

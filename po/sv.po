@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-03 17:13+0200\n"
 "PO-Revision-Date: 2025-10-15 16:03+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: \n"
@@ -655,10 +655,10 @@ msgid "_Generate"
 msgstr "_Generera"
 
 msgid "Enter text to search, double-click to select all"
-msgstr ""
+msgstr "Ange text för sökning, dubbelklicka för att markera allt"
 
 msgid "Search not available"
-msgstr ""
+msgstr "Sökfunktionen är inte tillgänglig"
 
 msgid "Benchmark"
 msgstr "Benchmark"
@@ -668,7 +668,7 @@ msgid "%s - System Information and Benchmark"
 msgstr "%s - Systeminformation och benchmark"
 
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #, c-format
 msgid ""
@@ -689,13 +689,13 @@ msgstr ""
 "Åtgärda genom att installera manuellt"
 
 msgid "Copy selected row"
-msgstr ""
+msgstr "Kopiera den valda raden"
 
 msgid "Copy all rows"
-msgstr ""
+msgstr "Kopiera alla rader"
 
 msgid "Copy all text"
-msgstr ""
+msgstr "Kopiera all text"
 
 msgid "Network"
 msgstr "Nätverk"
@@ -818,7 +818,7 @@ msgid "GPU OpenGL Drawing"
 msgstr "GPU OpenGL-ritning"
 
 msgid "GPU OpenGL Drawing2"
-msgstr ""
+msgstr "GPU OpenGL-rendering"
 
 msgid "GPU Vulkan Drawing"
 msgstr "GPU Vulkan-ritning"
@@ -1074,7 +1074,7 @@ msgstr "Grupper"
 
 #, c-format
 msgid "%dMB (%dMB used, %dMB compressed)"
-msgstr ""
+msgstr "%d MB (%d MB använt, %d MB komprimerat)"
 
 #, c-format
 msgid "%dMB (%dMB used)"
@@ -1292,34 +1292,34 @@ msgid "Misc"
 msgstr "Övrigt"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "Minneskomprimering (ZRam)"
 
 msgid "Compression"
-msgstr ""
+msgstr "Komprimering"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Kompressionsförhållande"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "Diskstorlek"
 
 msgid "Data Size"
 msgstr "Datastorlek"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "Komprimerad storlek"
 
 msgid "Total Size"
-msgstr ""
+msgstr "Total storlek"
 
 msgid "Memory Compression (ZSwap)"
-msgstr ""
+msgstr "Minneskomprimering (ZSwap)"
 
 msgid "Shrinker Enabled"
-msgstr ""
+msgstr "Shrinker aktiverad"
 
 msgid "Yes"
 msgstr "Ja"
@@ -1328,22 +1328,23 @@ msgid "No"
 msgstr "Nej"
 
 msgid "Maximum Pool Percent"
-msgstr ""
+msgstr "Maximal poolandel (%)"
 
 msgid "Accept Threshold Percent"
-msgstr ""
+msgstr "Accepttröskel (%)"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "Minneskomprimering (ZSwap/ZRam)"
 
 msgid "Disabled"
 msgstr "Inaktiverad"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logotyp"
 
 msgid "belongs to distro and may be reg. trademark"
 msgstr ""
+"tillhör distributionen och kan vara ett registrerat varumärke"
 
 msgid "Root Only System"
 msgstr "Endast rotsystem"
@@ -1373,13 +1374,13 @@ msgid "Hardinfo2 Service not enabled/started"
 msgstr "Hardinfo2-tjänsten är inte aktiverad/startad"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "Linux-start"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "Säkert startläge"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "Startcertifikat"
 
 msgid "Health"
 msgstr "Hälsa"
@@ -1406,7 +1407,7 @@ msgid "SELinux status"
 msgstr "SELinux-status"
 
 msgid "Landlock ABI version"
-msgstr ""
+msgstr "Landlock ABI-version"
 
 msgid "CPU Vulnerabilities"
 msgstr "CPU-sårbarheter"
@@ -1539,7 +1540,7 @@ msgid "Conformance Version"
 msgstr "Standardiseringsversion"
 
 msgid "Login"
-msgstr ""
+msgstr "Inloggning"
 
 msgid "User ID"
 msgstr "Användar-ID"
@@ -1594,7 +1595,7 @@ msgid ""
 msgstr "Vulkans <i><b>vulkaninfo</b></i> krävs för Vulkan-information."
 
 msgid "Variable"
-msgstr ""
+msgstr "Variabel"
 
 msgid "Filesystem"
 msgstr "Filsystem"
@@ -1618,16 +1619,16 @@ msgid "Available"
 msgstr "Tillgänglig"
 
 msgid "None"
-msgstr ""
+msgstr "Inget"
 
 msgid "Group Information"
-msgstr ""
+msgstr "Gruppinformation"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Gruppnamn"
 
 msgid "Members"
-msgstr ""
+msgstr "Medlemmar"
 
 msgid "Locale Information"
 msgstr "Lokal information"
@@ -1953,11 +1954,11 @@ msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Not built with Landlock support"
-msgstr ""
+msgstr "Inte byggd med stöd för Landlock"
 
 #, c-format
 msgid "Version %d"
-msgstr ""
+msgstr "Version %d"
 
 msgid "User Information"
 msgstr "Användarinformation"
@@ -2294,6 +2295,12 @@ msgid ""
 "Voltage now=%.3f V\n"
 "Voltage max design=%.3f V\n"
 msgstr ""
+"\n"
+"[Nätadapter: %s]\n"
+"Online=%s\n"
+"Typ av nätström=%s\n"
+"Aktuell spänning=%.3f V\n"
+"Maximal designspänning=%.3f V\n"
 
 #, c-format
 msgid ""
@@ -2303,9 +2310,9 @@ msgid ""
 "AC Power Type=%s\n"
 msgstr ""
 "\n"
-"[AC-strömförsörjning: %s]\n"
+"[Nätadapter: %s]\n"
 "Ansluten=%s\n"
-"Typ av AC-strömförsörjning=%s\n"
+"Typ av nätström=%s\n"
 
 #, c-format
 msgid ""
@@ -2326,6 +2333,22 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[Batteri: %s]\n"
+"Status=%s\n"
+"Kapacitet=%s %% / %s\n"
+"Batterianvändning=%.0f W\n"
+"Återstående tid=%02dh %02dm\n"
+"Batterihälsa=%.0f %%\n"
+"Full energikapacitet enligt design=%.3f Wh\n"
+"Aktuell full energikapacitet=%.3f Wh\n"
+"Full kapacitet enligt design=%.3f Ah\n"
+"Nuvarande full kapacitet=%.3f Ah\n"
+"Designspänning=%.3f V\n"
+"Batteriteknik=%s\n"
+"Tillverkare=%s\n"
+"Modellnummer=%s\n"
+"Serienummer=%s\n"
 
 #, c-format
 msgid ""
@@ -2402,10 +2425,10 @@ msgid "Resources"
 msgstr "Resurser"
 
 msgid "Released"
-msgstr ""
+msgstr "Släppt"
 
 msgid "Release Date"
-msgstr ""
+msgstr "Släppdatum"
 
 msgid "Distro and CPU Supported Profiles"
 msgstr "Profiler med stöd för distro och CPU"
@@ -2423,7 +2446,7 @@ msgid "Devices"
 msgstr "Enheter"
 
 msgid "Update CPU database"
-msgstr ""
+msgstr "Uppdatera databasen för processorer"
 
 msgid "Update PCI ID listing"
 msgstr "Uppdatera PCI ID-listan"
@@ -2480,10 +2503,10 @@ msgid "Compatible"
 msgstr "Kompatibel"
 
 msgid "Memory Map"
-msgstr ""
+msgstr "Minneskarta"
 
 msgid "IRQ Map"
-msgstr ""
+msgstr "IRQ-mappning"
 
 msgid "Alias Map"
 msgstr "Alias Map"
@@ -2599,6 +2622,9 @@ msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"Lägg till dig själv i gruppen hardinfo2: sudo usermod -a -G hardinfo2 $USER\n"
+"Logga ut/starta om datorn för att ändringarna i grupptillhörigheten ska "
+"träda i kraft..."
 
 msgid "Memory Information requires more Setup:"
 msgstr "Memory Information kräver mer inställningar:"
@@ -3490,18 +3516,18 @@ msgid "IEEE OUI"
 msgstr "IEEE OUI"
 
 msgid "Lifetime exceeded"
-msgstr ""
+msgstr "Livslängden har överskridits"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normalt"
 
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "Varning: mer än 80%% används"
 
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "Kritiskt: mer än 90%% används"
 
 #, c-format
 msgid ""
@@ -3511,6 +3537,11 @@ msgid ""
 "MLC Flash Status=%s\n"
 "Pre EOL Status=%s\n"
 msgstr ""
+"[Självövervakning ExtCSD]\n"
+"Produktionsdatum=%s\n"
+"Status för SLC-minne=%s\n"
+"Status för MLC-minne=%s\n"
+"Status före slutet av livscykeln=%s\n"
 
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
@@ -3522,7 +3553,7 @@ msgstr ""
 "Dåliga sektorer=%"
 
 msgid "Failing"
-msgstr "Misslyckas"
+msgstr "Felvarning"
 
 msgid "OK"
 msgstr "OK"
@@ -3531,6 +3562,8 @@ msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
+"[S.M.A.R.T.-attribut]\n"
+"Attribut=<tt>Värde</tt>\n"
 
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
@@ -3546,7 +3579,7 @@ msgstr[1] "%"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "%s=<tt>%s</tt>\n"
 
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
@@ -4012,7 +4045,7 @@ msgstr "TSC stannar inte i C-lägen"
 #. !/flag:cpuid
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr ""
+msgstr "Processorn har en inbyggd CPUID-instruktion"
 
 #. !/flag:extd_apicid
 msgctxt "x86-flag"
@@ -4042,7 +4075,7 @@ msgstr "TSC stannar inte i S3-läge"
 #. !/flag:tsc_known_freq
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr ""
+msgstr "TSC har en känd frekvens"
 
 #. !/flag:mce_recovery
 msgctxt "x86-flag"
@@ -4179,7 +4212,7 @@ msgstr "Tsc tidsgräns timer"
 #. !/flag:aes
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
-msgstr ""
+msgstr "Avancerad krypteringsstandard"
 
 #. !/flag:aes-ni
 msgctxt "x86-flag"
@@ -4304,6 +4337,8 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
+"Anger om ett general protection-undantag (GP) genereras när vissa äldre "
+"SSE-instruktioner bearbetar icke-justerad data"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
@@ -4402,7 +4437,7 @@ msgstr "MWAIT-tillägg (MONITORX/MWAITX)"
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "Intel CPUID Faulting"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
@@ -4432,37 +4467,38 @@ msgstr "Spårning av Intel-processorer"
 #. !/flag:pti
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "Kärnans sidtabellsisolering är aktiverad"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "Aktivera/inaktivera IBRS vid in- och utgång från kärnan"
 
 #. !/flag:ssbd
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "Inaktivera spekulativ minnesåtkomstförbikoppling"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "Begränsad spekulation för indirekta grenar"
 
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
 msgstr ""
+"Barriär för indirekt grenprediktion utan garanterad RSB-tömning"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "Enkeltrådiga indirekta grenförutsägare"
 
 #. !/flag:ibrs_enhanced
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "Förbättrad IBRS"
 
 #. !/flag:tpr_shadow
 msgctxt "x86-flag"
@@ -4497,12 +4533,12 @@ msgstr "föredrar VMMCALL till VMCALL"
 #. !/flag:ept_ad
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "Intel Extended Page Table accessed/dirty-bit"
 
 #. !/flag:avx512_bf16
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512 BFLOAT16-instruktioner"
 
 #. !/flag:fsgsbase
 msgctxt "x86-flag"
@@ -4517,7 +4553,7 @@ msgstr "TSC-justering MSR"
 #. !/flag:sgx
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "Programvaruskyddstillägg"
 
 #. !/flag:bmi1
 msgctxt "x86-flag"
@@ -4557,7 +4593,7 @@ msgstr "Invalidera processorns kontext-ID"
 #. !/flag:invpcid_single
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "Ogiltigförklara processorkontext-ID (enkel)"
 
 #. !/flag:rtm
 msgctxt "x86-flag"
@@ -4603,6 +4639,7 @@ msgstr "Åtkomstskydd i Supervisor-läge"
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
 msgstr ""
+"AVX-512-instruktioner för heltalsmultiplikation och addition i ett steg"
 
 #. !/flag:clflushopt
 msgctxt "x86-flag"
@@ -4647,17 +4684,17 @@ msgstr "AVX-512 128/256 vektorlängdsutökningar"
 #. !/flag:md_clear
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "VERW rensar CPU-buffertarna"
 
 #. !/flag:flush_l1d
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "Rensa L1D-cachen"
 
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
@@ -4702,7 +4739,7 @@ msgstr "LLC lokal MBM-övervakning"
 #. !/flag:split_lock_detect
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "AC för split lock"
 
 #. !/flag:clzero
 msgctxt "x86-flag"
@@ -4717,12 +4754,12 @@ msgstr "instruktioner pensionerade prestationsräknare"
 #. !/flag:xsaveerptr
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr ""
+msgstr "Spara/återställ alltid FP-felpekarna"
 
 #. !/flag:wbnoinvd
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD-instruktion"
 
 #. !/flag:dtherm
 msgctxt "x86-flag"
@@ -4832,17 +4869,17 @@ msgstr "Virtuell avbrottsstyrenhet"
 #. !/flag:v_vmsave_vmload
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "Virtuell VMSAVE VMLOAD"
 
 #. !/flag:avx512vbmi
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512-vektorinstruktioner för bitmanipulation"
 
 #. !/flag:umip
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "Instruktionsskydd för användarläge"
 
 #. !/flag:pku
 msgctxt "x86-flag"
@@ -4857,47 +4894,47 @@ msgstr "Nycklar för OS-skydd aktiverade"
 #. !/flag:avx512_vbmi2
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "Ytterligare AVX512-instruktioner för bitmanipulation av vektorer"
 
 #. !/flag:gfni
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "Nya Galoisfält-instruktioner"
 
 #. !/flag:vaes
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "Vektor-AES"
 
 #. !/flag:vpclmulqdq
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "Carry-less multiplikation av dubbla quadword"
 
 #. !/flag:avx512_vnni
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "Instruktioner för vektorbaserade neurala nätverk"
 
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "Stöd för VPOPCNT[B,W] och VPSHUF-BITQMB-instruktionerna"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "POPCNT för vektorer av DW/DQ"
 
 #. !/flag:rdpid
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID-instruktion"
 
 #. !/flag:sgx_lc
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "Programvaruskyddstillägg – startkontroll"
 
 #. !/flag:overflow_recov
 msgctxt "x86-flag"
@@ -4917,7 +4954,7 @@ msgstr "Skalbar MCA"
 #. !/flag:fsrm
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "Fast Short REP MOV"
 
 #. !/bug:f00f
 msgctxt "x86-flag"
@@ -5015,87 +5052,89 @@ msgstr "CPU påverkas av L1 Terminal Fault"
 #. !/bug:mds
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "CPU påverkas av mikroarkitekturell datainsamling"
 
 #. !/bug:swapgs
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "CPU påverkas av spekulativ exekvering genom SWAPGS"
 
 #. !/bug:itlb_multihit
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
-msgstr ""
+msgstr "CPU:n kan uppleva MCE-händelser vid vissa ändringar av sidattribut"
 
 #. !/bug:srbds
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
-msgstr ""
+msgstr "CPU:n kan läcka slumpmässiga bitar om problemet inte åtgärdas"
 
 #. !/bug:mmio_stale_data
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
 msgstr ""
+"CPU påverkas av sårbarheter relaterade till inaktuell data i processorns "
+"MMIO-minne"
 
 #. !/bug:mmio_unknown
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "Status för MMIO-tillståndsdata är okänt"
 
 #. !/bug:retbleed
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "CPU påverkas av RETBleed"
 
 #. !/bug:eibrs_pbrsb
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "EIBRS är känsligt för förutsägelser av adresser efter barriären"
 
 #. !/bug:gds
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "CPU påverkas av Gather Data Sampling"
 
 #. !/bug:srso
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD BTB untrain RETs"
 
 #. !/bug:bhi
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr ""
+msgstr "CPU:n påverkas av Branch History Injection"
 
 #. !/bug:ibpb_no_ret
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr ""
+msgstr "IBPB utelämnar prediktioner av returmål"
 
 #. !/bug:spectre_v2_user
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
-msgstr ""
+msgstr "CPU påverkas av Spectre-variant 2-attacken mellan användarprocesser"
 
 #. !/bug:its
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "CPU påverkas av indirekt målval"
 
 #. !/bug:its_native_only
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "CPU påverkas av ITS, VMX påverkas inte"
 
 #. !/bug:tsa
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "CPU påverkas av Transient Scheduler Attacks"
 
 #. !/bug:vmscape
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "CPU påverkas av VMSCAPE-attacker från virtuella maskiner"
 
 #. !/flag:pm:ts
 msgctxt "x86-flag"

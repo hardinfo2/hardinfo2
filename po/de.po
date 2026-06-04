@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
-"PO-Revision-Date: 2026-04-15 08:38+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"PO-Revision-Date: 2026-06-04 02:46+0200\n"
 "Last-Translator: Alexander Münch <git@thehacker.biz>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -18,37 +18,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "Little Endian"
-msgstr ""
+msgstr "Little-Endian"
 
 msgid "Big Endian"
-msgstr ""
+msgstr "Big-Endian"
 
 msgid "Frequency Scaling"
-msgstr ""
+msgstr "Frequenzskalierung"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgid "kHz"
-msgstr ""
+msgstr "kHz"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgid "Current"
-msgstr ""
+msgstr "Aktuell"
 
 msgid "Transition Latency"
 msgstr "Übergangslatenz"
 
 msgid "ns"
-msgstr ""
+msgstr "ns"
 
 msgid "Governor"
-msgstr ""
+msgstr "Gouverneur"
 
 msgid "Driver"
 msgstr "Treiber"
@@ -63,7 +63,7 @@ msgid "Core"
 msgstr "Kern"
 
 msgid "Book"
-msgstr ""
+msgstr "Buch"
 
 msgid "Drawer"
 msgstr "Zeichner"
@@ -72,19 +72,19 @@ msgid "Topology"
 msgstr "Topologie"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "BIOS Information"
-msgstr ""
+msgstr "BIOS-Informationen"
 
 msgid "System"
-msgstr ""
+msgstr "System"
 
 msgid "Base Board"
 msgstr "Basisplatine"
 
 msgid "Chassis"
-msgstr ""
+msgstr "Fahrgestell"
 
 msgid "Processor"
 msgstr "Prozessor"
@@ -96,7 +96,7 @@ msgid "Memory Module"
 msgstr "Speichermodul"
 
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 msgid "Port Connector"
 msgstr "Port-Anschluss"
@@ -108,7 +108,7 @@ msgid "On Board Devices"
 msgstr "Onboard-Geräte"
 
 msgid "OEM Strings"
-msgstr ""
+msgstr "OEM-Saiten"
 
 msgid "System Configuration Options"
 msgstr "Systemkonfigurationsoptionen"
@@ -207,46 +207,46 @@ msgid "Unknown chassis type"
 msgstr "Ungültiger Gehäusetyp"
 
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 msgid "Low-profile Desktop"
-msgstr ""
+msgstr "Flaches Desktop-Gehäuse"
 
 msgid "Pizza Box"
-msgstr ""
+msgstr "Pizzakarton"
 
 msgid "Mini Tower"
-msgstr ""
+msgstr "Mini-Turm"
 
 msgid "Tower"
-msgstr ""
+msgstr "Turm"
 
 msgid "Portable"
-msgstr ""
+msgstr "Tragbar"
 
 msgid "Laptop"
-msgstr ""
+msgstr "Laptop"
 
 msgid "Notebook"
-msgstr ""
+msgstr "Notizbuch"
 
 msgid "Handheld"
-msgstr ""
+msgstr "Handgerät"
 
 msgid "Docking Station"
-msgstr ""
+msgstr "Dockingstation"
 
 msgid "All-in-one"
-msgstr ""
+msgstr "Alles in einem"
 
 msgid "Subnotebook"
-msgstr ""
+msgstr "Subnotebook"
 
 msgid "Space-saving"
-msgstr ""
+msgstr "Platzsparend"
 
 msgid "Lunch Box"
-msgstr ""
+msgstr "Mittagsbox"
 
 msgid "Main Server Chassis"
 msgstr "Hauptservergehäuse"
@@ -255,7 +255,7 @@ msgid "Expansion Chassis"
 msgstr "Erweiterungsgehäuse"
 
 msgid "Sub Chassis"
-msgstr ""
+msgstr "Untergestell"
 
 msgid "Bus Expansion Chassis"
 msgstr "Buserweiterungs-Chassis"
@@ -276,44 +276,44 @@ msgid "Multi-system"
 msgstr "Multisystem"
 
 msgid "CompactPCI"
-msgstr ""
+msgstr "CompactPCI"
 
 msgid "AdvancedTCA"
-msgstr ""
+msgstr "AdvancedTCA"
 
 msgid "Blade"
-msgstr ""
+msgstr "Klinge"
 
 msgid "Blade Enclosing"
-msgstr ""
+msgstr "Klingenabdeckung"
 
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
 msgid "Convertible"
-msgstr ""
+msgstr "Cabriolet"
 
 msgid "Detachable"
 msgstr "Abnehmbar"
 
 msgid "IoT Gateway"
-msgstr ""
+msgstr "IoT-Gateway"
 
 msgid "Embedded PC"
-msgstr ""
+msgstr "Embedded-PC"
 
 msgid "Mini PC"
-msgstr ""
+msgstr "Mini-PC"
 
 msgid "Stick PC"
-msgstr ""
+msgstr "Mini-PC"
 
 #. !/ %d will be latest year of copyright
 #, c-format
 msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
-msgstr ""
+msgstr "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2-Projekt\n"
 
 #, c-format
 msgid ""
@@ -328,10 +328,20 @@ msgid ""
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
+"Kompilierungszeit-Optionen:\n"
+"  Release-Version: %s (%s)\n"
+"  LibSoup-Version: %s\n"
+"  OpenGL-Version: %s\n"
+"  Vulkan-Version: %s\n"
+"  GTK-Version: %s\n"
+"  Daten: %s\n"
+"  Bibliothek: %s\n"
+"  Sprache: %s\n"
+"  Kompiliert für: %s\n"
 
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
-msgstr ""
+msgstr "Unbekannter Benchmark: „%s“\n"
 
 msgid "Don't know what to do. Exiting."
 msgstr "Weiß nicht was zu tun ist. Beende."
@@ -397,7 +407,7 @@ msgid "Fatal Error"
 msgstr "Kritischer Fehler"
 
 msgid "do not print status messages to standard output"
-msgstr ""
+msgstr "Geben Sie keine Statusmeldungen auf der Standardausgabe aus"
 
 msgid "creates a report and prints to standard output"
 msgstr "Erstellt einen Report und leitet ihn zum 'Standard-Output' weiter"
@@ -407,15 +417,23 @@ msgstr "Wählt ein Reportformat ([text], html)"
 
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr ""
+"Suchen Sie in der Befehlszeilenschnittstelle nach einem Thema im Bericht (-t "
+"getlist zeigt die verfügbaren Themen an)"
 
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr ""
+"Suchen Sie nach einem Thema im zwischengespeicherten CLI-Bericht (-t getlist "
+"zeigt die verfügbaren Themen an)"
 
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr ""
+"Führen Sie einen einzelnen Benchmark aus, z. B. -b 'FPU FFT' (Standardmäßig "
+"werden alle Benchmarks ausgeführt)"
 
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
+"Benutzerhinweis zu den Benchmark-Ergebnissen. Gruppe-Maschinenname-"
+"Serveranforderung"
 
 msgid "benchmark result format ([short], conf, shell)"
 msgstr "Benchmarkergebnisformat ([short], conf, shell)"
@@ -437,7 +455,7 @@ msgid "show all details"
 msgstr "Alle Details anzeigen"
 
 msgid "- System Information and Benchmark"
-msgstr ""
+msgstr "- Systeminformationen und Benchmark"
 
 #, c-format
 msgid ""
@@ -453,6 +471,13 @@ msgid ""
 "Have only a group, group-MachineName and also a special request to server "
 "for the return benchmark data from server\n"
 msgstr ""
+"Benutzernotiz: Ungültig (Buchstaben + Zahlen, Format: Gruppenname-"
+"Maschinenname-Serveranforderung)\n"
+"Die Parameter für die Benutzernotiz sind optional, und das Feld für die "
+"Benutzernotiz kann leer gelassen werden.\n"
+"Es kann entweder nur eine Gruppe, eine Kombination aus Gruppenname und "
+"Maschinenname oder eine spezielle Anforderung an den Server für die Rückgabe "
+"der Benchmark-Daten vom Server angegeben werden\n"
 
 #, c-format
 msgid "Scanning: %s..."
@@ -462,16 +487,16 @@ msgid "Done."
 msgstr "Fertig."
 
 msgid "Update vendor list"
-msgstr ""
+msgstr "Aktualisieren Sie die Liste der Lieferanten"
 
 msgid "Check Update Version"
-msgstr ""
+msgstr "Aktuelle Versionsnummer prüfen"
 
 msgid "Unknown"
 msgstr "Unbekannt"
 
 msgid "System Information and Benchmark"
-msgstr ""
+msgstr "Systeminformationen und Benchmark"
 
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
@@ -487,6 +512,18 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"HardInfo2 ist eine freie Software; Sie können sie unter den Bedingungen der "
+"GNU General Public License, veröffentlicht von der Free Software Foundation, "
+"Version 2 oder höher, weiterverbreiten und/oder verändern.\n"
+"\n"
+"Dieses Programm wird in der Hoffnung verbreitet, dass es nützlich ist, "
+"jedoch OHNE JEGLICHE GARANTIE; selbst nicht mit der impliziten Garantie der "
+"Marktgängigkeit oder der Eignung für einen bestimmten Zweck. Weitere "
+"Einzelheiten finden Sie in der GNU General Public License.\n"
+"\n"
+"Sie sollten zusammen mit diesem Programm eine Kopie der GNU General Public "
+"License erhalten haben; falls nicht, wenden Sie sich an die Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
 
 msgid "_Information"
 msgstr "_Informationen"
@@ -495,7 +532,7 @@ msgid "_View"
 msgstr "_Ansicht"
 
 msgid "_Theme"
-msgstr ""
+msgstr "Thema"
 
 msgid "_Help"
 msgstr "_Hilfe"
@@ -504,28 +541,30 @@ msgid "Generate _Report"
 msgstr "_Bericht generieren"
 
 msgid "Generates a report with detailed system information"
-msgstr ""
+msgstr "Erstellt einen Bericht mit detaillierten Systeminformationen"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Synchronisieren"
 
 msgid "Send benchmark results and receive updated data from the network"
 msgstr ""
+"Senden Sie Benchmark-Ergebnisse und erhalten Sie aktualisierte Daten aus dem "
+"Netzwerk"
 
 msgid "Update Available"
-msgstr ""
+msgstr "Update verfügbar"
 
 msgid "_Refresh"
 msgstr "_Aktualisieren"
 
 msgid "HardInfo2 _Web Site"
-msgstr ""
+msgstr "HardInfo2 – Webseite"
 
 msgid "_Help - User Guide"
-msgstr ""
+msgstr "Hilfe – Benutzerhandbuch"
 
 msgid "_Update HardInfo2"
-msgstr ""
+msgstr "_HardInfo2 aktualisieren"
 
 msgid "_Report bug"
 msgstr "Fehler _melden"
@@ -534,7 +573,7 @@ msgid "_About HardInfo2"
 msgstr "_Über HardInfo2"
 
 msgid "Displays program version information"
-msgstr ""
+msgstr "Zeigt die Versionsinformationen des Programms an"
 
 msgid "_Quit"
 msgstr "_Beenden"
@@ -543,34 +582,34 @@ msgid "_Side Pane"
 msgstr "_Seitenleiste"
 
 msgid "Toggles side pane visibility"
-msgstr ""
+msgstr "Schaltet die Sichtbarkeit der Seitenleiste ein oder aus"
 
 msgid "_Toolbar"
 msgstr "_Symbolleiste"
 
 msgid "Synchronize on startup"
-msgstr ""
+msgstr "Beim Start synchronisieren"
 
 msgid "Disable Theme"
-msgstr ""
+msgstr "Design deaktivieren"
 
 msgid "Theme Motherboard"
-msgstr ""
+msgstr "Thema-Motherboard"
 
 msgid "Theme Graffiti"
-msgstr ""
+msgstr "Thema: Graffiti"
 
 msgid "Theme Anime PC"
-msgstr ""
+msgstr "Thema: Anime, PC"
 
 msgid "Theme Tux Star"
-msgstr ""
+msgstr "Thema: Tux Star"
 
 msgid "Theme PixArt"
-msgstr ""
+msgstr "Thema: PixArt"
 
 msgid "Theme Silicon"
-msgstr ""
+msgstr "Thema: Silizium"
 
 msgid "Save File"
 msgstr "Datei speichern"
@@ -594,7 +633,7 @@ msgid "_Open"
 msgstr "_Öffnen"
 
 msgid "Generating report..."
-msgstr "Generiere Bericht…"
+msgstr "Generiere Bericht…."
 
 msgid "Report saved."
 msgstr "Bericht gespeichert."
@@ -622,20 +661,20 @@ msgid "_Generate"
 msgstr "_Generieren"
 
 msgid "Enter text to search, double-click to select all"
-msgstr ""
+msgstr "Geben Sie den Suchtext ein, doppelklicken Sie, um alles auszuwählen"
 
 msgid "Search not available"
-msgstr ""
+msgstr "Suche nicht verfügbar"
 
 msgid "Benchmark"
-msgstr ""
+msgstr "Referenzwert"
 
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""
+msgstr "%s – Systeminformationen und Benchmark"
 
 msgid "Search"
-msgstr ""
+msgstr "Suchen"
 
 #, c-format
 msgid ""
@@ -647,34 +686,41 @@ msgid ""
 "\n"
 "Please fix by installing manually"
 msgstr ""
+"<b>Hardinfo2 wurde nicht korrekt verpackt</b>\n"
+"\n"
+"Fehlende Pakete:\n"
+"\n"
+"%s\n"
+"\n"
+"Bitte beheben Sie dies, indem Sie die Pakete manuell installieren"
 
 msgid "Copy selected row"
-msgstr ""
+msgstr "Ausgewählte Zeile kopieren"
 
 msgid "Copy all rows"
-msgstr ""
+msgstr "Alle Zeilen kopieren"
 
 msgid "Copy all text"
-msgstr ""
+msgstr "Text: Kopieren Sie den gesamten Text"
 
 msgid "Network"
 msgstr "Netzwerk"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Support URL"
-msgstr ""
+msgstr "URL für Support"
 
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #, c-format
 msgid "<b>%s → Summary</b>"
 msgstr "<b>%s → Zusammenfassung</b>"
 
 msgid "Updating..."
-msgstr "Aktualisiere…"
+msgstr "Aktualisiere…."
 
 msgid ""
 "<big><b>Synchronize with Central Database</b></big>\n"
@@ -702,35 +748,35 @@ msgid "Send benchmark results"
 msgstr "Übermittle Benchmark-Ergebnisse"
 
 msgid "User Note "
-msgstr ""
+msgstr "Hinweis für den Benutzer "
 
 msgid "Leave it default/blank or see "
-msgstr ""
+msgstr "Lassen Sie es auf den Standardwert/leer oder siehe "
 
 msgid "User Guide"
-msgstr ""
+msgstr "Benutzerhandbuch"
 
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Datenschutzrichtlinie"
 
 msgid "_Synchronize"
 msgstr "_Synchronisieren"
 
 #, c-format
 msgid "Synchronizing: %s"
-msgstr ""
+msgstr "Synchronisiere: %s"
 
 msgid "CPU Blowfish (Single-thread)"
-msgstr ""
+msgstr "CPU Blowfish (Single-Thread)"
 
 msgid "CPU Blowfish (Multi-thread)"
-msgstr ""
+msgstr "CPU-basierte Blowfish-Verschlüsselung (Multithreading)"
 
 msgid "CPU Blowfish (Multi-core)"
-msgstr ""
+msgstr "CPU-basierte Blowfish-Verschlüsselung (Mehrkernprozessor)"
 
 msgid "CPU Zlib"
-msgstr ""
+msgstr "CPU Zlib"
 
 msgid "CPU CryptoHash"
 msgstr "CPU Crypto-Hash"
@@ -745,58 +791,60 @@ msgid "FPU FFT"
 msgstr "FPU FFT"
 
 msgid "FPU Raytracing (Single-thread)"
-msgstr ""
+msgstr "FPU-Raytracing (Single-Thread)"
 
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "Interne Netzwerkgeschwindigkeit"
 
 msgid "SysBench CPU (Single-thread)"
-msgstr ""
+msgstr "SysBench CPU (Einzelschacht)"
 
 msgid "SysBench CPU (Multi-thread)"
-msgstr ""
+msgstr "SysBench CPU (Mehrfädiger Test)"
 
 msgid "SysBench CPU (Four threads)"
 msgstr "SysBench CPU (Vier threads)"
 
 msgid "SysBench Memory (Single-thread)"
-msgstr ""
+msgstr "SysBench-Speichertest (einzelner Thread)"
 
 msgid "SysBench Memory (Two threads)"
 msgstr "SysBench Memory (Zwei threads)"
 
 msgid "SysBench Memory (Quad threads)"
-msgstr ""
+msgstr "SysBench-Speichertest (vier Threads)"
 
 msgid "SysBench Memory (Multi-thread)"
-msgstr ""
+msgstr "SysBench-Speichertest (Mehrfädiger Modus)"
 
 msgid "GPU Drawing"
 msgstr "GPU Zeichnen"
 
 msgid "GPU OpenGL Drawing"
-msgstr ""
+msgstr "GPU-basierte OpenGL-Grafik"
 
 msgid "GPU OpenGL Drawing2"
-msgstr ""
+msgstr "GPU OpenGL-Rendering"
 
 msgid "GPU Vulkan Drawing"
-msgstr ""
+msgstr "GPU Vulkan-Rendering"
 
 msgid "Storage R/W Speed"
-msgstr ""
+msgstr "Lese-/Schreibgeschwindigkeit des Speichers"
 
 msgid "Cache/Memory"
-msgstr ""
+msgstr "Cache/Speicher"
 
 msgid "Results in events/second. Higher is better."
 msgstr ""
+"Ergebnisse werden in Ereignissen pro Sekunde angegeben. Höhere Werte sind "
+"besser."
 
 msgid "Results in MiB/second. Higher is better."
 msgstr "Ergebnisse in MiB/Sekunde. Höhere Werte sind besser."
 
 msgid "Results in Gbits/s. Higher is better."
-msgstr ""
+msgstr "Ergebnisse in Gbit/s. Höhere Werte sind besser."
 
 msgid "Results in HIMarks. Higher is better."
 msgstr "Ergebnisse in HIMarks. Höhere Werte sind besser."
@@ -805,70 +853,72 @@ msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
+"Ergebnisse in HIMarks. Höhere Werte sind besser.\n"
+"Viele Desktop-Umgebungen verwenden ausschließlich Software."
 
 msgid "Results in MB/s. Higher is better."
-msgstr ""
+msgstr "Ergebnisse in MB/s. Höhere Werte sind besser."
 
 msgid "Results in FPS. Higher is better."
-msgstr ""
+msgstr "Ergebnisse in Bildern pro Sekunde (FPS). Höhere Werte sind besser."
 
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
 msgid "(Unknown)"
-msgstr ""
+msgstr "(Unbekannt)"
 
 msgid "MHz"
-msgstr ""
+msgstr "MHz"
 
 #, c-format
 msgid "%d physical processor"
 msgid_plural "%d physical processors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d physische Prozessoren"
+msgstr[1] "%d physische Prozessoren"
 
 #, c-format
 msgid "%d core"
 msgid_plural "%d cores"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Kerne"
+msgstr[1] "%d Kerne"
 
 #, c-format
 msgid "%d thread"
 msgid_plural "%d threads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Threads"
+msgstr[1] "%d Threads"
 
 #, c-format
 msgid "%d NUMA node"
 msgid_plural "%d NUMA nodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d NUMA-Knoten"
+msgstr[1] "%d NUMA-Knoten"
 
 #. !/NP procs; NC cores across NN nodes; NT threads
 #, c-format
 msgid "%s; %s across %s; %s"
-msgstr ""
+msgstr "%s; %s über %s; %s"
 
 #. !/NP procs; NC cores; NT threads
 #, c-format
 msgid "%s; %s; %s"
-msgstr ""
+msgstr "%s; %s; %s"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "kiB"
-msgstr ""
+msgstr "KiB"
 
 #, c-format
 msgid "%d-bit"
-msgstr ""
+msgstr "%d-Bit"
 
 msgid "Benchmark Result"
 msgstr "Benchmark Ergebnisse"
 
 msgid "Threads"
-msgstr ""
+msgstr "Threads"
 
 msgid "Elapsed Time"
 msgstr "Vergangene Zeit"
@@ -877,7 +927,7 @@ msgid "seconds"
 msgstr "Sekunden"
 
 msgid "Revision"
-msgstr ""
+msgstr "Überarbeitung"
 
 msgid "Extra Information"
 msgstr "Zusätzliche Information"
@@ -889,18 +939,21 @@ msgid ""
 "This result is from an old version of HardInfo. Results might not be "
 "comparable to current version. Some details are missing."
 msgstr ""
+"Dieses Ergebnis stammt aus einer älteren Version von HardInfo. Die "
+"Ergebnisse sind möglicherweise nicht mit der aktuellen Version vergleichbar. "
+"Einige Details fehlen."
 
 msgid "Machine"
 msgstr "Maschine"
 
 msgid "Board"
-msgstr ""
+msgstr "Brett"
 
 msgid "Machine Type"
 msgstr "Maschinen-Typ"
 
 msgid "CPU Name"
-msgstr ""
+msgstr "CPU-Name"
 
 msgid "CPU Description"
 msgstr "CPU Beschreibung"
@@ -912,7 +965,7 @@ msgid "Threads Available"
 msgstr "Threads verfügbar"
 
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 msgid "OpenGL Renderer"
 msgstr "OpenGL-Renderer"
@@ -924,37 +977,37 @@ msgid "Memory"
 msgstr "Hauptspeicher"
 
 msgid "Pointer Size"
-msgstr ""
+msgstr "Zeigergröße"
 
 msgid "Result"
 msgstr "Ergebnis"
 
 msgid "Linux Kernel"
-msgstr ""
+msgstr "Linux-Kernel"
 
 msgid "Linux OS"
-msgstr ""
+msgstr "Linux-Betriebssystem"
 
 msgid "Physical Memory"
-msgstr ""
+msgstr "Physischer Speicher"
 
 msgid "Handles"
-msgstr ""
+msgstr "Griffe"
 
 msgid "mid"
-msgstr ""
+msgstr "Mitte"
 
 msgid "cfg_val"
-msgstr ""
+msgstr "cfg_Wert"
 
 msgid "This Machine"
-msgstr ""
+msgstr "Diese Maschine"
 
 msgid "Results"
 msgstr "Ergebnisse"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #, c-format
 msgid "Benchmarking: <b>%s</b>."
@@ -962,15 +1015,15 @@ msgstr "Benchmarke: <b>%s</b>."
 
 #, c-format
 msgid "Benchmarking: %s"
-msgstr ""
+msgstr "Benchmarking: %s"
 
 msgid "Stop"
-msgstr ""
+msgstr "Stopp"
 
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
-msgstr ""
+msgstr "Bitte bewegen Sie Ihre Maus nicht und drücken Sie keine Tasten."
 
 msgid "Benchmarks"
 msgstr "Benchmarks"
@@ -1028,7 +1081,7 @@ msgstr "Gruppen"
 
 #, c-format
 msgid "%dMB (%dMB used, %dMB compressed)"
-msgstr ""
+msgstr "%d MB (%d MB belegt, %d MB komprimiert)"
 
 #, c-format
 msgid "%dMB (%dMB used)"
@@ -1047,22 +1100,22 @@ msgid "Scripting Languages"
 msgstr "Script-Sprachen"
 
 msgid "Gambas3 (gbr3)"
-msgstr ""
+msgstr "Gambas3 (gbr3)"
 
 msgid "Python (default)"
 msgstr "Python (Voreinstellung)"
 
 msgid "Python2"
-msgstr ""
+msgstr "Python 2"
 
 msgid "Python3"
-msgstr ""
+msgstr "Python 3"
 
 msgid "Perl"
 msgstr "Perl"
 
 msgid "Rakudo (Perl6)"
-msgstr ""
+msgstr "Rakudo (Perl 6)"
 
 msgid "PHP"
 msgstr "PHP"
@@ -1074,10 +1127,10 @@ msgid "Bash"
 msgstr "Bash"
 
 msgid "JavaScript (Node.js)"
-msgstr ""
+msgstr "JavaScript (Node.js)"
 
 msgid "awk"
-msgstr ""
+msgstr "awk"
 
 msgid "Compilers"
 msgstr "Compiler"
@@ -1092,13 +1145,13 @@ msgid "D (dmd)"
 msgstr "D (dmd)"
 
 msgid "Gambas3 (gbc3)"
-msgstr ""
+msgstr "Gambas3 (gbc3)"
 
 msgid "Java"
 msgstr "Java"
 
 msgid ".NET"
-msgstr ""
+msgstr ".NET"
 
 msgid "Vala"
 msgstr "Vala"
@@ -1110,10 +1163,10 @@ msgid "FreePascal"
 msgstr "FreePascal"
 
 msgid "Go"
-msgstr ""
+msgstr "Geh"
 
 msgid "Rust"
-msgstr ""
+msgstr "Rost"
 
 msgid "Tools"
 msgstr "Werkzeuge"
@@ -1122,13 +1175,13 @@ msgid "make"
 msgstr "make"
 
 msgid "ninja"
-msgstr ""
+msgstr "Ninja"
 
 msgid "GDB"
 msgstr "GDB"
 
 msgid "LLDB"
-msgstr ""
+msgstr "LLDB"
 
 msgid "strace"
 msgstr "strace"
@@ -1140,19 +1193,19 @@ msgid "QMake"
 msgstr "QMake"
 
 msgid "CMake"
-msgstr ""
+msgstr "CMake"
 
 msgid "Gambas3 IDE"
-msgstr ""
+msgstr "Gambas3-IDE"
 
 msgid "Radare2"
-msgstr ""
+msgstr "Radare2"
 
 msgid "ltrace"
-msgstr ""
+msgstr "ltrace"
 
 msgid "Powershell"
-msgstr ""
+msgstr "PowerShell"
 
 msgid "Not found"
 msgstr "Nicht gefunden"
@@ -1161,10 +1214,10 @@ msgid "Program"
 msgstr "Programm"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 msgid "Field"
-msgstr ""
+msgstr "Feld"
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -1185,10 +1238,10 @@ msgid "Virtual (QEMU)"
 msgstr "Virtuell (QEMU)"
 
 msgid "Virtual (WSL2)"
-msgstr ""
+msgstr "Virtuell (WSL2)"
 
 msgid "Single-board computer"
-msgstr ""
+msgstr "Einplatinencomputer"
 
 msgid "Unknown physical machine type"
 msgstr "Unbekannter physischer Maschinentyp"
@@ -1207,7 +1260,7 @@ msgid "%dx%d pixels"
 msgstr "%dx%d Pixel"
 
 msgid "Display Adapter"
-msgstr ""
+msgstr "Grafikkarte"
 
 msgid "Session Display Server"
 msgstr "Sitzungsanzeigeserver"
@@ -1216,7 +1269,7 @@ msgid "Input Devices"
 msgstr "Eingabegeräte"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Kern"
 
 msgid "Command Line"
 msgstr "Befehlszeile"
@@ -1225,7 +1278,7 @@ msgid "C Library"
 msgstr "C-Library"
 
 msgid "Distribution"
-msgstr ""
+msgstr "Verteilung"
 
 msgid "Current Session"
 msgstr "Aktuelle Sitzung"
@@ -1246,34 +1299,34 @@ msgid "Misc"
 msgstr "Verschiedenes"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "Speicherkomprimierung (ZRam)"
 
 msgid "Compression"
-msgstr ""
+msgstr "Kompression"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Kompressionsverhältnis"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "Festplattengröße"
 
 msgid "Data Size"
 msgstr "Datengröße"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "Komprimierte Größe"
 
 msgid "Total Size"
-msgstr ""
+msgstr "Gesamtgröße"
 
 msgid "Memory Compression (ZSwap)"
-msgstr ""
+msgstr "Speicherkomprimierung (ZSwap)"
 
 msgid "Shrinker Enabled"
-msgstr ""
+msgstr "Shrinker aktiviert"
 
 msgid "Yes"
 msgstr "Ja"
@@ -1282,58 +1335,58 @@ msgid "No"
 msgstr "Nein"
 
 msgid "Maximum Pool Percent"
-msgstr ""
+msgstr "Maximaler Pool-Prozentsatz"
 
 msgid "Accept Threshold Percent"
-msgstr ""
+msgstr "Akzeptanzschwellenwert (in Prozent)"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "Speicherkomprimierung (ZSwap/ZRam)"
 
 msgid "Disabled"
 msgstr "Deaktiviert"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "belongs to distro and may be reg. trademark"
-msgstr ""
+msgstr "gehört zur Distribution und kann eine eingetragene Marke sein"
 
 msgid "Root Only System"
-msgstr ""
+msgstr "Nur Root-Zugriff erlaubt"
 
 msgid "Single User System"
-msgstr ""
+msgstr "Einzelbenutzersystem"
 
 msgid "Multi User System"
-msgstr ""
+msgstr "Mehrbenutzersystem"
 
 msgid "HardInfo2"
-msgstr ""
+msgstr "HardInfo2"
 
 msgid "HardInfo2 running as"
 msgstr "HardInfo2 läuft als"
 
 msgid "Superuser"
-msgstr ""
+msgstr "Superuser"
 
 msgid "User"
 msgstr "Benutzer"
 
 msgid "User System Type"
-msgstr ""
+msgstr "Benutzersystemtyp"
 
 msgid "Hardinfo2 Service not enabled/started"
-msgstr ""
+msgstr "Hardinfo2-Dienst ist nicht aktiviert/gestartet"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "Linux-Startvorgang"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "Status der sicheren Startfunktion"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "Boot-Zertifikate"
 
 msgid "Health"
 msgstr "Gesundheit"
@@ -1345,10 +1398,10 @@ msgid "Hardening Features"
 msgstr "Härtungsmerkmale"
 
 msgid "ASLR"
-msgstr ""
+msgstr "ASLR"
 
 msgid "dmesg"
-msgstr ""
+msgstr "dmesg"
 
 msgid "Linux Security Modules"
 msgstr "Linux Sicherheitsmodule"
@@ -1357,10 +1410,10 @@ msgid "Modules available"
 msgstr "Module verfügbar"
 
 msgid "SELinux status"
-msgstr ""
+msgstr "SELinux-Status"
 
 msgid "Landlock ABI version"
-msgstr ""
+msgstr "Landlock ABI-Version"
 
 msgid "CPU Vulnerabilities"
 msgstr "CPU Schwachstellen"
@@ -1378,7 +1431,7 @@ msgid "Kernel Version"
 msgstr "Kernel-Version"
 
 msgid "Available Languages"
-msgstr ""
+msgstr "Verfügbare Sprachen"
 
 msgid "Language Code"
 msgstr "Sprach-Code"
@@ -1402,13 +1455,13 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "Wayland"
-msgstr ""
+msgstr "Wayland"
 
 msgid "Current Display Name"
 msgstr "Derzeitiger Display-Name"
 
 msgid "X Server"
-msgstr ""
+msgstr "X-Server"
 
 msgid "Vendor"
 msgstr "Hersteller"
@@ -1430,16 +1483,16 @@ msgstr "Unbenutzt"
 
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
-msgstr ""
+msgstr "%dx%d Pixel, Versatz (%d, %d)"
 
 msgid "Outputs (XRandR)"
-msgstr ""
+msgstr "Ausgabe (XRandR)"
 
 msgid "OpenGL (GLX)"
-msgstr ""
+msgstr "OpenGL (GLX)"
 
 msgid "Renderer"
-msgstr ""
+msgstr "Renderer"
 
 msgid "Direct Rendering"
 msgstr "Direct-Rendering"
@@ -1457,43 +1510,43 @@ msgid "Shading Language Version (Core)"
 msgstr "Shading-Sprachversion (Kern)"
 
 msgid "Version (ES)"
-msgstr ""
+msgstr "Version (Spanisch)"
 
 msgid "Shading Language Version (ES)"
 msgstr "Shading-Sprachversion (ES)"
 
 msgid "GLX Version"
-msgstr ""
+msgstr "GLX-Version"
 
 msgid "Vulkan"
-msgstr ""
+msgstr "Vulkan"
 
 msgid "Instance Version"
-msgstr ""
+msgstr "Instanzversion"
 
 msgid "Api Version"
-msgstr ""
+msgstr "API-Version"
 
 msgid "Driver Version"
-msgstr ""
+msgstr "Treiberversion"
 
 msgid "Device Type"
-msgstr ""
+msgstr "Gerätetyp"
 
 msgid "Device Name"
-msgstr ""
+msgstr "Gerätename"
 
 msgid "Driver Name"
-msgstr ""
+msgstr "Fahrername"
 
 msgid "Driver Info"
-msgstr ""
+msgstr "Fahrerinformationen"
 
 msgid "Conformance Version"
-msgstr ""
+msgstr "Konforme Version"
 
 msgid "Login"
-msgstr ""
+msgstr "Anmelden"
 
 msgid "User ID"
 msgstr "Benutzer-ID"
@@ -1509,13 +1562,13 @@ msgid "%0.1f %s available to Linux"
 msgstr "%0.1f %s verfügbar bei Linux"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Motherboard"
-msgstr ""
+msgstr "Hauptplatine"
 
 msgid "Graphics"
 msgstr "Grafik"
@@ -1524,29 +1577,35 @@ msgid "Printers"
 msgstr "Drucker"
 
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 msgid "Gathers high-level computer information"
 msgstr "Sammelt high-level Computer-Informationen"
 
 msgid "<i><b>lsmod</b></i> is required."
-msgstr ""
+msgstr "<i><b>lsmod</b></i> ist erforderlich."
 
 msgid ""
 "X.org's <i><b>xrandr</b></i> utility provides additional details when "
 "available."
 msgstr ""
+"Das Dienstprogramm <i><b>xrandr</b></i> von X.org liefert bei Bedarf "
+"zusätzliche Informationen."
 
 msgid ""
 "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr ""
+"Für OpenGL-Informationen ist das Dienstprogramm <i><b>glxinfo</b></i> von "
+"Mesa erforderlich."
 
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
+"Für die Anzeige von Vulkan-Informationen ist das Dienstprogramm "
+"<i><b>vulkaninfo</b></i> von Vulkan erforderlich."
 
 msgid "Variable"
-msgstr ""
+msgstr "Variable"
 
 msgid "Filesystem"
 msgstr "Dateisystem"
@@ -1570,16 +1629,16 @@ msgid "Available"
 msgstr "Verfügbar"
 
 msgid "None"
-msgstr ""
+msgstr "Keiner"
 
 msgid "Group Information"
-msgstr ""
+msgstr "Gruppeninformationen"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Gruppenname"
 
 msgid "Members"
-msgstr ""
+msgstr "Mitglieder"
 
 msgid "Locale Information"
 msgstr "Lokale Information"
@@ -1591,7 +1650,7 @@ msgid "Address"
 msgstr "Adresse"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-Mail"
 
 msgid "Territory"
 msgstr "Gebiet"
@@ -1600,196 +1659,250 @@ msgid "Date"
 msgstr "Datum"
 
 msgid "Codeset"
-msgstr ""
+msgstr "Zeichensatz"
 
 msgid "Couldn't obtain load average"
 msgstr "Konnte Durchschnittsbelastung nicht abrufen"
 
 msgid "Total physical memory usable by the system"
-msgstr ""
+msgstr "Gesamter physischer Speicher, der vom System genutzt werden kann"
 
 msgid "Free memory which is not used for anything"
-msgstr ""
+msgstr "Freier Speicher, der für nichts verwendet wird"
 
 msgid "Virtual memory, total swap space available"
-msgstr ""
+msgstr "Virtueller Speicher, insgesamt verfügbarer Swap-Speicher"
 
 msgid "Virtual memory, remaining swap space available"
-msgstr ""
+msgstr "Virtueller Speicher, verbleibender verfügbarer Swap-Speicher"
 
 msgid "Memory present within main memory and in the swapfile"
 msgstr ""
+"Der Speicher befindet sich sowohl im Hauptspeicher als auch in der "
+"Auslagerungsdatei"
 
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "Der Gesamtwert kann je nach verwendetem Kernel-Typ variieren"
 
 msgid "Amount of memory that is not directly mapped into kernel space"
 msgstr ""
+"Menge des Speichers, der nicht direkt dem Kernel-Speicherbereich zugeordnet "
+"ist"
 
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "Der Wert „LowTotal“ kann je nach verwendetem Kernel-Typ variieren"
 
 msgid "Total and free memory directly mapped into kernel space"
 msgstr ""
+"Gesamter und freier Speicher werden direkt dem Kernel-Speicherbereich "
+"zugeordnet"
 
 msgid "Available memory for allocation to any process, without swapping"
 msgstr ""
+"Verfügbarer Speicher, der jedem Prozess ohne Auslagerung zugewiesen werden "
+"kann"
 
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
 msgstr ""
+"Speicher im Puffer-Cache, temporärer Speicher für rohe Festplattenblöcke"
 
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
 msgstr ""
+"Speicher im Seiten-Cache (Festplattencache, gemeinsamer Speicher, tmpfs und "
+"shmem)"
 
 msgid "Memory used more recently and not swapped out or reclaimed"
 msgstr ""
+"Speicher, der kürzlich verwendet wurde und nicht ausgelagert oder "
+"freigegeben wurde"
 
 msgid "Memory not been used recently and can be swapped out or reclaimed"
 msgstr ""
+"Der Speicher wurde in letzter Zeit nicht verwendet und kann ausgetauscht "
+"oder freigegeben werden"
 
 msgid "Anonymous memory used more recently and not swapped out"
 msgstr ""
+"Anonymisierter Speicher wurde kürzlich verwendet und wurde nicht ausgelagert"
 
 msgid "Anonymous memory not been used and can be swapped out"
-msgstr ""
+msgstr "Anonymer Speicher wird nicht verwendet und kann ausgetauscht werden"
 
 msgid "Pagecache memory been used more recently and not reclaimed"
 msgstr ""
+"Der Speicher für den Seiten-Cache wurde kürzlich verwendet und ist noch "
+"nicht freigegeben"
 
 msgid "Pagecache memory reclaimable without huge performance impact"
 msgstr ""
+"Der im Pagecache belegte Speicher kann freigegeben werden, ohne die Leistung "
+"wesentlich zu beeinträchtigen"
 
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
 msgstr ""
+"Seiten, die nicht aus dem Speicher entfernt werden können, können aus "
+"verschiedenen Gründen nicht ausgetauscht werden"
 
 msgid "Pages locked to memory using the mlock() system call"
-msgstr ""
+msgstr "Seiten werden mithilfe des Systemaufrufs `mlock()` im Speicher fixiert"
 
 msgid "Memory consumed by the zswap backend (compressed size)"
-msgstr ""
+msgstr "Speicher, der vom zswap-Backend belegt wird (komprimierte Größe)"
 
 msgid "Amount of anonymous memory stored in zswap (original size)"
 msgstr ""
+"Menge des anonymen Speichers, der in zswap gespeichert ist (ursprüngliche "
+"Größe)"
 
 msgid "Memory waiting to be written back to disk"
-msgstr ""
+msgstr "Speicher, der darauf wartet, auf die Festplatte geschrieben zu werden"
 
 msgid "Memory which is actively being written back to disk"
 msgstr ""
+"Speicher, in den gerade Daten geschrieben werden, die anschließend auf die "
+"Festplatte übertragen werden"
 
 msgid "Non-file backed pages mapped into userspace page tables"
 msgstr ""
+"Nicht-dateibasierte Seiten, die in die Seitentabellen des Benutzerspeichers "
+"abgebildet werden"
 
 msgid "Files which have been mmapped, such as libraries"
-msgstr ""
+msgstr "Dateien, die mit mmap verknüpft wurden, wie z. B. Bibliotheken"
 
 msgid "Total memory used by shared memory (shmem) and tmpfs"
 msgstr ""
+"Gesamter Speicher, der von gemeinsam genutztem Speicher (shmem) und tmpfs "
+"verwendet wird"
 
 msgid "Kernel allocations reclaimable under memory pressure"
 msgstr ""
+"Kernel-Speicherbereiche, die bei Speicherknappheit freigegeben werden können"
 
 msgid "In-kernel data structures cache"
-msgstr ""
+msgstr "Zwischenspeichern von Datenstrukturen im Kernel"
 
 msgid "Part of Slab, that might be reclaimed, such as caches"
 msgstr ""
+"Teil einer Platte, das möglicherweise wiederverwendet werden kann, z. B. "
+"Caches"
 
 msgid "Part of Slab, that cannot be reclaimed on memory pressure"
 msgstr ""
+"Ein Teil des Speicherbereichs, der bei hoher Speicherauslastung nicht "
+"freigegeben werden kann"
 
 msgid "Memory consumed by the kernel stacks of all tasks"
-msgstr ""
+msgstr "Speicher, der von den Kernel-Stacks aller Aufgaben belegt wird"
 
 msgid "Memory consumed by userspace page tables"
-msgstr ""
+msgstr "Speicher, der von den Seitentabellen des Benutzermodus belegt wird"
 
 msgid "Memory consumed by secondary page tables"
-msgstr ""
+msgstr "Speicher, der von sekundären Seitentabellen belegt wird"
 
 msgid "Previous counted pages which had been written to the server"
-msgstr ""
+msgstr "Bisher gezählte Seiten, die bereits auf den Server hochgeladen wurden"
 
 msgid "Memory used for block device bounce buffers"
-msgstr ""
+msgstr "Speicher, der für Bounce-Puffer von Blockgeräten verwendet wird"
 
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr ""
+msgstr "Speicher, der von FUSE für temporäre Schreibpuffer verwendet wird"
 
 msgid "Total memory currently available to be allocated on the system"
 msgstr ""
+"Gesamter aktuell verfügbarer Speicher, der dem System zugewiesen werden kann"
 
 msgid "The amount of memory presently allocated on the system"
-msgstr ""
+msgstr "Die aktuell auf dem System zugewiesene Speichermenge"
 
 msgid "Total size of vmalloc virtual address space"
-msgstr ""
+msgstr "Gesamtgröße des virtuellen Adressraums von vmalloc"
 
 msgid "Amount of vmalloc area which is used"
 msgstr ""
+"Anzahl der für vmalloc reservierten Speicherbereiche, die verwendet werden"
 
 msgid "Largest contiguous block of vmalloc area which is free"
 msgstr ""
+"Größter zusammenhängender Speicherbereich im vmalloc-Bereich, der frei ist"
 
 msgid "Memory allocated to the percpu allocator"
-msgstr ""
+msgstr "Speicher, der dem Per-CPU-Allokator zugewiesen wurde"
 
 msgid "Amount of memory the kernel identifies as corrupted"
-msgstr ""
+msgstr "Menge des Speichers, den der Kernel als beschädigt identifiziert"
 
 msgid "Non-file backed huge pages mapped into userspace page tables"
 msgstr ""
+"Nicht dateibezogene, riesige Speicherseiten, die in die Seitentabellen des "
+"Benutzerspeichers abgebildet werden"
 
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
 msgstr ""
+"Speichernutzung durch shmem und tmpfs, die mit großen Speicherseiten "
+"zugewiesen wurden"
 
 msgid "Shared memory mapped into userspace with huge pages"
 msgstr ""
+"Gemeinsamer Speicher, der mit großen Speicherseiten in den "
+"Benutzerspeicherbereich abgebildet wird"
 
 msgid "Memory used for fs data (page cache) allocated with huge pages"
 msgstr ""
+"Speicher, der für Dateisystemdaten (Page Cache) verwendet wird und mit "
+"großen Speicherseiten zugewiesen wurde"
 
 msgid "Page cache mapped into userspace with huge pages"
 msgstr ""
+"Der Seitencache wird mit großen Seiten in den Benutzerspeicherbereich "
+"abgebildet"
 
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
 msgstr ""
+"Speicher, der für den zusammenhängenden Speicher-Allocator (CMA) reserviert "
+"ist"
 
 msgid "Free remaining memory in the CMA reserves"
-msgstr ""
+msgstr "Freigeben des verbleibenden Speichers in den CMA-Reserven"
 
 msgid "Amount of unaccepted memory usable by the kernel"
 msgstr ""
+"Menge des nicht zugewiesenen Speichers, der vom Kernel genutzt werden kann"
 
 msgid "Size of the pool of huge pages"
-msgstr ""
+msgstr "Größe des Bereichs für große Speicherseiten"
 
 msgid "Number of huge pages available"
-msgstr ""
+msgstr "Anzahl der verfügbaren großen Seiten"
 
 msgid "Number of huge pages reserved"
-msgstr ""
+msgstr "Anzahl der reservierten großen Speicherseiten"
 
 msgid "Number of huge pages surplus"
-msgstr ""
+msgstr "Anzahl der überschüssigen großen Seiten"
 
 msgid "Huge page size, used in conjunction with hugepages parameter"
 msgstr ""
+"Sehr große Seitengröße, die in Verbindung mit dem Parameter „hugepages“ "
+"verwendet wird"
 
 msgid "Total amount of memory consumed by huge pages of all sizes"
 msgstr ""
+"Gesamte Speichermenge, die von großen Speicherseiten aller Größen belegt wird"
 
 msgid "Breakdown of page table sizes of 4k size"
-msgstr ""
+msgstr "Aufschlüsselung der Größen von Seitentabellen mit einer Größe von 4 KB"
 
 msgid "Breakdown of page table sizes of 2M size"
-msgstr ""
+msgstr "Aufschlüsselung der Seitentabellengrößen bei einer Größe von 2 MB"
 
 msgid "Breakdown of page table sizes of 1G size"
-msgstr ""
+msgstr "Aufschlüsselung der Seitentabellengrößen bei einer Größe von 1 GB"
 
 msgid "Update kernel module icon table"
-msgstr ""
+msgstr "Aktualisiere die Tabelle der Symbole für Kernelmodule"
 
 msgid "(Not available)"
 msgstr "(Nicht verfübar)"
@@ -1804,10 +1917,10 @@ msgid "Used Memory"
 msgstr "Benutzter Speicher"
 
 msgid "Version Magic"
-msgstr ""
+msgstr "Version Magic"
 
 msgid "In Linus' Tree"
-msgstr ""
+msgstr "In Linus' Baum"
 
 msgid "Retpoline Enabled"
 msgstr "Retpoline aktiviert"
@@ -1825,25 +1938,25 @@ msgid "Dependencies"
 msgstr "Abhängigkeiten"
 
 msgid "GNU C Library"
-msgstr ""
+msgstr "GNU C-Bibliothek"
 
 msgid "musl C Library"
-msgstr ""
+msgstr "musl C-Bibliothek"
 
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc oder uClibc-ng"
 
 msgid "diet libc"
-msgstr ""
+msgstr "diet libc"
 
 msgid "GNOME Shell "
-msgstr ""
+msgstr "GNOME-Oberfläche "
 
 msgid "Version: "
-msgstr ""
+msgstr "Version: "
 
 msgid "MATE Desktop Environment "
-msgstr ""
+msgstr "MATE-Desktopumgebung "
 
 #, c-format
 msgid "Unknown (Window Manager: %s)"
@@ -1855,7 +1968,7 @@ msgid "%s on %s"
 msgstr "%s auf %s"
 
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 msgid "User access allowed"
 msgstr "Benutzerzugriff erlaubt"
@@ -1887,7 +2000,7 @@ msgstr "%d bits (klein)"
 #. !/bits of entropy for rng (medium value)
 #, c-format
 msgid "%d bits (medium)"
-msgstr ""
+msgstr "%d Bits (mittel)"
 
 #. !/bits of entropy for rng (high/good value)
 #, c-format
@@ -1901,29 +2014,29 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Not built with Landlock support"
-msgstr ""
+msgstr "Nicht mit Landlock-Unterstützung erstellt"
 
 #, c-format
 msgid "Version %d"
-msgstr ""
+msgstr "Version %d"
 
 msgid "User Information"
 msgstr "Benutzerinformation"
 
 msgid "Default Shell"
-msgstr ""
+msgstr "Standardshell"
 
 msgid "Model"
 msgstr "Modell"
 
 msgid "Platform String"
-msgstr ""
+msgstr "Plattform-String"
 
 msgid "Frequency"
 msgstr "Taktfrequenz"
 
 msgid "BogoMips"
-msgstr ""
+msgstr "BogoMips"
 
 msgid "Byte Order"
 msgstr "Byte-Reihenfolge"
@@ -1931,7 +2044,7 @@ msgstr "Byte-Reihenfolge"
 #. !/flag:swp
 msgctxt "arm-flag"
 msgid "SWP instruction (atomic read-modify-write)"
-msgstr ""
+msgstr "SWP-Befehl (atomisches Lesen-Ändern-Schreiben)"
 
 #. !/flag:half
 msgctxt "arm-flag"
@@ -1941,7 +2054,7 @@ msgstr "Halbwörter-Ladung und Lagerung"
 #. !/flag:thumb
 msgctxt "arm-flag"
 msgid "Thumb (16-bit instruction set)"
-msgstr ""
+msgstr "Thumb (16-Bit-Befehlssatz)"
 
 #. !/flag:26bit
 msgctxt "arm-flag"
@@ -1962,12 +2075,14 @@ msgstr "Floating point Beschleuniger"
 #. !/flag:vfp
 msgctxt "arm-flag"
 msgid "VFP (early SIMD vector floating point instructions)"
-msgstr ""
+msgstr "VFP (frühe SIMD-Befehle für Vektor-Gleitkommaoperationen)"
 
 #. !/flag:edsp
 msgctxt "arm-flag"
 msgid "DSP extensions (the 'e' variant of the ARM9 CPUs, and all others above)"
 msgstr ""
+"DSP-Erweiterungen (die „e“-Variante der ARM9-Prozessoren und alle neueren "
+"Modelle)"
 
 #. !/flag:java
 msgctxt "arm-flag"
@@ -1987,7 +2102,7 @@ msgstr "MaverickCrunch coprocessor (falls kernel Unterstützung aktiviert)"
 #. !/flag:thumbee
 msgctxt "arm-flag"
 msgid "ThumbEE"
-msgstr ""
+msgstr "ThumbEE"
 
 #. !/flag:neon
 msgctxt "arm-flag"
@@ -2002,7 +2117,7 @@ msgstr "Kernel event stream benutzt generischen architektonischen timer"
 #. !/flag:vfpv3
 msgctxt "arm-flag"
 msgid "VFP version 3"
-msgstr ""
+msgstr "VFP-Version 3"
 
 #. !/flag:vfpv3d16
 msgctxt "arm-flag"
@@ -2037,27 +2152,27 @@ msgstr "SDIV und UDIV hardware Teilung in Thumb mode"
 #. !/flag:lpae
 msgctxt "arm-flag"
 msgid "40-bit Large Physical Address Extension"
-msgstr ""
+msgstr "40-Bit-Erweiterung des physischen Adressraums"
 
 #. !/flag:pmull
 msgctxt "arm-flag"
 msgid "64x64->128-bit F2m multiplication (arch>=8)"
-msgstr ""
+msgstr "64x64 -> 128-Bit-F2m-Multiplikation (Architektur >= 8)"
 
 #. !/flag:aes
 msgctxt "arm-flag"
 msgid "Crypto:AES (arch>=8)"
-msgstr ""
+msgstr "Kryptografie: AES (Architektur >= 8)"
 
 #. !/flag:sha1
 msgctxt "arm-flag"
 msgid "Crypto:SHA1 (arch>=8)"
-msgstr ""
+msgstr "Kryptografie: SHA1 (Architektur >= 8)"
 
 #. !/flag:sha2
 msgctxt "arm-flag"
 msgid "Crypto:SHA2 (arch>=8)"
-msgstr ""
+msgstr "Kryptografie: SHA2 (Architektur >= 8)"
 
 #. !/flag:crc32
 msgctxt "arm-flag"
@@ -2067,7 +2182,7 @@ msgstr "CRC32 checksum Anweisungen (arch>=8)"
 #. !/flag:fp
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Gleitkommaarithmetik auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:asimd
 msgctxt "arm-flag"
@@ -2077,91 +2192,98 @@ msgstr "Erweitertes SIMD/NEON auf AArch64 (arch>=8)"
 #. !/flag:atomics
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Atomare Befehle auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:fphp
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Halbgenaue Gleitkommazahlen auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:asimdhp
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
 msgstr ""
+"Erweiterte SIMD-Funktionen mit BFloat16 auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:cpuid
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
 msgstr ""
+"Die CPU-Funktionen können auf AArch64 (Architekturversion >= 8) ausgelesen "
+"werden"
 
 #. !/flag:asimdrdm
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
 msgstr ""
+"Erweiterte SIMD-Rundung für doppelte Multiplikations- und "
+"Akkumulationsoperationen auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:jscvt
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Konvertierung von JacaScript für AArch64 (Architekturversion >= 8)"
 
 #. !/flag:fcma
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Komplexe Zahlen und SIMD auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:lrcpc
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Schwache Speicherreihenfolge bei AArch64 (Architekturversion >= 8)"
 
 #. !/flag:dcpop
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
 msgstr ""
+"Daten-Cache bereinigen, um die Datenkonsistenz auf AArch64 "
+"(Architekturversion >= 8) sicherzustellen"
 
 #. !/flag:sha3
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SHA-3-Befehle auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:sm3
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SM3-Befehle auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:sm4
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SM4-Befehle auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:asimddp
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SIMD-Punktprodukt auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:sha512
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SHA512-Befehle auf AArch64 (Architekturversion >= 8)"
 
 #. !/flag:sve
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Skalierbare Vektor-Erweiterung für AArch64 (Architekturversion >= 8)"
 
 msgid "Cache information not available=\n"
-msgstr ""
+msgstr "Cache-Informationen nicht verfügbar\n"
 
 #, c-format
 msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
-msgstr ""
+msgstr "Ebene %d (%s) = %d-fach assoziativer Satz, %d Sätze, Größe %d KB\n"
 
 msgid "Caches"
-msgstr ""
+msgstr "Zwischenspeicher"
 
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr ""
+msgstr "Ebene %d (%s)#%d=%dx %d KB (%d KB), %d-fach assoziativ, %d Sätze\n"
 
 msgid "ARM Processor"
 msgstr "ARM Prozessor"
@@ -2170,14 +2292,14 @@ msgid "Empty List"
 msgstr "Leere Liste"
 
 msgid "Clocks"
-msgstr ""
+msgstr "Uhren"
 
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
-msgstr ""
+msgstr "%.2f-%.2f %s=%dx\n"
 
 msgid "Linux Name"
-msgstr ""
+msgstr "Linux-Name"
 
 msgid "Decoded Name"
 msgstr "Dekodierter Name"
@@ -2186,13 +2308,13 @@ msgid "Mode"
 msgstr "Modus"
 
 msgid "ARM"
-msgstr ""
+msgstr "ARM"
 
 msgid "Implementer"
 msgstr "Implementierer"
 
 msgid "Part"
-msgstr ""
+msgstr "Teil"
 
 msgid "Architecture"
 msgstr "Architektur"
@@ -2204,13 +2326,13 @@ msgid "Capabilities"
 msgstr "Fähigkeiten"
 
 msgid "SOC/Package"
-msgstr ""
+msgstr "SoC/Gehäuse"
 
 msgid "Logical CPU Config"
 msgstr "Logische CPU Konfiguration"
 
 msgid "Socket:Core"
-msgstr ""
+msgstr "Sockel: Kern"
 
 #, c-format
 msgid ""
@@ -2241,6 +2363,12 @@ msgid ""
 "Voltage now=%.3f V\n"
 "Voltage max design=%.3f V\n"
 msgstr ""
+"\n"
+"[AC-Stromversorgung: %s]\n"
+"Online=%s\n"
+"AC-Stromversorgungstyp=%s\n"
+"Aktuelle Spannung=%.3f V\n"
+"Maximale Nennspannung=%.3f V\n"
 
 #, c-format
 msgid ""
@@ -2249,6 +2377,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[AC-Stromversorgung: %s]\n"
+"Online=%s\n"
+"AC-Stromversorgungstyp=%s\n"
 
 #, c-format
 msgid ""
@@ -2269,8 +2401,24 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[Akku: %s]\n"
+"Zustand=%s\n"
+"Kapazität=%s %% / %s\n"
+"Akkuleistung=%.0f W\n"
+"Verbleibende Zeit=%02dh %02dm\n"
+"Akkuzustand=%.0f %%\n"
+"Nennenergie=%.3f Wh\n"
+"Aktuelle Energie=%.3f Wh\n"
+"Nennkapazität=%.3f Ah\n"
+"Aktuelle Kapazität=%.3f Ah\n"
+"Nennspannung=%.3f V\n"
+"Akkutechnologie=%s\n"
+"Hersteller=%s\n"
+"Modellnummer=%s\n"
+"Seriennummer=%s\n"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "[Battery (APM)]\n"
@@ -2288,7 +2436,7 @@ msgstr ""
 "APM Driver-Version=%s\n"
 "APM BIOS-Version=%s\n"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "[Battery (APM)]\n"
@@ -2324,7 +2472,7 @@ msgid "USB Devices"
 msgstr "USB-Geräte"
 
 msgid "Firmware"
-msgstr ""
+msgstr "Firmware"
 
 msgid "Battery"
 msgstr "Akku"
@@ -2333,31 +2481,31 @@ msgid "Sensors"
 msgstr "Sensoren"
 
 msgid "System DMI"
-msgstr ""
+msgstr "System-DMI"
 
 msgid "Memory Devices"
 msgstr "Speichergeräte"
 
 msgid "Device Tree"
-msgstr ""
+msgstr "Gerätebaum"
 
 msgid "Resources"
 msgstr "Ressourcen"
 
 msgid "Released"
-msgstr ""
+msgstr "Erschienen"
 
 msgid "Release Date"
-msgstr ""
+msgstr "Erscheinungsdatum"
 
 msgid "Distro and CPU Supported Profiles"
-msgstr ""
+msgstr "Unterstützte Profile für Distribution und CPU"
 
 msgid "WSL2"
-msgstr ""
+msgstr "WSL2"
 
 msgid "Sensor"
-msgstr ""
+msgstr "Sensor"
 
 msgid "Serial Number"
 msgstr "Seriennummer"
@@ -2366,59 +2514,70 @@ msgid "Devices"
 msgstr "Geräte"
 
 msgid "Update CPU database"
-msgstr ""
+msgstr "CPU-Datenbank aktualisieren"
 
 msgid "Update PCI ID listing"
-msgstr ""
+msgstr "Aktualisiere die Liste der PCI-IDs"
 
 msgid "Update USB ID listing"
-msgstr ""
+msgstr "Aktualisiere die Liste der USB-IDs"
 
 msgid "Update EDID vendor codes"
-msgstr ""
+msgstr "Aktualisieren Sie die EDID-Herstellercodes"
 
 msgid "Update IEEE OUI vendor codes"
-msgstr ""
+msgstr "Aktualisieren Sie die IEEE-OUI-Anbietercodes"
 
 msgid "Update SD card manufacturer information"
-msgstr ""
+msgstr "Aktualisieren Sie die Herstellerinformationen der SD-Karte"
 
 msgid "Update CPU flags database"
-msgstr ""
+msgstr "CPU-Flags-Datenbank aktualisieren"
 
 msgid "Gathers information about hardware devices"
 msgstr "Sammelt Informationen über die Hardware-Geräte"
 
 msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
 msgstr ""
+"Eine Kopie von <i><b>pci.ids</b></i> ist auf dem System nicht verfügbar."
 
 msgid "A full <i><b>pci.ids</b></i> is not available on the system."
 msgstr ""
+"Eine vollständige <i><b>pci.ids</b></i>-Datei ist auf dem System nicht "
+"verfügbar."
 
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (systemd distro)"
 msgstr ""
+"Stellen Sie sicher, dass der Dienst „hardinfo2“ aktiviert und gestartet ist: "
+"`sudo systemctl enable hardinfo2 --now` (für Systemd-Distributionen)"
 
 msgid ""
 "Add yourself to hardinfo2 group:\n"
 "sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"Fügen Sie sich der Gruppe „hardinfo2“ hinzu:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"Abmelden/Neustart, damit die Gruppenänderungen wirksam werden."
 
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
+"Alle vorhandenen NVMe-Speichergeräte werden nicht angezeigt.\n"
+"\n"
+"<b><i>udisks2</i></b> ist für NVMe-Geräte erforderlich."
 
 msgid "Compatible"
 msgstr "Kompatibel"
 
 msgid "Memory Map"
-msgstr ""
+msgstr "Speicherplan"
 
 msgid "IRQ Map"
-msgstr ""
+msgstr "IRQ-Zuordnung"
 
 msgid "Alias Map"
 msgstr "Alias-Karte"
@@ -2433,13 +2592,13 @@ msgid "Family"
 msgstr "Familie"
 
 msgid "SKU"
-msgstr ""
+msgstr "Artikelnummer"
 
 msgid "BIOS"
-msgstr ""
+msgstr "BIOS"
 
 msgid "Asset Tag"
-msgstr ""
+msgstr "Vermögensetikett"
 
 msgid "DMI Unavailable"
 msgstr "DMI nicht verfügbar"
@@ -2455,13 +2614,13 @@ msgid "Memory Array"
 msgstr "Speicher Array"
 
 msgid "DMI Handle"
-msgstr ""
+msgstr "DMI-Griff"
 
 msgid "Locator"
-msgstr ""
+msgstr "Ortungsgerät"
 
 msgid "Use"
-msgstr ""
+msgstr "Verwenden"
 
 msgid "Error Correction Type"
 msgstr "Fehlerkorrekturtyp"
@@ -2470,22 +2629,22 @@ msgid "Size (Present / Max)"
 msgstr "Größe (Present / Max)"
 
 msgid "Devices (Populated / Sockets)"
-msgstr ""
+msgstr "Geräte (bestückt / mit Sockeln versehen)"
 
 msgid "Types Present"
-msgstr ""
+msgstr "Vorhandene Typen"
 
 msgid "ROM Size"
-msgstr ""
+msgstr "ROM-Größe"
 
 msgid "Memory Socket"
 msgstr "Speichersockel"
 
 msgid "DMI Handles (Array, Socket)"
-msgstr ""
+msgstr "DMI-Handles (Array, Socket)"
 
 msgid "Bank Locator"
-msgstr ""
+msgstr "Bankfilialfinder"
 
 msgid "Form Factor"
 msgstr "Formfaktor"
@@ -2503,7 +2662,7 @@ msgid "Data Width/Total Width"
 msgstr "Datenbreite/Gesamtbreite"
 
 msgid "Rank"
-msgstr ""
+msgstr "Rang"
 
 msgid "Minimum Voltage"
 msgstr "Minimale Spannung"
@@ -2521,39 +2680,44 @@ msgid "Serial Presence Detect (SPD) Summary"
 msgstr "Serial Presence Detect (SPD) Zusammenfassung"
 
 msgid "(Not available - See hint box below)"
-msgstr ""
+msgstr "(Nicht verfügbar – siehe Hinweis unten)"
 
 msgid "No DMI available"
-msgstr ""
+msgstr "Keine DMI-Daten verfügbar"
 
 msgid "<b><i>dmidecode</i></b> package installed"
-msgstr ""
+msgstr "Das Paket <b><i>dmidecode</i></b> wurde installiert"
 
 msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"Fügen Sie sich der Gruppe „hardinfo2“ hinzu: sudo usermod -a -G hardinfo2 "
+"$USER\n"
+"Abmelden/Neustart, damit die Gruppenänderungen wirksam werden."
 
 msgid "Memory Information requires more Setup:"
-msgstr ""
+msgstr "Speicherinformationen erfordern weitere Konfiguration:"
 
 msgid ""
 "\"More often than not, information contained in the DMI tables is "
 "inaccurate,\n"
 "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
 msgstr ""
+"„Häufig sind die in den DMI-Tabellen enthaltenen Informationen ungenau, "
+"unvollständig oder schlichtweg falsch.“ – Handbuchseite zu `dmidecode`"
 
 msgctxt "cache-type"
 msgid "Data"
-msgstr ""
+msgstr "Daten"
 
 msgctxt "cache-type"
 msgid "Instruction"
-msgstr ""
+msgstr "Anleitung"
 
 msgctxt "cache-type"
 msgid "Unified"
-msgstr ""
+msgstr "Einheitlich"
 
 msgid "Device cannot be removed easily"
 msgstr "Gerät kann nicht einfach entfernt werden"
@@ -2577,7 +2741,7 @@ msgid "Requires a bootloader mode to be manually enabled by the user"
 msgstr "Bootloader Modus muss manuell vom Benutzer aktiviert werden"
 
 msgid "Has been registered with other plugins"
-msgstr ""
+msgstr "Ist bereits bei anderen Plugins registriert"
 
 msgid "Requires a reboot to apply firmware or to reload hardware"
 msgstr ""
@@ -2597,6 +2761,8 @@ msgstr "Benutze immer die Laufzeitversion anstelle des Bootloaders"
 
 msgid "Install composite firmware on the parent before the child"
 msgstr ""
+"Installieren Sie die kombinierte Firmware zuerst auf dem Hauptgerät und dann "
+"auf dem Nebengerät"
 
 msgid "Is currently in bootloader mode"
 msgstr "Ist zurzeit im Bootloader-Modus"
@@ -2610,41 +2776,45 @@ msgstr ""
 
 msgid "Requires the update to be retried with a new plugin"
 msgstr ""
+"Es ist erforderlich, dass die Aktualisierung mit einem neuen Plugin erneut "
+"versucht wird"
 
 msgid "Do not add instance IDs from the device baseclass"
-msgstr ""
+msgstr "Fügen Sie keine Instanz-IDs aus der Gerätebasisklasse hinzu"
 
 msgid "Device update needs to be separately activated"
-msgstr ""
+msgstr "Die Geräteaktualisierung muss separat aktiviert werden"
 
 msgid ""
 "Ensure the version is a valid semantic version, e.g. numbers separated with "
 "dots"
 msgstr ""
+"Stellen Sie sicher, dass die Versionsnummer ein gültiges semantisches "
+"Versionsformat aufweist, z. B. Zahlen, die durch Punkte getrennt sind"
 
 msgid "Extra metadata can be exposed about this device"
-msgstr ""
+msgstr "Zusätzliche Metadaten können über dieses Gerät bereitgestellt werden"
 
 msgid "DeviceId"
-msgstr ""
+msgstr "Geräte-ID"
 
 msgid "Guid"
-msgstr ""
+msgstr "Leitfaden"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Flags"
-msgstr ""
+msgstr "Flaggen"
 
 msgid "VendorId"
-msgstr ""
+msgstr "Anbieter-ID"
 
 msgid "VersionBootloader"
-msgstr ""
+msgstr "Version: Bootloader"
 
 msgid "Icon"
-msgstr ""
+msgstr "Symbol"
 
 msgid "InstallDuration"
 msgstr "Installationsdauer"
@@ -2662,16 +2832,16 @@ msgid "Firmware List"
 msgstr "Firmware Liste"
 
 msgid "Requires the <i><b>fwupd</b></i> daemon."
-msgstr ""
+msgstr "Benötigt den <i><b>fwupd</b></i>-Daemon."
 
 msgid "SVendor"
-msgstr ""
+msgstr "SVendor"
 
 msgid "SDevice"
-msgstr ""
+msgstr "SDevice"
 
 msgid "PCI Express"
-msgstr ""
+msgstr "PCI Express"
 
 msgid "Maximum Link Width"
 msgstr "Maximale Linkbreite"
@@ -2680,16 +2850,16 @@ msgid "Maximum Link Speed"
 msgstr "Maximale Linkgeschwindigkeit"
 
 msgid "GT/s"
-msgstr ""
+msgstr "Gigatransfers pro Sekunde"
 
 msgid "NVIDIA"
-msgstr ""
+msgstr "NVIDIA"
 
 msgid "BIOS Version"
-msgstr ""
+msgstr "BIOS-Version"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Device Information"
 msgstr "Geräteinformation"
@@ -2713,19 +2883,19 @@ msgid "clock-frequency property"
 msgstr "Taktfrequenz Eigenschaft"
 
 msgid "Operating Points (OPPv1)"
-msgstr ""
+msgstr "Betriebspunkte (OPPv1)"
 
 msgid "Operating Points (OPPv2)"
-msgstr ""
+msgstr "Betriebspunkte (OPPv2)"
 
 msgid "Device Tree Node"
-msgstr ""
+msgstr "Gerätestruktur-Knoten"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "GPUs"
-msgstr ""
+msgstr "GPUs"
 
 msgid "No GPU devices found"
 msgstr "Keine GPU-Geräte gefunden"
@@ -2737,13 +2907,13 @@ msgid "Architecture Revision"
 msgstr "Architektur-Revision"
 
 msgid "CPU regs"
-msgstr ""
+msgstr "CPU-Register"
 
 msgid "Features"
 msgstr "Funktionen"
 
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 msgid "Connected to"
 msgstr "Verbunden mit"
@@ -2755,13 +2925,13 @@ msgid "System Type"
 msgstr "Systemtyp"
 
 msgid "BogoMIPS"
-msgstr ""
+msgstr "BogoMIPS"
 
 msgid "MMU"
-msgstr ""
+msgstr "MMU"
 
 msgid "FPU"
-msgstr ""
+msgstr "FPU"
 
 msgid "Calibration"
 msgstr "Kalibration"
@@ -2774,10 +2944,10 @@ msgid "Week %d of %d"
 msgstr "Woche %d von %d"
 
 msgid "Ok"
-msgstr ""
+msgstr "Okay"
 
 msgid "Fail"
-msgstr ""
+msgstr "Fehlgeschlagen"
 
 msgid "(Empty List)"
 msgstr "(Leere Liste)"
@@ -2786,10 +2956,10 @@ msgid "Signal Type"
 msgstr "Signaltyp"
 
 msgid "Digital"
-msgstr ""
+msgstr "Digital"
 
 msgid "Analog"
-msgstr ""
+msgstr "Analog"
 
 msgid "Interface"
 msgstr "Schnittstelle"
@@ -2813,10 +2983,10 @@ msgid "Manufacture Date"
 msgstr "Herstellungsdatum"
 
 msgid "EDID Meta"
-msgstr ""
+msgstr "EDID-Metadaten"
 
 msgid "bytes"
-msgstr ""
+msgstr "Bytes"
 
 msgid "Extension Blocks"
 msgstr "Erweiterungsblöcke"
@@ -2834,28 +3004,28 @@ msgid "Established Timings Bitmap (ETB)"
 msgstr "Etablierte Timings Bitmap (ETB)"
 
 msgid "Standard Timings (STD)"
-msgstr ""
+msgstr "Standard-Zeiten (STD)"
 
 msgid "E-EDID Extension Blocks"
-msgstr ""
+msgstr "E-EDID-Erweiterungsblöcke"
 
 msgid "EIA/CEA-861 Data Blocks"
 msgstr "EIA/CEA-861 Datenblöcke"
 
 msgid "EIA/CEA-861 Short Audio Descriptors"
-msgstr ""
+msgstr "EIA/CEA-861 – Kurze Audiobeschreibungen"
 
 msgid "EIA/CEA-861 Short Video Descriptors"
-msgstr ""
+msgstr "EIA/CEA-861: Kurzbeschreibungen für Videos"
 
 msgid "DisplayID Timings"
-msgstr ""
+msgstr "Anzeigetiming-Daten"
 
 msgid "DisplayID Strings"
-msgstr ""
+msgstr "DisplayID-Zeichenketten"
 
 msgid "Hex Dump"
-msgstr ""
+msgstr "Hex-Datei-Anzeige"
 
 msgid "Data"
 msgstr "Daten"
@@ -2864,16 +3034,16 @@ msgid "Connection"
 msgstr "Verbindung"
 
 msgid "DRM"
-msgstr ""
+msgstr "DRM"
 
 msgid "PA-RISC Processor"
-msgstr ""
+msgstr "PA-RISC-Prozessor"
 
 msgid "HVersion"
-msgstr ""
+msgstr "H-Version"
 
 msgid "SVersion"
-msgstr ""
+msgstr "SVersion"
 
 msgid "Link Width"
 msgstr "Linkbreite"
@@ -2882,7 +3052,7 @@ msgid "Link Speed"
 msgstr "Linkgeschwindigkeit"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domäne"
 
 msgid "Function"
 msgstr "Funktion"
@@ -2944,19 +3114,19 @@ msgstr ""
 "Keine Drucker gefunden=\n"
 
 msgid "uarch"
-msgstr ""
+msgstr "uarch"
 
 msgctxt "rv-ext"
 msgid "RISC-V 32-bit"
-msgstr ""
+msgstr "RISC-V, 32-Bit"
 
 msgctxt "rv-ext"
 msgid "RISC-V 64-bit"
-msgstr ""
+msgstr "RISC-V, 64-Bit"
 
 msgctxt "rv-ext"
 msgid "RISC-V 128-bit"
-msgstr ""
+msgstr "RISC-V, 128 Bit"
 
 msgctxt "rv-ext"
 msgid "Base embedded integer instructions (15 registers)"
@@ -2980,172 +3150,172 @@ msgstr "Komprimierte 16-bit Instruktionen"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, single-precision"
-msgstr ""
+msgstr "Gleitkomma-Befehle, einfache Genauigkeit"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, double-precision"
-msgstr ""
+msgstr "Gleitkomma-Befehle, doppelte Genauigkeit"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, quad-precision"
-msgstr ""
+msgstr "Gleitkomma-Befehle, Vierfachpräzision"
 
 msgctxt "rv-ext"
 msgid "Bit manipulation instructions"
-msgstr ""
+msgstr "Bitmanipulationsbefehle"
 
 msgctxt "rv-ext"
 msgid "Vector operations"
-msgstr ""
+msgstr "Vektoroperationen"
 
 msgctxt "rv-ext"
 msgid "Scalar Cryptography"
-msgstr ""
+msgstr "Skalare Kryptographie"
 
 msgctxt "rv-ext"
 msgid "Base Counters and Timers"
-msgstr ""
+msgstr "Grundlegende Zähler und Timer"
 
 msgctxt "rv-ext"
 msgid "Control and Status Register"
-msgstr ""
+msgstr "Steuer- und Statusregister"
 
 msgctxt "rv-ext"
 msgid "Instruction-Fetch Fence"
-msgstr ""
+msgstr "Befehlsausführungs-Barriere"
 
 msgctxt "rv-ext"
 msgid "Hardware performance counters"
-msgstr ""
+msgstr "Hardware-Leistungszähler"
 
 msgctxt "rv-ext"
 msgid "Accell Index addresses"
-msgstr ""
+msgstr "Accell Index: Adressen"
 
 msgctxt "rv-ext"
 msgid "Basic bit-manipulation"
-msgstr ""
+msgstr "Grundlegende Bit-Manipulation"
 
 msgctxt "rv-ext"
 msgid "Supervisor-level Instructions"
-msgstr ""
+msgstr "Anweisungen für Führungskräfte"
 
 msgctxt "rv-ext"
 msgid "User Mode"
-msgstr ""
+msgstr "Benutzermodus"
 
 msgctxt "rv-ext"
 msgid "Transactional memory"
-msgstr ""
+msgstr "Transaktionales Gedächtnis"
 
 msgctxt "rv-ext"
 msgid "Packed SIMD instructions"
-msgstr ""
+msgstr "Komprimierte SIMD-Befehle"
 
 msgctxt "rv-ext"
 msgid "Decimal floating-point instructions"
-msgstr ""
+msgstr "Dezimal-Gleitkomma-Befehle"
 
 msgctxt "rv-ext"
 msgid "Dynamically translated languages"
-msgstr ""
+msgstr "Dynamisch übersetzte Sprachen"
 
 msgctxt "rv-ext"
 msgid "User-level interrupts"
-msgstr ""
+msgstr "Benutzerdefinierte Interrupts"
 
 msgid "S390 Processor"
-msgstr ""
+msgstr "S390-Prozessor"
 
 msgid "ID String"
-msgstr ""
+msgstr "ID-Zeichenkette"
 
 msgid "SuperH Processor"
-msgstr ""
+msgstr "SuperH-Prozessor"
 
 msgid "Bus Frequency"
-msgstr ""
+msgstr "Busfrequenz"
 
 msgid "Module Frequency"
-msgstr ""
+msgstr "Modulfrequenz"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Nicht spezifiziert"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Ungültig"
 
 msgid "Row address bits"
-msgstr ""
+msgstr "Zeilenadressbits"
 
 msgid "Column address bits"
-msgstr ""
+msgstr "Spaltenadressbits"
 
 msgid "Number of rows"
-msgstr ""
+msgstr "Anzahl der Zeilen"
 
 msgid "Data width"
-msgstr ""
+msgstr "Datenbreite"
 
 msgid "Interface signal levels"
-msgstr ""
+msgstr "Schnittstellensignalpegel"
 
 msgid "Configuration type"
-msgstr ""
+msgstr "Konfigurationstyp"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualisieren"
 
 msgid "Timings"
-msgstr ""
+msgstr "Zeitangaben"
 
 msgid "Voltage"
-msgstr ""
+msgstr "Spannung"
 
 msgid "JEDEC Timings"
-msgstr ""
+msgstr "JEDEC-Zeitmessung"
 
 msgid "Ranks"
-msgstr ""
+msgstr "Ränge"
 
 msgid "IO Pins per Chip"
-msgstr ""
+msgstr "Anzahl der E/A-Pins pro Chip"
 
 msgid "Die count"
-msgstr ""
+msgstr "Anzahl der Würfel"
 
 msgid "Thermal Sensor"
-msgstr ""
+msgstr "Thermischer Sensor"
 
 msgid "Present"
-msgstr ""
+msgstr "Gegenwärtig"
 
 msgid "Not present"
-msgstr ""
+msgstr "Nicht vorhanden"
 
 msgid "Supported Voltages"
-msgstr ""
+msgstr "Unterstützte Spannungen"
 
 msgid "Supported CAS Latencies"
-msgstr ""
+msgstr "Unterstützte CAS-Latenzzeiten"
 
 msgid "XMP Profile"
-msgstr ""
+msgstr "XMP-Profil"
 
 msgid "Speed"
-msgstr ""
+msgstr "Geschwindigkeit"
 
 msgid "XMP Timings"
-msgstr ""
+msgstr "XMP-Timings"
 
 msgid "XMP"
-msgstr ""
+msgstr "XMP"
 
 msgid "Serial Presence Detect (SPD)"
-msgstr ""
+msgstr "Serielle Präsenzerkennung (SPD)"
 
 msgid "SPD Revision"
-msgstr ""
+msgstr "SPD-Überarbeitung"
 
 msgid "Module Vendor"
 msgstr "Modulhersteller"
@@ -3154,219 +3324,223 @@ msgid "DRAM Vendor"
 msgstr "DRAM Hersteller"
 
 msgid "Manufacturing Date (Year / Week)"
-msgstr ""
+msgstr "Herstellungsdatum (Jahr/Woche)"
 
 msgid "NVMe Controller"
-msgstr ""
+msgstr "NVMe-Controller"
 
 msgid "Read Error Rate"
-msgstr ""
+msgstr "Leserate"
 
 msgid "Throughput Performance"
-msgstr ""
+msgstr "Durchsatzleistung"
 
 msgid "Spin-Up Time"
-msgstr ""
+msgstr "Anlaufzeit"
 
 msgid "Start/Stop Count"
-msgstr ""
+msgstr "Start/Stopp-Zähler"
 
 msgid "Reallocated Sector Count"
-msgstr ""
+msgstr "Anzahl der neu zugewiesenen Sektoren"
 
 msgid "Read Channel Margin"
-msgstr ""
+msgstr "Lese den Kanalabstand"
 
 msgid "Seek Error Rate"
-msgstr ""
+msgstr "Fehlerrate ermitteln"
 
 msgid "Seek Timer Performance"
-msgstr ""
+msgstr "Leistung des Suchzeitgebers überprüfen"
 
 msgid "Power-On Hours"
-msgstr ""
+msgstr "Betriebsstunden"
 
 msgid "Spin Retry Count"
-msgstr ""
+msgstr "Anzahl der Wiederholungsversuche für den Spin"
 
 msgid "Calibration Retry Count"
-msgstr ""
+msgstr "Anzahl der Wiederholungsversuche für die Kalibrierung"
 
 msgid "Power Cycle Count"
-msgstr ""
+msgstr "Anzahl der Einschaltvorgänge"
 
 msgid "Soft Read Error Rate"
-msgstr ""
+msgstr "Fehlerrate beim sanften Auslesen"
 
 msgid "Runtime Bad Block"
-msgstr ""
+msgstr "Fehler beim Ausführen: Defekter Speicherbereich"
 
 msgid "End-to-End error"
-msgstr ""
+msgstr "End-to-End-Fehler"
 
 msgid "Reported Uncorrectable Errors"
-msgstr ""
+msgstr "Gemeldete, nicht behebbare Fehler"
 
 msgid "Command Timeout"
-msgstr ""
+msgstr "Befehlszeitüberschreitung"
 
 msgid "High Fly Writes"
-msgstr ""
+msgstr "High Fly schreibt"
 
 msgid "Airflow Temperature"
-msgstr ""
+msgstr "Luftstromtemperatur"
 
 msgid "G-sense Error Rate"
-msgstr ""
+msgstr "G-Sensor-Fehlerrate"
 
 msgid "Power-off Retract Count"
-msgstr ""
+msgstr "Anzahl der Einzüge im ausgeschalteten Zustand"
 
 msgid "Load Cycle Count"
-msgstr ""
+msgstr "Anzahl der Lastzyklen"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatur"
 
 msgid "Hardware ECC Recovered"
-msgstr ""
+msgstr "Hardware-ECC-Fehler behoben"
 
 msgid "Reallocation Event Count"
-msgstr ""
+msgstr "Anzahl der Umverteilungsereignisse"
 
 msgid "Current Pending Sector Count"
-msgstr ""
+msgstr "Anzahl der aktuell ausstehenden Sektoren"
 
 msgid "Uncorrectable Sector Count"
-msgstr ""
+msgstr "Anzahl der nicht korrigierbaren Sektoren"
 
 msgid "UltraDMA CRC Error Count"
-msgstr ""
+msgstr "UltraDMA-CRC-Fehlerzähler"
 
 msgid "Multi-Zone Error Rate"
-msgstr ""
+msgstr "Fehlerrate in mehreren Zonen"
 
 msgid "Run Out Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 msgid "Flying Height"
-msgstr ""
+msgstr "Flughöhe"
 
 msgid "Spin High Current"
-msgstr ""
+msgstr "Hoher Strom"
 
 msgid "Spin Buzz"
-msgstr ""
+msgstr "Dreh dich"
 
 msgid "Offline Seek Performance"
-msgstr ""
+msgstr "Offline-Suchleistung"
 
 msgid "Disk Shift"
-msgstr ""
+msgstr "Plattenverschiebung"
 
 msgid "G-Sense Error Rate"
-msgstr ""
+msgstr "G-Sensor-Fehlerrate"
 
 msgid "Loaded Hours"
-msgstr ""
+msgstr "Arbeitszeit"
 
 msgid "Load/Unload Retry Count"
-msgstr ""
+msgstr "Anzahl der Wiederholungsversuche beim Laden/Entladen"
 
 msgid "Load Friction"
-msgstr ""
+msgstr "Reibungskraft"
 
 msgid "Load/Unload Cycle Count"
-msgstr ""
+msgstr "Anzahl der Lade-/Entladezyklen"
 
 msgid "Load-in time"
-msgstr ""
+msgstr "Einrichtungszeit"
 
 msgid "Torque Amplification Count"
-msgstr ""
+msgstr "Anzahl der Drehmomentverstärkungsstufen"
 
 msgid "Power-Off Retract Count"
-msgstr ""
+msgstr "Anzahl der Einzüge im ausgeschalteten Zustand"
 
 msgid "GMR Head Amplitude"
-msgstr ""
+msgstr "GMR-Kopf-Amplitudenwert"
 
 msgid "Endurance Remaining"
-msgstr ""
+msgstr "Restliche Ausdauer"
 
 msgid "Good Block Rate"
-msgstr ""
+msgstr "Gute Blockrate"
 
 msgid "Head Flying Hours"
-msgstr ""
+msgstr "Gesamtflugstunden"
 
 msgid "Read Error Retry Rate"
-msgstr ""
+msgstr "Lesefehler-Wiederholungsrate"
 
 msgid "Total LBAs Written"
-msgstr ""
+msgstr "Gesamtzahl der geschriebenen LBAs"
 
 msgid "Total LBAs Read"
-msgstr ""
+msgstr "Gesamtzahl der gelesenen LBAs"
 
 msgid "Wear leveling Count"
-msgstr ""
+msgstr "Verschleißausgleichszähler"
 
 msgid "Total Used Reserved Block Count"
-msgstr ""
+msgstr "Gesamtzahl der reservierten, bereits verwendeten Blöcke"
 
 msgid "Total Program Fail Count"
-msgstr ""
+msgstr "Gesamtzahl der fehlgeschlagenen Programmstarts"
 
 msgid "Total Erase Fail Count"
-msgstr ""
+msgstr "Gesamtzahl der fehlgeschlagenen Löschvorgänge"
 
 msgid "Available Reserved Space"
-msgstr ""
+msgstr "Verfügbarer reservierter Platz"
 
 msgid "Program Fail Count"
-msgstr ""
+msgstr "Anzahl der Programmfehler"
 
 msgid "Erase Fail Count"
-msgstr ""
+msgstr "Anzahl der fehlgeschlagenen Löschvorgänge"
 
 msgid "TA Counter Increased"
-msgstr ""
+msgstr "TA-Zähler erhöht"
 
 msgid "Total Unused Reserved Block Count"
-msgstr ""
+msgstr "Gesamtzahl der nicht verwendeten, reservierten Blöcke"
 
 msgid ""
 "\n"
 "[UDisks2]\n"
 msgstr ""
+"\n"
+"[UDisks2]\n"
 
 msgid "Removable"
-msgstr ""
+msgstr "Abnehmbar"
 
 msgid "Fixed"
-msgstr ""
+msgstr "Behoben"
 
 msgid "Ejectable"
-msgstr ""
+msgstr "Auswerfbar"
 
 msgid "Self-monitoring (S.M.A.R.T.)"
-msgstr ""
+msgstr "Selbstüberwachung (S.M.A.R.T.)"
 
 msgid "Power Management"
-msgstr ""
+msgstr "Energiemanagement"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Erweitertes Energiemanagement"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Automatische akustische Steuerung"
 
 #, c-format
 msgid ""
 "[Drive Information]\n"
 "Model=%s\n"
 msgstr ""
+"[Laufwerksinformationen]\n"
+"Modell=%s\n"
 
 #, c-format
 msgid ""
@@ -3376,50 +3550,57 @@ msgid ""
 "Size=%s\n"
 "Features=%s\n"
 msgstr ""
+"Revision=%s\n"
+"Blockgerät=%s\n"
+"Seriennummer=%s\n"
+"Größe=%s\n"
+"Funktionen=%s\n"
 
 #, c-format
 msgid "Rotation Rate=%d RPM\n"
-msgstr ""
+msgstr "Drehzahl = %d U/min\n"
 
 #, c-format
 msgid ""
 "Media=%s\n"
 "Media compatibility=%s\n"
 msgstr ""
+"Medium=%s\n"
+"Medium-Kompatibilität=%s\n"
 
 #, c-format
 msgid "Connection bus=%s\n"
-msgstr ""
+msgstr "Verbindungsbus=%s\n"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "EUI "
-msgstr ""
+msgstr "EUI "
 
 msgid "WWN / EUI"
-msgstr ""
+msgstr "WWN / EUI"
 
 #, c-format
 msgid "$^$%s=[%s] %s\n"
-msgstr ""
+msgstr "$^$%s=[%s] %s\n"
 
 msgid "IEEE OUI"
-msgstr ""
+msgstr "IEEE OUI"
 
 msgid "Lifetime exceeded"
-msgstr ""
+msgstr "Die maximale Nutzungsdauer ist überschritten"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "Warnung: Mehr als 80 %% der Kapazität sind belegt"
 
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "Fehler: Mehr als 90 %% ausgelastet"
 
 #, c-format
 msgid ""
@@ -3429,51 +3610,71 @@ msgid ""
 "MLC Flash Status=%s\n"
 "Pre EOL Status=%s\n"
 msgstr ""
+"[Selbstüberwachung ExtCSD]\n"
+"Herstellungsdatum=%s\n"
+"Status des SLC-Flash-Speichers=%s\n"
+"Status des MLC-Flash-Speichers=%s\n"
+"Status vor dem Ende der Lebensdauer=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
+"[Selbstüberwachung (S.M.A.R.T.)]\n"
+"Status=%s\n"
+"Anzahl fehlerhafter Sektoren=%lld\n"
+"Betriebszeit=%lld Tage %lld Stunden\n"
+"Temperatur=%d°C\n"
 
 msgid "Failing"
-msgstr ""
+msgstr "Fehlgeschlagen"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
+"[S.M.A.R.T.-Attribute]\n"
+"Attribut=<tt>Wert</tt>\n"
 
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
 msgstr ""
+"[S.M.A.R.T.-Attribute]\n"
+"Attribut=<tt>Wert / Normalisiert / Schlimmster Wert / Grenzwert</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] ""
-msgstr[1] ""
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld Sektor"
+msgstr[1] "%lld Sektoren"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "%s=<tt>%s</tt>\n"
 
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "(%d) %s=<tt>%s</tt>\n"
 
 #, c-format
 msgid ""
 "[Partition table]\n"
 "Type=%s\n"
 msgstr ""
+"[Partitionstabelle]\n"
+"Typ=%s\n"
 
 #, c-format
 msgid "Partition %s=%s\n"
-msgstr ""
+msgstr "Partition %s=%s\n"
 
 msgid ""
 "\n"
@@ -3500,6 +3701,13 @@ msgid ""
 "ID=%d\n"
 "LUN=%d\n"
 msgstr ""
+"Typ=%s\n"
+"Revision=%s\n"
+"[SCSI-Controller]\n"
+"Controller=scsi%d\n"
+"Kanal=%d\n"
+"ID=%d\n"
+"LUN=%d\n"
 
 msgid ""
 "\n"
@@ -3518,6 +3726,9 @@ msgid ""
 "Media=%s\n"
 "Cache=%dkb\n"
 msgstr ""
+"Gerätename=hd%c\n"
+"Medium=%s\n"
+"Cache=%dkb\n"
 
 #, c-format
 msgid ""
@@ -3546,37 +3757,37 @@ msgstr ""
 "%s"
 
 msgid "Sub-class"
-msgstr ""
+msgstr "Unterklasse"
 
 msgid "Mb/s"
-msgstr ""
+msgstr "MB/s"
 
 msgid "Manufacturer"
 msgstr "Hersteller"
 
 msgid "Max Current"
-msgstr ""
+msgstr "Maximaler Strom"
 
 msgid "mA"
-msgstr ""
+msgstr "mA"
 
 msgid "USB Version"
-msgstr ""
+msgstr "USB-Version"
 
 msgid "Device Version"
-msgstr ""
+msgstr "Geräteversion"
 
 msgid "No USB devices found."
-msgstr ""
+msgstr "Keine USB-Geräte gefunden."
 
 msgid "Model Name"
-msgstr ""
+msgstr "Modellname"
 
 msgid "Family, model, stepping"
 msgstr "Familie, Modell, Stufung"
 
 msgid "Microcode Version"
-msgstr ""
+msgstr "Mikrocode-Version"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -3585,120 +3796,124 @@ msgid "Cache Size"
 msgstr "Cache-Größe"
 
 msgid "kb"
-msgstr ""
+msgstr "kb"
 
 msgid "Bug Workarounds"
-msgstr ""
+msgstr "Fehlerbehebungen und Problemumgehungen"
 
 msgid "Socket Information"
-msgstr ""
+msgstr "Socket-Informationen"
 
 msgid "CPU Socket"
-msgstr ""
+msgstr "CPU-Sockel"
 
 msgid "External Clock"
-msgstr ""
+msgstr "Externe Taktquelle"
 
 msgid "Max Frequency"
-msgstr ""
+msgstr "Maximale Frequenz"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Paketinformationen"
 
 #. !/flag:fpu
 msgctxt "x86-flag"
 msgid "Onboard FPU (floating point support)"
-msgstr ""
+msgstr "Integrierte FPU (Unterstützung für Gleitkommaoperationen)"
 
 #. !/flag:vme
 msgctxt "x86-flag"
 msgid "Virtual 8086 mode enhancements"
-msgstr ""
+msgstr "Verbesserungen des virtuellen 8086-Modus"
 
 #. !/flag:de
 msgctxt "x86-flag"
 msgid "Debugging Extensions (CR4.DE)"
-msgstr ""
+msgstr "Erweiterungen zum Debuggen (CR4.DE)"
 
 #. !/flag:pse
 msgctxt "x86-flag"
 msgid "Page Size Extensions (4MB memory pages)"
-msgstr ""
+msgstr "Seitengrößen-Erweiterungen (4-MB-Speicherseiten)"
 
 #. !/flag:tsc
 msgctxt "x86-flag"
 msgid "Time Stamp Counter (RDTSC)"
-msgstr ""
+msgstr "Zeitstempelzähler (RDTSC)"
 
 #. !/flag:msr
 msgctxt "x86-flag"
 msgid "Model-Specific Registers (RDMSR, WRMSR)"
-msgstr ""
+msgstr "Modellspezifische Register (RDMSR, WRMSR)"
 
 #. !/flag:pae
 msgctxt "x86-flag"
 msgid "Physical Address Extensions (support for more than 4GB of RAM)"
 msgstr ""
+"Erweiterungen für die physische Speicheradresse (Unterstützung für mehr als "
+"4 GB RAM)"
 
 #. !/flag:mce
 msgctxt "x86-flag"
 msgid "Machine Check Exception"
-msgstr ""
+msgstr "Maschinenfehler-Ausnahme"
 
 #. !/flag:cx8
 msgctxt "x86-flag"
 msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
-msgstr ""
+msgstr "CMPXCHG8-Befehl (64-Bit-Vergleich-und-Austausch)"
 
 #. !/flag:apic
 msgctxt "x86-flag"
 msgid "Onboard APIC"
-msgstr ""
+msgstr "Integrierter APIC"
 
 #. !/flag:sep
 msgctxt "x86-flag"
 msgid "SYSENTER/SYSEXIT"
-msgstr ""
+msgstr "SYSENTER/SYSEXIT"
 
 #. !/flag:mtrr
 msgctxt "x86-flag"
 msgid "Memory Type Range Registers"
-msgstr ""
+msgstr "Speichertyp, Bereich, Register"
 
 #. !/flag:pge
 msgctxt "x86-flag"
 msgid "Page Global Enable (global bit in PDEs and PTEs)"
 msgstr ""
+"Globale Seitenzuordnung aktivieren (globales Bit in den Seitentabellen-"
+"Einträgen)"
 
 #. !/flag:mca
 msgctxt "x86-flag"
 msgid "Machine Check Architecture"
-msgstr ""
+msgstr "Maschinenprüfungsarchitektur"
 
 #. !/flag:cmov
 msgctxt "x86-flag"
 msgid "CMOV instructions (conditional move) (also FCMOV)"
-msgstr ""
+msgstr "CMOV-Befehle (bedingte Verschiebung) (auch FCMOV)"
 
 #. !/flag:pat
 msgctxt "x86-flag"
 msgid "Page Attribute Table"
-msgstr ""
+msgstr "Seiteneigenschaftentabelle"
 
 #. !/flag:pse36
 msgctxt "x86-flag"
 msgid "36-bit PSEs (huge pages)"
-msgstr ""
+msgstr "36-Bit-PSEs (riesige Seiten)"
 
 #. !/flag:pn
 msgctxt "x86-flag"
 msgid "Processor serial number"
-msgstr ""
+msgstr "Prozessorseriennummer"
 
 #. !/flag:clflush
 msgctxt "x86-flag"
 msgid "Cache Line Flush instruction"
-msgstr ""
+msgstr "Anweisung zum Löschen der Cache-Zeile"
 
 #. !/flag:dts
 msgctxt "x86-flag"
@@ -3706,46 +3921,48 @@ msgid ""
 "Debug Store (buffer for debugging and profiling instructions), or "
 "alternately: digital thermal sensor"
 msgstr ""
+"Debug-Speicher (Puffer für Debugging- und Profiling-Anweisungen) oder "
+"alternativ: digitaler Temperatursensor"
 
 #. !/flag:acpi
 msgctxt "x86-flag"
 msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
-msgstr ""
+msgstr "ACPI über MSR (Temperaturüberwachung und Taktfrequenzregelung)"
 
 #. !/flag:mmx
 msgctxt "x86-flag"
 msgid "Multimedia Extensions"
-msgstr ""
+msgstr "Multimedia-Erweiterungen"
 
 #. !/flag:fxsr
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
-msgstr ""
+msgstr "FXSAVE/FXRSTOR, CR4.OSFXSR"
 
 #. !/flag:sse
 msgctxt "x86-flag"
 msgid "Intel SSE vector instructions"
-msgstr ""
+msgstr "Intel SSE-Vektorinstruktionen"
 
 #. !/flag:sse2
 msgctxt "x86-flag"
 msgid "SSE2"
-msgstr ""
+msgstr "SSE2"
 
 #. !/flag:ss
 msgctxt "x86-flag"
 msgid "CPU self snoop"
-msgstr ""
+msgstr "CPU führt selbst eine Speicherabfrage durch"
 
 #. !/flag:ht
 msgctxt "x86-flag"
 msgid "Hyper-Threading"
-msgstr ""
+msgstr "Hyper-Threading"
 
 #. !/flag:tm
 msgctxt "x86-flag"
 msgid "Automatic clock control (Thermal Monitor)"
-msgstr ""
+msgstr "Automatische Zeitschaltuhr (Temperaturüberwachung)"
 
 #. !/flag:ia64
 msgctxt "x86-flag"
@@ -3753,201 +3970,208 @@ msgid ""
 "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
 "x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
 msgstr ""
+"Intel Itanium-Architektur, 64-Bit (nicht zu verwechseln mit Intels 64-Bit-"
+"x86-Architektur mit dem Flag x86-64 oder „64“, das durch das Flag lm "
+"gekennzeichnet ist)"
 
 #. !/flag:pbe
 msgctxt "x86-flag"
 msgid "Pending Break Enable (PBE# pin) wakeup support"
 msgstr ""
+"Unterstützung für das Aufwecken durch das Pending Break Enable (PBE#-Signal)"
 
 #. !/flag:syscall
 msgctxt "x86-flag"
 msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
 msgstr ""
+"SYSCALL (schneller Systemaufruf) und SYSRET (Rückkehr von einem schnellen "
+"Systemaufruf)"
 
 #. !/flag:mp
 msgctxt "x86-flag"
 msgid "Multiprocessing Capable."
-msgstr ""
+msgstr "Für Multiprocessing geeignet."
 
 #. !/flag:nx
 msgctxt "x86-flag"
 msgid "Execute Disable"
-msgstr ""
+msgstr "Ausführungsschutz aktivieren"
 
 #. !/flag:mmxext
 msgctxt "x86-flag"
 msgid "AMD MMX extensions"
-msgstr ""
+msgstr "AMD MMX-Erweiterungen"
 
 #. !/flag:fxsr_opt
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR optimizations"
-msgstr ""
+msgstr "Optimierungen für FXSAVE/FXRSTOR"
 
 #. !/flag:pdpe1gb
 msgctxt "x86-flag"
 msgid "One GB pages (allows hugepagesz=1G)"
-msgstr ""
+msgstr "Ein-Gigabyte-Seiten (ermöglicht hugepagesz=1G)"
 
 #. !/flag:rdtscp
 msgctxt "x86-flag"
 msgid "Read Time-Stamp Counter and Processor ID"
-msgstr ""
+msgstr "Lesen Sie den Zeitstempelzähler und die Prozessor-ID aus"
 
 #. !/flag:lm
 msgctxt "x86-flag"
 msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
 msgstr ""
+"Langer Modus (x86-64: amd64, auch bekannt als Intel 64, d. h. 64-Bit-fähig)"
 
 #. !/flag:3dnow
 msgctxt "x86-flag"
 msgid "3DNow! (AMD vector instructions, competing with Intel's SSE1)"
-msgstr ""
+msgstr "3DNow! (AMD-Vektor-Befehle, Konkurrenz zu Intels SSE1)"
 
 #. !/flag:3dnowext
 msgctxt "x86-flag"
 msgid "AMD 3DNow! extensions"
-msgstr ""
+msgstr "AMD 3DNow!-Erweiterungen"
 
 #. !/flag:recovery
 msgctxt "x86-flag"
 msgid "CPU in recovery mode"
-msgstr ""
+msgstr "CPU im Wiederherstellungsmodus"
 
 #. !/flag:longrun
 msgctxt "x86-flag"
 msgid "Longrun power control"
-msgstr ""
+msgstr "Langfristige Leistungsregelung"
 
 #. !/flag:lrti
 msgctxt "x86-flag"
 msgid "LongRun table interface"
-msgstr ""
+msgstr "LongRun-Tabellenschnittstelle"
 
 #. !/flag:cxmmx
 msgctxt "x86-flag"
 msgid "Cyrix MMX extensions"
-msgstr ""
+msgstr "Cyrix MMX-Erweiterungen"
 
 #. !/flag:k6_mtrr
 msgctxt "x86-flag"
 msgid "AMD K6 nonstandard MTRRs"
-msgstr ""
+msgstr "AMD K6: Nicht standardmäßige MTRRs"
 
 #. !/flag:cyrix_arr
 msgctxt "x86-flag"
 msgid "Cyrix ARRs (= MTRRs)"
-msgstr ""
+msgstr "Cyrix ARRs (= MTRRs)"
 
 #. !/flag:centaur_mcr
 msgctxt "x86-flag"
 msgid "Centaur MCRs (= MTRRs)"
-msgstr ""
+msgstr "Centaur-Speicherbereiche für die Speicherverwaltung (= MTRRs)"
 
 #. !/flag:constant_tsc
 msgctxt "x86-flag"
 msgid "TSC ticks at a constant rate"
-msgstr ""
+msgstr "Der TSC läuft mit einer konstanten Frequenz"
 
 #. !/flag:up
 msgctxt "x86-flag"
 msgid "SMP kernel running on UP"
-msgstr ""
+msgstr "SMP-Kernel läuft auf einem UP-System"
 
 #. !/flag:art
 msgctxt "x86-flag"
 msgid "Always-Running Timer"
-msgstr ""
+msgstr "Immer aktiver Timer"
 
 #. !/flag:arch_perfmon
 msgctxt "x86-flag"
 msgid "Intel Architectural PerfMon"
-msgstr ""
+msgstr "Intel Architektur-Performance-Monitor"
 
 #. !/flag:pebs
 msgctxt "x86-flag"
 msgid "Precise-Event Based Sampling"
-msgstr ""
+msgstr "Präzise, ereignisbasierte Stichprobenentnahme"
 
 #. !/flag:bts
 msgctxt "x86-flag"
 msgid "Branch Trace Store"
-msgstr ""
+msgstr "Zweig-Trace-Speicher"
 
 #. !/flag:rep_good
 msgctxt "x86-flag"
 msgid "rep microcode works well"
-msgstr ""
+msgstr "Die rep-Mikrocode-Funktion funktioniert einwandfrei"
 
 #. !/flag:acc_power
 msgctxt "x86-flag"
 msgid "AMD accumulated power mechanism"
-msgstr ""
+msgstr "AMD-Leistungssteigerungsmechanismus"
 
 #. !/flag:nopl
 msgctxt "x86-flag"
 msgid "The NOPL (0F 1F) instructions"
-msgstr ""
+msgstr "Die NOPL-Befehle (0F 1F)"
 
 #. !/flag:xtopology
 msgctxt "x86-flag"
 msgid "cpu topology enum extensions"
-msgstr ""
+msgstr "CPU-Topologie-Enumerationserweiterungen"
 
 #. !/flag:tsc_reliable
 msgctxt "x86-flag"
 msgid "TSC is known to be reliable"
-msgstr ""
+msgstr "TSC ist für seine Zuverlässigkeit bekannt"
 
 #. !/flag:nonstop_tsc
 msgctxt "x86-flag"
 msgid "TSC does not stop in C states"
-msgstr ""
+msgstr "Der TSC hält nicht in den C-Zuständen an"
 
 #. !/flag:cpuid
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr ""
+msgstr "Die CPU verfügt über die eigene CPUID-Instruktion"
 
 #. !/flag:extd_apicid
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
-msgstr ""
+msgstr "hat APICID (8 Bit) erweitert"
 
 #. !/flag:amd_dcm
 msgctxt "x86-flag"
 msgid "multi-node processor"
-msgstr ""
+msgstr "Mehrknoten-Prozessor"
 
 #. !/flag:aperfmperf
 msgctxt "x86-flag"
 msgid "APERFMPERF"
-msgstr ""
+msgstr "APERFMPERF"
 
 #. !/flag:eagerfpu
 msgctxt "x86-flag"
 msgid "Non lazy FPU restore"
-msgstr ""
+msgstr "Nicht-lazy FPU-Wiederherstellung"
 
 #. !/flag:nonstop_tsc_s3
 msgctxt "x86-flag"
 msgid "TSC doesn't stop in S3 state"
-msgstr ""
+msgstr "Der TSC wird auch im S3-Zustand nicht deaktiviert"
 
 #. !/flag:tsc_known_freq
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr ""
+msgstr "TSC hat eine bekannte Frequenz"
 
 #. !/flag:mce_recovery
 msgctxt "x86-flag"
 msgid "CPU has recoverable machine checks"
-msgstr ""
+msgstr "Die CPU hat wiederherstellbare Maschinenfehler"
 
 #. !/flag:pni
 msgctxt "x86-flag"
 msgid "SSE-3 (\"Prescott New Instructions\")"
-msgstr ""
+msgstr "SSE-3 („Scott New Instructions“, eine Erweiterung von Intels SSE1)"
 
 #. !/flag:pclmulqdq
 msgctxt "x86-flag"
@@ -3955,106 +4179,108 @@ msgid ""
 "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
 "for GCM)"
 msgstr ""
+"Führen Sie eine Carry-Less-Multiplikation einer Quadword-Instruktion aus – "
+"Beschleuniger für GCM"
 
 #. !/flag:dtes64
 msgctxt "x86-flag"
 msgid "64-bit Debug Store"
-msgstr ""
+msgstr "64-Bit-Debug-Speicher"
 
 #. !/flag:monitor
 msgctxt "x86-flag"
 msgid "Monitor/Mwait support (Intel SSE3 supplements)"
-msgstr ""
+msgstr "Unterstützung für Monitor/Mwait (Erweiterungen von Intel SSE3)"
 
 #. !/flag:ds_cpl
 msgctxt "x86-flag"
 msgid "CPL Qual. Debug Store"
-msgstr ""
+msgstr "CPL-Qualifikation. Debug-Shop"
 
 #. !/flag:vmx
 msgctxt "x86-flag"
 msgid "Hardware virtualization, Intel VMX"
-msgstr ""
+msgstr "Hardware-Virtualisierung, Intel VMX"
 
 #. !/flag:smx
 msgctxt "x86-flag"
 msgid "Safer mode TXT (TPM support)"
-msgstr ""
+msgstr "Sicherer Modus TXT (TPM-Unterstützung)"
 
 #. !/flag:est
 msgctxt "x86-flag"
 msgid "Enhanced SpeedStep"
-msgstr ""
+msgstr "Verbesserte SpeedStep-Technologie"
 
 #. !/flag:tm2
 msgctxt "x86-flag"
 msgid "Thermal Monitor 2"
-msgstr ""
+msgstr "Thermischer Monitor 2"
 
 #. !/flag:ssse3
 msgctxt "x86-flag"
 msgid "Supplemental SSE-3"
-msgstr ""
+msgstr "Ergänzende SSE-3-Anweisungen"
 
 #. !/flag:cid
 msgctxt "x86-flag"
 msgid "Context ID"
-msgstr ""
+msgstr "Kontext-ID"
 
 #. !/flag:sdbg
 msgctxt "x86-flag"
 msgid "silicon debug"
-msgstr ""
+msgstr "Silizium-Debugging"
 
 #. !/flag:fma
 msgctxt "x86-flag"
 msgid "Fused multiply-add"
-msgstr ""
+msgstr "Multiplizieren und Addieren in einem Schritt"
 
 #. !/flag:cx16
 msgctxt "x86-flag"
 msgid "CMPXCHG16B"
-msgstr ""
+msgstr "CMPXCHG16B"
 
 #. !/flag:xtpr
 msgctxt "x86-flag"
 msgid "Send Task Priority Messages"
-msgstr ""
+msgstr "Senden Sie Nachrichten zur Priorisierung von Aufgaben"
 
 #. !/flag:pdcm
 msgctxt "x86-flag"
 msgid "Performance Capabilities"
-msgstr ""
+msgstr "Leistungsmerkmale"
 
 #. !/flag:pcid
 msgctxt "x86-flag"
 msgid "Process Context Identifiers"
-msgstr ""
+msgstr "Prozesskontext-Identifikatoren"
 
 #. !/flag:dca
 msgctxt "x86-flag"
 msgid "Direct Cache Access"
-msgstr ""
+msgstr "Direkter Cache-Zugriff"
 
 #. !/flag:sse4_1
 msgctxt "x86-flag"
 msgid "SSE-4.1"
-msgstr ""
+msgstr "SSE-4.1"
 
 #. !/flag:sse4_2
 msgctxt "x86-flag"
 msgid "SSE-4.2"
-msgstr ""
+msgstr "SSE-4.2"
 
 #. !/flag:x2apic
 msgctxt "x86-flag"
 msgid "x2APIC"
-msgstr ""
+msgstr "x2APIC"
 
 #. !/flag:movbe
 msgctxt "x86-flag"
 msgid "Move Data After Swapping Bytes instruction"
-msgstr ""
+msgstr "Daten nach dem Byte-Austausch-Befehl verschieben"
 
 #. !/flag:popcnt
 msgctxt "x86-flag"
@@ -4062,130 +4288,137 @@ msgid ""
 "Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
 "e. bit count)"
 msgstr ""
+"Geben Sie die Anzahl der Bits zurück, die auf 1 gesetzt sind (Hamming-"
+"Gewicht, d. h. Bitanzahl)"
 
 msgctxt "x86-flag"
 msgid "Tsc deadline timer"
-msgstr ""
+msgstr "Frist für die Einreichung von Tsc-Dokumenten"
 
 #. !/flag:aes
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
-msgstr ""
+msgstr "Advanced Encryption Standard"
 
 #. !/flag:aes-ni
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard (New Instructions)"
-msgstr ""
+msgstr "Erweiterter Verschlüsselungsstandard (neue Befehle)"
 
 #. !/flag:xsave
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr ""
+"Speichern von erweiterten Prozessorzuständen: bietet außerdem XGETBY, XRSTOR "
+"und XSETBY"
 
 #. !/flag:avx
 msgctxt "x86-flag"
 msgid "Advanced Vector Extensions"
-msgstr ""
+msgstr "Erweiterte Vektorfunktionen"
 
 #. !/flag:f16c
 msgctxt "x86-flag"
 msgid "16-bit fp conversions (CVT16)"
-msgstr ""
+msgstr "16-Bit-Gleitkomma-Konvertierungen (CVT16)"
 
 #. !/flag:rdrand
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
 msgstr ""
+"Lese eine Zufallszahl aus der Hardware-Zufallszahlengenerator-Anweisung aus"
 
 #. !/flag:hypervisor
 msgctxt "x86-flag"
 msgid "Running on a hypervisor"
-msgstr ""
+msgstr "Läuft auf einem Hypervisor"
 
 #. !/flag:rng
 msgctxt "x86-flag"
 msgid "Random Number Generator present (xstore)"
-msgstr ""
+msgstr "Zufallszahlengenerator vorhanden (xstore)"
 
 #. !/flag:rng_en
 msgctxt "x86-flag"
 msgid "Random Number Generator enabled"
-msgstr ""
+msgstr "Zufallszahlengenerator aktiviert"
 
 #. !/flag:ace
 msgctxt "x86-flag"
 msgid "on-CPU crypto (xcrypt)"
-msgstr ""
+msgstr "CPU-basierte Verschlüsselung (xcrypt)"
 
 #. !/flag:ace_en
 msgctxt "x86-flag"
 msgid "on-CPU crypto enabled"
-msgstr ""
+msgstr "CPU-basierte Verschlüsselung aktiviert"
 
 #. !/flag:ace2
 msgctxt "x86-flag"
 msgid "Advanced Cryptography Engine v2"
-msgstr ""
+msgstr "Erweiterte Verschlüsselungs-Engine v2"
 
 #. !/flag:ace2_en
 msgctxt "x86-flag"
 msgid "ACE v2 enabled"
-msgstr ""
+msgstr "ACE v2 aktiviert"
 
 #. !/flag:phe
 msgctxt "x86-flag"
 msgid "PadLock Hash Engine"
-msgstr ""
+msgstr "PadLock Hash-Engine"
 
 #. !/flag:phe_en
 msgctxt "x86-flag"
 msgid "PHE enabled"
-msgstr ""
+msgstr "PHE aktiviert"
 
 #. !/flag:pmm
 msgctxt "x86-flag"
 msgid "PadLock Montgomery Multiplier"
-msgstr ""
+msgstr "PadLock Montgomery Multiplikator"
 
 #. !/flag:pmm_en
 msgctxt "x86-flag"
 msgid "PMM enabled"
-msgstr ""
+msgstr "PMM aktiviert"
 
 #. !/flag:lahf_lm
 msgctxt "x86-flag"
 msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
 msgstr ""
+"Im langen Modus: Lade AH aus den Flags (LAHF) und speichere AH in den Flags "
+"(SAHF)"
 
 #. !/flag:cmp_legacy
 msgctxt "x86-flag"
 msgid "If yes HyperThreading not valid"
-msgstr ""
+msgstr "Wenn ja, ist HyperThreading nicht aktiv"
 
 #. !/flag:svm
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
-msgstr ""
+msgstr "„Ihre virtuelle Maschine“ MD-V"
 
 #. !/flag:extapic
 msgctxt "x86-flag"
 msgid "Extended APIC space"
-msgstr ""
+msgstr "Erweiterter APIC-Bereich"
 
 #. !/flag:cr8_legacy
 msgctxt "x86-flag"
 msgid "CR8 in 32-bit mode"
-msgstr ""
+msgstr "CR8 im 32-Bit-Modus"
 
 #. !/flag:abm
 msgctxt "x86-flag"
 msgid "Advanced Bit Manipulation"
-msgstr ""
+msgstr "Erweiterte Bitmanipulation"
 
 #. !/flag:sse4a
 msgctxt "x86-flag"
 msgid "SSE-4A"
-msgstr ""
+msgstr "SSE-4A"
 
 #. !/flag:misalignsse
 msgctxt "x86-flag"
@@ -4193,11 +4426,13 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
+"Gibt an, ob eine Ausnahme für den allgemeinen Prozessor (GP) ausgelöst wird, "
+"wenn bestimmte ältere SSE-Befehle auf nicht ausgerichtete Daten zugreifen"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
 msgid "3DNow prefetch instructions"
-msgstr ""
+msgstr "3DNow-Vorabruf-Befehle"
 
 #. !/flag:osvw
 msgctxt "x86-flag"
@@ -4205,843 +4440,865 @@ msgid ""
 "indicates OS Visible Workaround, which allows the OS to work around "
 "processor errata."
 msgstr ""
+"Zeigt an, dass eine Betriebssystem-basierte Problemumgehung vorhanden ist, "
+"die es dem Betriebssystem ermöglicht, Fehler im Prozessor zu beheben."
 
 #. !/flag:ibs
 msgctxt "x86-flag"
 msgid "Instruction Based Sampling"
-msgstr ""
+msgstr "Anweisungsbasierte Stichprobenziehung"
 
 #. !/flag:xop
 msgctxt "x86-flag"
 msgid "extended AVX instructions"
-msgstr ""
+msgstr "erweiterte AVX-Befehle"
 
 #. !/flag:skinit
 msgctxt "x86-flag"
 msgid "SKINIT/STGI instructions"
-msgstr ""
+msgstr "SKINIT/STGI-Anleitung"
 
 #. !/flag:wdt
 msgctxt "x86-flag"
 msgid "Watchdog timer"
-msgstr ""
+msgstr "Überwachungs-Timer"
 
 #. !/flag:lwp
 msgctxt "x86-flag"
 msgid "Light Weight Profiling"
-msgstr ""
+msgstr "Leichtgewichtige Profilerstellung"
 
 #. !/flag:fma4
 msgctxt "x86-flag"
 msgid "4 operands MAC instructions"
-msgstr ""
+msgstr "4-Operanden-MAC-Befehle"
 
 #. !/flag:tce
 msgctxt "x86-flag"
 msgid "translation cache extension"
-msgstr ""
+msgstr "Übersetzungscache-Erweiterung"
 
 #. !/flag:nodeid_msr
 msgctxt "x86-flag"
 msgid "NodeId MSR"
-msgstr ""
+msgstr "Knoten-ID MSR"
 
 #. !/flag:tbm
 msgctxt "x86-flag"
 msgid "Trailing Bit Manipulation"
-msgstr ""
+msgstr "Nachlaufende Bitmanipulation"
 
 #. !/flag:topoext
 msgctxt "x86-flag"
 msgid "Topology Extensions CPUID leafs"
-msgstr ""
+msgstr "Topologie-Erweiterungen, CPUID-Blätter"
 
 #. !/flag:perfctr_core
 msgctxt "x86-flag"
 msgid "Core Performance Counter Extensions"
-msgstr ""
+msgstr "Erweiterungen für die Kernleistungszähler"
 
 #. !/flag:perfctr_nb
 msgctxt "x86-flag"
 msgid "NB Performance Counter Extensions"
-msgstr ""
+msgstr "Hinweis: Erweiterungen für Leistungszähler"
 
 #. !/flag:bpext
 msgctxt "x86-flag"
 msgid "data breakpoint extension"
-msgstr ""
+msgstr "Daten-Haltepunkt-Erweiterung"
 
 #. !/flag:ptsc
 msgctxt "x86-flag"
 msgid "performance time-stamp counter"
-msgstr ""
+msgstr "Leistungszeitstempelzähler"
 
 #. !/flag:perfctr_l2
 msgctxt "x86-flag"
 msgid "L2 Performance Counter Extensions"
-msgstr ""
+msgstr "L2-Leistungszählererweiterungen"
 
 #. !/flag:mwaitx
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
-msgstr ""
+msgstr "MWAIT-Erweiterung (MONITORX/MWAITX)"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "Intel CPUID-Fehler"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "AMD Core Performance Boost"
-msgstr ""
+msgstr "AMD Core Performance Boost"
 
 #. !/flag:epb
 msgctxt "x86-flag"
 msgid "IA32_ENERGY_PERF_BIAS support"
-msgstr ""
+msgstr "Unterstützung für IA32_ENERGY_PERF_BIAS"
 
 #. !/flag:hw_pstate
 msgctxt "x86-flag"
 msgid "AMD HW-PState"
-msgstr ""
+msgstr "AMD Hardware-P-Zustand"
 
 #. !/flag:proc_feedback
 msgctxt "x86-flag"
 msgid "AMD ProcFeedbackInterface"
-msgstr ""
+msgstr "AMD-Prozessor-Feedback-Schnittstelle"
 
 #. !/flag:intel_pt
 msgctxt "x86-flag"
 msgid "Intel Processor Tracing"
-msgstr ""
+msgstr "Intel-Prozessor-Tracing"
 
 #. !/flag:pti
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "Kernel-Seitentabellen-Isolation aktiviert"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "IBRS beim Eintritt/Austritt des Kernels aktivieren/deaktivieren"
 
 #. !/flag:ssbd
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "Deaktivierung der spekulativen Speicherumleitung"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "Indirekte Zweigstelle – eingeschränkte Spekulation"
 
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
+msgstr "Indirekte Verzweigungsprädiktionsbarriere ohne garantierte RSB-Leerung"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "Einfädige, indirekte Branch-Vorhersagealgorithmen"
 
 #. !/flag:ibrs_enhanced
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "Verbessertes IBRS"
 
 #. !/flag:tpr_shadow
 msgctxt "x86-flag"
 msgid "Intel TPR Shadow"
-msgstr ""
+msgstr "Intel TPR-Schatten"
 
 #. !/flag:vnmi
 msgctxt "x86-flag"
 msgid "Intel Virtual NMI"
-msgstr ""
+msgstr "Intel Virtual NMI"
 
 #. !/flag:flexpriority
 msgctxt "x86-flag"
 msgid "Intel FlexPriority"
-msgstr ""
+msgstr "Intel FlexPriority"
 
 #. !/flag:ept
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table"
-msgstr ""
+msgstr "Intel erweiterte Seitentabelle"
 
 #. !/flag:vpid
 msgctxt "x86-flag"
 msgid "Intel Virtual Processor ID"
-msgstr ""
+msgstr "Intel Virtualisierungs-Prozessor-ID"
 
 #. !/flag:vmmcall
 msgctxt "x86-flag"
 msgid "prefer VMMCALL to VMCALL"
-msgstr ""
+msgstr "Bevorzugen Sie VMMCALL gegenüber VMCALL"
 
 #. !/flag:ept_ad
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "Intel: Zugriff auf die erweiterte Seitentabelle – Dirty-Bit"
 
 #. !/flag:avx512_bf16
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512-BFLOAT16-Befehle"
 
 #. !/flag:fsgsbase
 msgctxt "x86-flag"
 msgid "{RD/WR}{FS/GS}BASE instructions"
-msgstr ""
+msgstr "{RD/WR}{FS/GS}-Basisbefehle"
 
 #. !/flag:tsc_adjust
 msgctxt "x86-flag"
 msgid "TSC adjustment MSR"
-msgstr ""
+msgstr "TSC-Anpassung, MSR"
 
 #. !/flag:sgx
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "Software Guard Extensions"
 
 #. !/flag:bmi1
 msgctxt "x86-flag"
 msgid "1st group bit manipulation extensions"
-msgstr ""
+msgstr "Erweiterungen für die Bitmanipulation der ersten Gruppe"
 
 #. !/flag:hle
 msgctxt "x86-flag"
 msgid "Hardware Lock Elision"
-msgstr ""
+msgstr "Hardware-Lock-Eliminierung"
 
 #. !/flag:avx2
 msgctxt "x86-flag"
 msgid "AVX2 instructions"
-msgstr ""
+msgstr "AVX2-Befehle"
 
 #. !/flag:smep
 msgctxt "x86-flag"
 msgid "Supervisor Mode Execution Protection"
-msgstr ""
+msgstr "Ausführungsschutz im Supervisor-Modus"
 
 #. !/flag:bmi2
 msgctxt "x86-flag"
 msgid "2nd group bit manipulation extensions"
-msgstr ""
+msgstr "Erweiterungen für die Bitmanipulation in der zweiten Gruppe"
 
 #. !/flag:erms
 msgctxt "x86-flag"
 msgid "Enhanced REP MOVSB/STOSB"
-msgstr ""
+msgstr "Verbesserte REP MOVSB/STOSB-Befehle"
 
 #. !/flag:invpcid
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID"
-msgstr ""
+msgstr "Prozessor-Kontext-ID ungültig machen"
 
 #. !/flag:invpcid_single
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "Ungültige Prozessorkontext-ID (einzeln)"
 
 #. !/flag:rtm
 msgctxt "x86-flag"
 msgid "Restricted Transactional Memory"
-msgstr ""
+msgstr "Eingeschränktes Transaktionales Speicherverfahren"
 
 #. !/flag:cqm
 msgctxt "x86-flag"
 msgid "Cache QoS Monitoring"
-msgstr ""
+msgstr "Cache-QoS-Überwachung"
 
 #. !/flag:mpx
 msgctxt "x86-flag"
 msgid "Memory Protection Extension"
-msgstr ""
+msgstr "Speicherschutz-Erweiterung"
 
 #. !/flag:avx512f
 msgctxt "x86-flag"
 msgid "AVX-512 foundation"
-msgstr ""
+msgstr "AVX-512-Grundlage"
 
 #. !/flag:avx512dq
 msgctxt "x86-flag"
 msgid "AVX-512 Double/Quad instructions"
-msgstr ""
+msgstr "AVX-512-Befehle für doppelte/vierfache Präzision"
 
 #. !/flag:rdseed
 msgctxt "x86-flag"
 msgid "The RDSEED instruction"
-msgstr ""
+msgstr "Die RDSEED-Instruktion"
 
 #. !/flag:adx
 msgctxt "x86-flag"
 msgid "The ADCX and ADOX instructions"
-msgstr ""
+msgstr "Die ADCX- und ADOX-Befehle"
 
 #. !/flag:smap
 msgctxt "x86-flag"
 msgid "Supervisor Mode Access Prevention"
-msgstr ""
+msgstr "Verhinderung des Zugriffs auf den Supervisor-Modus"
 
 #. !/flag:avx512ifma
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
 msgstr ""
+"AVX-512-Befehle für ganzzahlige, kombinierte Multiplikations- und "
+"Additionsoperationen"
 
 #. !/flag:clflushopt
 msgctxt "x86-flag"
 msgid "CLFLUSHOPT instruction"
-msgstr ""
+msgstr "CLFLUSHOPT-Befehl"
 
 #. !/flag:clwb
 msgctxt "x86-flag"
 msgid "CLWB instruction"
-msgstr ""
+msgstr "CLWB-Anleitung"
 
 #. !/flag:avx512pf
 msgctxt "x86-flag"
 msgid "AVX-512 Prefetch"
-msgstr ""
+msgstr "AVX-512-Vorabruf"
 
 #. !/flag:avx512er
 msgctxt "x86-flag"
 msgid "AVX-512 Exponential and Reciprocal"
-msgstr ""
+msgstr "AVX-512: Exponential- und Reziprokwertfunktionen"
 
 #. !/flag:avx512cd
 msgctxt "x86-flag"
 msgid "AVX-512 Conflict Detection"
-msgstr ""
+msgstr "AVX-512-Konflikterkennung"
 
 #. !/flag:sha_ni
 msgctxt "x86-flag"
 msgid "SHA1/SHA256 Instruction Extensions"
-msgstr ""
+msgstr "SHA1-/SHA256-Befehlserweiterungen"
 
 #. !/flag:avx512bw
 msgctxt "x86-flag"
 msgid "AVX-512 Byte/Word instructions"
-msgstr ""
+msgstr "AVX-512-Befehle für Byte- und Wortoperationen"
 
 #. !/flag:avx512vl
 msgctxt "x86-flag"
 msgid "AVX-512 128/256 Vector Length extensions"
-msgstr ""
+msgstr "AVX-512-Erweiterungen mit Vektorlängen von 128/256"
 
 #. !/flag:md_clear
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "VERW leert CPU-Puffer aus"
 
 #. !/flag:flush_l1d
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "L1D-Cache leeren"
 
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
 msgid "Optimized XSAVE"
-msgstr ""
+msgstr "Optimiertes XSAVE"
 
 #. !/flag:xsavec
 msgctxt "x86-flag"
 msgid "XSAVEC"
-msgstr ""
+msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
 msgctxt "x86-flag"
 msgid "XGETBV with ECX = 1"
-msgstr ""
+msgstr "XGETBV mit ECX = 1"
 
 #. !/flag:xsaves
 msgctxt "x86-flag"
 msgid "XSAVES/XRSTORS"
-msgstr ""
+msgstr "XSAVES/XRSTORS"
 
 #. !/flag:cqm_llc
 msgctxt "x86-flag"
 msgid "LLC QoS"
-msgstr ""
+msgstr "LLC-Qualitätsrichtlinien"
 
 #. !/flag:cqm_occup_llc
 msgctxt "x86-flag"
 msgid "LLC occupancy monitoring"
-msgstr ""
+msgstr "Belegungserfassung für LLC"
 
 #. !/flag:cqm_mbm_total
 msgctxt "x86-flag"
 msgid "LLC total MBM monitoring"
-msgstr ""
+msgstr "Gesamtüberwachung der MBM-Werte für LLC"
 
 #. !/flag:cqm_mbm_local
 msgctxt "x86-flag"
 msgid "LLC local MBM monitoring"
-msgstr ""
+msgstr "Lokale MBM-Überwachung durch die LLC"
 
 #. !/flag:split_lock_detect
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "AC für Split-Lock"
 
 #. !/flag:clzero
 msgctxt "x86-flag"
 msgid "CLZERO instruction"
-msgstr ""
+msgstr "CLZERO-Befehl"
 
 #. !/flag:irperf
 msgctxt "x86-flag"
 msgid "instructions retired performance counter"
-msgstr ""
+msgstr "Anweisungen für den deaktivierten Leistungszähler"
 
 #. !/flag:xsaveerptr
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
 msgstr ""
+"Speichern und wiederherstellen Sie immer die Fehlerzeiger für "
+"Gleitkommazahlen"
 
 #. !/flag:wbnoinvd
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD-Anweisung"
 
 #. !/flag:dtherm
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
-msgstr ""
+msgstr "digitaler Temperatursensor"
 
 #. !/flag:ida
 msgctxt "x86-flag"
 msgid "Intel Dynamic Acceleration"
-msgstr ""
+msgstr "Intel Dynamic Acceleration"
 
 #. !/flag:arat
 msgctxt "x86-flag"
 msgid "Always Running APIC Timer"
-msgstr ""
+msgstr "APIC-Timer läuft ständig"
 
 #. !/flag:pln
 msgctxt "x86-flag"
 msgid "Intel Power Limit Notification"
-msgstr ""
+msgstr "Intel-Benachrichtigung zur Leistungsbegrenzung"
 
 #. !/flag:pts
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
-msgstr ""
+msgstr "Intel-Paket-Temperaturstatus"
 
 #. !/flag:hwp
 msgctxt "x86-flag"
 msgid "Intel Hardware P-states"
-msgstr ""
+msgstr "Intel-Hardware-P-Zustände"
 
 #. !/flag:hwp_notify
 msgctxt "x86-flag"
 msgid "HWP notification"
-msgstr ""
+msgstr "HWP-Benachrichtigung"
 
 #. !/flag:hwp_act_window
 msgctxt "x86-flag"
 msgid "HWP Activity Window"
-msgstr ""
+msgstr "HWP-Aktivitätsfenster"
 
 #. !/flag:hwp_epp
 msgctxt "x86-flag"
 msgid "HWP Energy Performance Preference"
-msgstr ""
+msgstr "HWP-Energieeffizienz-Präferenz"
 
 #. !/flag:hwp_pkg_req
 msgctxt "x86-flag"
 msgid "HWP package-level request"
-msgstr ""
+msgstr "HWP-Anfrage auf Paketebene"
 
 #. !/flag:npt
 msgctxt "x86-flag"
 msgid "AMD Nested Page Table support"
-msgstr ""
+msgstr "AMD-Unterstützung für verschachtelte Seitentabellen"
 
 #. !/flag:lbrv
 msgctxt "x86-flag"
 msgid "AMD LBR Virtualization support"
-msgstr ""
+msgstr "AMD LBR-Virtualisierung unterstützt"
 
 #. !/flag:svm_lock
 msgctxt "x86-flag"
 msgid "AMD SVM locking MSR"
-msgstr ""
+msgstr "AMD SVM-Sperrregister (MSR)"
 
 #. !/flag:nrip_save
 msgctxt "x86-flag"
 msgid "AMD SVM next_rip save"
-msgstr ""
+msgstr "AMD SVM, nächste Rücksprungadresse speichern"
 
 #. !/flag:tsc_scale
 msgctxt "x86-flag"
 msgid "AMD TSC scaling support"
-msgstr ""
+msgstr "AMD TSC-Skalierungsunterstützung"
 
 #. !/flag:vmcb_clean
 msgctxt "x86-flag"
 msgid "AMD VMCB clean bits support"
-msgstr ""
+msgstr "AMD VMCB: Unterstützung für das Löschen von Bits"
 
 #. !/flag:flushbyasid
 msgctxt "x86-flag"
 msgid "AMD flush-by-ASID support"
-msgstr ""
+msgstr "AMD-Unterstützung für das Ausleeren des TLB-Eintrags anhand der ASID"
 
 #. !/flag:decodeassists
 msgctxt "x86-flag"
 msgid "AMD Decode Assists support"
-msgstr ""
+msgstr "AMD unterstützt Dekodierungsfunktionen"
 
 #. !/flag:pausefilter
 msgctxt "x86-flag"
 msgid "AMD filtered pause intercept"
-msgstr ""
+msgstr "AMD: Unterbrechung der gefilterten Pause"
 
 #. !/flag:pfthreshold
 msgctxt "x86-flag"
 msgid "AMD pause filter threshold"
-msgstr ""
+msgstr "AMD-Rauschunterdrückungsschwellenwert"
 
 #. !/flag:avic
 msgctxt "x86-flag"
 msgid "Virtual Interrupt Controller"
-msgstr ""
+msgstr "Virtueller Interrupt-Controller"
 
 #. !/flag:v_vmsave_vmload
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "Virtuelle VMSAVE- und VMLOAD-Funktionen"
 
 #. !/flag:avx512vbmi
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512-Vektor-Bitmanipulationsbefehle"
 
 #. !/flag:umip
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "Benutzermodus-Befehlsschutz"
 
 #. !/flag:pku
 msgctxt "x86-flag"
 msgid "Protection Keys for Userspace"
-msgstr ""
+msgstr "Schutzschlüssel für den Benutzermodus"
 
 #. !/flag:ospke
 msgctxt "x86-flag"
 msgid "OS Protection Keys Enable"
-msgstr ""
+msgstr "Betriebssystem-Schutzschlüssel aktivieren"
 
 #. !/flag:avx512_vbmi2
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "Zusätzliche AVX512-Vektor-Bitmanipulationsbefehle"
 
 #. !/flag:gfni
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "Galois-Feld: Neue Befehle"
 
 #. !/flag:vaes
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "Vektor-AES"
 
 #. !/flag:vpclmulqdq
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "Multiplikation mit reduziertem Übertrag für doppelte Quad-Wörter"
 
 #. !/flag:avx512_vnni
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "Anweisungen für das Vektor-Neuronale Netzwerk"
 
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "Unterstützung für die Befehle VPOPCNT[B,W] und VPSHUF-BITQMB"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "POPCNT für Vektoren vom Typ DW/DQ"
 
 #. !/flag:rdpid
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID-Anweisung"
 
 #. !/flag:sgx_lc
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "Software Guard Extensions – Startsteuerung"
 
 #. !/flag:overflow_recov
 msgctxt "x86-flag"
 msgid "MCA overflow recovery support"
-msgstr ""
+msgstr "Unterstützung für die Wiederherstellung nach einem MCA-Überlauf"
 
 #. !/flag:succor
 msgctxt "x86-flag"
 msgid "uncorrectable error containment and recovery"
-msgstr ""
+msgstr "Behebung und Wiederherstellung bei nicht behebbarer Fehlerbehebung"
 
 #. !/flag:smca
 msgctxt "x86-flag"
 msgid "Scalable MCA"
-msgstr ""
+msgstr "Skalierbares MCA"
 
 #. !/flag:fsrm
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "Schnelle, kurze Wiederholungen"
 
 #. !/bug:f00f
 msgctxt "x86-flag"
 msgid "Intel F00F bug"
-msgstr ""
+msgstr "Intel F00F-Fehler"
 
 #. !/bug:fdiv
 msgctxt "x86-flag"
 msgid "FPU FDIV"
-msgstr ""
+msgstr "FPU-FDIV"
 
 #. !/bug:coma
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
-msgstr ""
+msgstr "Cyrix 6x86 Koma"
 
 #. !/bug:tlb_mmatch
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
-msgstr ""
+msgstr "AMD-Fehlerbericht 383"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
-msgstr ""
+msgstr "AMD-Fehlerbericht 400"
 
 #. !/bug:11ap
 msgctxt "x86-flag"
 msgid "Bad local APIC aka 11AP"
-msgstr ""
+msgstr "Defekter lokaler APIC, auch bekannt als 11AP"
 
 #. !/bug:fxsave_leak
 msgctxt "x86-flag"
 msgid "FXSAVE leaks FOP/FIP/FOP"
-msgstr ""
+msgstr "FXSAVE führt zu Datenlecks bei FOP/FIP/FOP"
 
 #. !/bug:clflush_monitor
 msgctxt "x86-flag"
 msgid "AAI65, CLFLUSH required before MONITOR"
-msgstr ""
+msgstr "AAI65, CLFLUSH muss vor MONITOR ausgeführt werden"
 
 #. !/bug:sysret_ss_attrs
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
-msgstr ""
+msgstr "SYSRET korrigiert die SS-Attribute nicht"
 
 #. !/bug:espfix
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
-msgstr ""
+msgstr "IRET auf 16-Bit-SS korrumpiert die oberen Bits von ESP/RSP"
 
 #. !/bug:null_seg
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
-msgstr ""
+msgstr "Das Aufheben einer Auswahl behält die Grundeinstellung bei"
 
 #. !/bug:swapgs_fence
 msgctxt "x86-flag"
 msgid "SWAPGS without input dep on GS"
-msgstr ""
+msgstr "SWAPGS ohne Eingabe, die von GS abhängt"
 
 #. !/bug:monitor
 msgctxt "x86-flag"
 msgid "IPI required to wake up remote CPU"
-msgstr ""
+msgstr "IPI erforderlich, um die entfernte CPU aufzuwecken"
 
 #. !/bug:cpu_insecure & bug:cpu_meltdown
 msgctxt "x86-flag"
 msgid ""
 "CPU is affected by meltdown attack and needs kernel page table isolation"
 msgstr ""
+"Die CPU ist von der Meltdown-Attacke betroffen und benötigt eine Kernel-"
+"Seitentabellen-Isolation"
 
 #. !/bug:spectre_v1
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
 msgstr ""
+"Die CPU ist von der Variante 1 des Spectre-Angriffs mit bedingten "
+"Verzweigungen betroffen"
 
 #. !/bug:spectre_v2
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
 msgstr ""
+"Die CPU ist von der Spectre-Schwachstelle (Variante 2) betroffen, die "
+"indirekte Sprünge ausnutzt"
 
 #. !/bug:spec_store_bypass
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
 msgstr ""
+"Die CPU ist von einem Angriff betroffen, bei dem spekulative "
+"Speicherumgehungen ausgenutzt werden"
 
 #. !/bug:l1tf
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
-msgstr ""
+msgstr "Die CPU ist von einem L1-Terminalfehler betroffen"
 
 #. !/bug:mds
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "Die CPU ist von der Mikroarchitektur-Datenerfassung betroffen"
 
 #. !/bug:swapgs
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "Die CPU ist durch Spekulationen über SWAPGS betroffen"
 
 #. !/bug:itlb_multihit
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
 msgstr ""
+"Die CPU kann bei bestimmten Änderungen der Seitenattribute einen MCE-Fehler "
+"verursachen"
 
 #. !/bug:srbds
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
 msgstr ""
+"Die CPU könnte Zufallszahlengenerator-Bits preisgeben, wenn keine "
+"Gegenmaßnahmen ergriffen werden"
 
 #. !/bug:mmio_stale_data
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
 msgstr ""
+"Die CPU ist von den Sicherheitslücken „Prozessor-MMIO-Stale-Data“ betroffen"
 
 #. !/bug:mmio_unknown
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "Der Status der MMIO-Zustandsdaten ist unbekannt"
 
 #. !/bug:retbleed
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "Die CPU ist von RETBleed betroffen"
 
 #. !/bug:eibrs_pbrsb
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "EIBRS ist anfällig für Vorhersagen von Adressen nach der Barriere"
 
 #. !/bug:gds
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "Die CPU wird durch die Datenerfassung beeinflusst"
 
 #. !/bug:srso
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD: BTB-Trainingsdaten für RETs entfernen"
 
 #. !/bug:bhi
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr ""
+msgstr "Die CPU ist von der Branch History Injection betroffen"
 
 #. !/bug:ibpb_no_ret
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
 msgstr ""
+"IBPB verzichtet auf die Angabe von Zielwerten für die erwartete Rendite"
 
 #. !/bug:spectre_v2_user
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
 msgstr ""
+"Die CPU ist von der Spectre-Schwachstelle (Variante 2) betroffen, die "
+"zwischen Benutzerprozessen ausgenutzt werden kann"
 
 #. !/bug:its
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "Die CPU ist von der indirekten Zielauswahl betroffen"
 
 #. !/bug:its_native_only
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "Die CPU ist von ITS betroffen, VMX ist nicht betroffen"
 
 #. !/bug:tsa
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "Die CPU ist von vorübergehenden Scheduler-Angriffen betroffen"
 
 #. !/bug:vmscape
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "Die CPU ist von VMSCAPE-Angriffen aus Gastsystemen betroffen"
 
 #. !/flag:pm:ts
 msgctxt "x86-flag"
 msgid "temperature sensor"
-msgstr ""
+msgstr "Temperatursensor"
 
 #. !/flag:pm:fid
 msgctxt "x86-flag"
 msgid "frequency id control"
-msgstr ""
+msgstr "Frequenz-ID-Steuerung"
 
 #. !/flag:pm:vid
 msgctxt "x86-flag"
 msgid "voltage id control"
-msgstr ""
+msgstr "Spannungs-ID-Regelung"
 
 #. !/flag:pm:ttp
 msgctxt "x86-flag"
 msgid "thermal trip"
-msgstr ""
+msgstr "thermischer Auslöser"
 
 #. !/flag:pm:tm
 msgctxt "x86-flag"
 msgid "hardware thermal control"
-msgstr ""
+msgstr "Hardware-basierte Temperaturregelung"
 
 #. !/flag:pm:stc
 msgctxt "x86-flag"
 msgid "software thermal control"
-msgstr ""
+msgstr "Softwaregesteuerte Temperaturregelung"
 
 #. !/flag:pm:100mhzsteps
 msgctxt "x86-flag"
 msgid "100 MHz multiplier control"
-msgstr ""
+msgstr "100-MHz-Frequenzmultiplikatorsteuerung"
 
 #. !/flag:pm:hwpstate
 msgctxt "x86-flag"
 msgid "hardware P-state control"
-msgstr ""
+msgstr "Hardware-basierte P-Zustandssteuerung"
 
 #. !/flag:pm:cpb
 msgctxt "x86-flag"
 msgid "core performance boost"
-msgstr ""
+msgstr "Kernleistung verbessert"
 
 #. !/flag:pm:eff_freq_ro
 msgctxt "x86-flag"
 msgid "Readonly aperf/mperf"
-msgstr ""
+msgstr "Nur-Lese-Zugriff auf aperf/mperf"
 
 #. !/flag:pm:proc_feedback
 msgctxt "x86-flag"
 msgid "processor feedback interface"
-msgstr ""
+msgstr "Prozessor-Feedback-Schnittstelle"
 
 #. !/flag:pm:acc_power
 msgctxt "x86-flag"
 msgid "accumulated power mechanism"
-msgstr ""
+msgstr "gespeichertes Leistungssystem"
 
 msgid "Interfaces"
 msgstr "Schnittstellen"
@@ -5071,16 +5328,16 @@ msgid "MAC Address"
 msgstr "MAC-Adresse"
 
 msgid "SAMBA"
-msgstr ""
+msgstr "SAMBA"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name Servers"
 msgstr "DNS-Server"
 
 msgid "Connections"
-msgstr ""
+msgstr "Verbindungen"
 
 msgid "Local Address"
 msgstr "Lokale Adresse"
@@ -5098,7 +5355,7 @@ msgid "Received"
 msgstr "Empfangen"
 
 msgid "IP routing table"
-msgstr ""
+msgstr "IP-Routingtabelle"
 
 msgid "Destination/Gateway"
 msgstr "Ziel/Vorgaberoute"
@@ -5111,590 +5368,187 @@ msgstr "Sammelt Informationen über die Netzwerk-Verbindung dieses Computers"
 
 msgctxt "wi-op-mode"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "wi-op-mode"
 msgid "Ad-Hoc"
-msgstr ""
+msgstr "Ad-hoc"
 
 msgctxt "wi-op-mode"
 msgid "Managed"
-msgstr ""
+msgstr "Verwaltet"
 
 msgctxt "wi-op-mode"
 msgid "Master"
-msgstr ""
+msgstr "Meister"
 
 msgctxt "wi-op-mode"
 msgid "Repeater"
-msgstr ""
+msgstr "Repeater"
 
 msgctxt "wi-op-mode"
 msgid "Secondary"
-msgstr ""
+msgstr "Sekundär"
 
 msgctxt "wi-op-mode"
 msgid "(Unknown)"
-msgstr ""
+msgstr "(Unbekannt)"
 
 msgctxt "net-if-type"
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgctxt "net-if-type"
 msgid "Loopback"
-msgstr ""
+msgstr "Rückkopplung"
 
 msgctxt "net-if-type"
 msgid "Point-to-Point"
-msgstr ""
+msgstr "Punkt-zu-Punkt-Verbindung"
 
 msgctxt "net-if-type"
 msgid "Wireless"
-msgstr ""
+msgstr "Drahtlos"
 
 msgctxt "net-if-type"
 msgid "Virtual Point-to-Point (TUN)"
-msgstr ""
+msgstr "Virtuelle Punkt-zu-Punkt-Verbindung (TUN)"
 
 msgctxt "net-if-type"
 msgid "Ethernet (TAP)"
-msgstr ""
+msgstr "Ethernet (TAP)"
 
 msgctxt "net-if-type"
 msgid "Parallel Line Internet Protocol"
-msgstr ""
+msgstr "Paralleles Linien-Internetprotokoll"
 
 msgctxt "net-if-type"
 msgid "Infrared"
-msgstr ""
+msgstr "Infrarot"
 
 msgctxt "net-if-type"
 msgid "Serial Line Internet Protocol"
-msgstr ""
+msgstr "Serielles Leitungsinternetprotokoll"
 
 msgctxt "net-if-type"
 msgid "Integrated Services Digital Network"
-msgstr ""
+msgstr "Integrierte digitale Vermittlungsnetze"
 
 msgctxt "net-if-type"
 msgid "IPv6-over-IPv4 Tunnel"
-msgstr ""
+msgstr "IPv6-Tunnel über IPv4"
 
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface (NAT)"
-msgstr ""
+msgstr "VMware-virtuelle Netzwerkschnittstelle (NAT)"
 
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface"
-msgstr ""
+msgstr "VMware-virtuelle Netzwerkschnittstelle"
 
 msgctxt "net-if-type"
 msgid "Personal Area Network (PAN)"
-msgstr ""
+msgstr "Persönliches Netzwerk (PAN)"
 
 msgctxt "net-if-type"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 msgctxt "net-if-type"
 msgid "Bridge Interface"
-msgstr ""
+msgstr "Brückenschnittstelle"
 
 msgctxt "net-if-type"
 msgid "Hamachi Virtual Personal Network"
-msgstr ""
+msgstr "Hamachi: Virtuelles privates Netzwerk"
 
 msgctxt "net-if-type"
 msgid "Intermediate Functional Block"
-msgstr ""
+msgstr "Zwischenfunktioneller Baustein"
 
 msgctxt "net-if-type"
 msgid "GRE Network Tunnel"
-msgstr ""
+msgstr "GRE-Netzwerktunnel"
 
 msgctxt "net-if-type"
 msgid "Mesh Network"
-msgstr ""
+msgstr "Mesh-Netzwerk"
 
 msgctxt "net-if-type"
 msgid "Wireless Master Interface"
-msgstr ""
+msgstr "Drahtlose Hauptschnittstelle"
 
 msgctxt "net-if-type"
 msgid "VirtualBox Virtual Network Interface"
-msgstr ""
+msgstr "VirtualBox-Virtualnetzwerkschnittstelle"
 
 msgctxt "net-if-type"
 msgid "Wireless (WAN)"
-msgstr ""
+msgstr "Drahtloses Weitbereichsnetz (WAN)"
 
 msgctxt "net-if-type"
 msgid "(Unknown)"
-msgstr ""
+msgstr "(Unbekannt)"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Netzwerkschnittstellen"
 
 msgid "None Found"
-msgstr ""
+msgstr "Keine Ergebnisse gefunden"
 
 msgid "Network Adapter Properties"
-msgstr ""
+msgstr "Eigenschaften des Netzwerkadapters"
 
 msgid "Interface Type"
-msgstr ""
+msgstr "Schnittstellentyp"
 
 msgid "Hardware Address (MAC)"
-msgstr ""
+msgstr "Hardware-Adresse (MAC)"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Transfer Details"
-msgstr ""
+msgstr "Überweisungsdetails"
 
 msgid "Bytes Received"
-msgstr ""
+msgstr "Empfangene Bytes"
 
 msgid "Bytes Sent"
-msgstr ""
+msgstr "Gesendete Bytes"
 
 msgid "dBm"
-msgstr ""
+msgstr "dBm"
 
 msgid "mW"
-msgstr ""
+msgstr "mW"
 
 msgid "Wireless Properties"
-msgstr ""
+msgstr "Drahtlose Eigenschaften"
 
 msgid "Network Name (SSID)"
-msgstr ""
+msgstr "Netzwerkname (SSID)"
 
 msgid "Bit Rate"
-msgstr ""
+msgstr "Bitrate"
 
 msgid "Transmission Power"
-msgstr ""
+msgstr "Sendeleistung"
 
 msgid "Link Quality"
-msgstr ""
+msgstr "Linkqualität"
 
 msgid "Signal / Noise"
-msgstr ""
+msgstr "Signal / Rauschen"
 
 msgid "Internet Protocol (IPv4)"
-msgstr ""
+msgstr "Internetprotokoll (IPv4)"
 
 msgid "(Not set)"
-msgstr ""
+msgstr "(Nicht festgelegt)"
 
 msgid "Broadcast Address"
-msgstr ""
+msgstr "Broadcast-Adresse"
 
 msgid "RAM"
-msgstr ""
-
-#~ msgid "phandle Map"
-#~ msgstr "phandle-Karte"
-
-#~ msgid "Properties"
-#~ msgstr "Eigenschaften"
-
-#~ msgid "Platform"
-#~ msgstr "Plattform"
-
-#~ msgid "GPU-compatible"
-#~ msgstr "GPU-kompatibel"
-
-#~ msgid "Raspberry Pi or Compatible"
-#~ msgstr "Raspberry Pi oder kompatibles"
-
-#~ msgid "No revision code available; unable to lookup model details."
-#~ msgstr "Kein Revisionscode verfügbar; unfähig Modelldetails abzurufen"
-
-#~ msgid "More"
-#~ msgstr "Mehr"
-
-#~ msgid "Messages"
-#~ msgstr "Nachrichten"
-
-#~ msgid "Detected as"
-#~ msgstr "Erkannt als"
-
-#~ msgid "Introduction"
-#~ msgstr "Einführung"
-
-#~ msgid "SOC (spec)"
-#~ msgstr "SOC (Spezifikation)"
-
-#~ msgid "Memory (spec)"
-#~ msgstr "Speicher (Spezifikation)"
-
-#~ msgid "Permanent overvolt bit"
-#~ msgstr "Permanenter Überspannungsbit "
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Set"
-#~ msgstr "Eingestellt"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Not set"
-#~ msgstr "Nicht eingestellt"
-
-#~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "HardInfo2-_Webseite öffnen"
-
-#~ msgid "Loading modules..."
-#~ msgstr "Lade Module..."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in events/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> wird benötigt.\n"
-#~ "Ergebnisse in events/Sekunde. Höhere Werte sind besser."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in MiB/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> wird benötigt.\n"
-#~ "Ergebnisse in MiB/Sekunde. Höhere Werte sind besser."
-
-#~ msgid "Virtual (Unknown)"
-#~ msgstr "Virtuell (Unbekannt)"
-
-#~ msgid "Virtual (hypervisor present)"
-#~ msgstr "Virtuell (Hypervisor vorhanden)"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s / %s\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Akku: %s]\n"
-#~ "Status=%s\n"
-#~ "Kapazität=%s / %s\n"
-#~ "Akku-Technologie=%s\n"
-#~ "Hersteller=%s\n"
-#~ "Modellnummer=%s\n"
-#~ "Seriennummer=%s\n"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\", load it?"
-#~ msgstr "Module \"%s\" ist von Modul \"%s\" abhängig, lade Modul?"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\"."
-#~ msgstr "Modul \"%s\" ist von Modul \"%s\" abhängig"
-
-#~ msgid "_Open..."
-#~ msgstr "_Öffnen..."
-
-#~ msgid "Manufacturing Date (Week / Year)"
-#~ msgstr "Herstellungsdatum (Woche / Jahr)"
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "In die Zwischenablage _kopieren"
-
-#~ msgid "Copy to clipboard"
-#~ msgstr "In die Zwischenablage kopieren"
-
-#~ msgid "<b><i>dmidecode</i></b> utility available"
-#~ msgstr "<b><i>dmidecode</i></b> Dienstprogramm verfügbar"
-
-#~ msgid " ... <i>and</i> HardInfo2 running with superuser privileges"
-#~ msgstr "... <i>und</i> HardInfo2 läuft mit superuser Privilegien"
-
-#~ msgid ""
-#~ " ... <i>or</i> <b><i>ee1004</i></b> module loaded <b>and configured!</b> "
-#~ "(for DDR4)"
-#~ msgstr ""
-#~ " ... <i>or</i> <b><i>ee1004</i></b> Module geladen <b>und konfiguriert!</"
-#~ "b> (für DDR4)"
-
-#~ msgid "Memory information requires <b>one or both</b> of the following:"
-#~ msgstr "Speicherinformation benötigt <b>eins oder beides</b> von folgendem:"
-
-#, c-format
-#~ msgid ""
-#~ "Written by %s\n"
-#~ "Licensed under %s"
-#~ msgstr ""
-#~ "Programmiert von %s\n"
-#~ "Lizenziert unter %s"
-
-#, c-format
-#~ msgid "No about information is associated with the %s module."
-#~ msgstr "Keine 'Über' Information ist mit dem Modul %s verbunden"
-
-#~ msgid "User Note"
-#~ msgstr "User-Hinweis"
-
-#~ msgid ""
-#~ "This result is from an old version of HardInfo2. Results might not be "
-#~ "comparable to current version. Some details are missing."
-#~ msgstr ""
-#~ "Dieses Ergebnis stammt von einer früheren Version von Hardinfo. "
-#~ "Ergebnisse stimmen möglicherweise nicht mit der derzeitigen Version "
-#~ "überein"
-
-#~ msgid "Total Memory"
-#~ msgstr "Gesamter Speicher"
-
-#~ msgid "Free Memory"
-#~ msgstr "Freier Speicher"
-
-#~ msgid "High Memory"
-#~ msgstr "Hoher Speicher"
-
-#~ msgid "Free High Memory"
-#~ msgstr "Freier hoher Speicher"
-
-#~ msgid "Low Memory"
-#~ msgstr "Geringer Speicher"
-
-#~ msgid "Free Low Memory"
-#~ msgstr "freier geringer Speicher"
-
-#~ msgid "Virtual Memory"
-#~ msgstr "Virtueller Speicher"
-
-#~ msgid "Free Virtual Memory"
-#~ msgstr "Freier virtueller Speicher"
-
-#~ msgid "(Not available; Perhaps try running HardInfo2 as root.)"
-#~ msgstr ""
-#~ "(Nicht verfügbar; Vielleicht versuchen Hardinfo als root zu starten.)"
-
-#~ msgid "DMI is not available; Perhaps try running HardInfo2 as root."
-#~ msgstr ""
-#~ "DMI nicht verfügbar; Vielleicht versuchen HardInfo2 als root zu starten."
-
-#~ msgid "RISC-V Processor"
-#~ msgstr "RISC-V Prozessor"
-
-#, c-format
-#~ msgid ""
-#~ "Modules:\n"
-#~ "%-20s %-15s %-12s\n"
-#~ msgstr ""
-#~ "Module:\n"
-#~ "%-20s %-15s %-12s\n"
-
-#~ msgid "File Name"
-#~ msgstr "Dateiname"
-
-#, c-format
-#~ msgid "Unknown benchmark ``%s'' or benchmark.so not loaded"
-#~ msgstr "Unbekannter Benchmark ``%s'' oder benchmark.so nicht geladen"
-
-#~ msgid "run benchmark; requires benchmark.so to be loaded"
-#~ msgstr "Starte Benchmark; benchmark.so muss geladen sein"
-
-#~ msgid "note attached to benchmark results"
-#~ msgstr "Hinweis angehängt an Benchmark-Ergebnisse"
-
-#~ msgid "lists modules"
-#~ msgstr "listet Module auf"
-
-#~ msgid "specify module to load"
-#~ msgstr "gibt Modul zum laden an"
-
-#~ msgid "automatically load module dependencies"
-#~ msgstr "Lädt Modul-Abhängigkeiten automatisch"
-
-#~ msgid "run in XML-RPC server mode"
-#~ msgstr "Starte in XML-RPC server Modus"
-
-#~ msgid "- System Profiler and Benchmark tool"
-#~ msgstr "- System-Profiler und Benchmark-Werkzeug"
-
-#, c-format
-#~ msgid ""
-#~ "No module could be loaded. Check permissions on \"%s\" and try again."
-#~ msgstr ""
-#~ "Kein Modul konnte geladen werden. Überprüfe Berechtigung von \"%s\" und "
-#~ "versuche es erneut"
-
-#~ msgid ""
-#~ "No module could be loaded. Please use hardinfo2 -l to list all available "
-#~ "modules and try again with a valid module list."
-#~ msgstr ""
-#~ "Kein Modul konnte geladen werden. Bitte führe hardinfo2 -l aus um alle "
-#~ "Module anzuzeigen und versuche es mit einer gültigen Liste erneut"
-
-#~ msgid "Contributors:"
-#~ msgstr "Mitwirkende:"
-
-#~ msgid "Based on work by:"
-#~ msgstr "Basierend auf der Arbeit von:"
-
-#~ msgid "MD5 implementation by Colin Plumb (see md5.c for details)"
-#~ msgstr "MD5 Implementierung von Colin Plumb (md5.c für Details)"
-
-#~ msgid "SHA1 implementation by Steve Reid (see sha1.c for details)"
-#~ msgstr "SHA1 Implementierung von Steve Reid (sha1.c für Details)"
-
-#~ msgid "Blowfish implementation by Paul Kocher (see blowfich.c for details)"
-#~ msgstr "Blowfish Implementierung von Paul Kocher (blowfich.c für Details)"
-
-#~ msgid "Raytracing benchmark by John Walker (see fbench.c for details)"
-#~ msgstr "Raytracing Benchmark von John Walker (fbench.c für Details)"
-
-#~ msgid "FFT benchmark by Scott Robert Ladd (see fftbench.c for details)"
-#~ msgstr "FFT Benchmark von Scott Robert Ladd (fftbench.c für Details)"
-
-#~ msgid "Some code partly based on x86cpucaps by Osamu Kayasono"
-#~ msgstr "Einiger code teilweise basierend auf x86cpucaps von Osamu Kayasono"
-
-#~ msgid "Vendor list based on GtkSysInfo by Pissens Sebastien"
-#~ msgstr "Verkäuferliste basiert auf GtkSysInfo von Pissens Sebastien"
-
-#~ msgid "DMI support based on code by Stewart Adam"
-#~ msgstr "DMI Support basiert auf Code von Stewart Adam"
-
-#~ msgid "SCSI support based on code by Pascal F. Martin"
-#~ msgstr "SCSI Support basiert auf code von Pascal F. Martin"
-
-#~ msgid "Tango Project"
-#~ msgstr "Tango Projekt"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "Das GNOME Projekt"
-
-#~ msgid "VMWare, Inc. (USB icon from VMWare Workstation 6)"
-#~ msgstr "VMWare, Inc. (USB icon von VMWare Workstation 6)"
-
-#~ msgid "System information and benchmark tool"
-#~ msgstr "System-Informationen und Benchmark-Werkzeug"
-
-#~ msgid "translator-credits"
-#~ msgstr "Übersetzer-Anerkennungen"
-
-#~ msgid "About _Modules"
-#~ msgstr "Über _Module"
-
-#~ msgid "_Network Updater..."
-#~ msgstr "_Netzwerk-Updater…"
-
-#, c-format
-#~ msgid "%s - System Information"
-#~ msgstr "%s - System-Informationen"
-
-#~ msgid "System Information"
-#~ msgstr "System-Informationen"
-
-#~ msgid ""
-#~ "HardInfo2 was compiled without libsoup support. (Network Updater requires "
-#~ "it.)"
-#~ msgstr ""
-#~ "HardInfo2 wurde ohne libsoup-Support kompiliert. (Netzwerk-Updater "
-#~ "benötigt es.)"
-
-#, c-format
-#~ msgid "%s (error #%d)"
-#~ msgstr "%s (Fehlercode #%d)"
-
-#~ msgid "Could not parse XML-RPC response"
-#~ msgstr "Konnte XML-RPC Antwort nicht parsen"
-
-#, c-format
-#~ msgid ""
-#~ "Server says it supports API version %d, but this version of HardInfo2 "
-#~ "only supports API version %d."
-#~ msgstr ""
-#~ "Server sagt er supportet API Version %d, aber diese Version von Hardinfo "
-#~ "unterstützt nur API Version %d"
-
-#~ msgid "Contacting HardInfo2 Central Database"
-#~ msgstr "Kontaktiere zentrale HardInfo2-Datenbank"
-
-#~ msgid "Cleaning up"
-#~ msgstr "Aufräumen"
-
-#~ msgid "Network Updater"
-#~ msgstr "Netzwerk-Updater"
-
-#~ msgid "FPU Raytracing"
-#~ msgstr "FPU Raytracing"
-
-#~ msgid "Results in seconds. Lower is better."
-#~ msgstr "Ergebnisse in Sekunden. Niedrigere Werte sind besser."
-
-#~ msgid ""
-#~ "Benchmarking. Please do not move your mouse\n"
-#~ "or press any keys."
-#~ msgstr ""
-#~ "Benchmarke. Bitte bewege den Mauszeiger nicht\n"
-#~ "und drücke keine Tasten."
-
-#~ msgid "Cancel"
-#~ msgstr "Abbrechen"
-
-#~ msgid "Update CPU feature database"
-#~ msgstr "Aktualisiere CPU-Merkmale Datenbank"
-
-#~ msgid "Ressource information requires superuser privileges"
-#~ msgstr "Ressourceinformation benötigt Superuser Rechte"
-
-#~ msgid " <b><i>eeprom</i></b> module loaded (for SDR, DDR, DDR2, DDR3)"
-#~ msgstr "<b><i>eeprom</i></b> Module geladen (für SDR, DDR, DDR2, DDR3)"
-
-#~ msgid "Requires the <i><b>fwupdmgr</b></i> utility."
-#~ msgstr "Benötigt das <i><b>fwupdmgr</b></i> Dienstprogramm"
-
-#, c-format
-#~ msgid "Vendor=%s\n"
-#~ msgstr "Hersteller=%s\n"
-
-#~ msgid "Couldn't find a Web browser to open URL %s."
-#~ msgstr "Konnte keinen Web-Browser finden, um die URL %s zu öffnen."
-
-#~ msgid "CPU Blowfish"
-#~ msgstr "CPU Blowfish"
-
-#~ msgid "CSharp (Mono, old)"
-#~ msgstr "CSharp (Mono, old)"
-
-#~ msgid "CSharp (Mono)"
-#~ msgstr "CSharp (Mono)"
-
-#~ msgid "DMI"
-#~ msgstr "DMI"
-
-#~ msgid "Memory SPD"
-#~ msgstr "Hauptspeicher (SPD)"
-
-#~ msgid "Vendor=%s (%s)\n"
-#~ msgstr "Hersteller=%s (%s)\n"
-
-#~ msgid "X11 Vendor"
-#~ msgstr "X11-Hersteller"
-
-#~ msgid "Extensions"
-#~ msgstr "Erweiterungen"
-
-#~ msgid "Monitor %d=%dx%d pixels\n"
-#~ msgstr "Bildschirm %d=%dx%d Pixel\n"
-
-#~ msgid " (model unknown)"
-#~ msgstr " (unbekanntes Modell)"
-
-#~ msgid " (vendor unknown)"
-#~ msgstr " (unbekannter Hersteller)"
-
-#~ msgid "CPU Clock"
-#~ msgstr "CPU-Takt"
-
-#~ msgid "%s$CPU%d$%s=%.2fMHz\n"
-#~ msgstr "%s$CPU%d$%s=%.2fMHz\n"
+msgstr "RAM"

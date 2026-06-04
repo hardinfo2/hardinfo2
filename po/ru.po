@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:25+0300\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -1302,7 +1302,7 @@ msgid "Misc"
 msgstr "Разное"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "Сжатие памяти (ZRam)"
 
 msgid "Compression"
 msgstr "Сжатие"
@@ -1311,19 +1311,19 @@ msgid "N/A"
 msgstr "Н/Д"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Уровень сжатия"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "Размер диска"
 
 msgid "Data Size"
 msgstr "Размер данных"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "Сжатый размер"
 
 msgid "Total Size"
-msgstr ""
+msgstr "Общий размер"
 
 msgid "Memory Compression (ZSwap)"
 msgstr "Сжатие памяти (ZSwap)"
@@ -1344,7 +1344,7 @@ msgid "Accept Threshold Percent"
 msgstr "Порог принятия в процентах"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "Сжатие памяти (ZSwap/ZRam)"
 
 msgid "Disabled"
 msgstr "Отключено"
@@ -1384,13 +1384,13 @@ msgid "Hardinfo2 Service not enabled/started"
 msgstr "Служба Hardinfo2 не включена или не запущена"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "Загрузчик Linux"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "Состояние безопасной загрузки"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "Сертификаты загрузки"
 
 msgid "Health"
 msgstr "Здоровье"
@@ -4227,8 +4227,8 @@ msgstr "Инструкция перемещения данных с перест
 #. !/flag:popcnt
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
-"e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
 msgstr ""
 "Инструкция, возвращающая количество установленных в 1 бит (вес Хэмминга)"
 
@@ -4250,8 +4250,8 @@ msgstr "Расширенный стандарт шифрования (новые
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr ""
-"Сохранение расширенных состояний процессора: также добавляет XGETBY,XRSTOR,"
-"XSETBY"
+"Сохранение расширенных состояний процессора: также добавляет "
+"XGETBY,XRSTOR,XSETBY"
 
 #. !/flag:avx
 msgctxt "x86-flag"

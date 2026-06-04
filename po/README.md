@@ -14,22 +14,22 @@ Status
 This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
-hardinfo2.pot now has 1393 strings (no change), with 69 c-format strings
+hardinfo2.pot now has 1399 strings (+6), with 69 c-format strings
 
-- [ ] da.po : (15 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] de.po : (935 / 1393 remain untranslated, needs work/fuzzy: 2)
-- [ ] es.po : (548 / 1393 remain untranslated, needs work/fuzzy: 18)
-- [ ] fr.po : (751 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] hu.po : (1230 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] ka.po : (348 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] ko.po : (322 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt_BR.po : (118 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] pt.po : (312 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] ru.po : (4 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] sv.po : (97 / 1393 remain untranslated, needs work/fuzzy: 1)
-- [ ] tr.po : (85 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [ ] ua.po : (85 / 1393 remain untranslated, needs work/fuzzy: 0)
-- [x] zh_CN.po : (0 / 1393 remain untranslated, needs work/fuzzy: 0)
+- [x] da.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] de.po : (941 / 1399 remain untranslated, needs work/fuzzy: 2)
+- [ ] es.po : (554 / 1399 remain untranslated, needs work/fuzzy: 18)
+- [ ] fr.po : (757 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] hu.po : (1236 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] ka.po : (354 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] ko.po : (328 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt_BR.po : (124 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] pt.po : (318 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [x] ru.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [x] sv.po : (0 / 1399 remain untranslated, needs work/fuzzy: 1)
+- [ ] tr.po : (91 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] ua.po : (91 / 1399 remain untranslated, needs work/fuzzy: 0)
+- [ ] zh_CN.po : (7 / 1399 remain untranslated, needs work/fuzzy: 0)
 
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 

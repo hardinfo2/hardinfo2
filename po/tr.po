@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: 2026-03-31 13:54+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -659,10 +659,10 @@ msgid "_Generate"
 msgstr "_Oluştur"
 
 msgid "Enter text to search, double-click to select all"
-msgstr ""
+msgstr "Aramak istediğiniz metni girin, tümünü seçmek için çift tıklayın"
 
 msgid "Search not available"
-msgstr ""
+msgstr "Arama özelliği kullanılamıyor"
 
 msgid "Benchmark"
 msgstr "Karşılaştırma"
@@ -672,7 +672,7 @@ msgid "%s - System Information and Benchmark"
 msgstr "%s - Sistem Bilgileri ve Karşılaştırma"
 
 msgid "Search"
-msgstr ""
+msgstr "Ara"
 
 #, c-format
 msgid ""
@@ -693,13 +693,13 @@ msgstr ""
 "Lütfen manuel olarak yükleyerek düzeltin"
 
 msgid "Copy selected row"
-msgstr ""
+msgstr "Seçili satırı kopyala"
 
 msgid "Copy all rows"
-msgstr ""
+msgstr "Tüm satırları kopyala"
 
 msgid "Copy all text"
-msgstr ""
+msgstr "Tüm metni kopyala"
 
 msgid "Network"
 msgstr "Ağ"
@@ -1079,7 +1079,7 @@ msgstr "Gruplar"
 
 #, c-format
 msgid "%dMB (%dMB used, %dMB compressed)"
-msgstr ""
+msgstr "%d MB (%d MB kullanıldı, %d MB sıkıştırıldı)"
 
 #, c-format
 msgid "%dMB (%dMB used)"
@@ -1297,34 +1297,34 @@ msgid "Misc"
 msgstr "Çeşitli"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "Bellek Sıkıştırma (ZRam)"
 
 msgid "Compression"
-msgstr ""
+msgstr "Sıkıştırma"
 
 msgid "N/A"
-msgstr ""
+msgstr "Geçerli değil"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Sıkıştırma Oranı"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "Disk Boyutu"
 
 msgid "Data Size"
 msgstr "Veri Boyutu"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "Sıkıştırılmış Boyut"
 
 msgid "Total Size"
-msgstr ""
+msgstr "Toplam Boyut"
 
 msgid "Memory Compression (ZSwap)"
-msgstr ""
+msgstr "Bellek Sıkıştırma (ZSwap)"
 
 msgid "Shrinker Enabled"
-msgstr ""
+msgstr "Daraltma Özelliği Etkinleştirildi"
 
 msgid "Yes"
 msgstr "Evet"
@@ -1333,13 +1333,13 @@ msgid "No"
 msgstr "Hayır"
 
 msgid "Maximum Pool Percent"
-msgstr ""
+msgstr "Maksimum Havuz Yüzdesi"
 
 msgid "Accept Threshold Percent"
-msgstr ""
+msgstr "Kabul Edilebilir Eşik Yüzdesi"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "Bellek Sıkıştırma (ZSwap/ZRam)"
 
 msgid "Disabled"
 msgstr "Devre dışı"
@@ -1378,13 +1378,13 @@ msgid "Hardinfo2 Service not enabled/started"
 msgstr "Hardinfo2 Hizmeti etkinleştirilmedi/başlatılmadı"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "Linux Başlatma"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "Güvenli Önyükleme Durumu"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "Önyükleme Sertifikaları"
 
 msgid "Health"
 msgstr "Sağlık"
@@ -1411,7 +1411,7 @@ msgid "SELinux status"
 msgstr "SELinux durumu"
 
 msgid "Landlock ABI version"
-msgstr ""
+msgstr "Landlock ABI sürümü"
 
 msgid "CPU Vulnerabilities"
 msgstr "CPU Güvenlik Açıkları"
@@ -1544,7 +1544,7 @@ msgid "Conformance Version"
 msgstr "Uygunluk Sürümü"
 
 msgid "Login"
-msgstr ""
+msgstr "Giriş yap"
 
 msgid "User ID"
 msgstr "Kullanıcı Kimliği"
@@ -1601,7 +1601,7 @@ msgstr ""
 "gereklidir."
 
 msgid "Variable"
-msgstr ""
+msgstr "Değişken"
 
 msgid "Filesystem"
 msgstr "Dosya Sistemi"
@@ -1625,16 +1625,16 @@ msgid "Available"
 msgstr "Uygulanabilir"
 
 msgid "None"
-msgstr ""
+msgstr "Yok"
 
 msgid "Group Information"
-msgstr ""
+msgstr "Grup Bilgileri"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Grup Adı"
 
 msgid "Members"
-msgstr ""
+msgstr "Üyeler"
 
 msgid "Locale Information"
 msgstr "Yerel Bilgisi"
@@ -1974,11 +1974,11 @@ msgid "Enabled"
 msgstr "Aktif"
 
 msgid "Not built with Landlock support"
-msgstr ""
+msgstr "Landlock desteğiyle oluşturulmadı"
 
 #, c-format
 msgid "Version %d"
-msgstr ""
+msgstr "Sürüm %d"
 
 msgid "User Information"
 msgstr "Kullanıcı Bilgisi"
@@ -2299,7 +2299,7 @@ msgstr ""
 "\n"
 "[Pil: %s]\n"
 "Durum=%s (yük: %s)\n"
-"Kapasite=%s / %s (%%%.2f)\n"
+"Kapasite=%s / %s (%.2f%%)\n"
 "Pil Teknolojisi=%s (%s)\n"
 "Üretici=%s\n"
 "Model Numarası=%s\n"
@@ -2352,6 +2352,22 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"Yl: %s]\n"
+"Durum=%s\n"
+"Kapasite=%s %% / %s\n"
+"Pil Kullanımı=%.0f W\n"
+"Kalan Süre=%02ds %02dd\n"
+"Pil Sağlığı=%.0f %%\n"
+"Tasarım Tam Enerjisi=%.3f Wh\n"
+"Mevcut Tam Enerjisi=%.3f Wh\n"
+"Tasarım Tam Kapasitesi=%.3f Ah\n"
+"Mevcut Tam Kapasitesi=%.3f Ah\n"
+"Voltaj Tasarımı=%.3f V\n"
+"Pil Teknolojisi=%s\n"
+"Üretici=%s\n"
+"Model Numarası=%s\n"
+"Seri Numarası=%s\n"
 
 #, c-format
 msgid ""
@@ -2428,10 +2444,10 @@ msgid "Resources"
 msgstr "Kaynaklar"
 
 msgid "Released"
-msgstr ""
+msgstr "Yayınlandı"
 
 msgid "Release Date"
-msgstr ""
+msgstr "Yayın Tarihi"
 
 msgid "Distro and CPU Supported Profiles"
 msgstr "Dağıtım ve İşlemci Destekli Profiller"
@@ -2449,7 +2465,7 @@ msgid "Devices"
 msgstr "Aygıtlar"
 
 msgid "Update CPU database"
-msgstr ""
+msgstr "CPU veri tabanını güncelleyin"
 
 msgid "Update PCI ID listing"
 msgstr "PCI kimlik listesini güncelle"
@@ -3523,11 +3539,11 @@ msgstr "Normal"
 
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "Uyarı: %%80'in üzerinde kullanıldı"
 
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "%%90'ın üzerinde kullanımda, arıza meydana geldi"
 
 #, c-format
 msgid ""
@@ -3543,14 +3559,19 @@ msgstr ""
 "MLC Flash Durumu=%s\n"
 "Ömr Sonu Öncesi Durum=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
-"[Öz denetim (S.M.A.R.T.)]\n"
+"[Kendi Kendine İzleme (S.M.A.R.T.)]\n"
 "Durum=%s\n"
-"Kötü Sektör=%"
+"Kötü Sektörler=%lld\n"
+"Çalışma Süresi=%lld gün %lld saat\n"
+"Sıcaklık=%d°C\n"
 
 msgid "Failing"
 msgstr "Başarısız"
@@ -3572,10 +3593,11 @@ msgstr ""
 "[S.M.A.R.T. Öznitelikleri]\n"
 "Nitelik=<tt>Değer      / Normalleştirilmiş / En Kötü / Eşik</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] "%"
-msgstr[1] "%"
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld sektör"
+msgstr[1] "%lld sektör"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
@@ -4046,7 +4068,7 @@ msgstr "TSC, C bölgelerinde durmuyor"
 #. !/flag:cpuid
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr ""
+msgstr "CPU, kendi CPUID komutuna sahiptir"
 
 #. !/flag:extd_apicid
 msgctxt "x86-flag"
@@ -4076,7 +4098,7 @@ msgstr "TSC S3 durumunda durmuyor"
 #. !/flag:tsc_known_freq
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr ""
+msgstr "TSC'nin bilinen bir frekansı vardır"
 
 #. !/flag:mce_recovery
 msgctxt "x86-flag"
@@ -4213,7 +4235,7 @@ msgstr "Tsc son tarih zamanlayıcı"
 #. !/flag:aes
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
-msgstr ""
+msgstr "Gelişmiş Şifreleme Standardı"
 
 #. !/flag:aes-ni
 msgctxt "x86-flag"
@@ -4339,6 +4361,8 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
+"Şunu gösterir: Bazı eski SSE komutları hizalanmamış veriler üzerinde işlem "
+"yaptığında bir GP istisnası oluşturulup oluşturulmayacağını belirtir"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
@@ -4437,7 +4461,7 @@ msgstr "MWAIT uzantısı (MONITORX / MWAITX)"
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "Intel CPUID Hatası"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
@@ -4467,37 +4491,37 @@ msgstr "Intel İşlemci İzleme"
 #. !/flag:pti
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "Çekirdek Sayfa Tablosu Yalıtımı Etkinleştirildi"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "Çekirdek girişinde/çıkışında IBRS'yi ayarla/sıfırla"
 
 #. !/flag:ssbd
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "Tahmini Önbellek Atlaması Devre Dışı Bırakma"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "Dolaylı Şube Kısıtlı Tahmin"
 
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
+msgstr "Garantili RSB temizlemesi olmadan dolaylı dallanma tahmini engeli"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "Tek İş Parçacıklı Dolaylı Dallanma Tahminleyiciler"
 
 #. !/flag:ibrs_enhanced
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "Geliştirilmiş IBRS"
 
 #. !/flag:tpr_shadow
 msgctxt "x86-flag"
@@ -4532,12 +4556,12 @@ msgstr "VMMCALL'u VMCALL'a tercih edin"
 #. !/flag:ept_ad
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "Intel Genişletilmiş Sayfa Tablosu erişimi - değiştirilmiş bit"
 
 #. !/flag:avx512_bf16
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512 BFLOAT16 komutları"
 
 #. !/flag:fsgsbase
 msgctxt "x86-flag"
@@ -4552,7 +4576,7 @@ msgstr "TSC ayarı MSR"
 #. !/flag:sgx
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "Yazılım Güvenlik Uzantıları"
 
 #. !/flag:bmi1
 msgctxt "x86-flag"
@@ -4592,7 +4616,7 @@ msgstr "İşlemci Bağlam Kimliğini Geçersiz Kıl"
 #. !/flag:invpcid_single
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "İşlemci Bağlam Kimliğini Geçersiz Kıl (Tekil)"
 
 #. !/flag:rtm
 msgctxt "x86-flag"
@@ -4637,7 +4661,7 @@ msgstr "Gözetmen Modu Erişim Engelleme"
 #. !/flag:avx512ifma
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
-msgstr ""
+msgstr "AVX-512 tamsayı birleşik çarpma-toplama komutları"
 
 #. !/flag:clflushopt
 msgctxt "x86-flag"
@@ -4682,17 +4706,17 @@ msgstr "AVX-512 128/256 Vektör Uzunluğu uzantıları"
 #. !/flag:md_clear
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "VERW, CPU önbelleklerini temizler"
 
 #. !/flag:flush_l1d
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "L1D önbelleğini temizle"
 
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
@@ -4737,7 +4761,7 @@ msgstr "LLC yerel MBM izleme"
 #. !/flag:split_lock_detect
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "Bölünmüş kilit için AC"
 
 #. !/flag:clzero
 msgctxt "x86-flag"
@@ -4752,12 +4776,12 @@ msgstr "talimatlar emekli performans sayacı"
 #. !/flag:xsaveerptr
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr ""
+msgstr "FP hata işaretçilerini her zaman kaydedin/geri yükleyin"
 
 #. !/flag:wbnoinvd
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD komutu"
 
 #. !/flag:dtherm
 msgctxt "x86-flag"
@@ -4867,17 +4891,17 @@ msgstr "Sanal Kesme Denetleyicisi"
 #. !/flag:v_vmsave_vmload
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "Sanal VMSAVE VMLOAD"
 
 #. !/flag:avx512vbmi
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512 vektör bit işlemleri komutları"
 
 #. !/flag:umip
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "Kullanıcı Modu Komut Koruması"
 
 #. !/flag:pku
 msgctxt "x86-flag"
@@ -4892,47 +4916,47 @@ msgstr "İşletim Sistemi Koruma Anahtarlarını Etkinleştir"
 #. !/flag:avx512_vbmi2
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "Ek AVX512 vektör bit manipülasyonu komutu"
 
 #. !/flag:gfni
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "Galois Alanı: Yeni komutlar"
 
 #. !/flag:vaes
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "Vektör AES"
 
 #. !/flag:vpclmulqdq
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "Daha Az Taşıma İşlemi Gerektiren Çarpma, Çift Dörtlü Kelime"
 
 #. !/flag:avx512_vnni
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "Vektörsel Sinir Ağı Talimatları"
 
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "VPOPCNT[B,W] ve VPSHUF-BITQMB talimatları için destek"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "DW/DQ vektörleri için POPCNT"
 
 #. !/flag:rdpid
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID talimatı"
 
 #. !/flag:sgx_lc
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "Yazılım Korumalı Genişletmeler Başlatma Kontrolü"
 
 #. !/flag:overflow_recov
 msgctxt "x86-flag"
@@ -4952,7 +4976,7 @@ msgstr "Ölçeklenebilir MCA"
 #. !/flag:fsrm
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "Hızlı, Kısa Tekrarlı Hareket"
 
 #. !/bug:f00f
 msgctxt "x86-flag"
@@ -5051,87 +5075,92 @@ msgstr "CPU, L1 Terminal Arızasından etkilenir"
 #. !/bug:mds
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "CPU, mikro mimari veri örneklemesinden etkilenir"
 
 #. !/bug:swapgs
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "CPU, SWAPGS aracılığıyla yapılan tahminleme yoluyla etkileniyor"
 
 #. !/bug:itlb_multihit
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
 msgstr ""
+"CPU, belirli sayfa öznitelik değişiklikleri sırasında MCE hatası verebilir"
 
 #. !/bug:srbds
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
 msgstr ""
+"CPU, gerekli önlemler alınmazsa rastgele sayı üreteci (RNG) bitlerini "
+"sızdırabilir"
 
 #. !/bug:mmio_stale_data
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
-msgstr ""
+msgstr "CPU, İşlemci MMIO Yanlış Veri güvenlik açığından etkileniyor"
 
 #. !/bug:mmio_unknown
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "MMIO Durum Verisi durumu bilinmiyor"
 
 #. !/bug:retbleed
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "CPU, RETBleed güvenlik açığından etkileniyor"
 
 #. !/bug:eibrs_pbrsb
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "EIBRS, Bariyer Sonrası Adres Tahminlerine karşı savunmasızdır"
 
 #. !/bug:gds
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "CPU, Veri Toplama Örneklemesinden etkilenir"
 
 #. !/bug:srso
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD BTB, RET'leri eğitimsiz bırakır"
 
 #. !/bug:bhi
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr ""
+msgstr "CPU, Dal Geçmiş Enjeksiyonundan etkileniyor"
 
 #. !/bug:ibpb_no_ret
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr ""
+msgstr "IBPB, hedef getiri tahminlerini yayınlamaktan vazgeçti"
 
 #. !/bug:spectre_v2_user
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
 msgstr ""
+"CPU, kullanıcı süreçleri arasındaki Spectre varyantı 2 saldırısından "
+"etkileniyor"
 
 #. !/bug:its
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "CPU, Dolaylı Hedef Seçimi'nden etkileniyor"
 
 #. !/bug:its_native_only
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "CPU, ITS'den etkileniyor, VMX etkilenmiyor"
 
 #. !/bug:tsa
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "CPU, Geçici Zamanlayıcı Saldırıları'ndan etkileniyor"
 
 #. !/bug:vmscape
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "CPU, sanal makinelerden gelen VMSCAPE saldırılarından etkileniyor"
 
 #. !/flag:pm:ts
 msgctxt "x86-flag"
@@ -5445,597 +5474,3 @@ msgstr "Yayın adresi"
 
 msgid "RAM"
 msgstr "RAM"
-
-#~ msgid "SOC/Package Information"
-#~ msgstr "SOC/Paket Bilgileri"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s %% / %s\n"
-#~ "Battery Usage=%.0f W\n"
-#~ "Battery Health=%.0f %%\n"
-#~ "Design Full Energy=%.3f Wh\n"
-#~ "Current Full Energy=%.3f Wh\n"
-#~ "Design Full Capacity=%.3f Ah\n"
-#~ "Current Full Capacity=%.3f Ah\n"
-#~ "Voltage Design=%.3f V\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Pil: %s]\n"
-#~ "Durum=%s\n"
-#~ "Kapasite=%s %% / %s\n"
-#~ "Pil Kullanımı=%.0f ​​W\n"
-#~ "Pil Sağlığı=%.0f ​​%%\n"
-#~ "Tasarım Tam Enerjisi=%.3f Wh\n"
-#~ "Mevcut Tam Enerji=%.3f Wh\n"
-#~ "Tasarım Tam Kapasitesi=%.3f Ah\n"
-#~ "Mevcut Tam Kapasite=%.3f Ah\n"
-#~ "Voltaj Tasarımı=%.3f V\n"
-#~ "Pil Teknolojisi=%s\n"
-#~ "Üretici=%s\n"
-#~ "Model Numarası=%s\n"
-#~ "Seri Numarası=%s\n"
-
-#~ msgctxt "x86-flag"
-#~ msgid ""
-#~ "indicates if a general-protection exception (#GP) is generated when some "
-#~ "legacy SSE instructions operate on unaligned data. Also depends on CR0 "
-#~ "and Alignment Checking bit"
-#~ msgstr ""
-#~ "bazı eski SSE talimatları hizalanmamış veriler üzerinde çalışırken bir "
-#~ "genel koruma istisnasının (#GP) oluşturulup oluşturulmadığını belirtir. "
-#~ "Ayrıca CR0 ve Hizalama Kontrol bitine bağlıdır"
-
-#, c-format
-#~ msgid "Warning >80% used"
-#~ msgstr "Uyarı >80% u'den fazla kullanıldı"
-
-#, c-format
-#~ msgid "Failing >90% used"
-#~ msgstr "Başarısız olanların oranı >90% u (kullanılmış)"
-
-#~ msgid "phandle Map"
-#~ msgstr "tanıtıcı Haritası"
-
-#, c-format
-#~ msgid "Detecting version: %s"
-#~ msgstr "Sürüm algılanıyor: %s"
-
-#~ msgid "Properties"
-#~ msgstr "Özellikler"
-
-#~ msgid "Children"
-#~ msgstr "Çocuk"
-
-#~ msgid "Node"
-#~ msgstr "Node"
-
-#~ msgid "Node Path"
-#~ msgstr "Node Yolu"
-
-#~ msgid "Alias"
-#~ msgstr "Lakab"
-
-#~ msgid "Symbol"
-#~ msgstr "Sembol"
-
-#~ msgid "Platform"
-#~ msgstr "Platform"
-
-#~ msgid "GPU-compatible"
-#~ msgstr "GPU-uyumlu"
-
-#~ msgid "Raspberry Pi or Compatible"
-#~ msgstr "Raspberry Pi veya Uyumlu"
-
-#~ msgid "RCode"
-#~ msgstr "RKodu"
-
-#~ msgid "No revision code available; unable to lookup model details."
-#~ msgstr "Revizyon kodu mevcut değil; model ayrıntılarını arayamıyor."
-
-#~ msgid "More"
-#~ msgstr "Daha fazla"
-
-#~ msgid "Messages"
-#~ msgstr "Mesajlar"
-
-#~ msgid "Apple Power Macintosh"
-#~ msgstr "Apple Power Macintosh"
-
-#~ msgid "Detected as"
-#~ msgstr "Olarak algılandı"
-
-#~ msgid "PMAC Flags"
-#~ msgstr "PMAC Bayrakları"
-
-#~ msgid "L2 Cache"
-#~ msgstr "L2 Önbelleği"
-
-#~ msgid "PMAC Generation"
-#~ msgstr "PMAC Üretimi"
-
-#~ msgid "Raspberry Pi"
-#~ msgstr "Raspberry Pi"
-
-#~ msgid "Board Name"
-#~ msgstr "Kart Adı"
-
-#~ msgid "PCB Revision"
-#~ msgstr "PCB Revizyonu"
-
-#~ msgid "Introduction"
-#~ msgstr "Giriş"
-
-#~ msgid "SOC (spec)"
-#~ msgstr "SOC (spec)"
-
-#~ msgid "Memory (spec)"
-#~ msgstr "Bellek (spec)"
-
-#~ msgid "Permanent overvolt bit"
-#~ msgstr "Kalıcı aşırı voltaj biti"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Set"
-#~ msgstr "Ayarla"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Not set"
-#~ msgstr "Belirlenmedi"
-
-#, c-format
-#~ msgid ""
-#~ "Compile-time options:\n"
-#~ "  Release version:  %s (%s)\n"
-#~ "  LibSoup version:  %s\n"
-#~ "  Data           :  %s\n"
-#~ "  Library        :  %s\n"
-#~ "  Locale         :  %s\n"
-#~ "  Compiled for   :  %s\n"
-#~ msgstr ""
-#~ "Derleme zamanı seçenekleri:\n"
-#~ "  Yayın sürümü            :  %s (%s)\n"
-#~ "  LibSoup sürümü          :  %s\n"
-#~ "  OpenGL sürümü           :  %s\n"
-#~ "  Vulkan sürümü           :  %s\n"
-#~ "  GTK sürümü              :  %s\n"
-#~ "  Veri                    :  %s\n"
-#~ "  Kütüphane               :  %s\n"
-#~ "  Yerel                   :  %s\n"
-#~ "  Derlendiği tarih        :  %s\n"
-
-#~ msgid "3.0"
-#~ msgstr "3.0"
-
-#~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "HardInfo2 Web Sitesini _Aç"
-
-#~ msgid "(Not available; Perhaps try running hardinfo2 as root.)"
-#~ msgstr ""
-#~ "(Mevcut değil; hardinfo2'yi root olarak çalıştırmayı deneyebilirsiniz.)"
-
-#~ msgid ""
-#~ "user note attached to benchmark results. (updating/synchronize with "
-#~ "server)"
-#~ msgstr ""
-#~ "kıyaslama sonuçlarına eklenen kullanıcı notu. (sunucuyla güncelleniyor/"
-#~ "senkronize ediliyor)"
-
-#~ msgid "Loading modules..."
-#~ msgstr "Modüller yükleniyor..."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in events/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> gereklidir.\n"
-#~ "Olay/saniye cinsinden sonuçlar. Daha yüksek, daha iyidir."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in MiB/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> gereklidir.\n"
-#~ "MB/saniye cinsinden sonuçlar. Daha yüksek, daha iyidir."
-
-#~ msgid ""
-#~ "<i><b>iperf3</b></i> is required.\n"
-#~ "Results in Gbits/s. Higher is better."
-#~ msgstr ""
-#~ "<i><b>iperf3</b></i> gereklidir.\n"
-#~ "Gbit/s cinsinden sonuçlar. Daha yüksek daha iyidir."
-
-#~ msgid "Virtual (Unknown)"
-#~ msgstr "Sanal (Bilinmeyen)"
-
-#~ msgid "Virtual (hypervisor present)"
-#~ msgstr "Sanal (hiper yönetici mevcut)"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s / %s\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Pil: %s]\n"
-#~ "Durum=%s\n"
-#~ "Kapasite=%s /%s\n"
-#~ "Pil Teknolojisi=%s\n"
-#~ "Üretici=%s\n"
-#~ "Model Numarası=%s\n"
-#~ "Seri Numarası=%s\n"
-
-#~ msgid "Resource information requires superuser privileges"
-#~ msgstr "Kaynak bilgileri süper kullanıcı ayrıcalıkları gerektirir"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\", load it?"
-#~ msgstr "“%s” modülüne “%s” modülü gerekli yüklensin mi?"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\"."
-#~ msgstr "“%s” modülü “%s” modülüne bağlıdır."
-
-#~ msgid "_Open..."
-#~ msgstr "_Aç..."
-
-#~ msgid "Perl6 (VM)"
-#~ msgstr "Perl6 (VM)"
-
-#~ msgid "Perl6"
-#~ msgstr "Perl6"
-
-#~ msgid "C♯ (mcs)"
-#~ msgstr "C♯ (mcs)"
-
-#~ msgid "Spin/Flavor"
-#~ msgstr "Spin / Lezzet"
-
-#~ msgid "Manufacturing Date (Week / Year)"
-#~ msgstr "Üretim Tarihi (Hafta / Yıl)"
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "Panoya _Kopyala"
-
-#~ msgid "Copy to clipboard"
-#~ msgstr "Panoya kopyala"
-
-#~ msgid "<b><i>dmidecode</i></b> utility available"
-#~ msgstr "<b><i>dmidecode</i></b> yardımcı programı mevcut"
-
-#~ msgid " ... <i>and</i> HardInfo2 running with superuser privileges"
-#~ msgstr " ... <i>ve</i> süper kullanıcı ayrıcalıklarıyla çalışan HardInfo2"
-
-#~ msgid ""
-#~ " <b><i>at24</i></b> (or eeprom) module loaded (for SDR, DDR, DDR2, DDR3)"
-#~ msgstr ""
-#~ " <b><i>at24</i></b> (veya eeprom) modülü yüklü (SDR, DDR, DDR2, DDR3 için)"
-
-#~ msgid ""
-#~ " ... <i>or</i> <b><i>ee1004</i></b> module loaded <b>and configured!</b> "
-#~ "(for DDR4)"
-#~ msgstr ""
-#~ " ... <i>veya</i><b><i>ee1004</i></b> modülü <b>yüklendi ve yapılandırıldı!"
-#~ "</b> (DDR4 için)"
-
-#~ msgid "Memory information requires <b>one or both</b> of the following:"
-#~ msgstr ""
-#~ "Bellek bilgisi aşağıdakilerden<b>birini veya her ikisini</b> gerektirir:"
-
-#, c-format
-#~ msgid ""
-#~ "Written by %s\n"
-#~ "Licensed under %s"
-#~ msgstr ""
-#~ "%s tarafından yazılmıştır\n"
-#~ "%s altında lisanslıdır"
-
-#, c-format
-#~ msgid "No about information is associated with the %s module."
-#~ msgstr "%s modülü ile ilgili bilgi yok."
-
-#~ msgid "User Note"
-#~ msgstr "Kullanıcı Notu"
-
-#~ msgid ""
-#~ "This result is from an old version of HardInfo2. Results might not be "
-#~ "comparable to current version. Some details are missing."
-#~ msgstr ""
-#~ "Bu sonuç, HardInfo'nun eski bir sürümünden kaynaklanmaktadır. Sonuçlar "
-#~ "geçerli sürümle karşılaştırılamayabilir. Bazı ayrıntılar eksik."
-
-#~ msgid "Total Memory"
-#~ msgstr "Toplam Hafıza"
-
-#~ msgid "Free Memory"
-#~ msgstr "Boş Hafıza"
-
-#~ msgid "Cached Swap"
-#~ msgstr "Önbellek Takas"
-
-#~ msgid "High Memory"
-#~ msgstr "Yüksek Bellek"
-
-#~ msgid "Free High Memory"
-#~ msgstr "Boş Yüksek Bellek"
-
-#~ msgid "Low Memory"
-#~ msgstr "Düşük Bellek"
-
-#~ msgid "Free Low Memory"
-#~ msgstr "Boş Düşük Bellek"
-
-#~ msgid "Virtual Memory"
-#~ msgstr "Sanal Hafıza"
-
-#~ msgid "Free Virtual Memory"
-#~ msgstr "Boş Sanal Hafıza"
-
-#~ msgid "(Not available; Perhaps try running HardInfo2 as root.)"
-#~ msgstr "(Mevcut değil, belki de HardInfo'u kök olarak çalıştırmalısınız.)"
-
-#~ msgid "DMI is not available; Perhaps try running HardInfo2 as root."
-#~ msgstr ""
-#~ "DMI mevcut değil; HardInfo'yu root olarak çalıştırmayı deneyebilirsiniz."
-
-#~ msgid "RISC-V Processor"
-#~ msgstr "RISC-V İşlemci"
-
-#, c-format
-#~ msgid ""
-#~ "Copyright (C) 2003-%d L. A. F. Pereira. See COPYING for details.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Telif(C) 2003-%d L. A. F. Pereira. Ayrıntılar için COPYING bölümüne "
-#~ "bakın.\n"
-#~ "\n"
-
-#, c-format
-#~ msgid ""
-#~ "Compile-time options:\n"
-#~ "  Release version:   %s (%s)\n"
-#~ "  BinReloc enabled:  %s\n"
-#~ "  Data prefix:       %s\n"
-#~ "  Library prefix:    %s\n"
-#~ "  Compiled for:      %s\n"
-#~ msgstr ""
-#~ "Derleme zamanı seçenekleri:\n"
-#~ "  Dağıtım sürümü:   %s (%s)\n"
-#~ "  BinReloc etkin:  %s\n"
-#~ "  Veri öneki:       %s\n"
-#~ "  Kütüphane öneki:    %s\n"
-#~ "  Için derlendi:      %s\n"
-
-#, c-format
-#~ msgid ""
-#~ "Failed to find runtime data.\n"
-#~ "\n"
-#~ "• Is HardInfo2 correctly installed?\n"
-#~ "• See if %s and %s exists and you have read permission."
-#~ msgstr ""
-#~ "Çalışma zamanı verileri bulunamadı.\n"
-#~ "\n"
-#~ "• HardInfo2 doğru kurulmuş mu?\n"
-#~ "• See if %s and %s exists and you have read permission."
-
-#, c-format
-#~ msgid ""
-#~ "Modules:\n"
-#~ "%-20s %-15s %-12s\n"
-#~ msgstr ""
-#~ "Modüller:\n"
-#~ "%-20s %-15s %-12s\n"
-
-#~ msgid "File Name"
-#~ msgstr "Dosya Adı"
-
-#, c-format
-#~ msgid "Unknown benchmark ``%s'' or benchmark.so not loaded"
-#~ msgstr ""
-#~ "Bilinmeyen karşılaştırmalı değerlendirme “%s” veya karşılaştırmalı "
-#~ "değerlendirme. Yüklenmedi"
-
-#~ msgid "run benchmark; requires benchmark.so to be loaded"
-#~ msgstr "kriter çalıştır; Benchmark.so'nin yüklenmesi gerekiyor"
-
-#~ msgid "note attached to benchmark results"
-#~ msgstr "kıyaslama sonuçlarına ekli not"
-
-#~ msgid "lists modules"
-#~ msgstr "modülleri listeler"
-
-#~ msgid "specify module to load"
-#~ msgstr "yüklenecek modülü belirt"
-
-#~ msgid "automatically load module dependencies"
-#~ msgstr "modül bağımlılıklarını otomatik olarak yükle"
-
-#~ msgid "run in XML-RPC server mode"
-#~ msgstr "XML-RPC sunucu modunda çalıştır"
-
-#~ msgid "- System Profiler and Benchmark tool"
-#~ msgstr "- Sistem Profili ve Karşılaştırma aracı"
-
-#, c-format
-#~ msgid ""
-#~ "No module could be loaded. Check permissions on \"%s\" and try again."
-#~ msgstr ""
-#~ "Hiçbir modül yüklenemedi. “%s” üzerindeki izinleri kontrol edin ve tekrar "
-#~ "deneyin."
-
-#~ msgid ""
-#~ "No module could be loaded. Please use hardinfo2 -l to list all available "
-#~ "modules and try again with a valid module list."
-#~ msgstr ""
-#~ "Hiçbir modül yüklenemedi. Lütfen tüm mevcut modülleri listelemek için "
-#~ "sert-l kullanın ve geçerli bir modül listesi ile tekrar deneyin."
-
-#~ msgid "Author:"
-#~ msgstr "Yazar:"
-
-#~ msgid "Contributors:"
-#~ msgstr "Katkı sağlayanlar:"
-
-#~ msgid "Based on work by:"
-#~ msgstr "Tarafından yapılan çalışmaya göre:"
-
-#~ msgid "MD5 implementation by Colin Plumb (see md5.c for details)"
-#~ msgstr ""
-#~ "Colin Plumb tarafından MD5 uygulaması (ayrıntılar için md5.c'ye bakın)"
-
-#~ msgid "SHA1 implementation by Steve Reid (see sha1.c for details)"
-#~ msgstr "Steve Reid'in SHA1 uygulaması (ayrıntılar için sha1.c'ye bakın)"
-
-#~ msgid "Blowfish implementation by Paul Kocher (see blowfich.c for details)"
-#~ msgstr ""
-#~ "Paul Kocher tarafından yapılan Blowfish uygulaması (ayrıntılar için "
-#~ "blowfich.c'ye bakın)"
-
-#~ msgid "Raytracing benchmark by John Walker (see fbench.c for details)"
-#~ msgstr "John Walker'ın Raytracing kıyaslaması (detaylar için bkz. Fbench.c)"
-
-#~ msgid "FFT benchmark by Scott Robert Ladd (see fftbench.c for details)"
-#~ msgstr ""
-#~ "Scott Robert Ladd tarafından yapılan FFT karşılaştırması (ayrıntılar için "
-#~ "fftbench.c'ye bakın)"
-
-#~ msgid "Some code partly based on x86cpucaps by Osamu Kayasono"
-#~ msgstr "Bazı kodlar kısmen Osamu Kayasono'nun x86cpucaps'larına dayalıdır"
-
-#~ msgid "Vendor list based on GtkSysInfo by Pissens Sebastien"
-#~ msgstr ""
-#~ "Satıcı listesi, Pissens Sebastien tarafından hazırlanan GtkSysInfo tabanlı"
-
-#~ msgid "DMI support based on code by Stewart Adam"
-#~ msgstr "Stewart Adam'ın koduna dayalı DMI desteği"
-
-#~ msgid "SCSI support based on code by Pascal F. Martin"
-#~ msgstr "Pascal F. Martin'in koduna dayalı SCSI desteği"
-
-#~ msgid "Tango Project"
-#~ msgstr "Tango Projesi"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME Projesi"
-
-#~ msgid "VMWare, Inc. (USB icon from VMWare Workstation 6)"
-#~ msgstr "VMWare, Inc. (VMWare Workstation 6'dan USB simgesi)"
-
-#~ msgid "epicbard (Fan icon, CC BY-SA 3.0)"
-#~ msgstr "epicbard (Fan icon, CC BY-SA 3.0)"
-
-#~ msgid "System information and benchmark tool"
-#~ msgstr ""
-#~ "Sistem bilgisi ve Karşılaştırma Aracı\n"
-#~ " (Türkçe Çevirisi Cihan Alkan ve Serkan Önder Tarafından Yapılmıştır)"
-
-#~ msgid ""
-#~ "HardInfo2 is free software; you can redistribute it and/or modify it "
-#~ "under the terms of the GNU General Public License as published by the "
-#~ "Free Software Foundation, version 2.\n"
-#~ "\n"
-#~ "This program is distributed in the hope that it will be useful, but "
-#~ "WITHOUT ANY WARRANTY; without even the implied warranty of "
-#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General "
-#~ "Public License for more details.\n"
-#~ "\n"
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program; if not, write to the Free Software Foundation, Inc., "
-#~ "51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
-#~ msgstr ""
-#~ "HardInfo2 ücretsiz bir yazılımdır; Free Software Foundation, sürüm 2 "
-#~ "tarafından yayınlanan GNU Genel Kamu Lisansı koşulları altında yeniden "
-#~ "dağıtabilir ve / veya değiştirebilirsiniz.\n"
-#~ "\n"
-#~ "Bu program yararlı olacağı ümidiyle, ancak HERHANGİ BİR GARANTİ "
-#~ "OLMAKSIZIN; BELİRLİ BİR AMACA UYGUNLUK veya zımni garanti olmadan. Daha "
-#~ "fazla ayrıntı için GNU Genel Kamu Lisansına bakın.\n"
-#~ "\n"
-#~ "Bu programla birlikte GNU Genel Kamu Lisansının bir kopyasını almış "
-#~ "olmalısınız; değilse, Free Software Foundation, Inc., 51 Franklin St, "
-#~ "Fifth Floor, Boston, MA 02110-1301 ABD'ye yazın"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Cihan Alkan\n"
-#~ "Serkan Önder\n"
-#~ "Sabri Ünal <libreajans@gmail.com>"
-
-#~ msgid "_Remote"
-#~ msgstr "_Uzak"
-
-#~ msgid "About _Modules"
-#~ msgstr "_Modüller Hakkında"
-
-#, c-format
-#~ msgid "%s - System Information"
-#~ msgstr "%s - Sistem Bilgisi"
-
-#~ msgid "System Information"
-#~ msgstr "Sistem Bilgisi"
-
-#~ msgid ""
-#~ "HardInfo2 was compiled without libsoup support. (Network Updater requires "
-#~ "it.)"
-#~ msgstr ""
-#~ "HardInfo2, libsoup desteği olmadan derlendi. (Ağ Güncelleyici gerektirir.)"
-
-#, c-format
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)\n"
-#~ "\n"
-#~ "Details: %s"
-#~ msgstr ""
-#~ "“%s” gerçekleştirilirken başarısız oldu. Bu sorun devam ederse lütfen bir "
-#~ "hata raporu gönderin. (Yardım → Hata Bildir seçeneğini kullanın.)\n"
-#~ "\n"
-#~ "Ayrıntılar: %s"
-
-#, c-format
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)"
-#~ msgstr ""
-#~ "“%s” i gerçekleştirirken başarısız oldu. Bu sorun devam ederse lütfen bir "
-#~ "hata raporu gönderin. (Yardım → Hata Bildir seçeneğini kullanın.)"
-
-#~ msgid "FPU Raytracing"
-#~ msgstr "FPU Işın İzleme"
-
-#~ msgid "SysBench Memory"
-#~ msgstr "SisKıyaslama Bellek"
-
-#~ msgid "Results in seconds. Lower is better."
-#~ msgstr "Saniyeler içinde sonuçlanır. Düşük daha iyidir."
-
-#~ msgid ""
-#~ "Benchmarking. Please do not move your mouse\n"
-#~ "or press any keys."
-#~ msgstr ""
-#~ "Kıyaslama. Lütfen farenizi hareket ettirmeyin\n"
-#~ "veya herhangi bir tuşa basmayın."
-
-#~ msgid "Cancel"
-#~ msgstr "İptal"
-
-#~ msgid ""
-#~ "Any NVMe storage devices present are not listed.\n"
-#~ "<b><i>udisksd</i></b> is required for NVMe devices."
-#~ msgstr ""
-#~ "Mevcut herhangi bir NVMe depolama cihazı listelenmemiştir.\n"
-#~ "NVMe cihazları için<b><i>udisksd</i></b> gereklidir."

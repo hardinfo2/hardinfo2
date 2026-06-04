@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: 2024-05-20 13:19+0200\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
@@ -19,292 +19,292 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Little Endian"
-msgstr ""
+msgstr "Kis végű bájt sorrend"
 
 msgid "Big Endian"
-msgstr ""
+msgstr "Nagy végű bájt sorrend"
 
 msgid "Frequency Scaling"
-msgstr ""
+msgstr "Frekvenciaszabályozás"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgid "kHz"
 msgstr "kHz"
 
 msgid "Maximum"
-msgstr ""
+msgstr "Maximális"
 
 msgid "Current"
-msgstr ""
+msgstr "Jelenlegi"
 
 msgid "Transition Latency"
-msgstr ""
+msgstr "Átmeneti késleltetés"
 
 msgid "ns"
-msgstr ""
+msgstr "ns"
 
 msgid "Governor"
-msgstr ""
+msgstr "Kormányzó"
 
 msgid "Driver"
-msgstr ""
+msgstr "Sofőr"
 
 msgid "(Not Available)"
-msgstr ""
+msgstr "(Nem áll rendelkezésre)"
 
 msgid "Socket"
-msgstr ""
+msgstr "Aljzat"
 
 msgid "Core"
-msgstr ""
+msgstr "Lényeg, központi elem"
 
 msgid "Book"
-msgstr ""
+msgstr "Könyv"
 
 msgid "Drawer"
-msgstr ""
+msgstr "Fiók"
 
 msgid "Topology"
-msgstr ""
+msgstr "Topológia"
 
 msgid "ID"
-msgstr ""
+msgstr "Azonosító"
 
 msgid "BIOS Information"
-msgstr ""
+msgstr "BIOS-információ"
 
 msgid "System"
-msgstr ""
+msgstr "Rendszer"
 
 msgid "Base Board"
-msgstr ""
+msgstr "Alaplap"
 
 msgid "Chassis"
-msgstr ""
+msgstr "Alváz"
 
 msgid "Processor"
 msgstr "Processzor"
 
 msgid "Memory Controller"
-msgstr ""
+msgstr "Memóriavezérlő"
 
 msgid "Memory Module"
-msgstr ""
+msgstr "Memória modul"
 
 msgid "Cache"
-msgstr ""
+msgstr "Gyorsítótár"
 
 msgid "Port Connector"
-msgstr ""
+msgstr "Portcsatlakozó"
 
 msgid "System Slots"
-msgstr ""
+msgstr "Rendszerslots"
 
 msgid "On Board Devices"
-msgstr ""
+msgstr "A fedélzeten található eszközök"
 
 msgid "OEM Strings"
-msgstr ""
+msgstr "OEM húrok"
 
 msgid "System Configuration Options"
-msgstr ""
+msgstr "Rendszerbeállítási lehetőségek"
 
 msgid "BIOS Language"
-msgstr ""
+msgstr "BIOS nyelvi beállítás"
 
 msgid "Group Associations"
-msgstr ""
+msgstr "Csoportos kapcsolatok"
 
 msgid "System Event Log"
-msgstr ""
+msgstr "Rendszeresemény-napló"
 
 msgid "Physical Memory Array"
-msgstr ""
+msgstr "Fizikai memóriatömb"
 
 msgid "Memory Device"
-msgstr ""
+msgstr "Memóriaeszköz"
 
 msgid "32-bit Memory Error"
-msgstr ""
+msgstr "32 bites memóriahiba"
 
 msgid "Memory Array Mapped Address"
-msgstr ""
+msgstr "Memóriatömbhöz rendelt cím"
 
 msgid "Memory Device Mapped Address"
-msgstr ""
+msgstr "Memóriaeszköz által leképezett cím"
 
 msgid "Built-in Pointing Device"
-msgstr ""
+msgstr "Beépített mutatóeszköz"
 
 msgid "Portable Battery"
-msgstr ""
+msgstr "Hordozható akkumulátor"
 
 msgid "System Reset"
-msgstr ""
+msgstr "Rendszer visszaállítás"
 
 msgid "Hardware Security"
-msgstr ""
+msgstr "Hardveres biztonság"
 
 msgid "System Power Controls"
-msgstr ""
+msgstr "Rendszerszintű energiakezelő beállítások"
 
 msgid "Voltage Probe"
-msgstr ""
+msgstr "Feszültségmérő"
 
 msgid "Cooling Device"
-msgstr ""
+msgstr "Hűtőberendezés"
 
 msgid "Temperature Probe"
-msgstr ""
+msgstr "Hőmérséklet-érzékelő"
 
 msgid "Electrical Current Probe"
-msgstr ""
+msgstr "Árammérő szonda"
 
 msgid "Out-of-band Remote Access"
-msgstr ""
+msgstr "A hálózaton kívüli távoli hozzáférés"
 
 msgid "Boot Integrity Services"
-msgstr ""
+msgstr "Indítási integritás-szolgáltatások"
 
 msgid "System Boot"
-msgstr ""
+msgstr "Rendszerindítás"
 
 msgid "64-bit Memory Error"
-msgstr ""
+msgstr "64 bites memóriahiba"
 
 msgid "Management Device"
-msgstr ""
+msgstr "Kezelőeszköz"
 
 msgid "Management Device Component"
-msgstr ""
+msgstr "A kezelőeszköz egyik alkatrésze"
 
 msgid "Management Device Threshold Data"
-msgstr ""
+msgstr "Eszközkezelési küszöbértékek"
 
 msgid "Memory Channel"
-msgstr ""
+msgstr "Memóriacsatorna"
 
 msgid "IPMI Device"
-msgstr ""
+msgstr "IPMI-eszköz"
 
 msgid "Power Supply"
-msgstr ""
+msgstr "Áramellátó"
 
 msgid "Additional Information"
-msgstr ""
+msgstr "További információk"
 
 msgid "Onboard Device"
-msgstr ""
+msgstr "A fedélzeti eszköz"
 
 msgid "Invalid chassis type (0)"
-msgstr ""
+msgstr "Érvénytelen alváz típus (0)"
 
 msgid "Unknown chassis type"
-msgstr ""
+msgstr "Ismeretlen alváz típus"
 
 msgid "Desktop"
-msgstr ""
+msgstr "Asztali számítógép"
 
 msgid "Low-profile Desktop"
-msgstr ""
+msgstr "Alacsony profilú asztali számítógép"
 
 msgid "Pizza Box"
-msgstr ""
+msgstr "Pizza doboz"
 
 msgid "Mini Tower"
-msgstr ""
+msgstr "Mini torony"
 
 msgid "Tower"
-msgstr ""
+msgstr "Torony"
 
 msgid "Portable"
-msgstr ""
+msgstr "Hordozható"
 
 msgid "Laptop"
-msgstr ""
+msgstr "Laptop"
 
 msgid "Notebook"
-msgstr ""
+msgstr "Jegyzettömb"
 
 msgid "Handheld"
-msgstr ""
+msgstr "Kézben tartható"
 
 msgid "Docking Station"
-msgstr ""
+msgstr "Dokkoló állomás"
 
 msgid "All-in-one"
-msgstr ""
+msgstr "Minden egyben"
 
 msgid "Subnotebook"
-msgstr ""
+msgstr "Subnotebook"
 
 msgid "Space-saving"
-msgstr ""
+msgstr "Helytakarékos"
 
 msgid "Lunch Box"
-msgstr ""
+msgstr "Ebédelőkészlet"
 
 msgid "Main Server Chassis"
-msgstr ""
+msgstr "Fő szerver alváz"
 
 msgid "Expansion Chassis"
-msgstr ""
+msgstr "Bővítőház"
 
 msgid "Sub Chassis"
-msgstr ""
+msgstr "Alsó alváz"
 
 msgid "Bus Expansion Chassis"
-msgstr ""
+msgstr "Bővítő alváz buszrendszerekhez"
 
 msgid "Peripheral Chassis"
-msgstr ""
+msgstr "Perifériás alváz"
 
 msgid "RAID Chassis"
-msgstr ""
+msgstr "RAID ház"
 
 msgid "Rack Mount Chassis"
-msgstr ""
+msgstr "Rackbeépíthető alváz"
 
 msgid "Sealed-case PC"
-msgstr ""
+msgstr "Zárt házas számítógép"
 
 msgid "Multi-system"
-msgstr ""
+msgstr "Több rendszerre vonatkozó"
 
 msgid "CompactPCI"
-msgstr ""
+msgstr "CompactPCI"
 
 msgid "AdvancedTCA"
-msgstr ""
+msgstr "Fejlett TCA"
 
 msgid "Blade"
-msgstr ""
+msgstr "Penge"
 
 msgid "Blade Enclosing"
-msgstr ""
+msgstr "A penge bevonása"
 
 msgid "Tablet"
-msgstr ""
+msgstr "Tabletta"
 
 msgid "Convertible"
-msgstr ""
+msgstr "Kabrió"
 
 msgid "Detachable"
-msgstr ""
+msgstr "Levehető"
 
 msgid "IoT Gateway"
-msgstr ""
+msgstr "IoT átjáró"
 
 msgid "Embedded PC"
-msgstr ""
+msgstr "Beépített számítógép"
 
 msgid "Mini PC"
-msgstr ""
+msgstr "Mini PC"
 
 msgid "Stick PC"
-msgstr ""
+msgstr "Mini számítógép"
 
 #. !/ %d will be latest year of copyright
 #, c-format
@@ -312,6 +312,8 @@ msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
 msgstr ""
+"Szerzői jog (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Projekt.\n"
+"\n"
 
 #, c-format
 msgid ""
@@ -326,120 +328,142 @@ msgid ""
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
+"Fordítási időben beállított opciók:\n"
+"  Kiadási verzió: %s (%s)\n"
+"  LibSoup verzió: %s\n"
+"  OpenGL verzió: %s\n"
+"  Vulkan verzió: %s\n"
+"  GTK verzió: %s\n"
+"  Adatok: %s\n"
+"  Könyvtár: %s\n"
+"  Nyelvi beállítás: %s\n"
+"  A program a következőre lett fordítva: %s\n"
 
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
-msgstr ""
+msgstr "Ismeretlen referenciaérték: „%s”\n"
 
 msgid "Don't know what to do. Exiting."
-msgstr ""
+msgstr "Nem tudom, mit tegyek. Kilépek."
 
 msgid "(None)"
-msgstr ""
+msgstr "(Nincs szöveg)"
 
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d nap"
+msgstr[1] "%d nap"
 
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d óra"
+msgstr[1] "%d óra"
 
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d perc"
+msgstr[1] "%d perc"
 
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d másodperc"
+msgstr[1] "%d másodperc"
 
 #, c-format
 msgid "%.1f B"
-msgstr ""
+msgstr "%.1f B"
 
 #, c-format
 msgid "%.1f KiB"
-msgstr ""
+msgstr "%.1f KiB"
 
 #, c-format
 msgid "%.1f MiB"
-msgstr ""
+msgstr "%.1f MiB"
 
 #, c-format
 msgid "%.1f GiB"
-msgstr ""
+msgstr "%.1f GiB"
 
 #, c-format
 msgid "%.1f TiB"
-msgstr ""
+msgstr "%.1f TiB"
 
 #, c-format
 msgid "%.1f PiB"
-msgstr ""
+msgstr "%.1f petabájt"
 
 msgid "Error"
-msgstr ""
+msgstr "Hiba"
 
 msgid "Warning"
-msgstr ""
+msgstr "Figyelem!"
 
 msgid "Fatal Error"
-msgstr ""
+msgstr "Végzetes hiba"
 
 msgid "do not print status messages to standard output"
-msgstr ""
+msgstr "Ne nyomtass állapotüzeneteket a szabványos kimenetre"
 
 msgid "creates a report and prints to standard output"
-msgstr ""
+msgstr "létrehoz egy jelentést és a szabványos kimenetre nyomtatja"
 
 msgid "chooses a report format ([text], html)"
-msgstr ""
+msgstr "választ egy jelentésformátumot ([szöveg], html)"
 
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr ""
+"Keressen egy témát a parancssori jelentésben (-t getlist paranccsal "
+"megtekintheti a rendelkezésre álló témákat)"
 
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr ""
+"keressen egy témát a gyorsítótárazott CLI-jelentésben (-t getlist parancs "
+"megjeleníti a elérhető témákat)"
 
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr ""
+"Futtasson egyetlen tesztet, például: -b 'FPU FFT' (Alapértelmezés szerint "
+"minden teszt fut)"
 
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
+"Felhasználói megjegyzés a teljesítményteszt eredményeihez csatolva. Csoport-"
+"Gépenv-Szerverigény"
 
 msgid "benchmark result format ([short], conf, shell)"
-msgstr ""
+msgstr "a teljesítményteszt eredményének formátuma ([rövid], conf, shell)"
 
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
 "250)"
 msgstr ""
+"a belefoglalható teszt eredmények maximális száma (-1, ha nincs korlátozás, "
+"alapértelmezett érték: 250)"
 
 msgid "shows program version and quit"
-msgstr ""
+msgstr "Megmutatja a program verzióját és kilép"
 
 msgid "do not run benchmarks"
-msgstr ""
+msgstr "Ne futtass teljesítményteszteket"
 
 msgid "show all details"
-msgstr ""
+msgstr "mutasd az összes részletet"
 
 msgid "- System Information and Benchmark"
-msgstr ""
+msgstr "- Rendszerinformációk és teljesítményteszt"
 
 #, c-format
 msgid ""
 "Unrecognized arguments.\n"
 "Try ``%s --help'' for more information.\n"
 msgstr ""
+"Ismeretlen argumentumok.\n"
+"További információkért próbálja a ``%s --help'' parancsot\n"
 
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
@@ -447,19 +471,25 @@ msgid ""
 "Have only a group, group-MachineName and also a special request to server "
 "for the return benchmark data from server\n"
 msgstr ""
+"Felhasználói megjegyzés: érvénytelen (betűk+számok, csoport-gépenv-"
+"szerverigény)\n"
+"A felhasználói megjegyzés paraméterei opcionálisak, és a felhasználói "
+"megjegyzés mező üresen is hagyható.\n"
+"Csak egy csoport, egy csoport-gépenv, valamint egy különleges kérés a "
+"szerver felé, hogy a szerver adja vissza a teljesítményadatokat\n"
 
 #, c-format
 msgid "Scanning: %s..."
-msgstr ""
+msgstr "Vizsgálat: %s..."
 
 msgid "Done."
 msgstr "Kész."
 
 msgid "Update vendor list"
-msgstr ""
+msgstr "Frissítse a beszállítói listát"
 
 msgid "Check Update Version"
-msgstr ""
+msgstr "Ellenőrizze a frissítés verzióját"
 
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -481,6 +511,18 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"A HardInfo2 ingyenes szoftver; terjesztheti és/vagy módosíthatja a GNU "
+"általános nyilvános licenc feltételei szerint, amelyet a Free Software "
+"Foundation tett közzé, 2. vagy újabb verzióban.\n"
+"\n"
+"Ez a program azzal a reménnyel kerül terjesztésre, hogy hasznos lesz, de "
+"BÁRMILYEN GARANCIA NÉLKÜL; még a kereskedelmi forgalomra alkalmasságra vagy "
+"egy adott célra való alkalmasságra vonatkozó hallgatólagos garancia nélkül "
+"is. További részletekért tekintse meg a GNU általános nyilvános licencet.\n"
+"\n"
+"A GNU általános nyilvános licenc egy példányát a programmal együtt kellett "
+"volna kapnia; ha ez nem történt meg, írjon a Free Software Foundation, Inc.-"
+"nek, 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA címre"
 
 msgid "_Information"
 msgstr "_Információ"
@@ -489,7 +531,7 @@ msgid "_View"
 msgstr "_Nézet"
 
 msgid "_Theme"
-msgstr ""
+msgstr "Téma"
 
 msgid "_Help"
 msgstr "_Súgó"
@@ -498,28 +540,29 @@ msgid "Generate _Report"
 msgstr "_Jelentés"
 
 msgid "Generates a report with detailed system information"
-msgstr ""
+msgstr "Létrehoz egy részletes rendszerinformációt tartalmazó jelentést"
 
 msgid "Synchronize"
 msgstr "Feltöltés"
 
 msgid "Send benchmark results and receive updated data from the network"
 msgstr ""
+"Küldje el a teszteredményeket, és fogadjon frissített adatokat a hálózatból"
 
 msgid "Update Available"
-msgstr ""
+msgstr "Frissítés elérhető"
 
 msgid "_Refresh"
 msgstr "_Frissítés"
 
 msgid "HardInfo2 _Web Site"
-msgstr ""
+msgstr "HardInfo2 – weboldal"
 
 msgid "_Help - User Guide"
-msgstr ""
+msgstr "Súgó – Felhasználói kézikönyv"
 
 msgid "_Update HardInfo2"
-msgstr ""
+msgstr "_Frissítse a HardInfo2-t_"
 
 msgid "_Report bug"
 msgstr "_Hibabejelentés"
@@ -528,7 +571,7 @@ msgid "_About HardInfo2"
 msgstr "_Névjegy"
 
 msgid "Displays program version information"
-msgstr ""
+msgstr "Megjeleníti a program verzióját"
 
 msgid "_Quit"
 msgstr "_Kilépés"
@@ -537,7 +580,7 @@ msgid "_Side Pane"
 msgstr "_Oldalsáv"
 
 msgid "Toggles side pane visibility"
-msgstr ""
+msgstr "A melléktábla láthatóságának be- és kikapcsolása"
 
 msgid "_Toolbar"
 msgstr "_Eszköztár"
@@ -546,28 +589,28 @@ msgid "Synchronize on startup"
 msgstr "Feltöltés indításkor"
 
 msgid "Disable Theme"
-msgstr ""
+msgstr "A téma kikapcsolása"
 
 msgid "Theme Motherboard"
-msgstr ""
+msgstr "Téma: Alaplap"
 
 msgid "Theme Graffiti"
-msgstr ""
+msgstr "Téma: Graffiti"
 
 msgid "Theme Anime PC"
-msgstr ""
+msgstr "Téma: Anime, Számítógép"
 
 msgid "Theme Tux Star"
-msgstr ""
+msgstr "Téma: Tux csillag"
 
 msgid "Theme PixArt"
-msgstr ""
+msgstr "Téma: PixArt"
 
 msgid "Theme Silicon"
-msgstr ""
+msgstr "Téma: Szilícium"
 
 msgid "Save File"
-msgstr ""
+msgstr "Fájl mentése"
 
 msgid "_Cancel"
 msgstr "_Mégse"
@@ -576,7 +619,7 @@ msgid "_Save"
 msgstr "_Mentés"
 
 msgid "Cannot create ReportContext. Programming bug?"
-msgstr ""
+msgstr "Nem lehet létrehozni a ReportContext objektumot. Programozási hiba?"
 
 msgid "Open the report with your web browser?"
 msgstr "Megnyitja a jelentést böngészőben?"
@@ -591,10 +634,10 @@ msgid "Generating report..."
 msgstr "Jelentés létrehozása..."
 
 msgid "Report saved."
-msgstr ""
+msgstr "A jelentés mentve."
 
 msgid "Error while creating the report."
-msgstr ""
+msgstr "Hiba történt a jelentés létrehozása közben."
 
 msgid "Generate Report"
 msgstr "Jelentés"
@@ -617,19 +660,20 @@ msgstr "_Létrehozás"
 
 msgid "Enter text to search, double-click to select all"
 msgstr ""
+"Írja be a keresni kívánt szöveget, duplakattintással jelölheti ki az összeset"
 
 msgid "Search not available"
-msgstr ""
+msgstr "A keresés jelenleg nem elérhető"
 
 msgid "Benchmark"
-msgstr ""
+msgstr "Mérce, összehasonlítási alap"
 
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""
+msgstr "%s – Rendszerinformációk és teljesítményteszt"
 
 msgid "Search"
-msgstr ""
+msgstr "Keresés"
 
 #, c-format
 msgid ""
@@ -641,24 +685,31 @@ msgid ""
 "\n"
 "Please fix by installing manually"
 msgstr ""
+"<b>A Hardinfo2 csomag nem lett megfelelően csomagolva</b>\n"
+"\n"
+"Hiányzó csomagok:\n"
+"\n"
+"%s\n"
+"\n"
+"Kérjük, javítsa a problémát manuális telepítéssel"
 
 msgid "Copy selected row"
-msgstr ""
+msgstr "Másold a kiválasztott sort"
 
 msgid "Copy all rows"
-msgstr ""
+msgstr "Másold ki az összes sort"
 
 msgid "Copy all text"
-msgstr ""
+msgstr "Másold ki az összes szöveget"
 
 msgid "Network"
 msgstr "Hálózat"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Support URL"
-msgstr ""
+msgstr "Támogatási URL"
 
 msgid "Wikipedia"
 msgstr "Wikipedia"
@@ -689,19 +740,19 @@ msgid "(canceled)"
 msgstr "(megszakítva)"
 
 msgid "(failed)"
-msgstr ""
+msgstr "(sikertelen)"
 
 msgid "Send benchmark results"
-msgstr ""
+msgstr "Küldje el a teszteredményeket!"
 
 msgid "User Note "
-msgstr ""
+msgstr "Felhasználói megjegyzés"
 
 msgid "Leave it default/blank or see "
-msgstr ""
+msgstr "Hagyd az alapértelmezett/üres értéket, vagy nézd meg"
 
 msgid "User Guide"
-msgstr ""
+msgstr "Felhasználói kézikönyv"
 
 msgid "Privacy Policy"
 msgstr "Adatvédelmi irányelv"
@@ -711,99 +762,104 @@ msgstr "Fel_töltés"
 
 #, c-format
 msgid "Synchronizing: %s"
-msgstr ""
+msgstr "Szinkronizálás: %s"
 
 msgid "CPU Blowfish (Single-thread)"
-msgstr ""
+msgstr "CPU-n végzett Blowfish titkosítás (egyszálas üzemmód)"
 
 msgid "CPU Blowfish (Multi-thread)"
-msgstr ""
+msgstr "CPU-alapú Blowfish (többszálú)"
 
 msgid "CPU Blowfish (Multi-core)"
-msgstr ""
+msgstr "CPU-alapú Blowfish (többmagos)"
 
 msgid "CPU Zlib"
-msgstr ""
+msgstr "CPU Zlib"
 
 msgid "CPU CryptoHash"
-msgstr ""
+msgstr "CPU CryptoHash"
 
 msgid "CPU Fibonacci"
-msgstr ""
+msgstr "CPU Fibonacci"
 
 msgid "CPU N-Queens"
-msgstr ""
+msgstr "CPU N-vezér probléma"
 
 msgid "FPU FFT"
-msgstr ""
+msgstr "Lebegőpontos egység, gyors Fourier-transzformáció"
 
 msgid "FPU Raytracing (Single-thread)"
-msgstr ""
+msgstr "FPU sugárkövetés (egyszálas)"
 
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "Belső hálózati sebesség"
 
 msgid "SysBench CPU (Single-thread)"
-msgstr ""
+msgstr "SysBench CPU (egyszálas)"
 
 msgid "SysBench CPU (Multi-thread)"
-msgstr ""
+msgstr "SysBench CPU (többszálú)"
 
 msgid "SysBench CPU (Four threads)"
-msgstr ""
+msgstr "SysBench CPU (négy szál)"
 
 msgid "SysBench Memory (Single-thread)"
-msgstr ""
+msgstr "SysBench memóriateszt (egyszálas)"
 
 msgid "SysBench Memory (Two threads)"
-msgstr ""
+msgstr "SysBench memóriateszt (két szál)"
 
 msgid "SysBench Memory (Quad threads)"
-msgstr ""
+msgstr "SysBench memóriateszt (négy szálon)"
 
 msgid "SysBench Memory (Multi-thread)"
-msgstr ""
+msgstr "SysBench memóriateszt (többszálú)"
 
 msgid "GPU Drawing"
-msgstr ""
+msgstr "GPU-alapú rajzolás"
 
 msgid "GPU OpenGL Drawing"
-msgstr ""
+msgstr "GPU OpenGL rajzolás"
 
 msgid "GPU OpenGL Drawing2"
-msgstr ""
+msgstr "GPU OpenGL rajzolás"
 
 msgid "GPU Vulkan Drawing"
-msgstr ""
+msgstr "GPU Vulkan rajzolás"
 
 msgid "Storage R/W Speed"
-msgstr ""
+msgstr "Tárolási sebesség (olvasás/írás)"
 
 msgid "Cache/Memory"
-msgstr ""
+msgstr "Gyorsítótár/Memória"
 
 msgid "Results in events/second. Higher is better."
 msgstr ""
+"Az eredmények másodpercenkénti eseményekben mérhetők. A nagyobb érték jobb."
 
 msgid "Results in MiB/second. Higher is better."
-msgstr ""
+msgstr "Eredmények MiB/másodpercben. A nagyobb érték jobb."
 
 msgid "Results in Gbits/s. Higher is better."
-msgstr ""
+msgstr "Eredmények Gbit/s-ben. A nagyobb érték jobb."
 
 msgid "Results in HIMarks. Higher is better."
-msgstr ""
+msgstr "Eredmények a HIMarks-ban. A magasabb érték jobb."
 
 msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
+"Eredmények a HIMarks-ban. A magasabb érték jobb.\n"
+"Számos asztali környezet kizárólag szoftvereket használ."
 
 msgid "Results in MB/s. Higher is better."
-msgstr ""
+msgstr "Eredmények MB/s-ban. A nagyobb érték jobb."
 
 msgid "Results in FPS. Higher is better."
 msgstr ""
+"Eredmények: másodpercenkénti képkockaszám (FPS). Minél nagyobb az érték, "
+"annál jobb."
 
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
@@ -834,18 +890,18 @@ msgstr[1] "%d futtatási szál"
 #, c-format
 msgid "%d NUMA node"
 msgid_plural "%d NUMA nodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d NUMA csomópont"
+msgstr[1] "%d NUMA csomópont"
 
 #. !/NP procs; NC cores across NN nodes; NT threads
 #, c-format
 msgid "%s; %s across %s; %s"
-msgstr ""
+msgstr "%s; %s átlagosan %s; %s"
 
 #. !/NP procs; NC cores; NT threads
 #, c-format
 msgid "%s; %s; %s"
-msgstr ""
+msgstr "%s; %s; %s"
 
 msgid "MiB"
 msgstr "MiB"
@@ -855,16 +911,16 @@ msgstr "kiB"
 
 #, c-format
 msgid "%d-bit"
-msgstr ""
+msgstr "%d bites"
 
 msgid "Benchmark Result"
-msgstr ""
+msgstr "Referenciaérték"
 
 msgid "Threads"
-msgstr ""
+msgstr "Szálak"
 
 msgid "Elapsed Time"
-msgstr ""
+msgstr "Eltelt idő"
 
 msgid "seconds"
 msgstr "másodperc"
@@ -873,18 +929,21 @@ msgid "Revision"
 msgstr "Változat"
 
 msgid "Extra Information"
-msgstr ""
+msgstr "További információk"
 
 msgid "Note"
-msgstr ""
+msgstr "Megjegyzés"
 
 msgid ""
 "This result is from an old version of HardInfo. Results might not be "
 "comparable to current version. Some details are missing."
 msgstr ""
+"Ez az eredmény a HardInfo régebbi verziójából származik. Az eredmények nem "
+"feltétlenül összehasonlíthatók a jelenlegi verzióval. Egyes részletek "
+"hiányoznak."
 
 msgid "Machine"
-msgstr ""
+msgstr "Gép"
 
 msgid "Board"
 msgstr "Alaplap"
@@ -893,22 +952,22 @@ msgid "Machine Type"
 msgstr "Gép típusa"
 
 msgid "CPU Name"
-msgstr ""
+msgstr "Processzor neve"
 
 msgid "CPU Description"
-msgstr ""
+msgstr "Processzor leírás"
 
 msgid "CPU Config"
 msgstr "Konfiguráció"
 
 msgid "Threads Available"
-msgstr ""
+msgstr "Elérhető témák"
 
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 msgid "OpenGL Renderer"
-msgstr ""
+msgstr "OpenGL renderelő"
 
 msgid "Storage"
 msgstr "Háttértár"
@@ -917,45 +976,45 @@ msgid "Memory"
 msgstr "Memória"
 
 msgid "Pointer Size"
-msgstr ""
+msgstr "Mutató mérete"
 
 msgid "Result"
-msgstr ""
+msgstr "Eredmény"
 
 msgid "Linux Kernel"
-msgstr ""
+msgstr "Linux kernel"
 
 msgid "Linux OS"
-msgstr ""
+msgstr "Linux operációs rendszer"
 
 msgid "Physical Memory"
-msgstr ""
+msgstr "Fizikai memória"
 
 msgid "Handles"
-msgstr ""
+msgstr "Fogantyúk"
 
 msgid "mid"
-msgstr ""
+msgstr "közép"
 
 msgid "cfg_val"
-msgstr ""
+msgstr "cfg_érték"
 
 msgid "This Machine"
 msgstr "Ez a gép"
 
 msgid "Results"
-msgstr ""
+msgstr "Eredmények"
 
 msgid "CPU"
-msgstr ""
+msgstr "Processzor"
 
 #, c-format
 msgid "Benchmarking: <b>%s</b>."
-msgstr ""
+msgstr "Összehasonlító elemzés: <b>%s</b>."
 
 #, c-format
 msgid "Benchmarking: %s"
-msgstr ""
+msgstr "Összehasonlító teszt: %s"
 
 msgid "Stop"
 msgstr "Megszakítás"
@@ -963,22 +1022,23 @@ msgstr "Megszakítás"
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
-msgstr ""
+msgstr "Kérjük, ne mozgassa az egeret, és ne nyomjon le semmilyen billentyűt."
 
 msgid "Benchmarks"
-msgstr ""
+msgstr "Mérföldkövek"
 
 msgid "Perform tasks and compare with other systems"
 msgstr ""
+"Végezz el feladatokat, és hasonlítsd össze az eredményeket más rendszerekkel"
 
 msgid "Receive benchmark results"
-msgstr ""
+msgstr "Érkeznek a teszteredmények"
 
 msgid "Audio Devices"
-msgstr ""
+msgstr "Hangvető eszközök"
 
 msgid "Audio Adapter"
-msgstr ""
+msgstr "Audio adapter"
 
 msgid "Summary"
 msgstr "Összegzés"
@@ -1021,7 +1081,7 @@ msgstr "Csoportok"
 
 #, c-format
 msgid "%dMB (%dMB used, %dMB compressed)"
-msgstr ""
+msgstr "%d MB (%d MB használva, %d MB tömörítve)"
 
 #, c-format
 msgid "%dMB (%dMB used)"
@@ -1037,154 +1097,154 @@ msgid "Load Average"
 msgstr "Terhelés"
 
 msgid "Scripting Languages"
-msgstr ""
+msgstr "Szkriptnyelvek"
 
 msgid "Gambas3 (gbr3)"
-msgstr ""
+msgstr "Gambas3 (gbr3)"
 
 msgid "Python (default)"
-msgstr ""
+msgstr "Python (alapértelmezett)"
 
 msgid "Python2"
-msgstr ""
+msgstr "Python 2"
 
 msgid "Python3"
-msgstr ""
+msgstr "Python 3"
 
 msgid "Perl"
-msgstr ""
+msgstr "Perl"
 
 msgid "Rakudo (Perl6)"
-msgstr ""
+msgstr "Rakudo (Perl6)"
 
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 msgid "Ruby"
-msgstr ""
+msgstr "Rubi"
 
 msgid "Bash"
-msgstr ""
+msgstr "Bash"
 
 msgid "JavaScript (Node.js)"
-msgstr ""
+msgstr "JavaScript (Node.js)"
 
 msgid "awk"
-msgstr ""
+msgstr "awk"
 
 msgid "Compilers"
-msgstr ""
+msgstr "Fordítóprogramok"
 
 msgid "C (GCC)"
-msgstr ""
+msgstr "C (GCC)"
 
 msgid "C (Clang)"
-msgstr ""
+msgstr "C (Clang)"
 
 msgid "D (dmd)"
-msgstr ""
+msgstr "D (dmd)"
 
 msgid "Gambas3 (gbc3)"
-msgstr ""
+msgstr "Gambas3 (gbc3)"
 
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 msgid ".NET"
-msgstr ""
+msgstr ".NET"
 
 msgid "Vala"
-msgstr ""
+msgstr "Vala"
 
 msgid "Haskell (GHC)"
-msgstr ""
+msgstr "Haskell (GHC)"
 
 msgid "FreePascal"
-msgstr ""
+msgstr "Szabad Pascal"
 
 msgid "Go"
-msgstr ""
+msgstr "Menj!"
 
 msgid "Rust"
-msgstr ""
+msgstr "Rozsda"
 
 msgid "Tools"
-msgstr ""
+msgstr "Eszközök"
 
 msgid "make"
-msgstr ""
+msgstr "gyárt, készít"
 
 msgid "ninja"
-msgstr ""
+msgstr "nindzsa"
 
 msgid "GDB"
-msgstr ""
+msgstr "GDB"
 
 msgid "LLDB"
-msgstr ""
+msgstr "LLDB"
 
 msgid "strace"
-msgstr ""
+msgstr "strace"
 
 msgid "valgrind"
-msgstr ""
+msgstr "Valgrind"
 
 msgid "QMake"
-msgstr ""
+msgstr "QMake"
 
 msgid "CMake"
-msgstr ""
+msgstr "CMake"
 
 msgid "Gambas3 IDE"
-msgstr ""
+msgstr "Gambas3 integrált fejlesztői környezet"
 
 msgid "Radare2"
-msgstr ""
+msgstr "Radare2"
 
 msgid "ltrace"
-msgstr ""
+msgstr "ltrace"
 
 msgid "Powershell"
-msgstr ""
+msgstr "PowerShell"
 
 msgid "Not found"
 msgstr "Nem található"
 
 msgid "Program"
-msgstr ""
+msgstr "Program"
 
 msgid "Version"
-msgstr ""
+msgstr "Verzió"
 
 msgid "Field"
-msgstr ""
+msgstr "Mező"
 
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 msgid "Value"
 msgstr "Érték"
 
 msgid "Virtual (Xen)"
-msgstr ""
+msgstr "Virtuális (Xen)"
 
 msgid "Virtual (VirtualBox)"
-msgstr ""
+msgstr "Virtuális (VirtualBox)"
 
 msgid "Virtual (VMware)"
-msgstr ""
+msgstr "Virtuális (VMware)"
 
 msgid "Virtual (QEMU)"
-msgstr ""
+msgstr "Virtuális (QEMU)"
 
 msgid "Virtual (WSL2)"
-msgstr ""
+msgstr "Virtuális (WSL2)"
 
 msgid "Single-board computer"
-msgstr ""
+msgstr "Egyetlen áramköri lapon elhelyezett számítógép"
 
 msgid "Unknown physical machine type"
-msgstr ""
+msgstr "Ismeretlen fizikai géptípus"
 
 msgid "Computer"
 msgstr "Számítógép"
@@ -1200,10 +1260,10 @@ msgid "%dx%d pixels"
 msgstr "%dx%d képpont"
 
 msgid "Display Adapter"
-msgstr ""
+msgstr "Videokártya"
 
 msgid "Session Display Server"
-msgstr ""
+msgstr "Ülés-kezelő szerver"
 
 msgid "Input Devices"
 msgstr "Beviteli eszközök"
@@ -1215,7 +1275,7 @@ msgid "Command Line"
 msgstr "Indítási paraméter"
 
 msgid "C Library"
-msgstr ""
+msgstr "C könyvtár"
 
 msgid "Distribution"
 msgstr "Kiadás"
@@ -1239,34 +1299,34 @@ msgid "Misc"
 msgstr "Egyéb"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "Memória-tömörítés (ZRam)"
 
 msgid "Compression"
-msgstr ""
+msgstr "Tömörítés"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Kompressziós arány"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "Lemezméret"
 
 msgid "Data Size"
-msgstr ""
+msgstr "Adatméret"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "Összezsugorított méret"
 
 msgid "Total Size"
-msgstr ""
+msgstr "Teljes méret"
 
 msgid "Memory Compression (ZSwap)"
-msgstr ""
+msgstr "Memória-tömörítés (ZSwap)"
 
 msgid "Shrinker Enabled"
-msgstr ""
+msgstr "A „Shrinker” funkció engedélyezve"
 
 msgid "Yes"
 msgstr "Igen"
@@ -1275,31 +1335,31 @@ msgid "No"
 msgstr "Nem"
 
 msgid "Maximum Pool Percent"
-msgstr ""
+msgstr "Maximális pool százalék"
 
 msgid "Accept Threshold Percent"
-msgstr ""
+msgstr "Elfogadási küszöbérték (százalékban)"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "Memória-tömörítés (ZSwap/ZRam)"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Letiltva"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logó"
 
 msgid "belongs to distro and may be reg. trademark"
-msgstr ""
+msgstr "a disztribúcióhoz tartozik, és lehet, hogy bejegyzett védjegy"
 
 msgid "Root Only System"
-msgstr ""
+msgstr "Csak root hozzáféréssel rendelkező rendszer"
 
 msgid "Single User System"
-msgstr ""
+msgstr "Egy felhasználós rendszer"
 
 msgid "Multi User System"
-msgstr ""
+msgstr "Több felhasználós rendszer"
 
 msgid "HardInfo2"
 msgstr "HardInfo2"
@@ -1314,55 +1374,55 @@ msgid "User"
 msgstr "felhasználói jogosultsággal fut"
 
 msgid "User System Type"
-msgstr ""
+msgstr "Felhasználói rendszer típusa"
 
 msgid "Hardinfo2 Service not enabled/started"
-msgstr ""
+msgstr "A Hardinfo2 szolgáltatás nincs engedélyezve/indítva"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "Linux indítás"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "Biztonságos indítás állapota"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "Indítási tanúsítványok"
 
 msgid "Health"
-msgstr ""
+msgstr "Egészség"
 
 msgid "Available entropy in /dev/random"
-msgstr ""
+msgstr "Elérhető entrópia a /dev/random eszközben"
 
 msgid "Hardening Features"
-msgstr ""
+msgstr "A keményedést elősegítő funkciók"
 
 msgid "ASLR"
-msgstr ""
+msgstr "ASLR"
 
 msgid "dmesg"
 msgstr "dmesg"
 
 msgid "Linux Security Modules"
-msgstr ""
+msgstr "Linux biztonsági modulok"
 
 msgid "Modules available"
-msgstr ""
+msgstr "Elérhető modulok"
 
 msgid "SELinux status"
-msgstr ""
+msgstr "SELinux állapota"
 
 msgid "Landlock ABI version"
-msgstr ""
+msgstr "Landlock ABI verzió"
 
 msgid "CPU Vulnerabilities"
-msgstr ""
+msgstr "Processzor-sebezhetőségek"
 
 msgid "Loaded Modules"
 msgstr "Betöltött modulok"
 
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgid "Date & Time"
 msgstr "Dátum és idő"
@@ -1371,10 +1431,10 @@ msgid "Kernel Version"
 msgstr "Kernel verzió"
 
 msgid "Available Languages"
-msgstr ""
+msgstr "Elérhető nyelvek"
 
 msgid "Language Code"
-msgstr ""
+msgstr "Nyelvi kód"
 
 msgid "Mounted File Systems"
 msgstr "Csatolt fájlrendszerek"
@@ -1383,7 +1443,7 @@ msgid "Mount Point"
 msgstr "Csatolási pont"
 
 msgid "Usage"
-msgstr ""
+msgstr "Felhasználás"
 
 msgid "Device"
 msgstr "Eszköz"
@@ -1398,104 +1458,104 @@ msgid "Wayland"
 msgstr "Wayland"
 
 msgid "Current Display Name"
-msgstr ""
+msgstr "Jelenlegi felhasználónév"
 
 msgid "X Server"
-msgstr ""
+msgstr "X szerver"
 
 msgid "Vendor"
 msgstr "Gyártó"
 
 msgid "Release Number"
-msgstr ""
+msgstr "Kiadvány száma"
 
 msgid "Screens"
-msgstr ""
+msgstr "Képernyők"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "Kapcsolat bontva"
 
 msgid "Connected"
-msgstr ""
+msgstr "Csatlakoztatva"
 
 msgid "Unused"
-msgstr ""
+msgstr "Felhasználatlan"
 
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
-msgstr ""
+msgstr "%dx%d pixel, eltolás (%d, %d)"
 
 msgid "Outputs (XRandR)"
-msgstr ""
+msgstr "Kimenetek (XRandR)"
 
 msgid "OpenGL (GLX)"
-msgstr ""
+msgstr "OpenGL (GLX)"
 
 msgid "Renderer"
-msgstr ""
+msgstr "Renderelő"
 
 msgid "Direct Rendering"
-msgstr ""
+msgstr "Közvetlen renderelés"
 
 msgid "Version (Compatibility)"
-msgstr ""
+msgstr "Verzió (Kompatibilitás)"
 
 msgid "Shading Language Version (Compatibility)"
-msgstr ""
+msgstr "Shading nyelvi verzió (kompatibilitás)"
 
 msgid "Version (Core)"
-msgstr ""
+msgstr "Verzió (alapverzió)"
 
 msgid "Shading Language Version (Core)"
-msgstr ""
+msgstr "Árnyaló nyelv verziója (alapverzió)"
 
 msgid "Version (ES)"
-msgstr ""
+msgstr "Verzió (spanyol)"
 
 msgid "Shading Language Version (ES)"
-msgstr ""
+msgstr "Árnyalási nyelv verziója (ES)"
 
 msgid "GLX Version"
-msgstr ""
+msgstr "GLX verzió"
 
 msgid "Vulkan"
-msgstr ""
+msgstr "Vulkán"
 
 msgid "Instance Version"
-msgstr ""
+msgstr "Példány verzió"
 
 msgid "Api Version"
-msgstr ""
+msgstr "API-verzió"
 
 msgid "Driver Version"
-msgstr ""
+msgstr "Illesztőprogram verziója"
 
 msgid "Device Type"
-msgstr ""
+msgstr "Eszköztípus"
 
 msgid "Device Name"
-msgstr ""
+msgstr "Eszköz neve"
 
 msgid "Driver Name"
-msgstr ""
+msgstr "Sofőr neve"
 
 msgid "Driver Info"
-msgstr ""
+msgstr "Sofőr adatai"
 
 msgid "Conformance Version"
-msgstr ""
+msgstr "A megfelelő verzió"
 
 msgid "Login"
-msgstr ""
+msgstr "Bejelentkezés"
 
 msgid "User ID"
-msgstr ""
+msgstr "Felhasználói azonosító"
 
 msgid "Group"
-msgstr ""
+msgstr "Csoport"
 
 msgid "Group ID"
-msgstr ""
+msgstr "Csoportazonosító"
 
 #, c-format
 msgid "%0.1f %s available to Linux"
@@ -1520,38 +1580,44 @@ msgid "Audio"
 msgstr "Hang"
 
 msgid "Gathers high-level computer information"
-msgstr ""
+msgstr "Magas szintű számítógépes adatokat gyűjt"
 
 msgid "<i><b>lsmod</b></i> is required."
-msgstr ""
+msgstr "A `<i><b>lsmod</b></i>` parancs használata kötelező."
 
 msgid ""
 "X.org's <i><b>xrandr</b></i> utility provides additional details when "
 "available."
 msgstr ""
+"Az X.org <i><b>xrandr</b></i> segédprograma további információkat nyújt, "
+"amennyiben azok rendelkezésre állnak."
 
 msgid ""
 "Mesa's <i><b>glxinfo</b></i> utility is required for OpenGL information."
 msgstr ""
+"A Mesa <i><b>glxinfo</b></i> nevű segédprogramára van szükség az OpenGL-rel "
+"kapcsolatos információk lekéréséhez."
 
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
+"A Vulkan információk lekéréséhez a Vulkan <i><b>vulkaninfo</b></i> nevű "
+"segédprogramra van szükség."
 
 msgid "Variable"
-msgstr ""
+msgstr "Változó"
 
 msgid "Filesystem"
 msgstr "Fájlrendszer"
 
 msgid "Mounted As"
-msgstr ""
+msgstr "Csatlakoztatva:"
 
 msgid "Read-Write"
-msgstr ""
+msgstr "Olvasás-írás"
 
 msgid "Read-Only"
-msgstr ""
+msgstr "Csak olvasható"
 
 msgid "Size"
 msgstr "Méret"
@@ -1563,19 +1629,19 @@ msgid "Available"
 msgstr "Szabad"
 
 msgid "None"
-msgstr ""
+msgstr "Nincs"
 
 msgid "Group Information"
-msgstr ""
+msgstr "Csoportinformációk"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Csoport neve"
 
 msgid "Members"
-msgstr ""
+msgstr "Tagok"
 
 msgid "Locale Information"
-msgstr ""
+msgstr "Helyi beállítások"
 
 msgid "Source"
 msgstr "Forrás"
@@ -1596,214 +1662,254 @@ msgid "Codeset"
 msgstr "Kódlap"
 
 msgid "Couldn't obtain load average"
-msgstr ""
+msgstr "Nem sikerült a rendszerterhelés lekérdezése"
 
 msgid "Total physical memory usable by the system"
-msgstr ""
+msgstr "A rendszer által használható teljes fizikai memória"
 
 msgid "Free memory which is not used for anything"
-msgstr ""
+msgstr "Szabad memória, amelyet semmihez sem használnak"
 
 msgid "Virtual memory, total swap space available"
-msgstr ""
+msgstr "Virtuális memória, a rendelkezésre álló teljes cserélőtér"
 
 msgid "Virtual memory, remaining swap space available"
-msgstr ""
+msgstr "Virtuális memória, a rendelkezésre álló cserélőtér mennyisége"
 
 msgid "Memory present within main memory and in the swapfile"
-msgstr ""
+msgstr "A főmemóriában és a cserélőfájlban található memória"
 
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "A HighTotal érték a használt mag típusától függően változhat"
 
 msgid "Amount of memory that is not directly mapped into kernel space"
 msgstr ""
+"A memória azon része, amely nem közvetlenül van leképezve a kernel térbe"
 
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "Az alacsony összköltség a használt mag típusától függően változhat"
 
 msgid "Total and free memory directly mapped into kernel space"
 msgstr ""
+"A teljes és a szabad memória közvetlenül a kernel memóriaterébe van leképezve"
 
 msgid "Available memory for allocation to any process, without swapping"
 msgstr ""
+"A rendelkezésre álló memória mennyisége, amelyet bármely folyamat használhat "
+"anélkül, hogy a virtuális memóriát használná"
 
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
 msgstr ""
+"A puffergyorsítótárban tárolt adatok, a nyers lemezblokkok ideiglenes "
+"tárolóhelye"
 
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
 msgstr ""
+"A lapmemória használata a lapgyorsítótárban (lemezes gyorsítótár, megosztott "
+"memória, tmpfs és shmem)"
 
 msgid "Memory used more recently and not swapped out or reclaimed"
 msgstr ""
+"A legutóbbi időben használt memória, amely nem lett kiürítve vagy "
+"felszabadítva"
 
 msgid "Memory not been used recently and can be swapped out or reclaimed"
 msgstr ""
+"A memória nemrégiben nem volt használatban, ezért kiiktatható vagy "
+"felszabadítható"
 
 msgid "Anonymous memory used more recently and not swapped out"
-msgstr ""
+msgstr "A névtelen memória legutóbb használt, és nem került ki a memóriából"
 
 msgid "Anonymous memory not been used and can be swapped out"
-msgstr ""
+msgstr "A névtelen memória nem használva, és cserélhető"
 
 msgid "Pagecache memory been used more recently and not reclaimed"
 msgstr ""
+"A lapgyorsítótár memóriája nemrégiben lett használt, és még nem lett "
+"felszabadítva"
 
 msgid "Pagecache memory reclaimable without huge performance impact"
 msgstr ""
+"A lapgyorsítótár memóriája anélkül felszabadítható, hogy jelentős "
+"teljesítményromlást okozna"
 
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
-msgstr ""
+msgstr "A nem törölhető oldalak különböző okokból nem cserélhetők ki"
 
 msgid "Pages locked to memory using the mlock() system call"
 msgstr ""
+"A lapok a memóriában vannak rögzítve az `mlock()` rendszerhívás segítségével"
 
 msgid "Memory consumed by the zswap backend (compressed size)"
-msgstr ""
+msgstr "A zswap háttérfolyamat által használt memória (tömörített méret)"
 
 msgid "Amount of anonymous memory stored in zswap (original size)"
-msgstr ""
+msgstr "A zswap-ben tárolt névtelen memória mennyisége (eredeti méret)"
 
 msgid "Memory waiting to be written back to disk"
 msgstr ""
+"A memória é átmenetileg tárolva, és a változtatások később a lemezre kerülnek"
 
 msgid "Memory which is actively being written back to disk"
 msgstr ""
+"Memória, amelybe éppen adatokat írnak, és amelyet a rendszer a merevlemezre "
+"ment"
 
 msgid "Non-file backed pages mapped into userspace page tables"
 msgstr ""
+"Olyan oldalak, amelyek nem fájlhoz vannak rendelve, és a felhasználói "
+"oldaltáblákba vannak leképezve"
 
 msgid "Files which have been mmapped, such as libraries"
-msgstr ""
+msgstr "Olyan fájlok, amelyek memóriatérképezettek, például könyvtárak"
 
 msgid "Total memory used by shared memory (shmem) and tmpfs"
-msgstr ""
+msgstr "A megosztott memória (shmem) és a tmpfs által használt teljes memória"
 
 msgid "Kernel allocations reclaimable under memory pressure"
 msgstr ""
+"A kernel által lefoglalt memóriaterületek, amelyek memóriahiány esetén "
+"felszabadíthatók"
 
 msgid "In-kernel data structures cache"
-msgstr ""
+msgstr "A kernelben tárolt adatszerkezetek gyorsítótára"
 
 msgid "Part of Slab, that might be reclaimed, such as caches"
 msgstr ""
+"A tábla egy része, amely esetleg újra felhasználható, például a gyorsítótárak"
 
 msgid "Part of Slab, that cannot be reclaimed on memory pressure"
-msgstr ""
+msgstr "A lemez egy része, amely nem nyerhető vissza memória-szűköség esetén"
 
 msgid "Memory consumed by the kernel stacks of all tasks"
 msgstr ""
+"A kernel által használt memóriamennyiség az összes feladat memóriaterületén"
 
 msgid "Memory consumed by userspace page tables"
 msgstr ""
+"A felhasználói térben használt oldaljegyzéktáblák által elfoglalt memória"
 
 msgid "Memory consumed by secondary page tables"
-msgstr ""
+msgstr "A másodlagos oldal táblák által használt memória"
 
 msgid "Previous counted pages which had been written to the server"
-msgstr ""
+msgstr "Korábban a szerverre feltöltött, már számlált oldalak"
 
 msgid "Memory used for block device bounce buffers"
-msgstr ""
+msgstr "A blokkeszközök által használt pufferhez lefoglalt memória"
 
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr ""
+msgstr "A FUSE által a temporális visszaírási pufferekhez használt memória"
 
 msgid "Total memory currently available to be allocated on the system"
 msgstr ""
+"A rendszerben jelenleg rendelkezésre álló, lefoglalható memória teljes "
+"mennyisége"
 
 msgid "The amount of memory presently allocated on the system"
-msgstr ""
+msgstr "A rendszerben jelenleg lefoglalt memória mennyisége"
 
 msgid "Total size of vmalloc virtual address space"
-msgstr ""
+msgstr "A vmalloc által használt virtuális memória teljes mérete"
 
 msgid "Amount of vmalloc area which is used"
-msgstr ""
+msgstr "A használt vmalloc terület mérete"
 
 msgid "Largest contiguous block of vmalloc area which is free"
-msgstr ""
+msgstr "A legnagyobb összefüggő, szabad vmalloc terület"
 
 msgid "Memory allocated to the percpu allocator"
-msgstr ""
+msgstr "A percpu allokátor által lefoglalt memória"
 
 msgid "Amount of memory the kernel identifies as corrupted"
-msgstr ""
+msgstr "A kernel által hibásnak azonosított memória mennyisége"
 
 msgid "Non-file backed huge pages mapped into userspace page tables"
 msgstr ""
+"Nagy méretű memóriaterületek, amelyek nem fájlhoz vannak rendelve, és a "
+"felhasználói térben lévő oldaltáblákba vannak leképezve"
 
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
 msgstr ""
+"A shmem és a tmpfs által használt memória, amely nagy oldalakon van "
+"lefoglalva"
 
 msgid "Shared memory mapped into userspace with huge pages"
 msgstr ""
+"Megosztott memória, amelyet nagy oldalak segítségével a felhasználói térbe "
+"képezünk le"
 
 msgid "Memory used for fs data (page cache) allocated with huge pages"
 msgstr ""
+"A fájlrendszer-adatokhoz (oldaltár) használt memória, amelyet nagy méretű "
+"oldalak segítségével foglal le a rendszer"
 
 msgid "Page cache mapped into userspace with huge pages"
 msgstr ""
+"A lap-gyorsítótár nagy méretű oldalak segítségével a felhasználói területre "
+"van leképezve"
 
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
-msgstr ""
+msgstr "A folyamatos memóriakezelő számára (CMA) lefoglalt memória"
 
 msgid "Free remaining memory in the CMA reserves"
-msgstr ""
+msgstr "Felszabadítja a CMA-tartalékban lévő fennmaradó memóriát"
 
 msgid "Amount of unaccepted memory usable by the kernel"
-msgstr ""
+msgstr "A kernel által felhasználható, nem lefoglalt memória mennyisége"
 
 msgid "Size of the pool of huge pages"
-msgstr ""
+msgstr "A hatalmas oldalakból álló memória-tartomány mérete"
 
 msgid "Number of huge pages available"
-msgstr ""
+msgstr "A rendelkezésre álló nagy méretű oldalak száma"
 
 msgid "Number of huge pages reserved"
-msgstr ""
+msgstr "A lefoglalt hatalmas oldalak száma"
 
 msgid "Number of huge pages surplus"
-msgstr ""
+msgstr "A hatalmas oldalak száma, amely a megengedett mértéket meghaladja"
 
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr ""
+msgstr "Nagy oldalmérret, amelyet a hugepages paraméterrel együtt használnak"
 
 msgid "Total amount of memory consumed by huge pages of all sizes"
 msgstr ""
+"Az összes méretű nagyméretű oldal által használt teljes memóriamennyiség"
 
 msgid "Breakdown of page table sizes of 4k size"
-msgstr ""
+msgstr "A 4 KB-os oldaltábla méretének lebontása"
 
 msgid "Breakdown of page table sizes of 2M size"
-msgstr ""
+msgstr "A 2 MB-os oldalonkénti táblaméret lebontása"
 
 msgid "Breakdown of page table sizes of 1G size"
-msgstr ""
+msgstr "1 GB-os oldalak méretének lebontása"
 
 msgid "Update kernel module icon table"
-msgstr ""
+msgstr "Frissítse a kernelmodul ikonok táblázatát"
 
 msgid "(Not available)"
 msgstr "(Nem elérhető)"
 
 msgid "Module Information"
-msgstr ""
+msgstr "Modulinformáció"
 
 msgid "Path"
-msgstr ""
+msgstr "Útvonal"
 
 msgid "Used Memory"
-msgstr ""
+msgstr "Felhasznált memória"
 
 msgid "Version Magic"
-msgstr ""
+msgstr "Verziókezelő varázslat"
 
 msgid "In Linus' Tree"
-msgstr ""
+msgstr "Linus fája"
 
 msgid "Retpoline Enabled"
-msgstr ""
+msgstr "A Retpoline funkció engedélyezve"
 
 msgid "Copyright"
 msgstr "Szerzői jog"
@@ -1818,25 +1924,25 @@ msgid "Dependencies"
 msgstr "Függőségek"
 
 msgid "GNU C Library"
-msgstr ""
+msgstr "GNU C könyvtár"
 
 msgid "musl C Library"
-msgstr ""
+msgstr "musl C könyvtár"
 
 msgid "uClibc or uClibc-ng"
-msgstr ""
+msgstr "uClibc vagy uClibc-ng"
 
 msgid "diet libc"
-msgstr ""
+msgstr "egyedi libc"
 
 msgid "GNOME Shell "
-msgstr ""
+msgstr "GNOME Shell"
 
 msgid "Version: "
-msgstr ""
+msgstr "Verzió:"
 
 msgid "MATE Desktop Environment "
-msgstr ""
+msgstr "MATE asztali környezet"
 
 #, c-format
 msgid "Unknown (Window Manager: %s)"
@@ -1845,28 +1951,29 @@ msgstr "Ismeretlen (Ablakkezelő: %s)"
 #. !/{desktop environment} on {session type}
 #, c-format
 msgid "%s on %s"
-msgstr ""
+msgstr "%s a(z) %s-en"
 
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
 msgid "User access allowed"
-msgstr ""
+msgstr "A felhasználói hozzáférés engedélyezve"
 
 msgid "User access forbidden"
-msgstr ""
+msgstr "A felhasználói hozzáférés tiltva"
 
 msgid "Access allowed (running as superuser)"
 msgstr ""
+"Hozzáférés engedélyezve (a program rendszergazdai jogosultságokkal fut)"
 
 msgid "Access forbidden? (running as superuser)"
-msgstr ""
+msgstr "A hozzáférés tiltva? (a program rendszergazdai jogosultságokkal fut)"
 
 msgid "Partially enabled (mmap base+stack+VDSO base)"
-msgstr ""
+msgstr "Részben engedélyezve (mmap alap + verem + VDSO alap)"
 
 msgid "Fully enabled (mmap base+stack+VDSO base+heap)"
-msgstr ""
+msgstr "Teljesen engedélyezve (mmap alap + verem + VDSO alap + halmaz)"
 
 #. !/bits of entropy for rng (0)
 msgid "(None or not available)"
@@ -1875,278 +1982,291 @@ msgstr "(Nincs vagy nem elérhető)"
 #. !/bits of entropy for rng (low/poor value)
 #, c-format
 msgid "%d bits (low)"
-msgstr ""
+msgstr "%d bit (alacsony)"
 
 #. !/bits of entropy for rng (medium value)
 #, c-format
 msgid "%d bits (medium)"
-msgstr ""
+msgstr "%d bit (közepes)"
 
 #. !/bits of entropy for rng (high/good value)
 #, c-format
 msgid "%d bits (healthy)"
-msgstr ""
+msgstr "%d bit (hibátlan)"
 
 msgid "Not installed"
-msgstr ""
+msgstr "Nem telepítve"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 msgid "Not built with Landlock support"
-msgstr ""
+msgstr "Nem készült Landlock-támogatással"
 
 #, c-format
 msgid "Version %d"
-msgstr ""
+msgstr "Verzió %d"
 
 msgid "User Information"
-msgstr ""
+msgstr "Felhasználói adatok"
 
 msgid "Default Shell"
-msgstr ""
+msgstr "Alapértelmezett parancssor"
 
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 msgid "Platform String"
-msgstr ""
+msgstr "Platform húr"
 
 msgid "Frequency"
 msgstr "Órajel"
 
 msgid "BogoMips"
-msgstr ""
+msgstr "BogoMips"
 
 msgid "Byte Order"
-msgstr ""
+msgstr "Bájtsorrend"
 
 #. !/flag:swp
 msgctxt "arm-flag"
 msgid "SWP instruction (atomic read-modify-write)"
-msgstr ""
+msgstr "SWP utasítás (atomikus olvasás-módosítás-írás)"
 
 #. !/flag:half
 msgctxt "arm-flag"
 msgid "Half-word loads and stores"
-msgstr ""
+msgstr "Fél szó hosszúságú adatok betöltése és tárolása"
 
 #. !/flag:thumb
 msgctxt "arm-flag"
 msgid "Thumb (16-bit instruction set)"
-msgstr ""
+msgstr "Thumb (16 bites instrukciókészlet)"
 
 #. !/flag:26bit
 msgctxt "arm-flag"
 msgid "26-Bit Model (Processor status register folded into program counter)"
 msgstr ""
+"26 bites modell (a processzor állapotregisztere a programszámlálóba van "
+"integrálva)"
 
 #. !/flag:fastmult
 msgctxt "arm-flag"
 msgid "32x32->64-bit multiplication"
-msgstr ""
+msgstr "32x32 -> 64 bites szorzás"
 
 #. !/flag:fpa
 msgctxt "arm-flag"
 msgid "Floating point accelerator"
-msgstr ""
+msgstr "Lebegőpontos számításokat gyorsító hardver"
 
 #. !/flag:vfp
 msgctxt "arm-flag"
 msgid "VFP (early SIMD vector floating point instructions)"
-msgstr ""
+msgstr "VFP (a korai SIMD vektoros lebegőpontos utasítások)"
 
 #. !/flag:edsp
 msgctxt "arm-flag"
 msgid "DSP extensions (the 'e' variant of the ARM9 CPUs, and all others above)"
 msgstr ""
+"DSP-kiterjesztések (az ARM9 processzorok „e” változata, valamint az összes "
+"többi, annál fejlettebb típus)"
 
 #. !/flag:java
 msgctxt "arm-flag"
 msgid "Jazelle (Java bytecode accelerator)"
-msgstr ""
+msgstr "Jazelle (Java bájtkód-gyorsító)"
 
 #. !/flag:iwmmxt
 msgctxt "arm-flag"
 msgid "SIMD instructions similar to Intel MMX"
-msgstr ""
+msgstr "SIMD-utasok, amelyek az Intel MMX-hez hasonlóak"
 
 #. !/flag:crunch
 msgctxt "arm-flag"
 msgid "MaverickCrunch coprocessor (if kernel support enabled)"
-msgstr ""
+msgstr "MaverickCrunch ko-processzor (ha a kernel támogatása engedélyezve van)"
 
 #. !/flag:thumbee
 msgctxt "arm-flag"
 msgid "ThumbEE"
-msgstr ""
+msgstr "ThumbEE"
 
 #. !/flag:neon
 msgctxt "arm-flag"
 msgid "Advanced SIMD/NEON on AArch32"
-msgstr ""
+msgstr "Fejlett SIMD/NEON az AArch32 architektúrán"
 
 #. !/flag:evtstrm
 msgctxt "arm-flag"
 msgid "Kernel event stream using generic architected timer"
-msgstr ""
+msgstr "Kernel-eseményfolyam általános architektúrájú időzítő használatával"
 
 #. !/flag:vfpv3
 msgctxt "arm-flag"
 msgid "VFP version 3"
-msgstr ""
+msgstr "VFP 3. verzió"
 
 #. !/flag:vfpv3d16
 msgctxt "arm-flag"
 msgid "VFP version 3 with 16 D-registers"
-msgstr ""
+msgstr "A VFP 3-as verzió, 16 D-regiszterrel"
 
 #. !/flag:vfpv4
 msgctxt "arm-flag"
 msgid "VFP version 4 with fast context switching"
-msgstr ""
+msgstr "A VFP 4-es verzió gyors kontextusváltással"
 
 #. !/flag:vfpd32
 msgctxt "arm-flag"
 msgid "VFP with 32 D-registers"
-msgstr ""
+msgstr "VFP 32 D-regiszterrel"
 
 #. !/flag:tls
 msgctxt "arm-flag"
 msgid "TLS register"
-msgstr ""
+msgstr "TLS-nyilvántartás"
 
 #. !/flag:idiva
 msgctxt "arm-flag"
 msgid "SDIV and UDIV hardware division in ARM mode"
-msgstr ""
+msgstr "SDIV és UDIV hardveres osztás az ARM üzemmódban"
 
 #. !/flag:idivt
 msgctxt "arm-flag"
 msgid "SDIV and UDIV hardware division in Thumb mode"
-msgstr ""
+msgstr "SDIV és UDIV hardveres osztásművelet a Thumb módban"
 
 #. !/flag:lpae
 msgctxt "arm-flag"
 msgid "40-bit Large Physical Address Extension"
-msgstr ""
+msgstr "40 bites fizikai címterület-bővítés"
 
 #. !/flag:pmull
 msgctxt "arm-flag"
 msgid "64x64->128-bit F2m multiplication (arch>=8)"
-msgstr ""
+msgstr "64x64 -> 128 bites F2m szorzás (arch>=8)"
 
 #. !/flag:aes
 msgctxt "arm-flag"
 msgid "Crypto:AES (arch>=8)"
-msgstr ""
+msgstr "Kriptográfia: AES (processzor architektúra >= 8)"
 
 #. !/flag:sha1
 msgctxt "arm-flag"
 msgid "Crypto:SHA1 (arch>=8)"
-msgstr ""
+msgstr "Kriptográfia: SHA1 (arch>=8)"
 
 #. !/flag:sha2
 msgctxt "arm-flag"
 msgid "Crypto:SHA2 (arch>=8)"
-msgstr ""
+msgstr "Kriptográfia: SHA2 (arch>=8)"
 
 #. !/flag:crc32
 msgctxt "arm-flag"
 msgid "CRC32 checksum instructions (arch>=8)"
-msgstr ""
+msgstr "CRC32 ellenőrzőösszeg-számítási utasítások (arch>=8)"
 
 #. !/flag:fp
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Lebegőpontos számok az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:asimd
 msgctxt "arm-flag"
 msgid "Advanced SIMD/NEON on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Fejlett SIMD/NEON az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:atomics
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Atomikus utasítások az AArch64 architektúrában (arch>=8)"
 
 #. !/flag:fphp
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Félpontos lebegőpontos számok az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:asimdhp
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
 msgstr ""
+"Fejlett SIMD-funkciók BFloat16-os támogatással az AArch64 architektúrán "
+"(arch>=8)"
 
 #. !/flag:cpuid
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
 msgstr ""
+"Az AArch64 architektúrán (arch>=8) a processzor jellemzői lekérdezhetők"
 
 #. !/flag:asimdrdm
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
 msgstr ""
+"Fejlett SIMD kerekítési művelet, dupla szorzás és összeadás AArch64 "
+"architektúrán (arch>=8)"
 
 #. !/flag:jscvt
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
-msgstr ""
+msgstr "JacaScript fordítása AArch64 architektúrára (arch>=8)"
 
 #. !/flag:fcma
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Komplex számok SIMD-vel az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:lrcpc
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
-msgstr ""
+msgstr "Gyenge memóriakoherencia az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:dcpop
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
 msgstr ""
+"AArch64 architektúrán (arch>=8) a gyorsítótár tartalmának törlése a tartós "
+"tárolási pontig"
 
 #. !/flag:sha3
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SHA-3 utasítások az AArch64 architektúrán (arch>=8)"
 
 #. !/flag:sm3
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SM3 utasítások az AArch64 architektúrában (arch>=8)"
 
 #. !/flag:sm4
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SM4-utasítások az AArch64 architektúrában (arch>=8)"
 
 #. !/flag:asimddp
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SIMD skaláris szorzat AArch64 architektúrán (arch>=8)"
 
 #. !/flag:sha512
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "SHA512-es utasítások az AArch64 architektúrában (arch>=8)"
 
 #. !/flag:sve
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
 msgstr ""
+"Skálázható vektoros utasításkészlet-kiterjesztés az AArch64 architektúrában "
+"(arch>=8)"
 
 msgid "Cache information not available=\n"
-msgstr ""
+msgstr "A gyorsítótár-információk nem érhetők el\n"
 
 #, c-format
 msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
-msgstr ""
+msgstr "%d-es szint (%s)=%d-utas asszociatív, %d csoport, %d KB méretű\n"
 
 msgid "Caches"
 msgstr "Gyorsítótárak"
@@ -2154,55 +2274,56 @@ msgstr "Gyorsítótárak"
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
 msgstr ""
+"Szint: %d (%s), #%d=%dx %d KB (%d KB), %d-utas asszociatív, %d csoport\n"
 
 msgid "ARM Processor"
-msgstr ""
+msgstr "ARM processzor"
 
 msgid "Empty List"
-msgstr ""
+msgstr "Üres lista"
 
 msgid "Clocks"
 msgstr "Órajelek"
 
 #, c-format
 msgid "%.2f-%.2f %s=%dx\n"
-msgstr ""
+msgstr "%.2f-%.2f %s=%dx\n"
 
 msgid "Linux Name"
-msgstr ""
+msgstr "Linux neve"
 
 msgid "Decoded Name"
-msgstr ""
+msgstr "Feltárva a nevet"
 
 msgid "Mode"
-msgstr ""
+msgstr "Mód"
 
 msgid "ARM"
-msgstr ""
+msgstr "ARM"
 
 msgid "Implementer"
-msgstr ""
+msgstr "A megvalósító"
 
 msgid "Part"
-msgstr ""
+msgstr "Rész"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Építészet"
 
 msgid "Variant"
-msgstr ""
+msgstr "Változat"
 
 msgid "Capabilities"
-msgstr ""
+msgstr "Képességek"
 
 msgid "SOC/Package"
-msgstr ""
+msgstr "Rendszer egy chipben/Csomag"
 
 msgid "Logical CPU Config"
-msgstr ""
+msgstr "Logikai processzor konfiguráció"
 
 msgid "Socket:Core"
-msgstr ""
+msgstr "Aljzat: Mag"
 
 #, c-format
 msgid ""
@@ -2233,6 +2354,12 @@ msgid ""
 "Voltage now=%.3f V\n"
 "Voltage max design=%.3f V\n"
 msgstr ""
+"\n"
+"[Altóáramú tápegység: %s]\n"
+"Működési állapot=%s\n"
+"Váltóáramú táptípus=%s\n"
+"Jelenlegi feszültség=%.3f V\n"
+"Maximális tervezett feszültség=%.3f V\n"
 
 #, c-format
 msgid ""
@@ -2241,6 +2368,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[altóáramú tápegység: %s]\n"
+"Működési állapot=%s\n"
+"Váltóáramú táptípus=%s\n"
 
 #, c-format
 msgid ""
@@ -2261,6 +2392,22 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[Akumulátor: %s]\n"
+"Állapot=%s\n"
+"Kapacitás=%s %% / %s\n"
+"Akkumulátor-használat=%.0f W\n"
+"Hátralévő idő=%02dh %02dm\n"
+"Akkumulátor állapota=%.0f %%\n"
+"Tervezett maximális energia=%.3f Wh\n"
+"Jelenlegi maximális energia=%.3f Wh\n"
+"Tervezett maximális kapacitás=%.3f Ah\n"
+"Jelenlegi maximális kapacitás=%.3f Ah\n"
+"Tervezett feszültség=%.3f V\n"
+"Akkumulátor technológia=%s\n"
+"Gyártó=%s\n"
+"Modellszám=%s\n"
+"Sorozatszám=%s\n"
 
 #, c-format
 msgid ""
@@ -2272,6 +2419,13 @@ msgid ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 msgstr ""
+"\n"
+"[Akumulátor (APM)]\n"
+"Feltöltöttség=%d%%\n"
+"Megmaradó feltöltöttség=%s / %s\n"
+"Használat=%s\n"
+"APM illesztőprogram verziója=%s\n"
+"APM BIOS verziója=%s\n"
 
 #, c-format
 msgid ""
@@ -2282,141 +2436,157 @@ msgid ""
 "APM driver version=%s\n"
 "APM BIOS version=%s\n"
 msgstr ""
+"\n"
+"Ykumulátor (APM)]\n"
+"Feltöltöttség=%d%%\n"
+"Használat=%s\n"
+"APM illesztőprogram verzió=%s\n"
+"APM BIOS verzió=%s\n"
 
 msgid ""
 "[No batteries]\n"
 "No batteries found on this system=\n"
 msgstr ""
+"[Nincs akkumulátor]\n"
+"Ezen a rendszeren nem találtunk akkumulátort\n"
 
 msgid "Graphics Processors"
-msgstr ""
+msgstr "Grafikus processzorok"
 
 msgid "Monitors"
-msgstr ""
+msgstr "Monitorok"
 
 msgid "PCI Devices"
-msgstr ""
+msgstr "PCI-eszközök"
 
 msgid "USB Devices"
-msgstr ""
+msgstr "USB-eszközök"
 
 msgid "Firmware"
-msgstr ""
+msgstr "Firmverzió"
 
 msgid "Battery"
-msgstr ""
+msgstr "Akkumulátor"
 
 msgid "Sensors"
-msgstr ""
+msgstr "Érzékelők"
 
 msgid "System DMI"
-msgstr ""
+msgstr "Rendszer DMI"
 
 msgid "Memory Devices"
-msgstr ""
+msgstr "Memóriaeszközök"
 
 msgid "Device Tree"
-msgstr ""
+msgstr "Eszközfa"
 
 msgid "Resources"
-msgstr ""
+msgstr "Források"
 
 msgid "Released"
-msgstr ""
+msgstr "Megjelent"
 
 msgid "Release Date"
-msgstr ""
+msgstr "Megjelenési dátum"
 
 msgid "Distro and CPU Supported Profiles"
-msgstr ""
+msgstr "Támogatott disztribúciók és processzorok"
 
 msgid "WSL2"
-msgstr ""
+msgstr "WSL2"
 
 msgid "Sensor"
-msgstr ""
+msgstr "Érzékelő"
 
 msgid "Serial Number"
 msgstr "Sorozatszám"
 
 msgid "Devices"
-msgstr ""
+msgstr "Eszközök"
 
 msgid "Update CPU database"
-msgstr ""
+msgstr "Frissítse a processzorok adatbázisát"
 
 msgid "Update PCI ID listing"
-msgstr ""
+msgstr "Frissítse a PCI azonosítók listáját"
 
 msgid "Update USB ID listing"
-msgstr ""
+msgstr "Frissítse az USB-azonosítók listáját"
 
 msgid "Update EDID vendor codes"
-msgstr ""
+msgstr "Frissítse az EDID gyártói kódjait"
 
 msgid "Update IEEE OUI vendor codes"
-msgstr ""
+msgstr "Frissítse az IEEE OUI-keretkódok listáját"
 
 msgid "Update SD card manufacturer information"
-msgstr ""
+msgstr "Frissítse az SD-kártya gyártójának adatait"
 
 msgid "Update CPU flags database"
-msgstr ""
+msgstr "Frissítse a processzor-funkciók adatbázisát"
 
 msgid "Gathers information about hardware devices"
-msgstr ""
+msgstr "Információkat gyűjt a hardveres eszközökről"
 
 msgid "A copy of <i><b>pci.ids</b></i> is not available on the system."
-msgstr ""
+msgstr "A rendszeren nem található a <i><b>pci.ids</b></i> fájl másolata."
 
 msgid "A full <i><b>pci.ids</b></i> is not available on the system."
-msgstr ""
+msgstr "A teljes <i><b>pci.ids</b></i> nem érhető el a rendszeren."
 
 msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (systemd distro)"
 msgstr ""
+"Győződjön meg arról, hogy a hardinfo2 szolgáltatás engedélyezve van és "
+"elindítva: sudo systemctl enable hardinfo2 --now (systemd alapú disztribúció)"
 
 msgid ""
 "Add yourself to hardinfo2 group:\n"
 "sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"Addd magad a hardinfo2 csoportba:\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"A csoporttagságok frissítéséhez lépj ki, majd lépj be újra, vagy indítsd "
+"újra a rendszert..."
 
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
+"A rendszerben található NVMe-tárolóeszközök nem jelennek meg a listában.\n"
+"Az NVMe-eszközök használatához a <b><i>udisks2</i></b> telepítése szükséges."
 
 msgid "Compatible"
-msgstr ""
+msgstr "Kompatibilis"
 
 msgid "Memory Map"
-msgstr ""
+msgstr "Memóriatérkép"
 
 msgid "IRQ Map"
-msgstr ""
+msgstr "IRQ-térkép"
 
 msgid "Alias Map"
-msgstr ""
+msgstr "Álnév-térkép"
 
 msgid "Symbol Map"
-msgstr ""
+msgstr "Szimbólumtérkép"
 
 msgid "Product"
-msgstr ""
+msgstr "Termék"
 
 msgid "Family"
 msgstr "Család"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "BIOS"
-msgstr ""
+msgstr "BIOS"
 
 msgid "Asset Tag"
-msgstr ""
+msgstr "Eszközazonosító"
 
 msgid "DMI Unavailable"
 msgstr "DMI nem elérhető"
@@ -2425,254 +2595,266 @@ msgid "DMI is not available. Perhaps this platform does not provide DMI."
 msgstr "DMI nem elérhető. Lehetséges, hogy az alaplap nem közöl DMI adatokat."
 
 msgid "Memory Device List"
-msgstr ""
+msgstr "Memóriaeszközök listája"
 
 msgid "Memory Array"
-msgstr ""
+msgstr "Memóriatömb"
 
 msgid "DMI Handle"
-msgstr ""
+msgstr "DMI fogantyú"
 
 msgid "Locator"
-msgstr ""
+msgstr "Helymeghatározó"
 
 msgid "Use"
-msgstr ""
+msgstr "Használja"
 
 msgid "Error Correction Type"
-msgstr ""
+msgstr "Hibajavítási típus"
 
 msgid "Size (Present / Max)"
-msgstr ""
+msgstr "Méret (jelenlegi / maximális)"
 
 msgid "Devices (Populated / Sockets)"
-msgstr ""
+msgstr "Eszközök (telepítve / csatlakozók)"
 
 msgid "Types Present"
-msgstr ""
+msgstr "Megjelenő típusok"
 
 msgid "ROM Size"
-msgstr ""
+msgstr "ROM mérete"
 
 msgid "Memory Socket"
-msgstr ""
+msgstr "Memória foglalat"
 
 msgid "DMI Handles (Array, Socket)"
-msgstr ""
+msgstr "DMI fogantyúk (tömb, aljzat)"
 
 msgid "Bank Locator"
-msgstr ""
+msgstr "Bankfiók-kereső"
 
 msgid "Form Factor"
-msgstr ""
+msgstr "Méret és kialakítás"
 
 msgid "Part Number"
-msgstr ""
+msgstr "Cikkszám"
 
 msgid "Rated Speed"
-msgstr ""
+msgstr "Névleges sebesség"
 
 msgid "Configured Speed"
-msgstr ""
+msgstr "Beállított sebesség"
 
 msgid "Data Width/Total Width"
-msgstr ""
+msgstr "Adatszélesség/Teljes szélesség"
 
 msgid "Rank"
-msgstr ""
+msgstr "Rangsorolás"
 
 msgid "Minimum Voltage"
-msgstr ""
+msgstr "Minimális feszültség"
 
 msgid "Maximum Voltage"
-msgstr ""
+msgstr "Maximális feszültség"
 
 msgid "Configured Voltage"
-msgstr ""
+msgstr "Beállított feszültség"
 
 msgid "(Empty)"
-msgstr ""
+msgstr "(Üres)"
 
 msgid "Serial Presence Detect (SPD) Summary"
-msgstr ""
+msgstr "Soros jelenlétérzékelés (SPD) – Összefoglaló"
 
 msgid "(Not available - See hint box below)"
-msgstr ""
+msgstr "(Nem áll rendelkezésre – lásd az alábbi útmutatót)"
 
 msgid "No DMI available"
-msgstr ""
+msgstr "Nincs elérhető DMI-adat"
 
 msgid "<b><i>dmidecode</i></b> package installed"
-msgstr ""
+msgstr "A <b><i>dmidecode</i></b> csomag telepítve"
 
 msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"Add magad a hardinfo2 csoportba: sudo usermod -a -G hardinfo2 $USER\n"
+"Kilépés/újraindítás a csoporttagságok frissítéséhez..."
 
 msgid "Memory Information requires more Setup:"
-msgstr ""
+msgstr "A memória-információkhoz további beállítások szükségesek:"
 
 msgid ""
 "\"More often than not, information contained in the DMI tables is "
 "inaccurate,\n"
 "incomplete or simply wrong.\" -<i><b>dmidecode</b></i> manual page"
 msgstr ""
+"„A DMI-táblákban található információ gyakran pontatlan, hiányos vagy "
+"egyszerűen helytelen.” – dmidecode használati útmutató"
 
 msgctxt "cache-type"
 msgid "Data"
-msgstr ""
+msgstr "Adatok"
 
 msgctxt "cache-type"
 msgid "Instruction"
-msgstr ""
+msgstr "Utasítás"
 
 msgctxt "cache-type"
 msgid "Unified"
-msgstr ""
+msgstr "Egységesített"
 
 msgid "Device cannot be removed easily"
-msgstr ""
+msgstr "A készülék nem könnyen eltávolítható"
 
 msgid "Device is updatable in this or any other mode"
-msgstr ""
+msgstr "A készülék frissíthető ebben vagy bármely más üzemmódban"
 
 msgid "Update can only be done from offline mode"
-msgstr ""
+msgstr "A frissítés kizárólag offline módban végezhető el"
 
 msgid "Requires AC power"
-msgstr ""
+msgstr "Váltakozó áramú táplálásra van szükség"
 
 msgid "Is locked and can be unlocked"
-msgstr ""
+msgstr "Zárolva, és feloldható"
 
 msgid "Is found in current metadata"
-msgstr ""
+msgstr "A jelenlegi metaadatban megtalálható"
 
 msgid "Requires a bootloader mode to be manually enabled by the user"
-msgstr ""
+msgstr "A felhasználónak manuálisan kell aktiválnia a bootloader módot"
 
 msgid "Has been registered with other plugins"
-msgstr ""
+msgstr "Már regisztrálva más bővítményekkel"
 
 msgid "Requires a reboot to apply firmware or to reload hardware"
 msgstr ""
+"A firmware frissítéséhez vagy a hardver újratöltéséhez újra kell indítani a "
+"rendszert"
 
 msgid "Requires system shutdown to apply firmware"
-msgstr ""
+msgstr "A firmware frissítéshez a rendszer újraindítása szükséges"
 
 msgid "Has been reported to a metadata server"
-msgstr ""
+msgstr "Már jelentették egy metaadat-szervernek"
 
 msgid "User has been notified"
-msgstr ""
+msgstr "A felhasználót értesítették"
 
 msgid "Always use the runtime version rather than the bootloader"
-msgstr ""
+msgstr "Mindig a futtatási verziót használja, és ne a betöltőprogramot"
 
 msgid "Install composite firmware on the parent before the child"
 msgstr ""
+"Telepítse a kombinált firmware-t a fő eszközre, mielőtt a mellék eszközre "
+"telepítené"
 
 msgid "Is currently in bootloader mode"
-msgstr ""
+msgstr "Jelenleg a rendszerindító módban van"
 
 msgid "The hardware is waiting to be replugged"
-msgstr ""
+msgstr "A hardverre várnak, hogy újra csatlakoztassák"
 
 msgid "Ignore validation safety checks when flashing this device"
 msgstr ""
+"A készülék frissítésekor ne vegye figyelembe az érvényesítési biztonsági "
+"ellenőrzéseket"
 
 msgid "Requires the update to be retried with a new plugin"
-msgstr ""
+msgstr "A frissítés újraindításához új bővítményre van szükség"
 
 msgid "Do not add instance IDs from the device baseclass"
-msgstr ""
+msgstr "Ne adjon hozzá példányazonosítókat az eszköz alaposztályból!"
 
 msgid "Device update needs to be separately activated"
-msgstr ""
+msgstr "Az eszközfrissítést külön kell aktiválni"
 
 msgid ""
 "Ensure the version is a valid semantic version, e.g. numbers separated with "
 "dots"
 msgstr ""
+"Győződjön meg arról, hogy a verziószám érvényes szemantikai verziószám, "
+"például pontokkal elválasztott számok"
 
 msgid "Extra metadata can be exposed about this device"
-msgstr ""
+msgstr "További metaadatok érhetők el ezzel az eszközzel kapcsolatban"
 
 msgid "DeviceId"
-msgstr ""
+msgstr "Eszközazonosító"
 
 msgid "Guid"
-msgstr ""
+msgstr "Útmutató"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Bővítmény"
 
 msgid "Flags"
-msgstr ""
+msgstr "Zászlók"
 
 msgid "VendorId"
-msgstr ""
+msgstr "Eladóazonosító"
 
 msgid "VersionBootloader"
-msgstr ""
+msgstr "Verzió: Indítóprogram"
 
 msgid "Icon"
-msgstr ""
+msgstr "Ikon"
 
 msgid "InstallDuration"
-msgstr ""
+msgstr "Telepítési időtartam"
 
 msgid "Created"
-msgstr ""
+msgstr "Létrehozva"
 
 msgid "Checksum"
-msgstr ""
+msgstr "Ellenőrzőösszeg"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 msgid "Firmware List"
-msgstr ""
+msgstr "Firmverek listája"
 
 msgid "Requires the <i><b>fwupd</b></i> daemon."
-msgstr ""
+msgstr "Szükség van a <i><b>fwupd</b></i> démonra."
 
 msgid "SVendor"
-msgstr ""
+msgstr "Szállító"
 
 msgid "SDevice"
-msgstr ""
+msgstr "SDevice"
 
 msgid "PCI Express"
-msgstr ""
+msgstr "PCI Express"
 
 msgid "Maximum Link Width"
-msgstr ""
+msgstr "Maximális csatlakozási szélesség"
 
 msgid "Maximum Link Speed"
-msgstr ""
+msgstr "Maximális adatátviteli sebesség"
 
 msgid "GT/s"
-msgstr ""
+msgstr "GT/s"
 
 msgid "NVIDIA"
-msgstr ""
+msgstr "NVIDIA"
 
 msgid "BIOS Version"
-msgstr ""
+msgstr "BIOS verzió"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Device Information"
 msgstr "Eszköz tulajdonságai"
 
 msgid "Location"
-msgstr ""
+msgstr "Helyszín"
 
 msgid "DRM Device"
-msgstr ""
+msgstr "DRM-kompatibilis eszköz"
 
 msgid "Class"
 msgstr "Osztály"
@@ -2684,64 +2866,64 @@ msgid "Unknown integrated GPU"
 msgstr "Ismeretlen integrált grafikus vezérlő"
 
 msgid "clock-frequency property"
-msgstr ""
+msgstr "órajel-frekvencia tulajdonság"
 
 msgid "Operating Points (OPPv1)"
-msgstr ""
+msgstr "Üzemeltetési pontok (OPPv1)"
 
 msgid "Operating Points (OPPv2)"
-msgstr ""
+msgstr "Működési pontok (OPPv2)"
 
 msgid "Device Tree Node"
-msgstr ""
+msgstr "Eszközfa-csomópont"
 
 msgid "Status"
-msgstr ""
+msgstr "Állapot"
 
 msgid "GPUs"
-msgstr ""
+msgstr "Grafikus processzorok"
 
 msgid "No GPU devices found"
 msgstr "Nem található dedikált grafikus vezérlő"
 
 msgid "IA64 Processor"
-msgstr ""
+msgstr "IA64 processzor"
 
 msgid "Architecture Revision"
-msgstr ""
+msgstr "Építészeti tervek felülvizsgálata"
 
 msgid "CPU regs"
-msgstr ""
+msgstr "CPU regiszterek"
 
 msgid "Features"
-msgstr ""
+msgstr "Főbb jellemzők"
 
 msgid "Bus"
 msgstr "Busz"
 
 msgid "Connected to"
-msgstr ""
+msgstr "Csatlakoztatva"
 
 msgid "InfraRed port"
-msgstr ""
+msgstr "Infravörös port"
 
 msgid "System Type"
-msgstr ""
+msgstr "Rendszertípus"
 
 msgid "BogoMIPS"
-msgstr ""
+msgstr "BogoMIPS"
 
 msgid "MMU"
-msgstr ""
+msgstr "Memóriakezelő egység"
 
 msgid "FPU"
-msgstr ""
+msgstr "Lebegőpontos egység"
 
 msgid "Calibration"
-msgstr ""
+msgstr "Kalibrálás"
 
 msgid "(Unspecified)"
-msgstr ""
+msgstr "(Nincs megadva)"
 
 #, c-format
 msgid "Week %d of %d"
@@ -2751,13 +2933,13 @@ msgid "Ok"
 msgstr "Rendben"
 
 msgid "Fail"
-msgstr ""
+msgstr "Sikertelen"
 
 msgid "(Empty List)"
-msgstr ""
+msgstr "(Üres lista)"
 
 msgid "Signal Type"
-msgstr ""
+msgstr "Jel típusa"
 
 msgid "Digital"
 msgstr "Digitális"
@@ -2766,577 +2948,587 @@ msgid "Analog"
 msgstr "Analóg"
 
 msgid "Interface"
-msgstr ""
+msgstr "Felület"
 
 msgid "Bits per Color Channel"
-msgstr ""
+msgstr "Bitek egy színcsatornán"
 
 msgid "Speaker Allocation"
-msgstr ""
+msgstr "Előadók kiosztása"
 
 msgid "Output (Max)"
-msgstr ""
+msgstr "Kimenet (maximum)"
 
 msgid "EDID Device"
-msgstr ""
+msgstr "EDID-eszköz"
 
 msgid "Serial"
-msgstr ""
+msgstr "Sorozat"
 
 msgid "Manufacture Date"
-msgstr ""
+msgstr "Gyártási dátum"
 
 msgid "EDID Meta"
-msgstr ""
+msgstr "EDID metaadatok"
 
 msgid "bytes"
-msgstr ""
+msgstr "bájtok"
 
 msgid "Extension Blocks"
-msgstr ""
+msgstr "Kiegészítő blokkok"
 
 msgid "Extended to"
-msgstr ""
+msgstr "Hosszabbítva:"
 
 msgid "EDID Descriptors"
-msgstr ""
+msgstr "EDID-leírások"
 
 msgid "Detailed Timing Descriptors (DTD)"
-msgstr ""
+msgstr "Részletes időzítési leírások (DTD)"
 
 msgid "Established Timings Bitmap (ETB)"
-msgstr ""
+msgstr "Előre meghatározott időzítési bitkép (ETB)"
 
 msgid "Standard Timings (STD)"
-msgstr ""
+msgstr "Általános időbeosztás (STD)"
 
 msgid "E-EDID Extension Blocks"
-msgstr ""
+msgstr "E-EDID kiterjesztő blokkok"
 
 msgid "EIA/CEA-861 Data Blocks"
-msgstr ""
+msgstr "EIA/CEA-861 adatblokkok"
 
 msgid "EIA/CEA-861 Short Audio Descriptors"
-msgstr ""
+msgstr "EIA/CEA-861 szabvány: Rövid hangleírások"
 
 msgid "EIA/CEA-861 Short Video Descriptors"
-msgstr ""
+msgstr "EIA/CEA-861 rövid videóleírások"
 
 msgid "DisplayID Timings"
-msgstr ""
+msgstr "DisplayID időzítések"
 
 msgid "DisplayID Strings"
-msgstr ""
+msgstr "DisplayID azonosítók"
 
 msgid "Hex Dump"
-msgstr ""
+msgstr "Hexa-formátum"
 
 msgid "Data"
-msgstr ""
+msgstr "Adatok"
 
 msgid "Connection"
 msgstr "Csatlakozó"
 
 msgid "DRM"
-msgstr ""
+msgstr "DRM"
 
 msgid "PA-RISC Processor"
-msgstr ""
+msgstr "PA-RISC processzor"
 
 msgid "HVersion"
-msgstr ""
+msgstr "H verzió"
 
 msgid "SVersion"
-msgstr ""
+msgstr "S verzió"
 
 msgid "Link Width"
-msgstr ""
+msgstr "Hivatkozás szélessége"
 
 msgid "Link Speed"
-msgstr ""
+msgstr "Linksebesség"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domén"
 
 msgid "Function"
-msgstr ""
+msgstr "Funkció"
 
 msgid "No PCI devices found"
 msgstr "Nem található PCI eszköz"
 
 msgid "POWER Processor"
-msgstr ""
+msgstr "POWER processzor"
 
 msgid "⚬ Can do black and white printing=\n"
-msgstr ""
+msgstr "⚬ Fekete-fehér nyomtatásra is alkalmas\n"
 
 msgid "⚬ Can do color printing=\n"
-msgstr ""
+msgstr "⚬ Színes nyomtatásra is képes\n"
 
 msgid "⚬ Can do duplexing=\n"
-msgstr ""
+msgstr "⚬ Képes kétoldalas nyomtatásra\n"
 
 msgid "⚬ Can do staple output=\n"
-msgstr ""
+msgstr "⚬ Képes a szokásos formátumban kiadni az adatokat\n"
 
 msgid "⚬ Can do copies=\n"
-msgstr ""
+msgstr "⚬ Készít másolatokat\n"
 
 msgid "⚬ Can collate copies=\n"
-msgstr ""
+msgstr "⚬ Képes a másolatokat összefűzni?\n"
 
 msgid "⚬ Printer is rejecting jobs=\n"
-msgstr ""
+msgstr "⚬ A nyomtató elutasítja a nyomtatási feladatokat\n"
 
 msgid "⚬ Printer was automatically discovered and added=\n"
-msgstr ""
+msgstr "⚬ A nyomtató automatikusan felismerésre került és hozzáadásra került\n"
 
 msgid "Idle"
-msgstr ""
+msgstr "Alszik"
 
 msgid "Printing a Job"
-msgstr ""
+msgstr "Nyomtatási feladat indítása"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Megállt"
 
 msgid ""
 "[Printers]\n"
 "No suitable CUPS library found="
 msgstr ""
+"[Nyomtatók]\n"
+"Nem található megfelelő CUPS könyvtár"
 
 msgid "[Printers (CUPS)]\n"
-msgstr ""
+msgstr "[Nyomtatók (CUPS)]\n"
 
 msgid ""
 "[Printers]\n"
 "No printers found=\n"
 msgstr ""
+"[Nyomtatók]\n"
+"Nem található nyomtató=\n"
 
 msgid "uarch"
-msgstr ""
+msgstr "uarch"
 
 msgctxt "rv-ext"
 msgid "RISC-V 32-bit"
-msgstr ""
+msgstr "RISC-V, 32 bites"
 
 msgctxt "rv-ext"
 msgid "RISC-V 64-bit"
-msgstr ""
+msgstr "RISC-V, 64 bites"
 
 msgctxt "rv-ext"
 msgid "RISC-V 128-bit"
-msgstr ""
+msgstr "RISC-V, 128 bites"
 
 msgctxt "rv-ext"
 msgid "Base embedded integer instructions (15 registers)"
 msgstr ""
+"Alapértelmezett beépített egész szám műveleteket végrehajtó utasítások (15 "
+"regiszter)"
 
 msgctxt "rv-ext"
 msgid "Base integer instructions (31 registers)"
-msgstr ""
+msgstr "Alap egész szám műveletek (31 regiszter)"
 
 msgctxt "rv-ext"
 msgid "Hardware integer multiply and divide"
-msgstr ""
+msgstr "Hardveres egészszámú szorzás és osztás"
 
 msgctxt "rv-ext"
 msgid "Atomic memory operations"
-msgstr ""
+msgstr "Atomikus memóriaműveletek"
 
 msgctxt "rv-ext"
 msgid "Compressed 16-bit instructions"
-msgstr ""
+msgstr "Tömörített, 16 bites utasítások"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, single-precision"
-msgstr ""
+msgstr "Lebegőpontos utasítások, egyszeres pontosságú"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, double-precision"
-msgstr ""
+msgstr "Lebegőpontos utasítások, dupla pontosságú"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, quad-precision"
-msgstr ""
+msgstr "Lebegőpontos utasítások, négyszeres pontosság"
 
 msgctxt "rv-ext"
 msgid "Bit manipulation instructions"
-msgstr ""
+msgstr "Bitműveleti utasítások"
 
 msgctxt "rv-ext"
 msgid "Vector operations"
-msgstr ""
+msgstr "Vektor műveletek"
 
 msgctxt "rv-ext"
 msgid "Scalar Cryptography"
-msgstr ""
+msgstr "Skalár kriptográfia"
 
 msgctxt "rv-ext"
 msgid "Base Counters and Timers"
-msgstr ""
+msgstr "Alap számlálók és időzítők"
 
 msgctxt "rv-ext"
 msgid "Control and Status Register"
-msgstr ""
+msgstr "Vezérlő- és állapotnyilvántartó"
 
 msgctxt "rv-ext"
 msgid "Instruction-Fetch Fence"
-msgstr ""
+msgstr "Utasítás-lekérdezési korlátozó"
 
 msgctxt "rv-ext"
 msgid "Hardware performance counters"
-msgstr ""
+msgstr "Hardveres teljesítménymérők"
 
 msgctxt "rv-ext"
 msgid "Accell Index addresses"
-msgstr ""
+msgstr "Az Accell Index a következő címekre vonatkozik:"
 
 msgctxt "rv-ext"
 msgid "Basic bit-manipulation"
-msgstr ""
+msgstr "Alapvető bitműveletek"
 
 msgctxt "rv-ext"
 msgid "Supervisor-level Instructions"
-msgstr ""
+msgstr "Munkatársaknak szóló útmutató"
 
 msgctxt "rv-ext"
 msgid "User Mode"
-msgstr ""
+msgstr "Felhasználói mód"
 
 msgctxt "rv-ext"
 msgid "Transactional memory"
-msgstr ""
+msgstr "Tranzakciós memória"
 
 msgctxt "rv-ext"
 msgid "Packed SIMD instructions"
-msgstr ""
+msgstr "Sűrített SIMD-utasítások"
 
 msgctxt "rv-ext"
 msgid "Decimal floating-point instructions"
-msgstr ""
+msgstr "Tizedes törtformátumú lebegőpontos utasítások"
 
 msgctxt "rv-ext"
 msgid "Dynamically translated languages"
-msgstr ""
+msgstr "Dinamikusan lefordított nyelvek"
 
 msgctxt "rv-ext"
 msgid "User-level interrupts"
-msgstr ""
+msgstr "Felhasználói szintű megszakítások"
 
 msgid "S390 Processor"
-msgstr ""
+msgstr "S390 processzor"
 
 msgid "ID String"
-msgstr ""
+msgstr "Azonosító sztring"
 
 msgid "SuperH Processor"
-msgstr ""
+msgstr "SuperH processzor"
 
 msgid "Bus Frequency"
-msgstr ""
+msgstr "Buszmenetrend"
 
 msgid "Module Frequency"
-msgstr ""
+msgstr "Modul frekvenciája"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Nem meghatározott"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Érvénytelen"
 
 msgid "Row address bits"
-msgstr ""
+msgstr "Sorcím-bitek"
 
 msgid "Column address bits"
-msgstr ""
+msgstr "Oszlopcím-bitek"
 
 msgid "Number of rows"
-msgstr ""
+msgstr "Sorok száma"
 
 msgid "Data width"
-msgstr ""
+msgstr "Adatszélesség"
 
 msgid "Interface signal levels"
-msgstr ""
+msgstr "Interfész jelek szintjei"
 
 msgid "Configuration type"
-msgstr ""
+msgstr "Konfigurációs típus"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Frissít"
 
 msgid "Timings"
-msgstr ""
+msgstr "Időpontok"
 
 msgid "Voltage"
-msgstr ""
+msgstr "Feszültség"
 
 msgid "JEDEC Timings"
-msgstr ""
+msgstr "JEDEC időzítések"
 
 msgid "Ranks"
-msgstr ""
+msgstr "Rangsorolás"
 
 msgid "IO Pins per Chip"
-msgstr ""
+msgstr "Egy chipen található I/O csapok száma"
 
 msgid "Die count"
-msgstr ""
+msgstr "Darabszám"
 
 msgid "Thermal Sensor"
-msgstr ""
+msgstr "Hőérzékelő"
 
 msgid "Present"
-msgstr ""
+msgstr "Jelenlegi"
 
 msgid "Not present"
-msgstr ""
+msgstr "Nincs jelen"
 
 msgid "Supported Voltages"
-msgstr ""
+msgstr "Támogatott feszültségek"
 
 msgid "Supported CAS Latencies"
-msgstr ""
+msgstr "Támogatott CAS késleltetések"
 
 msgid "XMP Profile"
-msgstr ""
+msgstr "XMP-profil"
 
 msgid "Speed"
 msgstr "Sebesség"
 
 msgid "XMP Timings"
-msgstr ""
+msgstr "XMP időzítések"
 
 msgid "XMP"
-msgstr ""
+msgstr "XMP"
 
 msgid "Serial Presence Detect (SPD)"
-msgstr ""
+msgstr "Soros jelenlétérzékelés (SPD)"
 
 msgid "SPD Revision"
-msgstr ""
+msgstr "SPD-frissítés"
 
 msgid "Module Vendor"
-msgstr ""
+msgstr "Modulgyártó"
 
 msgid "DRAM Vendor"
-msgstr ""
+msgstr "DRAM-gyártó"
 
 msgid "Manufacturing Date (Year / Week)"
-msgstr ""
+msgstr "Gyártási dátum (év / hét)"
 
 msgid "NVMe Controller"
 msgstr "NVMe-vezérlő"
 
 msgid "Read Error Rate"
-msgstr ""
+msgstr "Olvasási hibarát"
 
 msgid "Throughput Performance"
-msgstr ""
+msgstr "Átviteli kapacitás"
 
 msgid "Spin-Up Time"
-msgstr ""
+msgstr "Indulási idő"
 
 msgid "Start/Stop Count"
-msgstr ""
+msgstr "Indítás/Leállítás számláló"
 
 msgid "Reallocated Sector Count"
-msgstr ""
+msgstr "Újrarendelt szektorok száma"
 
 msgid "Read Channel Margin"
-msgstr ""
+msgstr "Olvassa el a csatorna-haszonadatokat"
 
 msgid "Seek Error Rate"
-msgstr ""
+msgstr "Keressük a hibarátát!"
 
 msgid "Seek Timer Performance"
-msgstr ""
+msgstr "Ellenőrizze a keresési időzítő teljesítményét"
 
 msgid "Power-On Hours"
-msgstr ""
+msgstr "Bekapcsolva töltött órák"
 
 msgid "Spin Retry Count"
-msgstr ""
+msgstr "Újrapróbálkozások száma a várakozás közben"
 
 msgid "Calibration Retry Count"
-msgstr ""
+msgstr "Kalibrálási próbálkozások száma"
 
 msgid "Power Cycle Count"
-msgstr ""
+msgstr "Áramkapcsolási ciklusok száma"
 
 msgid "Soft Read Error Rate"
-msgstr ""
+msgstr "A „lágy” olvasási hibák aránya"
 
 msgid "Runtime Bad Block"
-msgstr ""
+msgstr "Futásidőben fellépő hibás blokk"
 
 msgid "End-to-End error"
-msgstr ""
+msgstr "Végpontok közötti hiba"
 
 msgid "Reported Uncorrectable Errors"
-msgstr ""
+msgstr "Jelentett, kijavíthatatlan hibák"
 
 msgid "Command Timeout"
-msgstr ""
+msgstr "Parancsvégrehajtási időtúllépés"
 
 msgid "High Fly Writes"
-msgstr ""
+msgstr "A High Fly ír"
 
 msgid "Airflow Temperature"
-msgstr ""
+msgstr "Légszállítási hőmérséklet"
 
 msgid "G-sense Error Rate"
-msgstr ""
+msgstr "G-érzékelő hibaarány"
 
 msgid "Power-off Retract Count"
-msgstr ""
+msgstr "Kikapcsoláskor végrehajtott visszahúzási műveletek száma"
 
 msgid "Load Cycle Count"
-msgstr ""
+msgstr "Terhelési ciklusok száma"
 
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
 msgid "Hardware ECC Recovered"
-msgstr ""
+msgstr "A hardveres ECC-védelem sikeresen helyreállította a hibát"
 
 msgid "Reallocation Event Count"
-msgstr ""
+msgstr "Áthelyezési események száma"
 
 msgid "Current Pending Sector Count"
-msgstr ""
+msgstr "Jelenleg feldolgozás alatt álló szektorok száma"
 
 msgid "Uncorrectable Sector Count"
-msgstr ""
+msgstr "Javíthatatlan szektorok száma"
 
 msgid "UltraDMA CRC Error Count"
-msgstr ""
+msgstr "UltraDMA CRC-hiba számláló"
 
 msgid "Multi-Zone Error Rate"
-msgstr ""
+msgstr "Többzónás hibarátaság"
 
 msgid "Run Out Cancel"
-msgstr ""
+msgstr "Vége, törlés"
 
 msgid "Flying Height"
-msgstr ""
+msgstr "Repülési magasság"
 
 msgid "Spin High Current"
-msgstr ""
+msgstr "Nagy áramerősségű forgó mágneses mező"
 
 msgid "Spin Buzz"
-msgstr ""
+msgstr "Forgó zaj"
 
 msgid "Offline Seek Performance"
-msgstr ""
+msgstr "Offline keresés teljesítménye"
 
 msgid "Disk Shift"
-msgstr ""
+msgstr "Lemezváltás"
 
 msgid "G-Sense Error Rate"
-msgstr ""
+msgstr "G-érzékelő hibaarány"
 
 msgid "Loaded Hours"
-msgstr ""
+msgstr "Összesen dolgozott órák"
 
 msgid "Load/Unload Retry Count"
-msgstr ""
+msgstr "Újratöltési/kiürítési kísérletek száma"
 
 msgid "Load Friction"
-msgstr ""
+msgstr "Terhelés okozta súrlódás"
 
 msgid "Load/Unload Cycle Count"
-msgstr ""
+msgstr "Rakodási/kirakodási ciklusok száma"
 
 msgid "Load-in time"
-msgstr ""
+msgstr "A felépítés időtartama"
 
 msgid "Torque Amplification Count"
-msgstr ""
+msgstr "Nyomatékfokozó szám"
 
 msgid "Power-Off Retract Count"
-msgstr ""
+msgstr "A kikapcsoláskor történő visszahúzások száma"
 
 msgid "GMR Head Amplitude"
-msgstr ""
+msgstr "GMR csúcsamplitúdó"
 
 msgid "Endurance Remaining"
-msgstr ""
+msgstr "Megmaradt élettartam"
 
 msgid "Good Block Rate"
-msgstr ""
+msgstr "Jó blokkolási arány"
 
 msgid "Head Flying Hours"
-msgstr ""
+msgstr "Összes repült óra"
 
 msgid "Read Error Retry Rate"
-msgstr ""
+msgstr "Olvasási hiba: újrafutási gyakoriság"
 
 msgid "Total LBAs Written"
-msgstr ""
+msgstr "Összesen írt logikai blokk cím"
 
 msgid "Total LBAs Read"
-msgstr ""
+msgstr "Összesen beolvasott logikai blokk"
 
 msgid "Wear leveling Count"
-msgstr ""
+msgstr "Viselési egyenletesség számláló"
 
 msgid "Total Used Reserved Block Count"
-msgstr ""
+msgstr "Összes felhasznált, lefoglalt blokk száma"
 
 msgid "Total Program Fail Count"
-msgstr ""
+msgstr "A program összes hibájának száma"
 
 msgid "Total Erase Fail Count"
-msgstr ""
+msgstr "Összes sikertelen törlési kísérlet száma"
 
 msgid "Available Reserved Space"
-msgstr ""
+msgstr "Elérhető, lefoglalható hely"
 
 msgid "Program Fail Count"
-msgstr ""
+msgstr "A programhibák száma"
 
 msgid "Erase Fail Count"
-msgstr ""
+msgstr "Sikertelen törlés száma"
 
 msgid "TA Counter Increased"
-msgstr ""
+msgstr "A TA-számláló értéke nőtt"
 
 msgid "Total Unused Reserved Block Count"
-msgstr ""
+msgstr "A teljes, fel nem használt, lefoglalt blokkok száma"
 
 msgid ""
 "\n"
 "[UDisks2]\n"
 msgstr ""
+"\n"
+"Yisks2]\n"
 
 msgid "Removable"
-msgstr ""
+msgstr "Kivehető"
 
 msgid "Fixed"
-msgstr ""
+msgstr "Javítva"
 
 msgid "Ejectable"
-msgstr ""
+msgstr "Kihajtható"
 
 msgid "Self-monitoring (S.M.A.R.T.)"
 msgstr "Önellenőrzés (S.M.A.R.T.)"
 
 msgid "Power Management"
-msgstr ""
+msgstr "Energiagazdálkodás"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Fejlett energiagazdálkodás"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Automatikus akusztikai vezérlés"
 
 #, c-format
 msgid ""
 "[Drive Information]\n"
 "Model=%s\n"
 msgstr ""
+"[Meghajtó adatai]\n"
+"Modell=%s\n"
 
 #, c-format
 msgid ""
@@ -3346,50 +3538,57 @@ msgid ""
 "Size=%s\n"
 "Features=%s\n"
 msgstr ""
+"Verzió=%s\n"
+"Blokkeszköz=%s\n"
+"Sorozatszám=%s\n"
+"Méret=%s\n"
+"Funkciók=%s\n"
 
 #, c-format
 msgid "Rotation Rate=%d RPM\n"
-msgstr ""
+msgstr "Forgási sebesség: %d ford./perc\n"
 
 #, c-format
 msgid ""
 "Media=%s\n"
 "Media compatibility=%s\n"
 msgstr ""
+"Média=%s\n"
+"A média kompatibilitása=%s\n"
 
 #, c-format
 msgid "Connection bus=%s\n"
-msgstr ""
+msgstr "Csatlakozó busz=%s\n"
 
 msgid "WWN"
-msgstr ""
+msgstr "WWN"
 
 msgid "EUI "
-msgstr ""
+msgstr "EUI"
 
 msgid "WWN / EUI"
-msgstr ""
+msgstr "WWN / EUI"
 
 #, c-format
 msgid "$^$%s=[%s] %s\n"
-msgstr ""
+msgstr "$^$%s=[%s] %s\n"
 
 msgid "IEEE OUI"
-msgstr ""
+msgstr "IEEE OUI"
 
 msgid "Lifetime exceeded"
-msgstr ""
+msgstr "A maximális élettartam lejárt"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normál"
 
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "Figyelem: a kapacitás több mint 80%%-a használva"
 
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "A meghibásodási arány meghaladja a 90%%-ot"
 
 #, c-format
 msgid ""
@@ -3399,15 +3598,28 @@ msgid ""
 "MLC Flash Status=%s\n"
 "Pre EOL Status=%s\n"
 msgstr ""
+"[Önellenőrző ExtCSD]\n"
+"Gyártási dátum=%s\n"
+"SLC Flash állapot=%s\n"
+"MLC Flash állapot=%s\n"
+"Élettartam végi állapot=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
+"[Önellenőrzés (S.M.A.R.T.)]\n"
+"Állapot=%s\n"
+"Hibás szektorok=%lld\n"
+"Bekapcsolás óta eltelt idő=%lld nap %lld óra\n"
+"Hőmérséklet=%d°C\n"
 
 msgid "Failing"
-msgstr ""
+msgstr "Sikertelen"
 
 msgid "OK"
 msgstr "Rendben"
@@ -3416,45 +3628,56 @@ msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
+"[S.M.A.R.T. attribútumok]\n"
+"Attribútum=<tt>Érték</tt>\n"
 
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
 msgstr ""
+"[S.M.A.R.T. attribútumok]\n"
+"Attribútum=<tt>Érték / Normalizált / Legrosszabb / Küszöbérték</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] ""
-msgstr[1] ""
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld szektor"
+msgstr[1] "%lld szektor"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "%s=<tt>%s</tt>\n"
 
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "(%d) %s=<tt>%s</tt>\n"
 
 #, c-format
 msgid ""
 "[Partition table]\n"
 "Type=%s\n"
 msgstr ""
+"[Partíciós tábla]\n"
+"Típus=%s\n"
 
 #, c-format
 msgid "Partition %s=%s\n"
-msgstr ""
+msgstr "Partíció: %s=%s\n"
 
 msgid ""
 "\n"
 "[SCSI Disks]\n"
 msgstr ""
+"\n"
+"YSI merevlemezek]\n"
 
 #, c-format
 msgid ""
 "[Device Information]\n"
 "Model=%s\n"
 msgstr ""
+"[Eszköz információi]\n"
+"Modell=%s\n"
 
 #, c-format
 msgid ""
@@ -3466,15 +3689,24 @@ msgid ""
 "ID=%d\n"
 "LUN=%d\n"
 msgstr ""
+"Típus=%s\n"
+"Verzió=%s\n"
+"[SCSI vezérlő]\n"
+"Vezérlő=scsi%d\n"
+"Csatorna=%d\n"
+"Azonosító=%d\n"
+"LUN=%d\n"
 
 msgid ""
 "\n"
 "[IDE Disks]\n"
 msgstr ""
+"\n"
+"YE lemezek]\n"
 
 #, c-format
 msgid "Driver=%s\n"
-msgstr ""
+msgstr "Illesztőprogram=%s\n"
 
 #, c-format
 msgid ""
@@ -3482,6 +3714,9 @@ msgid ""
 "Media=%s\n"
 "Cache=%dkb\n"
 msgstr ""
+"Eszköz neve=hd%c\n"
+"Média=%s\n"
+"Gyorsítótár=%dkb\n"
 
 #, c-format
 msgid ""
@@ -3489,173 +3724,180 @@ msgid ""
 "Physical=%s\n"
 "Logical=%s\n"
 msgstr ""
+"[Geometria]\n"
+"Fizikai=%s\n"
+"Logikai=%s\n"
 
 #, c-format
 msgid ""
 "[Capabilities]\n"
 "%s"
 msgstr ""
+"[Képességek]\n"
+"%s"
 
 #, c-format
 msgid ""
 "[Speeds]\n"
 "%s"
 msgstr ""
+"[Sebességek]\n"
+"%s"
 
 msgid "Sub-class"
-msgstr ""
+msgstr "Alosztály"
 
 msgid "Mb/s"
-msgstr ""
+msgstr "Mb/s"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Gyártó"
 
 msgid "Max Current"
-msgstr ""
+msgstr "Maximális áramerősség"
 
 msgid "mA"
-msgstr ""
+msgstr "mA"
 
 msgid "USB Version"
-msgstr ""
+msgstr "USB verzió"
 
 msgid "Device Version"
-msgstr ""
+msgstr "Eszköz verziója"
 
 msgid "No USB devices found."
-msgstr "Nem található USB eszköz"
+msgstr "Nem található USB eszköz."
 
 msgid "Model Name"
-msgstr ""
+msgstr "Modellnév"
 
 msgid "Family, model, stepping"
-msgstr ""
+msgstr "Család, modell, lépés"
 
 msgid "Microcode Version"
-msgstr ""
+msgstr "Mikrokód verzió"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguráció"
 
 msgid "Cache Size"
-msgstr ""
+msgstr "Gyorsítótár mérete"
 
 msgid "kb"
-msgstr ""
+msgstr "kb"
 
 msgid "Bug Workarounds"
-msgstr ""
+msgstr "Hibákra alkalmazható megoldások"
 
 msgid "Socket Information"
-msgstr ""
+msgstr "Aljzat információi"
 
 msgid "CPU Socket"
-msgstr ""
+msgstr "Processzor foglalat"
 
 msgid "External Clock"
-msgstr ""
+msgstr "Külső órajel"
 
 msgid "Max Frequency"
-msgstr ""
+msgstr "Maximális frekvencia"
 
 msgid "Package Information"
-msgstr ""
+msgstr "Csomag információi"
 
 #. !/flag:fpu
 msgctxt "x86-flag"
 msgid "Onboard FPU (floating point support)"
-msgstr ""
+msgstr "A fedélzeti FPU (lebegőpontos számítási egység)"
 
 #. !/flag:vme
 msgctxt "x86-flag"
 msgid "Virtual 8086 mode enhancements"
-msgstr ""
+msgstr "A virtuális 8086 mód fejlesztései"
 
 #. !/flag:de
 msgctxt "x86-flag"
 msgid "Debugging Extensions (CR4.DE)"
-msgstr ""
+msgstr "Hibaelhárító bővítmények (CR4.DE)"
 
 #. !/flag:pse
 msgctxt "x86-flag"
 msgid "Page Size Extensions (4MB memory pages)"
-msgstr ""
+msgstr "Oldalméret-bővítmények (4 MB-os memóriablokkok)"
 
 #. !/flag:tsc
 msgctxt "x86-flag"
 msgid "Time Stamp Counter (RDTSC)"
-msgstr ""
+msgstr "Időbélyeg-számláló (RDTSC)"
 
 #. !/flag:msr
 msgctxt "x86-flag"
 msgid "Model-Specific Registers (RDMSR, WRMSR)"
-msgstr ""
+msgstr "Modellspezifische Register (RDMSR, WRMSR)"
 
 #. !/flag:pae
 msgctxt "x86-flag"
 msgid "Physical Address Extensions (support for more than 4GB of RAM)"
-msgstr ""
+msgstr "Fizikai címkiterjesztések (több mint 4 GB RAM támogatása)"
 
 #. !/flag:mce
 msgctxt "x86-flag"
 msgid "Machine Check Exception"
-msgstr ""
+msgstr "Gép-ellenőrzési hiba"
 
 #. !/flag:cx8
 msgctxt "x86-flag"
 msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
-msgstr ""
+msgstr "CMPXCHG8 utasítás (64 bites összehasonlítás és csere)"
 
 #. !/flag:apic
 msgctxt "x86-flag"
 msgid "Onboard APIC"
-msgstr ""
+msgstr "A fedélzeti APIC"
 
 #. !/flag:sep
 msgctxt "x86-flag"
 msgid "SYSENTER/SYSEXIT"
-msgstr ""
+msgstr "SYSENTER/SYSEXIT"
 
 #. !/flag:mtrr
 msgctxt "x86-flag"
 msgid "Memory Type Range Registers"
-msgstr ""
+msgstr "Memóriatípus-tartomány regiszterek"
 
 #. !/flag:pge
 msgctxt "x86-flag"
 msgid "Page Global Enable (global bit in PDEs and PTEs)"
-msgstr ""
+msgstr "Oldal-globális engedély (globális bit a PDE-kben és PTE-kben)"
 
 #. !/flag:mca
 msgctxt "x86-flag"
 msgid "Machine Check Architecture"
-msgstr ""
+msgstr "Gépi hibavédelmi architektúra"
 
 #. !/flag:cmov
 msgctxt "x86-flag"
 msgid "CMOV instructions (conditional move) (also FCMOV)"
-msgstr ""
+msgstr "CMOV utasítások (feltételes értékmozgatás) (más néven FCMOV)"
 
 #. !/flag:pat
 msgctxt "x86-flag"
 msgid "Page Attribute Table"
-msgstr ""
+msgstr "Oldalattribútum-tábla"
 
 #. !/flag:pse36
 msgctxt "x86-flag"
 msgid "36-bit PSEs (huge pages)"
-msgstr ""
+msgstr "36 bites nagyságú PSE-k (óriás oldalak)"
 
 #. !/flag:pn
 msgctxt "x86-flag"
 msgid "Processor serial number"
-msgstr ""
+msgstr "Processzor sorozatszáma"
 
 #. !/flag:clflush
 msgctxt "x86-flag"
 msgid "Cache Line Flush instruction"
-msgstr ""
+msgstr "A gyorsítótár-sor ürítésére szolgáló utasítás"
 
 #. !/flag:dts
 msgctxt "x86-flag"
@@ -3663,46 +3905,50 @@ msgid ""
 "Debug Store (buffer for debugging and profiling instructions), or "
 "alternately: digital thermal sensor"
 msgstr ""
+"Hibakeresztár (tároló a hibakeresési és profilozási utasításokhoz), vagy más "
+"lehetőségként: digitális hőmérséklet-érzékelő"
 
 #. !/flag:acpi
 msgctxt "x86-flag"
 msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
 msgstr ""
+"ACPI a modellspecifik regiszter (MSR) segítségével (hőmérséklet-figyelés és "
+"órajel-szabályozás)"
 
 #. !/flag:mmx
 msgctxt "x86-flag"
 msgid "Multimedia Extensions"
-msgstr ""
+msgstr "Multimédiás bővítmények"
 
 #. !/flag:fxsr
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
-msgstr ""
+msgstr "FXSAVE/FXRSTOR, CR4.OSFXSR"
 
 #. !/flag:sse
 msgctxt "x86-flag"
 msgid "Intel SSE vector instructions"
-msgstr ""
+msgstr "Intel SSE vektoros utasítások"
 
 #. !/flag:sse2
 msgctxt "x86-flag"
 msgid "SSE2"
-msgstr ""
+msgstr "SSE2"
 
 #. !/flag:ss
 msgctxt "x86-flag"
 msgid "CPU self snoop"
-msgstr ""
+msgstr "CPU önellenőrzés"
 
 #. !/flag:ht
 msgctxt "x86-flag"
 msgid "Hyper-Threading"
-msgstr ""
+msgstr "Hyper-Threading"
 
 #. !/flag:tm
 msgctxt "x86-flag"
 msgid "Automatic clock control (Thermal Monitor)"
-msgstr ""
+msgstr "Automatikus óravezérlés (hőmérséklet-figyelő)"
 
 #. !/flag:ia64
 msgctxt "x86-flag"
@@ -3710,201 +3956,212 @@ msgid ""
 "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
 "x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
 msgstr ""
+"Intel Itanium architektúra, 64 bites (nem szabad összetéveszteni az Intel 64 "
+"bites x86 architektúrájával, melyet az x86-64 vagy „64” jelöl, és melyet az "
+"lm jelzővel is azonosítanak)"
 
 #. !/flag:pbe
 msgctxt "x86-flag"
 msgid "Pending Break Enable (PBE# pin) wakeup support"
 msgstr ""
+"A függőben lévő szünet aktiválási (PBE# jel) funkcióval ellátott ébresztési "
+"támogatás"
 
 #. !/flag:syscall
 msgctxt "x86-flag"
 msgid "SYSCALL (Fast System Call) and SYSRET (Return From Fast System Call)"
 msgstr ""
+"SYSKÉRELM (gyors rendszerhívás) és SYSVISSZATÉRÉS (visszatérés a gyors "
+"rendszerhívásból)"
 
 #. !/flag:mp
 msgctxt "x86-flag"
 msgid "Multiprocessing Capable."
-msgstr ""
+msgstr "Többprocesszoros működést támogat."
 
 #. !/flag:nx
 msgctxt "x86-flag"
 msgid "Execute Disable"
-msgstr ""
+msgstr "A végrehajtás letiltása"
 
 #. !/flag:mmxext
 msgctxt "x86-flag"
 msgid "AMD MMX extensions"
-msgstr ""
+msgstr "AMD MMX-kiterjesztések"
 
 #. !/flag:fxsr_opt
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR optimizations"
-msgstr ""
+msgstr "FXSAVE/FXRSTOR optimalizálások"
 
 #. !/flag:pdpe1gb
 msgctxt "x86-flag"
 msgid "One GB pages (allows hugepagesz=1G)"
-msgstr ""
+msgstr "1 GB-os oldalak (a hugepagesz=1G beállítás lehetővé teszi)"
 
 #. !/flag:rdtscp
 msgctxt "x86-flag"
 msgid "Read Time-Stamp Counter and Processor ID"
-msgstr ""
+msgstr "Olvassa be az időbélyeg-számlálót és a processzorazonosítót"
 
 #. !/flag:lm
 msgctxt "x86-flag"
 msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
 msgstr ""
+"Hosszú mód (x86-64: amd64, amelyet Intel 64-nek is neveznek, azaz 64 bites "
+"architektúrát támogató mód)"
 
 #. !/flag:3dnow
 msgctxt "x86-flag"
 msgid "3DNow! (AMD vector instructions, competing with Intel's SSE1)"
 msgstr ""
+"3DNow! (AMD vektoros utasításkészlet, az Intel SSE1-es utasításkészletének "
+"konkurense)"
 
 #. !/flag:3dnowext
 msgctxt "x86-flag"
 msgid "AMD 3DNow! extensions"
-msgstr ""
+msgstr "AMD 3DNow! kiterjesztések"
 
 #. !/flag:recovery
 msgctxt "x86-flag"
 msgid "CPU in recovery mode"
-msgstr ""
+msgstr "A processzor helyreállítási módban van"
 
 #. !/flag:longrun
 msgctxt "x86-flag"
 msgid "Longrun power control"
-msgstr ""
+msgstr "Hosszú távú teljesítményszabályozás"
 
 #. !/flag:lrti
 msgctxt "x86-flag"
 msgid "LongRun table interface"
-msgstr ""
+msgstr "LongRun táblázati felület"
 
 #. !/flag:cxmmx
 msgctxt "x86-flag"
 msgid "Cyrix MMX extensions"
-msgstr ""
+msgstr "Cyrix MMX kiterjesztések"
 
 #. !/flag:k6_mtrr
 msgctxt "x86-flag"
 msgid "AMD K6 nonstandard MTRRs"
-msgstr ""
+msgstr "AMD K6: nem szabványos MTRR-ek"
 
 #. !/flag:cyrix_arr
 msgctxt "x86-flag"
 msgid "Cyrix ARRs (= MTRRs)"
-msgstr ""
+msgstr "Cyrix ARR-ek (= MTRR-ek)"
 
 #. !/flag:centaur_mcr
 msgctxt "x86-flag"
 msgid "Centaur MCRs (= MTRRs)"
-msgstr ""
+msgstr "Centaur memóriatervezési régiók (= memóriatervezési tartományok)"
 
 #. !/flag:constant_tsc
 msgctxt "x86-flag"
 msgid "TSC ticks at a constant rate"
-msgstr ""
+msgstr "A TSC állandó ütemben működik"
 
 #. !/flag:up
 msgctxt "x86-flag"
 msgid "SMP kernel running on UP"
-msgstr ""
+msgstr "Az SMP kernel egyprocesszoros rendszeren fut"
 
 #. !/flag:art
 msgctxt "x86-flag"
 msgid "Always-Running Timer"
-msgstr ""
+msgstr "Folyamatosan futó időzítő"
 
 #. !/flag:arch_perfmon
 msgctxt "x86-flag"
 msgid "Intel Architectural PerfMon"
-msgstr ""
+msgstr "Intel architektúrára szabott teljesítményfigyelő"
 
 #. !/flag:pebs
 msgctxt "x86-flag"
 msgid "Precise-Event Based Sampling"
-msgstr ""
+msgstr "Pontos, eseményalapú mintavétel"
 
 #. !/flag:bts
 msgctxt "x86-flag"
 msgid "Branch Trace Store"
-msgstr ""
+msgstr "Ágkövető tároló"
 
 #. !/flag:rep_good
 msgctxt "x86-flag"
 msgid "rep microcode works well"
-msgstr ""
+msgstr "A REP mikrokód megfelelően működik"
 
 #. !/flag:acc_power
 msgctxt "x86-flag"
 msgid "AMD accumulated power mechanism"
-msgstr ""
+msgstr "AMD által felhalmozott energiamechanizmus"
 
 #. !/flag:nopl
 msgctxt "x86-flag"
 msgid "The NOPL (0F 1F) instructions"
-msgstr ""
+msgstr "A NOPL (0F 1F) utasítás"
 
 #. !/flag:xtopology
 msgctxt "x86-flag"
 msgid "cpu topology enum extensions"
-msgstr ""
+msgstr "CPU topológia enumerációs kiterjesztések"
 
 #. !/flag:tsc_reliable
 msgctxt "x86-flag"
 msgid "TSC is known to be reliable"
-msgstr ""
+msgstr "A TSC megbízhatóságáról ismert"
 
 #. !/flag:nonstop_tsc
 msgctxt "x86-flag"
 msgid "TSC does not stop in C states"
-msgstr ""
+msgstr "A TSC nem áll le a C állapotokban"
 
 #. !/flag:cpuid
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr ""
+msgstr "A CPU rendelkezik a CPUID utasítással"
 
 #. !/flag:extd_apicid
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
-msgstr ""
+msgstr "megnövelte az APICID méretét (8 bitre)"
 
 #. !/flag:amd_dcm
 msgctxt "x86-flag"
 msgid "multi-node processor"
-msgstr ""
+msgstr "többcsomópontos processzor"
 
 #. !/flag:aperfmperf
 msgctxt "x86-flag"
 msgid "APERFMPERF"
-msgstr ""
+msgstr "APERFMPERF"
 
 #. !/flag:eagerfpu
 msgctxt "x86-flag"
 msgid "Non lazy FPU restore"
-msgstr ""
+msgstr "A „lusta” FPU (lebegőpontos egység) helyreállítása nem történik"
 
 #. !/flag:nonstop_tsc_s3
 msgctxt "x86-flag"
 msgid "TSC doesn't stop in S3 state"
-msgstr ""
+msgstr "A TSC nem áll le az S3 állapotban"
 
 #. !/flag:tsc_known_freq
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr ""
+msgstr "A TSC-nek ismert a frekvenciája"
 
 #. !/flag:mce_recovery
 msgctxt "x86-flag"
 msgid "CPU has recoverable machine checks"
-msgstr ""
+msgstr "A CPU-ban javítható gépi hibák fordulnak elő"
 
 #. !/flag:pni
 msgctxt "x86-flag"
 msgid "SSE-3 (\"Prescott New Instructions\")"
-msgstr ""
+msgstr "SSE-3 („az Intel SSE1-es utaszkészletének kiterjesztése”)"
 
 #. !/flag:pclmulqdq
 msgctxt "x86-flag"
@@ -3912,106 +4169,108 @@ msgid ""
 "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
 "for GCM)"
 msgstr ""
+"Végezz el egy „carry-less” (hordás nélküli) szorzást egy négyszavas "
+"operanduson – gyorsító az GCM-hez"
 
 #. !/flag:dtes64
 msgctxt "x86-flag"
 msgid "64-bit Debug Store"
-msgstr ""
+msgstr "64 bites hibakereső tároló"
 
 #. !/flag:monitor
 msgctxt "x86-flag"
 msgid "Monitor/Mwait support (Intel SSE3 supplements)"
-msgstr ""
+msgstr "Monitor/Mwait támogatás (Intel SSE3 kiegészítések)"
 
 #. !/flag:ds_cpl
 msgctxt "x86-flag"
 msgid "CPL Qual. Debug Store"
-msgstr ""
+msgstr "CPL minősítő teszt. Hibakereső tároló"
 
 #. !/flag:vmx
 msgctxt "x86-flag"
 msgid "Hardware virtualization, Intel VMX"
-msgstr ""
+msgstr "Hardveres virtualizáció, Intel VMX"
 
 #. !/flag:smx
 msgctxt "x86-flag"
 msgid "Safer mode TXT (TPM support)"
-msgstr ""
+msgstr "Biztonságosabb mód TXT (TPM támogatás)"
 
 #. !/flag:est
 msgctxt "x86-flag"
 msgid "Enhanced SpeedStep"
-msgstr ""
+msgstr "Fejlett SpeedStep"
 
 #. !/flag:tm2
 msgctxt "x86-flag"
 msgid "Thermal Monitor 2"
-msgstr ""
+msgstr "Hőmérséklet-ellenőrző 2"
 
 #. !/flag:ssse3
 msgctxt "x86-flag"
 msgid "Supplemental SSE-3"
-msgstr ""
+msgstr "Kiegészítő SSE-3 utasításkészlet"
 
 #. !/flag:cid
 msgctxt "x86-flag"
 msgid "Context ID"
-msgstr ""
+msgstr "Kontextusazonosító"
 
 #. !/flag:sdbg
 msgctxt "x86-flag"
 msgid "silicon debug"
-msgstr ""
+msgstr "szilícium-alapú hibakeresés"
 
 #. !/flag:fma
 msgctxt "x86-flag"
 msgid "Fused multiply-add"
-msgstr ""
+msgstr "Összefűzött szorzás és összeadás"
 
 #. !/flag:cx16
 msgctxt "x86-flag"
 msgid "CMPXCHG16B"
-msgstr ""
+msgstr "CMPXCHG16B"
 
 #. !/flag:xtpr
 msgctxt "x86-flag"
 msgid "Send Task Priority Messages"
-msgstr ""
+msgstr "Küldje el a feladatokhoz tartozó prioritási üzeneteket"
 
 #. !/flag:pdcm
 msgctxt "x86-flag"
 msgid "Performance Capabilities"
-msgstr ""
+msgstr "Teljesítmény jellemzők"
 
 #. !/flag:pcid
 msgctxt "x86-flag"
 msgid "Process Context Identifiers"
-msgstr ""
+msgstr "Folyamat-kontextus-azonosítók"
 
 #. !/flag:dca
 msgctxt "x86-flag"
 msgid "Direct Cache Access"
-msgstr ""
+msgstr "Közvetlen gyorsítótár-hozzáférés"
 
 #. !/flag:sse4_1
 msgctxt "x86-flag"
 msgid "SSE-4.1"
-msgstr ""
+msgstr "SSE-4.1"
 
 #. !/flag:sse4_2
 msgctxt "x86-flag"
 msgid "SSE-4.2"
-msgstr ""
+msgstr "SSE-4.2"
 
 #. !/flag:x2apic
 msgctxt "x86-flag"
 msgid "x2APIC"
-msgstr ""
+msgstr "x2APIC"
 
 #. !/flag:movbe
 msgctxt "x86-flag"
 msgid "Move Data After Swapping Bytes instruction"
-msgstr ""
+msgstr "A „Byte-ok felcserélése” utasítás után helyezze át az adatokat"
 
 #. !/flag:popcnt
 msgctxt "x86-flag"
@@ -4019,130 +4278,140 @@ msgid ""
 "Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
 "e. bit count)"
 msgstr ""
+"Adja vissza azt az utasítást, amely megszámolja, hány bit van beállítva 1-re "
+"(Hamming-súly, azaz a beállított bitek száma)"
 
 msgctxt "x86-flag"
 msgid "Tsc deadline timer"
-msgstr ""
+msgstr "A TSC határidő lejáratának időmérője"
 
 #. !/flag:aes
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
-msgstr ""
+msgstr "Fejlett titkosítási szabvány"
 
 #. !/flag:aes-ni
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard (New Instructions)"
-msgstr ""
+msgstr "Fejlett titkosítási szabvány (új utasítások)"
 
 #. !/flag:xsave
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
 msgstr ""
+"Mentse el a processzor kiterjesztett állapotait: emellett biztosítja az "
+"XGETBY, XRSTOR és XSETBY utasításokat"
 
 #. !/flag:avx
 msgctxt "x86-flag"
 msgid "Advanced Vector Extensions"
-msgstr ""
+msgstr "Fejlett vektoros utasításkészlet"
 
 #. !/flag:f16c
 msgctxt "x86-flag"
 msgid "16-bit fp conversions (CVT16)"
-msgstr ""
+msgstr "16 bites lebegőpontos számok átalakítása (CVT16)"
 
 #. !/flag:rdrand
 msgctxt "x86-flag"
 msgid "Read Random Number from hardware random number generator instruction"
 msgstr ""
+"Olvassa be a véletlenszámot a hardveres véletlenszám-generátor utasításából"
 
 #. !/flag:hypervisor
 msgctxt "x86-flag"
 msgid "Running on a hypervisor"
-msgstr ""
+msgstr "Egy hipervizoron fut"
 
 #. !/flag:rng
 msgctxt "x86-flag"
 msgid "Random Number Generator present (xstore)"
-msgstr ""
+msgstr "Véletlenszám-generátor található (xstore)"
 
 #. !/flag:rng_en
 msgctxt "x86-flag"
 msgid "Random Number Generator enabled"
-msgstr ""
+msgstr "A véletlenszám-generátor be van kapcsolva"
 
 #. !/flag:ace
 msgctxt "x86-flag"
 msgid "on-CPU crypto (xcrypt)"
-msgstr ""
+msgstr "központi feldolgozó egységen végzett titkosítás (xcrypt)"
 
 #. !/flag:ace_en
 msgctxt "x86-flag"
 msgid "on-CPU crypto enabled"
 msgstr ""
+"A központi feldolgozóegységen (CPU) végzett kriptográfiai műveletek "
+"engedélyezve"
 
 #. !/flag:ace2
 msgctxt "x86-flag"
 msgid "Advanced Cryptography Engine v2"
-msgstr ""
+msgstr "Fejlett titkosítási motor, 2. verzió"
 
 #. !/flag:ace2_en
 msgctxt "x86-flag"
 msgid "ACE v2 enabled"
-msgstr ""
+msgstr "Az ACE v2 funkció engedélyezve"
 
 #. !/flag:phe
 msgctxt "x86-flag"
 msgid "PadLock Hash Engine"
-msgstr ""
+msgstr "PadLock hash-motor"
 
 #. !/flag:phe_en
 msgctxt "x86-flag"
 msgid "PHE enabled"
-msgstr ""
+msgstr "A PHE funkció engedélyezve"
 
 #. !/flag:pmm
 msgctxt "x86-flag"
 msgid "PadLock Montgomery Multiplier"
-msgstr ""
+msgstr "PadLock Montgomery szorzó"
 
 #. !/flag:pmm_en
 msgctxt "x86-flag"
 msgid "PMM enabled"
-msgstr ""
+msgstr "A PMM engedélyezve"
 
 #. !/flag:lahf_lm
 msgctxt "x86-flag"
 msgid "Load AH from Flags (LAHF) and Store AH into Flags (SAHF) in long mode"
 msgstr ""
+"A hosszú üzemmódban a LAHF utasítás az AH regiszter tartalmát a Flags "
+"regiszterbe tölti, a SAHF utasítás pedig az AH regiszter tartalmát a Flags "
+"regiszterbe írja"
 
 #. !/flag:cmp_legacy
 msgctxt "x86-flag"
 msgid "If yes HyperThreading not valid"
-msgstr ""
+msgstr "Ha igen, a HyperThreading funkció nem érvényes"
 
 #. !/flag:svm
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
-msgstr ""
+msgstr "„Biztonságos virtuális gép” – MD-V"
 
 #. !/flag:extapic
 msgctxt "x86-flag"
 msgid "Extended APIC space"
-msgstr ""
+msgstr "Kiterjesztett APIC-tér"
 
 #. !/flag:cr8_legacy
 msgctxt "x86-flag"
 msgid "CR8 in 32-bit mode"
-msgstr ""
+msgstr "CR8 32 bites módban"
 
 #. !/flag:abm
 msgctxt "x86-flag"
 msgid "Advanced Bit Manipulation"
-msgstr ""
+msgstr "Haladó bitműveletek"
 
 #. !/flag:sse4a
 msgctxt "x86-flag"
 msgid "SSE-4A"
-msgstr ""
+msgstr "SSE-4A"
 
 #. !/flag:misalignsse
 msgctxt "x86-flag"
@@ -4150,11 +4419,13 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
+"Azt jelzi, hogy egy általános célú regiszter (GP) kivétel keletkezik-e, "
+"amikor bizonyos régebbi SSE-utasítások nem igazított adatokon működnek"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
 msgid "3DNow prefetch instructions"
-msgstr ""
+msgstr "3DNow előreolvasó utasítások"
 
 #. !/flag:osvw
 msgctxt "x86-flag"
@@ -4162,864 +4433,889 @@ msgid ""
 "indicates OS Visible Workaround, which allows the OS to work around "
 "processor errata."
 msgstr ""
+"azt jelzi, hogy az operációs rendszer alkalmaz egy megoldást a processzorban "
+"található hibákra."
 
 #. !/flag:ibs
 msgctxt "x86-flag"
 msgid "Instruction Based Sampling"
-msgstr ""
+msgstr "Instrukcióalapú mintavétel"
 
 #. !/flag:xop
 msgctxt "x86-flag"
 msgid "extended AVX instructions"
-msgstr ""
+msgstr "bővített AVX-utasítások"
 
 #. !/flag:skinit
 msgctxt "x86-flag"
 msgid "SKINIT/STGI instructions"
-msgstr ""
+msgstr "SKINIT/STGI használati útmutató"
 
 #. !/flag:wdt
 msgctxt "x86-flag"
 msgid "Watchdog timer"
-msgstr ""
+msgstr "Őrző időzítő"
 
 #. !/flag:lwp
 msgctxt "x86-flag"
 msgid "Light Weight Profiling"
-msgstr ""
+msgstr "Könnyű súlyú profilalkotás"
 
 #. !/flag:fma4
 msgctxt "x86-flag"
 msgid "4 operands MAC instructions"
-msgstr ""
+msgstr "4 operándusú MAC utasítások"
 
 #. !/flag:tce
 msgctxt "x86-flag"
 msgid "translation cache extension"
-msgstr ""
+msgstr "fordítási gyorsítótár-bővítmény"
 
 #. !/flag:nodeid_msr
 msgctxt "x86-flag"
 msgid "NodeId MSR"
-msgstr ""
+msgstr "Csomópontazonosító: MSR"
 
 #. !/flag:tbm
 msgctxt "x86-flag"
 msgid "Trailing Bit Manipulation"
-msgstr ""
+msgstr "Vezető bitmanipuláció"
 
 #. !/flag:topoext
 msgctxt "x86-flag"
 msgid "Topology Extensions CPUID leafs"
-msgstr ""
+msgstr "Topológia-kiterjesztések, CPUID levélstruktúrák"
 
 #. !/flag:perfctr_core
 msgctxt "x86-flag"
 msgid "Core Performance Counter Extensions"
-msgstr ""
+msgstr "Alapvető teljesítménymérő kiterjesztések"
 
 #. !/flag:perfctr_nb
 msgctxt "x86-flag"
 msgid "NB Performance Counter Extensions"
-msgstr ""
+msgstr "NB teljesítményfigyelő kiterjesztések"
 
 #. !/flag:bpext
 msgctxt "x86-flag"
 msgid "data breakpoint extension"
-msgstr ""
+msgstr "adat-szünetpont bővítmény"
 
 #. !/flag:ptsc
 msgctxt "x86-flag"
 msgid "performance time-stamp counter"
-msgstr ""
+msgstr "teljesítmény-idbélyeg-számláló"
 
 #. !/flag:perfctr_l2
 msgctxt "x86-flag"
 msgid "L2 Performance Counter Extensions"
-msgstr ""
+msgstr "L2 teljesítménymérő kiterjesztések"
 
 #. !/flag:mwaitx
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
-msgstr ""
+msgstr "MWAIT kiterjesztés (MONITORX/MWAITX)"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "Intel CPUID hiba"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "AMD Core Performance Boost"
-msgstr ""
+msgstr "AMD Core Performance Boost"
 
 #. !/flag:epb
 msgctxt "x86-flag"
 msgid "IA32_ENERGY_PERF_BIAS support"
-msgstr ""
+msgstr "IA32_ENERGY_PERF_BIAS támogatás"
 
 #. !/flag:hw_pstate
 msgctxt "x86-flag"
 msgid "AMD HW-PState"
-msgstr ""
+msgstr "AMD hardveres állapotkezelő"
 
 #. !/flag:proc_feedback
 msgctxt "x86-flag"
 msgid "AMD ProcFeedbackInterface"
-msgstr ""
+msgstr "AMD folyamat-visszajelző felület"
 
 #. !/flag:intel_pt
 msgctxt "x86-flag"
 msgid "Intel Processor Tracing"
-msgstr ""
+msgstr "Intel processzor-nyomkövetés"
 
 #. !/flag:pti
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "A kernel oldaltábla-szigetelés engedélyezve"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "Állítsa/törölje az IBRS-t a kernel belépésekor/kilépésekor"
 
 #. !/flag:ssbd
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "Spekulatív adattár-átjárás letiltása"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "Közvetett ágban korlátozott spekuláció"
 
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
 msgstr ""
+"Közvetett ág-előrejelzési akadály, amely nem garantálja az RSB-tár "
+"tartalmának törlését"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "Egyetlen szálú, indirekt ágváltás-előrejelzők"
 
 #. !/flag:ibrs_enhanced
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "Fejlett IBRS"
 
 #. !/flag:tpr_shadow
 msgctxt "x86-flag"
 msgid "Intel TPR Shadow"
-msgstr ""
+msgstr "Intel TPR árnyékolás"
 
 #. !/flag:vnmi
 msgctxt "x86-flag"
 msgid "Intel Virtual NMI"
-msgstr ""
+msgstr "Intel virtuális NMI"
 
 #. !/flag:flexpriority
 msgctxt "x86-flag"
 msgid "Intel FlexPriority"
-msgstr ""
+msgstr "Intel FlexPriority"
 
 #. !/flag:ept
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table"
-msgstr ""
+msgstr "Intel kiterjesztett oldal-táblázat"
 
 #. !/flag:vpid
 msgctxt "x86-flag"
 msgid "Intel Virtual Processor ID"
-msgstr ""
+msgstr "Intel virtuális processzorazonosító"
 
 #. !/flag:vmmcall
 msgctxt "x86-flag"
 msgid "prefer VMMCALL to VMCALL"
-msgstr ""
+msgstr "A VMMCALL-t részesítjük előnyben a VMCALL-lal szemben"
 
 #. !/flag:ept_ad
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "Intel kiterjesztett oldal tábla – hozzáférés-módosítás bit"
 
 #. !/flag:avx512_bf16
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512 BFLOAT16 utasítások"
 
 #. !/flag:fsgsbase
 msgctxt "x86-flag"
 msgid "{RD/WR}{FS/GS}BASE instructions"
-msgstr ""
+msgstr "{RD/WR}{FS/GS} alapvető utasítások"
 
 #. !/flag:tsc_adjust
 msgctxt "x86-flag"
 msgid "TSC adjustment MSR"
-msgstr ""
+msgstr "TSC-beállítás, MSR"
 
 #. !/flag:sgx
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "Szoftveres védelmi kiterjesztések"
 
 #. !/flag:bmi1
 msgctxt "x86-flag"
 msgid "1st group bit manipulation extensions"
-msgstr ""
+msgstr "1. csoport: bitműveleti bővítmények"
 
 #. !/flag:hle
 msgctxt "x86-flag"
 msgid "Hardware Lock Elision"
-msgstr ""
+msgstr "Hardveres alapú zárak elhagyása"
 
 #. !/flag:avx2
 msgctxt "x86-flag"
 msgid "AVX2 instructions"
-msgstr ""
+msgstr "AVX2 utasítások"
 
 #. !/flag:smep
 msgctxt "x86-flag"
 msgid "Supervisor Mode Execution Protection"
-msgstr ""
+msgstr "Felügyelői módú végrehajtásvédelem"
 
 #. !/flag:bmi2
 msgctxt "x86-flag"
 msgid "2nd group bit manipulation extensions"
-msgstr ""
+msgstr "A 2. csoport: bitműveleti bővítmények"
 
 #. !/flag:erms
 msgctxt "x86-flag"
 msgid "Enhanced REP MOVSB/STOSB"
-msgstr ""
+msgstr "Fejlett REP MOVSB/STOSB utasítások"
 
 #. !/flag:invpcid
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID"
-msgstr ""
+msgstr "Érvénytelenítse a processzor-kontextus azonosítóját"
 
 #. !/flag:invpcid_single
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "Érvénytelenítse a processzor-kontextus azonosítóját (egyes példány)"
 
 #. !/flag:rtm
 msgctxt "x86-flag"
 msgid "Restricted Transactional Memory"
-msgstr ""
+msgstr "Korlátozott tranzakciós memória"
 
 #. !/flag:cqm
 msgctxt "x86-flag"
 msgid "Cache QoS Monitoring"
-msgstr ""
+msgstr "A gyorsítótár QoS-figyelése"
 
 #. !/flag:mpx
 msgctxt "x86-flag"
 msgid "Memory Protection Extension"
-msgstr ""
+msgstr "Memóriavédelmi kiterjesztés"
 
 #. !/flag:avx512f
 msgctxt "x86-flag"
 msgid "AVX-512 foundation"
-msgstr ""
+msgstr "AVX-512 alapjai"
 
 #. !/flag:avx512dq
 msgctxt "x86-flag"
 msgid "AVX-512 Double/Quad instructions"
-msgstr ""
+msgstr "AVX-512 dupla/négyes utasítások"
 
 #. !/flag:rdseed
 msgctxt "x86-flag"
 msgid "The RDSEED instruction"
-msgstr ""
+msgstr "Az RDSEED utasítás"
 
 #. !/flag:adx
 msgctxt "x86-flag"
 msgid "The ADCX and ADOX instructions"
-msgstr ""
+msgstr "Az ADCX és ADOX utasítások"
 
 #. !/flag:smap
 msgctxt "x86-flag"
 msgid "Supervisor Mode Access Prevention"
-msgstr ""
+msgstr "A felügyelői módhoz való hozzáférés megakadályozása"
 
 #. !/flag:avx512ifma
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
 msgstr ""
+"AVX-512 egész számokra optimalizált, fúzionált szorzás-összeadás utasítások"
 
 #. !/flag:clflushopt
 msgctxt "x86-flag"
 msgid "CLFLUSHOPT instruction"
-msgstr ""
+msgstr "CLFLUSHOPT utasítás"
 
 #. !/flag:clwb
 msgctxt "x86-flag"
 msgid "CLWB instruction"
-msgstr ""
+msgstr "CLWB utasítás"
 
 #. !/flag:avx512pf
 msgctxt "x86-flag"
 msgid "AVX-512 Prefetch"
-msgstr ""
+msgstr "AVX-512 előreolvasás"
 
 #. !/flag:avx512er
 msgctxt "x86-flag"
 msgid "AVX-512 Exponential and Reciprocal"
-msgstr ""
+msgstr "AVX-512: Exponenciális és reciprok függvények"
 
 #. !/flag:avx512cd
 msgctxt "x86-flag"
 msgid "AVX-512 Conflict Detection"
-msgstr ""
+msgstr "AVX-512 ütközésérzékelés"
 
 #. !/flag:sha_ni
 msgctxt "x86-flag"
 msgid "SHA1/SHA256 Instruction Extensions"
-msgstr ""
+msgstr "SHA1/SHA256 utasításhalmaz-bővítmények"
 
 #. !/flag:avx512bw
 msgctxt "x86-flag"
 msgid "AVX-512 Byte/Word instructions"
-msgstr ""
+msgstr "AVX-512 byte- és szó-műveletekhez használt utasítások"
 
 #. !/flag:avx512vl
 msgctxt "x86-flag"
 msgid "AVX-512 128/256 Vector Length extensions"
-msgstr ""
+msgstr "AVX-512 128/256 bites hosszúságú vektoros utasításkészlet-bővítmények"
 
 #. !/flag:md_clear
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "A VERW kiüríti a CPU puffereit"
 
 #. !/flag:flush_l1d
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "Ürítsd ki az L1D gyorsítótárat"
 
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
 msgid "Optimized XSAVE"
-msgstr ""
+msgstr "Optimalizált XSAVE"
 
 #. !/flag:xsavec
 msgctxt "x86-flag"
 msgid "XSAVEC"
-msgstr ""
+msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
 msgctxt "x86-flag"
 msgid "XGETBV with ECX = 1"
-msgstr ""
+msgstr "XGETBV, ahol ECX = 1"
 
 #. !/flag:xsaves
 msgctxt "x86-flag"
 msgid "XSAVES/XRSTORS"
-msgstr ""
+msgstr "XSAVES/XRSTORS"
 
 #. !/flag:cqm_llc
 msgctxt "x86-flag"
 msgid "LLC QoS"
-msgstr ""
+msgstr "LLC QoS"
 
 #. !/flag:cqm_occup_llc
 msgctxt "x86-flag"
 msgid "LLC occupancy monitoring"
 msgstr ""
+"Korlátozott felelősségű társaságok által használt helyiségfoglalás-figyelő "
+"rendszer"
 
 #. !/flag:cqm_mbm_total
 msgctxt "x86-flag"
 msgid "LLC total MBM monitoring"
-msgstr ""
+msgstr "Az LLC által végzett teljes MBM-ellenőrzés"
 
 #. !/flag:cqm_mbm_local
 msgctxt "x86-flag"
 msgid "LLC local MBM monitoring"
-msgstr ""
+msgstr "A helyi MBM-rendszer működtetése egy LLC-n belül"
 
 #. !/flag:split_lock_detect
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "AC a kettős zár számára"
 
 #. !/flag:clzero
 msgctxt "x86-flag"
 msgid "CLZERO instruction"
-msgstr ""
+msgstr "CLZERO utasítás"
 
 #. !/flag:irperf
 msgctxt "x86-flag"
 msgid "instructions retired performance counter"
-msgstr ""
+msgstr "utasítások, melyek a régebbi teljesítménymérőkhöz tartoznak"
 
 #. !/flag:xsaveerptr
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr ""
+msgstr "Mindig mentsd és állítsd vissza a lebegőpontos hibamutatókat"
 
 #. !/flag:wbnoinvd
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD utasítás"
 
 #. !/flag:dtherm
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
-msgstr ""
+msgstr "digitális hőmérséklet-érzékelő"
 
 #. !/flag:ida
 msgctxt "x86-flag"
 msgid "Intel Dynamic Acceleration"
-msgstr ""
+msgstr "Intel dinamikus gyorsítás"
 
 #. !/flag:arat
 msgctxt "x86-flag"
 msgid "Always Running APIC Timer"
-msgstr ""
+msgstr "Az APIC időzítője mindig fut"
 
 #. !/flag:pln
 msgctxt "x86-flag"
 msgid "Intel Power Limit Notification"
-msgstr ""
+msgstr "Intel teljesítménykorlátozási értesítés"
 
 #. !/flag:pts
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
-msgstr ""
+msgstr "Intel processzor hőmérsékleti állapota"
 
 #. !/flag:hwp
 msgctxt "x86-flag"
 msgid "Intel Hardware P-states"
-msgstr ""
+msgstr "Intel hardveres P-állapotok"
 
 #. !/flag:hwp_notify
 msgctxt "x86-flag"
 msgid "HWP notification"
-msgstr ""
+msgstr "HWP értesítés"
 
 #. !/flag:hwp_act_window
 msgctxt "x86-flag"
 msgid "HWP Activity Window"
-msgstr ""
+msgstr "HWP tevékenységablak"
 
 #. !/flag:hwp_epp
 msgctxt "x86-flag"
 msgid "HWP Energy Performance Preference"
-msgstr ""
+msgstr "HWP energiahatékonysági előnyök"
 
 #. !/flag:hwp_pkg_req
 msgctxt "x86-flag"
 msgid "HWP package-level request"
-msgstr ""
+msgstr "HWP csomag szintű kérés"
 
 #. !/flag:npt
 msgctxt "x86-flag"
 msgid "AMD Nested Page Table support"
-msgstr ""
+msgstr "AMD beágyazott oldal tábla támogatás"
 
 #. !/flag:lbrv
 msgctxt "x86-flag"
 msgid "AMD LBR Virtualization support"
-msgstr ""
+msgstr "AMD LBR virtualizációs támogatás"
 
 #. !/flag:svm_lock
 msgctxt "x86-flag"
 msgid "AMD SVM locking MSR"
-msgstr ""
+msgstr "AMD SVM zárolási MSR"
 
 #. !/flag:nrip_save
 msgctxt "x86-flag"
 msgid "AMD SVM next_rip save"
-msgstr ""
+msgstr "AMD SVM, a következő utasítás címének mentése"
 
 #. !/flag:tsc_scale
 msgctxt "x86-flag"
 msgid "AMD TSC scaling support"
-msgstr ""
+msgstr "AMD TSC skálázási támogatás"
 
 #. !/flag:vmcb_clean
 msgctxt "x86-flag"
 msgid "AMD VMCB clean bits support"
-msgstr ""
+msgstr "AMD VMCB tisztító bitek támogatása"
 
 #. !/flag:flushbyasid
 msgctxt "x86-flag"
 msgid "AMD flush-by-ASID support"
-msgstr ""
+msgstr "AMD támogatja az ASID-alapú gyorsítótár-ürítést"
 
 #. !/flag:decodeassists
 msgctxt "x86-flag"
 msgid "AMD Decode Assists support"
-msgstr ""
+msgstr "Az AMD dekódolási funkciói támogatottak"
 
 #. !/flag:pausefilter
 msgctxt "x86-flag"
 msgid "AMD filtered pause intercept"
-msgstr ""
+msgstr "AMD: szűrt szünet-leállás"
 
 #. !/flag:pfthreshold
 msgctxt "x86-flag"
 msgid "AMD pause filter threshold"
-msgstr ""
+msgstr "AMD zajszűrő küszöbérték"
 
 #. !/flag:avic
 msgctxt "x86-flag"
 msgid "Virtual Interrupt Controller"
-msgstr ""
+msgstr "Virtuális megszakításvezérlő"
 
 #. !/flag:v_vmsave_vmload
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "Virtuális VMSAVE, VMLOAD"
 
 #. !/flag:avx512vbmi
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512 vektoros bitműveleti utasítások"
 
 #. !/flag:umip
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "Felhasználói módú utasításvédelem"
 
 #. !/flag:pku
 msgctxt "x86-flag"
 msgid "Protection Keys for Userspace"
-msgstr ""
+msgstr "Védelmi kulcsok a felhasználói térben"
 
 #. !/flag:ospke
 msgctxt "x86-flag"
 msgid "OS Protection Keys Enable"
-msgstr ""
+msgstr "Az operációs rendszer védelmi kulcsainak engedélyezése"
 
 #. !/flag:avx512_vbmi2
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "További AVX512 vektoros bitműveleti utasítások"
 
 #. !/flag:gfni
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "Galois-mező – Új utasítások"
 
 #. !/flag:vaes
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "Vektor AES"
 
 #. !/flag:vpclmulqdq
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "Kisebb hordozással történő szorzás, dupla квадворд"
 
 #. !/flag:avx512_vnni
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "Vektoros neurális hálózatok használati útmutatója"
 
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "Támogatás a VPOPCNT[B,W] és a VPSHUF-BITQMB utasításokhoz"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "POPCNT a DW/DQ típusú vektorokhoz"
 
 #. !/flag:rdpid
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID utasítás"
 
 #. !/flag:sgx_lc
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "Szoftveres védelemhez használt kiterjesztések indításvezérlése"
 
 #. !/flag:overflow_recov
 msgctxt "x86-flag"
 msgid "MCA overflow recovery support"
-msgstr ""
+msgstr "Támogatás az MCA-túlfutásból való helyreállításhoz"
 
 #. !/flag:succor
 msgctxt "x86-flag"
 msgid "uncorrectable error containment and recovery"
-msgstr ""
+msgstr "kijavíthatatlan hibák kezelése és a rendszer helyreállítása"
 
 #. !/flag:smca
 msgctxt "x86-flag"
 msgid "Scalable MCA"
-msgstr ""
+msgstr "Skálázható MCA"
 
 #. !/flag:fsrm
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "Gyors, rövid ismétlések"
 
 #. !/bug:f00f
 msgctxt "x86-flag"
 msgid "Intel F00F bug"
-msgstr ""
+msgstr "Intel F00F hiba"
 
 #. !/bug:fdiv
 msgctxt "x86-flag"
 msgid "FPU FDIV"
-msgstr ""
+msgstr "Lebegőpontos egység, osztás művelet"
 
 #. !/bug:coma
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
-msgstr ""
+msgstr "Cyrix 6x86, a múlt időben"
 
 #. !/bug:tlb_mmatch
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
-msgstr ""
+msgstr "AMD hibaértesítő 383. szám"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
-msgstr ""
+msgstr "AMD hibaértesítő 400"
 
 #. !/bug:11ap
 msgctxt "x86-flag"
 msgid "Bad local APIC aka 11AP"
-msgstr ""
+msgstr "Hibás helyi APIC, más néven 11AP"
 
 #. !/bug:fxsave_leak
 msgctxt "x86-flag"
 msgid "FXSAVE leaks FOP/FIP/FOP"
-msgstr ""
+msgstr "Az FXSAVE parancs FOP/FIP/FOP memóriaszivárgást okoz"
 
 #. !/bug:clflush_monitor
 msgctxt "x86-flag"
 msgid "AAI65, CLFLUSH required before MONITOR"
 msgstr ""
+"AAI65: A MONITOR használata előtt a CLFLUSH parancsot kell végrehajtani"
 
 #. !/bug:sysret_ss_attrs
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
-msgstr ""
+msgstr "A SYSRET nem javítja ki az SS attribútumokat"
 
 #. !/bug:espfix
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
 msgstr ""
+"Az IRET utasítás 16 bites SS-re váltásakor az ESP/RSP legfelső bitei "
+"sérülhetnek"
 
 #. !/bug:null_seg
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
-msgstr ""
+msgstr "Egy kiválasztó érvénytelenítésével az alapérték megmarad"
 
 #. !/bug:swapgs_fence
 msgctxt "x86-flag"
 msgid "SWAPGS without input dep on GS"
-msgstr ""
+msgstr "SWAPGS, anélkül, hogy a GS-re támaszkodna"
 
 #. !/bug:monitor
 msgctxt "x86-flag"
 msgid "IPI required to wake up remote CPU"
-msgstr ""
+msgstr "IPI szükséges a távoli processzor felébresztéséhez"
 
 #. !/bug:cpu_insecure & bug:cpu_meltdown
 msgctxt "x86-flag"
 msgid ""
 "CPU is affected by meltdown attack and needs kernel page table isolation"
 msgstr ""
+"A CPU érintett a Meltdown nevű támadásban, ezért kernel oldali oldaltábla-"
+"szigetelésre van szükség"
 
 #. !/bug:spectre_v1
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
 msgstr ""
+"A processzor érintett a Spectre típusú támadás 1-es variánsában, amely "
+"feltételes elágazásokat használ"
 
 #. !/bug:spectre_v2
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
 msgstr ""
+"A processzor érintett a Spectre típusú támadás 2-es variánsában, amely "
+"indirekt elágazásokat használ"
 
 #. !/bug:spec_store_bypass
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
-msgstr ""
+msgstr "A CPU sérülékeny a spekulatív tároló-átirányítási támadásra"
 
 #. !/bug:l1tf
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
-msgstr ""
+msgstr "A processzor L1-es terminális hibát jelez"
 
 #. !/bug:mds
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "A CPU-t a mikroarchitektúrában végzett adattömörítés befolyásolja"
 
 #. !/bug:swapgs
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "A CPU-t a SWAPGS utasítás által végzett spekulatív végrehajtás érinti"
 
 #. !/bug:itlb_multihit
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
 msgstr ""
+"A processzor bizonyos oldalattribútum-módosítások során MCE-t (Machine Check "
+"Exception) okozhat"
 
 #. !/bug:srbds
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
 msgstr ""
+"A processzor véletlenszám-generátorának bitei kiszivároghatnak, ha nem "
+"alkalmaznak megfelelő intézkedéseket"
 
 #. !/bug:mmio_stale_data
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
 msgstr ""
+"A processzor érintett a Processzor MMIO-val kapcsolatos adatfrissítési "
+"problémák által"
 
 #. !/bug:mmio_unknown
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "Az MMIO állapotadatok állapota ismeretlen"
 
 #. !/bug:retbleed
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "A CPU érintett a RETBleed sebezhetőség által"
 
 #. !/bug:eibrs_pbrsb
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "Az EIBRS sebezhető a Barrier utáni címek előrejelzésével szemben"
 
 #. !/bug:gds
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "A CPU-t befolyásolja az adatmintavételezés"
 
 #. !/bug:srso
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD: a BTB-táblázatban található RET-értékek törlése"
 
 #. !/bug:bhi
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
 msgstr ""
+"A CPU sérülékennyé válik a Branch History Injection támadásával szemben"
 
 #. !/bug:ibpb_no_ret
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr ""
+msgstr "Az IBPB nem tesz közzé előrejelzéseket a várható hozamokról"
 
 #. !/bug:spectre_v2_user
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
 msgstr ""
+"A CPU érintett a Spectre típusú támadás 2-es változata által, amely a "
+"felhasználói folyamatok között terjed"
 
 #. !/bug:its
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "A CPU-t érinti az indirekt célpontválasztás"
 
 #. !/bug:its_native_only
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "A CPU-t érinti az ITS, a VMX-et nem"
 
 #. !/bug:tsa
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "A processzor érintett a pillanatnyi ütemezőre irányuló támadásokban"
 
 #. !/bug:vmscape
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "A CPU érintett a vendégrendszerekből érkező VMSCAPE-támadások által"
 
 #. !/flag:pm:ts
 msgctxt "x86-flag"
 msgid "temperature sensor"
-msgstr ""
+msgstr "hőmérséklet-érzékelő"
 
 #. !/flag:pm:fid
 msgctxt "x86-flag"
 msgid "frequency id control"
-msgstr ""
+msgstr "frekvenciaazonosító-vezérlés"
 
 #. !/flag:pm:vid
 msgctxt "x86-flag"
 msgid "voltage id control"
-msgstr ""
+msgstr "feszültség-azonosító vezérlés"
 
 #. !/flag:pm:ttp
 msgctxt "x86-flag"
 msgid "thermal trip"
-msgstr ""
+msgstr "hőmérséklet-függő kioldás"
 
 #. !/flag:pm:tm
 msgctxt "x86-flag"
 msgid "hardware thermal control"
-msgstr ""
+msgstr "hardveres hőmérséklet-szabályozás"
 
 #. !/flag:pm:stc
 msgctxt "x86-flag"
 msgid "software thermal control"
-msgstr ""
+msgstr "szoftveres hőmérséklet-szabályozás"
 
 #. !/flag:pm:100mhzsteps
 msgctxt "x86-flag"
 msgid "100 MHz multiplier control"
-msgstr ""
+msgstr "100 MHz-es frekvenciaszorzó vezérlés"
 
 #. !/flag:pm:hwpstate
 msgctxt "x86-flag"
 msgid "hardware P-state control"
-msgstr ""
+msgstr "hardveres P-állapot-vezérlés"
 
 #. !/flag:pm:cpb
 msgctxt "x86-flag"
 msgid "core performance boost"
-msgstr ""
+msgstr "A teljesítmény jelentős mértékű növelése"
 
 #. !/flag:pm:eff_freq_ro
 msgctxt "x86-flag"
 msgid "Readonly aperf/mperf"
-msgstr ""
+msgstr "Csak olvasható: aperf/mperf"
 
 #. !/flag:pm:proc_feedback
 msgctxt "x86-flag"
 msgid "processor feedback interface"
-msgstr ""
+msgstr "processzor-visszacsatolási felület"
 
 #. !/flag:pm:acc_power
 msgctxt "x86-flag"
 msgid "accumulated power mechanism"
-msgstr ""
+msgstr "felhalmozott energiamechanizmus"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Felületek"
 
 msgid "IP Connections"
-msgstr ""
+msgstr "IP-kapcsolatok"
 
 msgid "Routing Table"
-msgstr ""
+msgstr "Útválasztási tábla"
 
 msgid "ARP Table"
-msgstr ""
+msgstr "ARP-tábla"
 
 msgid "DNS Servers"
 msgstr "DNS-kiszolgálók"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statisztika"
 
 msgid "Shared Directories"
-msgstr ""
+msgstr "Megosztott mappák"
 
 msgid "IP Address"
 msgstr "IP-cím"
@@ -5028,59 +5324,59 @@ msgid "MAC Address"
 msgstr "MAC-cím"
 
 msgid "SAMBA"
-msgstr ""
+msgstr "SAMBA"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name Servers"
-msgstr ""
+msgstr "Névkiszolgálók"
 
 msgid "Connections"
-msgstr ""
+msgstr "Kapcsolatok"
 
 msgid "Local Address"
-msgstr ""
+msgstr "Helyi cím"
 
 msgid "Foreign Address"
-msgstr ""
+msgstr "Külföldi cím"
 
 msgid "State"
 msgstr "Állapot"
 
 msgid "Sent"
-msgstr ""
+msgstr "Elküldve"
 
 msgid "Received"
-msgstr ""
+msgstr "Megkaptam"
 
 msgid "IP routing table"
-msgstr ""
+msgstr "IP útválasztási tábla"
 
 msgid "Destination/Gateway"
-msgstr ""
+msgstr "Célállomás/átjáró"
 
 msgid "Mask"
-msgstr ""
+msgstr "Maszk"
 
 msgid "Gathers information about this computer's network connection"
 msgstr "Adatok összegyűjtése a számítógép hálózati kapcsolatairól"
 
 msgctxt "wi-op-mode"
 msgid "Auto"
-msgstr ""
+msgstr "Autó"
 
 msgctxt "wi-op-mode"
 msgid "Ad-Hoc"
-msgstr ""
+msgstr "Ad hoc"
 
 msgctxt "wi-op-mode"
 msgid "Managed"
-msgstr ""
+msgstr "Kezelt"
 
 msgctxt "wi-op-mode"
 msgid "Master"
-msgstr ""
+msgstr "Mester"
 
 msgctxt "wi-op-mode"
 msgid "Repeater"
@@ -5088,7 +5384,7 @@ msgstr "Jelismétlő"
 
 msgctxt "wi-op-mode"
 msgid "Secondary"
-msgstr ""
+msgstr "Másodlagos"
 
 msgctxt "wi-op-mode"
 msgid "(Unknown)"
@@ -5096,31 +5392,31 @@ msgstr "(ismeretlen)"
 
 msgctxt "net-if-type"
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgctxt "net-if-type"
 msgid "Loopback"
-msgstr ""
+msgstr "Visszacsatolás"
 
 msgctxt "net-if-type"
 msgid "Point-to-Point"
-msgstr ""
+msgstr "Pont-tól pontig"
 
 msgctxt "net-if-type"
 msgid "Wireless"
-msgstr ""
+msgstr "Vezeték nélküli"
 
 msgctxt "net-if-type"
 msgid "Virtual Point-to-Point (TUN)"
-msgstr ""
+msgstr "Virtuális pont-pont kapcsolat (TUN)"
 
 msgctxt "net-if-type"
 msgid "Ethernet (TAP)"
-msgstr ""
+msgstr "Ethernet (csatlakozó)"
 
 msgctxt "net-if-type"
 msgid "Parallel Line Internet Protocol"
-msgstr ""
+msgstr "Párhuzamos vonal internet protokoll"
 
 msgctxt "net-if-type"
 msgid "Infrared"
@@ -5128,27 +5424,27 @@ msgstr "Infravörös"
 
 msgctxt "net-if-type"
 msgid "Serial Line Internet Protocol"
-msgstr ""
+msgstr "Soros vonal internet protokoll"
 
 msgctxt "net-if-type"
 msgid "Integrated Services Digital Network"
-msgstr ""
+msgstr "Integrált szolgáltatású digitális hálózat"
 
 msgctxt "net-if-type"
 msgid "IPv6-over-IPv4 Tunnel"
-msgstr ""
+msgstr "IPv6-alagút IPv4-en keresztül"
 
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface (NAT)"
-msgstr ""
+msgstr "VMware virtuális hálózati interfész (NAT)"
 
 msgctxt "net-if-type"
 msgid "VMWare Virtual Network Interface"
-msgstr ""
+msgstr "VMware virtuális hálózati interfész"
 
 msgctxt "net-if-type"
 msgid "Personal Area Network (PAN)"
-msgstr ""
+msgstr "Személyes hálózati terület (PAN)"
 
 msgctxt "net-if-type"
 msgid "Bluetooth"
@@ -5156,66 +5452,66 @@ msgstr "Bluetooth"
 
 msgctxt "net-if-type"
 msgid "Bridge Interface"
-msgstr ""
+msgstr "Híd interfész"
 
 msgctxt "net-if-type"
 msgid "Hamachi Virtual Personal Network"
-msgstr ""
+msgstr "Hamachi: Virtuális személyi hálózat"
 
 msgctxt "net-if-type"
 msgid "Intermediate Functional Block"
-msgstr ""
+msgstr "Köztes funkcionális blokk"
 
 msgctxt "net-if-type"
 msgid "GRE Network Tunnel"
-msgstr ""
+msgstr "GRE hálózati alagút"
 
 msgctxt "net-if-type"
 msgid "Mesh Network"
-msgstr ""
+msgstr "Hálós hálózat"
 
 msgctxt "net-if-type"
 msgid "Wireless Master Interface"
-msgstr ""
+msgstr "Vezeték nélküli központi interfész"
 
 msgctxt "net-if-type"
 msgid "VirtualBox Virtual Network Interface"
-msgstr ""
+msgstr "VirtualBox virtuális hálózati interfész"
 
 msgctxt "net-if-type"
 msgid "Wireless (WAN)"
-msgstr ""
+msgstr "Vezeték nélküli (WAN)"
 
 msgctxt "net-if-type"
 msgid "(Unknown)"
-msgstr ""
+msgstr "(Ismeretlen)"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Hálózati interfészek"
 
 msgid "None Found"
-msgstr ""
+msgstr "Nincs találat"
 
 msgid "Network Adapter Properties"
-msgstr ""
+msgstr "Hálózati adapter tulajdonságai"
 
 msgid "Interface Type"
-msgstr ""
+msgstr "Interfész típusa"
 
 msgid "Hardware Address (MAC)"
-msgstr ""
+msgstr "Hardvercím (MAC-cím)"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Transfer Details"
-msgstr ""
+msgstr "Az átutalás részletei"
 
 msgid "Bytes Received"
-msgstr ""
+msgstr "Fogadott bájtok"
 
 msgid "Bytes Sent"
-msgstr ""
+msgstr "Elküldött bájtok"
 
 msgid "dBm"
 msgstr "dBm"
@@ -5224,77 +5520,31 @@ msgid "mW"
 msgstr "mW"
 
 msgid "Wireless Properties"
-msgstr ""
+msgstr "Vezeték nélküli tulajdonságok"
 
 msgid "Network Name (SSID)"
-msgstr ""
+msgstr "Hálózati név (SSID)"
 
 msgid "Bit Rate"
 msgstr "Bitsűrűség"
 
 msgid "Transmission Power"
-msgstr ""
+msgstr "Átviteli teljesítmény"
 
 msgid "Link Quality"
-msgstr ""
+msgstr "Linkminőség"
 
 msgid "Signal / Noise"
 msgstr "Jel / zaj"
 
 msgid "Internet Protocol (IPv4)"
-msgstr ""
+msgstr "Internet protokoll (IPv4)"
 
 msgid "(Not set)"
-msgstr ""
+msgstr "(Nincs megadva)"
 
 msgid "Broadcast Address"
-msgstr ""
+msgstr "Műsorszórási cím"
 
 msgid "RAM"
-msgstr ""
-
-#~ msgid "Properties"
-#~ msgstr "Tulajdonságok"
-
-#~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "HardInfo2 honlap _megnyitása"
-
-#~ msgid "Loading modules..."
-#~ msgstr "Modulok betöltése..."
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s / %s\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Telep: %s]\n"
-#~ "Állapot=%s\n"
-#~ "Töltöttség=%s / %s\n"
-#~ "Technológia=%s\n"
-#~ "Gyártó=%s\n"
-#~ "Típus=%s\n"
-#~ "Sorozatszám=%s\n"
-
-#~ msgid "_Open..."
-#~ msgstr "_Megnyitás..."
-
-#~ msgid "(Not available; Perhaps try running HardInfo2 as root.)"
-#~ msgstr ""
-#~ "(Nem elérhető; Próbálja meg rendszergazdaként futtatni a HardInfo2-t!)"
-
-#~ msgid "DMI is not available; Perhaps try running HardInfo2 as root."
-#~ msgstr ""
-#~ "DMI nem elérhető; Próbálja meg rendszergazdaként futtatni a HardInfo2-t!"
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "_Másolás vágólapra"
-
-#~ msgid "Copy to clipboard"
-#~ msgstr "Másolás vágólapra"
+msgstr "RAM"

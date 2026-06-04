@@ -425,13 +425,13 @@ gboolean __scan_udisks2_devices(void) {
         if (disk->smart_enabled) {
             moreinfo = h_strdup_cprintf(_("[Self-monitoring (S.M.A.R.T.)]\n"
                                         "Status=%s\n"
-                                        "Bad Sectors=%" G_GINT64_FORMAT "\n"
-                                        "Power on time=%" G_GUINT64_FORMAT " days %" G_GUINT64_FORMAT " hours\n"
+                                        "Bad Sectors=%lld\n"
+                                        "Power on time=%lld days %lld hours\n"
                                         "Temperature=%d°C\n"),
                                         moreinfo,
                                         disk->smart_failing ? _("Failing"): _("OK"),
-                                        disk->smart_bad_sectors,
-                                        disk->smart_poweron/(60*60*24), (disk->smart_poweron/60/60) % 24,
+                                        (long long)disk->smart_bad_sectors,
+                                        (long long)disk->smart_poweron/(60*60*24),  (long long)(disk->smart_poweron/60/60) % 24,
                                         disk->smart_temperature);
 
             if (disk->smart_attributes != NULL) {
@@ -450,34 +450,34 @@ gboolean __scan_udisks2_devices(void) {
                             tmp = h_strdup_cprintf("-", tmp);
                             break;
                         case UDSK_INTPVAL_MILISECONDS:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " ms", tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf("%lld ms", tmp, (long long)attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_HOURS:
 			    if(attrib->interpreted<24){
-			        tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " h", tmp, attrib->interpreted);
+			        tmp = h_strdup_cprintf("%lld h", tmp, (long long)attrib->interpreted);
 			    } else if (attrib->interpreted<24*365){
-			        tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " days", tmp, attrib->interpreted/24);
+			        tmp = h_strdup_cprintf("%lld days", tmp, (long long)attrib->interpreted/24);
 			    } else {
 			      tmp = h_strdup_cprintf("%0.1f years", tmp, (double)attrib->interpreted/24/365);
 			    }
                             break;
                         case UDSK_INTPVAL_CELSIUS:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT "°C", tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf("%lld°C", tmp, (long long)attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_SECTORS:
-                            tmp = h_strdup_cprintf(ngettext("%" G_GINT64_FORMAT " sector",
-                                                            "%" G_GINT64_FORMAT " sectors", attrib->interpreted),
-                                                   tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf(ngettext("%lld sector",
+                                                            "%lld sectors", (long long)attrib->interpreted),
+                                                   tmp, (long long)attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_TB:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " TB", tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf("%lld TB", tmp, (long long)attrib->interpreted);
 			    break;
                         case UDSK_INTPVAL_PROCENT:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT " %%", tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf("%lld %%", tmp, (long long)attrib->interpreted);
                             break;
                         case UDSK_INTPVAL_DIMENSIONLESS:
                         default:
-                            tmp = h_strdup_cprintf("%" G_GINT64_FORMAT, tmp, attrib->interpreted);
+                            tmp = h_strdup_cprintf("%lld", tmp, (long long)attrib->interpreted);
                             break;
                     }
 

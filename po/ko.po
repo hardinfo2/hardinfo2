@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: 2022-09-28\n"
 "Last-Translator: Yunji Lee<yunlisa96@gmail.com>\n"
 "Language-Team: \n"
@@ -57,10 +57,10 @@ msgid "Core"
 msgstr "코어"
 
 msgid "Book"
-msgstr ""
+msgstr "책"
 
 msgid "Drawer"
-msgstr ""
+msgstr "서랍"
 
 msgid "Topology"
 msgstr "토폴로지"
@@ -207,13 +207,13 @@ msgid "Low-profile Desktop"
 msgstr "로우 프로파일 데스크탑"
 
 msgid "Pizza Box"
-msgstr ""
+msgstr "피자 상자"
 
 msgid "Mini Tower"
-msgstr ""
+msgstr "미니 타워"
 
 msgid "Tower"
-msgstr ""
+msgstr "탑"
 
 msgid "Portable"
 msgstr "휴대용"
@@ -240,7 +240,7 @@ msgid "Space-saving"
 msgstr "공간 절약"
 
 msgid "Lunch Box"
-msgstr ""
+msgstr "도시락"
 
 msgid "Main Server Chassis"
 msgstr "주 서버 시스템 장치"
@@ -270,10 +270,10 @@ msgid "Multi-system"
 msgstr "다중 시스템"
 
 msgid "CompactPCI"
-msgstr ""
+msgstr "컴팩트PCI"
 
 msgid "AdvancedTCA"
-msgstr ""
+msgstr "어드밴스드 TCA"
 
 msgid "Blade"
 msgstr "블레이드"
@@ -307,7 +307,7 @@ msgstr "스틱 PC"
 msgid ""
 "Copyright (C) 2003-2023 L. A. F. Pereira. 2024-%d Hardinfo2 Project.\n"
 "\n"
-msgstr ""
+msgstr "저작권 (C) 2003-2023 L. A. F. 페레이라. 2024-%d 하드인포2 프로젝트\n"
 
 #, c-format
 msgid ""
@@ -322,10 +322,20 @@ msgid ""
 "  Locale         :  %s\n"
 "  Compiled for   :  %s\n"
 msgstr ""
+"컴파일 시 옵션:\n"
+"릴리스 버전: %s (%s)\n"
+"LibSoup 버전: %s\n"
+"OpenGL 버전: %s\n"
+"Vulkan 버전: %s\n"
+"GTK 버전: %s\n"
+"데이터: %s\n"
+"라이브러리: %s\n"
+"로케일: %s\n"
+"컴파일 대상: %s\n"
 
 #, c-format
 msgid "Unknown benchmark ``%s''\n"
-msgstr ""
+msgstr "알 수 없는 벤치마크: ``%s''\n"
 
 msgid "Don't know what to do. Exiting."
 msgstr "무엇을해야할지 모르겠습니다. 종료합니다."
@@ -387,25 +397,30 @@ msgid "Fatal Error"
 msgstr "치명적 오류"
 
 msgid "do not print status messages to standard output"
-msgstr "상태 메시지를 표준 출력으로 인쇄하지 않습니다."
+msgstr "상태 메시지를 표준 출력으로 인쇄하지 않습니다"
 
 msgid "creates a report and prints to standard output"
-msgstr "보고서를 만들고 표준 출력으로 인쇄합니다."
+msgstr "보고서를 만들고 표준 출력으로 인쇄합니다"
 
 msgid "chooses a report format ([text], html)"
-msgstr "보고서 형식([텍스트], html)을 선택합니다."
+msgstr "보고서 형식([텍스트], html)을 선택합니다"
 
 msgid "search for a topic in CLI report (-t getlist shows available)"
 msgstr ""
+"CLI 보고서에서 특정 주제를 검색합니다(-t getlist를 입력하면 사용 가능한 주제 "
+"목록이 표시됩니다)"
 
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
 msgstr ""
+"캐시된 CLI 보고서에서 특정 주제를 검색합니다(-t getlist를 사용하면 사용 가능"
+"한 주제 목록이 표시됨)"
 
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
-msgstr ""
+msgstr "단일 벤치마크 실행 예: -b 'FPU FFT' (기본적으로 모든 벤치마크 실행)"
 
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr ""
+"벤치마크 결과에 첨부된 사용자 메모입니다. 그룹-머신 이름-서버 요구 사항"
 
 msgid "benchmark result format ([short], conf, shell)"
 msgstr "벤치마크 결과 형식([짧은], conf, 셸)"
@@ -425,7 +440,7 @@ msgid "show all details"
 msgstr "모든 세부 정보 표시"
 
 msgid "- System Information and Benchmark"
-msgstr ""
+msgstr "- 시스템 정보 및 성능 테스트"
 
 #, c-format
 msgid ""
@@ -441,6 +456,10 @@ msgid ""
 "Have only a group, group-MachineName and also a special request to server "
 "for the return benchmark data from server\n"
 msgstr ""
+"사용자 메모는 유효하지 않습니다(문자+숫자, 그룹-머신 이름-서버 요청 형식).\n"
+"사용자 메모 매개변수는 선택 사항이며, 비워둘 수 있습니다.\n"
+"그룹, 그룹-머신 이름만 있거나, 서버에서 반환되는 벤치마크 데이터를 요청하는 "
+"특별 요청이 있을 수 있습니다\n"
 
 #, c-format
 msgid "Scanning: %s..."
@@ -453,13 +472,13 @@ msgid "Update vendor list"
 msgstr "공급업체 목록 업데이트"
 
 msgid "Check Update Version"
-msgstr ""
+msgstr "업데이트 버전 확인"
 
 msgid "Unknown"
 msgstr "알 수 없음"
 
 msgid "System Information and Benchmark"
-msgstr ""
+msgstr "시스템 정보 및 성능 테스트"
 
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
@@ -475,6 +494,17 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 51 "
 "Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"HardInfo2는 자유 소프트웨어이며, 자유 소프트웨어 재단에서 게시한 GNU 일반 공"
+"중 사용 허가서 버전 2 또는 이후 버전에 따라 재배포 및/또는 수정할 수 있습니"
+"다.\n"
+"\n"
+"이 프로그램은 유용할 것이라는 희망으로 배포되지만, 어떠한 보증도 제공되지 않"
+"습니다. 특히 상품성 또는 특정 목적에 대한 적합성에 대한 묵시적 보증도 제공되"
+"지 않습니다. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조하십시오.\n"
+"\n"
+"이 프로그램과 함께 GNU 일반 공중 사용 허가서 사본을 받으셨어야 합니다. 그렇"
+"지 않은 경우, 자유 소프트웨어 재단(Free Software Foundation, Inc., 51 "
+"Franklin St, Fifth Floor, Boston, MA 02110-1301 USA)으로 문의하십시오"
 
 msgid "_Information"
 msgstr "정보(_I)"
@@ -483,7 +513,7 @@ msgid "_View"
 msgstr "보기(_V)"
 
 msgid "_Theme"
-msgstr ""
+msgstr "테마"
 
 msgid "_Help"
 msgstr "도움말(_H)"
@@ -501,19 +531,19 @@ msgid "Send benchmark results and receive updated data from the network"
 msgstr "벤치마크 결과 전송 및 네트워크에서 업데이트된 데이터 수신"
 
 msgid "Update Available"
-msgstr ""
+msgstr "업데이트가 있습니다"
 
 msgid "_Refresh"
 msgstr "새로고침(_R)"
 
 msgid "HardInfo2 _Web Site"
-msgstr ""
+msgstr "HardInfo2 _웹사이트"
 
 msgid "_Help - User Guide"
-msgstr ""
+msgstr "도움말 - 사용자 가이드"
 
 msgid "_Update HardInfo2"
-msgstr ""
+msgstr "하드인포2 업데이트"
 
 msgid "_Report bug"
 msgstr "버그 신고(_R)"
@@ -537,28 +567,28 @@ msgid "_Toolbar"
 msgstr "도구모음(_T)"
 
 msgid "Synchronize on startup"
-msgstr ""
+msgstr "시작 시 동기화"
 
 msgid "Disable Theme"
-msgstr ""
+msgstr "테마 비활성화"
 
 msgid "Theme Motherboard"
-msgstr ""
+msgstr "테마 메인보드"
 
 msgid "Theme Graffiti"
-msgstr ""
+msgstr "테마: 그래피티"
 
 msgid "Theme Anime PC"
-msgstr ""
+msgstr "테마 애니메이션 PC"
 
 msgid "Theme Tux Star"
-msgstr ""
+msgstr "테마: 턱시도 스타"
 
 msgid "Theme PixArt"
-msgstr ""
+msgstr "테마: 픽스아트"
 
 msgid "Theme Silicon"
-msgstr ""
+msgstr "테마: 실리콘"
 
 msgid "Save File"
 msgstr "파일을 저장"
@@ -610,20 +640,20 @@ msgid "_Generate"
 msgstr "생성(_G)"
 
 msgid "Enter text to search, double-click to select all"
-msgstr ""
+msgstr "검색할 텍스트를 입력하고, 전체 선택하려면 두 번 클릭하세요"
 
 msgid "Search not available"
-msgstr ""
+msgstr "검색 기능이 없습니다"
 
 msgid "Benchmark"
 msgstr "벤치마크"
 
 #, c-format
 msgid "%s - System Information and Benchmark"
-msgstr ""
+msgstr "%s - 시스템 정보 및 성능 테스트"
 
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 #, c-format
 msgid ""
@@ -635,15 +665,22 @@ msgid ""
 "\n"
 "Please fix by installing manually"
 msgstr ""
+"<b>Hardinfo2가 제대로 패키징되지 않았습니다.</b>\n"
+"\n"
+"누락된 패키지:\n"
+"\n"
+"%s\n"
+"\n"
+"수동으로 설치하여 문제를 해결해 주세요"
 
 msgid "Copy selected row"
-msgstr ""
+msgstr "선택한 행 복사"
 
 msgid "Copy all rows"
-msgstr ""
+msgstr "모든 행 복사"
 
 msgid "Copy all text"
-msgstr ""
+msgstr "모든 텍스트를 복사합니다"
 
 msgid "Network"
 msgstr "네트워크"
@@ -690,13 +727,13 @@ msgid "Send benchmark results"
 msgstr "벤치마크 결과 보내기"
 
 msgid "User Note "
-msgstr ""
+msgstr "사용자 참고 사항"
 
 msgid "Leave it default/blank or see "
-msgstr ""
+msgstr "기본 설정 그대로 두거나, 또는 아래 내용을 참고하세요"
 
 msgid "User Guide"
-msgstr ""
+msgstr "사용자 설명서"
 
 msgid "Privacy Policy"
 msgstr "개인 정보 정책"
@@ -706,7 +743,7 @@ msgstr "동기화(_S)"
 
 #, c-format
 msgid "Synchronizing: %s"
-msgstr ""
+msgstr "동기화 중: %s"
 
 msgid "CPU Blowfish (Single-thread)"
 msgstr "CPU Blowfish (단일 스레드)"
@@ -718,25 +755,25 @@ msgid "CPU Blowfish (Multi-core)"
 msgstr "CPU Blowfish (다중 코어)"
 
 msgid "CPU Zlib"
-msgstr ""
+msgstr "CPU Zlib"
 
 msgid "CPU CryptoHash"
-msgstr ""
+msgstr "CPU 암호화 해시"
 
 msgid "CPU Fibonacci"
-msgstr ""
+msgstr "CPU 피보나치"
 
 msgid "CPU N-Queens"
-msgstr ""
+msgstr "CPU N-퀸 문제"
 
 msgid "FPU FFT"
 msgstr "FPU FFT"
 
 msgid "FPU Raytracing (Single-thread)"
-msgstr ""
+msgstr "FPU 레이 트레이싱(단일 스레드)"
 
 msgid "Internal Network Speed"
-msgstr ""
+msgstr "내부 네트워크 속도"
 
 msgid "SysBench CPU (Single-thread)"
 msgstr "SysBench CPU(단일 스레드)"
@@ -754,37 +791,37 @@ msgid "SysBench Memory (Two threads)"
 msgstr "SysBench 메모리(2개의 스레드)"
 
 msgid "SysBench Memory (Quad threads)"
-msgstr ""
+msgstr "SysBench 메모리 테스트 (4개 스레드)"
 
 msgid "SysBench Memory (Multi-thread)"
-msgstr ""
+msgstr "SysBench 메모리 테스트 (멀티 스레드)"
 
 msgid "GPU Drawing"
 msgstr "GPU 도면"
 
 msgid "GPU OpenGL Drawing"
-msgstr ""
+msgstr "GPU OpenGL 렌더링"
 
 msgid "GPU OpenGL Drawing2"
-msgstr ""
+msgstr "GPU OpenGL 렌더링 2"
 
 msgid "GPU Vulkan Drawing"
-msgstr ""
+msgstr "GPU Vulkan 렌더링"
 
 msgid "Storage R/W Speed"
-msgstr ""
+msgstr "저장 장치 읽기/쓰기 속도"
 
 msgid "Cache/Memory"
-msgstr ""
+msgstr "캐시/메모리"
 
 msgid "Results in events/second. Higher is better."
-msgstr ""
+msgstr "결과는 초당 이벤트 수로 표시됩니다. 값이 높을수록 좋습니다."
 
 msgid "Results in MiB/second. Higher is better."
 msgstr "MiB/초 단위의 결과입니다. 높을수록 좋습니다."
 
 msgid "Results in Gbits/s. Higher is better."
-msgstr ""
+msgstr "결과는 Gbit/s 단위로 표시됩니다. 값이 클수록 좋습니다."
 
 msgid "Results in HIMarks. Higher is better."
 msgstr "HIMark의 결과입니다. 높을수록 좋습니다."
@@ -793,12 +830,14 @@ msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
+"HIMarks 결과: 점수가 높을수록 좋습니다.\n"
+"대부분의 데스크톱 환경은 소프트웨어만 사용합니다."
 
 msgid "Results in MB/s. Higher is better."
-msgstr ""
+msgstr "결과는 MB/s 단위로 표시됩니다. 값이 클수록 좋습니다."
 
 msgid "Results in FPS. Higher is better."
-msgstr ""
+msgstr "결과는 FPS 단위로 표시됩니다. 값이 높을수록 좋습니다."
 
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
@@ -873,6 +912,8 @@ msgid ""
 "This result is from an old version of HardInfo. Results might not be "
 "comparable to current version. Some details are missing."
 msgstr ""
+"이 결과는 구 버전의 HardInfo에서 나온 것입니다. 결과가 최신 버전과 비교 불가"
+"능할 수 있습니다. 일부 세부 정보가 누락되었습니다."
 
 msgid "Machine"
 msgstr "머신"
@@ -914,10 +955,10 @@ msgid "Result"
 msgstr "결과"
 
 msgid "Linux Kernel"
-msgstr ""
+msgstr "리눅스 커널"
 
 msgid "Linux OS"
-msgstr ""
+msgstr "리눅스 운영체제"
 
 msgid "Physical Memory"
 msgstr "물리적 메모리"
@@ -929,7 +970,7 @@ msgid "mid"
 msgstr "중반"
 
 msgid "cfg_val"
-msgstr ""
+msgstr "cfg_값"
 
 msgid "This Machine"
 msgstr "이 머신"
@@ -946,15 +987,15 @@ msgstr "벤치마킹: <b>%s</b>."
 
 #, c-format
 msgid "Benchmarking: %s"
-msgstr ""
+msgstr "벤치마킹: %s"
 
 msgid "Stop"
-msgstr ""
+msgstr "멈춰"
 
 msgid ""
 "Please do not move your mouse\n"
 "or press any keys."
-msgstr ""
+msgstr "마우스 움직임이나 키 입력을 삼가 주십시오."
 
 msgid "Benchmarks"
 msgstr "벤치마크"
@@ -1012,7 +1053,7 @@ msgstr "그룹"
 
 #, c-format
 msgid "%dMB (%dMB used, %dMB compressed)"
-msgstr ""
+msgstr "%dMB (%dMB 사용, %dMB 압축)"
 
 #, c-format
 msgid "%dMB (%dMB used)"
@@ -1046,7 +1087,7 @@ msgid "Perl"
 msgstr "펄"
 
 msgid "Rakudo (Perl6)"
-msgstr ""
+msgstr "라쿠도 (펄6)"
 
 msgid "PHP"
 msgstr "PHP"
@@ -1061,7 +1102,7 @@ msgid "JavaScript (Node.js)"
 msgstr "자바스크립트 (Node.js)"
 
 msgid "awk"
-msgstr ""
+msgstr "awk"
 
 msgid "Compilers"
 msgstr "컴파일러"
@@ -1076,13 +1117,13 @@ msgid "D (dmd)"
 msgstr "D (dmd)"
 
 msgid "Gambas3 (gbc3)"
-msgstr ""
+msgstr "감바스3 (gbc3)"
 
 msgid "Java"
 msgstr "자바"
 
 msgid ".NET"
-msgstr ""
+msgstr "닷넷"
 
 msgid "Vala"
 msgstr "발라"
@@ -1094,7 +1135,7 @@ msgid "FreePascal"
 msgstr "프리 파스칼"
 
 msgid "Go"
-msgstr ""
+msgstr "가세요"
 
 msgid "Rust"
 msgstr "Rust"
@@ -1115,25 +1156,25 @@ msgid "LLDB"
 msgstr "LLDB"
 
 msgid "strace"
-msgstr ""
+msgstr "스트레이스"
 
 msgid "valgrind"
-msgstr ""
+msgstr "발그린드"
 
 msgid "QMake"
-msgstr ""
+msgstr "Q메이크"
 
 msgid "CMake"
 msgstr "CMake"
 
 msgid "Gambas3 IDE"
-msgstr ""
+msgstr "감바스3 IDE"
 
 msgid "Radare2"
 msgstr "Radare2"
 
 msgid "ltrace"
-msgstr ""
+msgstr "ltrace"
 
 msgid "Powershell"
 msgstr "파워쉘"
@@ -1169,7 +1210,7 @@ msgid "Virtual (QEMU)"
 msgstr "가상(QEMU)"
 
 msgid "Virtual (WSL2)"
-msgstr ""
+msgstr "가상 (WSL2)"
 
 msgid "Single-board computer"
 msgstr "싱글 보드 컴퓨터"
@@ -1230,34 +1271,34 @@ msgid "Misc"
 msgstr "기타"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "메모리 압축(ZRam)"
 
 msgid "Compression"
-msgstr ""
+msgstr "압축"
 
 msgid "N/A"
-msgstr ""
+msgstr "해당 사항 없음"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "압축률"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "디스크 크기"
 
 msgid "Data Size"
 msgstr "데이터 크기"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "압축된 크기"
 
 msgid "Total Size"
-msgstr ""
+msgstr "총 크기"
 
 msgid "Memory Compression (ZSwap)"
-msgstr ""
+msgstr "메모리 압축(ZSwap)"
 
 msgid "Shrinker Enabled"
-msgstr ""
+msgstr "축소 기능 활성화됨"
 
 msgid "Yes"
 msgstr "네"
@@ -1266,34 +1307,34 @@ msgid "No"
 msgstr "아니오"
 
 msgid "Maximum Pool Percent"
-msgstr ""
+msgstr "최대 풀 비율"
 
 msgid "Accept Threshold Percent"
-msgstr ""
+msgstr "허용 임계값 비율"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "메모리 압축 (ZSwap/ZRam)"
 
 msgid "Disabled"
 msgstr "비활성화"
 
 msgid "Logo"
-msgstr ""
+msgstr "로고"
 
 msgid "belongs to distro and may be reg. trademark"
-msgstr ""
+msgstr "해당 내용은 특정 배포판에 속하며, 등록된 상표일 수 있습니다"
 
 msgid "Root Only System"
-msgstr ""
+msgstr "루트 권한 전용 시스템"
 
 msgid "Single User System"
-msgstr ""
+msgstr "단일 사용자 시스템"
 
 msgid "Multi User System"
-msgstr ""
+msgstr "다중 사용자 시스템"
 
 msgid "HardInfo2"
-msgstr ""
+msgstr "하드인포2"
 
 msgid "HardInfo2 running as"
 msgstr "다음으로 실행되는 HardInfo2"
@@ -1305,19 +1346,19 @@ msgid "User"
 msgstr "사용자"
 
 msgid "User System Type"
-msgstr ""
+msgstr "사용자 시스템 유형"
 
 msgid "Hardinfo2 Service not enabled/started"
-msgstr ""
+msgstr "Hardinfo2 서비스가 활성화/시작되지 않았습니다"
 
 msgid "Linux Boot"
-msgstr ""
+msgstr "리눅스 부팅"
 
 msgid "Secure Boot State"
-msgstr ""
+msgstr "안전 부팅 상태"
 
 msgid "Boot Certificates"
-msgstr ""
+msgstr "부트 인증서"
 
 msgid "Health"
 msgstr "상태"
@@ -1344,7 +1385,7 @@ msgid "SELinux status"
 msgstr "SELinux 상태"
 
 msgid "Landlock ABI version"
-msgstr ""
+msgstr "랜드락 ABI 버전"
 
 msgid "CPU Vulnerabilities"
 msgstr "CPU 취약점"
@@ -1420,7 +1461,7 @@ msgid "Outputs (XRandR)"
 msgstr "출력(XRandR)"
 
 msgid "OpenGL (GLX)"
-msgstr ""
+msgstr "OpenGL (GLX)"
 
 msgid "Renderer"
 msgstr "렌더러"
@@ -1450,34 +1491,34 @@ msgid "GLX Version"
 msgstr "GLX 버전"
 
 msgid "Vulkan"
-msgstr ""
+msgstr "불칸"
 
 msgid "Instance Version"
-msgstr ""
+msgstr "인스턴스 버전"
 
 msgid "Api Version"
-msgstr ""
+msgstr "API 버전"
 
 msgid "Driver Version"
-msgstr ""
+msgstr "드라이버 버전"
 
 msgid "Device Type"
-msgstr ""
+msgstr "장치 유형"
 
 msgid "Device Name"
-msgstr ""
+msgstr "장치 이름"
 
 msgid "Driver Name"
-msgstr ""
+msgstr "운전자 이름"
 
 msgid "Driver Info"
-msgstr ""
+msgstr "운전자 정보"
 
 msgid "Conformance Version"
-msgstr ""
+msgstr "적합성 버전"
 
 msgid "Login"
-msgstr ""
+msgstr "로그인"
 
 msgid "User ID"
 msgstr "사용자 ID"
@@ -1493,10 +1534,10 @@ msgid "%0.1f %s available to Linux"
 msgstr "Linux에서 %0.1f %s 사용 가능"
 
 msgid "GiB"
-msgstr ""
+msgstr "기가바이트"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Motherboard"
 msgstr "메인보드"
@@ -1530,9 +1571,10 @@ msgstr "Mesa의 <i><b>glxinfo</b></i> 유틸리티는 OpenGL 정보에 필요합
 msgid ""
 "Vulkan's <i><b>vulkaninfo</b></i> utility is required for Vulkan information."
 msgstr ""
+"Vulkan 정보에는 Vulkan의 `<i><b>vulkaninfo</b></i>` 유틸리티가 필요합니다."
 
 msgid "Variable"
-msgstr ""
+msgstr "변수"
 
 msgid "Filesystem"
 msgstr "파일 시스템"
@@ -1556,16 +1598,16 @@ msgid "Available"
 msgstr "사용 가능"
 
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 msgid "Group Information"
-msgstr ""
+msgstr "그룹 정보"
 
 msgid "Group Name"
-msgstr ""
+msgstr "그룹 이름"
 
 msgid "Members"
-msgstr ""
+msgstr "회원"
 
 msgid "Locale Information"
 msgstr "로케일 정보"
@@ -1589,193 +1631,199 @@ msgid "Codeset"
 msgstr "코드셋"
 
 msgid "Couldn't obtain load average"
-msgstr "로드 평균을 가져올 수 없습니다."
+msgstr "로드 평균을 가져올 수 없습니다"
 
 msgid "Total physical memory usable by the system"
-msgstr ""
+msgstr "시스템에서 사용할 수 있는 총 물리적 메모리 양"
 
 msgid "Free memory which is not used for anything"
-msgstr ""
+msgstr "아무것도 사용하지 않는 여유 메모리"
 
 msgid "Virtual memory, total swap space available"
-msgstr ""
+msgstr "가상 메모리, 사용 가능한 총 스왑 공간"
 
 msgid "Virtual memory, remaining swap space available"
-msgstr ""
+msgstr "가상 메모리, 사용 가능한 스왑 공간 잔량"
 
 msgid "Memory present within main memory and in the swapfile"
-msgstr ""
+msgstr "주 메모리와 스왑 파일 내에 존재하는 메모리"
 
 msgid "HighTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "HighTotal 값은 사용된 커널 유형에 따라 달라질 수 있습니다"
 
 msgid "Amount of memory that is not directly mapped into kernel space"
-msgstr ""
+msgstr "커널 공간에 직접 매핑되지 않은 메모리의 양"
 
 msgid "LowTotal value can vary based on the type of kernel used"
-msgstr ""
+msgstr "낮은 총값은 사용된 커널 유형에 따라 달라질 수 있습니다"
 
 msgid "Total and free memory directly mapped into kernel space"
-msgstr ""
+msgstr "전체 메모리와 사용 가능한 메모리가 커널 공간에 직접 매핑됨"
 
 msgid "Available memory for allocation to any process, without swapping"
 msgstr ""
+"스왑을 사용하지 않고 모든 프로세스에 할당할 수 있는 사용 가능한 메모리 양"
 
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
-msgstr ""
+msgstr "버퍼 캐시에 저장된 메모리, 원본 디스크 블록을 임시로 저장하는 공간"
 
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
-msgstr ""
+msgstr "페이지 캐시(디스크 캐시, 공유 메모리, tmpfs 및 shmem)에 저장된 메모리"
 
 msgid "Memory used more recently and not swapped out or reclaimed"
-msgstr ""
+msgstr "최근에 사용되었고 스왑 아웃되거나 회수되지 않은 메모리"
 
 msgid "Memory not been used recently and can be swapped out or reclaimed"
 msgstr ""
+"최근에 사용되지 않은 메모리이므로, 다른 메모리로 교체하거나 회수할 수 있습니"
+"다"
 
 msgid "Anonymous memory used more recently and not swapped out"
-msgstr ""
+msgstr "최근에 사용된 익명 메모리는 스왑되지 않았습니다"
 
 msgid "Anonymous memory not been used and can be swapped out"
-msgstr ""
+msgstr "익명 메모리는 사용되지 않았으며 교체할 수 있습니다"
 
 msgid "Pagecache memory been used more recently and not reclaimed"
-msgstr ""
+msgstr "페이지 캐시 메모리가 최근에 더 많이 사용되었고 회수되지 않았습니다"
 
 msgid "Pagecache memory reclaimable without huge performance impact"
-msgstr ""
+msgstr "성능에 큰 영향을 주지 않으면서 페이지 캐시 메모리를 회수할 수 있습니다"
 
 msgid "Unevictable pages can't be swapped out for a variety of reasons"
 msgstr ""
+"삭제 불가능한 페이지는 여러 가지 이유로 인해 다른 페이지와 교체할 수 없습니다"
 
 msgid "Pages locked to memory using the mlock() system call"
-msgstr ""
+msgstr "`mlock()` 시스템 호출을 사용하여 메모리에 고정된 페이지"
 
 msgid "Memory consumed by the zswap backend (compressed size)"
-msgstr ""
+msgstr "zswap 백엔드에서 사용하는 메모리 양 (압축된 크기)"
 
 msgid "Amount of anonymous memory stored in zswap (original size)"
-msgstr ""
+msgstr "zswap에 저장된 익명 메모리의 양(원래 크기)"
 
 msgid "Memory waiting to be written back to disk"
-msgstr ""
+msgstr "디스크에 다시 기록될 때까지 대기 중인 메모리"
 
 msgid "Memory which is actively being written back to disk"
-msgstr ""
+msgstr "현재 디스크에 적극적으로 기록되고 있는 메모리"
 
 msgid "Non-file backed pages mapped into userspace page tables"
-msgstr ""
+msgstr "파일로 지원되지 않는 페이지가 사용자 공간 페이지 테이블에 매핑됨"
 
 msgid "Files which have been mmapped, such as libraries"
-msgstr ""
+msgstr "라이브러리와 같이 메모리에 매핑된 파일"
 
 msgid "Total memory used by shared memory (shmem) and tmpfs"
-msgstr ""
+msgstr "공유 메모리(shmem)와 tmpfs에서 사용하는 총 메모리 양"
 
 msgid "Kernel allocations reclaimable under memory pressure"
-msgstr ""
+msgstr "메모리 부족 상황에서 회수 가능한 커널 할당량"
 
 msgid "In-kernel data structures cache"
-msgstr ""
+msgstr "커널 내 데이터 구조 캐시"
 
 msgid "Part of Slab, that might be reclaimed, such as caches"
-msgstr ""
+msgstr "재활용될 수 있는 슬래브의 일부, 예를 들어 캐시"
 
 msgid "Part of Slab, that cannot be reclaimed on memory pressure"
-msgstr ""
+msgstr "메모리 부족 상황에서 회수할 수 없는 슬래브의 일부"
 
 msgid "Memory consumed by the kernel stacks of all tasks"
-msgstr ""
+msgstr "모든 작업의 커널 스택에서 사용된 메모리 양"
 
 msgid "Memory consumed by userspace page tables"
-msgstr ""
+msgstr "사용자 공간 페이지 테이블에서 사용하는 메모리 양"
 
 msgid "Memory consumed by secondary page tables"
-msgstr ""
+msgstr "보조 페이지 테이블에서 사용하는 메모리 양"
 
 msgid "Previous counted pages which had been written to the server"
-msgstr ""
+msgstr "이전에 서버에 기록된 페이지 수"
 
 msgid "Memory used for block device bounce buffers"
-msgstr ""
+msgstr "블록 장치 바운스 버퍼에 사용된 메모리"
 
 msgid "Memory used by FUSE for temporary writeback buffers"
-msgstr ""
+msgstr "FUSE에서 임시 쓰기 버퍼에 사용되는 메모리"
 
 msgid "Total memory currently available to be allocated on the system"
-msgstr ""
+msgstr "현재 시스템에서 할당할 수 있는 총 메모리 양"
 
 msgid "The amount of memory presently allocated on the system"
-msgstr ""
+msgstr "현재 시스템에 할당된 메모리 양"
 
 msgid "Total size of vmalloc virtual address space"
-msgstr ""
+msgstr "vmalloc 가상 주소 공간의 총 크기"
 
 msgid "Amount of vmalloc area which is used"
-msgstr ""
+msgstr "사용 중인 vmalloc 영역의 크기"
 
 msgid "Largest contiguous block of vmalloc area which is free"
-msgstr ""
+msgstr "현재 사용 가능한 가장 큰 연속된 vmalloc 영역"
 
 msgid "Memory allocated to the percpu allocator"
-msgstr ""
+msgstr "각 CPU에 할당된 메모리"
 
 msgid "Amount of memory the kernel identifies as corrupted"
-msgstr ""
+msgstr "커널이 손상된 것으로 식별하는 메모리 양"
 
 msgid "Non-file backed huge pages mapped into userspace page tables"
-msgstr ""
+msgstr "파일 기반이 아닌 거대 페이지를 사용자 공간 페이지 테이블에 매핑"
 
 msgid "Memory used by shmem and tmpfs allocated with huge pages"
-msgstr ""
+msgstr "대용량 페이지를 사용하여 할당된 shmem 및 tmpfs에서 사용된 메모리"
 
 msgid "Shared memory mapped into userspace with huge pages"
-msgstr ""
+msgstr "대용량 페이지를 사용하여 사용자 공간에 매핑된 공유 메모리"
 
 msgid "Memory used for fs data (page cache) allocated with huge pages"
 msgstr ""
+"파일 시스템 데이터(페이지 캐시)에 사용되는 메모리는 대용량 페이지를 사용하여 "
+"할당되었습니다"
 
 msgid "Page cache mapped into userspace with huge pages"
-msgstr ""
+msgstr "페이지 캐시를 거대한 페이지를 사용하여 사용자 공간에 매핑"
 
 msgid "Memory reserved for the Contiguous Memory Allocator (CMA)"
-msgstr ""
+msgstr "연속 메모리 할당자(CMA)를 위해 예약된 메모리"
 
 msgid "Free remaining memory in the CMA reserves"
-msgstr ""
+msgstr "CMA 예약 공간에 남아 있는 메모리를 해제합니다"
 
 msgid "Amount of unaccepted memory usable by the kernel"
-msgstr ""
+msgstr "커널에서 사용할 수 있는, 할당되지 않은 메모리의 양"
 
 msgid "Size of the pool of huge pages"
-msgstr ""
+msgstr "대용량 페이지 풀의 크기"
 
 msgid "Number of huge pages available"
-msgstr ""
+msgstr "사용 가능한 대용량 페이지 수"
 
 msgid "Number of huge pages reserved"
-msgstr ""
+msgstr "예약된 대용량 페이지 수"
 
 msgid "Number of huge pages surplus"
-msgstr ""
+msgstr "대용량 페이지의 여유 용량"
 
 msgid "Huge page size, used in conjunction with hugepages parameter"
-msgstr ""
+msgstr "매우 큰 페이지 크기, hugepages 매개변수와 함께 사용됨"
 
 msgid "Total amount of memory consumed by huge pages of all sizes"
-msgstr ""
+msgstr "모든 크기의 거대 페이지가 사용하는 총 메모리 양"
 
 msgid "Breakdown of page table sizes of 4k size"
-msgstr ""
+msgstr "4KB 크기의 페이지 테이블 크기 분석"
 
 msgid "Breakdown of page table sizes of 2M size"
-msgstr ""
+msgstr "2MB 크기의 페이지 테이블 크기 분석"
 
 msgid "Breakdown of page table sizes of 1G size"
-msgstr ""
+msgstr "1GB 크기의 페이지 테이블 크기 분석"
 
 msgid "Update kernel module icon table"
-msgstr ""
+msgstr "커널 모듈 아이콘 테이블 업데이트"
 
 msgid "(Not available)"
 msgstr "(사용할 수 없습니다)"
@@ -1790,10 +1838,10 @@ msgid "Used Memory"
 msgstr "사용한 메모리"
 
 msgid "Version Magic"
-msgstr ""
+msgstr "버전 매직"
 
 msgid "In Linus' Tree"
-msgstr ""
+msgstr "리누스의 나무 속에서"
 
 msgid "Retpoline Enabled"
 msgstr "리트폴린 활성화"
@@ -1814,13 +1862,13 @@ msgid "GNU C Library"
 msgstr "GNU C 라이브러리"
 
 msgid "musl C Library"
-msgstr ""
+msgstr "musl C 라이브러리"
 
 msgid "uClibc or uClibc-ng"
 msgstr "uClibc 또는 uClibc-ng"
 
 msgid "diet libc"
-msgstr ""
+msgstr "다이어트 libc"
 
 msgid "GNOME Shell "
 msgstr "그놈 쉘 "
@@ -1887,11 +1935,11 @@ msgid "Enabled"
 msgstr "활성화됨"
 
 msgid "Not built with Landlock support"
-msgstr ""
+msgstr "Landlock 기능을 지원하도록 제작되지 않음"
 
 #, c-format
 msgid "Version %d"
-msgstr ""
+msgstr "버전 %d"
 
 msgid "User Information"
 msgstr "사용자 정보"
@@ -1909,7 +1957,7 @@ msgid "Frequency"
 msgstr "주파수"
 
 msgid "BogoMips"
-msgstr ""
+msgstr "보고밉스"
 
 msgid "Byte Order"
 msgstr "바이트 순서"
@@ -1972,7 +2020,7 @@ msgstr "MaverickCrunch 보조 프로세서(커널 지원이 활성화된 경우)
 #. !/flag:thumbee
 msgctxt "arm-flag"
 msgid "ThumbEE"
-msgstr ""
+msgstr "썸비"
 
 #. !/flag:neon
 msgctxt "arm-flag"
@@ -2052,7 +2100,7 @@ msgstr "CRC32 체크섬 명령어(arch>=8)"
 #. !/flag:fp
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서의 부동 소수점 연산"
 
 #. !/flag:asimd
 msgctxt "arm-flag"
@@ -2062,77 +2110,80 @@ msgstr "AArch64의 고급 SIMD/NEON(arch>=8)"
 #. !/flag:atomics
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 사용되는 원자적 명령어"
 
 #. !/flag:fphp
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 반정밀 부동 소수점 연산"
 
 #. !/flag:asimdhp
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64에서 BFloat16을 사용하는 고급 SIMD (arch>=8)"
 
 #. !/flag:cpuid
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64(arch>=8)에서 CPU 기능을 확인할 수 있습니다"
 
 #. !/flag:asimdrdm
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
 msgstr ""
+"AArch64에서 고급 SIMD를 사용하여 부동 소수점 배정밀도 곱셈-누적 연산 수행 "
+"(arch>=8)"
 
 #. !/flag:jscvt
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64(arch>=8)에서 JacaScript 변환"
 
 #. !/flag:fcma
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 복소수 SIMD 연산"
 
 #. !/flag:lrcpc
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64(아키텍처 버전 8 이상)에서 약한 릴리스 일관성 문제 발생"
 
 #. !/flag:dcpop
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64(arch>=8)에서 데이터 캐시를 영구 저장 지점까지 정리합니다"
 
 #. !/flag:sha3
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 SHA-3 명령어 사용법"
 
 #. !/flag:sm3
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 사용되는 SM3 명령어"
 
 #. !/flag:sm4
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 사용되는 SM4 명령어"
 
 #. !/flag:asimddp
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 SIMD 내적 연산"
 
 #. !/flag:sha512
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
-msgstr ""
+msgstr "AArch64 아키텍처(arch>=8)에서 SHA512 명령어 사용"
 
 #. !/flag:sve
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
 msgstr ""
+"AArch64 아키텍처(arch>=8)에서 사용할 수 있는 확장 가능한 벡터 확장 기능"
 
 msgid "Cache information not available=\n"
 msgstr "캐시 정보를 사용할 수 없음=\n"
@@ -2171,7 +2222,7 @@ msgid "Mode"
 msgstr "모드"
 
 msgid "ARM"
-msgstr ""
+msgstr "ARM"
 
 msgid "Implementer"
 msgstr "구현자"
@@ -2226,6 +2277,12 @@ msgid ""
 "Voltage now=%.3f V\n"
 "Voltage max design=%.3f V\n"
 msgstr ""
+"\n"
+"[AC 전원 공급 장치: %s]\n"
+"온라인 상태=%s\n"
+"AC 전원 유형=%s\n"
+"현재 전압=%.3f V\n"
+"최대 설계 전압=%.3f V\n"
 
 #, c-format
 msgid ""
@@ -2234,6 +2291,10 @@ msgid ""
 "Online=%s\n"
 "AC Power Type=%s\n"
 msgstr ""
+"\n"
+"[AC 전원 공급 장치: %s]\n"
+"온라인 상태=%s\n"
+"AC 전원 유형=%s\n"
 
 #, c-format
 msgid ""
@@ -2254,6 +2315,22 @@ msgid ""
 "Model Number=%s\n"
 "Serial Number=%s\n"
 msgstr ""
+"\n"
+"[배터리: %s]\n"
+"상태=%s\n"
+"용량=%s%% / %s\n"
+"배터리 사용량=%.0f W\n"
+"남은 시간=%02dh %02dm\n"
+"배터리 상태=%.0f%%\n"
+"설계 최대 에너지=%.3f Wh\n"
+"현재 최대 에너지=%.3f Wh\n"
+"설계 최대 용량=%.3f Ah\n"
+"현재 최대 용량=%.3f Ah\n"
+"전압 설계=%.3f V\n"
+"배터리 기술=%s\n"
+"제조사=%s\n"
+"모델 번호=%s\n"
+"일련 번호=%s\n"
 
 #, c-format
 msgid ""
@@ -2330,16 +2407,16 @@ msgid "Resources"
 msgstr "자원"
 
 msgid "Released"
-msgstr ""
+msgstr "출시됨"
 
 msgid "Release Date"
-msgstr ""
+msgstr "출시일"
 
 msgid "Distro and CPU Supported Profiles"
-msgstr ""
+msgstr "지원되는 배포판 및 CPU 프로필"
 
 msgid "WSL2"
-msgstr ""
+msgstr "WSL2"
 
 msgid "Sensor"
 msgstr "센서"
@@ -2351,7 +2428,7 @@ msgid "Devices"
 msgstr "장치"
 
 msgid "Update CPU database"
-msgstr ""
+msgstr "CPU 데이터베이스 업데이트"
 
 msgid "Update PCI ID listing"
 msgstr "PCI ID 목록 업데이트"
@@ -2384,26 +2461,33 @@ msgid ""
 "Ensure hardinfo2 service is enabled+started: sudo systemctl enable hardinfo2 "
 "--now (systemd distro)"
 msgstr ""
+"hardinfo2 서비스가 활성화되고 실행 중인지 확인합니다: sudo systemctl enable "
+"hardinfo2 --now (systemd 배포판)"
 
 msgid ""
 "Add yourself to hardinfo2 group:\n"
 "sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"hardinfo2 그룹에 사용자를 추가합니다.\n"
+"sudo usermod -a -G hardinfo2 $USER\n"
+"그룹 변경 사항을 적용하려면 로그아웃하거나 재부팅하세요."
 
 msgid ""
 "Any NVMe storage devices present are not listed.\n"
 "<b><i>udisks2</i></b> is required for NVMe devices."
 msgstr ""
+"현재 연결된 NVMe 저장 장치는 목록에 표시되지 않습니다. NVMe 장치를 사용하려"
+"면 <b><i>udisks2</i></b>가 필요합니다."
 
 msgid "Compatible"
 msgstr "호환 가능"
 
 msgid "Memory Map"
-msgstr ""
+msgstr "메모리 맵"
 
 msgid "IRQ Map"
-msgstr ""
+msgstr "IRQ 매핑"
 
 msgid "Alias Map"
 msgstr "별칭 맵"
@@ -2469,7 +2553,7 @@ msgid "DMI Handles (Array, Socket)"
 msgstr "DMI 핸들(배열, 소켓)"
 
 msgid "Bank Locator"
-msgstr ""
+msgstr "은행 찾기"
 
 msgid "Form Factor"
 msgstr "폼 팩터"
@@ -2481,7 +2565,7 @@ msgid "Rated Speed"
 msgstr "정격 속도"
 
 msgid "Configured Speed"
-msgstr ""
+msgstr "설정된 속도"
 
 msgid "Data Width/Total Width"
 msgstr "데이터 너비/총 너비"
@@ -2496,7 +2580,7 @@ msgid "Maximum Voltage"
 msgstr "최대 전압"
 
 msgid "Configured Voltage"
-msgstr ""
+msgstr "설정된 전압"
 
 msgid "(Empty)"
 msgstr "(비어 있는)"
@@ -2505,21 +2589,23 @@ msgid "Serial Presence Detect (SPD) Summary"
 msgstr "직렬 프레즌스 검출(SPD) 요약"
 
 msgid "(Not available - See hint box below)"
-msgstr ""
+msgstr "(제공되지 않음 - 아래 힌트 상자 참조)"
 
 msgid "No DMI available"
-msgstr ""
+msgstr "DMI 정보 없음"
 
 msgid "<b><i>dmidecode</i></b> package installed"
-msgstr ""
+msgstr "`<b><i>dmidecode</i></b>` 패키지가 설치되었습니다"
 
 msgid ""
 "Add yourself to hardinfo2 group: sudo usermod -a -G hardinfo2 $USER\n"
 "Logout/Reboot for groups to be updated..."
 msgstr ""
+"hardinfo2 그룹에 사용자를 추가합니다: sudo usermod -a -G hardinfo2 $USER\n"
+"그룹 변경 사항을 적용하려면 로그아웃하거나 재부팅하세요."
 
 msgid "Memory Information requires more Setup:"
-msgstr ""
+msgstr "메모리 정보에는 추가 설정이 필요합니다"
 
 msgid ""
 "\"More often than not, information contained in the DMI tables is "
@@ -2545,10 +2631,10 @@ msgid "Device cannot be removed easily"
 msgstr "장치를 쉽게 제거할 수 없음"
 
 msgid "Device is updatable in this or any other mode"
-msgstr "이 모드 또는 다른 모드에서 장치를 업데이트할 수 있습니다."
+msgstr "이 모드 또는 다른 모드에서 장치를 업데이트할 수 있습니다"
 
 msgid "Update can only be done from offline mode"
-msgstr "업데이트는 오프라인 모드에서만 수행할 수 있습니다."
+msgstr "업데이트는 오프라인 모드에서만 수행할 수 있습니다"
 
 msgid "Requires AC power"
 msgstr "AC 전원 필요"
@@ -2560,46 +2646,46 @@ msgid "Is found in current metadata"
 msgstr "현재 메타데이터에서 발견됨"
 
 msgid "Requires a bootloader mode to be manually enabled by the user"
-msgstr "사용자가 수동으로 활성화하려면 부트로더 모드가 필요합니다."
+msgstr "사용자가 수동으로 활성화하려면 부트로더 모드가 필요합니다"
 
 msgid "Has been registered with other plugins"
-msgstr "다른 플러그인에 등록되었습니다."
+msgstr "다른 플러그인에 등록되었습니다"
 
 msgid "Requires a reboot to apply firmware or to reload hardware"
-msgstr "펌웨어를 적용하거나 하드웨어를 다시 로드하려면 재부팅해야 합니다."
+msgstr "펌웨어를 적용하거나 하드웨어를 다시 로드하려면 재부팅해야 합니다"
 
 msgid "Requires system shutdown to apply firmware"
-msgstr "펌웨어를 적용하려면 시스템을 종료해야 합니다."
+msgstr "펌웨어를 적용하려면 시스템을 종료해야 합니다"
 
 msgid "Has been reported to a metadata server"
-msgstr "메타데이터 서버에 보고되었습니다."
+msgstr "메타데이터 서버에 보고되었습니다"
 
 msgid "User has been notified"
-msgstr "사용자에게 알림이 전송되었습니다."
+msgstr "사용자에게 알림이 전송되었습니다"
 
 msgid "Always use the runtime version rather than the bootloader"
-msgstr "항상 부트로더보다 런타임 버전을 사용하십시오."
+msgstr "항상 부트로더보다 런타임 버전을 사용하십시오"
 
 msgid "Install composite firmware on the parent before the child"
 msgstr "하위보다 먼저 상위에 복합 펌웨어 설치"
 
 msgid "Is currently in bootloader mode"
-msgstr "현재 부트로더 모드에 있습니다."
+msgstr "현재 부트로더 모드에 있습니다"
 
 msgid "The hardware is waiting to be replugged"
-msgstr "하드웨어가 다시 연결되기를 기다리고 있습니다."
+msgstr "하드웨어가 다시 연결되기를 기다리고 있습니다"
 
 msgid "Ignore validation safety checks when flashing this device"
-msgstr "이 장치를 플래싱할 때 유효성 검사 안전 확인을 무시합니다."
+msgstr "이 장치를 플래싱할 때 유효성 검사 안전 확인을 무시합니다"
 
 msgid "Requires the update to be retried with a new plugin"
-msgstr "새 플러그인으로 업데이트를 다시 시도해야 합니다."
+msgstr "새 플러그인으로 업데이트를 다시 시도해야 합니다"
 
 msgid "Do not add instance IDs from the device baseclass"
-msgstr "장치 기본 클래스에서 인스턴스 ID를 추가하지 마십시오."
+msgstr "장치 기본 클래스에서 인스턴스 ID를 추가하지 마십시오"
 
 msgid "Device update needs to be separately activated"
-msgstr "기기 업데이트는 별도로 활성화해야 합니다."
+msgstr "기기 업데이트는 별도로 활성화해야 합니다"
 
 msgid ""
 "Ensure the version is a valid semantic version, e.g. numbers separated with "
@@ -2607,7 +2693,7 @@ msgid ""
 msgstr "버전이 유효한 의미 버전인지 확인하십시오. 예. 점으로 구분된 숫자"
 
 msgid "Extra metadata can be exposed about this device"
-msgstr "이 기기에 대한 추가 메타데이터가 노출될 수 있습니다."
+msgstr "이 기기에 대한 추가 메타데이터가 노출될 수 있습니다"
 
 msgid "DeviceId"
 msgstr "장치ID"
@@ -2649,10 +2735,10 @@ msgid "Requires the <i><b>fwupd</b></i> daemon."
 msgstr "<i><b>fwupd</b></i> 데몬이 필요합니다."
 
 msgid "SVendor"
-msgstr ""
+msgstr "SVendor"
 
 msgid "SDevice"
-msgstr ""
+msgstr "SDevice"
 
 msgid "PCI Express"
 msgstr "PCI 익스프레스"
@@ -2667,7 +2753,7 @@ msgid "GT/s"
 msgstr "GT/s"
 
 msgid "NVIDIA"
-msgstr ""
+msgstr "엔비디아"
 
 msgid "BIOS Version"
 msgstr "BIOS 버전"
@@ -2697,10 +2783,10 @@ msgid "clock-frequency property"
 msgstr "클럭 주파수 속성"
 
 msgid "Operating Points (OPPv1)"
-msgstr ""
+msgstr "운영 지점(OPPv1)"
 
 msgid "Operating Points (OPPv2)"
-msgstr ""
+msgstr "운영 지점(OPPv2)"
 
 msgid "Device Tree Node"
 msgstr "장치 트리 노드"
@@ -2709,10 +2795,10 @@ msgid "Status"
 msgstr "상태"
 
 msgid "GPUs"
-msgstr ""
+msgstr "GPU"
 
 msgid "No GPU devices found"
-msgstr "GPU 장치를 찾을 수 없습니다."
+msgstr "GPU 장치를 찾을 수 없습니다"
 
 msgid "IA64 Processor"
 msgstr "IA64 프로세서"
@@ -2739,7 +2825,7 @@ msgid "System Type"
 msgstr "시스템 유형"
 
 msgid "BogoMIPS"
-msgstr ""
+msgstr "보고MIPS"
 
 msgid "MMU"
 msgstr "MMU"
@@ -2984,39 +3070,39 @@ msgstr "벡터 연산"
 
 msgctxt "rv-ext"
 msgid "Scalar Cryptography"
-msgstr ""
+msgstr "스칼라 암호화"
 
 msgctxt "rv-ext"
 msgid "Base Counters and Timers"
-msgstr ""
+msgstr "기본 카운터 및 타이머"
 
 msgctxt "rv-ext"
 msgid "Control and Status Register"
-msgstr ""
+msgstr "제어 및 상태 레지스터"
 
 msgctxt "rv-ext"
 msgid "Instruction-Fetch Fence"
-msgstr ""
+msgstr "명령어 인출 보호 장치"
 
 msgctxt "rv-ext"
 msgid "Hardware performance counters"
-msgstr ""
+msgstr "하드웨어 성능 카운터"
 
 msgctxt "rv-ext"
 msgid "Accell Index addresses"
-msgstr ""
+msgstr "아셀 인덱스는 주소를 다룹니다"
 
 msgctxt "rv-ext"
 msgid "Basic bit-manipulation"
-msgstr ""
+msgstr "기본적인 비트 조작"
 
 msgctxt "rv-ext"
 msgid "Supervisor-level Instructions"
-msgstr ""
+msgstr "감독관 수준의 지침"
 
 msgctxt "rv-ext"
 msgid "User Mode"
-msgstr ""
+msgstr "사용자 모드"
 
 msgctxt "rv-ext"
 msgid "Transactional memory"
@@ -3054,7 +3140,7 @@ msgid "Module Frequency"
 msgstr "모듈 주파수"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "미지정"
 
 msgid "Invalid"
 msgstr "유효하지 않은"
@@ -3099,7 +3185,7 @@ msgid "Die count"
 msgstr "다이 카운트"
 
 msgid "Thermal Sensor"
-msgstr ""
+msgstr "열 감지 센서"
 
 msgid "Present"
 msgstr "존재"
@@ -3138,7 +3224,7 @@ msgid "DRAM Vendor"
 msgstr "DRAM 공급업체"
 
 msgid "Manufacturing Date (Year / Week)"
-msgstr ""
+msgstr "제조일자 (년/주)"
 
 msgid "NVMe Controller"
 msgstr "NVMe 컨트롤러"
@@ -3258,7 +3344,7 @@ msgid "Load/Unload Retry Count"
 msgstr "로드/언로드 재시도 횟수"
 
 msgid "Load Friction"
-msgstr ""
+msgstr "하중 마찰"
 
 msgid "Load/Unload Cycle Count"
 msgstr "로드/언로드 주기 수"
@@ -3328,7 +3414,7 @@ msgstr ""
 "[UDisks2]\n"
 
 msgid "Removable"
-msgstr ""
+msgstr "분리 가능한"
 
 msgid "Fixed"
 msgstr "고정된"
@@ -3403,18 +3489,18 @@ msgid "IEEE OUI"
 msgstr "IEEE OUI"
 
 msgid "Lifetime exceeded"
-msgstr ""
+msgstr "최대 사용 횟수를 초과했습니다"
 
 msgid "Normal"
-msgstr ""
+msgstr "정상"
 
 #, c-format
 msgid "Warning >80%% used"
-msgstr ""
+msgstr "경고: 사용량 80%% 초과"
 
 #, c-format
 msgid "Failing >90%% used"
-msgstr ""
+msgstr "90%% 이상 사용 시 오류 발생"
 
 #, c-format
 msgid ""
@@ -3424,15 +3510,25 @@ msgid ""
 "MLC Flash Status=%s\n"
 "Pre EOL Status=%s\n"
 msgstr ""
+"[자가 모니터링 ExtCSD]\n"
+"생산 날짜=%s\n"
+"SLC 플래시 상태=%s\n"
+"MLC 플래시 상태=%s\n"
+"EOL 예상 상태=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
-"[자체 모니터링(S.M.A.R.T.)]\n"
+"[자가 모니터링(S.M.A.R.T.)]\n"
 "상태=%s\n"
-"불량 섹터=%"
+"불량 섹터=%lld\n"
+"전원 켜진 시간=%lld일 %lld시간\n"
+"온도=%d°C\n"
 
 msgid "Failing"
 msgstr "실패"
@@ -3444,6 +3540,8 @@ msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
+"[S.M.A.R.T. 속성]\n"
+"속성=<tt>값</tt>\n"
 
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
@@ -3452,13 +3550,14 @@ msgstr ""
 "[S.M.A.R.T. 속성]\n"
 "속성=<tt>값/정규화/최저값/임계값</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] "%"
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld 섹터"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
-msgstr ""
+msgstr "%s=%s\n"
 
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
@@ -3569,7 +3668,7 @@ msgid "Max Current"
 msgstr "최대 전류"
 
 msgid "mA"
-msgstr ""
+msgstr "밀리암페어"
 
 msgid "USB Version"
 msgstr "USB 버전"
@@ -3856,7 +3955,7 @@ msgstr "Cyrix ARR (= MTRR)"
 #. !/flag:centaur_mcr
 msgctxt "x86-flag"
 msgid "Centaur MCRs (= MTRRs)"
-msgstr ""
+msgstr "센타우르 MCR(메모리 제어 레지스터) (= MTRR)"
 
 #. !/flag:constant_tsc
 msgctxt "x86-flag"
@@ -3891,7 +3990,7 @@ msgstr "브랜치 트레이스 스토어"
 #. !/flag:rep_good
 msgctxt "x86-flag"
 msgid "rep microcode works well"
-msgstr "rep 마이크로코드가 잘 작동합니다."
+msgstr "rep 마이크로코드가 잘 작동합니다"
 
 #. !/flag:acc_power
 msgctxt "x86-flag"
@@ -3911,22 +4010,22 @@ msgstr "CPU 토폴로지 열거형 확장"
 #. !/flag:tsc_reliable
 msgctxt "x86-flag"
 msgid "TSC is known to be reliable"
-msgstr "TSC는 신뢰할 수 있는 것으로 알려져 있습니다."
+msgstr "TSC는 신뢰할 수 있는 것으로 알려져 있습니다"
 
 #. !/flag:nonstop_tsc
 msgctxt "x86-flag"
 msgid "TSC does not stop in C states"
-msgstr "TSC는 C 상태에서 멈추지 않습니다."
+msgstr "TSC는 C 상태에서 멈추지 않습니다"
 
 #. !/flag:cpuid
 msgctxt "x86-flag"
 msgid "CPU has CPUID instruction itself"
-msgstr ""
+msgstr "CPU에는 자체 CPUID 명령어가 있습니다"
 
 #. !/flag:extd_apicid
 msgctxt "x86-flag"
 msgid "has extended APICID (8 bits)"
-msgstr "확장 APICID(8비트)가 있습니다."
+msgstr "확장 APICID(8비트)가 있습니다"
 
 #. !/flag:amd_dcm
 msgctxt "x86-flag"
@@ -3946,17 +4045,17 @@ msgstr "비 지연 FPU 복원"
 #. !/flag:nonstop_tsc_s3
 msgctxt "x86-flag"
 msgid "TSC doesn't stop in S3 state"
-msgstr "TSC는 S3 상태에서 멈추지 않습니다."
+msgstr "TSC는 S3 상태에서 멈추지 않습니다"
 
 #. !/flag:tsc_known_freq
 msgctxt "x86-flag"
 msgid "TSC has known frequency"
-msgstr ""
+msgstr "TSC는 알려진 주파수를 가지고 있습니다"
 
 #. !/flag:mce_recovery
 msgctxt "x86-flag"
 msgid "CPU has recoverable machine checks"
-msgstr "CPU에는 복구 가능한 머신 검사가 있습니다."
+msgstr "CPU에는 복구 가능한 머신 검사가 있습니다"
 
 #. !/flag:pni
 msgctxt "x86-flag"
@@ -3968,7 +4067,7 @@ msgctxt "x86-flag"
 msgid ""
 "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
 "for GCM)"
-msgstr ""
+msgstr "쿼드워드 곱셈 연산(GCM 가속을 위한 연산)을 수행합니다"
 
 #. !/flag:dtes64
 msgctxt "x86-flag"
@@ -4003,7 +4102,7 @@ msgstr "향상된 스피드스텝"
 #. !/flag:tm2
 msgctxt "x86-flag"
 msgid "Thermal Monitor 2"
-msgstr ""
+msgstr "열 감지 장치 2"
 
 #. !/flag:ssse3
 msgctxt "x86-flag"
@@ -4084,7 +4183,7 @@ msgstr "Tsc 마감 타이머"
 #. !/flag:aes
 msgctxt "x86-flag"
 msgid "Advanced Encryption Standard"
-msgstr ""
+msgstr "고급 암호화 표준"
 
 #. !/flag:aes-ni
 msgctxt "x86-flag"
@@ -4207,6 +4306,8 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
+"특정 레거시 SSE 명령어가 정렬되지 않은 데이터에 대해 작동할 때 GP 예외가 발생"
+"하는지 여부를 나타냅니다"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
@@ -4305,7 +4406,7 @@ msgstr "MWAIT 확장(MONITORX/MWAITX)"
 #. !/flag:cpb
 msgctxt "x86-flag"
 msgid "Intel CPUID Faulting"
-msgstr ""
+msgstr "인텔 CPUID 오류 발생"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
@@ -4335,37 +4436,37 @@ msgstr "인텔 프로세서 추적"
 #. !/flag:pti
 msgctxt "x86-flag"
 msgid "Kernel PAge Table Isolation Enabled"
-msgstr ""
+msgstr "커널 페이지 테이블 격리 기능 활성화됨"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Set/clear IBRS on kernel entry/exit"
-msgstr ""
+msgstr "커널 진입/종료 시 IBRS 설정/해제"
 
 #. !/flag:ssbd
 msgctxt "x86-flag"
 msgid "Speculative Store Bypass Disable"
-msgstr ""
+msgstr "추측 기반 스토어 우회 비활성화"
 
 #. !/flag:ibrs
 msgctxt "x86-flag"
 msgid "Indirect Branch Restricted Speculation"
-msgstr ""
+msgstr "간접 지점 제한적 투기"
 
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
+msgstr "RSB 플러시가 보장되지 않는 간접 분기 예측 방지 메커니즘"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
 msgid "Single Thread Indirect Branch Predictors"
-msgstr ""
+msgstr "단일 스레드 간접 분기 예측기"
 
 #. !/flag:ibrs_enhanced
 msgctxt "x86-flag"
 msgid "Enhanced IBRS"
-msgstr ""
+msgstr "향상된 IBRS"
 
 #. !/flag:tpr_shadow
 msgctxt "x86-flag"
@@ -4400,12 +4501,12 @@ msgstr "VMCALL보다 VMMCALL 선호"
 #. !/flag:ept_ad
 msgctxt "x86-flag"
 msgid "Intel Extended Page Table access-dirty bit"
-msgstr ""
+msgstr "인텔 확장 페이지 테이블 접근-더티 비트"
 
 #. !/flag:avx512_bf16
 msgctxt "x86-flag"
 msgid "AVX512 BFLOAT16 instructions"
-msgstr ""
+msgstr "AVX512 BFLOAT16 명령어"
 
 #. !/flag:fsgsbase
 msgctxt "x86-flag"
@@ -4420,7 +4521,7 @@ msgstr "TSC 조정 MSR"
 #. !/flag:sgx
 msgctxt "x86-flag"
 msgid "Software Guard Extensions"
-msgstr ""
+msgstr "소프트웨어 가드 확장 기능"
 
 #. !/flag:bmi1
 msgctxt "x86-flag"
@@ -4460,7 +4561,7 @@ msgstr "프로세서 컨텍스트 ID 무효화"
 #. !/flag:invpcid_single
 msgctxt "x86-flag"
 msgid "Invalidate Processor Context ID (Single)"
-msgstr ""
+msgstr "프로세서 컨텍스트 ID 무효화 (단일)"
 
 #. !/flag:rtm
 msgctxt "x86-flag"
@@ -4505,7 +4606,7 @@ msgstr "감독자 모드 접근 방지"
 #. !/flag:avx512ifma
 msgctxt "x86-flag"
 msgid "AVX-512 Integer Fused Multiply-Add instructions"
-msgstr ""
+msgstr "AVX-512 정수형 융합 곱셈-덧셈 명령어"
 
 #. !/flag:clflushopt
 msgctxt "x86-flag"
@@ -4550,17 +4651,17 @@ msgstr "AVX-512 128/256 벡터 길이 확장"
 #. !/flag:md_clear
 msgctxt "x86-flag"
 msgid "VERW clears CPU buffers"
-msgstr ""
+msgstr "VERW는 CPU 버퍼를 지웁니다"
 
 #. !/flag:flush_l1d
 msgctxt "x86-flag"
 msgid "Flush L1D cache"
-msgstr ""
+msgstr "L1D 캐시 비우기"
 
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr ""
+msgstr "IA32_ARCH_CAPABILITIES MSR(인텔)"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
@@ -4570,7 +4671,7 @@ msgstr "최적화된 XSAVE"
 #. !/flag:xsavec
 msgctxt "x86-flag"
 msgid "XSAVEC"
-msgstr ""
+msgstr "XSAVEC"
 
 #. !/flag:xgetbv1
 msgctxt "x86-flag"
@@ -4605,7 +4706,7 @@ msgstr "LLC 로컬 MBM 모니터링"
 #. !/flag:split_lock_detect
 msgctxt "x86-flag"
 msgid "AC for split lock"
-msgstr ""
+msgstr "분리형 잠금장치용 AC"
 
 #. !/flag:clzero
 msgctxt "x86-flag"
@@ -4620,17 +4721,17 @@ msgstr "지침 폐기된 성능 카운터"
 #. !/flag:xsaveerptr
 msgctxt "x86-flag"
 msgid "Always save/restore FP error pointers"
-msgstr ""
+msgstr "FP 오류 포인터를 항상 저장/복원하세요"
 
 #. !/flag:wbnoinvd
 msgctxt "x86-flag"
 msgid "WBNOINVD instruction"
-msgstr ""
+msgstr "WBNOINVD 명령어"
 
 #. !/flag:dtherm
 msgctxt "x86-flag"
 msgid "digital thermal sensor"
-msgstr ""
+msgstr "디지털 열 감지 센서"
 
 #. !/flag:ida
 msgctxt "x86-flag"
@@ -4650,7 +4751,7 @@ msgstr "인텔 전력 제한 알림"
 #. !/flag:pts
 msgctxt "x86-flag"
 msgid "Intel Package Thermal Status"
-msgstr ""
+msgstr "인텔 패키지 열 상태"
 
 #. !/flag:hwp
 msgctxt "x86-flag"
@@ -4735,17 +4836,17 @@ msgstr "가상 인터럽트 컨트롤러"
 #. !/flag:v_vmsave_vmload
 msgctxt "x86-flag"
 msgid "Virtual VMSAVE VMLOAD"
-msgstr ""
+msgstr "가상 VMSAVE, VMLOAD"
 
 #. !/flag:avx512vbmi
 msgctxt "x86-flag"
 msgid "AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "AVX512 벡터 비트 조작 명령어"
 
 #. !/flag:umip
 msgctxt "x86-flag"
 msgid "User Mode Instruction Protection"
-msgstr ""
+msgstr "사용자 모드 명령어 보호"
 
 #. !/flag:pku
 msgctxt "x86-flag"
@@ -4760,47 +4861,47 @@ msgstr "OS 보호 키 활성화"
 #. !/flag:avx512_vbmi2
 msgctxt "x86-flag"
 msgid "Additional AVX512 Vector Bit Manipulation instructions"
-msgstr ""
+msgstr "추가적인 AVX512 벡터 비트 조작 명령어"
 
 #. !/flag:gfni
 msgctxt "x86-flag"
 msgid "Galois Field New instructions"
-msgstr ""
+msgstr "갈루아 필드 관련 새로운 명령어"
 
 #. !/flag:vaes
 msgctxt "x86-flag"
 msgid "Vector AES"
-msgstr ""
+msgstr "벡터 AES"
 
 #. !/flag:vpclmulqdq
 msgctxt "x86-flag"
 msgid "Carry-Less Multiplication Double QuadWord"
-msgstr ""
+msgstr "자리 올림이 없는 곱셈, 2배, 쿼드워드"
 
 #. !/flag:avx512_vnni
 msgctxt "x86-flag"
 msgid "Vector Neural Network Instructions"
-msgstr ""
+msgstr "벡터 신경망 명령어"
 
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr ""
+msgstr "VPOPCNT[B,W] 및 VPSHUF-BITQMB 명령어 지원"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
 msgid "POPCNT for vectors of DW/DQ"
-msgstr ""
+msgstr "DW/DQ 벡터에 대한 POPCNT"
 
 #. !/flag:rdpid
 msgctxt "x86-flag"
 msgid "RDPID instruction"
-msgstr ""
+msgstr "RDPID 명령어"
 
 #. !/flag:sgx_lc
 msgctxt "x86-flag"
 msgid "Software Guard Extensions Launch Control"
-msgstr ""
+msgstr "소프트웨어 가드 확장 기능 실행 제어"
 
 #. !/flag:overflow_recov
 msgctxt "x86-flag"
@@ -4820,7 +4921,7 @@ msgstr "확장 가능한 MCA"
 #. !/flag:fsrm
 msgctxt "x86-flag"
 msgid "Fast Short Rep Mov"
-msgstr ""
+msgstr "빠르고 짧은 반복 운동"
 
 #. !/bug:f00f
 msgctxt "x86-flag"
@@ -4835,18 +4936,18 @@ msgstr "FPU FDIV"
 #. !/bug:coma
 msgctxt "x86-flag"
 msgid "Cyrix 6x86 coma"
-msgstr ""
+msgstr "사이릭스 6x86 코마"
 
 #. !/bug:tlb_mmatch
 msgctxt "x86-flag"
 msgid "AMD Erratum 383"
-msgstr ""
+msgstr "AMD 오류 수정 383"
 
 #. !/bug:apic_c1e
 #. !/bug:amd_e400
 msgctxt "x86-flag"
 msgid "AMD Erratum 400"
-msgstr ""
+msgstr "AMD 오류 수정 400"
 
 #. !/bug:11ap
 msgctxt "x86-flag"
@@ -4866,17 +4967,17 @@ msgstr "AAI65, MONITOR 전에 CLFLUSH 필요"
 #. !/bug:sysret_ss_attrs
 msgctxt "x86-flag"
 msgid "SYSRET doesn't fix up SS attrs"
-msgstr "SYSRET은 SS 속성을 수정하지 않습니다."
+msgstr "SYSRET은 SS 속성을 수정하지 않습니다"
 
 #. !/bug:espfix
 msgctxt "x86-flag"
 msgid "IRET to 16-bit SS corrupts ESP/RSP high bits"
-msgstr "16비트 SS에 대한 IRET는 ESP/RSP 상위 비트를 손상시킵니다."
+msgstr "16비트 SS에 대한 IRET는 ESP/RSP 상위 비트를 손상시킵니다"
 
 #. !/bug:null_seg
 msgctxt "x86-flag"
 msgid "Nulling a selector preserves the base"
-msgstr "선택자를 Null하면 기본이 유지됩니다."
+msgstr "선택자를 Null하면 기본이 유지됩니다"
 
 #. !/bug:swapgs_fence
 msgctxt "x86-flag"
@@ -4892,113 +4993,116 @@ msgstr "원격 CPU를 깨우기 위해 필요한 IPI"
 msgctxt "x86-flag"
 msgid ""
 "CPU is affected by meltdown attack and needs kernel page table isolation"
-msgstr ""
-"CPU는 멜트다운 공격의 영향을 받고 커널 페이지 테이블 격리가 필요합니다."
+msgstr "CPU는 멜트다운 공격의 영향을 받고 커널 페이지 테이블 격리가 필요합니다"
 
 #. !/bug:spectre_v1
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 1 attack with conditional branches"
-msgstr "CPU는 조건부 분기를 사용하는 Spectre 변형 1 공격의 영향을 받습니다."
+msgstr "CPU는 조건부 분기를 사용하는 Spectre 변형 1 공격의 영향을 받습니다"
 
 #. !/bug:spectre_v2
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack with indirect branches"
-msgstr "CPU는 간접 분기를 사용한 Spectre 변형 2 공격의 영향을 받습니다."
+msgstr "CPU는 간접 분기를 사용한 Spectre 변형 2 공격의 영향을 받습니다"
 
 #. !/bug:spec_store_bypass
 msgctxt "x86-flag"
 msgid "CPU is affected by speculative store bypass attack"
-msgstr "CPU는 투기적 저장소 우회 공격의 영향을 받습니다."
+msgstr "CPU는 투기적 저장소 우회 공격의 영향을 받습니다"
 
 #. !/bug:l1tf
 msgctxt "x86-flag"
 msgid "CPU is affected by L1 Terminal Fault"
-msgstr "CPU는 L1 터미널 오류의 영향을 받습니다."
+msgstr "CPU는 L1 터미널 오류의 영향을 받습니다"
 
 #. !/bug:mds
 msgctxt "x86-flag"
 msgid "CPU is affected by Microarchitectual data sampling"
-msgstr ""
+msgstr "CPU는 마이크로 아키텍처 데이터 샘플링의 영향을 받습니다"
 
 #. !/bug:swapgs
 msgctxt "x86-flag"
 msgid "CPU is affected by speculation through SWAPGS"
-msgstr ""
+msgstr "CPU는 SWAPGS를 통해 추측 공격의 영향을 받습니다"
 
 #. !/bug:itlb_multihit
 msgctxt "x86-flag"
 msgid "CPU may incur MCE during certain page attribute changes"
 msgstr ""
+"특정 페이지 속성 변경 시 CPU에서 MCE(Machine Check Exception)가 발생할 수 있"
+"습니다"
 
 #. !/bug:srbds
 msgctxt "x86-flag"
 msgid "CPU may leak RNG bits if not mitigated"
 msgstr ""
+"CPU는 적절한 조치가 취해지지 않으면 난수 생성기(RNG) 비트를 유출할 수 있습니"
+"다"
 
 #. !/bug:mmio_stale_data
 msgctxt "x86-flag"
 msgid "CPU is affected by Proccesor MMIO Stale Data vulnerbilities"
-msgstr ""
+msgstr "CPU는 프로세서 MMIO 스태일 데이터 취약점에 영향을 받습니다"
 
 #. !/bug:mmio_unknown
 msgctxt "x86-flag"
 msgid "MMIO State Data status is unknown"
-msgstr ""
+msgstr "MMIO 상태 데이터 상태는 알 수 없음"
 
 #. !/bug:retbleed
 msgctxt "x86-flag"
 msgid "CPU is affected by RETBleed"
-msgstr ""
+msgstr "CPU는 RETBleed 공격에 취약합니다"
 
 #. !/bug:eibrs_pbrsb
 msgctxt "x86-flag"
 msgid "EIBRS is vulnerable to Post Barrier Address Predictions"
-msgstr ""
+msgstr "EIBRS는 포스트 배리어 주소 예측에 취약합니다"
 
 #. !/bug:gds
 msgctxt "x86-flag"
 msgid "CPU is affected by Gather Data Sampling"
-msgstr ""
+msgstr "CPU는 데이터 샘플링 과정에 영향을 받습니다"
 
 #. !/bug:srso
 msgctxt "x86-flag"
 msgid "AMD BTB untrain RETs"
-msgstr ""
+msgstr "AMD BTB에서 RET를 학습 해제합니다"
 
 #. !/bug:bhi
 msgctxt "x86-flag"
 msgid "CPU is affected by Branch History Injection"
-msgstr ""
+msgstr "CPU는 분기 기록 주입 공격에 취약합니다"
 
 #. !/bug:ibpb_no_ret
 msgctxt "x86-flag"
 msgid "IBPB omits return target predictions"
-msgstr ""
+msgstr "IBPB는 목표 수익률 예측을 생략합니다"
 
 #. !/bug:spectre_v2_user
 msgctxt "x86-flag"
 msgid "CPU is affected by Spectre variant 2 attack between user processes"
-msgstr ""
+msgstr "CPU는 사용자 프로세스 간의 스펙터 변종 2 공격에 영향을 받습니다"
 
 #. !/bug:its
 msgctxt "x86-flag"
 msgid "CPU is affected by Indirect Target Selection"
-msgstr ""
+msgstr "CPU는 간접 대상 선택의 영향을 받습니다"
 
 #. !/bug:its_native_only
 msgctxt "x86-flag"
 msgid "CPU is affected by ITS, VMX is not affected"
-msgstr ""
+msgstr "CPU는 ITS의 영향을 받지만, VMX는 영향을 받지 않습니다"
 
 #. !/bug:tsa
 msgctxt "x86-flag"
 msgid "CPU is affected by Transient Scheduler Attacks"
-msgstr ""
+msgstr "CPU는 일시적인 스케줄러 공격의 영향을 받습니다"
 
 #. !/bug:vmscape
 msgctxt "x86-flag"
 msgid "CPU is affected by VMSCAPE attacks from guests"
-msgstr ""
+msgstr "CPU는 게스트에서 발생하는 VMSCAPE 공격의 영향을 받습니다"
 
 #. !/flag:pm:ts
 msgctxt "x86-flag"
@@ -5018,17 +5122,17 @@ msgstr "전압 ID 제어"
 #. !/flag:pm:ttp
 msgctxt "x86-flag"
 msgid "thermal trip"
-msgstr ""
+msgstr "열 과전류 차단"
 
 #. !/flag:pm:tm
 msgctxt "x86-flag"
 msgid "hardware thermal control"
-msgstr ""
+msgstr "하드웨어 열 제어"
 
 #. !/flag:pm:stc
 msgctxt "x86-flag"
 msgid "software thermal control"
-msgstr ""
+msgstr "소프트웨어 기반 열 제어"
 
 #. !/flag:pm:100mhzsteps
 msgctxt "x86-flag"
@@ -5124,7 +5228,7 @@ msgid "Mask"
 msgstr "마스크"
 
 msgid "Gathers information about this computer's network connection"
-msgstr "이 컴퓨터의 네트워크 연결에 대한 정보를 수집합니다."
+msgstr "이 컴퓨터의 네트워크 연결에 대한 정보를 수집합니다"
 
 msgctxt "wi-op-mode"
 msgid "Auto"
@@ -5312,492 +5416,3 @@ msgstr "브로드캐스트 주소"
 
 msgid "RAM"
 msgstr "램"
-
-#~ msgid "SOC/Package Information"
-#~ msgstr "SOC/패키지 정보"
-
-#~ msgctxt "x86-flag"
-#~ msgid ""
-#~ "indicates if a general-protection exception (#GP) is generated when some "
-#~ "legacy SSE instructions operate on unaligned data. Also depends on CR0 "
-#~ "and Alignment Checking bit"
-#~ msgstr ""
-#~ "일부 레거시 SSE 명령어가 정렬되지 않은 데이터에서 작동할 때 일반 보호 예외"
-#~ "(#GP)가 생성되는지 여부를 나타냅니다. 또한 CR0 및 Alignment Checking 비트"
-#~ "에 따라 다릅니다."
-
-#, c-format
-#~ msgid "Detecting version: %s"
-#~ msgstr "버전 감지 중: %s"
-
-#~ msgid "Properties"
-#~ msgstr "속성"
-
-#~ msgid "Children"
-#~ msgstr "하위"
-
-#~ msgid "Node"
-#~ msgstr "노드"
-
-#~ msgid "Node Path"
-#~ msgstr "노드 경로"
-
-#~ msgid "Alias"
-#~ msgstr "별칭"
-
-#~ msgid "Symbol"
-#~ msgstr "상징"
-
-#~ msgid "Platform"
-#~ msgstr "플랫폼"
-
-#~ msgid "GPU-compatible"
-#~ msgstr "GPU 호환"
-
-#~ msgid "Raspberry Pi or Compatible"
-#~ msgstr "라즈베리 파이 또는 호환 가능"
-
-#~ msgid "RCode"
-#~ msgstr "R코드"
-
-#~ msgid "No revision code available; unable to lookup model details."
-#~ msgstr ""
-#~ "사용 가능한 개정 코드가 없습니다. 모델 세부 정보를 조회할 수 없습니다."
-
-#~ msgid "More"
-#~ msgstr "더"
-
-#~ msgid "Messages"
-#~ msgstr "메시지"
-
-#~ msgid "Apple Power Macintosh"
-#~ msgstr "애플 파워 매킨토시"
-
-#~ msgid "Detected as"
-#~ msgstr "다음으로 감지됨"
-
-#~ msgid "PMAC Flags"
-#~ msgstr "PMAC 플래그"
-
-#~ msgid "L2 Cache"
-#~ msgstr "L2 캐시"
-
-#~ msgid "PMAC Generation"
-#~ msgstr "PMAC 생성"
-
-#~ msgid "Raspberry Pi"
-#~ msgstr "라즈베리 파이"
-
-#~ msgid "Board Name"
-#~ msgstr "보드 이름"
-
-#~ msgid "PCB Revision"
-#~ msgstr "PCB 개정판"
-
-#~ msgid "Introduction"
-#~ msgstr "소개"
-
-#~ msgid "SOC (spec)"
-#~ msgstr "SOC(사양)"
-
-#~ msgid "Memory (spec)"
-#~ msgstr "메모리(사양)"
-
-#~ msgid "Permanent overvolt bit"
-#~ msgstr "영구 과전압 비트"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Set"
-#~ msgstr "설정"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Not set"
-#~ msgstr "설정되지 않음"
-
-#~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "HardInfo2 웹사이트 열기(_O)"
-
-#~ msgid "Loading modules..."
-#~ msgstr "모듈 로드 중..."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in events/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov의 <i><b>sysbench</b></i>가 필요합니다.\n"
-#~ "events/초의 결과입니다. 높을수록 좋습니다."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in MiB/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov의 <i><b>sysbench</b></i>가 필요합니다.\n"
-#~ "MiB/초 단위의 결과입니다. 높을수록 좋습니다."
-
-#~ msgid "Virtual (Unknown)"
-#~ msgstr "가상(알 수 없음)"
-
-#~ msgid "Virtual (hypervisor present)"
-#~ msgstr "가상(하이퍼바이저 있음)"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s / %s\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[배터리: %s]\n"
-#~ "상태=%s\n"
-#~ "용량=%s / %s\n"
-#~ "배터리 기술=%s\n"
-#~ "제조업체=%s\n"
-#~ "모델 번호=%s\n"
-#~ "시리얼넘버=%s\n"
-
-#~ msgid "Resource information requires superuser privileges"
-#~ msgstr "리소스 정보에는 수퍼유저 권한이 필요합니다."
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\", load it?"
-#~ msgstr "모듈 \"%s\"은 모듈 \"%s\"에 종속되어 있습니다. 로드하시겠습니까?"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\"."
-#~ msgstr "모듈 \"%s\"은(는) 모듈 \"%s\"에 종속됩니다."
-
-#~ msgid "_Open..."
-#~ msgstr "열기...(_O)"
-
-#~ msgid "Perl6 (VM)"
-#~ msgstr "펄6(VM)"
-
-#~ msgid "Perl6"
-#~ msgstr "펄6"
-
-#~ msgid "C♯ (mcs)"
-#~ msgstr "C♯ (MC)"
-
-#~ msgid "Spin/Flavor"
-#~ msgstr "스핀/플레이버"
-
-#~ msgid "Manufacturing Date (Week / Year)"
-#~ msgstr "제조일자(주/년)"
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "클립 보드에 복사(_C)"
-
-#~ msgid "Copy to clipboard"
-#~ msgstr "클립 보드에 복사"
-
-#~ msgid "<b><i>dmidecode</i></b> utility available"
-#~ msgstr "<b><i>dmidecode</i></b> 유틸리티 사용 가능"
-
-#~ msgid " ... <i>and</i> HardInfo2 running with superuser privileges"
-#~ msgstr " ... <i>및</i> 수퍼유저 권한으로 실행되는 HardInfo2"
-
-#~ msgid ""
-#~ " <b><i>at24</i></b> (or eeprom) module loaded (for SDR, DDR, DDR2, DDR3)"
-#~ msgstr " <b><i>at24</i></b>(또는 eeprom) 모듈 로드(SDR, DDR, DDR2, DDR3용)"
-
-#~ msgid ""
-#~ " ... <i>or</i> <b><i>ee1004</i></b> module loaded <b>and configured!</b> "
-#~ "(for DDR4)"
-#~ msgstr ""
-#~ " ... <i>또는</i> <b><i>ee1004</i></b> 모듈이 로드되고 <b>구성되었습니다!</"
-#~ "b>(DDR4용)"
-
-#~ msgid "Memory information requires <b>one or both</b> of the following:"
-#~ msgstr "메모리 정보에는 다음 중 <b>하나 또는 둘 다</b>가 필요합니다."
-
-#, c-format
-#~ msgid ""
-#~ "Written by %s\n"
-#~ "Licensed under %s"
-#~ msgstr ""
-#~ "작성자: %s\n"
-#~ "%s에 따라 라이선스가 부여됨"
-
-#, c-format
-#~ msgid "No about information is associated with the %s module."
-#~ msgstr "%s 모듈과 연결된 정보가 없습니다."
-
-#~ msgid "User Note"
-#~ msgstr "사용자 노트"
-
-#~ msgid ""
-#~ "This result is from an old version of HardInfo2. Results might not be "
-#~ "comparable to current version. Some details are missing."
-#~ msgstr ""
-#~ "이 결과는 이전 버전의 HardInfo에서 가져온 것입니다. 결과는 현재 버전과 비"
-#~ "교되지 않을 수 있습니다. 일부 세부정보가 누락되었습니다."
-
-#~ msgid "Total Memory"
-#~ msgstr "총 메모리"
-
-#~ msgid "Free Memory"
-#~ msgstr "여유 메모리"
-
-#~ msgid "Cached Swap"
-#~ msgstr "캐시된 스왑"
-
-#~ msgid "High Memory"
-#~ msgstr "높은 메모리"
-
-#~ msgid "Free High Memory"
-#~ msgstr "무료 대용량 메모리"
-
-#~ msgid "Low Memory"
-#~ msgstr "메모리 부족"
-
-#~ msgid "Free Low Memory"
-#~ msgstr "여유 메모리 부족"
-
-#~ msgid "Virtual Memory"
-#~ msgstr "가상 메모리"
-
-#~ msgid "Free Virtual Memory"
-#~ msgstr "여유 가상 메모리"
-
-#~ msgid "(Not available; Perhaps try running HardInfo2 as root.)"
-#~ msgstr "(사용할 수 없습니다. 하드 정보를 루트로 실행해보십시오.)"
-
-#~ msgid "DMI is not available; Perhaps try running HardInfo2 as root."
-#~ msgstr "DMI를 사용할 수 없습니다. 아마도 HardInfo를 루트로 실행해 보십시오."
-
-#~ msgid "RISC-V Processor"
-#~ msgstr "RISC-V 프로세서"
-
-#~ msgid ""
-#~ "Copyright (C) 2003-%d L. A. F. Pereira. See COPYING for details.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Copyright (C) 2003-%d L. A. F. Pereira. 자세한 내용은 복사를 참조하십시"
-#~ "오.\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "Compile-time options:\n"
-#~ "  Release version:   %s (%s)\n"
-#~ "  BinReloc enabled:  %s\n"
-#~ "  Data prefix:       %s\n"
-#~ "  Library prefix:    %s\n"
-#~ "  Compiled for:      %s\n"
-#~ msgstr ""
-#~ "컴파일 시간 옵션:\n"
-#~ "  릴리스 버전: %s(%s)\n"
-#~ "  BinReloc 활성화됨: %s\n"
-#~ "  데이터 접두사: %s\n"
-#~ "  라이브러리 접두사: %s\n"
-#~ "  컴파일 대상: %s\n"
-
-#~ msgid ""
-#~ "Failed to find runtime data.\n"
-#~ "\n"
-#~ "• Is HardInfo2 correctly installed?\n"
-#~ "• See if %s and %s exists and you have read permission."
-#~ msgstr ""
-#~ "런타임 데이터를 찾지 못했습니다.\n"
-#~ "\n"
-#~ "• HardInfo가 올바르게 설치되어 있습니까?\n"
-#~ "• %s 및 %s이(가) 존재하고 읽기 권한이 있는지 확인합니다."
-
-#~ msgid ""
-#~ "Modules:\n"
-#~ "%-20s %-15s %-12s\n"
-#~ msgstr ""
-#~ "모듈:\n"
-#~ "%-20초 %-15초 %-12초\n"
-
-#~ msgid "File Name"
-#~ msgstr "파일 이름"
-
-#~ msgid "Unknown benchmark ``%s'' or benchmark.so not loaded"
-#~ msgstr ""
-#~ "알 수 없는 벤치마크 ``%s'' 또는 벤치마크.그래서 로드되지 않았습니다."
-
-#~ msgid "run benchmark; requires benchmark.so to be loaded"
-#~ msgstr "실행 벤치마크; 로드하려면 벤치마크.so가 필요합니다"
-
-#~ msgid "note attached to benchmark results"
-#~ msgstr "벤치마크 결과에 첨부된 메모"
-
-#~ msgid "lists modules"
-#~ msgstr "모듈 나열"
-
-#~ msgid "specify module to load"
-#~ msgstr "로드할 모듈 지정"
-
-#~ msgid "automatically load module dependencies"
-#~ msgstr "모듈 종속성을 자동으로 로드"
-
-#~ msgid "run in XML-RPC server mode"
-#~ msgstr "XML-RPC 서버 모드에서 실행"
-
-#~ msgid "- System Profiler and Benchmark tool"
-#~ msgstr "- 시스템 프로파일러 및 벤치마크 도구"
-
-#~ msgid ""
-#~ "No module could be loaded. Check permissions on \"%s\" and try again."
-#~ msgstr ""
-#~ "모듈을 로드할 수 없습니다. \"%s\"에 대한 권한을 확인하고 다시 시도하십시"
-#~ "오."
-
-#~ msgid ""
-#~ "No module could be loaded. Please use hardinfo2 -l to list all available "
-#~ "modules and try again with a valid module list."
-#~ msgstr ""
-#~ "모듈을 로드할 수 없습니다. hardinfo2 -l을 사용하여 사용 가능한 모든 모듈"
-#~ "을 나열하고 유효한 모듈 목록으로 다시 시도하십시오."
-
-#~ msgid "Author:"
-#~ msgstr "원작자:"
-
-#~ msgid "Contributors:"
-#~ msgstr "기여자:"
-
-#~ msgid "Based on work by:"
-#~ msgstr "작업 기준:"
-
-#~ msgid "MD5 implementation by Colin Plumb (see md5.c for details)"
-#~ msgstr "Colin Plumb의 MD5 구현(자세한 내용은 md5.c 참조)"
-
-#~ msgid "SHA1 implementation by Steve Reid (see sha1.c for details)"
-#~ msgstr "Steve Reid의 SHA1 구현(자세한 내용은 sha1.c 참조)"
-
-#~ msgid "Blowfish implementation by Paul Kocher (see blowfich.c for details)"
-#~ msgstr "Paul Kocher의 Blowfish 구현(자세한 내용은 blowfich.c 참조)"
-
-#~ msgid "Raytracing benchmark by John Walker (see fbench.c for details)"
-#~ msgstr "John Walker의 Raytracing 벤치마크(자세한 내용은 fbench.c 참조)"
-
-#~ msgid "FFT benchmark by Scott Robert Ladd (see fftbench.c for details)"
-#~ msgstr "Scott Robert Ladd의 FFT 벤치마크(자세한 내용은 fftbench.c 참조)"
-
-#~ msgid "Some code partly based on x86cpucaps by Osamu Kayasono"
-#~ msgstr "Osamu Kayasono의 x86cpucaps에 부분적으로 기반한 일부 코드"
-
-#~ msgid "Vendor list based on GtkSysInfo by Pissens Sebastien"
-#~ msgstr "Pissen Sebastien의 GtkSysInfo 기반 공급업체 목록"
-
-#~ msgid "DMI support based on code by Stewart Adam"
-#~ msgstr "Stewart Adam의 코드 기반 DMI 지원"
-
-#~ msgid "SCSI support based on code by Pascal F. Martin"
-#~ msgstr "Pascal F. Martin의 코드 기반 SCSI 지원"
-
-#~ msgid "Tango Project"
-#~ msgstr "탱고 프로젝트"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "그놈 프로젝트"
-
-#~ msgid "VMWare, Inc. (USB icon from VMWare Workstation 6)"
-#~ msgstr "VMWare, Inc.(VMWare Workstation 6의 USB 아이콘)"
-
-#~ msgid "epicbard (Fan icon, CC BY-SA 3.0)"
-#~ msgstr "epicbard (팬 아이콘, CC BY-SA 3.0)"
-
-#~ msgid "System information and benchmark tool"
-#~ msgstr "시스템 정보 및 벤치마크 도구"
-
-#~ msgid ""
-#~ "HardInfo2 is free software; you can redistribute it and/or modify it "
-#~ "under the terms of the GNU General Public License as published by the "
-#~ "Free Software Foundation, version 2.\n"
-#~ "\n"
-#~ "This program is distributed in the hope that it will be useful, but "
-#~ "WITHOUT ANY WARRANTY; without even the implied warranty of "
-#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General "
-#~ "Public License for more details.\n"
-#~ "\n"
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program; if not, write to the Free Software Foundation, Inc., "
-#~ "51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
-#~ msgstr ""
-#~ "HardInfo는 무료 소프트웨어입니다. 자유 소프트웨어 재단(Free Software "
-#~ "Foundation) 버전 2에서 발행한 GNU 일반 공중 사용 허가서(GNU General "
-#~ "Public License) 조건에 따라 이를 재배포 및/또는 수정할 수 있습니다.\n"
-#~ "\n"
-#~ "이 프로그램은 유용하기를 바라며 배포되지만 어떠한 보증도 하지 않습니다. 상"
-#~ "품성 또는 특정 목적에의 적합성에 대한 묵시적 보증도 없이. 자세한 내용은 "
-#~ "GNU 일반 공중 사용 허가서를 참조하십시오.\n"
-#~ "\n"
-#~ "이 프로그램과 함께 GNU General Public License 사본을 받았어야 합니다. 그렇"
-#~ "지 않은 경우 Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, "
-#~ "Boston, MA 02110-1301 USA에 문의하십시오."
-
-#~ msgid "translator-credits"
-#~ msgstr "번역가 크레딧"
-
-#~ msgid "_Remote"
-#~ msgstr "원격(_R)"
-
-#~ msgid "About _Modules"
-#~ msgstr "모듈 정보(_M)"
-
-#~ msgid "%s - System Information"
-#~ msgstr "%s - 시스템 정보"
-
-#~ msgid "System Information"
-#~ msgstr "시스템 정보"
-
-#~ msgid ""
-#~ "HardInfo2 was compiled without libsoup support. (Network Updater requires "
-#~ "it.)"
-#~ msgstr ""
-#~ "HardInfo는 libsoup 지원 없이 컴파일되었습니다. (네트워크 업데이터에 필요합"
-#~ "니다.)"
-
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)\n"
-#~ "\n"
-#~ "Details: %s"
-#~ msgstr ""
-#~ "\"%s\"을(를) 수행하는 동안 실패했습니다. 이 문제가 지속되면 버그 보고서를 "
-#~ "제출하십시오. (도움말→버그 신고 옵션을 사용하세요.)\n"
-#~ "\n"
-#~ "세부 정보: %s"
-
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)"
-#~ msgstr ""
-#~ "\"%s\"을(를) 수행하는 동안 실패했습니다. 이 문제가 지속되면 버그 보고서를 "
-#~ "제출하십시오. (도움말→버그 신고 옵션을 사용하세요.)"
-
-#~ msgid ""
-#~ "Benchmarking. Please do not move your mouse\n"
-#~ "or press any keys."
-#~ msgstr "벤치마킹. 마우스를 움직이거나 키를 누르지 마십시오."
-
-#~ msgid "Cancel"
-#~ msgstr "취소"
-
-#~ msgid "FPU Raytracing"
-#~ msgstr "FPU 레이트레이싱"
-
-#~ msgid "SysBench Memory"
-#~ msgstr "SysBench 메모리"
-
-#~ msgid "Results in seconds. Lower is better."
-#~ msgstr "초 단위의 결과입니다. 낮을수록 좋습니다."
-
-#~ msgid ""
-#~ "Any NVMe storage devices present are not listed.\n"
-#~ "<b><i>udisksd</i></b> is required for NVMe devices."
-#~ msgstr ""
-#~ "존재하는 모든 NVMe 스토리지 장치가 나열되지 않습니다.\n"
-#~ "<b><i>udisksd</i></b>는 NVMe 장치에 필요합니다."
-
-#~ msgctxt "x86-flag"
-#~ msgid ""
-#~ "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
-#~ "for GCM"
-#~ msgstr "쿼드워드 명령어의 캐리리스 곱셈 수행 - GCM용 가속기"

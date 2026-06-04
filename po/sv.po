@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the hardinfo2 package.
 # Daniel Nylander <po@danielnylander.se>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 17:13+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: 2025-10-15 16:03+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: \n"
@@ -1328,10 +1327,10 @@ msgid "No"
 msgstr "Nej"
 
 msgid "Maximum Pool Percent"
-msgstr "Maximal poolandel (%)"
+msgstr "Maximal poolandel Procent"
 
 msgid "Accept Threshold Percent"
-msgstr "Accepttröskel (%)"
+msgstr "Accepttröskel Procent"
 
 msgid "Memory Compression (ZSwap/ZRam)"
 msgstr "Minneskomprimering (ZSwap/ZRam)"
@@ -1343,8 +1342,7 @@ msgid "Logo"
 msgstr "Logotyp"
 
 msgid "belongs to distro and may be reg. trademark"
-msgstr ""
-"tillhör distributionen och kan vara ett registrerat varumärke"
+msgstr "tillhör distributionen och kan vara ett registrerat varumärke"
 
 msgid "Root Only System"
 msgstr "Endast rotsystem"
@@ -3543,14 +3541,19 @@ msgstr ""
 "Status för MLC-minne=%s\n"
 "Status före slutet av livscykeln=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
 "[Självövervakning (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Dåliga sektorer=%"
+"Antal dåliga sektorer=%lld\n"
+"Drifttid=%lld dagar %lld timmar\n"
+"Temperatur=%d°C\n"
 
 msgid "Failing"
 msgstr "Felvarning"
@@ -3572,10 +3575,11 @@ msgstr ""
 "[S.M.A.R.T.-attribut]\n"
 "Attribut=<tt>Värde      / Normaliserat / Värst / Tröskelvärde</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] "%"
-msgstr[1] "%"
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld sektor"
+msgstr[1] "%lld sektorer"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
@@ -4337,8 +4341,8 @@ msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
 msgstr ""
-"Anger om ett general protection-undantag (GP) genereras när vissa äldre "
-"SSE-instruktioner bearbetar icke-justerad data"
+"Anger om ett general protection-undantag (GP) genereras när vissa äldre SSE-"
+"instruktioner bearbetar icke-justerad data"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"
@@ -4487,8 +4491,7 @@ msgstr "Begränsad spekulation för indirekta grenar"
 #. !/flag:ibpb
 msgctxt "x86-flag"
 msgid "Indirect Branch Prediction Barrier without guaranteed RSB flush"
-msgstr ""
-"Barriär för indirekt grenprediktion utan garanterad RSB-tömning"
+msgstr "Barriär för indirekt grenprediktion utan garanterad RSB-tömning"
 
 #. !/flag:stibp
 msgctxt "x86-flag"
@@ -5448,481 +5451,3 @@ msgstr "Broadcastadress"
 
 msgid "RAM"
 msgstr "RAM"
-
-#~ msgid "SOC/Package Information"
-#~ msgstr "SOC/Package Information"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s %% / %s\n"
-#~ "Battery Usage=%.0f W\n"
-#~ "Battery Health=%.0f %%\n"
-#~ "Design Full Energy=%.3f Wh\n"
-#~ "Current Full Energy=%.3f Wh\n"
-#~ "Design Full Capacity=%.3f Ah\n"
-#~ "Current Full Capacity=%.3f Ah\n"
-#~ "Voltage Design=%.3f V\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Batteri: %s]\n"
-#~ "Status=%s\n"
-#~ "Kapacitet=%s %% / %s\n"
-#~ "Batterianvändning=%.0f W\n"
-#~ "Batterihälsa=%.0f %%\n"
-#~ "Design full energi=%.3f Wh\n"
-#~ "Aktuell full energi=%.3f Wh\n"
-#~ "Designad full kapacitet=%.3f Ah\n"
-#~ "Aktuell full kapacitet=%.3f Ah\n"
-#~ "Spänningsdesign=%.3f V\n"
-#~ "Batteriteknik=%s\n"
-#~ "Tillverkare=%s\n"
-#~ "Modellnummer=%s\n"
-#~ "Serienummer=%s\n"
-
-#~ msgctxt "x86-flag"
-#~ msgid ""
-#~ "indicates if a general-protection exception (#GP) is generated when some "
-#~ "legacy SSE instructions operate on unaligned data. Also depends on CR0 "
-#~ "and Alignment Checking bit"
-#~ msgstr ""
-#~ "indikerar om ett allmänt skyddsundantag (#GP) genereras när vissa äldre "
-#~ "SSE-instruktioner arbetar med ojusterade data. Beror också på CR0 och "
-#~ "Alignment Checking bit"
-
-#~ msgid "phandle Map"
-#~ msgstr "phandle karta"
-
-#, c-format
-#~ msgid "Detecting version: %s"
-#~ msgstr "Upptäcker version: %s"
-
-#~ msgid "Properties"
-#~ msgstr "Egenskaper"
-
-#~ msgid "Children"
-#~ msgstr "Barn"
-
-#~ msgid "Node"
-#~ msgstr "Nod"
-
-#~ msgid "Node Path"
-#~ msgstr "Nodens väg"
-
-#~ msgid "Alias"
-#~ msgstr "Alias"
-
-#~ msgid "Symbol"
-#~ msgstr "Symbol"
-
-#~ msgid "Platform"
-#~ msgstr "Plattform"
-
-#~ msgid "GPU-compatible"
-#~ msgstr "GPU-kompatibel"
-
-#~ msgid "Raspberry Pi or Compatible"
-#~ msgstr "Raspberry Pi eller kompatibel"
-
-#~ msgid "RCode"
-#~ msgstr "RCode"
-
-#~ msgid "No revision code available; unable to lookup model details."
-#~ msgstr "Ingen revisionskod tillgänglig; kan inte söka upp modelldetaljer."
-
-#~ msgid "More"
-#~ msgstr "Mer"
-
-#~ msgid "Messages"
-#~ msgstr "Meddelanden"
-
-#~ msgid "Apple Power Macintosh"
-#~ msgstr "Apple Power Macintosh"
-
-#~ msgid "Detected as"
-#~ msgstr "Upptäckt som"
-
-#~ msgid "PMAC Flags"
-#~ msgstr "PMAC-flaggor"
-
-#~ msgid "L2 Cache"
-#~ msgstr "L2-cache"
-
-#~ msgid "PMAC Generation"
-#~ msgstr "PMAC-generering"
-
-#~ msgid "Raspberry Pi"
-#~ msgstr "Raspberry Pi"
-
-#~ msgid "Board Name"
-#~ msgstr "Kortnamn"
-
-#~ msgid "PCB Revision"
-#~ msgstr "PCB-revision"
-
-#~ msgid "Introduction"
-#~ msgstr "Introduktion"
-
-#~ msgid "SOC (spec)"
-#~ msgstr "SOC (spec)"
-
-#~ msgid "Memory (spec)"
-#~ msgstr "Minne (spec)"
-
-#~ msgid "Permanent overvolt bit"
-#~ msgstr "Permanent överspänningsbit"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Set"
-#~ msgstr "Sätt"
-
-#~ msgctxt "rpi-ov-bit"
-#~ msgid "Not set"
-#~ msgstr "Inte satt"
-
-#~ msgid "3.0"
-#~ msgstr "3.0"
-
-#, c-format
-#~ msgid ""
-#~ "Failed to find runtime data.\n"
-#~ "\n"
-#~ "• Is HardInfo correctly installed?\n"
-#~ "• See if %s and %s exists and you have read permission."
-#~ msgstr ""
-#~ "Hittade inte runtime-data.\n"
-#~ "\n"
-#~ "- Är HardInfo korrekt installerat?\n"
-#~ "- Se om %s och %s finns och om du har läsbehörighet."
-
-#, c-format
-#~ msgid ""
-#~ "Modules:\n"
-#~ "%-20s %-15s %-12s\n"
-#~ msgstr ""
-#~ "Moduler:\n"
-#~ "%-20s %-15s %-12s\n"
-
-#~ msgid "File Name"
-#~ msgstr "Filnamn"
-
-#~ msgid "run benchmark; requires benchmark.so to be loaded"
-#~ msgstr "kör benchmark; kräver att benchmark.so laddas"
-
-#~ msgid "lists modules"
-#~ msgstr "listar moduler"
-
-#~ msgid "specify module to load"
-#~ msgstr "ange modul som ska laddas"
-
-#~ msgid "automatically load module dependencies"
-#~ msgstr "ladda modulberoenden automatiskt"
-
-#~ msgid "run in XML-RPC server mode"
-#~ msgstr "körs i XML-RPC-serverläge"
-
-#~ msgid "- System Profiler and Benchmark tool"
-#~ msgstr "- Verktyg för systemprofilering och benchmarking"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\", load it?"
-#~ msgstr "Modul \"%s\" är beroende av modul \"%s\", ladda den?"
-
-#, c-format
-#~ msgid "Module \"%s\" depends on module \"%s\"."
-#~ msgstr "Modul \"%s\" är beroende av modul \"%s\"."
-
-#, c-format
-#~ msgid ""
-#~ "No module could be loaded. Check permissions on \"%s\" and try again."
-#~ msgstr ""
-#~ "Ingen modul kunde laddas. Kontrollera behörigheterna på \"%s\" och försök "
-#~ "igen."
-
-#~ msgid ""
-#~ "No module could be loaded. Please use hardinfo -l to list all available "
-#~ "modules and try again with a valid module list."
-#~ msgstr ""
-#~ "Ingen modul kunde laddas. Använd hardinfo -l för att lista alla "
-#~ "tillgängliga moduler och försök igen med en giltig modullista."
-
-#, c-format
-#~ msgid ""
-#~ "Written by %s\n"
-#~ "Licensed under %s"
-#~ msgstr ""
-#~ "Skrivet av %s\n"
-#~ "Licensierad under %s"
-
-#, c-format
-#~ msgid "No about information is associated with the %s module."
-#~ msgstr "Ingen information om information är kopplad till %s-modulen."
-
-#~ msgid "Author:"
-#~ msgstr "Upphovsperson:"
-
-#~ msgid "Contributors:"
-#~ msgstr "Bidragsgivare:"
-
-#~ msgid "Based on work by:"
-#~ msgstr "Baserat på arbete av:"
-
-#~ msgid "MD5 implementation by Colin Plumb (see md5.c for details)"
-#~ msgstr "MD5-implementering av Colin Plumb (se md5.c för detaljer)"
-
-#~ msgid "SHA1 implementation by Steve Reid (see sha1.c for details)"
-#~ msgstr "SHA1-implementering av Steve Reid (se sha1.c för detaljer)"
-
-#~ msgid "Blowfish implementation by Paul Kocher (see blowfich.c for details)"
-#~ msgstr "Blowfish-implementering av Paul Kocher (se blowfich.c för detaljer)"
-
-#~ msgid "Raytracing benchmark by John Walker (see fbench.c for details)"
-#~ msgstr "Benchmark för Raytracing av John Walker (se fbench.c för detaljer)"
-
-#~ msgid "FFT benchmark by Scott Robert Ladd (see fftbench.c for details)"
-#~ msgstr "FFT-benchmark av Scott Robert Ladd (se fftbench.c för detaljer)"
-
-#~ msgid "Some code partly based on x86cpucaps by Osamu Kayasono"
-#~ msgstr "Viss kod delvis baserad på x86cpucaps av Osamu Kayasono"
-
-#~ msgid "Vendor list based on GtkSysInfo by Pissens Sebastien"
-#~ msgstr "Leverantörslista baserad på GtkSysInfo av Pissens Sebastien"
-
-#~ msgid "DMI support based on code by Stewart Adam"
-#~ msgstr "DMI-stöd baserat på kod av Stewart Adam"
-
-#~ msgid "SCSI support based on code by Pascal F. Martin"
-#~ msgstr "SCSI-stöd baserat på kod av Pascal F. Martin"
-
-#~ msgid "Tango Project"
-#~ msgstr "Tango-projektet"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME-projektet"
-
-#~ msgid "VMWare, Inc. (USB icon from VMWare Workstation 6)"
-#~ msgstr "VMWare, Inc. (USB-ikon från VMWare Workstation 6)"
-
-#~ msgid "translator-credits"
-#~ msgstr "Daniel Nylander <po@danielnylander.se>"
-
-#~ msgid "_Remote"
-#~ msgstr "_Remote"
-
-#~ msgid "About _Modules"
-#~ msgstr "Om _Moduler"
-
-#~ msgid "_Network Updater..."
-#~ msgstr "_Network Updater..."
-
-#~ msgid "_Open..."
-#~ msgstr "_Öppna..."
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "_Kopiera till urklipp"
-
-#~ msgid "Copy to clipboard"
-#~ msgstr "Kopiera till urklipp"
-
-#, c-format
-#~ msgid "%s - System Information"
-#~ msgstr "%s - Systeminformation"
-
-#~ msgid "System Information"
-#~ msgstr "Systeminformation"
-
-#~ msgid "Loading modules..."
-#~ msgstr "Laddar moduler..."
-
-#~ msgid ""
-#~ "HardInfo was compiled without libsoup support. (Network Updater requires "
-#~ "it.)"
-#~ msgstr ""
-#~ "HardInfo kompilerades utan stöd för libsoup. (Network Updater kräver det.)"
-
-#, c-format
-#~ msgid "%s (error #%d)"
-#~ msgstr "%s (fel #%d)"
-
-#~ msgid "Could not parse XML-RPC response"
-#~ msgstr "XML-RPC-svaret kunde inte tolkas"
-
-#, c-format
-#~ msgid ""
-#~ "Server says it supports API version %d, but this version of HardInfo only "
-#~ "supports API version %d."
-#~ msgstr ""
-#~ "Servern säger att den stöder API-version %d, men den här versionen av "
-#~ "HardInfo stöder bara API-version %d."
-
-#~ msgid "Contacting HardInfo Central Database"
-#~ msgstr "Kontaktar HardInfos centrala databas"
-
-#~ msgid "Cleaning up"
-#~ msgstr "Städar upp"
-
-#, c-format
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)\n"
-#~ "\n"
-#~ "Details: %s"
-#~ msgstr ""
-#~ "Misslyckades vid utförandet av \"%s\". Skicka in en felrapport om "
-#~ "problemet kvarstår. (Använd alternativet Hjälp→Rapportera fel.)\n"
-#~ "\n"
-#~ "Detaljerad information: %s"
-
-#, c-format
-#~ msgid ""
-#~ "Failed while performing \"%s\". Please file a bug report if this problem "
-#~ "persists. (Use the Help→Report bug option.)"
-#~ msgstr ""
-#~ "Misslyckades vid utförandet av \"%s\". Skicka in en felrapport om "
-#~ "problemet kvarstår. (Använd alternativet Hjälp→Rapportera fel.)"
-
-#~ msgid "Network Updater"
-#~ msgstr "Uppdatering av nätverk"
-
-#~ msgid "FPU Raytracing"
-#~ msgstr "FPU Raytracing"
-
-#~ msgid "SysBench Memory"
-#~ msgstr "SysBench Minne"
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in events/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> krävs.\n"
-#~ "Resultat i händelser/sekund. Högre är bättre."
-
-#~ msgid ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> is required.\n"
-#~ "Results in MiB/second. Higher is better."
-#~ msgstr ""
-#~ "Alexey Kopytov's <i><b>sysbench</b></i> krävs.\n"
-#~ "Resultat i MiB/sekund. Högre är bättre."
-
-#~ msgid "Results in seconds. Lower is better."
-#~ msgstr "Resultat på några sekunder. Lägre är bättre."
-
-#~ msgid "Cancel"
-#~ msgstr "Avbryt"
-
-#~ msgid "Perl6 (VM)"
-#~ msgstr "Perl6 (VM)"
-
-#~ msgid "Perl6"
-#~ msgstr "Perl6"
-
-#~ msgid "C♯ (mcs)"
-#~ msgstr "C♯ (mcs)"
-
-#~ msgid "Virtual (Unknown)"
-#~ msgstr "Virtuell (okänd)"
-
-#~ msgid "Virtual (hypervisor present)"
-#~ msgstr "Virtuell (hypervisor närvarande)"
-
-#~ msgid "Spin/Flavor"
-#~ msgstr "Snurr/smak"
-
-#~ msgid "Total Memory"
-#~ msgstr "Totalt minne"
-
-#~ msgid "Free Memory"
-#~ msgstr "Fritt minne"
-
-#~ msgid "Cached Swap"
-#~ msgstr "Cachad utväxling"
-
-#~ msgid "High Memory"
-#~ msgstr "Högt minne"
-
-#~ msgid "Free High Memory"
-#~ msgstr "Fri hög minneskapacitet"
-
-#~ msgid "Low Memory"
-#~ msgstr "Låg minnesnivå"
-
-#~ msgid "Free Low Memory"
-#~ msgstr "Fri Låg minnesnivå"
-
-#~ msgid "Virtual Memory"
-#~ msgstr "Virtuellt minne"
-
-#~ msgid "Free Virtual Memory"
-#~ msgstr "Fritt virtuellt minne"
-
-#, c-format
-#~ msgid ""
-#~ "\n"
-#~ "[Battery: %s]\n"
-#~ "State=%s\n"
-#~ "Capacity=%s / %s\n"
-#~ "Battery Technology=%s\n"
-#~ "Manufacturer=%s\n"
-#~ "Model Number=%s\n"
-#~ "Serial Number=%s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "[Batteri: %s]\n"
-#~ "Status=%s\n"
-#~ "Kapacitet=%s / %s\n"
-#~ "Batteriteknik=%s\n"
-#~ "Tillverkare=%s\n"
-#~ "Modellnummer=%s\n"
-#~ "Serienummer=%s\n"
-
-#~ msgid "(Not available; Perhaps try running HardInfo as root.)"
-#~ msgstr "(Inte tillgänglig; Försök kanske köra HardInfo som root.)"
-
-#~ msgid "DMI is not available; Perhaps try running HardInfo as root."
-#~ msgstr "DMI är inte tillgängligt; Försök kanske köra HardInfo som root."
-
-#~ msgid " ... <i>and</i> HardInfo running with superuser privileges"
-#~ msgstr " .. <i>. och</i> HardInfo körs med superanvändarrättigheter"
-
-#~ msgid " <b><i>eeprom</i></b> module loaded (for SDR, DDR, DDR2, DDR3)"
-#~ msgstr " <b><i>eeprom</i></b> modul laddad (för SDR, DDR, DDR2, DDR3)"
-
-#~ msgid ""
-#~ " ... <i>or</i> <b><i>ee1004</i></b> module loaded <b>and configured!</b> "
-#~ "(for DDR4)"
-#~ msgstr ""
-#~ " ... <i>eller</i> <b><i>ee1004</i></b> modul laddad <b>och konfigurerad!</"
-#~ "b> (för DDR4)"
-
-#~ msgid "Memory information requires <b>one or both</b> of the following:"
-#~ msgstr "Minnesinformation kräver ett <b>eller båda</b> av följande:"
-
-#~ msgid "RISC-V Processor"
-#~ msgstr "RISC-V-processor"
-
-#, c-format
-#~ msgid "Vendor=%s\n"
-#~ msgstr "Leverantör=%s\n"
-
-#, c-format
-#~ msgid ""
-#~ "[Self-monitoring (S.M.A.R.T.)]\n"
-#~ "Status=%s\n"
-#~ "Bad Sectors=%ld\n"
-#~ "Power on time=%d days %d hours\n"
-#~ "Temperature=%d°C\n"
-#~ msgstr ""
-#~ "[Självövervakning (S.M.A.R.T.)]\n"
-#~ "Status=%s\n"
-#~ "Dåliga sektorer=%ld\n"
-#~ "Påslagningstid=%d dagar %d timmar\n"
-#~ "Temperatur=%d°C\n"
-
-#~ msgid "Thread"
-#~ msgstr "Tråd"

@@ -15,6 +15,7 @@ This is an example of status of the different languages including your own after
 editing - use the ./updatepo.sh
 
 hardinfo2.pot now has 1399 strings (no change), with 71 c-format strings
+
 - [x] da.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
 - [x] de.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
 - [x] es.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
@@ -29,6 +30,7 @@ hardinfo2.pot now has 1399 strings (no change), with 71 c-format strings
 - [x] tr.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
 - [x] ua.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
 - [x] zh_CN.po : (0 / 1399 remain untranslated, needs work/fuzzy: 0)
+
 Needs work/fuzzy typically has to do with spaces/periods at begin/end of translation.
 
 

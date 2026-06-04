@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-04 11:38+0800\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -56,7 +56,7 @@ msgid "Driver"
 msgstr "驱动"
 
 msgid "(Not Available)"
-msgstr "(不可用)"
+msgstr "（不可用）"
 
 msgid "Socket"
 msgstr "插槽"
@@ -203,7 +203,7 @@ msgid "Onboard Device"
 msgstr "板载设备"
 
 msgid "Invalid chassis type (0)"
-msgstr "无效的机箱类型 (0)"
+msgstr "无效的机箱类型（0）"
 
 msgid "Unknown chassis type"
 msgstr "未知的机箱类型"
@@ -413,27 +413,27 @@ msgid "creates a report and prints to standard output"
 msgstr "创建报告并打印到标准输出"
 
 msgid "chooses a report format ([text], html)"
-msgstr "选择报告格式([text], html)"
+msgstr "选择报告格式（[text]，html）"
 
 msgid "search for a topic in CLI report (-t getlist shows available)"
-msgstr "在CLI报告中搜索主题 (-t getlist 显示可用选项)"
+msgstr "在CLI报告中搜索主题（-t getlist 显示可用选项）"
 
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
-msgstr "在缓存的CLI报告中搜索主题 (-t getlist 显示可用选项)"
+msgstr "在缓存的CLI报告中搜索主题（-t getlist 显示可用选项）"
 
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
-msgstr "运行单个基准测试，例如 -b 'FPU FFT' (默认运行所有基准测试)"
+msgstr "运行单个基准测试，例如 -b 'FPU FFT'（默认运行所有基准测试）"
 
 msgid "user note attached to benchmark results. Group-MachineName-ServerReq"
 msgstr "附加到基准测试结果的用户注释。组-机器名-服务器请求"
 
 msgid "benchmark result format ([short], conf, shell)"
-msgstr "基准测试结果格式 ([short], conf, shell)"
+msgstr "基准测试结果格式（[short]，conf，shell）"
 
 msgid ""
 "maximum number of benchmark results to include (-1 for no limit, default is "
 "250)"
-msgstr "包含的基准测试结果的最大数量 (-1 表示无限制，默认为 250)"
+msgstr "包含的基准测试结果的最大数量（-1 表示无限制，默认为 250）"
 
 msgid "shows program version and quit"
 msgstr "显示程序版本并退出"
@@ -509,19 +509,19 @@ msgstr ""
 "基金会，地址为 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
 
 msgid "_Information"
-msgstr "信息(_I)"
+msgstr "信息（_I）"
 
 msgid "_View"
-msgstr "查看(_V)"
+msgstr "查看（_V）"
 
 msgid "_Theme"
-msgstr "主题(_T)"
+msgstr "主题（_T）"
 
 msgid "_Help"
-msgstr "帮助(_H)"
+msgstr "帮助（_H）"
 
 msgid "Generate _Report"
-msgstr "生成报表(_R)"
+msgstr "生成报表（_R）"
 
 msgid "Generates a report with detailed system information"
 msgstr "生成一份包含详细系统信息的报告"
@@ -536,37 +536,37 @@ msgid "Update Available"
 msgstr "可更新"
 
 msgid "_Refresh"
-msgstr "刷新(_R)"
+msgstr "刷新（_R）"
 
 msgid "HardInfo2 _Web Site"
-msgstr "HardInfo2 网站(_W)"
+msgstr "HardInfo2 网站（_W）"
 
 msgid "_Help - User Guide"
-msgstr "用户手册(_H)"
+msgstr "用户手册（_H）"
 
 msgid "_Update HardInfo2"
-msgstr "升级 HardInfo2 (_U)"
+msgstr "升级 HardInfo2（_U）"
 
 msgid "_Report bug"
-msgstr "报告错误(_B)"
+msgstr "报告错误（_B）"
 
 msgid "_About HardInfo2"
-msgstr "关于 HardInfo2 (_A)"
+msgstr "关于 HardInfo2（_A）"
 
 msgid "Displays program version information"
 msgstr "显示程序版本信息"
 
 msgid "_Quit"
-msgstr "退出(_Q)"
+msgstr "退出（_Q）"
 
 msgid "_Side Pane"
-msgstr "侧边栏(_S)"
+msgstr "侧边栏（_S）"
 
 msgid "Toggles side pane visibility"
 msgstr "更改侧边栏的可见性"
 
 msgid "_Toolbar"
-msgstr "工具栏(_T)"
+msgstr "工具栏（_T）"
 
 msgid "Synchronize on startup"
 msgstr "启动时同步"
@@ -596,10 +596,10 @@ msgid "Save File"
 msgstr "保存文件"
 
 msgid "_Cancel"
-msgstr "取消(_C)"
+msgstr "取消（_C）"
 
 msgid "_Save"
-msgstr "保存(_S)"
+msgstr "保存（_S）"
 
 msgid "Cannot create ReportContext. Programming bug?"
 msgstr "无法创建报告内容，或许是程序错误？"
@@ -608,10 +608,10 @@ msgid "Open the report with your web browser?"
 msgstr "在默认浏览器中打开报告吗？"
 
 msgid "_No"
-msgstr "否(_N)"
+msgstr "否（_N）"
 
 msgid "_Open"
-msgstr "打开(_O)"
+msgstr "打开（_O）"
 
 msgid "Generating report..."
 msgstr "生成报告..."
@@ -633,13 +633,13 @@ msgstr ""
 "请选择您希望在报告中查看的信息："
 
 msgid "Select _None"
-msgstr "不选择(_N)"
+msgstr "不选择（_N）"
 
 msgid "Select _All"
-msgstr "选中全部(_A)"
+msgstr "选中全部（_A）"
 
 msgid "_Generate"
-msgstr "生成(_G)"
+msgstr "生成（_G）"
 
 msgid "Enter text to search, double-click to select all"
 msgstr "输入文本以搜索，双击以全选"
@@ -719,10 +719,10 @@ msgstr ""
 "请等待一段时间。"
 
 msgid "(canceled)"
-msgstr "(已取消)"
+msgstr "（已取消）"
 
 msgid "(failed)"
-msgstr "(失败)"
+msgstr "（失败）"
 
 msgid "Send benchmark results"
 msgstr "发送基准测试结果"
@@ -731,7 +731,7 @@ msgid "User Note "
 msgstr "用户注释 "
 
 msgid "Leave it default/blank or see "
-msgstr "保持默认/空白或查看 "
+msgstr "保持默认、空白或查看 "
 
 msgid "User Guide"
 msgstr "用户指南"
@@ -740,26 +740,26 @@ msgid "Privacy Policy"
 msgstr "隐私政策"
 
 msgid "_Synchronize"
-msgstr "同步(_S)"
+msgstr "同步（_S）"
 
 #, c-format
 msgid "Synchronizing: %s"
 msgstr "同步中: %s"
 
 msgid "CPU Blowfish (Single-thread)"
-msgstr "CPU Blowfish (单线程)"
+msgstr "CPU Blowfish（单线程）"
 
 msgid "CPU Blowfish (Multi-thread)"
-msgstr "CPU Blowfish (多线程)"
+msgstr "CPU Blowfish（多线程）"
 
 msgid "CPU Blowfish (Multi-core)"
-msgstr "CPU Blowfish (多核心)"
+msgstr "CPU Blowfish（多核心）"
 
 msgid "CPU Zlib"
-msgstr "CPU 压缩测试 (Zlib)"
+msgstr "CPU 压缩测试（Zlib）"
 
 msgid "CPU CryptoHash"
-msgstr "CPU 加密哈希 (CryptoHash)"
+msgstr "CPU 加密哈希"
 
 msgid "CPU Fibonacci"
 msgstr "CPU 斐波那契数列"
@@ -771,31 +771,31 @@ msgid "FPU FFT"
 msgstr "FPU 快速傅里叶变换"
 
 msgid "FPU Raytracing (Single-thread)"
-msgstr "FPU 光线追踪 (单线程)"
+msgstr "FPU 光线追踪（单线程）"
 
 msgid "Internal Network Speed"
 msgstr "内部网络速度（本机）"
 
 msgid "SysBench CPU (Single-thread)"
-msgstr "SysBench CPU (单线程)"
+msgstr "SysBench CPU（单线程）"
 
 msgid "SysBench CPU (Multi-thread)"
-msgstr "SysBench CPU (多线程)"
+msgstr "SysBench CPU（多线程）"
 
 msgid "SysBench CPU (Four threads)"
-msgstr "SysBench CPU (四线程)"
+msgstr "SysBench CPU（四线程）"
 
 msgid "SysBench Memory (Single-thread)"
-msgstr "SysBench Memory (单线程)"
+msgstr "SysBench Memory（单线程）"
 
 msgid "SysBench Memory (Two threads)"
-msgstr "SysBench Memory (双线程)"
+msgstr "SysBench Memory（双线程）"
 
 msgid "SysBench Memory (Quad threads)"
-msgstr "SysBench Memory (四线程)"
+msgstr "SysBench Memory（四线程）"
 
 msgid "SysBench Memory (Multi-thread)"
-msgstr "SysBench Memory (多线程)"
+msgstr "SysBench Memory（多线程）"
 
 msgid "GPU Drawing"
 msgstr "GPU 绘图"
@@ -816,13 +816,13 @@ msgid "Cache/Memory"
 msgstr "缓存/内存"
 
 msgid "Results in events/second. Higher is better."
-msgstr "结果以 events/秒为单位，越高越好。"
+msgstr "结果以“事件数每秒”为单位，越高越好。"
 
 msgid "Results in MiB/second. Higher is better."
-msgstr "结果以 MiB/秒为单位，越高越好。"
+msgstr "结果以“MiB 每秒”为单位，越高越好。"
 
 msgid "Results in Gbits/s. Higher is better."
-msgstr "结果以 Gbits/秒为单位，越高越好。"
+msgstr "结果以“Gbits 每秒”为单位，越高越好。"
 
 msgid "Results in HIMarks. Higher is better."
 msgstr "结果以 HIMarks 为单位。越高越好。"
@@ -835,7 +835,7 @@ msgstr ""
 "许多桌面环境仅使用软件渲染。"
 
 msgid "Results in MB/s. Higher is better."
-msgstr "结果以 MB/秒为单位，越高越好。"
+msgstr "结果以“MB 每秒”为单位，越高越好。"
 
 msgid "Results in FPS. Higher is better."
 msgstr "结果以帧率为单位，越高越好。"
@@ -843,7 +843,7 @@ msgstr "结果以帧率为单位，越高越好。"
 #. !/ Used for an unknown value. Having it in only one place cleans up the .po
 #. * line references
 msgid "(Unknown)"
-msgstr "(未知)"
+msgstr "（未知）"
 
 msgid "MHz"
 msgstr "MHz"
@@ -1057,7 +1057,7 @@ msgstr "%dMB（已使用 %dMB，压缩 %dMB）"
 
 #, c-format
 msgid "%dMB (%dMB used)"
-msgstr "%dMB (%dMB 已使用)"
+msgstr "%dMB（%dMB 已使用）"
 
 msgid "Uptime"
 msgstr "运行时间"
@@ -1072,10 +1072,10 @@ msgid "Scripting Languages"
 msgstr "脚本语言"
 
 msgid "Gambas3 (gbr3)"
-msgstr "Gambas3 (gbr3)"
+msgstr "Gambas3（gbr3）"
 
 msgid "Python (default)"
-msgstr "Python (默认)"
+msgstr "Python（默认）"
 
 msgid "Python2"
 msgstr "Python2"
@@ -1087,7 +1087,7 @@ msgid "Perl"
 msgstr "Perl"
 
 msgid "Rakudo (Perl6)"
-msgstr "Rakudo (Perl6)"
+msgstr "Rakudo（Perl6）"
 
 msgid "PHP"
 msgstr "PHP"
@@ -1099,7 +1099,7 @@ msgid "Bash"
 msgstr "Bash"
 
 msgid "JavaScript (Node.js)"
-msgstr "JavaScript (Node.js)"
+msgstr "JavaScript（Node.js）"
 
 msgid "awk"
 msgstr "awk"
@@ -1108,16 +1108,16 @@ msgid "Compilers"
 msgstr "编译器"
 
 msgid "C (GCC)"
-msgstr "C (GCC)"
+msgstr "C（GCC）"
 
 msgid "C (Clang)"
-msgstr "C (Clang)"
+msgstr "C（Clang）"
 
 msgid "D (dmd)"
-msgstr "D (dmd)"
+msgstr "D（dmd）"
 
 msgid "Gambas3 (gbc3)"
-msgstr "Gambas3 (gbc3)"
+msgstr "Gambas3（gbc3）"
 
 msgid "Java"
 msgstr "Java"
@@ -1129,7 +1129,7 @@ msgid "Vala"
 msgstr "Vala"
 
 msgid "Haskell (GHC)"
-msgstr "Haskell (GHC)"
+msgstr "Haskell（GHC）"
 
 msgid "FreePascal"
 msgstr "FreePascal"
@@ -1198,19 +1198,19 @@ msgid "Value"
 msgstr "值"
 
 msgid "Virtual (Xen)"
-msgstr "虚拟化 (Xen)"
+msgstr "虚拟化（Xen）"
 
 msgid "Virtual (VirtualBox)"
-msgstr "虚拟化 (VirtualBox)"
+msgstr "虚拟化（VirtualBox）"
 
 msgid "Virtual (VMware)"
-msgstr "虚拟化 (VMware)"
+msgstr "虚拟化（VMware）"
 
 msgid "Virtual (QEMU)"
-msgstr "虚拟化 (QEMU)"
+msgstr "虚拟化（QEMU）"
 
 msgid "Virtual (WSL2)"
-msgstr "虚拟化 (WSL2)"
+msgstr "虚拟化（WSL2）"
 
 msgid "Single-board computer"
 msgstr "开发板"
@@ -1271,7 +1271,7 @@ msgid "Misc"
 msgstr "其它"
 
 msgid "Memory Compression (ZRam)"
-msgstr "内存压缩 (ZRam)"
+msgstr "内存压缩（ZRam）"
 
 msgid "Compression"
 msgstr "压缩"
@@ -1289,13 +1289,13 @@ msgid "Data Size"
 msgstr "数据大小"
 
 msgid "Compressed Size"
-msgstr "压缩大小"
+msgstr "已压缩大小"
 
 msgid "Total Size"
 msgstr "总大小"
 
 msgid "Memory Compression (ZSwap)"
-msgstr "内存压缩 (ZSwap)"
+msgstr "内存压缩（ZSwap）"
 
 msgid "Shrinker Enabled"
 msgstr "已启用 Shrinker"
@@ -1455,13 +1455,13 @@ msgstr "未使用"
 
 #, c-format
 msgid "%dx%d pixels, offset (%d, %d)"
-msgstr "%dx%d 像素, (%d, %d) 偏移"
+msgstr "%dx%d 像素，（%d，%d）偏移"
 
 msgid "Outputs (XRandR)"
-msgstr "Outputs (XRandR)"
+msgstr "Outputs（XRandR）"
 
 msgid "OpenGL (GLX)"
-msgstr "OpenGL (GLX)"
+msgstr "OpenGL（GLX）"
 
 msgid "Renderer"
 msgstr "渲染器"
@@ -1482,7 +1482,7 @@ msgid "Shading Language Version (Core)"
 msgstr "着色语言版本（核心）"
 
 msgid "Version (ES)"
-msgstr "版本 (ES)"
+msgstr "版本（ES）"
 
 msgid "Shading Language Version (ES)"
 msgstr "着色语言版本（ES）"
@@ -1580,7 +1580,7 @@ msgid "Mounted As"
 msgstr "挂载为"
 
 msgid "Read-Write"
-msgstr "读/写模式"
+msgstr "读、写模式"
 
 msgid "Read-Only"
 msgstr "只读模式"
@@ -1872,7 +1872,7 @@ msgstr "MATE 桌面环境"
 
 #, c-format
 msgid "Unknown (Window Manager: %s)"
-msgstr "未知 (窗口管理器：%s)"
+msgstr "未知（窗口管理器：%s）"
 
 #. !/{desktop environment} on {session type}
 #, c-format
@@ -2066,42 +2066,42 @@ msgstr "40 位大物理地址扩展"
 #. !/flag:pmull
 msgctxt "arm-flag"
 msgid "64x64->128-bit F2m multiplication (arch>=8)"
-msgstr "64x64->128 位 F2m 乘法 (架构>=8)"
+msgstr "64x64->128 位 F2m 乘法（架构>=8）"
 
 #. !/flag:aes
 msgctxt "arm-flag"
 msgid "Crypto:AES (arch>=8)"
-msgstr "加密:AES (架构>=8)"
+msgstr "加密:AES（架构>=8）"
 
 #. !/flag:sha1
 msgctxt "arm-flag"
 msgid "Crypto:SHA1 (arch>=8)"
-msgstr "加密:SHA1 (架构>=8)"
+msgstr "加密:SHA1（架构>=8）"
 
 #. !/flag:sha2
 msgctxt "arm-flag"
 msgid "Crypto:SHA2 (arch>=8)"
-msgstr "加密:SHA2 (架构>=8)"
+msgstr "加密:SHA2（架构>=8）"
 
 #. !/flag:crc32
 msgctxt "arm-flag"
 msgid "CRC32 checksum instructions (arch>=8)"
-msgstr "CRC32 校验和指令 (架构>=8)"
+msgstr "CRC32 校验和指令（架构>=8）"
 
 #. !/flag:fp
 msgctxt "arm-flag"
 msgid "Floating-point on AArch64 (arch>=8)"
-msgstr "AArch64 上的浮点运算 (架构>=8)"
+msgstr "AArch64 上的浮点运算（架构>=8）"
 
 #. !/flag:asimd
 msgctxt "arm-flag"
 msgid "Advanced SIMD/NEON on AArch64 (arch>=8)"
-msgstr "AArch64 上的高级 SIMD/NEON (架构>=8)"
+msgstr "AArch64 上的高级 SIMD/NEON（架构>=8）"
 
 #. !/flag:atomics
 msgctxt "arm-flag"
 msgid "Atomic instructions on AArch64 (arch>=8)"
-msgstr "AArch64 上的原子指令 (架构>=8)"
+msgstr "AArch64 上的原子指令（架构>=8）"
 
 #. !/flag:fphp
 msgctxt "arm-flag"
@@ -2178,14 +2178,14 @@ msgstr "缓存信息不可用=\n"
 
 #, c-format
 msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
-msgstr "级别 %d (%s)=%d 路组相联, %d 组, %dKB 大小\n"
+msgstr "级别 %d (%s)=%d 路组相联，%d 组，%dKB 大小\n"
 
 msgid "Caches"
 msgstr "缓存"
 
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr "级别 %d (%s)#%d=%dx %dKB (%dKB)，%d路组相联，%d 组\n"
+msgstr "级别 %d (%s)#%d=%dx %dKB（%dKB），%d路组相联，%d 组\n"
 
 msgid "ARM Processor"
 msgstr "ARM 处理器"
@@ -2574,7 +2574,7 @@ msgid "(Empty)"
 msgstr "（空）"
 
 msgid "Serial Presence Detect (SPD) Summary"
-msgstr "串行存在检测 (SPD) 概要"
+msgstr "串行存在检测（SPD）概要"
 
 msgid "(Not available - See hint box below)"
 msgstr "（不可用 - 见下方提示框）"
@@ -2886,13 +2886,13 @@ msgid "EDID Descriptors"
 msgstr "EDID 描述符"
 
 msgid "Detailed Timing Descriptors (DTD)"
-msgstr "详细时序描述符 (DTD)"
+msgstr "详细时序描述符（DTD）"
 
 msgid "Established Timings Bitmap (ETB)"
-msgstr "标准时序位图 (ETB)"
+msgstr "标准时序位图（ETB）"
 
 msgid "Standard Timings (STD)"
-msgstr "标准时序 (STD)"
+msgstr "标准时序（STD）"
 
 msgid "E-EDID Extension Blocks"
 msgstr "E-EDID 扩展块"
@@ -2992,7 +2992,7 @@ msgstr ""
 "未找到合适的 CUPS 库="
 
 msgid "[Printers (CUPS)]\n"
-msgstr "[打印机 (CUPS)]\n"
+msgstr "[打印机（CUPS）]\n"
 
 msgid ""
 "[Printers]\n"
@@ -3200,7 +3200,7 @@ msgid "XMP"
 msgstr "XMP"
 
 msgid "Serial Presence Detect (SPD)"
-msgstr "串行存在检测 (SPD)"
+msgstr "串行存在检测（SPD）"
 
 msgid "SPD Revision"
 msgstr "SPD 修订版本"
@@ -3329,13 +3329,13 @@ msgid "Loaded Hours"
 msgstr "加载小时数"
 
 msgid "Load/Unload Retry Count"
-msgstr "加载/卸载重试计数"
+msgstr "加载、卸载重试计数"
 
 msgid "Load Friction"
 msgstr "加载摩擦"
 
 msgid "Load/Unload Cycle Count"
-msgstr "加载/卸载周期计数"
+msgstr "加载、卸载周期计数"
 
 msgid "Load-in time"
 msgstr "加载时间"
@@ -3411,7 +3411,7 @@ msgid "Ejectable"
 msgstr "可弹出"
 
 msgid "Self-monitoring (S.M.A.R.T.)"
-msgstr "自我监测 (S.M.A.R.T.)"
+msgstr "自我监测（S.M.A.R.T.）"
 
 msgid "Power Management"
 msgstr "电源管理"
@@ -3671,7 +3671,7 @@ msgid "Model Name"
 msgstr "型号名称"
 
 msgid "Family, model, stepping"
-msgstr "系列, 型号, 步进"
+msgstr "系列，型号，步进"
 
 msgid "Microcode Version"
 msgstr "微码版本"
@@ -3731,7 +3731,7 @@ msgstr "时间戳计数器（RDTSC）"
 #. !/flag:msr
 msgctxt "x86-flag"
 msgid "Model-Specific Registers (RDMSR, WRMSR)"
-msgstr "型号特定寄存器（RDMSR, WRMSR）"
+msgstr "型号特定寄存器（RDMSR，WRMSR）"
 
 #. !/flag:pae
 msgctxt "x86-flag"
@@ -3818,7 +3818,7 @@ msgstr "多媒体扩展"
 #. !/flag:fxsr
 msgctxt "x86-flag"
 msgid "FXSAVE/FXRSTOR, CR4.OSFXSR"
-msgstr "FXSAVE/FXRSTOR, CR4.OSFXSR"
+msgstr "FXSAVE/FXRSTOR，CR4.OSFXSR"
 
 #. !/flag:sse
 msgctxt "x86-flag"
@@ -3937,12 +3937,12 @@ msgstr "AMD K6 非标准 MTRR"
 #. !/flag:cyrix_arr
 msgctxt "x86-flag"
 msgid "Cyrix ARRs (= MTRRs)"
-msgstr "Cyrix ARRs (= MTRRs)"
+msgstr "Cyrix ARRs（= MTRRs）"
 
 #. !/flag:centaur_mcr
 msgctxt "x86-flag"
 msgid "Centaur MCRs (= MTRRs)"
-msgstr "Centaur MCRs (= MTRRs)"
+msgstr "Centaur MCRs（= MTRRs）"
 
 #. !/flag:constant_tsc
 msgctxt "x86-flag"
@@ -3987,7 +3987,7 @@ msgstr "AMD 累计功率机制"
 #. !/flag:nopl
 msgctxt "x86-flag"
 msgid "The NOPL (0F 1F) instructions"
-msgstr "NOPL (0F 1F) 指令"
+msgstr "NOPL（0F 1F）指令"
 
 #. !/flag:xtopology
 msgctxt "x86-flag"
@@ -4047,14 +4047,14 @@ msgstr "CPU 具有可恢复的机器检查"
 #. !/flag:pni
 msgctxt "x86-flag"
 msgid "SSE-3 (\"Prescott New Instructions\")"
-msgstr "SSE-3 (\"Prescott 新指令\")"
+msgstr "SSE-3（“Prescott 新指令”）"
 
 #. !/flag:pclmulqdq
 msgctxt "x86-flag"
 msgid ""
 "Perform a Carry-Less Multiplication of Quadword instruction - accelerator "
 "for GCM)"
-msgstr "执行四字无进位乘法指令 - GCM 加速器)"
+msgstr "执行四字无进位乘法指令 - GCM 加速器）"
 
 #. !/flag:dtes64
 msgctxt "x86-flag"
@@ -4159,8 +4159,8 @@ msgstr "字节交换后移动数据指令"
 #. !/flag:popcnt
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
-"e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
 msgstr "返回设置为 1 的位数计数指令（汉明权重，即位计数）"
 
 msgctxt "x86-flag"
@@ -4180,7 +4180,7 @@ msgstr "高级加密标准（新指令）"
 #. !/flag:xsave
 msgctxt "x86-flag"
 msgid "Save Processor Extended States: also provides XGETBY,XRSTOR,XSETBY"
-msgstr "保存处理器扩展状态：还提供 XGETBY,XRSTOR,XSETBY"
+msgstr "保存处理器扩展状态：还提供 XGETBY，XRSTOR，XSETBY"
 
 #. !/flag:avx
 msgctxt "x86-flag"
@@ -4265,7 +4265,7 @@ msgstr "如果是，则超线程无效"
 #. !/flag:svm
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
-msgstr "\"安全虚拟机\": AMD-V"
+msgstr "“安全虚拟机”: AMD-V"
 
 #. !/flag:extapic
 msgctxt "x86-flag"
@@ -4384,7 +4384,7 @@ msgstr "L2 性能计数器扩展"
 #. !/flag:mwaitx
 msgctxt "x86-flag"
 msgid "MWAIT extension (MONITORX/MWAITX)"
-msgstr "MWAIT 扩展 (MONITORX/MWAITX)"
+msgstr "MWAIT 扩展（MONITORX/MWAITX）"
 
 #. !/flag:cpb
 msgctxt "x86-flag"
@@ -4644,7 +4644,7 @@ msgstr "刷新 L1D 缓存"
 #. !/flag:arch_capabilities
 msgctxt "x86-flag"
 msgid "IA32_ARCH_CAPABILITIES MSR (Intel)"
-msgstr "IA32_ARCH_CAPABILITIES MSR (Intel)"
+msgstr "IA32_ARCH_CAPABILITIES MSR（Intel）"
 
 #. !/flag:xsaveopt
 msgctxt "x86-flag"
@@ -4869,7 +4869,7 @@ msgstr "向量神经网络指令"
 #. !/flag:avx512_bitalg
 msgctxt "x86-flag"
 msgid "Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
-msgstr "支持 VPOPCNT[B,W] 和 VPSHUF-BITQMB 指令"
+msgstr "支持 VPOPCNT[B，W] 和 VPSHUF-BITQMB 指令"
 
 #. !/flag:avx512_vpopcntdq
 msgctxt "x86-flag"
@@ -5331,7 +5331,7 @@ msgstr "无线（WAN）"
 
 msgctxt "net-if-type"
 msgid "(Unknown)"
-msgstr "(未知)"
+msgstr "（未知）"
 
 msgid "Network Interfaces"
 msgstr "网络接口"
@@ -5346,7 +5346,7 @@ msgid "Interface Type"
 msgstr "接口类型"
 
 msgid "Hardware Address (MAC)"
-msgstr "硬件地址(MAC)"
+msgstr "硬件地址（MAC）"
 
 msgid "MTU"
 msgstr "MTU"
@@ -5382,13 +5382,13 @@ msgid "Link Quality"
 msgstr "连接质量"
 
 msgid "Signal / Noise"
-msgstr "信号 / 噪声"
+msgstr "信号/噪声"
 
 msgid "Internet Protocol (IPv4)"
-msgstr "互联网协议(IPv4)"
+msgstr "互联网协议（IPv4）"
 
 msgid "(Not set)"
-msgstr "(未设定)"
+msgstr "（未设定）"
 
 msgid "Broadcast Address"
 msgstr "广播地址"
@@ -5480,28 +5480,28 @@ msgstr "内存"
 #~ msgstr "介绍"
 
 #~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "打开 HardInfo2 网站(_O)"
+#~ msgstr "打开 HardInfo2 网站（_O）"
 
 #~ msgid "Loading modules..."
 #~ msgstr "正在加载模块..."
 
 #~ msgid "Virtual (Unknown)"
-#~ msgstr "Virtual (Unknown)"
+#~ msgstr "Virtual（Unknown）"
 
 #~ msgid "Virtual (hypervisor present)"
-#~ msgstr "Virtual (hypervisor present)"
+#~ msgstr "Virtual（hypervisor present）"
 
 #~ msgid "_Open..."
-#~ msgstr "打开...(_O)"
+#~ msgstr "打开...（_O）"
 
 #~ msgid "Perl6 (VM)"
-#~ msgstr "Perl6 (VM)"
+#~ msgstr "Perl6（VM）"
 
 #~ msgid "Perl6"
 #~ msgstr "Perl6"
 
 #~ msgid "_Copy to Clipboard"
-#~ msgstr "复制到剪贴板(_C)"
+#~ msgstr "复制到剪贴板（_C）"
 
 #~ msgid "Copy to clipboard"
 #~ msgstr "复制到剪贴板"
@@ -5563,10 +5563,10 @@ msgstr "内存"
 #~ msgstr "GNOME 项目"
 
 #~ msgid "_Remote"
-#~ msgstr "远程(_R)"
+#~ msgstr "远程（_R）"
 
 #~ msgid "About _Modules"
-#~ msgstr "关于模块(_M)"
+#~ msgstr "关于模块（_M）"
 
 #, c-format
 #~ msgid "%s - System Information"
@@ -5577,7 +5577,7 @@ msgstr "内存"
 
 #, c-format
 #~ msgid "%s (error #%d)"
-#~ msgstr "%s (错误 #%d)"
+#~ msgstr "%s（错误 #%d）"
 
 #~ msgid "Could not parse XML-RPC response"
 #~ msgstr "无法解析 XML-RPC 响应"
@@ -5598,7 +5598,7 @@ msgstr "内存"
 #~ msgstr "Python"
 
 #~ msgid "CSharp (Mono, old)"
-#~ msgstr "CSharp (Mono, old)"
+#~ msgstr "CSharp（旧版 Mono）"
 
 #~ msgid "CSharp (Mono)"
-#~ msgstr "CSharp (Mono)"
+#~ msgstr "CSharp（Mono）"

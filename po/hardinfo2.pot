@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -635,11 +635,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: shell/callbacks.c:540 shell/shell.c:937
+#: shell/callbacks.c:542 shell/shell.c:937
 msgid "System Information and Benchmark"
 msgstr ""
 
-#: shell/callbacks.c:544
+#: shell/callbacks.c:546
 msgid ""
 "HardInfo2 is free software; you can redistribute it and/or modify it under "
 "the terms of the GNU General Public License as published by the Free "
@@ -4633,10 +4633,13 @@ msgid ""
 msgstr ""
 
 #: modules/devices/storage.c:426
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
 
 #: modules/devices/storage.c:432
@@ -4660,8 +4663,9 @@ msgid ""
 msgstr ""
 
 #: modules/devices/storage.c:468
-msgid "%"
-msgid_plural "%"
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
 msgstr[0] ""
 msgstr[1] ""
 

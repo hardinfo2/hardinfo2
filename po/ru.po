@@ -378,9 +378,9 @@ msgstr[2] "%d минут"
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "секунда"
-msgstr[1] "секунды"
-msgstr[2] "секунд"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #, c-format
 msgid "%.1f B"

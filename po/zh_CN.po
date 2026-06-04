@@ -5397,208 +5397,68 @@ msgid "RAM"
 msgstr "内存"
 
 #, c-format
-#~ msgid ""
-#~ "[Self-monitoring (S.M.A.R.T.)]\n"
-#~ "Status=%s\n"
-#~ "Bad Sectors=%ld\n"
-#~ "Power on time=%ld days %ld hours\n"
-#~ "Temperature=%d°C\n"
-#~ msgstr ""
-#~ "[自我监测（S.M.A.R.T.）]\n"
-#~ "状态：%s\n"
-#~ "坏扇区：%ld\n"
-#~ "开机时间：%ld 天 %ld 小时\n"
-#~ "温度：%d°C\n"
 
 #, c-format
-#~ msgid "%ld sector"
-#~ msgid_plural "%ld sectors"
-#~ msgstr[0] "%ld 个扇区"
 
-#~ msgid "%"
-#~ msgid_plural "%"
-#~ msgstr[0] "%"
 
-#~ msgid ""
-#~ "[Self-monitoring (S.M.A.R.T.)]\n"
-#~ "Status=%s\n"
-#~ "Bad Sectors=%"
-#~ msgstr ""
-#~ "[自我监测 (S.M.A.R.T.)]\n"
-#~ "状态=%s\n"
-#~ "坏扇区=%"
 
 #, c-format
-#~ msgid "Warning >80% used"
-#~ msgstr "警告，超过 80% 使用率"
 
 #, c-format
-#~ msgid "Failing >90% used"
-#~ msgstr "错误，超过 90% 使用率"
 
 #, c-format
-#~ msgid "Detecting version: %s"
-#~ msgstr "检测版本: %s"
 
-#~ msgid "Properties"
-#~ msgstr "属性"
 
-#~ msgid "Children"
-#~ msgstr "子女"
 
-#~ msgid "Node"
-#~ msgstr "节点"
 
-#~ msgid "Node Path"
-#~ msgstr "节点路径"
 
-#~ msgid "Alias"
-#~ msgstr "别名"
 
-#~ msgid "Symbol"
-#~ msgstr "符号"
 
-#~ msgid "Platform"
-#~ msgstr "平台"
 
-#~ msgid "More"
-#~ msgstr "更多"
 
-#~ msgid "Messages"
-#~ msgstr "消息"
 
-#~ msgid "L2 Cache"
-#~ msgstr "L2 缓存"
 
-#~ msgid "Board Name"
-#~ msgstr "主板名称"
 
-#~ msgid "PCB Revision"
-#~ msgstr "PCB 修订版本"
 
-#~ msgid "Introduction"
-#~ msgstr "介绍"
 
-#~ msgid "_Open HardInfo2 Web Site"
-#~ msgstr "打开 HardInfo2 网站（_O）"
 
-#~ msgid "Loading modules..."
-#~ msgstr "正在加载模块..."
 
-#~ msgid "Virtual (Unknown)"
-#~ msgstr "Virtual（Unknown）"
 
-#~ msgid "Virtual (hypervisor present)"
-#~ msgstr "Virtual（hypervisor present）"
 
-#~ msgid "_Open..."
-#~ msgstr "打开...（_O）"
 
-#~ msgid "Perl6 (VM)"
-#~ msgstr "Perl6（VM）"
 
-#~ msgid "Perl6"
-#~ msgstr "Perl6"
 
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "复制到剪贴板（_C）"
 
-#~ msgid "Copy to clipboard"
-#~ msgstr "复制到剪贴板"
 
-#~ msgid "Total Memory"
-#~ msgstr "总内存"
 
-#~ msgid "Free Memory"
-#~ msgstr "可用内存"
 
-#~ msgid "Cached Swap"
-#~ msgstr "已缓存的交换分区"
 
-#~ msgid "High Memory"
-#~ msgstr "高内存"
 
-#~ msgid "Free High Memory"
-#~ msgstr "可用高内存"
 
-#~ msgid "Low Memory"
-#~ msgstr "低内存"
 
-#~ msgid "Free Low Memory"
-#~ msgstr "可用低内存"
 
-#~ msgid "Virtual Memory"
-#~ msgstr "虚拟内存"
 
-#~ msgid "Free Virtual Memory"
-#~ msgstr "可用虚拟内存"
 
-#~ msgid "RISC-V Processor"
-#~ msgstr "RISC-V 处理器"
 
 #, c-format
-#~ msgid ""
-#~ "Modules:\n"
-#~ "%-20s %-15s %-12s\n"
-#~ msgstr ""
-#~ "模块:\n"
-#~ "%-20s %-15s %-12s\n"
 
-#~ msgid "File Name"
-#~ msgstr "文件名"
 
-#~ msgid "lists modules"
-#~ msgstr "模块列表"
 
-#~ msgid "Author:"
-#~ msgstr "作者："
 
-#~ msgid "Contributors:"
-#~ msgstr "贡献者："
 
-#~ msgid "Tango Project"
-#~ msgstr "Tango 项目"
 
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME 项目"
 
-#~ msgid "_Remote"
-#~ msgstr "远程（_R）"
 
-#~ msgid "About _Modules"
-#~ msgstr "关于模块（_M）"
 
 #, c-format
-#~ msgid "%s - System Information"
-#~ msgstr "%s - 系统信息"
 
-#~ msgid "System Information"
-#~ msgstr "系统信息"
 
 #, c-format
-#~ msgid "%s (error #%d)"
-#~ msgstr "%s（错误 #%d）"
 
-#~ msgid "Could not parse XML-RPC response"
-#~ msgstr "无法解析 XML-RPC 响应"
 
-#~ msgid "Cleaning up"
-#~ msgstr "正在清理"
 
-#~ msgid "Results in seconds. Lower is better."
-#~ msgstr "结果以秒为单位。越小越好。"
 
-#~ msgid "Cancel"
-#~ msgstr "取消"
 
-#~ msgid "Thread"
-#~ msgstr "线程"
 
-#~ msgid "Python"
-#~ msgstr "Python"
 
-#~ msgid "CSharp (Mono, old)"
-#~ msgstr "CSharp（旧版 Mono）"
 
-#~ msgid "CSharp (Mono)"
-#~ msgstr "CSharp（Mono）"

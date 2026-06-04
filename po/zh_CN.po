@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 16:17+0200\n"
+"POT-Creation-Date: 2026-06-04 03:05+0200\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -1271,7 +1271,7 @@ msgid "Misc"
 msgstr "其它"
 
 msgid "Memory Compression (ZRam)"
-msgstr ""
+msgstr "内存压缩 (ZRam)"
 
 msgid "Compression"
 msgstr "压缩"
@@ -1280,19 +1280,19 @@ msgid "N/A"
 msgstr "不适用"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "压缩比"
 
 msgid "Disk Size"
-msgstr ""
+msgstr "磁盘大小"
 
 msgid "Data Size"
 msgstr "数据大小"
 
 msgid "Compressed Size"
-msgstr ""
+msgstr "压缩大小"
 
 msgid "Total Size"
-msgstr ""
+msgstr "总大小"
 
 msgid "Memory Compression (ZSwap)"
 msgstr "内存压缩 (ZSwap)"
@@ -1313,7 +1313,7 @@ msgid "Accept Threshold Percent"
 msgstr "接受阈值百分比"
 
 msgid "Memory Compression (ZSwap/ZRam)"
-msgstr ""
+msgstr "内存压缩（ZSwap/ZRam）"
 
 msgid "Disabled"
 msgstr "已禁用"
@@ -3504,14 +3504,19 @@ msgstr ""
 "MLC Flash 状态=%s\n"
 "寿命终止前状态=%s\n"
 
+#, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
 "Status=%s\n"
-"Bad Sectors=%"
+"Bad Sectors=%lld\n"
+"Power on time=%lld days %lld hours\n"
+"Temperature=%d°C\n"
 msgstr ""
-"[自我监测 (S.M.A.R.T.)]\n"
-"状态=%s\n"
-"坏扇区=%"
+"[自我监测（S.M.A.R.T.）]\n"
+"状态：%s\n"
+"坏扇区：%lld\n"
+"开机时间：%lld 天 %lld 小时\n"
+"温度：%d°C\n"
 
 msgid "Failing"
 msgstr "故障"
@@ -3533,9 +3538,10 @@ msgstr ""
 "[S.M.A.R.T. 属性]\n"
 "属性=<tt>值 / 标准值 / 最差值 / 阈值</tt>\n"
 
-msgid "%"
-msgid_plural "%"
-msgstr[0] "%"
+#, c-format
+msgid "%lld sector"
+msgid_plural "%lld sectors"
+msgstr[0] "%lld 个扇区"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
@@ -5389,6 +5395,38 @@ msgstr "广播地址"
 
 msgid "RAM"
 msgstr "内存"
+
+#, c-format
+#~ msgid ""
+#~ "[Self-monitoring (S.M.A.R.T.)]\n"
+#~ "Status=%s\n"
+#~ "Bad Sectors=%ld\n"
+#~ "Power on time=%ld days %ld hours\n"
+#~ "Temperature=%d°C\n"
+#~ msgstr ""
+#~ "[自我监测（S.M.A.R.T.）]\n"
+#~ "状态：%s\n"
+#~ "坏扇区：%ld\n"
+#~ "开机时间：%ld 天 %ld 小时\n"
+#~ "温度：%d°C\n"
+
+#, c-format
+#~ msgid "%ld sector"
+#~ msgid_plural "%ld sectors"
+#~ msgstr[0] "%ld 个扇区"
+
+#~ msgid "%"
+#~ msgid_plural "%"
+#~ msgstr[0] "%"
+
+#~ msgid ""
+#~ "[Self-monitoring (S.M.A.R.T.)]\n"
+#~ "Status=%s\n"
+#~ "Bad Sectors=%"
+#~ msgstr ""
+#~ "[自我监测 (S.M.A.R.T.)]\n"
+#~ "状态=%s\n"
+#~ "坏扇区=%"
 
 #, c-format
 #~ msgid "Warning >80% used"

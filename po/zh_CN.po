@@ -453,7 +453,7 @@ msgid ""
 "Try ``%s --help'' for more information.\n"
 msgstr ""
 "无法识别的参数。\n"
-"尝试 ``%s --help'' 获取更多信息。\n"
+"尝试“%s --help”获取更多信息。\n"
 
 msgid ""
 "User Note invalid (letters+numbers Group-MachineName-ServerReq)\n"
@@ -744,7 +744,7 @@ msgstr "同步（_S）"
 
 #, c-format
 msgid "Synchronizing: %s"
-msgstr "同步中: %s"
+msgstr "同步中：%s"
 
 msgid "CPU Blowfish (Single-thread)"
 msgstr "CPU Blowfish（单线程）"
@@ -813,7 +813,7 @@ msgid "Storage R/W Speed"
 msgstr "存储读写速度"
 
 msgid "Cache/Memory"
-msgstr "缓存/内存"
+msgstr "缓存和内存"
 
 msgid "Results in events/second. Higher is better."
 msgstr "结果以“事件数每秒”为单位，越高越好。"
@@ -1661,7 +1661,7 @@ msgid "Available memory for allocation to any process, without swapping"
 msgstr "可直接分配给进程的可用内存（无交换）"
 
 msgid "Memory in buffer cache, temporary storage for raw disk blocks"
-msgstr "缓冲缓存中的内存，用于临时存放原始磁盘块"
+msgstr "缓冲和缓存中的内存，用于临时存放原始磁盘块"
 
 msgid "Memory in the page cache (diskcache, shared memory, tmpfs and shmem)"
 msgstr "页面缓存中的内存（磁盘缓存、共享内存、tmpfs 和 shmem）"
@@ -1688,7 +1688,7 @@ msgid "Unevictable pages can't be swapped out for a variety of reasons"
 msgstr "因多种原因无法被置换的页面"
 
 msgid "Pages locked to memory using the mlock() system call"
-msgstr "使用 mlock() 系统调用锁定在内存中的页面"
+msgstr "使用“mlock()”系统调用锁定在内存中的页面"
 
 msgid "Memory consumed by the zswap backend (compressed size)"
 msgstr "zswap 后端占用的内存（压缩后大小）"
@@ -1902,7 +1902,7 @@ msgstr "完全启用（mmap 基址+堆栈+VDSO 基址+堆）"
 
 #. !/bits of entropy for rng (0)
 msgid "(None or not available)"
-msgstr "（没有或不可用）"
+msgstr "（不存在或不可用）"
 
 #. !/bits of entropy for rng (low/poor value)
 #, c-format
@@ -2071,17 +2071,17 @@ msgstr "64x64->128 位 F2m 乘法（架构>=8）"
 #. !/flag:aes
 msgctxt "arm-flag"
 msgid "Crypto:AES (arch>=8)"
-msgstr "加密:AES（架构>=8）"
+msgstr "加密：AES（架构>=8）"
 
 #. !/flag:sha1
 msgctxt "arm-flag"
 msgid "Crypto:SHA1 (arch>=8)"
-msgstr "加密:SHA1（架构>=8）"
+msgstr "加密：SHA1（架构>=8）"
 
 #. !/flag:sha2
 msgctxt "arm-flag"
 msgid "Crypto:SHA2 (arch>=8)"
-msgstr "加密:SHA2（架构>=8）"
+msgstr "加密：SHA2（架构>=8）"
 
 #. !/flag:crc32
 msgctxt "arm-flag"
@@ -2234,7 +2234,7 @@ msgid "Logical CPU Config"
 msgstr "逻辑 CPU 配置"
 
 msgid "Socket:Core"
-msgstr "插槽:核心"
+msgstr "插槽：核心"
 
 #, c-format
 msgid ""
@@ -3665,7 +3665,7 @@ msgid "Device Version"
 msgstr "设备版本"
 
 msgid "No USB devices found."
-msgstr "没找到 USB 设备"
+msgstr "未找到 USB 设备"
 
 msgid "Model Name"
 msgstr "型号名称"
@@ -4265,7 +4265,7 @@ msgstr "如果是，则超线程无效"
 #. !/flag:svm
 msgctxt "x86-flag"
 msgid "\"Secure virtual machine\": AMD-V"
-msgstr "“安全虚拟机”: AMD-V"
+msgstr "“安全虚拟机”：AMD-V"
 
 #. !/flag:extapic
 msgctxt "x86-flag"
@@ -5395,70 +5395,3 @@ msgstr "广播地址"
 
 msgid "RAM"
 msgstr "内存"
-
-#, c-format
-
-#, c-format
-
-
-
-#, c-format
-
-#, c-format
-
-#, c-format
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#, c-format
-
-
-
-
-
-
-
-
-
-#, c-format
-
-
-#, c-format
-
-
-
-
-
-
-
-

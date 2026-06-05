@@ -825,13 +825,13 @@ msgid "Results in Gbits/s. Higher is better."
 msgstr "结果以“Gbits 每秒”为单位，越高越好。"
 
 msgid "Results in HIMarks. Higher is better."
-msgstr "结果以 HIMarks 为单位。越高越好。"
+msgstr "结果以跑分展示，越高越好。"
 
 msgid ""
 "Results in HIMarks. Higher is better.\n"
 "Many Desktop Environments only uses software."
 msgstr ""
-"结果以 HIMarks 为单位。越高越好。\n"
+"结果以跑分展示，越高越好。\n"
 "许多桌面环境仅使用软件渲染。"
 
 msgid "Results in MB/s. Higher is better."
@@ -5201,7 +5201,7 @@ msgid "IP routing table"
 msgstr "IP 路由表"
 
 msgid "Destination/Gateway"
-msgstr "目标地址/网关"
+msgstr "目标地址 / 网关"
 
 msgid "Mask"
 msgstr "掩码"

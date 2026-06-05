@@ -2178,14 +2178,14 @@ msgstr "缓存信息不可用=\n"
 
 #, c-format
 msgid "Level %d (%s)=%d-way set-associative, %d sets, %dKB size\n"
-msgstr "级别 %d (%s)=%d 路组相联，%d 组，%dKB 大小\n"
+msgstr "L%d（%s）=%d 路组相联，%d 组，%dKB 大小\n"
 
 msgid "Caches"
 msgstr "缓存"
 
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr "级别 %d (%s)#%d=%dx %dKB（%dKB），%d路组相联，%d 组\n"
+msgstr "L%d（%s）#%d=%dx %dKB（%dKB），%d路组相联，%d 组\n"
 
 msgid "ARM Processor"
 msgstr "ARM 处理器"

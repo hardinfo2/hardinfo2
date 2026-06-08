@@ -345,6 +345,38 @@ gboolean __scan_udisks2_devices(void) {
                                         media_curr ? media_curr : _("(None)"),
                                         media_comp ? media_comp : _("(Unknown)"));
         }
+
+        if ( (strstr(disk->block_dev, "mmcblk")) ||
+	     (disk->connection_bus && strstr(disk->connection_bus, "usb") && (strstr(disk->model,"SD/MMC"))) ) { 
+	    gchar *st=NULL, *p, *path=NULL;
+	    if(strstr(disk->block_dev, "mmcblk")) {
+	        path=g_strdup_printf("/run/hardinfo2/mmc%c_ios", disk->block_dev[6]);
+		g_file_get_contents( path, &st, NULL, NULL);
+	    } else { //FIXME: Below is not always correct - how to map to correct mmc controller
+	        path=g_strdup_printf("/run/hardinfo2/mmc2_ios");
+		if(!g_file_get_contents( path, &st, NULL, NULL) || !st || !strlen(st)) {
+		    g_free(st);st=NULL;
+		    path=g_strdup_printf("/run/hardinfo2/mmc1_ios");
+		    if(!g_file_get_contents( path, &st, NULL, NULL) || !st || !strlen(st)) {
+		        g_free(st);st=NULL;
+		        path=g_strdup_printf("/run/hardinfo2/mmc0_ios");
+			g_file_get_contents( path, &st, NULL, NULL);
+		    }
+		}
+	    }
+	    if(st){
+		char ts[30];
+		char width[30];
+		long long unsigned freq;
+		if((p=strstr(st,"clock:")) && (sscanf(p, "clock: %llu Hz", &freq)==1))
+		    if((p=strstr(st,"bus width:")) && (sscanf(p, "bus width: %*d (%[a-zA-Z0-9 ])", width)==1) )
+		        if((p=strstr(st,"timing spec:")) && (sscanf(p, "timing spec: %*d (%[a-zA-Z0-9 ])", ts)==1) )
+			    moreinfo = h_strdup_cprintf(_("I/F Speed=%s, %s (%llu MHz)\n"), moreinfo, ts, width, freq/1000000);
+		g_free(st);
+	    }
+	    g_free(path);
+        }
+
         if (disk->connection_bus && strlen(disk->connection_bus) > 0) {
             moreinfo = h_strdup_cprintf(_("Connection bus=%s\n"), moreinfo, disk->connection_bus);
         }

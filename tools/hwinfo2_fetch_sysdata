@@ -11,6 +11,11 @@ mkdir /run/hardinfo2 2>/dev/null
 chmod 750 /run/hardinfo2
 
 #----Allow users in hardinfo2 group to get these hardware info----
+#for SBC/Notebooks with mmc - allow mmc interface+speed info
+cat /sys/kernel/debug/mmc0/ios >/run/hardinfo2/mmc0_ios 2>/dev/null
+cat /sys/kernel/debug/mmc1/ios >/run/hardinfo2/mmc1_ios 2>/dev/null
+cat /sys/kernel/debug/mmc2/ios >/run/hardinfo2/mmc2_ios 2>/dev/null
+
 #iomem and ioport address - no need to show system/kernel addresses.
 cat /proc/iomem |grep -v Kernel|grep -v System >/run/hardinfo2/iomem 2>/dev/null
 cat /proc/ioports >/run/hardinfo2/ioports 2>/dev/null

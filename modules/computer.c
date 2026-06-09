@@ -638,7 +638,7 @@ gchar *callback_os(void)
         datasize = size_human_readable((float)computer->os->zram.datasize);
         compsize = size_human_readable((float)computer->os->zram.compsize);
         totalsize = size_human_readable((float)computer->os->zram.totalsize);
-        compratio = g_strdup_printf("%.0f%%", computer->os->zram.datasize ? (float)((100*(computer->os->zram.datasize - computer->os->zram.totalsize)) / computer->os->zram.datasize) : (float)100);
+        compratio = g_strdup_printf("%.0f%%", computer->os->zram.datasize ? ((100*((float)computer->os->zram.datasize - (float)computer->os->zram.totalsize)) / (float)computer->os->zram.datasize) : (float)100);
         info_add_group(info, _("Memory Compression (ZRam)"),
                        info_field(_("Compression"), computer->os->zram.compressor ? : _("N/A")),
                            info_field(_("Compression Ratio"), compratio),

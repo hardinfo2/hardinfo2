@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2026-06-04 02:50+0200\n"
 "Last-Translator: micrococo\n"
 "Language-Team: \n"
@@ -3559,6 +3559,10 @@ msgid ""
 msgstr ""
 "Tipo de medio=%s\n"
 "Compatibilidad del medio=%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "Velocidad de la interfaz=%s, %s (%llu MHz)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

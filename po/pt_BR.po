@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2025-03-25 14:40+0000\n"
 "Last-Translator: Thiago Dalsoto <thiagodalsoto@msn.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/biglinux-1/"
@@ -3522,6 +3522,10 @@ msgid ""
 msgstr ""
 "Mídia=%s\n"
 "Compatibilidade da Mídia=%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "Velocidade da interface=%s, %s (%llu MHz)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -457,7 +457,7 @@ msgid "Don't know what to do. Exiting."
 msgstr ""
 
 #: hardinfo2/usb_util.c:296 modules/devices/monitors.c:408
-#: modules/devices/storage.c:345 modules/devices/storage.c:367
+#: modules/devices/storage.c:345 modules/devices/storage.c:399
 msgid "(None)"
 msgstr ""
 
@@ -628,9 +628,9 @@ msgstr ""
 #: modules/devices/printers.c:113 modules/devices/printers.c:123
 #: modules/devices/printers.c:138 modules/devices/printers.c:147
 #: modules/devices/printers.c:257 modules/devices/spd-decode.c:364
-#: modules/devices/storage.c:399 modules/devices/storage.c:403
-#: modules/devices/storage.c:408 modules/devices/storage.c:418
-#: modules/devices/storage.c:661 modules/devices/storage.c:864
+#: modules/devices/storage.c:431 modules/devices/storage.c:435
+#: modules/devices/storage.c:440 modules/devices/storage.c:450
+#: modules/devices/storage.c:693 modules/devices/storage.c:896
 #: modules/devices/usb.c:150
 msgid "Unknown"
 msgstr ""
@@ -1090,8 +1090,8 @@ msgstr ""
 #: modules/devices/spd-decode.c:584 modules/devices/spd-decode.c:899
 #: modules/devices/spd-decode.c:900 modules/devices/spd-decode.c:1146
 #: modules/devices/spd-decode.c:1513 modules/devices/storage.c:27
-#: modules/devices/storage.c:346 modules/devices/storage.c:375
-#: modules/devices/storage.c:527 modules/devices/usb.c:29
+#: modules/devices/storage.c:346 modules/devices/storage.c:407
+#: modules/devices/storage.c:559 modules/devices/usb.c:29
 #: modules/network/net.c:460 includes/cpu_util.h:11 includes/spd-decode.h:24
 #: includes/spd-decode.h:25
 msgid "(Unknown)"
@@ -1962,7 +1962,7 @@ msgstr ""
 #: modules/devices/monitors.c:399 modules/devices/pci.c:122
 #: modules/devices/pci.c:130 modules/devices/storage.c:47
 #: modules/devices/storage.c:56 modules/devices/storage.c:321
-#: modules/devices/storage.c:669 modules/devices/storage.c:873
+#: modules/devices/storage.c:701 modules/devices/storage.c:905
 #: modules/devices/usb.c:172 modules/devices/x86/processor.c:654
 msgid "Vendor"
 msgstr ""
@@ -4578,51 +4578,56 @@ msgid ""
 "Media compatibility=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:349
+#: modules/devices/storage.c:374
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr ""
+
+#: modules/devices/storage.c:381
 #, c-format
 msgid "Connection bus=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:361
+#: modules/devices/storage.c:393
 msgid "WWN"
 msgstr ""
 
-#: modules/devices/storage.c:362
+#: modules/devices/storage.c:394
 msgid "EUI "
 msgstr ""
 
-#: modules/devices/storage.c:367
+#: modules/devices/storage.c:399
 msgid "WWN / EUI"
 msgstr ""
 
-#: modules/devices/storage.c:371
+#: modules/devices/storage.c:403
 #, c-format
 msgid "$^$%s=[%s] %s\n"
 msgstr ""
 
-#: modules/devices/storage.c:373
+#: modules/devices/storage.c:405
 msgid "IEEE OUI"
 msgstr ""
 
-#: modules/devices/storage.c:398 modules/devices/storage.c:402
+#: modules/devices/storage.c:430 modules/devices/storage.c:434
 msgid "Lifetime exceeded"
 msgstr ""
 
-#: modules/devices/storage.c:405
+#: modules/devices/storage.c:437
 msgid "Normal"
 msgstr ""
 
-#: modules/devices/storage.c:406
+#: modules/devices/storage.c:438
 #, c-format
 msgid "Warning >80%% used"
 msgstr ""
 
-#: modules/devices/storage.c:407
+#: modules/devices/storage.c:439
 #, c-format
 msgid "Failing >90%% used"
 msgstr ""
 
-#: modules/devices/storage.c:412
+#: modules/devices/storage.c:444
 #, c-format
 msgid ""
 "[Self-monitoring ExtCSD]\n"
@@ -4632,7 +4637,7 @@ msgid ""
 "Pre EOL Status=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:426
+#: modules/devices/storage.c:458
 #, c-format
 msgid ""
 "[Self-monitoring (S.M.A.R.T.)]\n"
@@ -4642,69 +4647,69 @@ msgid ""
 "Temperature=%d°C\n"
 msgstr ""
 
-#: modules/devices/storage.c:432
+#: modules/devices/storage.c:464
 msgid "Failing"
 msgstr ""
 
-#: modules/devices/storage.c:432
+#: modules/devices/storage.c:464
 msgid "OK"
 msgstr ""
 
-#: modules/devices/storage.c:439
+#: modules/devices/storage.c:471
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value</tt>\n"
 msgstr ""
 
-#: modules/devices/storage.c:441
+#: modules/devices/storage.c:473
 msgid ""
 "[S.M.A.R.T. Attributes]\n"
 "Attribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"
 msgstr ""
 
-#: modules/devices/storage.c:468
+#: modules/devices/storage.c:500
 #, c-format
 msgid "%lld sector"
 msgid_plural "%lld sectors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: modules/devices/storage.c:514
+#: modules/devices/storage.c:546
 #, c-format
 msgid "%s=<tt>%s</tt>\n"
 msgstr ""
 
-#: modules/devices/storage.c:516
+#: modules/devices/storage.c:548
 #, c-format
 msgid "(%d) %s=<tt>%s</tt>\n"
 msgstr ""
 
-#: modules/devices/storage.c:524
+#: modules/devices/storage.c:556
 #, c-format
 msgid ""
 "[Partition table]\n"
 "Type=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:543
+#: modules/devices/storage.c:575
 #, c-format
 msgid "Partition %s=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:592
+#: modules/devices/storage.c:624
 msgid ""
 "\n"
 "[SCSI Disks]\n"
 msgstr ""
 
-#: modules/devices/storage.c:664 modules/devices/storage.c:869
+#: modules/devices/storage.c:696 modules/devices/storage.c:901
 #, c-format
 msgid ""
 "[Device Information]\n"
 "Model=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:671
+#: modules/devices/storage.c:703
 #, c-format
 msgid ""
 "Type=%s\n"
@@ -4716,18 +4721,18 @@ msgid ""
 "LUN=%d\n"
 msgstr ""
 
-#: modules/devices/storage.c:718
+#: modules/devices/storage.c:750
 msgid ""
 "\n"
 "[IDE Disks]\n"
 msgstr ""
 
-#: modules/devices/storage.c:804
+#: modules/devices/storage.c:836
 #, c-format
 msgid "Driver=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:875
+#: modules/devices/storage.c:907
 #, c-format
 msgid ""
 "Device Name=hd%c\n"
@@ -4735,7 +4740,7 @@ msgid ""
 "Cache=%dkb\n"
 msgstr ""
 
-#: modules/devices/storage.c:885
+#: modules/devices/storage.c:917
 #, c-format
 msgid ""
 "[Geometry]\n"
@@ -4743,14 +4748,14 @@ msgid ""
 "Logical=%s\n"
 msgstr ""
 
-#: modules/devices/storage.c:895
+#: modules/devices/storage.c:927
 #, c-format
 msgid ""
 "[Capabilities]\n"
 "%s"
 msgstr ""
 
-#: modules/devices/storage.c:902
+#: modules/devices/storage.c:934
 #, c-format
 msgid ""
 "[Speeds]\n"

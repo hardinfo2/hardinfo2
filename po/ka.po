@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2025-11-23 14:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -3551,6 +3551,10 @@ msgid ""
 msgstr ""
 "მედია=%s\n"
 "მედიის თავსებადობა=%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "ინტერფეისის სიჩქარე=%s, %s (%llu MHz)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

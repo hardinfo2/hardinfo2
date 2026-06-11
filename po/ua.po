@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2026-03-09 17:50+0200\n"
 "Last-Translator: Sergiy Golovko <cappelikan@gmail.com>\n"
 "Language-Team: \n"
@@ -3515,6 +3515,10 @@ msgid ""
 msgstr ""
 "Медіа=%s\n"
 "Сумісність медіа=%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "Швидкість інтерфейсу: %s, %s (%llu МГц)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2026-03-31 13:54+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -3510,6 +3510,10 @@ msgid ""
 msgstr ""
 "Medya =%s\n"
 "Medya uyumluluğu =%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "Arayüz Hızı=%s, %s (%llu MHz)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 03:05+0200\n"
+"POT-Creation-Date: 2026-06-11 13:18+0200\n"
 "PO-Revision-Date: 2024-05-20 13:19+0200\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
@@ -3555,6 +3555,10 @@ msgid ""
 msgstr ""
 "Média=%s\n"
 "A média kompatibilitása=%s\n"
+
+#, c-format
+msgid "I/F Speed=%s, %s (%llu MHz)\n"
+msgstr "Interfész sebessége: %s, %s (%llu MHz)\n"
 
 #, c-format
 msgid "Connection bus=%s\n"

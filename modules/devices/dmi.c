@@ -92,7 +92,7 @@ gboolean dmi_get_info(void)
             int state = 3;
 
             if (strcmp(info->id_str, "chassis-type") == 0) {
-                value = dmi_chassis_type_str(-1, 1);
+	        value = dmi_chassis_type_str(-1, 1, 0);
                 if (value == NULL)
                     state = (getuid() == 0) ? 0 : 1;
             } else {

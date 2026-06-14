@@ -36,7 +36,7 @@ char *dmi_get_str_abs(const char *id_str); /* include nonsense */
 /* if chassis_type is <=0 it will be fetched from DMI.
  * with_val = true, will return a string like "[3] Desktop" instead of just
  * "Desktop". */
-char *dmi_chassis_type_str(int chassis_type, gboolean with_val);
+char *dmi_chassis_type_str(int chassis_type, gboolean with_val, int english_names);
 
 typedef struct {
     dmi_handle id;

@@ -455,7 +455,7 @@ gchar *computer_get_machinetype(int english)
     g_free(tmp);
 
     //Physical machine
-    chassis = dmi_chassis_type_str(-1, 0);
+    chassis = dmi_chassis_type_str(-1, 0, english);
     if (chassis)
         return chassis;
 

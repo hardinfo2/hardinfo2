@@ -232,7 +232,7 @@ dmi_str_done:
     return ret;
 }
 
-char *dmi_chassis_type_str(int chassis_type, gboolean with_val) {
+char *dmi_chassis_type_str(int chassis_type, gboolean with_val, int english_names) {
     static const char *types[] = {
         N_("Invalid chassis type (0)"),
         N_("Unknown chassis type"), /* 1 is "Other", but not helpful in HardInfo */
@@ -282,11 +282,18 @@ char *dmi_chassis_type_str(int chassis_type, gboolean with_val) {
             chassis_type = -1;
     }
 
-    if (chassis_type >= 0 && chassis_type < (int)G_N_ELEMENTS(types)) {
-        if (with_val)
-            return g_strdup_printf("[%d] %s", chassis_type, _(types[chassis_type]));
-
-        return g_strdup(_(types[chassis_type]));
+    if(english_names){
+        if (chassis_type >= 0 && chassis_type < (int)G_N_ELEMENTS(types)) {
+            if (with_val)
+	        return g_strdup_printf("[%d] %s", chassis_type, types[chassis_type]);
+	    return g_strdup(types[chassis_type]);
+	}
+    } else {
+        if (chassis_type >= 0 && chassis_type < (int)G_N_ELEMENTS(types)) {
+            if (with_val)
+	        return g_strdup_printf("[%d] %s", chassis_type, _(types[chassis_type]));
+	    return g_strdup(_(types[chassis_type]));
+	}
     }
     return NULL;
 }

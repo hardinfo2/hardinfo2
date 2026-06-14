@@ -32,8 +32,15 @@ static bench_value storage_runtest() {
     float readtime=0,writetime=0;
     char reade[5],writee[5];
     int t=1;
-    const char cmd_line[] = "sh -c 'cd ~;dd if=/dev/zero of=hardinfo2_testfile bs=1M count=20 oflag=direct;dd of=/dev/zero if=hardinfo2_testfile bs=1M iflag=direct;rm hardinfo2_testfile'";
-    const char cmd_line_long[] = "sh -c 'cd ~;dd if=/dev/zero of=hardinfo2_testfile bs=1M count=400 oflag=direct;dd of=/dev/zero if=hardinfo2_testfile bs=1M iflag=direct;rm hardinfo2_testfile'";
+    const char *cmd_template = "sh -c ' \
+        export LC_ALL=C; \
+        cd ~ || exit 1; \
+        dd if=/dev/zero of=./hardinfo2_testfile bs=1M count=%d oflag=direct; \
+        dd of=/dev/zero if=./hardinfo2_testfile bs=1M iflag=direct; \
+        rm ./hardinfo2_testfile'";
+
+    gchar *cmd_line = g_strdup_printf(cmd_template, 20);
+    gchar *cmd_line_long = g_strdup_printf(cmd_template, 400);
 
     while(t){
         if(t==1)
@@ -77,10 +84,13 @@ static bench_value storage_runtest() {
 	}
 	g_free(out);
 	g_free(err);
-      
+
 	if((t==1)&&(ret.elapsed_time<0.2)) t=2; else t=0; //second long run x20 - max 4 sec
     }
-    
+
+    g_free(cmd_line);
+    g_free(cmd_line_long);
+
     ret.threads_used = 1;
     ret.revision = BENCH_REVISION;
     return ret;
@@ -93,7 +103,7 @@ void benchmark_storage(void) {
     shell_status_update("Performing Storage Benchmark...");
 
     r = storage_runtest();
-    
+
     bench_results[BENCHMARK_STORAGE] = r;
 }
 

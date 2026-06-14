@@ -42,6 +42,8 @@ static bench_value storage_runtest() {
     gchar *cmd_line = g_strdup_printf(cmd_template, 20);
     gchar *cmd_line_long = g_strdup_printf(cmd_template, 400);
 
+    gchar *saved_locale = g_strdup(setlocale(LC_NUMERIC, NULL));
+    setlocale(LC_NUMERIC,"C");
     while(t){
         if(t==1)
 	   spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
@@ -88,6 +90,8 @@ static bench_value storage_runtest() {
 	if((t==1)&&(ret.elapsed_time<0.2)) t=2; else t=0; //second long run x20 - max 4 sec
     }
 
+    setlocale(LC_NUMERIC,saved_locale);
+    g_free(saved_locale);
     g_free(cmd_line);
     g_free(cmd_line_long);
 

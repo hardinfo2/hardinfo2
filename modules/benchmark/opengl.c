@@ -33,7 +33,7 @@ static bench_value opengl_bench(int opengl, int darkmode) {
     int count, ms,ver,gl;
     float fps;
     char *cmd_line;
-    
+
     if(opengl) {
         cmd_line=g_strdup_printf("%s/modules/qgears2 -gl %s",params.path_lib, (darkmode ? "-dark" : ""));
     } else {
@@ -42,13 +42,17 @@ static bench_value opengl_bench(int opengl, int darkmode) {
 
     spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
     g_free(cmd_line);
-    if (spawned && (sscanf(out,"Ver=%d, GL=%d, Result:%d/%d=%f", &ver, &gl, &count, &ms, &fps)==5)) {
-            strncpy(ret.extra, out, sizeof(ret.extra)-1);
-	    ret.extra[sizeof(ret.extra)-1]=0;
+    if (spawned && out) {
+        // Find "Ver=" to parse real benchmark info
+        char *ver_pos = strstr(out, "Ver=");
+        if (ver_pos && (sscanf(ver_pos,"Ver=%d, GL=%d, Result:%d/%d=%f", &ver, &gl, &count, &ms, &fps)==5)) {
+            strncpy(ret.extra, ver_pos, sizeof(ret.extra)-1);
+            ret.extra[sizeof(ret.extra)-1]=0;
             ret.threads_used = 1;
             ret.elapsed_time = (double)ms/1000;
-	    ret.revision = (BENCH_REVISION*100) + ver;
+            ret.revision = (BENCH_REVISION*100) + ver;
             ret.result = fps;
+        }
     }
     g_free(out);
     g_free(err);
@@ -67,6 +71,6 @@ void benchmark_opengl(void) {
     if(r.threads_used!=1) {
         r = opengl_bench(0,(params.max_bench_results==1?1:0));
     }
-    
+
     bench_results[BENCHMARK_OPENGL] = r;
 }

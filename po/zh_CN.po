@@ -756,7 +756,7 @@ msgid "CPU Blowfish (Multi-core)"
 msgstr "CPU Blowfish 加解密（多核心）"
 
 msgid "CPU Zlib"
-msgstr "CPU 压缩和解压缩（Zlib）"
+msgstr "CPU Zlib 压缩和解压缩"
 
 msgid "CPU CryptoHash"
 msgstr "CPU 加密哈希"
@@ -804,7 +804,7 @@ msgid "GPU OpenGL Drawing"
 msgstr "GPU OpenGL 绘图"
 
 msgid "GPU OpenGL Drawing2"
-msgstr "GPU OpenGL 绘图2"
+msgstr "GPU OpenGL 绘图 2"
 
 msgid "GPU Vulkan Drawing"
 msgstr "GPU Vulkan 绘图"

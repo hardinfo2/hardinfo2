@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-11 13:18+0200\n"
+"POT-Creation-Date: 2026-06-24 22:26+0800\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -131,7 +131,7 @@ msgid "Memory Device"
 msgstr "内存设备"
 
 msgid "32-bit Memory Error"
-msgstr "32位内存错误"
+msgstr "32 位内存错误"
 
 msgid "Memory Array Mapped Address"
 msgstr "内存阵列已映射地址"
@@ -176,7 +176,7 @@ msgid "System Boot"
 msgstr "系统引导"
 
 msgid "64-bit Memory Error"
-msgstr "64位内存错误"
+msgstr "64 位内存错误"
 
 msgid "Management Device"
 msgstr "管理设备"
@@ -215,10 +215,10 @@ msgid "Low-profile Desktop"
 msgstr "低矮型台式机"
 
 msgid "Pizza Box"
-msgstr "卧式机箱"
+msgstr "披萨盒式机箱"
 
 msgid "Mini Tower"
-msgstr "小型机箱"
+msgstr "小型塔式机箱"
 
 msgid "Tower"
 msgstr "塔式机箱"
@@ -227,13 +227,13 @@ msgid "Portable"
 msgstr "便携式"
 
 msgid "Laptop"
-msgstr "笔记本电脑"
+msgstr "标准笔记本电脑"
 
 msgid "Notebook"
-msgstr "笔记本"
+msgstr "轻薄笔记本电脑"
 
 msgid "Handheld"
-msgstr "手持设备"
+msgstr "掌上电脑"
 
 msgid "Docking Station"
 msgstr "扩展坞"
@@ -242,13 +242,13 @@ msgid "All-in-one"
 msgstr "一体机"
 
 msgid "Subnotebook"
-msgstr "轻薄本"
+msgstr "迷你笔记本电脑"
 
 msgid "Space-saving"
 msgstr "紧凑型"
 
 msgid "Lunch Box"
-msgstr "手提式电脑"
+msgstr "饭盒式电脑"
 
 msgid "Main Server Chassis"
 msgstr "主服务器机箱"
@@ -272,13 +272,13 @@ msgid "Rack Mount Chassis"
 msgstr "机架式机箱"
 
 msgid "Sealed-case PC"
-msgstr "密封式PC"
+msgstr "密封式电脑"
 
 msgid "Multi-system"
 msgstr "多系统"
 
 msgid "CompactPCI"
-msgstr "紧凑型PCI"
+msgstr "紧凑型 PCI"
 
 msgid "AdvancedTCA"
 msgstr "高级电信计算架构"
@@ -293,22 +293,22 @@ msgid "Tablet"
 msgstr "平板电脑"
 
 msgid "Convertible"
-msgstr "可转换电脑"
+msgstr "可翻转电脑"
 
 msgid "Detachable"
 msgstr "可拆卸电脑"
 
 msgid "IoT Gateway"
-msgstr "IoT 网关"
+msgstr "物联网网关"
 
 msgid "Embedded PC"
-msgstr "嵌入式PC"
+msgstr "嵌入式电脑"
 
 msgid "Mini PC"
 msgstr "迷你电脑"
 
 msgid "Stick PC"
-msgstr "计算棒"
+msgstr "电脑棒"
 
 #. !/ %d will be latest year of copyright
 #, c-format
@@ -416,10 +416,10 @@ msgid "chooses a report format ([text], html)"
 msgstr "选择报告格式（[text]，html）"
 
 msgid "search for a topic in CLI report (-t getlist shows available)"
-msgstr "在CLI报告中搜索主题（-t getlist 显示可用选项）"
+msgstr "在命令行报告中搜索主题（-t getlist 显示可用选项）"
 
 msgid "search for a topic in Cached CLI report (-t getlist shows available)"
-msgstr "在缓存的CLI报告中搜索主题（-t getlist 显示可用选项）"
+msgstr "在缓存的命令行报告中搜索主题（-t getlist 显示可用选项）"
 
 msgid "run single benchmark eg. -b 'FPU FFT' (Default all Benchmarks runs)"
 msgstr "运行单个基准测试，例如 -b 'FPU FFT'（默认运行所有基准测试）"
@@ -747,16 +747,16 @@ msgid "Synchronizing: %s"
 msgstr "同步中：%s"
 
 msgid "CPU Blowfish (Single-thread)"
-msgstr "CPU Blowfish（单线程）"
+msgstr "CPU Blowfish 加解密（单线程）"
 
 msgid "CPU Blowfish (Multi-thread)"
-msgstr "CPU Blowfish（多线程）"
+msgstr "CPU Blowfish 加解密（多线程）"
 
 msgid "CPU Blowfish (Multi-core)"
-msgstr "CPU Blowfish（多核心）"
+msgstr "CPU Blowfish 加解密（多核心）"
 
 msgid "CPU Zlib"
-msgstr "CPU 压缩测试（Zlib）"
+msgstr "CPU Zlib 压缩和解压缩"
 
 msgid "CPU CryptoHash"
 msgstr "CPU 加密哈希"
@@ -765,7 +765,7 @@ msgid "CPU Fibonacci"
 msgstr "CPU 斐波那契数列"
 
 msgid "CPU N-Queens"
-msgstr "CPU N皇后问题"
+msgstr "CPU N 皇后问题"
 
 msgid "FPU FFT"
 msgstr "FPU 快速傅里叶变换"
@@ -786,16 +786,16 @@ msgid "SysBench CPU (Four threads)"
 msgstr "SysBench CPU（四线程）"
 
 msgid "SysBench Memory (Single-thread)"
-msgstr "SysBench Memory（单线程）"
+msgstr "SysBench 内存（单线程）"
 
 msgid "SysBench Memory (Two threads)"
-msgstr "SysBench Memory（双线程）"
+msgstr "SysBench 内存（双线程）"
 
 msgid "SysBench Memory (Quad threads)"
-msgstr "SysBench Memory（四线程）"
+msgstr "SysBench 内存（四线程）"
 
 msgid "SysBench Memory (Multi-thread)"
-msgstr "SysBench Memory（多线程）"
+msgstr "SysBench 内存（多线程）"
 
 msgid "GPU Drawing"
 msgstr "GPU 绘图"
@@ -804,7 +804,7 @@ msgid "GPU OpenGL Drawing"
 msgstr "GPU OpenGL 绘图"
 
 msgid "GPU OpenGL Drawing2"
-msgstr "GPU OpenGL 绘图2"
+msgstr "GPU OpenGL 绘图 2"
 
 msgid "GPU Vulkan Drawing"
 msgstr "GPU Vulkan 绘图"
@@ -886,7 +886,7 @@ msgstr "kiB"
 
 #, c-format
 msgid "%d-bit"
-msgstr "%d位"
+msgstr "%d 位"
 
 msgid "Benchmark Result"
 msgstr "基准测试结果"
@@ -1966,17 +1966,17 @@ msgstr "半字加载和存储"
 #. !/flag:thumb
 msgctxt "arm-flag"
 msgid "Thumb (16-bit instruction set)"
-msgstr "Thumb（16位指令集）"
+msgstr "Thumb（16 位指令集）"
 
 #. !/flag:26bit
 msgctxt "arm-flag"
 msgid "26-Bit Model (Processor status register folded into program counter)"
-msgstr "26位模型（处理器状态寄存器折叠到程序计数器）"
+msgstr "26 位模型（处理器状态寄存器折叠到程序计数器）"
 
 #. !/flag:fastmult
 msgctxt "arm-flag"
 msgid "32x32->64-bit multiplication"
-msgstr "32x32->64位乘法"
+msgstr "32x32->64 位乘法"
 
 #. !/flag:fpa
 msgctxt "arm-flag"
@@ -1986,17 +1986,17 @@ msgstr "浮点加速器"
 #. !/flag:vfp
 msgctxt "arm-flag"
 msgid "VFP (early SIMD vector floating point instructions)"
-msgstr "VFP（早期SIMD向量浮点指令）"
+msgstr "VFP（早期 SIMD 向量浮点指令）"
 
 #. !/flag:edsp
 msgctxt "arm-flag"
 msgid "DSP extensions (the 'e' variant of the ARM9 CPUs, and all others above)"
-msgstr "DSP扩展（ARM9 CPU的'e'变种，以及以上所有其他CPU）"
+msgstr "DSP 扩展（ARM9 CPU 的'e'变种，以及以上所有其他 CPU）"
 
 #. !/flag:java
 msgctxt "arm-flag"
 msgid "Jazelle (Java bytecode accelerator)"
-msgstr "Jazelle（Java字节码加速器）"
+msgstr "Jazelle（Java 字节码加速器）"
 
 #. !/flag:iwmmxt
 msgctxt "arm-flag"
@@ -2106,72 +2106,72 @@ msgstr "AArch64 上的原子指令（架构>=8）"
 #. !/flag:fphp
 msgctxt "arm-flag"
 msgid "Half precision floating point on AArch64 (arch>=8)"
-msgstr "AArch64上的半精度浮点（arch>=8）"
+msgstr "AArch64 上的半精度浮点（arch>=8）"
 
 #. !/flag:asimdhp
 msgctxt "arm-flag"
 msgid "Advanced SIMD with BFloat16 on AArch64 (arch>=8)"
-msgstr "AArch64上的带BFloat16的高级SIMD（arch>=8）"
+msgstr "AArch64 上的带 BFloat16 的高级 SIMD（arch>=8）"
 
 #. !/flag:cpuid
 msgctxt "arm-flag"
 msgid "CPU features can be read on AArch64 (arch>=8)"
-msgstr "可以在AArch64上读取CPU特性（arch>=8）"
+msgstr "可以在 AArch64 上读取 CPU 特性（arch>=8）"
 
 #. !/flag:asimdrdm
 msgctxt "arm-flag"
 msgid "Advanced SIMD rounding Double MulAcc on AArch64 (arch>=8)"
-msgstr "AArch64上的高级SIMD舍入双倍乘加（arch>=8）"
+msgstr "AArch64 上的高级 SIMD 舍入双倍乘加（arch>=8）"
 
 #. !/flag:jscvt
 msgctxt "arm-flag"
 msgid "JacaScript conversion on AArch64 (arch>=8)"
-msgstr "AArch64上的JacaScript转换（arch>=8）"
+msgstr "AArch64 上的 JacaScript 转换（arch>=8）"
 
 #. !/flag:fcma
 msgctxt "arm-flag"
 msgid "Complex number SIMD on AArch64 (arch>=8)"
-msgstr "AArch64上的复数SIMD（arch>=8）"
+msgstr "AArch64 上的复数 SIMD（arch>=8）"
 
 #. !/flag:lrcpc
 msgctxt "arm-flag"
 msgid "Weak release consistency on AArch64 (arch>=8)"
-msgstr "AArch64上的弱释放一致性（arch>=8）"
+msgstr "AArch64 上的弱释放一致性（arch>=8）"
 
 #. !/flag:dcpop
 msgctxt "arm-flag"
 msgid "Data cache clean to Point of Persistence on AArch64 (arch>=8)"
-msgstr "AArch64上的数据缓存清理到持久点（arch>=8）"
+msgstr "AArch64 上的数据缓存清理到持久点（arch>=8）"
 
 #. !/flag:sha3
 msgctxt "arm-flag"
 msgid "SHA-3 instructions on AArch64 (arch>=8)"
-msgstr "AArch64上的SHA-3指令（arch>=8）"
+msgstr "AArch64 上的 SHA-3 指令（arch>=8）"
 
 #. !/flag:sm3
 msgctxt "arm-flag"
 msgid "SM3 instructions on AArch64 (arch>=8)"
-msgstr "AArch64上的SM3指令（arch>=8）"
+msgstr "AArch64 上的 SM3 指令（arch>=8）"
 
 #. !/flag:sm4
 msgctxt "arm-flag"
 msgid "SM4 instructions on AArch64 (arch>=8)"
-msgstr "AArch64上的SM4指令（arch>=8）"
+msgstr "AArch64 上的 SM4 指令（arch>=8）"
 
 #. !/flag:asimddp
 msgctxt "arm-flag"
 msgid "SIMD Dot Product on AArch64 (arch>=8)"
-msgstr "AArch64上的SIMD点积（arch>=8）"
+msgstr "AArch64 上的 SIMD 点积（arch>=8）"
 
 #. !/flag:sha512
 msgctxt "arm-flag"
 msgid "SHA512 instructions on AArch64 (arch>=8)"
-msgstr "AArch64上的SHA512指令（arch>=8）"
+msgstr "AArch64 上的 SHA512 指令（arch>=8）"
 
 #. !/flag:sve
 msgctxt "arm-flag"
 msgid "Scalable Vector Extension on AArch64 (arch>=8)"
-msgstr "AArch64上的可伸缩向量扩展（arch>=8）"
+msgstr "AArch64 上的可伸缩向量扩展（arch>=8）"
 
 msgid "Cache information not available=\n"
 msgstr "缓存信息不可用=\n"
@@ -2185,7 +2185,7 @@ msgstr "缓存"
 
 #, c-format
 msgid "Level %d (%s)#%d=%dx %dKB (%dKB), %d-way set-associative, %d sets\n"
-msgstr "L%d（%s）#%d=%dx %dKB（%dKB），%d路组相联，%d 组\n"
+msgstr "L%d（%s）#%d=%dx %dKB（%dKB），%d 路组相联，%d 组\n"
 
 msgid "ARM Processor"
 msgstr "ARM 处理器"
@@ -2401,7 +2401,7 @@ msgid "Release Date"
 msgstr "发布日期"
 
 msgid "Distro and CPU Supported Profiles"
-msgstr "发行版和CPU支持的配置文件"
+msgstr "发行版和 CPU 支持的配置文件"
 
 msgid "WSL2"
 msgstr "WSL2"
@@ -2416,25 +2416,25 @@ msgid "Devices"
 msgstr "设备"
 
 msgid "Update CPU database"
-msgstr "更新CPU数据库"
+msgstr "更新 CPU 数据库"
 
 msgid "Update PCI ID listing"
-msgstr "更新PCI ID列表"
+msgstr "更新 PCI ID 列表"
 
 msgid "Update USB ID listing"
-msgstr "更新USB ID列表"
+msgstr "更新 USB ID 列表"
 
 msgid "Update EDID vendor codes"
-msgstr "更新EDID供应商代码"
+msgstr "更新 EDID 供应商代码"
 
 msgid "Update IEEE OUI vendor codes"
-msgstr "更新IEEE OUI供应商代码"
+msgstr "更新 IEEE OUI 供应商代码"
 
 msgid "Update SD card manufacturer information"
-msgstr "更新SD卡制造商信息"
+msgstr "更新 SD 卡制造商信息"
 
 msgid "Update CPU flags database"
-msgstr "更新CPU标志数据库"
+msgstr "更新 CPU 标志数据库"
 
 msgid "Gathers information about hardware devices"
 msgstr "收集硬件设备信息"
@@ -2928,10 +2928,10 @@ msgid "PA-RISC Processor"
 msgstr "PA-RISC 处理器"
 
 msgid "HVersion"
-msgstr "H版本"
+msgstr "H 版本"
 
 msgid "SVersion"
-msgstr "S版本"
+msgstr "S 版本"
 
 msgid "Link Width"
 msgstr "链路宽度"
@@ -3006,23 +3006,23 @@ msgstr "微架构"
 
 msgctxt "rv-ext"
 msgid "RISC-V 32-bit"
-msgstr "RISC-V 32位"
+msgstr "RISC-V 32 位"
 
 msgctxt "rv-ext"
 msgid "RISC-V 64-bit"
-msgstr "RISC-V 64位"
+msgstr "RISC-V 64 位"
 
 msgctxt "rv-ext"
 msgid "RISC-V 128-bit"
-msgstr "RISC-V 128位"
+msgstr "RISC-V 128 位"
 
 msgctxt "rv-ext"
 msgid "Base embedded integer instructions (15 registers)"
-msgstr "基础嵌入式整数指令（15个寄存器）"
+msgstr "基础嵌入式整数指令（15 个寄存器）"
 
 msgctxt "rv-ext"
 msgid "Base integer instructions (31 registers)"
-msgstr "基础整数指令（31个寄存器）"
+msgstr "基础整数指令（31 个寄存器）"
 
 msgctxt "rv-ext"
 msgid "Hardware integer multiply and divide"
@@ -3034,7 +3034,7 @@ msgstr "原子内存操作"
 
 msgctxt "rv-ext"
 msgid "Compressed 16-bit instructions"
-msgstr "压缩16位指令"
+msgstr "压缩 16 位指令"
 
 msgctxt "rv-ext"
 msgid "Floating-point instructions, single-precision"
@@ -3750,7 +3750,7 @@ msgstr "机器检查异常"
 #. !/flag:cx8
 msgctxt "x86-flag"
 msgid "CMPXCHG8 instruction (64-bit compare-and-swap)"
-msgstr "CMPXCHG8 指令（64位比较和交换）"
+msgstr "CMPXCHG8 指令（64 位比较和交换）"
 
 #. !/flag:apic
 msgctxt "x86-flag"
@@ -3770,7 +3770,7 @@ msgstr "内存类型范围寄存器"
 #. !/flag:pge
 msgctxt "x86-flag"
 msgid "Page Global Enable (global bit in PDEs and PTEs)"
-msgstr "页面全局使能（PDE和PTE中的全局位）"
+msgstr "页面全局使能（PDE 和 PTE 中的全局位）"
 
 #. !/flag:mca
 msgctxt "x86-flag"
@@ -3790,7 +3790,7 @@ msgstr "页面属性表"
 #. !/flag:pse36
 msgctxt "x86-flag"
 msgid "36-bit PSEs (huge pages)"
-msgstr "36位PSE（大页面）"
+msgstr "36 位 PSE（大页面）"
 
 #. !/flag:pn
 msgctxt "x86-flag"
@@ -3812,7 +3812,7 @@ msgstr "调试存储（用于调试和分析指令的缓冲区），或数字温
 #. !/flag:acpi
 msgctxt "x86-flag"
 msgid "ACPI via MSR (temperature monitoring and clock speed modulation)"
-msgstr "通过MSR的ACPI（温度监控和时钟速度调制）"
+msgstr "通过 MSR 的 ACPI（温度监控和时钟速度调制）"
 
 #. !/flag:mmx
 msgctxt "x86-flag"
@@ -3855,13 +3855,13 @@ msgid ""
 "Intel Itanium Architecture 64-bit (not to be confused with Intel's 64-bit "
 "x86 architecture with flag x86-64 or \"AMD64\" bit indicated by flag lm)"
 msgstr ""
-"Intel Itanium 架构 64位（不要与Intel的64位x86架构混淆，后者由标志x86-64或"
-"\"AMD64\"位表示）"
+"Intel Itanium 架构 64 位（不要与 Intel 的 64 位 x86 架构混淆，后者由标志 "
+"x86-64 或\"AMD64\"位表示）"
 
 #. !/flag:pbe
 msgctxt "x86-flag"
 msgid "Pending Break Enable (PBE# pin) wakeup support"
-msgstr "挂起中断使能（PBE#引脚）唤醒支持"
+msgstr "挂起中断使能（PBE# 引脚）唤醒支持"
 
 #. !/flag:syscall
 msgctxt "x86-flag"
@@ -3896,12 +3896,12 @@ msgstr "1GB 页面（允许 hugepagesz=1G）"
 #. !/flag:rdtscp
 msgctxt "x86-flag"
 msgid "Read Time-Stamp Counter and Processor ID"
-msgstr "读取时间戳计数器和处理器ID"
+msgstr "读取时间戳计数器和处理器 ID"
 
 #. !/flag:lm
 msgctxt "x86-flag"
 msgid "Long Mode (x86-64: amd64, also known as Intel 64, i.e. 64-bit capable)"
-msgstr "长模式（x86-64：amd64，也称为Intel 64，即64位兼容）"
+msgstr "长模式（x86-64：amd64，也称为 Intel 64，即 64 位兼容）"
 
 #. !/flag:3dnow
 msgctxt "x86-flag"
@@ -4063,7 +4063,7 @@ msgstr "执行四字无进位乘法指令 - GCM 加速器）"
 #. !/flag:dtes64
 msgctxt "x86-flag"
 msgid "64-bit Debug Store"
-msgstr "64位调试存储"
+msgstr "64 位调试存储"
 
 #. !/flag:monitor
 msgctxt "x86-flag"
@@ -4163,8 +4163,8 @@ msgstr "字节交换后移动数据指令"
 #. !/flag:popcnt
 msgctxt "x86-flag"
 msgid ""
-"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, i."
-"e. bit count)"
+"Return the Count of Number of Bits Set to 1 instruction (Hamming weight, "
+"i.e. bit count)"
 msgstr "返回设置为 1 的位数计数指令（汉明权重，即位计数）"
 
 msgctxt "x86-flag"
@@ -4194,7 +4194,7 @@ msgstr "高级矢量扩展"
 #. !/flag:f16c
 msgctxt "x86-flag"
 msgid "16-bit fp conversions (CVT16)"
-msgstr "16位浮点转换（CVT16）"
+msgstr "16 位浮点转换（CVT16）"
 
 #. !/flag:rdrand
 msgctxt "x86-flag"
@@ -4279,7 +4279,7 @@ msgstr "扩展 APIC 空间"
 #. !/flag:cr8_legacy
 msgctxt "x86-flag"
 msgid "CR8 in 32-bit mode"
-msgstr "32位模式下的 CR8"
+msgstr "32 位模式下的 CR8"
 
 #. !/flag:abm
 msgctxt "x86-flag"
@@ -4296,7 +4296,7 @@ msgctxt "x86-flag"
 msgid ""
 "indicates if a GP exception is generated when some legacy SSE instructions "
 "operate on unaligned data"
-msgstr "指示当某些传统SSE指令在未对齐数据上操作时是否生成一般保护异常"
+msgstr "指示当某些传统 SSE 指令在未对齐数据上操作时是否生成一般保护异常"
 
 #. !/flag:3dnowprefetch
 msgctxt "x86-flag"

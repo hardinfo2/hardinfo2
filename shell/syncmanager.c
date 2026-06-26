@@ -249,7 +249,7 @@ static void sync_dialog_start_sync(SyncDialog *sd)
                            "blobs-update-version.json", NULL);
     fd = open(path,O_RDONLY);
     if(fd<0) {
-        free(path);
+        g_free(path);
         path = g_build_filename(params.path_data,"blobs-update-version.json", NULL);
         fd = open(path,O_RDONLY);
     }
@@ -258,7 +258,7 @@ static void sync_dialog_start_sync(SyncDialog *sd)
             sscanf(buf,"{\"update-version\":\"%u\",",&our_blobs_update_version);
         close(fd);
     }
-    free(path);
+    g_free(path);
     DEBUG("OUR2_BLOBS_UPDATE_VERSION=%u",our_blobs_update_version);
 
     ensure_soup_session();
@@ -970,7 +970,7 @@ void sync_manager_update_on_startup(int send_benchmark)//0:normal only get, 1:se
                            "blobs-update-version.json", NULL);
     fd = open(path,O_RDONLY);
     if(fd<0) {
-        free(path);
+        g_free(path);
         path = g_build_filename(params.path_data,"blobs-update-version.json", NULL);
         fd = open(path,O_RDONLY);
     }
@@ -979,7 +979,7 @@ void sync_manager_update_on_startup(int send_benchmark)//0:normal only get, 1:se
 	    sscanf(buf,"{\"update-version\":\"%u\",",&our_blobs_update_version);
         close(fd);
     }
-    free(path);
+    g_free(path);
     DEBUG("OUR1_BLOBS_UPDATE_VERSION=%u",our_blobs_update_version);
 
     ensure_soup_session();

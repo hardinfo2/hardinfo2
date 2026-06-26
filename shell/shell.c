@@ -2832,6 +2832,7 @@ static gchar *detail_view_clear_value(gchar *value)
 
                      return_value = h_strdup_cprintf("%s\n", return_value, temp);
                   } else {
+                     g_free(return_value);
                      return_value = g_key_file_get_string(keyfile, groups[group],
                                                           keys[key], NULL);
                   }

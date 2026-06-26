@@ -329,6 +329,12 @@ if(${disversion} LESS 11.99)
   endif()
 endif()
 
+#Kylin V10
+if(${distro}${disversion} MATCHES "Kylinv10")
+    message("Kylin V10 - LS24")
+    set(HARDINFO2_LIBSOUP3 0)
+endif()
+
 #pureos ->10 (debian 11 or less)
 if(${disversion} LESS 10.99)
   if(${distro} MATCHES "PureOS")

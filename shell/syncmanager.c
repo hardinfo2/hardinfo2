@@ -718,6 +718,7 @@ void insert_text_event(GtkEditable *editable, const gchar *text, gint length, gi
 	    return;
         }
     }
+    g_free(usernote);
 }
 
 void changed_event(GtkEditable *editable, gpointer data) {

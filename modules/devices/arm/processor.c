@@ -661,6 +661,7 @@ gchar *processor_name(GSList *processors) {
         { "qcom,sm8150", "Qualcomm", "SM8150"},
         { "qcom,sm8150", "Qualcomm", "SM8250"},
         { "qcom,sm8550", "Qualcomm", "SM8550 (SD8g2)"},
+        { "qcom,sdm845", "Qualcomm", "SDM845"},
         { "qcom,msm8939", "Qualcomm", "Snapdragon 615"},
         { "qcom,msm", "Qualcomm", "Snapdragon-family"},
         { "qcom,x1e80100", "Qualcomm", "Snapdragon X Elite"},

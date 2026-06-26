@@ -299,8 +299,8 @@ static void got_msg(const guint8 *buf,int len, gpointer user_data)
 
     if (sna->entry->file_name != NULL) {
         //check for missing config dirs
-        g_mkdir(g_get_user_config_dir(), 0766);
-        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0766);
+        g_mkdir(g_get_user_config_dir(), 0755);
+        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0755);
 	if(strncmp(sna->entry->file_name,"blobs-update-version.json",25)==0){
 	    updateversion=1;
 	}
@@ -365,8 +365,8 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
 
     if (sna->entry->file_name != NULL) {
         //check for missing config dirs
-        g_mkdir(g_get_user_config_dir(), 0766);
-        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0766);
+        g_mkdir(g_get_user_config_dir(), 0755);
+        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0755);
 	if(strncmp(sna->entry->file_name,"blobs-update-version.json",25)==0){
 	    updateversion=1;
 	}

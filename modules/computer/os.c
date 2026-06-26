@@ -126,6 +126,7 @@ void apt_flavors_scan(gchar **pretty_name, gchar **codename, gchar **id, gchar *
 	}
 	if(version){
 	    st=*pretty_name; *pretty_name=g_strdup_printf("%s %s - %s", f->name, version, st); g_free(st);
+	    g_free(version);
 	} else {
 	    st=*pretty_name; *pretty_name=g_strdup_printf("%s - %s", f->name, st); g_free(st);
 	}
@@ -479,7 +480,7 @@ static Distro parse_os_release(void)
     gchar *id = NULL;
     gchar *version = NULL;
     gchar *codename = NULL;
-    gchar **split, *contents, *content2, **line;
+    gchar **split, *contents=NULL, *content2=NULL, **line;
     gchar *orig_id=NULL, *orig_name=NULL;
 
     //some overrides the /etc/os-release, so we use usr/lib first and fixes distro via Apt, OLD DISTRO fallback to /etc/os.
@@ -489,7 +490,7 @@ static Distro parse_os_release(void)
 
     //force /etc/os-release for some distros
     if (!g_file_get_contents("/etc/os-release", &content2, NULL, NULL)) return (Distro) {};
-    if(strstr(content2,"CachyOS")) {
+    if(content2 && strstr(content2,"CachyOS")) {
         g_free(contents);
 	contents=content2;
     } else g_free(content2);

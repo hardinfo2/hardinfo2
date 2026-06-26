@@ -251,6 +251,7 @@ int main(int argc, char **argv)
 		    pos++; p=pos;
 	        }
 	    }
+	    g_free(header);
 	} else {
 	    g_print("%s", report);
 	}

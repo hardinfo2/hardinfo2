@@ -274,7 +274,10 @@ void vendor_init(void)
 
 void vendor_cleanup() {
     DEBUG("cleanup vendor list");
-    //FIXME CRASH g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
+    /* Only free the list nodes, not the data — vendors_builtin entries
+     * are statically allocated, calling vendor_free on them would crash. */
+    g_slist_free(vendors);
+    vendors = NULL;
 }
 
 void vendor_free(Vendor *v) {

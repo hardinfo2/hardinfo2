@@ -511,6 +511,8 @@ gchar *get_storage_home_models(void)
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
 	    *p=0;
+	    p=strstr(out," ");
+	    *p=0;
 	    /* quote device mapper path to prevent shell injection */
 	    gchar *escaped = g_shell_quote(out);
 	    snprintf(cmd_lineblk, sizeof(cmd_lineblk), "lsblk -l -s %s | tail -1", escaped);

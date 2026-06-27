@@ -41,10 +41,10 @@ computer_get_memory(void)
         tmp[0] = g_strstrip(tmp[0]);
         tmp[1] = g_strstrip(tmp[1]);
 
-        if (g_str_has_prefix(tmp[0], "MemTotal")) mi->total = atoi(tmp[1]);
-        else if (g_str_has_prefix(tmp[0], "MemFree")) mi->free = atoi(tmp[1]);
-        else if (g_str_has_prefix(tmp[0], "Cached")) mi->cached = atoi(tmp[1]);
-        else if (g_str_has_prefix(tmp[0], "Zswapped")) mi->zswapped = atoi(tmp[1]);
+        if (g_str_has_prefix(tmp[0], "MemTotal")) mi->total = strtol(tmp[1], NULL, 10);
+        else if (g_str_has_prefix(tmp[0], "MemFree")) mi->free = strtol(tmp[1], NULL, 10);
+        else if (g_str_has_prefix(tmp[0], "Cached")) mi->cached = strtol(tmp[1], NULL, 10);
+        else if (g_str_has_prefix(tmp[0], "Zswapped")) mi->zswapped = strtol(tmp[1], NULL, 10);
 
         g_strfreev(tmp);
     }

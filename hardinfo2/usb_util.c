@@ -426,7 +426,7 @@ static gboolean usb_get_device_sysfs(int bus, int dev, const char* sysfspath, us
 
     if (s->if_list == NULL){ // create interfaces list
         if_count = h_sysfs_read_int(sysfspath, "bNumInterfaces");
-        for (i = 0; i <= if_count; i++){
+        for (i = 0; i < if_count; i++){
             intf = usbi_new();
             ok = usb_get_interface_sysfs(conf, i, sysfspath, intf);
             if (ok){

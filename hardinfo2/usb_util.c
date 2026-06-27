@@ -282,6 +282,7 @@ static gboolean usb_get_interface_sysfs(int conf, int number,
 
     ifpath = g_strdup_printf("%s:%d.%d", devpath, conf, number);
     if (!g_file_test(ifpath, G_FILE_TEST_EXISTS)){
+	g_free(ifpath);
         return FALSE;
     }
 

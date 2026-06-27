@@ -536,7 +536,11 @@ gchar *get_storage_home_models(void)
         g_free(out);
         g_free(err);
     }
-    if(!homepath) return g_strdup("NoHomePath");
+    /* The while loop below uses homepath[strlen(homepath) - 1].
+     * If homepath is "" (empty string), strlen returns 0.
+     * 0 - 1 wraps to SIZE_MAX in unsigned arithmetic, causing an out-of-bounds read before the allocation.
+     * Returning early when *homepath == '\0' avoids reaching the loop entirely. */
+    if(!homepath || !*homepath) return g_strdup("NoHomePath");
     if( (p=strstr(homepath," ")) ) *p=0;
     if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (p=strstr(homepath,"p")) ) *p=0;
     while(homepath[strlen(homepath)-1]>='0' && homepath[strlen(homepath)-1]<='9') homepath[strlen(homepath)-1]=0;

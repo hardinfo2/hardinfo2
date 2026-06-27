@@ -340,11 +340,15 @@ void scan_gpu_do(void) {
     }
     gpud_list_free(gpus);
 
-    if (c)
-        gpu_list = g_strconcat(gpu_list, "[$ShellParam$]\n", "ViewType=1\n", NULL);
-    else  {
+    if (c) {
+        gchar *old = gpu_list;
+        gpu_list = g_strconcat(old, "[$ShellParam$]\n", "ViewType=1\n", NULL);
+        g_free(old);
+    } else  {
         /* NO GPU? */
-        gpu_list = g_strconcat(gpu_list, _("No GPU devices found"), "=\n", NULL);
+        gchar *old = gpu_list;
+        gpu_list = g_strconcat(old, _("No GPU devices found"), "=\n", NULL);
+        g_free(old);
         if(gpuname) g_free(gpuname);
 	gpuname = g_strdup("No GPU");
     }

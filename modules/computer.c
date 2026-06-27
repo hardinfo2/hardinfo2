@@ -691,6 +691,7 @@ static int enroll_after;
 gchar *fixline_enrolled(gchar *line){
     gchar *p;
     if(strstr(line,"Issuer:") && (p=strstr(line,"=")) ) {
+        g_free(enroll_name);
         enroll_name=g_strdup(p+1);
     }
     if(strstr(line,"Not Before: ") && (p=strstr(line,"GMT")) ) {

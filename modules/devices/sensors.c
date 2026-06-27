@@ -74,8 +74,11 @@ static void read_sensor_labels(gchar *devname) {
                     key = g_strdup_printf("%s/%s", devname, names[i]);
                 else if (!value)
                     value = g_strdup(names[i]);
-                else
-                    value = g_strconcat(value, " ", names[i], NULL);
+                else {
+                    gchar *old = value;
+                    value = g_strconcat(old, " ", names[i], NULL);
+                    g_free(old);
+                }
             }
 
             remove_quotes(value);
@@ -103,8 +106,11 @@ static void read_sensor_labels(gchar *devname) {
                     key = g_strdup_printf("%s/%s", devname, formulas[i]);
                 else if (!formula)
                     formula = g_strdup(formulas[i]);
-                else
-                    formula = g_strconcat(formula, formulas[i], NULL);
+                else {
+                    gchar *old = formula;
+                    formula = g_strconcat(old, formulas[i], NULL);
+                    g_free(old);
+                }
             }
 
             g_strfreev(formulas);

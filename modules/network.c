@@ -174,7 +174,11 @@ void scan_statistics(gboolean reload)
 			} else {
 			    gchar **sv=strsplit_multi(p," ",6);
 			    int i=0;while(i<6 && sv[i]) {
-			        if(names[i]) __statistics = h_strdup_cprintf(">#%d=%s%s\n", __statistics, line++, topic?topic:"" , g_strconcat(names[i],": ",sv[i],NULL));
+			        if(names[i]) {
+			            gchar *tmp = g_strconcat(names[i],": ",sv[i],NULL);
+			            __statistics = h_strdup_cprintf(">#%d=%s%s\n", __statistics, line++, topic?topic:"" , tmp);
+			            g_free(tmp);
+			        }
 				g_free(names[i]); names[i]=NULL;
 				i++;
 			    }

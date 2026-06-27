@@ -274,9 +274,7 @@ void vendor_init(void)
 
 void vendor_cleanup() {
     DEBUG("cleanup vendor list");
-    /* Only free the list nodes, not the data — vendors_builtin entries
-     * are statically allocated, calling vendor_free on them would crash. */
-    g_slist_free(vendors);
+    g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
     vendors = NULL;
 }
 
@@ -288,6 +286,8 @@ void vendor_free(Vendor *v) {
         g_free(v->url_support);
         g_free(v->ansi_color);
         g_free(v->match_string);
+        g_free(v->wikipedia);
+        g_free(v->note);
         g_free(v);
     }
 }

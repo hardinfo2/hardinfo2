@@ -74,7 +74,7 @@ gchar *nvme_pci_sections(pcid *p) {
 		    _("Link Speed"), p->pcie_speed_curr, _("GT/s"),
                     _("Maximum Link Speed"), p->pcie_speed_max, _("GT/s") );
     } else
-        pcie_str = strdup("");
+        pcie_str = g_strdup("");
 
     gchar *ret = g_strdup_printf("%s%s", vendor_device_str, pcie_str);
     g_free(vendor_device_str);
@@ -224,7 +224,7 @@ gboolean __scan_udisks2_devices(void) {
         ext = (u2driveext *)node->data;
         disk = ext->d;
 	if(disk->block_dev && strstr(disk->block_dev,"boot0")){
-	    if(!emmc) emmc=strreplace(strdup(disk->block_dev),"boot0","");
+	    if(!emmc) emmc=strreplace(g_strdup(disk->block_dev),"boot0","");
             drives=g_slist_remove(drives, node->data);
 	}
 	if(disk->block_dev && strstr(disk->block_dev,"boot1")){
@@ -438,7 +438,7 @@ gboolean __scan_udisks2_devices(void) {
 	    else if(seol==2) sseol=_("Warning >80%% used");
 	    else if(seol==3) sseol=_("Failing >90%% used");
 	    else sseol=_("Unknown");
-	    sseol=strreplace(strdup(sseol),"%%","%");
+	    sseol=strreplace(g_strdup(sseol),"%%","%");
 
 	    if(seol || smlc || sslc || sdate)
                 moreinfo = h_strdup_cprintf(_("[Self-monitoring ExtCSD]\n"

@@ -104,7 +104,7 @@ static void _gpu_pci_dev(gpud* gpu) {
                     _("Maximum Link Width"), p->pcie_width_max,
                     _("Maximum Link Speed"), p->pcie_speed_max, _("GT/s") );
     } else
-        pcie_str = strdup("");
+        pcie_str = g_strdup("");
 
     gchar *nv_str;
     if (gpu->nv_info) {
@@ -117,7 +117,7 @@ static void _gpu_pci_dev(gpud* gpu) {
                     _("BIOS Version"), gpu->nv_info->bios_version,
                     _("UUID"), gpu->nv_info->uuid );
     } else
-        nv_str = strdup("");
+        nv_str = g_strdup("");
 
     gchar *freq = g_strdup(_("(Unknown)"));
     if (gpu->khz_max > 0) {
@@ -271,7 +271,7 @@ int _dt_soc_gpu(gpud *gpu) {
                     _("Transition Latency"), gpu->dt_opp->clock_latency_ns, _("ns"),
                     _("Source"), _(freq_src[gpu->dt_opp->version]) );
     } else
-        opp_str = strdup("");
+        opp_str = g_strdup("");
 
     gpu_summary_add((gpu->nice_name) ? gpu->nice_name : name);
     gpu_list = h_strdup_cprintf("$!%s$%s=%s\n", gpu_list, key, key, name);
@@ -319,7 +319,7 @@ void scan_gpu_do(void) {
         moreinfo_del_with_prefix("DEV:GPU");
         g_free(gpu_list);
     }
-    gpu_summary = strdup("");
+    gpu_summary = g_strdup("");
     gpu_list = g_strdup_printf("[%s]\n", _("GPUs"));
 
     gpud *gpus = gpu_get_device_list();

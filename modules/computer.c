@@ -346,7 +346,7 @@ void scan_dev(gboolean reload)
        }
 
        if (version == NULL)
-           version = strdup(_("Not found"));
+           version = g_strdup(_("Not found"));
 
        dev_list = h_strdup_cprintf("%s=%s\n", dev_list, detect_lang[i].compiler_name, version);
        g_free(version);
@@ -893,7 +893,7 @@ gchar *callback_fs(void)
 gchar *callback_display(void)
 {
     int n = 0;
-    gchar *screens_str = strdup(""), *outputs_str = strdup("");
+    gchar *screens_str = g_strdup(""), *outputs_str = g_strdup("");
     xinfo *xi = computer->display->xi;
     xrr_info *xrr = xi->xrr;
     glx_info *glx = xi->glx;

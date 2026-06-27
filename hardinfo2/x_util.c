@@ -320,7 +320,7 @@ gboolean fill_xrr_info(xrr_info *xrr) {
                 }
                 g_strfreev(ot);
                 if (is_output) {
-		  strncpy(to.name, output_id, 64);
+		  g_strlcpy(to.name, output_id, sizeof(to.name));
                     xrr->output_count++;
                     if (xrr->outputs == NULL)
                         xrr->outputs = malloc(xrr->output_count * sizeof(x_output));

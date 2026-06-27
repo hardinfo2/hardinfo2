@@ -72,7 +72,7 @@ void scan_memory_do(void)
         if (strstr(newkeys[1], "kB")) {
             trans_val = g_strdup_printf("%d %s", atoi(newkeys[1]), _("KiB") );
         } else {
-            trans_val = strdup(newkeys[1]);
+            trans_val = g_strdup(newkeys[1]);
         }
 
         /*add MemTotal for internal usage*/
@@ -89,7 +89,7 @@ void scan_memory_do(void)
     list=g_list_sort(list,(GCompareFunc)comparMem);
 
     //add memory information
-    memstr=strdup("");lgstr=strdup("");
+    memstr=g_strdup("");lgstr=g_strdup("");
     while(list){
         char **datas = g_strsplit(list->data,"=",3);
         if (!datas[0]) {

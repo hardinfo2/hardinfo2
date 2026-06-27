@@ -34,7 +34,7 @@ void scan_boots_real(void)
     scan_os(FALSE);
 
     if (computer->os->boots) g_free(computer->os->boots);
-    computer->os->boots = strdup("");
+    computer->os->boots = g_strdup("");
 
     spawned = hardinfo_spawn_command_line_sync("last -F -w", &out, &err, NULL, NULL);
 

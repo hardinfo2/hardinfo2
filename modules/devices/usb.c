@@ -101,7 +101,7 @@ static const char* get_usbdev_icon(const usbd *u) {
 static void _usb_dev(const usbd *u) {
     gchar *name, *key, *label, *str, *speed;
     gchar *product, *vendor, *manufacturer, *device;  /* don't free */
-    gchar *interfaces = strdup("");
+    gchar *interfaces = g_strdup("");
     usbi *i;
     const char* icon;
 

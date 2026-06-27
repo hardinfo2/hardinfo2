@@ -287,7 +287,7 @@ void cb_open_updates_page()
       if(arch) g_free(arch);
       arch=g_strdup(HARDINFO2_ARCH);
     }
-    if(!arch) arch=strdup("err");
+    if(!arch) arch=g_strdup("err");
     if(err) g_free(err);
     
     distro=module_call_method("computer::getOSshort");

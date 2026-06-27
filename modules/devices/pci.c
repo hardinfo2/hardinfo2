@@ -146,7 +146,7 @@ static gchar *_pci_dev(const pcid *p, gchar *icons) {
                     _("Link Speed"), p->pcie_speed_curr,  _("GT/s"),
                     _("Maximum Link Speed"), p->pcie_speed_max, _("GT/s") );
     } else
-        pcie_str = strdup("");
+        pcie_str = g_strdup("");
 
     str = g_strdup_printf("[%s]\n"
              /* Class */     "%s=[%04x] %s\n"

@@ -396,22 +396,15 @@ dmi_handle_list *dmi_handle_list_add(dmi_handle_list *hl, dmi_handle_ext new_han
     if (new_handle_ext.type < G_N_ELEMENTS(dmi_type_strings) )
         new_handle_ext.type_str = dmi_type_strings[new_handle_ext.type];
     if (!hl) {
-        hl = malloc(sizeof(dmi_handle_list));
+        hl = g_malloc(sizeof(dmi_handle_list));
 	if(!hl) return NULL;
         hl->count = 1;
-        hl->handles = malloc(sizeof(dmi_handle) * hl->count);
-        hl->handles_ext = malloc(sizeof(dmi_handle_ext) * hl->count);
+        hl->handles = g_malloc_n(hl->count, sizeof(dmi_handle));
+        hl->handles_ext = g_malloc_n(hl->count, sizeof(dmi_handle_ext));
     } else {
         hl->count++;
-        void *tmp_h = realloc(hl->handles, sizeof(dmi_handle) * hl->count);
-        void *tmp_e = realloc(hl->handles_ext, sizeof(dmi_handle_ext) * hl->count);
-        if (!tmp_h || !tmp_e) {
-            free(tmp_h);
-            free(tmp_e);
-            return NULL;
-        }
-        hl->handles = tmp_h;
-        hl->handles_ext = tmp_e;
+        hl->handles = g_realloc_n(hl->handles, hl->count, sizeof(dmi_handle));
+        hl->handles_ext = g_realloc_n(hl->handles_ext, hl->count, sizeof(dmi_handle_ext));
     }
     hl->handles_ext[hl->count - 1] = new_handle_ext;
     hl->handles[hl->count - 1] = new_handle_ext.id;

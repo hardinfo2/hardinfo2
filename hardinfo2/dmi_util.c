@@ -463,7 +463,7 @@ char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *
                         if (*(p + ln) == ':') {
                             p = p + ln + 1;
                             while(*p == ' ') p++;
-                            ret = strdup(p);
+                            ret = g_strdup(p);
                             break;
                         }
                     }

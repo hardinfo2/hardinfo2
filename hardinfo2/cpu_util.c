@@ -163,12 +163,9 @@ int cpu_procs_cores_threads_nodes(int *p, int *c, int *t, int *n)
 cpufreq_data *cpufreq_new(gint id)
 {
     cpufreq_data *cpufd;
-    cpufd = g_malloc(sizeof(cpufreq_data));
-    if (cpufd) {
-        memset(cpufd, 0, sizeof(cpufreq_data));
-        cpufd->id = id;
-        cpufreq_update(cpufd, 0);
-    }
+    cpufd = g_malloc0(sizeof(cpufreq_data));
+    cpufd->id = id;
+    cpufreq_update(cpufd, 0);
     return cpufd;
 }
 
@@ -205,15 +202,12 @@ void cpufreq_free(cpufreq_data *cpufd)
 cpu_topology_data *cputopo_new(gint id)
 {
     cpu_topology_data *cputd;
-    cputd = g_malloc(sizeof(cpu_topology_data));
-    if (cputd) {
-        memset(cputd, 0, sizeof(cpu_topology_data));
-        cputd->id = id;
-        cputd->socket_id = get_cpu_int("topology/physical_package_id", id, CPU_TOPO_NULL);
-        cputd->core_id = get_cpu_int("topology/core_id", id, CPU_TOPO_NULL);
-        cputd->book_id = get_cpu_int("topology/book_id", id, CPU_TOPO_NULL);
-        cputd->drawer_id = get_cpu_int("topology/drawer_id", id, CPU_TOPO_NULL);
-    }
+    cputd = g_malloc0(sizeof(cpu_topology_data));
+    cputd->id = id;
+    cputd->socket_id = get_cpu_int("topology/physical_package_id", id, CPU_TOPO_NULL);
+    cputd->core_id = get_cpu_int("topology/core_id", id, CPU_TOPO_NULL);
+    cputd->book_id = get_cpu_int("topology/book_id", id, CPU_TOPO_NULL);
+    cputd->drawer_id = get_cpu_int("topology/drawer_id", id, CPU_TOPO_NULL);
     return cputd;
 
 }

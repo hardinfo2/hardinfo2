@@ -65,6 +65,8 @@ static Vendor vendors_builtin[] = {
     if (vendor_die_on_error) exit(-1); }
 
 static vendor_list vendors = NULL;
+/* Tracked so vendor_cleanup can skip g_free on static builtin entries */
+static gboolean vendors_using_builtin = FALSE;
 vendor_list get_vendors_list() { return vendors; }
 gboolean vendor_die_on_error = FALSE;
 
@@ -254,6 +256,7 @@ void vendor_init(void)
 
         DEBUG("vendor data not found, using internal database");
 
+        vendors_using_builtin = TRUE;
         for (i = G_N_ELEMENTS(vendors_builtin) - 1; i >= 0; i--) {
             vendors = g_slist_prepend(vendors, (gpointer) &vendors_builtin[i]);
         }
@@ -274,7 +277,14 @@ void vendor_init(void)
 
 void vendor_cleanup() {
     DEBUG("cleanup vendor list");
-    g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
+    if (vendors_using_builtin) {
+        /* Builtin vendors are static data, not heap-allocated.
+         * Calling vendor_free (which does g_free) would crash.
+         * Only free the list nodes, not the vendor structs. */
+        g_slist_free(vendors);
+    } else {
+        g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
+    }
     vendors = NULL;
 }
 

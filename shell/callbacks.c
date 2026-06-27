@@ -195,9 +195,9 @@ void cb_disable_theme()
 
     if(params.theme>0){//enable
        if(params.darkmode){
-	   sprintf(theme_st,"window.background {background-image: url(\"%s/pixmaps/bg%d_dark.jpg\"); background-repeat: no-repeat; background-size:100%% 100%%; }",params.path_data,params.theme);
+	   snprintf(theme_st, sizeof(theme_st), "window.background {background-image: url(\"%s/pixmaps/bg%d_dark.jpg\"); background-repeat: no-repeat; background-size:100%% 100%%; }",params.path_data,params.theme);
        }else{
-	   sprintf(theme_st,"window.background {background-image: url(\"%s/pixmaps/bg%d_light.jpg\"); background-repeat: no-repeat; background-size:100%% 100%%; }",params.path_data,params.theme);
+	   snprintf(theme_st, sizeof(theme_st), "window.background {background-image: url(\"%s/pixmaps/bg%d_light.jpg\"); background-repeat: no-repeat; background-size:100%% 100%%; }",params.path_data,params.theme);
        }
        gtk_css_provider_load_from_data(provider, theme_st, -1, NULL);
        if(shell->window) gtk_style_context_add_provider(gtk_widget_get_style_context(shell->window), GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);

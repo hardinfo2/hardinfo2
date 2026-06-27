@@ -96,7 +96,7 @@ static bench_value cacchemem_runtest(unsigned long SZ){
     cachespeed=(res[8]+res[10]+res[12]+res[14])/4;
     ret.result = (cachespeed+((res[16]+res[18]+res[20]+res[22])/4-cachespeed)/2)*1024;
     if(SZ<128L*1024*1024) {res[26]=res[24];res[25]=res[24];}
-    sprintf(ret.extra,"%0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf", res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26]);
+    snprintf(ret.extra, sizeof(ret.extra), "%0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf", res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26]);
     ret.threads_used = 1;
     ret.revision = BENCH_REVISION;
     return ret;

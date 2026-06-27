@@ -139,7 +139,7 @@ void scan_languages(OperatingSystem * os)
             strend(p, '\n');
             if (strncmp(p, "locale:", 7) == 0) {
                 curr = g_new0(locale_info, 1);
-                sscanf(p, "locale: %s", curr->name);
+                sscanf(p, "locale: %31s", curr->name);
                 /* TODO: 'directory:' and 'archive:' */
             } else if (strchr(p, '|')) {
                 gchar **tmp = g_strsplit(p, "|", 2);

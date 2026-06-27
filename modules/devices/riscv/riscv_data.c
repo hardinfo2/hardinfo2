@@ -101,7 +101,7 @@ const char *riscv_ext_meaning(const char *ext) {
     p = fstr; while (*p != 0 && *p != ':') { if (!vo) *p = toupper(*p); p++; } \
     if (*p == ':') while (*p != 0) { if (*p == 'P') *p = 'p'; p++; }
 
-static int riscv_isa_next(const char *isap, char *flag) {
+static int riscv_isa_next(const char *isap, char *flag, size_t flag_size) {
     char *p = NULL, *start = NULL;
     char *next_sep = NULL, *next_digit = NULL;
     int skip_len = 0, tag_len = 0, ver_len = 0;
@@ -155,7 +155,7 @@ static int riscv_isa_next(const char *isap, char *flag) {
     if (ver_len) {
         strncpy(ext_str, p, tag_len);
         strncpy(ver_str, next_digit, ver_len);
-        sprintf(flag, "%s:%s", ext_str, ver_str);
+        snprintf(flag, flag_size, "%s:%s", ext_str, ver_str);
         if (tag_len == 1) {
             RV_FIX_CASE(flag, 0);
         } else {
@@ -164,7 +164,7 @@ static int riscv_isa_next(const char *isap, char *flag) {
         return skip_len + tag_len + ver_len;
     } else {
         strncpy(ext_str, p, tag_len);
-        sprintf(flag, "%s", ext_str);
+        snprintf(flag, flag_size, "%s", ext_str);
         if (tag_len == 1) { RV_FIX_CASE(flag, 0); }
         return skip_len + tag_len;
     }
@@ -193,7 +193,7 @@ char *riscv_isa_to_flags(const char *isa) {
 	      { ADD_EXT_FLAG("RV64",4); ps += 2; }
             else if ( RV_CHECK_FOR("128") )
 	      { ADD_EXT_FLAG("RV128",5); ps += 3; }
-            while( (tl = riscv_isa_next(ps, flag_buf)) ) {
+            while( (tl = riscv_isa_next(ps, flag_buf, sizeof(flag_buf))) ) {
 	        DEBUG("RISCV ISA: %s (len=%d)",flag_buf,tl);
                 if (flag_buf[0] == 'G') { /* G = IMAFD */
 		    flag_buf[0] = 'I'; ADD_EXT_FLAG(flag_buf,1);

@@ -235,6 +235,10 @@ void cb_disable_theme()
        gtk_css_provider_load_from_data(provider3, "", -1, NULL);
        if(shell->tree && shell->tree->view) gtk_style_context_add_provider(gtk_widget_get_style_context(shell->tree->view), GTK_STYLE_PROVIDER(provider3), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
+    g_object_unref(provider);
+    g_object_unref(provider2);
+    g_object_unref(provider3);
+    g_object_unref(providera);
 #endif
 }
 

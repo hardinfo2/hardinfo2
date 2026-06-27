@@ -82,8 +82,8 @@ dtr_map *dtr_map_add(dtr_map *map, uint32_t v, const char *label, const char *pa
     memset(nmap, 0, sizeof(dtr_map));
     nmap->v = v;
 
-    if (label != NULL) nmap->label = strdup(label);
-    if (path != NULL) nmap->path = strdup(path);
+    if (label != NULL) nmap->label = g_strdup(label);
+    if (path != NULL) nmap->path = g_strdup(path);
     if (map == NULL)
         return nmap;
 
@@ -213,13 +213,13 @@ dtr *dtr_new_x(const char *base_path, int fast) {
     dtr *dt = g_malloc(sizeof(dtr));
     if (dt != NULL) {
         memset(dt, 0, sizeof(dtr));
-        dt->log = strdup("");
+        dt->log = g_strdup("");
 
         if (base_path == NULL)
             base_path = DTR_ROOT;
 
         if (base_path != NULL)
-            dt->base_path = strdup(base_path);
+            dt->base_path = g_strdup(base_path);
         else {
             dtr_msg(dt, "%s", "Device Tree not found.");
             return dt;
@@ -279,7 +279,7 @@ void dtr_msg(dtr *s, char *fmt, ...) {
 
 char *dtr_messages(dtr *s) {
     if (s != NULL)
-        return strdup(s->log);
+        return g_strdup(s->log);
     else
         return NULL;
 }
@@ -307,23 +307,23 @@ dtr_obj *dtr_obj_read(dtr *s, const char *dtp) {
             /* doesn't start with slash, use alias */
             obj->path = (char*)dtr_alias_lookup(s, dtp);
             if (obj->path != NULL)
-                obj->path = strdup(obj->path);
+                obj->path = g_strdup(obj->path);
             else {
                 dtr_obj_free(obj);
                 return NULL;
             }
         } else
-            obj->path = strdup(dtp);
+            obj->path = g_strdup(dtp);
 
         /* find name after last slash, or start */
         slash = strrchr(obj->path, '/');
         if (slash != NULL)
-            obj->name = strdup(slash + 1);
+            obj->name = g_strdup(slash + 1);
         else
-            obj->name = strdup(obj->path);
+            obj->name = g_strdup(obj->path);
 
         /* find manufacturer prefix */
-        obj->prefix = strdup(obj->name);
+        obj->prefix = g_strdup(obj->name);
         coma = strchr(obj->prefix, ',');
         if (coma != NULL) {
             /* coma -> null; .np_name starts after */
@@ -421,7 +421,7 @@ char *dtr_get_prop_str(dtr *s, dtr_obj *node, const char *name) {
     ptmp = g_strdup_printf("%s/%s", (node == NULL) ? "" : node->path, name);
     prop = dtr_obj_read(s, ptmp);
     if (prop != NULL && prop->data != NULL) {
-        ret = strdup(prop->data_str);
+        ret = g_strdup(prop->data_str);
         dtr_obj_free(prop);
     }
     g_free(ptmp);
@@ -637,7 +637,7 @@ char *dtr_list_str0(const char *data, uint32_t length) {
         if (tl >= length) break;
     }
 
-    return strdup(ret);
+    return g_strdup(ret);
 }
 
 char *dtr_list_override(dtr_obj *obj) {
@@ -777,10 +777,10 @@ char* dtr_str(dtr_obj *obj) {
 
     switch(type) {
         case DT_NODE:
-            ret = strdup("{node}");
+            ret = g_strdup("{node}");
             break;
         case DTP_EMPTY:
-            ret = strdup("{empty}");
+            ret = g_strdup("{empty}");
             break;
         case DTP_STR:
             ret = dtr_list_str0(obj->data_str, obj->length);
@@ -849,7 +849,7 @@ dtr_obj *dtr_get_parent_obj(dtr_obj *obj) {
     if (obj == NULL)
         return NULL;
 
-    parent = strdup(obj->path);
+    parent = g_strdup(obj->path);
     slash = strrchr(parent, '/');
     if (slash != NULL) {
         *slash = 0;
@@ -984,7 +984,7 @@ dt_opp_range *dtr_get_opp_range(dtr *s, const char *name) {
     if (dir) {
         while((fn = g_dir_read_name(dir)) != NULL) {
             row_obj = dtr_get_prop_obj(s, table_obj, fn);
-            if (row_obj->type == DT_NODE) {
+            if (row_obj && row_obj->type == DT_NODE) {
                 row_status = dtr_get_prop_str(s, row_obj, "status");
                 if (!row_status || strcmp(row_status, "disabled") != 0) {
                     khz = dtr_get_prop_u64(s, row_obj, "opp-hz");
@@ -1028,7 +1028,7 @@ void _dtr_read_aliases(dtr *s) {
     if (dir) {
         while((fn = g_dir_read_name(dir)) != NULL) {
             prop = dtr_get_prop_obj(s, anode, fn);
-            if (prop->type == DTP_STR) {
+            if (prop && prop->type == DTP_STR) {
                 if (*prop->data_str == '/') {
                     al = dtr_map_add(s->aliases, 0, prop->name, prop->data_str);
                     if (s->aliases == NULL)
@@ -1057,7 +1057,7 @@ void _dtr_read_symbols(dtr *s) {
     if (dir) {
         while((fn = g_dir_read_name(dir)) != NULL) {
             prop = dtr_get_prop_obj(s, anode, fn);
-            if (prop->type == DTP_STR) {
+            if (prop && prop->type == DTP_STR) {
                 if (*prop->data_str == '/') {
                     al = dtr_map_add(s->symbols, 0, prop->name, prop->data_str);
                     if (s->symbols == NULL)

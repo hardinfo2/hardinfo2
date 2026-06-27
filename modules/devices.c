@@ -511,6 +511,8 @@ gchar *get_storage_home_models(void)
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
 	    *p=0;
+	    /* df outputs the full line: "/dev/mapper/name size used avail use% mountpoint".
+	     * lsblk needs only the device name, so truncate at the first space. */
 	    p=strstr(out," ");
 	    *p=0;
 	    /* quote device mapper path to prevent shell injection */

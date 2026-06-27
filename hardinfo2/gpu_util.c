@@ -294,6 +294,7 @@ static gchar *dt_find_gpu(dtr *dt, char *np) {
                 g_free(ntmp);
                 if (ret != NULL) {
                     g_free(ftmp);
+                    g_free(dir_path);
                     g_dir_close(dir);
                     return ret;
                 }
@@ -302,7 +303,7 @@ static gchar *dt_find_gpu(dtr *dt, char *np) {
         }
         g_dir_close(dir);
     }
-
+    g_free(dir_path);
     return NULL;
 }
 

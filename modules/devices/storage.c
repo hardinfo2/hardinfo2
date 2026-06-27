@@ -758,8 +758,10 @@ void __scan_ide_devices(void)
 	    cache = 0;
 
 	    proc_ide = fopen(device, "r");
-	    if (!proc_ide)
+	    if (!proc_ide) {
+	        g_free(device);
 	        continue;
+	    }
 
 	    char *cc=fgets(buf, 128, proc_ide);
 	    fclose(proc_ide);
@@ -775,6 +777,7 @@ void __scan_ide_devices(void)
 	    proc_ide = fopen(device, "r");
 	    if (!proc_ide) {
 	        g_free(model);
+	        g_free(device);
 	        continue;
             }
 

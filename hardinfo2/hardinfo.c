@@ -199,6 +199,7 @@ int main(int argc, char **argv)
 		}
 	        fclose(io);
 	    }
+	    g_free(file);
 	}
 	if(!report){
 	    report = report_create_from_module_list_format(modules, params.report_format);
@@ -209,6 +210,7 @@ int main(int argc, char **argv)
 	        fputs(report,io);
 	        fclose(io);
 	    }
+	    g_free(file);
 	}
 
 	if(params.topic){

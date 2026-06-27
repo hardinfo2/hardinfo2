@@ -753,6 +753,7 @@ static void destroy_me(void){
 int update=0;
 int newgnome=0;
 gchar *ng_theme=NULL,*og_theme=NULL,*ogi_theme=NULL;
+static gboolean stylechange_in_progress = FALSE;
 static void stylechange2_me(void)
 {
   if(update>=1){
@@ -799,6 +800,8 @@ static void stylechange2_me(void)
 //gsettings
 static void stylechange_signal(void)
 {
+    if (stylechange_in_progress) return;
+    stylechange_in_progress = TRUE;
     int newDark=-1;
     //new gnome using only normal/dark mode
     if(settings){
@@ -851,11 +854,13 @@ static void stylechange_signal(void)
         shell_do_reload(false);
         stylechange2_me();
     }
+    stylechange_in_progress = FALSE;
 }
 
 //GTK-signal
 static void stylechange_updated(void)
 {
+    if (stylechange_in_progress) return;
     if(!update) update=1;
     stylechange2_me();
 }
@@ -2726,11 +2731,11 @@ module_selected_show_info(ShellModuleEntry *entry, gboolean reload)
     gint i;
 
     module_entry_scan(entry);
+    shell_clear_field_updates();
     if (!reload) {
         /* recreate the iter hash table */
         h_hash_table_remove_all(update_tbl);
     }
-    shell_clear_field_updates();
 
     GKeyFile *key_file = g_key_file_new();
     gchar *key_data = module_entry_function(entry);

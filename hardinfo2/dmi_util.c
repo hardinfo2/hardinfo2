@@ -403,8 +403,15 @@ dmi_handle_list *dmi_handle_list_add(dmi_handle_list *hl, dmi_handle_ext new_han
         hl->handles_ext = malloc(sizeof(dmi_handle_ext) * hl->count);
     } else {
         hl->count++;
-        hl->handles = realloc(hl->handles, sizeof(dmi_handle) * hl->count);
-        hl->handles_ext = realloc(hl->handles_ext, sizeof(dmi_handle_ext) * hl->count);
+        void *tmp_h = realloc(hl->handles, sizeof(dmi_handle) * hl->count);
+        void *tmp_e = realloc(hl->handles_ext, sizeof(dmi_handle_ext) * hl->count);
+        if (!tmp_h || !tmp_e) {
+            free(tmp_h);
+            free(tmp_e);
+            return NULL;
+        }
+        hl->handles = tmp_h;
+        hl->handles_ext = tmp_e;
     }
     hl->handles_ext[hl->count - 1] = new_handle_ext;
     hl->handles[hl->count - 1] = new_handle_ext.id;

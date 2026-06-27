@@ -300,7 +300,9 @@ static void got_msg(const guint8 *buf,int len, gpointer user_data)
     if (sna->entry->file_name != NULL) {
         //check for missing config dirs
         g_mkdir(g_get_user_config_dir(), 0755);
-        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0755);
+        gchar *hardinfo2_dir = g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL);
+        g_mkdir(hardinfo2_dir, 0755);
+        g_free(hardinfo2_dir);
 	if(strncmp(sna->entry->file_name,"blobs-update-version.json",25)==0){
 	    updateversion=1;
 	}
@@ -319,7 +321,7 @@ static void got_msg(const guint8 *buf,int len, gpointer user_data)
 
 	if(updateversion){
             fd = open(path,O_RDONLY);
-            if(fd){
+            if(fd >= 0){
 	        if(read(fd,buffer,100)) {
                    sscanf(buffer,"{\"update-version\":\"%u\",",&server_blobs_update_version);
 		   DEBUG("SERVER_BLOBS_UPDATE_VERSION=%u",server_blobs_update_version);
@@ -366,7 +368,9 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
     if (sna->entry->file_name != NULL) {
         //check for missing config dirs
         g_mkdir(g_get_user_config_dir(), 0755);
-        g_mkdir(g_build_filename(g_get_user_config_dir(),"hardinfo2",NULL), 0755);
+        gchar *hardinfo2_dir = g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL);
+        g_mkdir(hardinfo2_dir, 0755);
+        g_free(hardinfo2_dir);
 	if(strncmp(sna->entry->file_name,"blobs-update-version.json",25)==0){
 	    updateversion=1;
 	}
@@ -396,7 +400,7 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
 
 	if(updateversion){
             fd = open(path,O_RDONLY);
-            if(fd){
+            if(fd >= 0){
 	        if(read(fd,buffer,100))
                     sscanf(buffer,"{\"update-version\":\"%u\",",&server_blobs_update_version);
 		DEBUG("SERVER_BLOBS_UPDATE_VERSION=%u",server_blobs_update_version);
@@ -703,7 +707,7 @@ static void close_clicked(void) { g_main_loop_quit(loop); }
 void insert_text_event(GtkEditable *editable, const gchar *text, gint length, gint *position, gpointer data) {
     int i,c=0;
     guint u;
-    gchar *usernote=g_strdup(g_strconcat(gtk_entry_get_text(data),text,NULL));
+    gchar *usernote = g_strconcat(gtk_entry_get_text(data), text, NULL);
 
     //first cannot be dash
     //if((*position==0) && (text[0]=='-')) {g_signal_stop_emission_by_name(G_OBJECT(editable), "insert-text");g_free(usernote);return;}
@@ -957,6 +961,7 @@ static gboolean sync_one(gpointer data)
 
 out:
     g_main_loop_unref(loop);
+    g_free(sna);
     return FALSE;
 }
 

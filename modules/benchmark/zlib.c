@@ -55,7 +55,7 @@ static gpointer zlib_for(void *in_data, gint thread_number) {
         }
     }
 
-    free(compressed);
+    g_free(compressed);
 
     return NULL;
 }

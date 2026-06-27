@@ -406,8 +406,8 @@ dmi_handle_list *dmi_handle_list_add(dmi_handle_list *hl, dmi_handle_ext new_han
         void *tmp_h = realloc(hl->handles, sizeof(dmi_handle) * hl->count);
         void *tmp_e = realloc(hl->handles_ext, sizeof(dmi_handle_ext) * hl->count);
         if (!tmp_h || !tmp_e) {
-            free(tmp_h);
-            free(tmp_e);
+            g_free(tmp_h);
+            g_free(tmp_e);
             return NULL;
         }
         hl->handles = tmp_h;
@@ -444,10 +444,10 @@ dmi_handle_list *dmidecode_handles(const dmi_type *type) {
 
 void dmi_handle_list_free(dmi_handle_list *hl) {
     if (hl) {
-        free(hl->handles);
-        free(hl->handles_ext);
+        g_free(hl->handles);
+        g_free(hl->handles_ext);
     }
-    free(hl);
+    g_free(hl);
 }
 
 char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *handle) {

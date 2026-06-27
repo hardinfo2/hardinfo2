@@ -222,15 +222,15 @@ char *arm_decoded_name(const char *imp, const char *part, const char *var, const
             }
             g_free(imp_name);
             g_free(part_desc);
-        } else {
-            /* prolly not ARM arch at all */
-            if (model_name)
-                snprintf(dnbuff, dn_size, "%s", model_name);
-            else {
-                free(dnbuff);
-                return NULL;
-            }
-        }
+             } else {
+                 /* prolly not ARM arch at all */
+                 if (model_name)
+                     snprintf(dnbuff, dn_size, "%s", model_name);
+                 else {
+                     g_free(dnbuff);
+                     return NULL;
+                 }
+             }
     }
     return dnbuff;
 }

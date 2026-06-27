@@ -38,7 +38,7 @@ void wl_free(wl_info *s) {
     if (s) {
         g_free(s->xdg_session_type);
         g_free(s->display_name);
-        free(s);
+        g_free(s);
     }
 }
 
@@ -141,7 +141,7 @@ void vk_free(vk_info *s) {
             g_free(s->vk_conformVer[i]);
 	    i++;
 	}while(i<VK_MAX_GPU);
-        free(s);
+        g_free(s);
     }
 }
 
@@ -205,7 +205,7 @@ void glx_free(glx_info *s) {
         g_free(s->ogl_sl_version);
         g_free(s->ogles_version);
         g_free(s->ogles_sl_version);
-        free(s);
+        g_free(s);
     }
 }
 
@@ -399,11 +399,11 @@ xrr_info *xrr_create() {
 
 void xrr_free(xrr_info *xrr) {
     if (xrr) {
-        free(xrr->screens);
-        free(xrr->outputs);
-        free(xrr->providers);
-        free(xrr->monitors);
-        free(xrr);
+        g_free(xrr->screens);
+        g_free(xrr->outputs);
+        g_free(xrr->providers);
+        g_free(xrr->monitors);
+        g_free(xrr);
     }
 }
 
@@ -414,13 +414,13 @@ xinfo *xinfo_get_info() {
     memset(xi, 0, sizeof(xinfo));
 
     xi->glx = glx_create();
-    if(!xi->glx) {free(xi);return NULL;}
+    if(!xi->glx) {g_free(xi);return NULL;}
 
     xi->xrr = xrr_create();
-    if(!xi->xrr) {free(xi->glx);free(xi);return NULL;}
+    if(!xi->xrr) {g_free(xi->glx);g_free(xi);return NULL;}
 
     xi->vk = vk_create();
-    if(!xi->vk) {free(xi->glx);free(xi->xrr);free(xi);return NULL;}
+    if(!xi->vk) {g_free(xi->glx);g_free(xi->xrr);g_free(xi);return NULL;}
 
     if(!fill_xinfo(xi)) fail++;
     if(fill_xrr_info(xi->xrr)) fail++;
@@ -443,6 +443,6 @@ void xinfo_free(xinfo *xi) {
         xrr_free(xi->xrr);
         glx_free(xi->glx);
 	vk_free(xi->vk);
-        free(xi);
+        g_free(xi);
     }
 }

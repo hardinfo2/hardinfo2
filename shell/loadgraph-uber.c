@@ -65,7 +65,7 @@ void load_graph_set_data_suffix(LoadGraph * lg, gchar * suffix)
 
 gchar *load_graph_get_data_suffix(LoadGraph * lg)
 {
-    return strdup("");
+    return g_strdup("");
 }
 
 GtkWidget *load_graph_get_framed(LoadGraph * lg)

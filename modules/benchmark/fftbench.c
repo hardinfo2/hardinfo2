@@ -69,7 +69,7 @@ static void lup_decompose(FFTBench *fftbench)
     double p, temp, **a;
 
     int *perm = (int *) malloc(sizeof(double) * N);
-    free(fftbench->p);
+    g_free(fftbench->p);
     fftbench->p = perm;
     a = fftbench->a;
     
@@ -155,10 +155,10 @@ static double *lup_solve(FFTBench *fftbench)
 	if (i == 0)
 	    break;
 
-	--i;
+     --i;
     }
 
-    free(y);
+    g_free(y);
 
     return x;
 }
@@ -193,21 +193,21 @@ void fft_bench_run(FFTBench *fftbench)
 {
     lup_decompose(fftbench);
     double *x = lup_solve(fftbench);
-    free(x);
+    g_free(x);
 }
 
 void fft_bench_free(FFTBench *fftbench)
 {
     int i;
     
-    // clean up
+     // clean up
     for (i = 0; i < N; ++i)
-	free(fftbench->a[i]);
+	g_free(fftbench->a[i]);
 
-    free(fftbench->a);
-    free(fftbench->b);
-    free(fftbench->p);
-    free(fftbench->r);
-    
+    g_free(fftbench->a);
+    g_free(fftbench->b);
+    g_free(fftbench->p);
+    g_free(fftbench->r);
+
     g_free(fftbench);
 }

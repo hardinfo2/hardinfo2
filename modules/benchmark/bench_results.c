@@ -157,28 +157,28 @@ bench_machine *bench_machine_this()
 
 void bench_machine_free(bench_machine *s)
 {
-    if (s) {
-        g_free(s->board);
-        g_free(s->cpu_name);
-        g_free(s->cpu_desc);
-        g_free(s->cpu_config);
-        g_free(s->mid);
-        g_free(s->ram_types);
-        g_free(s->machine_type);
-	g_free(s->linux_kernel);
-	g_free(s->linux_os);
-        free(s);
-    }
-}
+     if (s) {
+         g_free(s->board);
+         g_free(s->cpu_name);
+         g_free(s->cpu_desc);
+         g_free(s->cpu_config);
+         g_free(s->mid);
+         g_free(s->ram_types);
+         g_free(s->machine_type);
+ 	g_free(s->linux_kernel);
+ 	g_free(s->linux_os);
+         g_free(s);
+     }
+ }
 
-void bench_result_free(bench_result *s)
-{
-    if (s) {
-        free(s->name);
-        bench_machine_free(s->machine);
-        g_free(s);
-    }
-}
+ void bench_result_free(bench_result *s)
+ {
+     if (s) {
+         g_free(s->name);
+         bench_machine_free(s->machine);
+         g_free(s);
+     }
+ }
 
 bench_result *bench_result_this_machine(const char *bench_name, bench_value r)
 {
@@ -186,7 +186,7 @@ bench_result *bench_result_this_machine(const char *bench_name, bench_value r)
 
     b = g_new0(bench_result, 1);
     b->machine = bench_machine_this();
-    b->name = strdup(bench_name);
+    b->name = g_strdup(bench_name);
     b->bvalue = r;
     b->legacy = 0;
     return b;

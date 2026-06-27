@@ -162,14 +162,14 @@ gpud *gpud_new() {
 
 void gpud_free(gpud *s) {
     if (s) {
-        free(s->id);
+        g_free(s->id);
         g_free(s->nice_name);
-        free(s->vendor_str);
-        free(s->device_str);
+        g_free(s->vendor_str);
+        g_free(s->device_str);
         g_free(s->location);
-        free(s->drm_dev);
+        g_free(s->drm_dev);
         g_free(s->sysfs_drm_path);
-        free(s->dt_compat);
+        g_free(s->dt_compat);
         g_free(s->dt_opp);
         pcid_free(s->pci_dev);
         nvgpu_free(s->nv_info);
@@ -230,21 +230,21 @@ static void make_nice_name(gpud *s) {
     vendor_str = vendor_get_shortest_name(vendor_str);
 
     if (strstr(vendor_str, "Intel")) {
-        gchar *device_str_clean = strdup(device_str);
+        gchar *device_str_clean = g_strdup(device_str);
         nice_name_intel_gpu_device(device_str_clean);
         s->nice_name = g_strdup_printf("%s %s", vendor_str, device_str_clean);
         g_free(device_str_clean);
     } else if (strstr(vendor_str, "AMD")) {
         /* AMD PCI strings are crazy stupid because they use the exact same
          * chip and device id for a zillion "different products" */
-        char *full_name = strdup(device_str);
+        char *full_name = g_strdup(device_str);
         /* Try and shorten it to the chip code name only, at least */
         if(full_name) {
 	  char *b = strchr(full_name, '[');
           if (b) *b = '\0';
 	}
         s->nice_name = g_strdup_printf("%s %s", "AMD/ATI", g_strstrip(full_name));
-        free(full_name);
+        g_free(full_name);
     } else {
         /* nothing nicer */
         s->nice_name = g_strdup_printf("%s %s", vendor_str, device_str);
@@ -380,13 +380,13 @@ gpud *dt_soc_gpu() {
     EMPIFNULL(gpu->dt_name);
     EMPIFNULL(gpu->dt_status);
 
-    gpu->id = strdup("dt-soc-gpu");
+    gpu->id = g_strdup("dt-soc-gpu");
     gpu->location = g_strdup("SOC");
 
     if (access(std_soc_gpu_drm_path, F_OK) != -1)
         gpu->sysfs_drm_path = g_strdup(std_soc_gpu_drm_path);
-    if (vendor) gpu->vendor_str = strdup(vendor);
-    if (device) gpu->device_str = strdup(device);
+    if (vendor) gpu->vendor_str = g_strdup(vendor);
+    if (device) gpu->device_str = g_strdup(device);
     make_nice_name(gpu);
 
 
@@ -439,7 +439,7 @@ gpud *gpu_get_device_list() {
             }
 
             if (drm_dev)
-                new_gpu->drm_dev = strdup(drm_dev);
+                new_gpu->drm_dev = g_strdup(drm_dev);
 
             char *sysfs_path_candidate = g_strdup_printf("%s/%s/drm", SYSFS_PCI_ROOT, pci_loc);
             if (access(sysfs_path_candidate, F_OK) != -1) {
@@ -447,9 +447,9 @@ gpud *gpu_get_device_list() {
             } else
                 g_free(sysfs_path_candidate);
             new_gpu->location = g_strdup_printf("PCI/%s", pci_loc);
-            new_gpu->id = strdup(card_id);
-            if (curr->vendor_id_str) new_gpu->vendor_str = strdup(curr->vendor_id_str);
-            if (curr->device_id_str) new_gpu->device_str = strdup(curr->device_id_str);
+            new_gpu->id = g_strdup(card_id);
+            if (curr->vendor_id_str) new_gpu->vendor_str = g_strdup(curr->vendor_id_str);
+            if (curr->device_id_str) new_gpu->device_str = g_strdup(curr->device_id_str);
             nv_fill_procfs_info(new_gpu);
             intel_fill_freq(new_gpu);
             amdgpu_fill_freq(new_gpu);

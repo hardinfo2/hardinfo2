@@ -220,8 +220,8 @@ static char *lspci_line_value(char *line, const char *prefix) {
         while (e > l && *e != '[') e--;
         sscanf(e, "[%x]", code);
         *e = 0; // terminate at start of code
-        if (*str) free(*str); // free if replacing
-        *str = strdup(g_strstrip(l));
+        if (*str) g_free(*str); // free if replacing
+        *str = g_strdup(g_strstrip(l));
     }
     return 0;
 }*/

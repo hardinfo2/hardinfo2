@@ -99,7 +99,7 @@ struct _ParallelBenchTask {
     gint thread_number;
     guint start, end;
     gpointer data, callback;
-    int *stop;
+    gint *stop;
 };
 
 static gpointer benchmark_crunch_for_dispatcher(gpointer data)
@@ -110,10 +110,10 @@ static gpointer benchmark_crunch_for_dispatcher(gpointer data)
     int count = 0;
 
     if ((callback = pbt->callback)) {
-        while (!*pbt->stop) {
+        while (!g_atomic_int_get(pbt->stop)) {
             callback(pbt->data, pbt->thread_number);
             /* don't count if didn't finish in time */
-            if (!*pbt->stop)
+            if (!g_atomic_int_get(pbt->stop))
                 count++;
         }
     } else {
@@ -133,7 +133,7 @@ bench_value benchmark_crunch_for(float seconds,
                                  gpointer callback_data)
 {
     int cpu_procs, cpu_cores, cpu_threads, cpu_nodes;
-    int thread_number, stop = 0;
+    gint thread_number, stop = 0;
     GSList *threads = NULL, *t;
     GTimer *timer = NULL;
     bench_value ret = EMPTY_BENCH_VALUE;
@@ -175,7 +175,7 @@ bench_value benchmark_crunch_for(float seconds,
     g_usleep(seconds * 1000000);
 
     /* signal all threads to stop */
-    stop = 1;
+    g_atomic_int_set(&stop, 1);
     g_timer_stop(timer);
 
     ret.result = 0;

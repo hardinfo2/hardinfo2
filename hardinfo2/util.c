@@ -800,6 +800,7 @@ static ShellModule *module_load(gchar * filename)
       failed:
 	DEBUG("loading module %s failed: %s", filename, g_module_error());
 
+	if (module->icon) g_object_unref(module->icon);
 	g_free(module->name);
 	g_free(module);
 	module = NULL;

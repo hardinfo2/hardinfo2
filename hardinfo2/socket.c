@@ -40,7 +40,8 @@ Socket *sock_connect(gchar * host, gint port)
     if (sock > 0) {
 	memset(&server, 0, sizeof(server));
 	server.sin_family = AF_INET;
-	inet_pton(AF_INET,host,&server.sin_addr.s_addr);
+	if (inet_pton(AF_INET, host, &server.sin_addr.s_addr) != 1)
+	     goto cleanup;
 	server.sin_port = htons(port);
 
 	if (connect(sock, (struct sockaddr *) (void *) &server, sizeof(server)) < 0) {
@@ -51,7 +52,8 @@ Socket *sock_connect(gchar * host, gint port)
 	s->sock = sock;
 
 	return s;
-    }
+    } else
+        return NULL;
 
 cleanup:    
     close(sock);
@@ -114,9 +116,10 @@ int sock_read(Socket * s, gchar * buffer, gint size)
 
 int sock_write(Socket * s, gchar * str)
 {
-    while (!sock_ready_to_write(s));
+    int retries = 100;
+    while (!sock_ready_to_write(s) && --retries > 0);
 
-    return write(s->sock, str, strlen(str));
+    return retries ? write(s->sock, str, strlen(str)) : -1;
 }
 
 void sock_close(Socket * s)

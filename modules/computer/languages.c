@@ -46,7 +46,7 @@ void locale_info_free(locale_info *s) {
         g_free(s->revision);
         g_free(s->date);
         g_free(s->codeset);
-        free(s);
+        g_free(s);
     }
 }
 

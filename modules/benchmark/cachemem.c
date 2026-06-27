@@ -75,7 +75,7 @@ static bench_value cacchemem_runtest(unsigned long SZ){
     l=0;
     while(l<SZ){
          if (bar[l] != foo[l]){
-             free(buf);
+             g_free(buf);
              return ret;
          }
 	 l++;
@@ -110,7 +110,7 @@ void benchmark_cachemem(void) {
 
     gchar *tmp=module_call_method("computer::getMemoryTotal");
     unsigned long memory_kiB = strtoul(tmp, NULL, 10);
-    free(tmp);
+    g_free(tmp);
     //low memory devices have less than 64MB cache, so lower test for low memory machines to could run it.
     if( memory_kiB <= 512L*1024)
         r = cacchemem_runtest(32L*1024*1024);

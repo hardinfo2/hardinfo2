@@ -267,7 +267,7 @@ void vendor_init(void)
     /* free search location strings */
     n = 0;
     while (file_search_order[n]) {
-        free(file_search_order[n]);
+        g_free(file_search_order[n]);
         n++;
     }
 }

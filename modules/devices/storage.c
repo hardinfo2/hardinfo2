@@ -774,7 +774,7 @@ void __scan_ide_devices(void)
 	    device = g_strdup_printf("/proc/ide/hd%c/media", iface);
 	    proc_ide = fopen(device, "r");
 	    if (!proc_ide) {
-	        free(model);
+	        g_free(model);
 	        continue;
             }
 

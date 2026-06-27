@@ -29,9 +29,9 @@ nvgpu *nvgpu_new() {
 
 void nvgpu_free(nvgpu *s) {
     if (s) {
-        free(s->model);
-        free(s->bios_version);
-        free(s->uuid);
+        g_free(s->model);
+        g_free(s->bios_version);
+        g_free(s->uuid);
     }
 }
 
@@ -163,12 +163,12 @@ gpud *gpud_new() {
 void gpud_free(gpud *s) {
     if (s) {
         free(s->id);
-        free(s->nice_name);
+        g_free(s->nice_name);
         free(s->vendor_str);
         free(s->device_str);
-        free(s->location);
+        g_free(s->location);
         free(s->drm_dev);
-        free(s->sysfs_drm_path);
+        g_free(s->sysfs_drm_path);
         free(s->dt_compat);
         g_free(s->dt_opp);
         pcid_free(s->pci_dev);
@@ -380,10 +380,10 @@ gpud *dt_soc_gpu() {
     EMPIFNULL(gpu->dt_status);
 
     gpu->id = strdup("dt-soc-gpu");
-    gpu->location = strdup("SOC");
+    gpu->location = g_strdup("SOC");
 
     if (access(std_soc_gpu_drm_path, F_OK) != -1)
-        gpu->sysfs_drm_path = strdup(std_soc_gpu_drm_path);
+        gpu->sysfs_drm_path = g_strdup(std_soc_gpu_drm_path);
     if (vendor) gpu->vendor_str = strdup(vendor);
     if (device) gpu->device_str = strdup(device);
     make_nice_name(gpu);
@@ -444,7 +444,7 @@ gpud *gpu_get_device_list() {
             if (access(sysfs_path_candidate, F_OK) != -1) {
                 new_gpu->sysfs_drm_path = sysfs_path_candidate;
             } else
-                free(sysfs_path_candidate);
+                g_free(sysfs_path_candidate);
             new_gpu->location = g_strdup_printf("PCI/%s", pci_loc);
             new_gpu->id = strdup(card_id);
             if (curr->vendor_id_str) new_gpu->vendor_str = strdup(curr->vendor_id_str);
@@ -458,7 +458,7 @@ gpud *gpu_get_device_list() {
             else
                 gpud_list_append(list, new_gpu);
 
-            free(pci_loc);
+            g_free(pci_loc);
             l=l->next;
         }
 

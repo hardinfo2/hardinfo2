@@ -188,7 +188,7 @@ ids_lookup_done:
     if (result) {
         ids_query_result_cpy(result, &ret);
     }
-    g_free(qparts);
+    g_strfreev(qparts);
     return last_root_fpos;
 }
 

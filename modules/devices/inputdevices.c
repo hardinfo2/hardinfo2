@@ -63,7 +63,7 @@ __scan_input_devices(void)
     FILE *dev;
     gchar buffer[1024];
     vendor_list vl = NULL;
-    gchar *tmp, *name = NULL, *phys = NULL;
+    gchar *tmp=NULL, *name = NULL, *phys = NULL;
     gchar *vendor_str = NULL, *product_str = NULL, *vendor_tags = NULL;
     gint bus = 0, vendor = 0, product = 0, version = 0, stylus = 0;
     const gchar *bus_str = NULL;
@@ -87,27 +87,27 @@ __scan_input_devices(void)
         switch (*tmp) {
         case 'N':
             tmp = strreplace_chr(tmp + strlen("N: Name="), '=', ':');
-            name = g_strdup(tmp);
+            if(!name) name = g_strdup(tmp);
             remove_quotes(name);
             break;
         case 'P':
-            phys = g_strdup(tmp + strlen("P: Phys="));
+            if(!phys) phys = g_strdup(tmp + strlen("P: Phys="));
             break;
         case 'I':
             sscanf(tmp, "I: Bus=%x Vendor=%x Product=%x Version=%x",
-                    &bus, &vendor, &product, &version);
+		   &bus, &vendor, &product, &version);
             break;
         case 'H':
             if (strstr(tmp, "sysrq"))
-            d = 8;      //INPUT_SYSTEM;
+		d = 8;      //INPUT_SYSTEM;
             else if (strstr(tmp, "js"))
-            d = 1;      //INPUT_KEYBOARD;
+		d = 1;      //INPUT_KEYBOARD;
             else if (strstr(tmp, "js"))
-            d = 2;      //INPUT_JOYSTICK;
+		d = 2;      //INPUT_JOYSTICK;
             else if (strstr(tmp, "mouse"))
-            d = 3;      //INPUT_MOUSE;
+		d = 3;      //INPUT_MOUSE;
             else
-            d = 0;      //INPUT_UNKNOWN;
+		d = 0;      //INPUT_UNKNOWN;
             break;
         case '\n':
             if (bus >= 0 && (guint)bus < sizeof(bus_types) / sizeof(gchar*)) {
@@ -134,65 +134,66 @@ __scan_input_devices(void)
 	    }
 
             if (vendor > 0 && product > 0 && strstr(bus_str,"USB")) {
-                usb_lookup_ids_vendor_product_str(vendor, product, &vendor_str, &product_str);
+                if(!vendor_str && !product_str) usb_lookup_ids_vendor_product_str(vendor, product, &vendor_str, &product_str);
             }
             if (vendor > 0 && strstr(bus_str,"I²C")) {
 	        gchar *st=NULL;
-                usb_lookup_ids_vendor_product_str(vendor, 0, &vendor_str, &st);
-		if(st) g_free(st);
+                if(!vendor_str) usb_lookup_ids_vendor_product_str(vendor, 0, &vendor_str, &st);
+		g_free(st);
 		if(name && (d == 0)) {vendor = -1;}                  // Remove
             }
 
-	  if (vendor >= 0) {
-            vl = vendor_list_remove_duplicates_deep(vendors_match(name, vendor_str, NULL));
-            vendor_tags = vendor_list_ribbon(vl, params.fmt_opts);
+	    if (vendor >= 0) {
+		vl = vendor_list_remove_duplicates_deep(vendors_match(name, vendor_str, NULL));
+		vendor_tags = vendor_list_ribbon(vl, params.fmt_opts);
 
-            tmp = g_strdup_printf("INP%d", ++n);
-            input_list = h_strdup_cprintf("$%s$%s=%s|%s\n",
-                         input_list,
-                         tmp, name, EMPTYIFNULL(vendor_tags),
-                         EMPTYIFNULL(input_devices[d].name));
-            input_icons = h_strdup_cprintf("Icon$%s$%s=%s\n",
-                          input_icons,
-                          tmp, name,
-                          input_devices[d].icon);
+		gchar *t = g_strdup_printf("INP%d", ++n);
+		input_list = h_strdup_cprintf("$%s$%s=%s|%s\n",
+					      input_list,
+					      t, name, EMPTYIFNULL(vendor_tags),
+					      EMPTYIFNULL(input_devices[d].name));
+		input_icons = h_strdup_cprintf("Icon$%s$%s=%s\n",
+					       input_icons,
+					       t, name,
+					       input_devices[d].icon);
 
-            gchar *strhash = g_strdup_printf("[%s]\n"
-                    /* Name */   "$^$%s=%s\n"
-                    /* Type */   "%s=%s\n"
-                    /* Bus */    "%s=[0x%x] %s\n"
-                    /* Vendor */ "$^$%s=[0x%04x] %s\n"
-                    /* Product */"%s=[0x%04x] %s\n"
-                    /* Version */"%s=0x%x\n",
-                            _("Device Information"),
-                            _("Name"), name,
-                            _("Type"), UNKWNIFNULL(input_devices[d].name),
-                            _("Bus"), bus, UNKWNIFNULL(bus_str),
-                            _("Vendor"), vendor, UNKWNIFNULL(vendor_str),
-                            _("Product"), product, UNKWNIFNULL(product_str),
-                            _("Version"), version );
+		gchar *strhash = g_strdup_printf("[%s]\n"
+						 /* Name */   "$^$%s=%s\n"
+						 /* Type */   "%s=%s\n"
+						 /* Bus */    "%s=[0x%x] %s\n"
+						 /* Vendor */ "$^$%s=[0x%04x] %s\n"
+						 /* Product */"%s=[0x%04x] %s\n"
+						 /* Version */"%s=0x%x\n",
+						 _("Device Information"),
+						 _("Name"), name,
+						 _("Type"), UNKWNIFNULL(input_devices[d].name),
+						 _("Bus"), bus, UNKWNIFNULL(bus_str),
+						 _("Vendor"), vendor, UNKWNIFNULL(vendor_str),
+						 _("Product"), product, UNKWNIFNULL(product_str),
+						 _("Version"), version );
 
-            if (phys && phys[1] != 0) {
-                 strhash = h_strdup_cprintf("%s=%s\n", strhash, _("Connected to"), phys);
-            }
+		if (phys && phys[1] != 0) {
+		    strhash = h_strdup_cprintf("%s=%s\n", strhash, _("Connected to"), phys);
+		}
 
-            if (phys && strstr(phys, "ir")) {
-                strhash = h_strdup_cprintf("%s=%s\n", strhash, _("InfraRed port"), _("Yes") );
-            }
-            moreinfo_add_with_prefix("DEV", tmp, strhash);
-            g_free(tmp);
-	  }
-            g_free(phys);
-            g_free(name);
-            g_free(vendor_str);
-            g_free(vendor_tags);
-            g_free(product_str);
-            bus_str = NULL;
-            vendor_str = NULL;
-            product_str = NULL;
-            vendor_tags = NULL;
+		if (phys && strstr(phys, "ir")) {
+		    strhash = h_strdup_cprintf("%s=%s\n", strhash, _("InfraRed port"), _("Yes") );
+		}
+		moreinfo_add_with_prefix("DEV", t, strhash);
+		g_free(t);
+		g_free(phys); phys=NULL;
+		g_free(name); name=NULL;
+		g_free(vendor_str); vendor_str = NULL;
+		g_free(vendor_tags); vendor_tags = NULL;
+		g_free(product_str); product_str = NULL;
+		bus_str = NULL;
+	    }
+	    break;
         }
     }
+    g_free(phys);
+    g_free(name); g_free(vendor_str);
+    g_free(vendor_tags); g_free(product_str);
 
     fclose(dev);
 }

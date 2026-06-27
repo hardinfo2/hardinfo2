@@ -337,7 +337,7 @@ gchar *fwupdmgr_get_devices_info() {
 	    //next and free
 	    a=list;
 	    list=list->next;
-	    free(a->data);
+	    g_free(a->data);
 	    g_list_free_1(a);
 	}
 

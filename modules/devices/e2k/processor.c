@@ -393,7 +393,7 @@ gchar *processor_get_info(GSList * processors)
         if (!g_strcmp0(processor->vendor_id, "E8C")) {
             gchar *orig_vendor_id = processor->vendor_id;
             processor->vendor_id = g_strdup_printf("%s-SWTX", orig_vendor_id);
-            free(orig_vendor_id);
+            g_free(orig_vendor_id);
         }
 
         const Vendor *v = vendor_match(processor->vendor_id, NULL);

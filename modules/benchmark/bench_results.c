@@ -98,7 +98,7 @@ static void gen_machine_id(bench_machine *m)
 
     if (m) {
         if (m->mid != NULL)
-            free(m->mid);
+            g_free(m->mid);
 
         /* Don't try and translate unknown. The mid string needs to be made of
          * all untranslated elements.*/
@@ -135,7 +135,7 @@ bench_machine *bench_machine_this()
         m->ogl_renderer = module_call_method("computer::getOGLRenderer");
         tmp = module_call_method("computer::getMemoryTotal");
         m->memory_kiB = strtoull(tmp, NULL, 10);
-        free(tmp);
+        g_free(tmp);
         m->memory_phys_MiB = memory_devices_get_system_memory_MiB();
         m->ram_types = memory_devices_get_system_memory_types_str();
         m->machine_type = module_call_method("computer::getMachineTypeEnglish");
@@ -158,15 +158,15 @@ bench_machine *bench_machine_this()
 void bench_machine_free(bench_machine *s)
 {
     if (s) {
-        free(s->board);
-        free(s->cpu_name);
-        free(s->cpu_desc);
-        free(s->cpu_config);
-        free(s->mid);
-        free(s->ram_types);
-        free(s->machine_type);
-	free(s->linux_kernel);
-	free(s->linux_os);
+        g_free(s->board);
+        g_free(s->cpu_name);
+        g_free(s->cpu_desc);
+        g_free(s->cpu_config);
+        g_free(s->mid);
+        g_free(s->ram_types);
+        g_free(s->machine_type);
+	g_free(s->linux_kernel);
+	g_free(s->linux_os);
         free(s);
     }
 }
@@ -313,7 +313,7 @@ static gchar *get_cpu_desc(JsonObject *machine)
         ret = g_strdup_printf(full_fmt, num_cpus, num_cores, num_threads);
     }
 
-    free(full_fmt);
+    g_free(full_fmt);
     return ret;
 }
 
@@ -438,7 +438,7 @@ static char *bench_result_more_info_less(bench_result *b)
         _("Storage"), (b->machine->storage != NULL) ? b->machine->storage : _(unk),
         _("Memory"), memory,
         b->machine->ptr_bits ? _("Pointer Size") : "#AddySize", bits);
-    free(memory);
+    g_free(memory);
     return ret;
 }
 

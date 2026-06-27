@@ -38,7 +38,7 @@ DisplayInfo *computer_get_display(void) {
         if (di->xi->nox) {
             di->display_server = g_strdup(_("(Unknown)"));
             /* assumed x11 previously, because it wasn't set */
-            free(di->wl->xdg_session_type);
+            g_free(di->wl->xdg_session_type);
             di->session_type = (di->wl->xdg_session_type = NULL);
         } else if (di->xi->vendor && di->xi->version)
             di->display_server = g_strdup_printf("%s %s", di->xi->vendor, di->xi->version );
@@ -62,9 +62,9 @@ DisplayInfo *computer_get_display(void) {
 void computer_free_display(DisplayInfo *di) {
     /* fyi: DisplayInfo is in computer.h */
     if (di) {
-        free(di->display_server);
+        g_free(di->display_server);
         xinfo_free(di->xi);
         wl_free(di->wl);
-        free(di);
+        g_free(di);
     }
 }

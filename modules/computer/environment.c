@@ -53,7 +53,7 @@ void scan_env_var(gboolean reload)
         //next and free
         a=list;
         list=list->next;
-        free(a->data);
+        g_free(a->data);
         g_list_free_1(a);
     }
 

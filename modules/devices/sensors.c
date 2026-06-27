@@ -745,7 +745,7 @@ static int read_sensors_libsensors(void) {
                            feat_descr->unit,
                            feat_descr->icon);
 
-                free(label_with_chip);
+                g_free(label_with_chip);
                 free(label);
 
                 added_sensors++;

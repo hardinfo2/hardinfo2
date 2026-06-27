@@ -29,15 +29,15 @@ wl_info *get_walyand_info() {
     memset(s, 0, sizeof(wl_info));
     s->xdg_session_type = g_strdup( getenv("XDG_SESSION_TYPE") );
     if (s->xdg_session_type == NULL)
-        s->xdg_session_type = strdup("x11");
+        s->xdg_session_type = g_strdup("x11");
     s->display_name = g_strdup( getenv("WAYLAND_DISPLAY") );
     return s;
 }
 
 void wl_free(wl_info *s) {
     if (s) {
-        free(s->xdg_session_type);
-        free(s->display_name);
+        g_free(s->xdg_session_type);
+        g_free(s->display_name);
         free(s);
     }
 }
@@ -128,17 +128,17 @@ vk_info *vk_create() {
 }
 void vk_free(vk_info *s) {
     if (s) {
-        free(s->vk_instVer);
+        g_free(s->vk_instVer);
 	//
 	int i=0;do{
-            free(s->vk_apiVer[i]);
-            free(s->vk_drvVer[i]);
-            free(s->vk_vendorId[i]);
-            free(s->vk_devType[i]);
-            free(s->vk_devName[i]);
-            free(s->vk_drvName[i]);
-            free(s->vk_drvInfo[i]);
-            free(s->vk_conformVer[i]);
+            g_free(s->vk_apiVer[i]);
+            g_free(s->vk_drvVer[i]);
+            g_free(s->vk_vendorId[i]);
+            g_free(s->vk_devType[i]);
+            g_free(s->vk_devName[i]);
+            g_free(s->vk_drvName[i]);
+            g_free(s->vk_drvInfo[i]);
+            g_free(s->vk_conformVer[i]);
 	    i++;
 	}while(i<VK_MAX_GPU);
         free(s);
@@ -196,15 +196,15 @@ glx_info *glx_create() {
 
 void glx_free(glx_info *s) {
     if (s) {
-        free(s->glx_version);
-        free(s->ogl_vendor);
-        free(s->ogl_renderer);
-        free(s->ogl_core_version);
-        free(s->ogl_core_sl_version);
-        free(s->ogl_version);
-        free(s->ogl_sl_version);
-        free(s->ogles_version);
-        free(s->ogles_sl_version);
+        g_free(s->glx_version);
+        g_free(s->ogl_vendor);
+        g_free(s->ogl_renderer);
+        g_free(s->ogl_core_version);
+        g_free(s->ogl_core_sl_version);
+        g_free(s->ogl_version);
+        g_free(s->ogl_sl_version);
+        g_free(s->ogles_version);
+        g_free(s->ogles_sl_version);
         free(s);
     }
 }
@@ -436,10 +436,10 @@ xinfo *xinfo_get_info() {
 
 void xinfo_free(xinfo *xi) {
     if (xi) {
-        free(xi->display_name);
-        free(xi->vendor);
-        free(xi->version);
-        free(xi->release_number);
+        g_free(xi->display_name);
+        g_free(xi->vendor);
+        g_free(xi->version);
+        g_free(xi->release_number);
         xrr_free(xi->xrr);
         glx_free(xi->glx);
 	vk_free(xi->vk);

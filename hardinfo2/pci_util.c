@@ -272,8 +272,8 @@ char *_sysfs_bus_pci(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func, co
     pci_loc = pci_address_str(dom, bus, dev, func);
     sysfs_path = g_strdup_printf("%s/%s/%s", SYSFS_PCI_ROOT, pci_loc, item);
     g_file_get_contents(sysfs_path, &ret, NULL, NULL);
-    free(pci_loc);
-    free(sysfs_path);
+    g_free(pci_loc);
+    g_free(sysfs_path);
     return ret;
 }
 
@@ -282,7 +282,7 @@ gboolean _sysfs_bus_pci_read_hex(uint32_t dom, uint32_t bus, uint32_t dev, uint3
     uint32_t tval;
     if (tmp && val) {
         int ec = sscanf(tmp, "%x", &tval);
-        free(tmp);
+        g_free(tmp);
         if (ec==1) {
             *val = tval;
             return TRUE;
@@ -314,23 +314,23 @@ static gboolean pci_get_device_sysfs(uint32_t dom, uint32_t bus, uint32_t dev, u
     if (tmp) {
         ec = sscanf(tmp, "%f GT/s", &tf);
         if (ec==1) s->pcie_speed_max = tf;
-        free(tmp);
+        g_free(tmp);
     }
     tmp = _sysfs_bus_pci(dom, bus, dev, func, "current_link_speed");
     if (tmp) {
         ec = sscanf(tmp, "%f GT/s", &tf);
         if (ec==1) s->pcie_speed_curr = tf;
-        free(tmp);
+        g_free(tmp);
     }
     tmp = _sysfs_bus_pci(dom, bus, dev, func, "max_link_width");
     if (tmp) {
         s->pcie_width_max = strtoul(tmp, NULL, 0);
-        free(tmp);
+        g_free(tmp);
     }
     tmp = _sysfs_bus_pci(dom, bus, dev, func, "current_link_width");
     if (tmp) {
         s->pcie_width_curr = strtoul(tmp, NULL, 0);
-        free(tmp);
+        g_free(tmp);
     }
     return TRUE;
 }

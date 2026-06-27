@@ -29,35 +29,6 @@
 #include "strstr_word.h"
 #include "util_sysobj.h" /* for appfsp() and SEQ() */
 
-/* { match_string, match_rule, name, url } */
-static Vendor vendors_builtin[] = {
-    /* BIOS manufacturers */
-    { "American Megatrends", 0, "American Megatrends", "www.ami.com"},
-    { "Award", 0, "Award Software International", "www.award-bios.com"},
-    { "Phoenix", 0, "Phoenix Technologies", "www.phoenix.com"},
-    /* x86 vendor strings */
-    { "AMDisbetter!", 0, "Advanced Micro Devices", "www.amd.com" },
-    { "AuthenticAMD", 0, "Advanced Micro Devices", "www.amd.com" },
-    { "CentaurHauls", 0, "VIA (formerly Centaur Technology)", "www.via.tw" },
-    { "CyrixInstead", 0, "Cyrix", "" },
-    { "GenuineIntel", 0, "Intel", "www.intel.com" },
-    { "TransmetaCPU", 0, "Transmeta", "" },
-    { "GenuineTMx86", 0, "Transmeta", "" },
-    { "Geode by NSC", 0, "National Semiconductor", "" },
-    { "NexGenDriven", 0, "NexGen", "" },
-    { "RiseRiseRise", 0, "Rise Technology", "" },
-    { "SiS SiS SiS", 0, "Silicon Integrated Systems", "" },
-    { "UMC UMC UMC", 0, "United Microelectronics Corporation", "" },
-    { "VIA VIA VIA", 0, "VIA", "www.via.tw" },
-    { "Vortex86 SoC", 0, "DMP Electronics", "" },
-    /* x86 VM vendor strings */
-    { "KVMKVMKVM", 0, "KVM", "" },
-    { "Microsoft Hv", 0, "Microsoft Hyper-V", "www.microsoft.com" },
-    { "lrpepyh vr", 0, "Parallels", "" },
-    { "VMwareVMware", 0, "VMware", "" },
-    { "XenVMMXenVMM", 0, "Xen HVM", "" },
-};
-
 #define ven_msg(msg, ...)  fprintf (stderr, "[%s] " msg "\n", __FUNCTION__, ##__VA_ARGS__) /**/
 #define ven_file_err(msg, ...) {       \
     ven_msg(msg, ##__VA_ARGS__);       \
@@ -65,8 +36,6 @@ static Vendor vendors_builtin[] = {
     if (vendor_die_on_error) exit(-1); }
 
 static vendor_list vendors = NULL;
-/* Tracked so vendor_cleanup can skip g_free on static builtin entries */
-static gboolean vendors_using_builtin = FALSE;
 vendor_list get_vendors_list() { return vendors; }
 gboolean vendor_die_on_error = FALSE;
 
@@ -245,21 +214,8 @@ void vendor_init(void)
         n++;
     }
 
-    int fail = 1;
-
     if (path && strstr(path, "vendor.ids")) {
-        fail = !read_from_vendor_ids(path);
-    }
-
-    if (fail) {
-        gint i;
-
-        DEBUG("vendor data not found, using internal database");
-
-        vendors_using_builtin = TRUE;
-        for (i = G_N_ELEMENTS(vendors_builtin) - 1; i >= 0; i--) {
-            vendors = g_slist_prepend(vendors, (gpointer) &vendors_builtin[i]);
-        }
+        read_from_vendor_ids(path);
     }
 
     /* sort the vendor list by length of match string so that short strings are
@@ -277,14 +233,7 @@ void vendor_init(void)
 
 void vendor_cleanup() {
     DEBUG("cleanup vendor list");
-    if (vendors_using_builtin) {
-        /* Builtin vendors are static data, not heap-allocated.
-         * Calling vendor_free (which does g_free) would crash.
-         * Only free the list nodes, not the vendor structs. */
-        g_slist_free(vendors);
-    } else {
-        g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
-    }
+    g_slist_free_full(vendors, (GDestroyNotify)vendor_free);
     vendors = NULL;
 }
 

@@ -507,7 +507,7 @@ gchar *get_storage_home_models(void)
     //lookup home disk by df - only works on newer machines
     spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
     if(spawned && out){
-        if(strstr(out,"/dev/") && !strstr(out,"mapper") && !strstr(out,"/dev/root") ) homepath=strdup(out+5);
+        if(strstr(out,"/dev/") && !strstr(out,"mapper") && !strstr(out,"/dev/root") ) homepath=g_strdup(out+5);
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
 	    *p=0;
@@ -530,7 +530,7 @@ gchar *get_storage_home_models(void)
         spawned = g_spawn_command_line_sync(cmd_line1disk, &out, &err, NULL, NULL);
         if(spawned && out){
 	    if(strstr(out,"disk") && (strstr(out,"\n")==(out+strlen(out)-1)) ) {
-                homepath=strdup(out);
+                homepath=g_strdup(out);
 	    }
         }
         g_free(out);

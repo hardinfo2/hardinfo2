@@ -124,7 +124,7 @@ void get_wireless_info(int fd, NetInfo *netinfo)
   if (!netinfo->is_wireless)
     return;
 
-  strncpy(wi_req.ifr_name, netinfo->name, 16);
+  g_strlcpy(wi_req.ifr_name, netinfo->name, sizeof(wi_req.ifr_name));
 
   /* obtain essid */
   wi_req.u.essid.pointer = netinfo->wi_essid;

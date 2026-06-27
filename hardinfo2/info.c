@@ -122,7 +122,7 @@ void info_group_strip_extra(struct InfoGroup *group)
             val = strrchr(field->value, '|');
             if (val) {
                 oldval = (gchar*)field->value;
-                field->value = strdup(val + 1);
+                field->value = g_strdup(val + 1);
                 g_free(oldval);
             }
         }

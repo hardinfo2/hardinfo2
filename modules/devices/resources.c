@@ -135,7 +135,7 @@ void scan_device_resources(gboolean reload)
 	      char str[512];
 	      snprintf(str, sizeof(str), "%d:%s", t, temp[0]);
 	      g_free(temp[0]);
-	      temp[0]=strdup(str);
+	      temp[0]=g_strdup(str);
 	    }
 
             if (params.markup_ok)

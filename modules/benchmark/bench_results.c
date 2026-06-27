@@ -184,14 +184,11 @@ bench_result *bench_result_this_machine(const char *bench_name, bench_value r)
 {
     bench_result *b = NULL;
 
-    b = malloc(sizeof(bench_result));
-    if (b) {
-        memset(b, 0, sizeof(bench_result));
-        b->machine = bench_machine_this();
-        b->name = strdup(bench_name);
-        b->bvalue = r;
-        b->legacy = 0;
-    }
+    b = g_new0(bench_result, 1);
+    b->machine = bench_machine_this();
+    b->name = strdup(bench_name);
+    b->bvalue = r;
+    b->legacy = 0;
     return b;
 }
 

@@ -78,9 +78,9 @@ void scan_samba_usershares(void)
         p = out;
         while((next_nl = strchr(p, '\n'))) {
 	    strend(p, '\n');
-            /* escape ' to prevent shell injection via usershare names */
-            gchar *escaped = strreplace(g_strdup(p), "'", "'\\''");
-            cmdline = g_strdup_printf("net usershare info '%s'", escaped);
+            /* quote usershare name to prevent shell injection */
+            gchar *escaped = g_shell_quote(p);
+            cmdline = g_strdup_printf("net usershare info %s", escaped);
             g_free(escaped);
             if (hardinfo_spawn_command_line_sync(cmdline,
                         &usershare, NULL, NULL, NULL)) {

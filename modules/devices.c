@@ -511,6 +511,10 @@ gchar *get_storage_home_models(void)
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
 	    *p=0;
+	    /* df outputs the full line: "/dev/mapper/name size used avail use% mountpoint".
+	     * lsblk needs only the device name, so truncate at the first space. */
+	    p=strstr(out," ");
+	    *p=0;
 	    /* quote device mapper path to prevent shell injection */
 	    gchar *escaped = g_shell_quote(out);
 	    snprintf(cmd_lineblk, sizeof(cmd_lineblk), "lsblk -l -s %s | tail -1", escaped);
@@ -536,7 +540,11 @@ gchar *get_storage_home_models(void)
         g_free(out);
         g_free(err);
     }
-    if(!homepath) return g_strdup("NoHomePath");
+    /* The while loop below uses homepath[strlen(homepath) - 1].
+     * If homepath is "" (empty string), strlen returns 0.
+     * 0 - 1 wraps to SIZE_MAX in unsigned arithmetic, causing an out-of-bounds read before the allocation.
+     * Returning early when *homepath == '\0' avoids reaching the loop entirely. */
+    if(!homepath || !*homepath) return g_strdup("NoHomePath");
     if( (p=strstr(homepath," ")) ) *p=0;
     if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (p=strstr(homepath,"p")) ) *p=0;
     while(homepath[strlen(homepath)-1]>='0' && homepath[strlen(homepath)-1]<='9') homepath[strlen(homepath)-1]=0;

@@ -183,7 +183,7 @@ void decode_module_partno(spd_data *spd, int start, int end) {
 
 void decode_module_serialno(spd_data *spd, int SN) {
     if (spd->spd_size > SN+3) {
-        sprintf(spd->serialno,"0x%02x%02x%02x%02x",spd->bytes[SN],spd->bytes[SN+1],spd->bytes[SN+2],spd->bytes[SN+3]);
+        snprintf(spd->serialno, sizeof(spd->serialno), "0x%02x%02x%02x%02x", spd->bytes[SN], spd->bytes[SN+1], spd->bytes[SN+2], spd->bytes[SN+3]);
     }
 }
 
@@ -193,7 +193,7 @@ void decode_module_serialno(spd_data *spd, int SN) {
 /* ----------------------- SDR ---------------------- */
 /* -------------------------------------------------- */
 void decode_sdr_basic(spd_data *spd){
-    sprintf(spd->type_detail, "SDR");
+    snprintf(spd->type_detail, sizeof(spd->type_detail), "SDR");
     decode_module_partno(spd, 73, 90);
     decode_old_manufacturer(spd);
     decode_module_serialno(spd, 95);

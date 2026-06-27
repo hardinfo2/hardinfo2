@@ -80,7 +80,7 @@ static bench_value storage_runtest() {
 		if(readspeed>1024) {readspeed/=1024;strcpy(reade,"KB/s");}
 		if(readspeed>1024) {readspeed/=1024;strcpy(reade,"MB/s");}
 		if(readspeed>1024) {readspeed/=1024;strcpy(reade,"GB/s");}
-		sprintf(ret.extra,"Read:%0.2lf %s, Write:%0.2lf %s %s",
+		snprintf(ret.extra, sizeof(ret.extra), "Read:%0.2lf %s, Write:%0.2lf %s %s",
 			readspeed,reade,writespeed,writee,(t==2?"(Long)":"") );
 	    }
 	}

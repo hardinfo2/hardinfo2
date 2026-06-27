@@ -511,7 +511,7 @@ gchar *get_storage_home_models(void)
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
 	    *p=0;
-	    sprintf(cmd_lineblk,"sh -c 'lsblk -l -s %s|tail -1'",out);
+	    snprintf(cmd_lineblk, sizeof(cmd_lineblk), "sh -c 'lsblk -l -s %s|tail -1'", out);
 	    g_free(out);
 	    g_free(err);
             spawned = g_spawn_command_line_sync(cmd_lineblk, &out, &err, NULL, NULL);

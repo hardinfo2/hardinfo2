@@ -585,13 +585,13 @@ char *dtr_list_byte(uint8_t *bytes, unsigned long count) {
     char *ret, *dest;
     uint32_t v;
     unsigned long i, l;
-    l = count * 4 + 1;
-    dest = ret = g_malloc(l);
-    memset(ret, 0, l);
+    const size_t buf_size = count * 4 + 1;
+    dest = ret = g_malloc(buf_size);
+    memset(ret, 0, buf_size);
     *dest++='[';
     for (i = 0; i < count; i++) {
         v = bytes[i];
-        l = sprintf(dest, "%s%02x", (i) ? " " : "", v);
+        l = snprintf(dest, buf_size - (dest - ret), "%s%02x", (i) ? " " : "", v);
         dest += l;
     }
     *dest++=']';
@@ -601,11 +601,11 @@ char *dtr_list_byte(uint8_t *bytes, unsigned long count) {
 char *dtr_list_hex(dt_uint *list, unsigned long count) {
     char *ret, *dest;
     unsigned long i, l;
-    l = count * 12 + 1;
-    dest = ret = g_malloc(l);
-    memset(ret, 0, l);
+    const size_t buf_size = count * 12 + 1;
+    dest = ret = g_malloc(buf_size);
+    memset(ret, 0, buf_size);
     for (i = 0; i < count; i++) {
-        l = sprintf(dest, "%s0x%x", (i) ? " " : "", be32toh(list[i]));
+        l = snprintf(dest, buf_size - (dest - ret), "%s0x%x", (i) ? " " : "", be32toh(list[i]));
         dest += l;
     }
     return ret;
@@ -625,7 +625,7 @@ char *dtr_list_str0(const char *data, uint32_t length) {
     while(next_str != NULL) {
         l = strlen(next_str);
         esc = g_strescape(next_str, NULL);
-        sprintf(tmp, "%s\"%s\"",
+        snprintf(tmp, sizeof(ret) - (tmp - ret), "%s\"%s\"",
                 strlen(ret) ? ", " : "", esc);
         g_free(esc);
         tmp += strlen(tmp);

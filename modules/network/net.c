@@ -193,7 +193,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
 
     /* Carrier */
     netinfo->speed[0]=0;
-    sprintf(buf,"/sys/class/net/%s/carrier",if_name);
+    snprintf(buf, sizeof(buf), "/sys/class/net/%s/carrier", if_name);
     sysfs = fopen(buf, "r");
     netinfo->carrier=0;
     if (sysfs && (fgets(buf, sizeof(buf), sysfs)!=NULL)) sscanf(buf,"%d",&netinfo->carrier);
@@ -201,16 +201,16 @@ void get_net_info(char *if_name, NetInfo * netinfo)
 
     /* Speed */
     netinfo->speed[0]=0;
-    sprintf(buf,"/sys/class/net/%s/speed",if_name);
+    snprintf(buf, sizeof(buf), "/sys/class/net/%s/speed", if_name);
     sysfs = fopen(buf, "r");
     s=0;
     if (sysfs && (fgets(buf, sizeof(buf), sysfs)!=NULL)) sscanf(buf,"%d",&s);
     if(netinfo->carrier!=1)
-      sprintf(netinfo->speed,"Not Connected");
+      snprintf(netinfo->speed, sizeof(netinfo->speed), "Not Connected");
         else if(s<=0)
-          sprintf(netinfo->speed,"Not Specified"); else
-            if(s<1000) sprintf(netinfo->speed,"%d Mbit",s); else
-	       sprintf(netinfo->speed,"%g Gbit",(float)s/1000);
+          snprintf(netinfo->speed, sizeof(netinfo->speed), "Not Specified"); else
+            if(s<1000) snprintf(netinfo->speed, sizeof(netinfo->speed), "%d Mbit", s); else
+	       snprintf(netinfo->speed, sizeof(netinfo->speed), "%g Gbit", (float)s/1000);
     if(sysfs) fclose(sysfs);
 
     /* HW Address */

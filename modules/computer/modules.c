@@ -119,7 +119,7 @@ void scan_modules_do(void) {
 
         //if(!count--) {shell_status_pulse();count=100;}
 
-        sscanf(list->data, "%s %ld", modname, &memory);
+        sscanf(list->data, "%63s %ld", modname, &memory);
 
         hashkey = g_strdup_printf("MOD%s", modname);
         buf = g_strdup_printf("/sbin/modinfo %s 2>/dev/null", modname);

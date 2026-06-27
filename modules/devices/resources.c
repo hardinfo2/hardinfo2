@@ -133,7 +133,7 @@ void scan_device_resources(gboolean reload)
               zero_to_zero_addr++;
 	      t++;
 	      char str[512];
-	      sprintf(str,"%d:%s",t,temp[0]);
+	      snprintf(str, sizeof(str), "%d:%s", t, temp[0]);
 	      g_free(temp[0]);
 	      temp[0]=strdup(str);
 	    }

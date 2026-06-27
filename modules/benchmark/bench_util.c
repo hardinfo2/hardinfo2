@@ -43,7 +43,7 @@ char *digest_to_str(const char *digest, int len) {
     int i = 0;
     for(; i < len; i++) {
         unsigned char byte = digest[i];
-        p += sprintf(p, "%02x", byte);
+        p += snprintf(p, (max + 1) - (p - ret), "%02x", byte);
     }
     return ret;
 }

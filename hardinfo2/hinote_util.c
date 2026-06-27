@@ -10,6 +10,7 @@ static const char bullet_no_text[] = "[ ]";
 
 gboolean note_cond_bullet(gboolean cond, gchar *note_buff, const gchar *desc_str) {
     int l = strlen(note_buff);
+    if (l + 1 >= note_max_len) return cond;
     if (params.markup_ok)
         snprintf(note_buff + l, note_max_len - l - 1, "%s %s\n",
             cond ? bullet_yes : bullet_no, desc_str);

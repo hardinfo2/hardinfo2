@@ -189,9 +189,10 @@ char *arm_decoded_name(const char *imp, const char *part, const char *var, const
     char *dnbuff;
     char *imp_name = NULL, *part_desc = NULL, *arch_name = NULL;
     int r = 0, p = 0;
-    dnbuff = malloc(256);
+    const size_t dn_size = 256;
+    dnbuff = malloc(dn_size);
     if (dnbuff) {
-        memset(dnbuff, 0, 256);
+        memset(dnbuff, 0, dn_size);
 
         if (imp && arch && part && rev) {
             /* http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0395b/CIHCAGHH.html
@@ -202,18 +203,18 @@ char *arm_decoded_name(const char *imp, const char *part, const char *var, const
             arch_name = (char*) arm_arch(arch);
             if (imp_name || part_desc) {
                 if (arch_name != arch)
-                    sprintf(dnbuff, "%s %s r%dp%d (%s)",
+                    snprintf(dnbuff, dn_size, "%s %s r%dp%d (%s)",
                         (imp_name) ? imp_name : imp,
                         (part_desc) ? part_desc : part,
                         r, p, arch_name);
                 else
-                    sprintf(dnbuff, "%s %s r%dp%d (arch:%s)",
+                    snprintf(dnbuff, dn_size, "%s %s r%dp%d (arch:%s)",
                         (imp_name) ? imp_name : imp,
                         (part_desc) ? part_desc : part,
                         r, p, arch);
             } else {
                 /* fallback for now */
-                sprintf(dnbuff, "%s [imp:%s part:%s r%dp%d arch:%s]",
+                snprintf(dnbuff, dn_size, "%s [imp:%s part:%s r%dp%d arch:%s]",
                         model_name,
                         (imp_name) ? imp_name : imp,
                         (part_desc) ? part_desc : part,
@@ -224,7 +225,7 @@ char *arm_decoded_name(const char *imp, const char *part, const char *var, const
         } else {
             /* prolly not ARM arch at all */
             if (model_name)
-                sprintf(dnbuff, "%s", model_name);
+                snprintf(dnbuff, dn_size, "%s", model_name);
             else {
                 free(dnbuff);
                 return NULL;

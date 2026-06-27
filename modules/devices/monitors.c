@@ -297,7 +297,7 @@ static gchar *make_edid_section(monitor *m) {
         for(i = 0; i < e->dtd_count; i++) {
             char *desc = edid_dtd_describe(&e->dtds[i], 0);
             dtd_list = appfnl(dtd_list, "dtd%d = %s", i, desc);
-            free(desc);
+g_free(desc);
         }
         if (!dtd_list) dtd_list = g_strdup_printf("%s=\n", _("(Empty List)"));
 

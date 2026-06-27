@@ -75,7 +75,7 @@ static bench_value cacchemem_runtest(unsigned long SZ){
     l=0;
     while(l<SZ){
          if (bar[l] != foo[l]){
-             free(buf);
+             g_free(buf);
              return ret;
          }
 	 l++;
@@ -96,7 +96,7 @@ static bench_value cacchemem_runtest(unsigned long SZ){
     cachespeed=(res[8]+res[10]+res[12]+res[14])/4;
     ret.result = (cachespeed+((res[16]+res[18]+res[20]+res[22])/4-cachespeed)/2)*1024;
     if(SZ<128L*1024*1024) {res[26]=res[24];res[25]=res[24];}
-    sprintf(ret.extra,"%0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf", res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26]);
+    snprintf(ret.extra, sizeof(ret.extra), "%0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf %0.1lf", res[1],res[2],res[3],res[4],res[5],res[6],res[7],res[8],res[9],res[10],res[11],res[12],res[13],res[14],res[15],res[16],res[17],res[18],res[19],res[20],res[21],res[22],res[23],res[24],res[25],res[26]);
     ret.threads_used = 1;
     ret.revision = BENCH_REVISION;
     return ret;
@@ -110,7 +110,7 @@ void benchmark_cachemem(void) {
 
     gchar *tmp=module_call_method("computer::getMemoryTotal");
     unsigned long memory_kiB = strtoul(tmp, NULL, 10);
-    free(tmp);
+    g_free(tmp);
     //low memory devices have less than 64MB cache, so lower test for low memory machines to could run it.
     if( memory_kiB <= 512L*1024)
         r = cacchemem_runtest(32L*1024*1024);

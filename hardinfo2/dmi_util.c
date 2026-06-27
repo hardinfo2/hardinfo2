@@ -430,7 +430,7 @@ dmi_handle_list *dmidecode_handles(const dmi_type *type) {
             }
             p = next_nl + 1;
         }
-        free(full);
+        g_free(full);
     }
     return hl;
 }
@@ -463,7 +463,7 @@ char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *
                         if (*(p + ln) == ':') {
                             p = p + ln + 1;
                             while(*p == ' ') p++;
-                            ret = strdup(p);
+                            ret = g_strdup(p);
                             break;
                         }
                     }
@@ -472,7 +472,7 @@ char *dmidecode_match(const char *name, const dmi_type *type, const dmi_handle *
 	    *next_nl='\n';
             p = next_nl + 1;
         }
-        free(full);
+        g_free(full);
     }
 
     return ret;
@@ -506,7 +506,7 @@ dmi_handle_list *dmidecode_match_value(const char *name, const char *value, cons
             }
             p = next_nl + 1;
         }
-        free(full);
+        g_free(full);
     }
 
     return hl;

@@ -594,7 +594,7 @@ gchar *processor_get_capabilities_from_flags(gchar *strflags, gchar *lookup_pref
                 (lookup_prefix) ? lookup_prefix : "",
                 i );
         } else {
-            sprintf(tmp_flag, "%s%s", lookup_prefix, flags[j]);
+            snprintf(tmp_flag, sizeof(tmp_flag), "%s%s", lookup_prefix, flags[j]);
             meaning = x86_flag_meaning(tmp_flag);
 
             if (meaning) {

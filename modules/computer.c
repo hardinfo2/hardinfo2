@@ -500,7 +500,7 @@ gchar *computer_get_machinetype(int english)
 
             r = snprintf(type, sizeof(type), "%s/%s/type",
                          "/sys/class/power_supply", name);
-            if (r < 0 || r > PATH_MAX)
+            if (r < 0 || r >= (int)sizeof(type))
                 continue;
 
             if (g_file_get_contents(type, &contents, NULL, NULL)) {

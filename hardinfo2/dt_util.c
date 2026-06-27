@@ -584,15 +584,17 @@ char *dtr_elem_uint64(dt_uint64 e) {
 char *dtr_list_byte(uint8_t *bytes, unsigned long count) {
     char *ret, *dest;
     uint32_t v;
-    unsigned long i, l;
+    unsigned long i;
     const size_t buf_size = count * 4 + 1;
     dest = ret = g_malloc(buf_size);
     memset(ret, 0, buf_size);
     *dest++='[';
     for (i = 0; i < count; i++) {
+        size_t avail = buf_size - (dest - ret);
         v = bytes[i];
-        l = snprintf(dest, buf_size - (dest - ret), "%s%02x", (i) ? " " : "", v);
-        dest += l;
+        int n = snprintf(dest, avail, "%s%02x", (i) ? " " : "", v);
+        if (n < 0) break;
+        dest += (n < (int)avail) ? n : (int)avail - 1;
     }
     *dest++=']';
     return ret;
@@ -600,13 +602,15 @@ char *dtr_list_byte(uint8_t *bytes, unsigned long count) {
 
 char *dtr_list_hex(dt_uint *list, unsigned long count) {
     char *ret, *dest;
-    unsigned long i, l;
+    unsigned long i;
     const size_t buf_size = count * 12 + 1;
     dest = ret = g_malloc(buf_size);
     memset(ret, 0, buf_size);
     for (i = 0; i < count; i++) {
-        l = snprintf(dest, buf_size - (dest - ret), "%s0x%x", (i) ? " " : "", be32toh(list[i]));
-        dest += l;
+        size_t avail = buf_size - (dest - ret);
+        int n = snprintf(dest, avail, "%s0x%x", (i) ? " " : "", be32toh(list[i]));
+        if (n < 0) break;
+        dest += (n < (int)avail) ? n : (int)avail - 1;
     }
     return ret;
 }

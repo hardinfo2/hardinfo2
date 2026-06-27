@@ -122,7 +122,10 @@ void scan_modules_do(void) {
         sscanf(list->data, "%63s %ld", modname, &memory);
 
         hashkey = g_strdup_printf("MOD%s", modname);
-        buf = g_strdup_printf("/sbin/modinfo %s 2>/dev/null", modname);
+        /* quote kernel module name to prevent shell injection via popen */
+        gchar *modname_q = g_shell_quote(modname);
+        buf = g_strdup_printf("/sbin/modinfo %s 2>/dev/null", modname_q);
+        g_free(modname_q);
 
         modi = popen(buf, "r");
         while (fgets(buffer, 1024, modi) && strlen(buffer)) {

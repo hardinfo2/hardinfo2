@@ -68,7 +68,7 @@ static void lup_decompose(FFTBench *fftbench)
     int i, j, k, k2=0, t;
     double p, temp, **a;
 
-    int *perm = (int *) malloc(sizeof(double) * N);
+    int *perm = (int *) g_malloc(sizeof(double) * N);
     g_free(fftbench->p);
     fftbench->p = perm;
     a = fftbench->a;
@@ -117,8 +117,8 @@ static double *lup_solve(FFTBench *fftbench)
     int i, j, j2;
     double sum, u;
 
-    double *y = (double *) malloc(sizeof(double) * N);
-    double *x = (double *) malloc(sizeof(double) * N);
+    double *y = (double *) g_malloc(sizeof(double) * N);
+    double *x = (double *) g_malloc(sizeof(double) * N);
     
     double **a = fftbench->a;
     double *b = fftbench->b;
@@ -171,16 +171,16 @@ FFTBench *fft_bench_new(void)
     fftbench = g_new0(FFTBench, 1);
 
     // generate test data            
-    fftbench->a = (double **) malloc(sizeof(double *) * N);
+    fftbench->a = (double **) g_malloc(sizeof(double *) * N);
 
     for (i = 0; i < N; ++i) {
-	fftbench->a[i] = (double *) malloc(sizeof(double) * N);
+	fftbench->a[i] = (double *) g_malloc(sizeof(double) * N);
 
 	for (j = 0; j < N; ++j)
 	    fftbench->a[i][j] = random_double();
     }
 
-    fftbench->b = (double *) malloc(sizeof(double) * N);
+    fftbench->b = (double *) g_malloc(sizeof(double) * N);
     fftbench->p = NULL;
 
     for (i = 0; i < N; ++i)

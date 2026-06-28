@@ -124,7 +124,7 @@ uint8_t bounds_check(edid *e, uint32_t offset) {
 static inline
 char *rstr(edid *e, uint32_t offset, uint32_t len) {
     if (!bounds_check(e, offset+len)) return NULL;
-    char *raw = malloc(len+1), *ret = NULL;
+    char *raw = g_malloc(len+1), *ret = NULL;
     strncpy(raw, (char*)&e->u8[offset], len);
     raw[len] = 0;
 #if GLIB_CHECK_VERSION(2,52,0)
@@ -139,7 +139,7 @@ char *rstr(edid *e, uint32_t offset, uint32_t len) {
 static inline
 char *rstr_strip(edid *e, uint32_t offset, uint32_t len) {
     if (!bounds_check(e, offset+len)) return NULL;
-    char *raw = malloc(len+1), *ret = NULL;
+    char *raw = g_malloc(len+1), *ret = NULL;
     strncpy(raw, (char*)&e->u8[offset], len);
     raw[len] = 0;
 #if GLIB_CHECK_VERSION(2,52,0)
@@ -252,7 +252,7 @@ static int block_check(edid *e, uint32_t offset) {
 }
 
 static char *hex_bytes(uint8_t *bytes, int count) {
-    char *buffer = malloc(count*3+1), *p = buffer;
+    char *buffer = g_malloc(count*3+1), *p = buffer;
     memset(buffer, 0, count*3+1);
     int i;
     for(i = 0; i < count; i++) {
@@ -511,9 +511,9 @@ edid *edid_new(const char *data, unsigned int len) {
     if (len < 128) return NULL;
 
     int i;
-    edid *e = malloc(sizeof(edid));
+    edid *e = g_malloc(sizeof(edid));
     memset(e, 0, sizeof(edid));
-    e->data = malloc(len);
+    e->data = g_malloc(len);
     memcpy(e->data, data, len);
     e->len = len;
     e->ver_major = e->u8[18];
@@ -522,13 +522,13 @@ edid *edid_new(const char *data, unsigned int len) {
     e->msg_log = g_string_new(NULL);
 
 #define RESERVE_COUNT 300
-    e->dtds = malloc(sizeof(struct edid_dtd) * RESERVE_COUNT);
-    e->cea_blocks = malloc(sizeof(struct edid_cea_block) * RESERVE_COUNT);
-    e->svds = malloc(sizeof(struct edid_svd) * RESERVE_COUNT);
-    e->sads = malloc(sizeof(struct edid_sad) * RESERVE_COUNT);
-    e->did_blocks = malloc(sizeof(DisplayIDBlock) * RESERVE_COUNT);
-    e->didts = malloc(sizeof(edid_output) * RESERVE_COUNT);
-    e->did_strings = malloc(sizeof(edid_output) * RESERVE_COUNT);
+    e->dtds = g_malloc(sizeof(struct edid_dtd) * RESERVE_COUNT);
+    e->cea_blocks = g_malloc(sizeof(struct edid_cea_block) * RESERVE_COUNT);
+    e->svds = g_malloc(sizeof(struct edid_svd) * RESERVE_COUNT);
+    e->sads = g_malloc(sizeof(struct edid_sad) * RESERVE_COUNT);
+    e->did_blocks = g_malloc(sizeof(DisplayIDBlock) * RESERVE_COUNT);
+    e->didts = g_malloc(sizeof(edid_output) * RESERVE_COUNT);
+    e->did_strings = g_malloc(sizeof(edid_output) * RESERVE_COUNT);
     memset(e->dtds, 0, sizeof(struct edid_dtd) * RESERVE_COUNT);
     memset(e->cea_blocks, 0, sizeof(struct edid_cea_block) * RESERVE_COUNT);
     memset(e->svds, 0, sizeof(struct edid_svd) * RESERVE_COUNT);
@@ -660,7 +660,7 @@ edid *edid_new(const char *data, unsigned int len) {
         int blocks = len / 128;
         blocks--;
         e->ext_blocks = blocks;
-        e->ext_ok = malloc(sizeof(uint8_t) * blocks);
+        e->ext_ok = g_malloc(sizeof(uint8_t) * blocks);
         for(; blocks; blocks--) {
             uint32_t offset = blocks * 128;
             uint8_t *u8 = e->u8 + offset;
@@ -906,7 +906,7 @@ edid *edid_new(const char *data, unsigned int len) {
 
     /* squeeze lists */
 #define SQUEEZE(C, L) \
-    if (!e->C) { free(e->L); e->L = NULL; } \
+    if (!e->C) { g_free(e->L); e->L = NULL; } \
     else { e->L = realloc(e->L, sizeof(e->L[0]) * (e->C)); }
 
     SQUEEZE(dtd_count, dtds);
@@ -940,7 +940,7 @@ void edid_free(edid *e) {
 
 edid *edid_new_from_hex(const char *hex_string) {
     int blen = strlen(hex_string) / 2;
-    uint8_t *buffer = malloc(blen), *n = buffer;
+    uint8_t *buffer = g_malloc(blen), *n = buffer;
     memset(buffer, 0, blen);
     int len = 0;
 
@@ -960,7 +960,7 @@ edid *edid_new_from_hex(const char *hex_string) {
     }
 
     edid *e = edid_new((char*)buffer, len);
-    free(buffer);
+    g_free(buffer);
     return e;
 }
 
@@ -980,7 +980,7 @@ char *edid_dump_hex(edid *e, int tabs, int breaks) {
     int lines = 1 + (e->len / 16);
     int blen = lines * 35 + 1;
     unsigned int pc = 0;
-    char *ret = malloc(blen);
+    char *ret = g_malloc(blen);
     memset(ret, 0, blen);
     uint8_t *u8 = e->u8;
     char *p = ret;
@@ -1283,7 +1283,7 @@ char *edid_cea_block_describe(struct edid_cea_block *blk) {
                     hb);
                 break;
         }
-        free(hb);
+        g_free(hb);
     }
     return ret;
 }
@@ -1307,7 +1307,7 @@ char *edid_base_descriptor_describe(struct edid_descriptor *d) {
         ret = g_strdup_printf("([%02x] %s) %s",
             d->type, _(edid_descriptor_type(d->type)),
             txt);
-        free(hb);
+        g_free(hb);
     }
     return ret;
 }
@@ -1344,7 +1344,7 @@ char *edid_did_block_describe(DisplayIDBlock *blk) {
                 hb);
             break;
     }
-    free(hb);
+    g_free(hb);
 
     return ret;
 }
@@ -1376,7 +1376,7 @@ char *edid_dtd_describe(struct edid_dtd *dtd, int dump_bytes) {
             _(edid_output_src(out->src)),
             dump_bytes ? " -- " : "",
             dump_bytes ? hb : "");
-        free(hb);
+        g_free(hb);
     }
     return ret;
 }
@@ -1470,19 +1470,19 @@ char *edid_dump2(edid *e) {
     for(i = 0; i < e->dtd_count; i++) {
         char *desc = edid_dtd_describe(&e->dtds[i], 0);
         ret = appfnl(ret, "dtd[%d] %s", i, desc);
-        free(desc);
+        g_free(desc);
     }
 
     for(i = 0; i < e->cea_block_count; i++) {
         char *desc = edid_cea_block_describe(&e->cea_blocks[i]);
         ret = appfnl(ret, "cea_block[%d] %s", i, desc);
-        free(desc);
+        g_free(desc);
     }
 
     for(i = 0; i < e->svd_count; i++) {
         char *desc = edid_output_describe(&e->svds[i].out);
         ret = appfnl(ret, "svd[%d] [%02x] %s", i, e->svds[i].v, desc);
-        free(desc);
+        g_free(desc);
     }
 
     for(i = 0; i < e->sad_count; i++) {
@@ -1490,13 +1490,13 @@ char *edid_dump2(edid *e) {
         ret = appfnl(ret, "sad[%d] [%02x%02x%02x] %s", i,
             e->sads[i].v[0], e->sads[i].v[1], e->sads[i].v[2],
             desc);
-        free(desc);
+        g_free(desc);
     }
 
     for(i = 0; i < e->did_block_count; i++) {
         char *desc = edid_did_block_describe(&e->did_blocks[i]);
         ret = appfnl(ret, "did_block[%d] %s", i, desc);
-        free(desc);
+        g_free(desc);
     }
 
     for(i = 0; i < e->didt_count; i++) {

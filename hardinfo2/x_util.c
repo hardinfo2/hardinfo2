@@ -275,11 +275,9 @@ gboolean fill_xrr_info(xrr_info *xrr) {
             if (ec == 7) {
                 /* new screen */
                 xrr->screen_count++;
-                if (xrr->screens == NULL)
-                    xrr->screens = malloc(xrr->screen_count * sizeof(x_screen));
-                else
-                    xrr->screens = realloc(xrr->screens, xrr->screen_count * sizeof(x_screen));
-                memcpy(&xrr->screens[xrr->screen_count-1], &ts, sizeof(x_screen));
+                xrr->screens = g_renew(x_screen, xrr->screens, xrr->screen_count);
+                if (xrr->screens)
+                    memcpy(&xrr->screens[xrr->screen_count-1], &ts, sizeof(x_screen));
                 memset(&ts, 0, sizeof(x_screen)); /* clear the temp */
                 goto xrr_next_line;
             }
@@ -322,11 +320,9 @@ gboolean fill_xrr_info(xrr_info *xrr) {
                 if (is_output) {
 		  g_strlcpy(to.name, output_id, sizeof(to.name));
                     xrr->output_count++;
-                    if (xrr->outputs == NULL)
-                        xrr->outputs = malloc(xrr->output_count * sizeof(x_output));
-                    else
-                        xrr->outputs = realloc(xrr->outputs, xrr->output_count * sizeof(x_output));
-                    memcpy(&xrr->outputs[xrr->output_count-1], &to, sizeof(x_output));
+                    xrr->outputs = g_renew(x_output, xrr->outputs, xrr->output_count);
+                    if (xrr->outputs)
+                        memcpy(&xrr->outputs[xrr->output_count-1], &to, sizeof(x_output));
                     memset(&to, 0, sizeof(x_output)); /* clear the temp */
                     goto xrr_next_line;
                 }
@@ -377,11 +373,9 @@ gboolean fill_basic_xlib(xinfo *xi) {
 	    }
             if(xi->xrr) {
                 xi->xrr->screen_count++;
-                if (xi->xrr->screens == NULL)
-                   xi->xrr->screens = malloc(xi->xrr->screen_count * sizeof(x_screen));
-                else
-                   xi->xrr->screens = realloc(xi->xrr->screens, xi->xrr->screen_count * sizeof(x_screen));
-                memcpy(&xi->xrr->screens[xi->xrr->screen_count-1], &ts, sizeof(x_screen));
+                xi->xrr->screens = g_renew(x_screen, xi->xrr->screens, xi->xrr->screen_count);
+                if (xi->xrr->screens)
+                    memcpy(&xi->xrr->screens[xi->xrr->screen_count-1], &ts, sizeof(x_screen));
 	    }
         }
 	XCloseDisplay(display);

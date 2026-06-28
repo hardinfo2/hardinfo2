@@ -25,7 +25,7 @@
 /* wayland stuff lives here for now */
 
 wl_info *get_walyand_info() {
-    wl_info *s = malloc(sizeof(wl_info));
+    wl_info *s = g_malloc(sizeof(wl_info));
     memset(s, 0, sizeof(wl_info));
     s->xdg_session_type = g_strdup( getenv("XDG_SESSION_TYPE") );
     if (s->xdg_session_type == NULL)
@@ -121,7 +121,7 @@ gboolean fill_vk_info(vk_info *vk) {
 }
 
 vk_info *vk_create() {
-    vk_info *s = malloc(sizeof(vk_info));
+    vk_info *s = g_malloc(sizeof(vk_info));
     if(!s) return NULL;
     memset(s, 0, sizeof(vk_info));
     return s;
@@ -188,7 +188,7 @@ gboolean fill_glx_info(glx_info *glx) {
 }
 
 glx_info *glx_create() {
-    glx_info *s = malloc(sizeof(glx_info));
+    glx_info *s = g_malloc(sizeof(glx_info));
     if(!s) return NULL;
     memset(s, 0, sizeof(glx_info));
     return s;
@@ -368,7 +368,7 @@ gboolean fill_basic_xlib(xinfo *xi) {
             ts.px_height = h;
 
 	    if(!xi->xrr) {
-	      xi->xrr=malloc(sizeof(xrr_info));
+	      xi->xrr=g_malloc(sizeof(xrr_info));
 	      if(xi->xrr) memset(xi->xrr,0,sizeof(xrr_info));
 	    }
             if(xi->xrr) {
@@ -385,7 +385,7 @@ gboolean fill_basic_xlib(xinfo *xi) {
 }
 
 xrr_info *xrr_create() {
-    xrr_info *xrr = malloc(sizeof(xrr_info));
+    xrr_info *xrr = g_malloc(sizeof(xrr_info));
     if(!xrr) return NULL;
     memset(xrr, 0, sizeof(xrr_info));
     return xrr;
@@ -403,7 +403,7 @@ void xrr_free(xrr_info *xrr) {
 
 xinfo *xinfo_get_info() {
     int fail=0;
-    xinfo *xi = malloc(sizeof(xinfo));
+    xinfo *xi = g_malloc(sizeof(xinfo));
     if(!xi) return NULL;
     memset(xi, 0, sizeof(xinfo));
 

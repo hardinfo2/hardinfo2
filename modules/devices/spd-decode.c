@@ -1285,6 +1285,7 @@ GSList *decode_dimms2(GSList *eeprom_list, const gchar *driver, gboolean use_sys
             s->dram_vendor = vendor_match(s->dram_vendor_str, NULL);
             dimm_list = g_slist_append(dimm_list, s);
         }
+	spd_data_free(s);
     }
 
     return dimm_list;

@@ -165,8 +165,17 @@ void bench_machine_free(bench_machine *s)
          g_free(s->mid);
          g_free(s->ram_types);
          g_free(s->machine_type);
- 	g_free(s->linux_kernel);
- 	g_free(s->linux_os);
+	 g_free(s->linux_kernel);
+	 g_free(s->linux_os);
+	 g_free(s->cpu_hwcaps);
+	 g_free(s->ogl_renderer);
+	 g_free(s->gpu_desc);
+	 g_free(s->power_state);
+	 g_free(s->gpu_name);
+	 g_free(s->storage);
+	 g_free(s->vulkanDriver);
+	 g_free(s->vulkanDevice);
+	 g_free(s->vulkanVersions);
          g_free(s);
      }
  }

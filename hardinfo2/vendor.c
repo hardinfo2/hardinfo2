@@ -187,7 +187,7 @@ void vendor_init(void)
     };
 
     se1.name = N_("Check Update Version");
-    se1.file_name = g_strdup_printf("blobs-update-version.json");
+    se1.file_name = "blobs-update-version.json";
     se1.optional=FALSE;
 
     /* already initialized */

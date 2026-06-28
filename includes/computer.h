@@ -150,6 +150,7 @@ extern gchar *module_list;
 gchar *computer_get_formatted_loadavg();
 gchar *computer_get_formatted_uptime();
 gchar *computer_get_alsacards(Computer * computer);
+void alsa_card_free(AlsaCard *ac);
 gchar *computer_get_entropy_avail(void);
 gchar *computer_get_aslr(void);
 gchar *computer_get_dmesg_status(void);

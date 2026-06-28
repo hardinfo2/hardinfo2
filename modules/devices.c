@@ -361,14 +361,37 @@ gchar *ldlinux_hwcaps() {
 	   g_free(cmd_line);
 	}
 	if (spawned && strlen(out)>=100) {
-	    gchar *t=supported;
-	    if(strstr(out,"x86-64-v1 (sup")) supported=g_strconcat(supported," x86-64-V1 ",NULL);
-	    if(strstr(out,"x86-64-v2 (sup")) supported=g_strconcat(supported," x86-64-V2 ",NULL);
-	    if(strstr(out,"x86-64-v3 (sup")) supported=g_strconcat(supported," x86-64-V3 ",NULL);
-	    if(strstr(out,"x86-64-v4 (sup")) supported=g_strconcat(supported," x86-64-V4 ",NULL);
-	    if(strstr(out,"x86-64-v5 (sup")) supported=g_strconcat(supported," x86-64-V5 ",NULL);//future
-	    if(strlen(supported)<1) supported=g_strconcat(supported," x86-64-V1 ",NULL);
-	    g_free(t);
+	    if(strstr(out,"x86-64-v1 (sup")) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V1 ", NULL);
+	        g_free(old);
+	    }
+	    if(strstr(out,"x86-64-v2 (sup")) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V2 ", NULL);
+	        g_free(old);
+	    }
+	    if(strstr(out,"x86-64-v3 (sup")) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V3 ", NULL);
+	        g_free(old);
+	    }
+	    if(strstr(out,"x86-64-v4 (sup")) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V4 ", NULL);
+	        g_free(old);
+	    }
+	    /* x86-64-v5 is not yet defined, reserved for future CPUs */
+	    if(strstr(out,"x86-64-v5 (sup")) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V5 ", NULL);
+	        g_free(old);
+	    }
+	    if(strlen(supported)<1) {
+	        gchar *old = supported;
+	        supported = g_strconcat(old, " x86-64-V1 ", NULL);
+	        g_free(old);
+	    }
 	} else {
 	    gchar *t=supported;
 	    supported=g_strconcat(supported," x86-64-V1 ",NULL);

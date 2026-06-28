@@ -170,6 +170,10 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
         }
         g_free(out);
         g_free(err);
+        /* Prevent double-free: the goto sysbench_failed below
+         * also frees out/err; g_free does not NULL its argument. */
+        out = NULL;
+        err = NULL;
     } else {
     }
 

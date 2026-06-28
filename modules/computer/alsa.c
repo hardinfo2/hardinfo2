@@ -69,3 +69,11 @@ computer_get_alsainfo(void)
 
     return ai;
 }
+
+void alsa_card_free(AlsaCard *ac) {
+    if (ac) {
+        g_free(ac->alsa_name);
+        g_free(ac->friendly_name);
+        g_free(ac);
+    }
+}

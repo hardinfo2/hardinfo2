@@ -602,38 +602,28 @@ static void module_register_methods(ShellModule * module)
 gchar *module_call_method(gchar * method)
 {
     gchar *(*function) (void);
-    gchar *f=NULL,*ret;
 
     if (__module_methods == NULL) {
 	return NULL;
     }
 
     function = g_hash_table_lookup(__module_methods, method);
-    if(function) f=function();
-    return f;
-    ret=g_strdup(f);
-    g_free(f);
-
-    return ret;
+    if(function) return function();
+    return g_strdup(method);
 }
 
 /* FIXME: varargs? */
 gchar *module_call_method_param(gchar * method, gchar * parameter)
 {
     gchar *(*function) (gchar *param);
-    gchar *f=NULL,*ret;
 
     if (__module_methods == NULL) {
 	return NULL;
     }
 
     function = g_hash_table_lookup(__module_methods, method);
-    if(function) f=function(parameter);
-    return f;
-    ret=g_strdup(f);
-    g_free(f);
-
-    return ret;
+    if(function) return function(parameter);
+    return g_strdup(method);
 }
 
 static gboolean remove_module_methods(gpointer key, gpointer value, gpointer data)

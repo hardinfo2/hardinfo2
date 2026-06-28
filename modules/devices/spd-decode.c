@@ -1172,7 +1172,8 @@ int read_spd(char *spd_path, int offset, size_t size, int use_sysfs,
         temp_path = g_strdup_printf("%s/eeprom", spd_path);
         if ((spd = fopen(temp_path, "rb"))) {
             if(fseek(spd, offset, SEEK_SET) == 0)
-		if( (data_size = fread(bytes_out, 1, size, spd)) < 0) return 0;
+		data_size = fread(bytes_out, 1, size, spd);
+	    if(data_size < 0) data_size=0;
 	    fclose(spd);
         }
 
@@ -1182,7 +1183,8 @@ int read_spd(char *spd_path, int offset, size_t size, int use_sysfs,
 
         if ((spd = fopen(spd_path, "rb"))) {
             if(fseek(spd, offset, SEEK_SET) == 0)
-		if( (data_size = fread(bytes_out, 1, size, spd)) < 0) return 0;
+		data_size = fread(bytes_out, 1, size, spd);
+	    if(data_size < 0) data_size=0;
             fclose(spd);
         }
     }

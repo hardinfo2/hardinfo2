@@ -1472,7 +1472,7 @@ GSList *spd_scan() {
 
             if (eeprom_list) {
 	        dimm_list = decode_dimms2(eeprom_list, driver->driver, driver->use_sysfs, driver->max_size);
-                g_slist_free(eeprom_list);
+                g_slist_free_full(eeprom_list, g_free);
                 eeprom_list = NULL;
             }
             if (dimm_list) break;

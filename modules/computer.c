@@ -1275,7 +1275,7 @@ void hi_module_deinit(void)
     computer_free_display(computer->display);
 
     if (computer->alsa) {
-        g_slist_free(computer->alsa->cards);
+        g_slist_free_full(computer->alsa->cards, (GDestroyNotify)alsa_card_free);
         g_free(computer->alsa);
     }
 

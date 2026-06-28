@@ -3372,7 +3372,9 @@ gchar *key_mi_tag(const gchar *key) {
         }
         if (strlen(p)) {
             t = g_strdup(p);
-            *(strchr(t, '$')) = 0;
+            gchar *dollar = strchr(t, '$');
+            if (dollar) *dollar = 0;
+            else { g_free(t); return g_strdup(""); }
             return t;
         }
     }

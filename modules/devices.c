@@ -567,7 +567,7 @@ gchar *get_storage_home_models(void)
      * If homepath is "" (empty string), strlen returns 0.
      * 0 - 1 wraps to SIZE_MAX in unsigned arithmetic, causing an out-of-bounds read before the allocation.
      * Returning early when *homepath == '\0' avoids reaching the loop entirely. */
-    if(!homepath || !*homepath) return g_strdup("NoHomePath");
+    if(!homepath || !*homepath) return g_strdup(_("Unknown"));
     if( (p=strstr(homepath," ")) ) *p=0;
     if( !strstr(homepath,"sdp") && !strstr(homepath,"vdp") && (p=strstr(homepath,"p")) ) *p=0;
     while(homepath[strlen(homepath)-1]>='0' && homepath[strlen(homepath)-1]<='9') homepath[strlen(homepath)-1]=0;

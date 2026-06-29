@@ -212,6 +212,10 @@ static gchar *current_search_text = NULL;
 static GtkTreePath *last_search_path = NULL;
 static gboolean search_wrapped = FALSE;
 
+#ifndef G_VALUE_INIT
+#define G_VALUE_INIT {}
+#endif
+
 static gboolean check_node_for_search_match(GtkTreeModel *model, GtkTreeIter *iter, const gchar *search_text)
 {
     int col = 0;

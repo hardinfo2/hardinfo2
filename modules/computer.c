@@ -613,7 +613,8 @@ gchar *callback_os(void)
                    .icon = distro_icon),
         info_field_last());
 
-    p2=strwrap(computer->os->language,80,';');
+    computer->os->language=strreplace(computer->os->language,";","\n");
+    p2=computer->os->language;
     info_add_group(info, _("Current Session"),
         info_field(_("Computer Name"), computer->os->hostname),
         info_field(_("User Name"), computer->os->username),

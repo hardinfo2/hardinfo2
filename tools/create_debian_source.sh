@@ -23,6 +23,11 @@ rm hardinfo2_$VERSION*.tar.gz
 mkdir cpacksrc
 dpkg-deb -R hardinfo2-$VERSION.src.deb cpacksrc
 
+MAINTAINER=$(grep -E '^Maintainer:' ./cpacksrc/DEBIAN/control | head -n1 | sed 's/^Maintainer: //')
+DEBFULLNAME=$(echo "$MAINTAINER" | sed -E 's/ <.*>//')
+DEBEMAIL=$(echo "$MAINTAINER" | sed -E 's/.*<(.*)>/\1/')
+export DEBFULLNAME DEBEMAIL
+
 #create source package (NOTE: We use github tags as release-$VERSION)
 # create clean orig tarball, excluding build, .git, .github
 cd ..
@@ -59,7 +64,9 @@ Version: $VERSION
 Maintainer: $(grep Maintainer ./cpacksrc/DEBIAN/control | cut -d' ' -f2-)
 Homepage: https://hardinfo2.org
 Description: System Information and Benchmark for Linux Systems
- Hardinfo offers System Information and Benchmark for Linux Systems.
+ Hardinfo2 is based on hardinfo, which has not been released >10 years.
+ Hardinfo2 is the reboot that was needed.
+ Hardinfo2 offers System Information and Benchmark for Linux Systems.
  It is able to obtain information from both hardware and basic software.
  It can benchmark your system and compare to other machines online.
 Vcs-Browser: https://salsa.debian.org/hwspeedy/hardinfo2

@@ -24,13 +24,13 @@ mkdir cpacksrc
 dpkg-deb -R hardinfo2-$VERSION.src.deb cpacksrc
 
 #create source package (NOTE: We use github tags as release-$VERSION)
-cd ../..
-tar -czf hardinfo2-$VERSION.tar.gz hardinfo2 --transform s/hardinfo2/hardinfo2-$VERSION/
-mv hardinfo2-$VERSION.tar.gz hardinfo2/build/
-cd hardinfo2/build
+# create clean orig tarball, excluding build, .git, .github
+cd ..
+tar -czf build/hardinfo2_$VERSION.orig.tar.gz --exclude='build' --exclude='.git' --exclude='.github' --transform "s,^,hardinfo2-$VERSION/," .
+cd build
 
 #extract source
-tar -xzf hardinfo2-$VERSION.tar.gz
+tar -xzf hardinfo2_$VERSION.orig.tar.gz
 cd hardinfo2-$VERSION
 debmake
 #fixup source from cpack - FIXME
@@ -46,31 +46,50 @@ mv control.fixed control
 cd ..
 
 #create debian tar.gz
-tar -czf ../hardinfo2-$VERSION.debian.tar.gz debian
+tar -czf ../hardinfo2_$VERSION.debian.tar.gz debian
 cd ..
-#rename source file
-mv hardinfo2-$VERSION.tar.gz hardinfo2-$VERSION.orig.tar.gz
 
-#create dsc
-echo "Format: 3.0 (quilt)
+#create dsc - match the exact format that passed dpkg-source
+cat > ./hardinfo2-$VERSION.dsc <<DSCHEADER
+Format: 3.0 (quilt)
 Source: hardinfo2
 Binary: hardinfo2
 Architecture: any
-Version: $VERSION">./hardinfo2-$VERSION.dsc
-grep Maintainer ./cpacksrc/DEBIAN/control >>./hardinfo2-$VERSION.dsc
-echo "Homepage: https://hardinfo2.org
-Standards-Version: 4.1.3
+Version: $VERSION
+Maintainer: $(grep Maintainer ./cpacksrc/DEBIAN/control | cut -d' ' -f2-)
+Homepage: https://hardinfo2.org
+Description: System Information and Benchmark for Linux Systems
+ Hardinfo offers System Information and Benchmark for Linux Systems.
+ It is able to obtain information from both hardware and basic software.
+ It can benchmark your system and compare to other machines online.
 Vcs-Browser: https://salsa.debian.org/hwspeedy/hardinfo2
 Vcs-Git: https://salsa.debian.org/hwspeedy/hardinfo2.git
 Build-Depends: cmake, debhelper (>= 11)
 Package-List:
  hardinfo2 deb x11 optional arch=any
-Checksums-Sha1:" >./hardinfo2-$VERSION.dsc
-sha1sum hardinfo2-$VERSION.*.tar.gz >>./hardinfo2-$VERSION.dsc
-echo "Checksums-Sha256:">>./hardinfo2-$VERSION.dsc
-sha256sum hardinfo2-$VERSION.*.tar.gz >>./hardinfo2-$VERSION.dsc
-echo "Files:">>./hardinfo2-$VERSION.dsc
-md5sum hardinfo2-$VERSION.*.tar.gz >>./hardinfo2-$VERSION.dsc
+Checksums-Sha1:
+DSCHEADER
+
+# Append Checksums-Sha1 lines (each starting with a space)
+for f in hardinfo2_$VERSION.debian.tar.gz hardinfo2_$VERSION.orig.tar.gz; do
+    sha1=$(sha1sum "$f" | cut -d' ' -f1)
+    size=$(stat -c%s "$f")
+    echo " $sha1 $size $f" >>./hardinfo2-$VERSION.dsc
+done
+
+echo "Checksums-Sha256:" >>./hardinfo2-$VERSION.dsc
+for f in hardinfo2_$VERSION.debian.tar.gz hardinfo2_$VERSION.orig.tar.gz; do
+    sha256=$(sha256sum "$f" | cut -d' ' -f1)
+    size=$(stat -c%s "$f")
+    echo " $sha256 $size $f" >>./hardinfo2-$VERSION.dsc
+done
+
+echo "Files:" >>./hardinfo2-$VERSION.dsc
+for f in hardinfo2_$VERSION.debian.tar.gz hardinfo2_$VERSION.orig.tar.gz; do
+    md5=$(md5sum "$f" | cut -d' ' -f1)
+    size=$(stat -c%s "$f")
+    echo " $md5 $size $f" >>./hardinfo2-$VERSION.dsc
+done
 
 echo "Debian Source Package Files ready in build:"
 ls -l hardinfo2-$VERSION*.tar.gz

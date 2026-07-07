@@ -99,8 +99,7 @@ for f in hardinfo2_$VERSION.debian.tar.gz hardinfo2_$VERSION.orig.tar.gz; do
 done
 
 echo "Debian Source Package Files ready in build:"
-ls -l hardinfo2-$VERSION*.tar.gz
-ls -l hardinfo2-$VERSION.dsc
+readlink -f hardinfo2_$VERSION*.tar.gz hardinfo2_$VERSION.dsc
 
 #build from source
 sudo apt install debhelper

@@ -181,7 +181,7 @@ set(HARDINFO2_OS ${distro})
 
 #fedora ->35
 if(${disversion} LESS 35.99)
-  if(${distro} MATCHES "Fedora*")
+  if(${distro} MATCHES "Fedora*" AND NOT ${distro} MATCHES "FedoraELN*")
     message("Fedora ->35 - LS24")
     set(HARDINFO2_LIBSOUP3 0)
   endif()
@@ -206,8 +206,8 @@ endif()
 
 #centos/redhat/oracle/alma/rocky 10
 #note upgrade to 10.1 for sysbench to be available
-if((${disversion} GREATER_EQUAL 10) AND (${disversion} LESS 10.99))
-  if(${distro} MATCHES "Red*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*")
+if(${disversion} GREATER_EQUAL 10)
+  if(${distro} MATCHES "Red*" OR ${distro} MATCHES "CentOS*" OR ${distro} MATCHES "Oracle*" OR ${distro} MATCHES "Alma*" OR ${distro} MATCHES "Rocky*" OR ${distro} MATCHES "FedoraELN*")
     message("Centos/Redhat/oracle/rocky/alma 10 - Missing xrandr vue to wayland standard")
     SET(RPM_REQ "dmidecode, sysbench, udisks2, glx-utils, lm_sensors, xdg-utils, iperf3, fwupd, vulkan-tools, gawk") #miss xrandr
   endif()

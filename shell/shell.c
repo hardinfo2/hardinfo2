@@ -27,6 +27,10 @@
 #include <gio/gio.h>
 #include <stdbool.h>
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <cairo.h>
+#endif
+
 #include "config.h"
 
 #include "hardinfo.h"
@@ -1482,6 +1486,253 @@ static void copy_all_rows_to_clipboard(GtkWidget *menu_item, gpointer user_data)
     copy_rows_to_clipboard(treeview, TRUE);
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+/* Screenshot helpers.
+ *
+ * To capture a widget's FULL content (including portions scrolled out of
+ * view), we reparent the inner widget from its GtkScrolledWindow into a
+ * GtkOffscreenWindow. That gives it an unconstrained allocation, so
+ * gtk_widget_get_preferred_height() returns the full content height. We then
+ * allocate the widget at that height, draw it to a cairo surface via
+ * gtk_widget_draw(), and put it back. The main window is frozen/thawed around
+ * the operation to avoid flicker, following the same pattern as reload_section().
+ */
+
+/* Render widget at (width, height) to a new cairo surface. If bg_override is
+ * non-NULL, use it as the background; otherwise query the widget's own style
+ * context, falling back to white when the queried color is transparent. */
+static cairo_surface_t *
+shell_screenshot_render_widget(GtkWidget *widget, gint width, gint height,
+                                const GdkRGBA *bg_override)
+{
+    cairo_surface_t *surface =
+        cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
+    if (!surface)
+        return NULL;
+
+    cairo_t *cr = cairo_create(surface);
+
+    GdkRGBA bg;
+    if (bg_override) {
+        bg = *bg_override;
+    } else {
+        bg.red = bg.green = bg.blue = 1.0;
+        bg.alpha = 1.0;
+        GtkStyleContext *ctx = gtk_widget_get_style_context(widget);
+        gtk_style_context_get_background_color(ctx, GTK_STATE_FLAG_NORMAL, &bg);
+        if (bg.alpha < 0.5) {
+            bg.red = bg.green = bg.blue = 1.0;
+            bg.alpha = 1.0;
+        }
+    }
+    cairo_set_source_rgb(cr, bg.red, bg.green, bg.blue);
+    cairo_paint(cr);
+
+    gtk_widget_draw(widget, cr);
+    cairo_destroy(cr);
+
+    return surface;
+}
+
+static cairo_surface_t *
+shell_screenshot_capture_scrolled_widget(GtkWidget *scrolled_window,
+                                          GtkWidget *inner_widget)
+{
+    gint width = gtk_widget_get_allocated_width(inner_widget);
+    if (width < 1)
+        width = gtk_widget_get_allocated_width(scrolled_window);
+    if (width < 1)
+        width = 400;
+
+    GdkRGBA bg;
+    GtkStyleContext *ctx = gtk_widget_get_style_context(inner_widget);
+    gtk_style_context_get_background_color(ctx, GTK_STATE_FLAG_NORMAL, &bg);
+    if (bg.alpha < 0.5) {
+        bg.red = bg.green = bg.blue = 1.0;
+        bg.alpha = 1.0;
+    }
+
+    gint nat_h = 0;
+    gtk_widget_get_preferred_height(inner_widget, NULL, &nat_h);
+    if (nat_h < 1)
+        nat_h = 1;
+
+    /* Expand the viewport to cover all content so gtk_widget_draw renders every
+     * row (including scrolled-out ones). Unlike reparenting to an offscreen
+     * window, this doesn't disturb the treeview's internal state (selection,
+     * GdkWindow, column widths) — no lock/restore, no GtkTreeSelection CRITICALs. */
+    GtkAdjustment *vadj = gtk_scrolled_window_get_vadjustment(
+        GTK_SCROLLED_WINDOW(scrolled_window));
+    gdouble saved_value = 0.0, saved_page = 0.0;
+    if (vadj) {
+        saved_value = gtk_adjustment_get_value(vadj);
+        saved_page = gtk_adjustment_get_page_size(vadj);
+        gtk_adjustment_set_page_size(vadj, (gdouble)nat_h);
+        gtk_adjustment_set_value(vadj, 0.0);
+    }
+
+    gint safety = 3;
+    while (safety-- > 0 && gtk_events_pending())
+        gtk_main_iteration_do(FALSE);
+
+    cairo_surface_t *surface =
+        shell_screenshot_render_widget(inner_widget, width, nat_h, &bg);
+
+    if (vadj) {
+        gtk_adjustment_set_page_size(vadj, saved_page);
+        gtk_adjustment_set_value(vadj, saved_value);
+    }
+
+    return surface;
+}
+
+/* For widgets not inside a GtkScrolledWindow (e.g. loadgraph). */
+static cairo_surface_t *
+shell_screenshot_capture_widget(GtkWidget *widget)
+{
+    gint width = gtk_widget_get_allocated_width(widget);
+    gint height = gtk_widget_get_allocated_height(widget);
+    if (width < 1) width = 400;
+    if (height < 1) height = 100;
+
+    return shell_screenshot_render_widget(widget, width, height, NULL);
+}
+
+/* Concatenate two surfaces vertically. Takes ownership of both inputs
+ * (destroys them). Returns a new surface, or one of the inputs unchanged
+ * if the other is NULL (so passing NULL is safe). */
+static cairo_surface_t *
+shell_screenshot_concat_vertical(cairo_surface_t *top, cairo_surface_t *bottom)
+{
+    if (!top) return bottom;
+    if (!bottom) return top;
+
+    gint tw = cairo_image_surface_get_width(top);
+    gint th = cairo_image_surface_get_height(top);
+    gint bw = cairo_image_surface_get_width(bottom);
+    gint bh = cairo_image_surface_get_height(bottom);
+
+    gint max_w = (tw > bw) ? tw : bw;
+    gint total_h = th + bh;
+
+    cairo_surface_t *result =
+        cairo_image_surface_create(CAIRO_FORMAT_ARGB32, max_w, total_h);
+    cairo_t *cr = cairo_create(result);
+    cairo_set_source_surface(cr, top, 0, 0);
+    cairo_paint(cr);
+    cairo_set_source_surface(cr, bottom, 0, th);
+    cairo_paint(cr);
+    cairo_destroy(cr);
+    cairo_surface_destroy(top);
+    cairo_surface_destroy(bottom);
+
+    return result;
+}
+
+static void
+shell_screenshot_copy_to_clipboard(cairo_surface_t *surface)
+{
+    GdkPixbuf *pixbuf = gdk_pixbuf_get_from_surface(
+        surface, 0, 0,
+        cairo_image_surface_get_width(surface),
+        cairo_image_surface_get_height(surface));
+
+    if (pixbuf) {
+        GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+        gtk_clipboard_set_image(clipboard, pixbuf);
+        g_object_unref(pixbuf);
+        shell_status_update(_("Picture copied to clipboard"));
+    }
+}
+
+/* Capture the right-side panel. When split (DUAL/LOAD_GRAPH/PROGRESS_DUAL),
+ * top pane is rendered first and bottom pane concatenated below.
+ * Scroll positions are saved/restored because reparenting the inner widget
+ * out of and back into the scrolled window may reset the adjustment.
+ * Runs in an idle handler so the menu closes before the reparenting/
+ * size_allocate churn happens — otherwise the user sees the treeview
+ * flicker while the menu item is still highlighted. */
+static gboolean
+shell_screenshot_take_idle(gpointer user_data)
+{
+    (void)user_data;
+
+    Shell *sh = shell_get_main_shell();
+    if (!sh || !sh->window) return FALSE;
+
+    GdkWindow *win = gtk_widget_get_window(GTK_WIDGET(sh->window));
+    if (win)
+        gdk_window_freeze_updates(win);
+
+    GtkAdjustment *info_adj = gtk_scrolled_window_get_vadjustment(
+        GTK_SCROLLED_WINDOW(sh->info_tree->scroll));
+    GtkAdjustment *detail_adj = gtk_scrolled_window_get_vadjustment(
+        GTK_SCROLLED_WINDOW(sh->detail_view->scroll));
+    gdouble info_pos = info_adj ? gtk_adjustment_get_value(info_adj) : 0.0;
+    gdouble detail_pos = detail_adj ? gtk_adjustment_get_value(detail_adj) : 0.0;
+
+    cairo_surface_t *top = NULL;
+    cairo_surface_t *bottom = NULL;
+
+    switch (sh->view_type) {
+    case SHELL_VIEW_NORMAL:
+    case SHELL_VIEW_PROGRESS:
+        top = shell_screenshot_capture_scrolled_widget(
+            sh->info_tree->scroll, sh->info_tree->view);
+        break;
+
+    case SHELL_VIEW_DETAIL:
+        top = shell_screenshot_capture_scrolled_widget(
+            sh->detail_view->scroll, sh->detail_view->view);
+        break;
+
+    case SHELL_VIEW_DUAL:
+    case SHELL_VIEW_PROGRESS_DUAL:
+        top = shell_screenshot_capture_scrolled_widget(
+            sh->info_tree->scroll, sh->info_tree->view);
+        bottom = shell_screenshot_capture_scrolled_widget(
+            sh->detail_view->scroll, sh->detail_view->view);
+        break;
+
+    case SHELL_VIEW_LOAD_GRAPH:
+        top = shell_screenshot_capture_scrolled_widget(
+            sh->info_tree->scroll, sh->info_tree->view);
+        /* loadgraph is a direct notebook child, not in a scrolled window. */
+        bottom = shell_screenshot_capture_widget(
+            load_graph_get_framed(sh->loadgraph));
+        break;
+
+    default:
+        break;
+    }
+
+    cairo_surface_t *final_surface = shell_screenshot_concat_vertical(top, bottom);
+
+    if (info_adj)
+        gtk_adjustment_set_value(info_adj, info_pos);
+    if (detail_adj)
+        gtk_adjustment_set_value(detail_adj, detail_pos);
+
+    if (win)
+        gdk_window_thaw_updates(win);
+
+    if (final_surface) {
+        shell_screenshot_copy_to_clipboard(final_surface);
+        cairo_surface_destroy(final_surface);
+    }
+
+    return FALSE;
+}
+
+static void
+shell_screenshot_take(GtkMenuItem *item, gpointer user_data)
+{
+    (void)item;
+    (void)user_data;
+    g_idle_add(shell_screenshot_take_idle, NULL);
+}
+#endif  /* GTK_CHECK_VERSION(3, 0, 0) */
+
 static gboolean on_info_tree_popup_menu(GtkWidget *treeview, GdkEventButton *event, gpointer user_data) {
     if (event->type == GDK_BUTTON_PRESS && event->button == 3) { // right click button
         GtkWidget *menu = gtk_menu_new();
@@ -1497,6 +1748,13 @@ static gboolean on_info_tree_popup_menu(GtkWidget *treeview, GdkEventButton *eve
         g_signal_connect(copy_all_item, "activate", G_CALLBACK(copy_all_rows_to_clipboard), treeview);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_row_item);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_all_item);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        GtkWidget *screenshot_sep = gtk_separator_menu_item_new();
+        GtkWidget *screenshot_item = gtk_menu_item_new_with_label(_("Copy as picture"));
+        g_signal_connect(screenshot_item, "activate", G_CALLBACK(shell_screenshot_take), NULL);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), screenshot_sep);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), screenshot_item);
+#endif
         gtk_widget_show_all(menu);
 
 #if GTK_CHECK_VERSION(3, 22, 0)
@@ -1517,6 +1775,13 @@ static gboolean on_detail_view_popup_menu(GtkWidget *widget, GdkEventButton *eve
 
         g_signal_connect(copy_all_item, "activate", G_CALLBACK(copy_detail_view_to_clipboard), user_data);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), copy_all_item);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        GtkWidget *screenshot_sep = gtk_separator_menu_item_new();
+        GtkWidget *screenshot_item = gtk_menu_item_new_with_label(_("Copy as picture"));
+        g_signal_connect(screenshot_item, "activate", G_CALLBACK(shell_screenshot_take), NULL);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), screenshot_sep);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), screenshot_item);
+#endif
         gtk_widget_show_all(menu);
 #if GTK_CHECK_VERSION(3, 22, 0)
         gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent*)event);

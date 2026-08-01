@@ -4,6 +4,7 @@ config.h
 *.so
 *.o
 *~
+.omo/
 arch/this
 build/
 build-*/

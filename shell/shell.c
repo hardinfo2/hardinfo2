@@ -1490,13 +1490,15 @@ static void copy_all_rows_to_clipboard(GtkWidget *menu_item, gpointer user_data)
 /* Screenshot helpers.
  *
  * To capture a widget's FULL content (including portions scrolled out of
- * view), we reparent the inner widget from its GtkScrolledWindow into a
- * GtkOffscreenWindow. That gives it an unconstrained allocation, so
- * gtk_widget_get_preferred_height() returns the full content height. We then
- * allocate the widget at that height, draw it to a cairo surface via
- * gtk_widget_draw(), and put it back. The main window is frozen/thawed around
- * the operation to avoid flicker, following the same pattern as reload_section().
- */
+ * view), gtk_widget_draw() is used to paint the inner widget onto a cairo
+ * image surface at its natural height. For a GtkTreeView (GtkScrollable, no
+ * viewport wrapping it) this requires temporarily size_allocating it at full
+ * height so its bin_window covers every row, and zeroing the vadjustment so
+ * bin_window sits at the top. For a non-scrollable child (GtkBox) the
+ * GtkViewport the scrolled window auto-creates already allocates it at natural
+ * height, so no resizing is needed. The main window is frozen/thawed around
+ * the operation to avoid flicker, following the same pattern as
+ * reload_section(). */
 
 /* Render widget at (width, height) to a new cairo surface. If bg_override is
  * non-NULL, use it as the background; otherwise query the widget's own style
@@ -1507,8 +1509,11 @@ shell_screenshot_render_widget(GtkWidget *widget, gint width, gint height,
 {
     cairo_surface_t *surface =
         cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
-    if (!surface)
+    /* cairo returns a nil surface, not NULL, on failure (size 0 / OOM). */
+    if (cairo_surface_status(surface) != CAIRO_STATUS_SUCCESS) {
+        cairo_surface_destroy(surface);
         return NULL;
+    }
 
     cairo_t *cr = cairo_create(surface);
 
@@ -1557,30 +1562,69 @@ shell_screenshot_capture_scrolled_widget(GtkWidget *scrolled_window,
     if (nat_h < 1)
         nat_h = 1;
 
-    /* Expand the viewport to cover all content so gtk_widget_draw renders every
-     * row (including scrolled-out ones). Unlike reparenting to an offscreen
-     * window, this doesn't disturb the treeview's internal state (selection,
-     * GdkWindow, column widths) — no lock/restore, no GtkTreeSelection CRITICALs. */
-    GtkAdjustment *vadj = gtk_scrolled_window_get_vadjustment(
-        GTK_SCROLLED_WINDOW(scrolled_window));
-    gdouble saved_value = 0.0, saved_page = 0.0;
-    if (vadj) {
-        saved_value = gtk_adjustment_get_value(vadj);
-        saved_page = gtk_adjustment_get_page_size(vadj);
-        gtk_adjustment_set_page_size(vadj, (gdouble)nat_h);
-        gtk_adjustment_set_value(vadj, 0.0);
-    }
+    cairo_surface_t *surface;
 
-    gint safety = 3;
-    while (safety-- > 0 && gtk_events_pending())
-        gtk_main_iteration_do(FALSE);
+    if (GTK_IS_TREE_VIEW(inner_widget)) {
+        /* GtkTreeView is GtkScrollable, so the scrolled window wraps it in no
+         * viewport; its allocation/bin_window is only the visible pane. Since
+         * gtk_tree_view_draw clips to bin_window, only on-screen rows paint
+         * (the kernel-modules bug). Re-setting the adjustment page_size can't
+         * help — only size_allocate resizes bin_window. Allocate at full
+         * natural height, draw (rows are pre-validated by get_preferred_height
+         * above), then restore. No main-loop pump: it would let the scrolled
+         * window reclaim pane-size allocation before we draw.
+         *
+         * The adjustment value must be 0 during the draw: GtkTreeView positions
+         * bin_window at (0, -dy), so a non-zero dy would shift the top rows
+         * above the surface (clipped away) and we'd capture only the bottom
+         * portion. */
+        GtkAdjustment *vadj = gtk_scrolled_window_get_vadjustment(
+            GTK_SCROLLED_WINDOW(scrolled_window));
+        gdouble saved_value = 0.0;
+        gboolean had_value = (vadj != NULL);
+        if (had_value) {
+            saved_value = gtk_adjustment_get_value(vadj);
+            gtk_adjustment_set_value(vadj, 0.0);
+        }
 
-    cairo_surface_t *surface =
-        shell_screenshot_render_widget(inner_widget, width, nat_h, &bg);
+        GtkAllocation orig_alloc, full_alloc;
+        gtk_widget_get_allocation(inner_widget, &orig_alloc);
+        full_alloc.x = orig_alloc.x;
+        full_alloc.y = orig_alloc.y;
+        full_alloc.width = width;
+        full_alloc.height = nat_h;
 
-    if (vadj) {
-        gtk_adjustment_set_page_size(vadj, saved_page);
-        gtk_adjustment_set_value(vadj, saved_value);
+        gtk_widget_size_allocate(inner_widget, &full_alloc);
+
+        surface = shell_screenshot_render_widget(inner_widget, width, nat_h, &bg);
+
+        gtk_widget_size_allocate(inner_widget, &orig_alloc);
+        if (had_value)
+            gtk_adjustment_set_value(vadj, saved_value);
+    } else {
+        /* Non-scrollable child (e.g. detail_view GtkBox) is wrapped in a
+         * viewport that already allocates it at natural height, so the full
+         * content paints without resizing. Keep the page_size tweak + pump. */
+        GtkAdjustment *vadj = gtk_scrolled_window_get_vadjustment(
+            GTK_SCROLLED_WINDOW(scrolled_window));
+        gdouble saved_value = 0.0, saved_page = 0.0;
+        if (vadj) {
+            saved_value = gtk_adjustment_get_value(vadj);
+            saved_page = gtk_adjustment_get_page_size(vadj);
+            gtk_adjustment_set_page_size(vadj, (gdouble)nat_h);
+            gtk_adjustment_set_value(vadj, 0.0);
+        }
+
+        gint safety = 3;
+        while (safety-- > 0 && gtk_events_pending())
+            gtk_main_iteration_do(FALSE);
+
+        surface = shell_screenshot_render_widget(inner_widget, width, nat_h, &bg);
+
+        if (vadj) {
+            gtk_adjustment_set_page_size(vadj, saved_page);
+            gtk_adjustment_set_value(vadj, saved_value);
+        }
     }
 
     return surface;
@@ -1617,7 +1661,17 @@ shell_screenshot_concat_vertical(cairo_surface_t *top, cairo_surface_t *bottom)
 
     cairo_surface_t *result =
         cairo_image_surface_create(CAIRO_FORMAT_ARGB32, max_w, total_h);
+    if (cairo_surface_status(result) != CAIRO_STATUS_SUCCESS) {
+        cairo_surface_destroy(result);
+        cairo_surface_destroy(top);
+        cairo_surface_destroy(bottom);
+        return NULL;
+    }
     cairo_t *cr = cairo_create(result);
+    /* Fill white: top/bottom widths can differ by a scrollbar — padding would
+     * be transparent and render black in many clipboard consumers. */
+    cairo_set_source_rgb(cr, 1.0, 1.0, 1.0);
+    cairo_paint(cr);
     cairo_set_source_surface(cr, top, 0, 0);
     cairo_paint(cr);
     cairo_set_source_surface(cr, bottom, 0, th);
@@ -1642,16 +1696,18 @@ shell_screenshot_copy_to_clipboard(cairo_surface_t *surface)
         gtk_clipboard_set_image(clipboard, pixbuf);
         g_object_unref(pixbuf);
         shell_status_update(_("Picture copied to clipboard"));
+    } else {
+        shell_status_update(_("Could not capture picture"));
     }
 }
 
 /* Capture the right-side panel. When split (DUAL/LOAD_GRAPH/PROGRESS_DUAL),
  * top pane is rendered first and bottom pane concatenated below.
- * Scroll positions are saved/restored because reparenting the inner widget
- * out of and back into the scrolled window may reset the adjustment.
- * Runs in an idle handler so the menu closes before the reparenting/
- * size_allocate churn happens — otherwise the user sees the treeview
- * flicker while the menu item is still highlighted. */
+ * Scroll positions are saved/restored because the capture may temporarily
+ * resize a GtkTreeView (size_allocate) or tweak adjustments, which can move
+ * the scroll offset. Runs in an idle handler so the menu closes before the
+ * size_allocate churn happens — otherwise the user sees the treeview flicker
+ * while the menu item is still highlighted. */
 static gboolean
 shell_screenshot_take_idle(gpointer user_data)
 {
@@ -1719,6 +1775,8 @@ shell_screenshot_take_idle(gpointer user_data)
     if (final_surface) {
         shell_screenshot_copy_to_clipboard(final_surface);
         cairo_surface_destroy(final_surface);
+    } else {
+        shell_status_update(_("Could not capture picture"));
     }
 
     return FALSE;

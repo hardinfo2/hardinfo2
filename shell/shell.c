@@ -1469,8 +1469,8 @@ static void copy_all_rows_to_clipboard(GtkWidget *menu_item, gpointer user_data)
  * view), gtk_widget_draw() is used to paint the inner widget onto a cairo
  * image surface at its natural height. For a GtkTreeView (GtkScrollable, no
  * viewport wrapping it) this requires temporarily size_allocating it at full
- * height so its bin_window covers every row, and zeroing the vadjustment so
- * bin_window sits at the top. For a non-scrollable child (GtkBox) the
+ * height so its bin_window covers every row, and zeroing both adjustments
+ * so bin_window sits at the top-left. For a non-scrollable child (GtkBox) the
  * GtkViewport the scrolled window auto-creates already allocates it at natural
  * height, so no resizing is needed. The main window is frozen/thawed around
  * the operation to avoid flicker, following the same pattern as
@@ -1520,10 +1520,17 @@ shell_screenshot_capture_scrolled_widget(GtkWidget *scrolled_window,
                                           GtkWidget *inner_widget)
 {
     gint width = gtk_widget_get_allocated_width(inner_widget);
-    if (width < 1)
-        width = gtk_widget_get_allocated_width(scrolled_window);
-    if (width < 1)
-        width = 400;
+    if (width < 2)
+        /* not realized/allocated — no meaningful width to capture */
+        return NULL;
+
+    /* Use natural width when it exceeds the allocation, so horizontally
+     * scrolled-out content (e.g. treeview columns) is captured too — the
+     * vertical analog uses nat_h below for the same reason. */
+    gint nat_w = 0;
+    gtk_widget_get_preferred_width(inner_widget, NULL, &nat_w);
+    if (nat_w > width)
+        width = nat_w;
 
     GdkRGBA bg;
     GtkStyleContext *ctx = gtk_widget_get_style_context(inner_widget);
@@ -1543,24 +1550,30 @@ shell_screenshot_capture_scrolled_widget(GtkWidget *scrolled_window,
     if (GTK_IS_TREE_VIEW(inner_widget)) {
         /* GtkTreeView is GtkScrollable, so the scrolled window wraps it in no
          * viewport; its allocation/bin_window is only the visible pane. Since
-         * gtk_tree_view_draw clips to bin_window, only on-screen rows paint
-         * (the kernel-modules bug). Re-setting the adjustment page_size can't
-         * help — only size_allocate resizes bin_window. Allocate at full
-         * natural height, draw (rows are pre-validated by get_preferred_height
-         * above), then restore. No main-loop pump: it would let the scrolled
-         * window reclaim pane-size allocation before we draw.
+         * gtk_tree_view_draw clips to bin_window, only on-screen rows AND
+         * columns paint. Re-setting the adjustment page_size can't help —
+         * only size_allocate resizes bin_window. Allocate at full natural
+         * size (width above, nat_h), draw (rows pre-validated by
+         * get_preferred_height above), then restore. No main-loop pump: it
+         * would let the scrolled window reclaim pane-size allocation first.
          *
-         * The adjustment value must be 0 during the draw: GtkTreeView positions
-         * bin_window at (0, -dy), so a non-zero dy would shift the top rows
-         * above the surface (clipped away) and we'd capture only the bottom
-         * portion. */
+         * Both adjustment values must be 0 during the draw: GtkTreeView
+         * positions bin_window at (-hadj, -vadj), so a non-zero offset would
+         * shift the top/left rows/columns outside the surface (clipped away)
+         * and we'd capture only the bottom-right portion. */
         GtkAdjustment *vadj = gtk_scrolled_window_get_vadjustment(
             GTK_SCROLLED_WINDOW(scrolled_window));
-        gdouble saved_value = 0.0;
-        gboolean had_value = (vadj != NULL);
-        if (had_value) {
-            saved_value = gtk_adjustment_get_value(vadj);
+        GtkAdjustment *hadj = gtk_scrolled_window_get_hadjustment(
+            GTK_SCROLLED_WINDOW(scrolled_window));
+        gdouble saved_v = 0.0, saved_h = 0.0;
+        gboolean had_v = (vadj != NULL), had_h = (hadj != NULL);
+        if (had_v) {
+            saved_v = gtk_adjustment_get_value(vadj);
             gtk_adjustment_set_value(vadj, 0.0);
+        }
+        if (had_h) {
+            saved_h = gtk_adjustment_get_value(hadj);
+            gtk_adjustment_set_value(hadj, 0.0);
         }
 
         GtkAllocation orig_alloc, full_alloc;
@@ -1575,8 +1588,10 @@ shell_screenshot_capture_scrolled_widget(GtkWidget *scrolled_window,
         surface = shell_screenshot_render_widget(inner_widget, width, nat_h, &bg);
 
         gtk_widget_size_allocate(inner_widget, &orig_alloc);
-        if (had_value)
-            gtk_adjustment_set_value(vadj, saved_value);
+        if (had_v)
+            gtk_adjustment_set_value(vadj, saved_v);
+        if (had_h)
+            gtk_adjustment_set_value(hadj, saved_h);
     } else {
         /* Non-scrollable child (e.g. detail_view GtkBox) is wrapped in a
          * viewport that already allocates it at natural height, so the full
@@ -1612,8 +1627,9 @@ shell_screenshot_capture_widget(GtkWidget *widget)
 {
     gint width = gtk_widget_get_allocated_width(widget);
     gint height = gtk_widget_get_allocated_height(widget);
-    if (width < 1) width = 400;
-    if (height < 1) height = 100;
+    if (width < 2 || height < 2)
+        /* not realized/allocated — no meaningful width to capture */
+        return NULL;
 
     return shell_screenshot_render_widget(widget, width, height, NULL);
 }

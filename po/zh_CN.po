@@ -521,7 +521,7 @@ msgid "_Quit"
 msgstr "退出（_Q）"
 
 msgid "_Side Panel"
-msgstr "侧边栏"
+msgstr "侧边栏（_S）"
 
 msgid "_Toolbar"
 msgstr "工具栏（_T）"
@@ -581,10 +581,10 @@ msgid "Refresh"
 msgstr "刷新"
 
 msgid "Report"
-msgstr "报告。"
+msgstr "报告"
 
 msgid "Update"
-msgstr "更新。"
+msgstr "更新"
 
 msgid "Search"
 msgstr "搜索"
@@ -673,7 +673,7 @@ msgid "Picture copied to clipboard"
 msgstr "图片已复制到剪贴板。"
 
 msgid "Could not capture picture"
-msgstr "无法拍摄照片。"
+msgstr "无法截图"
 
 msgid "Copy selected row"
 msgstr "复制所选行"
@@ -682,7 +682,7 @@ msgid "Copy all rows"
 msgstr "复制全部行"
 
 msgid "Copy as picture"
-msgstr "复制为图片。"
+msgstr "复制为图片"
 
 msgid "Copy all text"
 msgstr "复制全部文本"

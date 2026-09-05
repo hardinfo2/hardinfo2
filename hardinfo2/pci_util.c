@@ -25,7 +25,7 @@
 
 gchar *pci_ids_file = NULL;
 GTimer *pci_ids_timer = NULL;
-gboolean nolspci = TRUE; /*Only very old distros=>disable lspci*/
+gboolean nolspci = FALSE; /*Only very old distros=>disable lspci*/
 
 /* Two pieces of info still only from lspci:
  * - kernel driver in use
@@ -203,12 +203,14 @@ void pcid_free(pcid *s) {
     }
 }
 
-static char *lspci_line_value(char *line, const char *prefix) {
-    if (g_str_has_prefix(g_strstrip(line), prefix)) {
-        line += strlen(prefix) + 1;
-        return g_strstrip(line);
-    } else
-        return NULL;
+static gchar *lspci_line_value(gchar *line, const gchar *prefix) {
+    gchar *strip = g_strstrip(line);
+    if (g_str_has_prefix(strip, prefix)) {
+        gchar *pos = strip + strlen(prefix);
+        while ((*pos == ' ') || (*pos == '\t') || (*pos == ':') || (*pos == '=')) pos++;
+        return g_strstrip(pos);
+    }
+    return NULL;
 }
 
 /* read output line of lspci -vmmnn */
@@ -230,7 +232,7 @@ static char *lspci_line_value(char *line, const char *prefix) {
 static gboolean pci_fill_details(pcid *s) {
     if (nolspci) return FALSE;
     gboolean spawned;
-    gchar *out, *err, *p, *l, *next_nl;
+    gchar *out, *err;
     gchar *pci_loc = pci_address_str(s->domain, s->bus, s->device, s->function);
     gchar *lspci_cmd = g_strdup_printf("lspci -D -s %s -vvv", pci_loc);
 
@@ -239,22 +241,16 @@ static gboolean pci_fill_details(pcid *s) {
     g_free(lspci_cmd);
     g_free(pci_loc);
     if (spawned) {
-        p = out;
-        while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
-            g_strstrip(p);
-            if (l = lspci_line_value(p, "Kernel driver in use")) {
-                s->driver = g_strdup(l);
-                goto pci_details_next;
+        gchar **lines = g_strsplit(out, "\n", -1);
+        if (lines) {
+            for (int i = 0; lines[i] != NULL; i++) {
+                gchar *value;
+                if (value = lspci_line_value(lines[i], "Kernel driver in use"))
+                    s->driver = g_strdup(value);
+                else if (value = lspci_line_value(lines[i], "Kernel modules"))
+                    s->driver_list = g_strdup(value);
             }
-            if (l = lspci_line_value(p, "Kernel modules")) {
-                s->driver_list = g_strdup(l);
-                goto pci_details_next;
-            }
-            /* TODO: more details */
-
-            pci_details_next:
-                p = next_nl + 1;
+            g_strfreev(lines);
         }
         g_free(out);
         g_free(err);

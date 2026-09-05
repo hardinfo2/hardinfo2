@@ -206,9 +206,9 @@ void pcid_free(pcid *s) {
 static gchar *lspci_line_value(gchar *line, const gchar *prefix) {
     gchar *strip = g_strstrip(line);
     if (g_str_has_prefix(strip, prefix)) {
-        gchar *pos = strip + strlen(prefix);
-        while ((*pos == ' ') || (*pos == '\t') || (*pos == ':') || (*pos == '=')) pos++;
-        return g_strstrip(pos);
+        strip += strlen(prefix);
+        while ((*strip == ' ') || (*strip == '\t') || (*strip == ':') || (*strip == '=')) strip++;
+        return strip;
     }
     return NULL;
 }

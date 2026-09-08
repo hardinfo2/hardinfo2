@@ -19,21 +19,13 @@
  */
 
 #include <stdlib.h>
+#include <sys/utsname.h>
 #include "hardinfo.h"
 #include "pci_util.h"
 #include "util_ids.h"
 
 gchar *pci_ids_file = NULL;
 GTimer *pci_ids_timer = NULL;
-gboolean nolspci = TRUE; /*Only very old distros=>disable lspci*/
-
-/* Two pieces of info still only from lspci:
- * - kernel driver in use
- * - kernel modules list
- *
- * TODO: could use readlink() and basename() to get kernel driver from sysfs
- * - /sys/bus/pci/devices/<addy>/driver is a symlink
- */
 
 const gchar *find_pci_ids_file() {
     if (pci_ids_file) {
@@ -203,64 +195,67 @@ void pcid_free(pcid *s) {
     }
 }
 
-static char *lspci_line_value(char *line, const char *prefix) {
-    if (g_str_has_prefix(g_strstrip(line), prefix)) {
-        line += strlen(prefix) + 1;
-        return g_strstrip(line);
-    } else
-        return NULL;
-}
-
-/* read output line of lspci -vmmnn */
-/*static int lspci_line_string_and_code(char *line, char *prefix, char **str, uint32_t *code) {
-    char *l = lspci_line_value(line, prefix);
-    char *e;
-
-    if (l) {
-        e = strchr(l, 0);
-        while (e > l && *e != '[') e--;
-        sscanf(e, "[%x]", code);
-        *e = 0; // terminate at start of code
-        if (*str) g_free(*str); // free if replacing
-        *str = g_strdup(g_strstrip(l));
-    }
-    return 0;
-}*/
-
-static gboolean pci_fill_details(pcid *s) {
-    if (nolspci) return FALSE;
-    gboolean spawned;
-    gchar *out, *err, *p, *l, *next_nl;
-    gchar *pci_loc = pci_address_str(s->domain, s->bus, s->device, s->function);
-    gchar *lspci_cmd = g_strdup_printf("lspci -D -s %s -vvv", pci_loc);
-
-    spawned = hardinfo_spawn_command_line_sync(lspci_cmd,
-            &out, &err, NULL, NULL);
-    g_free(lspci_cmd);
-    g_free(pci_loc);
-    if (spawned) {
-        p = out;
-        while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
-            g_strstrip(p);
-            if (l = lspci_line_value(p, "Kernel driver in use")) {
-                s->driver = g_strdup(l);
-                goto pci_details_next;
-            }
-            if (l = lspci_line_value(p, "Kernel modules")) {
-                s->driver_list = g_strdup(l);
-                goto pci_details_next;
-            }
-            /* TODO: more details */
-
-            pci_details_next:
-                p = next_nl + 1;
+static void pci_fill_details(pcid *s) {
+    {
+        gchar *pci_loc = pci_address_str(s->domain, s->bus, s->device, s->function);
+        gchar *sysfs_path = g_strdup_printf("%s/%s/driver", SYSFS_PCI_ROOT, pci_loc);
+        gchar *driver_path = realpath(sysfs_path, NULL);
+        if (driver_path) {
+            s->driver = g_strdup(g_path_get_basename(driver_path));
+            g_free(driver_path);
         }
-        g_free(out);
-        g_free(err);
-        return TRUE;
+        g_free(sysfs_path);
+
+        sysfs_path = g_strdup_printf("%s/%s/modalias", SYSFS_PCI_ROOT, pci_loc);
+        gchar *modalias = NULL;
+        struct utsname uts;
+        if (g_file_get_contents(sysfs_path, &modalias, NULL, NULL)
+            && uname(&uts) == 0) {
+            g_strstrip(modalias);
+            gchar *mpath = g_strdup_printf("/lib/modules/%s/modules.alias", uts.release);
+            gchar *mcontents = NULL;
+            GSList *mods = NULL;
+            if (g_file_get_contents(mpath, &mcontents, NULL, NULL)) {
+                gchar **lines = g_strsplit(mcontents, "\n", -1);
+                for (int i = 0; lines[i]; i++) {
+                    gchar *l = lines[i];
+                    if (!g_str_has_prefix(l, "alias pci:")) continue;
+                    gchar *p = l + 6, *e = p;
+                    while (*e && *e != ' ' && *e != '\t') e++;
+                    if (*e) {
+                        gchar *pattern = g_strndup(p, e - p);
+                        while (*e == ' ' || *e == '\t') e++;
+                        if (*e && g_pattern_match_simple(pattern, modalias)
+                            && !g_slist_find_custom(mods, e, (GCompareFunc)g_strcmp0))
+                            mods = g_slist_append(mods, g_strdup(e));
+                        g_free(pattern);
+                    }
+                }
+                g_strfreev(lines);
+                g_free(mcontents);
+            }
+            if (mods) {
+                GString *mlist = g_string_new(NULL);
+                for (GSList *m = mods; m; m = m->next)
+                    g_string_append_printf(mlist, "%s%s", (m == mods) ? "" : ", ", (char *)m->data);
+                s->driver_list = g_string_free(mlist, FALSE);
+                g_slist_free_full(mods, g_free);
+            }
+            g_free(mpath);
+        }
+        if (!s->driver_list) {
+            gchar *mod_sysfs = g_strdup_printf("%s/%s/driver/module", SYSFS_PCI_ROOT, pci_loc);
+            gchar *mod_path = realpath(mod_sysfs, NULL);
+            if (mod_path) {
+                s->driver_list = g_strdup(g_path_get_basename(mod_path));
+                g_free(mod_path);
+            }
+            g_free(mod_sysfs);
+        }
+        g_free(modalias);
+        g_free(sysfs_path);
+        g_free(pci_loc);
     }
-    return FALSE;
 }
 
 char *pci_address_str(uint32_t dom, uint32_t bus, uint32_t  dev, uint32_t func) {
@@ -336,51 +331,6 @@ static gboolean pci_get_device_sysfs(uint32_t dom, uint32_t bus, uint32_t dev, u
     return TRUE;
 }
 
-/*static gboolean pci_get_device_lspci(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func, pcid *s) {
-    if (nolspci) return FALSE;
-    gboolean spawned;
-    gchar *out, *err, *p, *l, *next_nl;
-    gchar *pci_loc = pci_address_str(dom, bus, dev, func);
-    gchar *lspci_cmd = g_strdup_printf("lspci -D -s %s -vmmnn", pci_loc);
-
-    s->domain = dom;
-    s->bus = bus;
-    s->device = dev;
-    s->function = func;
-
-    spawned = hardinfo_spawn_command_line_sync(lspci_cmd,
-            &out, &err, NULL, NULL);
-    g_free(lspci_cmd);
-    if (spawned) {
-        p = out;
-        while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
-            g_strstrip(p);
-            if (l = lspci_line_value(p, "Slot")) {
-                s->slot_str = g_strdup(l);
-                if (strcmp(s->slot_str, pci_loc) != 0) {
-                   printf("PCI: %s != %s\n", s->slot_str, pci_loc);
-                }
-            }
-            if (l = lspci_line_value(p, "Rev")) {
-                s->revision = strtol(l, NULL, 16);
-            }
-            lspci_line_string_and_code(p, "Class", &s->class_str, &s->class);
-            lspci_line_string_and_code(p, "Vendor", &s->vendor_id_str, &s->vendor_id);
-            lspci_line_string_and_code(p, "Device", &s->device_id_str, &s->device_id);
-            lspci_line_string_and_code(p, "SVendor", &s->sub_vendor_id_str, &s->sub_vendor_id);
-            lspci_line_string_and_code(p, "SDevice", &s->sub_device_id_str, &s->sub_device_id);
-
-            p = next_nl + 1;
-        }
-        g_free(out);
-        g_free(err);
-        g_free(pci_loc);
-        return TRUE;
-    }
-    g_free(pci_loc);
-    return FALSE;
-    }*/
 
 pcid *pci_get_device_str(const char *addy) {
     uint32_t dom, bus, dev, func;
@@ -410,39 +360,6 @@ pcid *pci_get_device(uint32_t dom, uint32_t bus, uint32_t dev, uint32_t func) {
     }
     return s;
 }
-
-/*static pcid_list pci_get_device_list_lspci(uint32_t class_min, uint32_t class_max) {
-    if (nolspci) return NULL;
-    gboolean spawned;
-    gchar *out, *err, *p, *next_nl;
-    pcid_list dl = NULL;
-    pcid *nd;
-    uint32_t dom, bus, dev, func, cls;
-    int ec;
-
-    if (class_max == 0) class_max = 0xffff;
-
-    spawned = hardinfo_spawn_command_line_sync("lspci -D -mn",
-            &out, &err, NULL, NULL);
-    if (spawned) {
-        p = out;
-        while(next_nl = strchr(p, '\n')) {
-            strend(p, '\n');
-            ec = sscanf(p, "%x:%x:%x.%x \"%x\"", &dom, &bus, &dev, &func, &cls);
-            if (ec == 5) {
-                if (cls >= class_min && cls <= class_max) {
-                    nd = pci_get_device(dom, bus, dev, func);
-                    pci_fill_details(nd);
-                    dl = g_slist_append(dl, nd);
-                }
-            }
-            p = next_nl + 1;
-        }
-        g_free(out);
-        g_free(err);
-    }
-    return dl;
-    }*/
 
 static pcid_list pci_get_device_list_sysfs(uint32_t class_min, uint32_t class_max) {
     pcid_list dl = NULL;
@@ -480,7 +397,6 @@ static pcid_list pci_get_device_list_sysfs(uint32_t class_min, uint32_t class_ma
 pcid_list pci_get_device_list(uint32_t class_min, uint32_t class_max) {
     pcid_list dl = NULL;
     dl = pci_get_device_list_sysfs(class_min, class_max);
-    //if (!dl) dl = pci_get_device_list_lspci(class_min, class_max);
     return dl;
 }
 

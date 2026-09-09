@@ -369,8 +369,8 @@ gboolean __scan_udisks2_devices(void) {
 		char width[30];
 		long long unsigned freq;
 		if((p=strstr(st,"clock:")) && (sscanf(p, "clock: %llu Hz", &freq)==1))
-		    if((p=strstr(st,"bus width:")) && (sscanf(p, "bus width: %*d (%[a-zA-Z0-9 ])", width)==1) )
-		        if((p=strstr(st,"timing spec:")) && (sscanf(p, "timing spec: %*d (%[a-zA-Z0-9 ])", ts)==1) )
+		    if((p=strstr(st,"bus width:")) && (sscanf(p, "bus width: %*d (%29[a-zA-Z0-9 ])", width)==1) )
+		        if((p=strstr(st,"timing spec:")) && (sscanf(p, "timing spec: %*d (%29[a-zA-Z0-9 ])", ts)==1) )
 			    moreinfo = h_strdup_cprintf(_("I/F Speed=%s, %s (%llu MHz)\n"), moreinfo, ts, width, freq/1000000);
 		g_free(st);
 	    }

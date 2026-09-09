@@ -70,7 +70,7 @@ bench_value bench_value_from_str(const char *str)
         /* try to handle floats from locales that use ',' or '.' as decimal sep
          */
         c = sscanf(
-            str, "%[-+0-9.,]; %[-+0-9.,]; %d; %d; %255[^\r\n;|]",
+            str, "%31[-+0-9.,]; %31[-+0-9.,]; %d; %d; %255[^\r\n;|]",
             rstr, estr, &t, &v, extra);
         if (c >= 3) {
             if ((p = strchr(rstr, ','))) {

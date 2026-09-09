@@ -1255,7 +1255,9 @@ GSList *decode_dimms2(GSList *eeprom_list, const gchar *driver, gboolean use_sys
         }
 
         if (s) {
-            strncpy(s->dev, g_path_get_basename(spd_path), 31);
+            gchar *base = g_path_get_basename(spd_path);
+            snprintf(s->dev, sizeof(s->dev), "%s", base);
+            g_free(base);
             s->spd_driver = driver;
             switch (s->type) {
             case SDR_SDRAM:

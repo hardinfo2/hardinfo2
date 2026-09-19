@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2022-03-05 23:00+0300\n"
 "Last-Translator: Sergey Rodin <rodin.s@rambler.ru>, ViktorOn, tutralex\n"
 "Language-Team: \n"
@@ -1876,6 +1876,9 @@ msgstr "Разбивка таблицы страниц размером 1G"
 msgid "Update kernel module icon table"
 msgstr "Обновить таблицу значков модулей ядра"
 
+msgid "[Parameters]\n"
+msgstr "[Параметры]\n"
+
 msgid "(Not available)"
 msgstr "(Недоступно)"
 
@@ -2817,6 +2820,9 @@ msgstr "Версия BIOS"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "Видеопамять"
 
 msgid "Device Information"
 msgstr "Информация об устройстве"

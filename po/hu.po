@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2024-05-20 13:19+0200\n"
 "Last-Translator: ViBE <vibe@protonmail.com>\n"
 "Language-Team: Hungarian <vibe@protonmail.com>\n"
@@ -1892,6 +1892,9 @@ msgstr "1 GB-os oldalak méretének lebontása"
 msgid "Update kernel module icon table"
 msgstr "Frissítse a kernelmodul ikonok táblázatát"
 
+msgid "[Parameters]\n"
+msgstr "[Paraméterek]\n"
+
 msgid "(Not available)"
 msgstr "(Nem elérhető)"
 
@@ -2848,6 +2851,9 @@ msgstr "BIOS verzió"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Eszköz tulajdonságai"

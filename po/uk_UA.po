@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2026-03-09 17:50+0200\n"
 "Last-Translator: Sergiy Golovko <cappelikan@gmail.com>\n"
 "Language-Team: \n"
@@ -1874,6 +1874,9 @@ msgstr "Розбивка розмірів таблиці сторінок роз
 msgid "Update kernel module icon table"
 msgstr "Оновити таблицю значків модуля ядра"
 
+msgid "[Parameters]\n"
+msgstr "[Параметри]\n"
+
 msgid "(Not available)"
 msgstr "(Недоступно)"
 
@@ -2811,6 +2814,9 @@ msgstr "Версія BIOS"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Інформація про пристрій"

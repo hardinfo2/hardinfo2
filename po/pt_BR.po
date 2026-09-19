@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2025-03-25 14:40+0000\n"
 "Last-Translator: Thiago Dalsoto <thiagodalsoto@msn.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/biglinux-1/"
@@ -1873,6 +1873,9 @@ msgstr "Detalhamento dos tamanhos de tabela de páginas de tamanho 1G"
 msgid "Update kernel module icon table"
 msgstr "Atualizar tabela de ícones do módulo do kernel"
 
+msgid "[Parameters]\n"
+msgstr "[Parâmetros]\n"
+
 msgid "(Not available)"
 msgstr "(Indisponível)"
 
@@ -2818,6 +2821,9 @@ msgstr "Versão de Bios"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Informação de Dispositivo"

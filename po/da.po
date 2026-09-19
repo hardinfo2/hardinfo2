@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2026-04-17 00:40+0200\n"
 "Last-Translator: hwspeedy\n"
 "Language-Team: \n"
@@ -1843,6 +1843,9 @@ msgstr "Opdeling af sidetabelstørrelser i 1G-størrelse"
 msgid "Update kernel module icon table"
 msgstr "Opdater kernemodul-ikontabel"
 
+msgid "[Parameters]\n"
+msgstr "[Parametre]\n"
+
 msgid "(Not available)"
 msgstr "(Ikke tilgængelig)"
 
@@ -2780,6 +2783,9 @@ msgstr "BIOS-version"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Enhedsoplysninger"

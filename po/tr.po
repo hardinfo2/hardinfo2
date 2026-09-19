@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2 master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2026-03-31 13:54+0300\n"
 "Last-Translator: Serkan ÖNDER <serkanonder@outlook.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -1867,6 +1867,9 @@ msgstr "1G boyutundaki sayfa tablosu boyutlarının dökümü"
 msgid "Update kernel module icon table"
 msgstr "Çekirdek modülü simge tablosunu güncelle"
 
+msgid "[Parameters]\n"
+msgstr "[Parametreler]\n"
+
 msgid "(Not available)"
 msgstr "(Mevcut değil)"
 
@@ -2806,6 +2809,9 @@ msgstr "BIOS Sürümü"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Aygıt Bilgisi"

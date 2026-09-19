@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2022-12-05 14:12+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: \n"
@@ -1881,6 +1881,9 @@ msgstr "Distribuição dos tamanhos das tabelas de páginas de 1 GB"
 msgid "Update kernel module icon table"
 msgstr "Atualizar a tabela de ícones do módulo do kernel"
 
+msgid "[Parameters]\n"
+msgstr "[Parâmetros]\n"
+
 msgid "(Not available)"
 msgstr "(Indisponível)"
 
@@ -2835,6 +2838,9 @@ msgstr "Versão do BIOS"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Informação de dispositivo"

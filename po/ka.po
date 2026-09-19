@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2025-11-23 14:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -1896,6 +1896,9 @@ msgstr "1 გიგაბაიტი ზომის გვერდის ც�
 msgid "Update kernel module icon table"
 msgstr "ბირთვის მოდულის ხატულას ცხრილის განახლება"
 
+msgid "[Parameters]\n"
+msgstr "[პარამეტრები]\n"
+
 msgid "(Not available)"
 msgstr "(ხელმისაწვდომი არაა)"
 
@@ -2846,6 +2849,9 @@ msgstr "BIOS-ის ვერსია"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "ვიდეომეხსიერება"
 
 msgid "Device Information"
 msgstr "დისკის ინფორმაცია"

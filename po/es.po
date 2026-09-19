@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2026-06-04 02:50+0200\n"
 "Last-Translator: micrococo\n"
 "Language-Team: \n"
@@ -1888,6 +1888,9 @@ msgstr "Desglose de los tamaños de las tablas de páginas de 1 GB"
 msgid "Update kernel module icon table"
 msgstr "Actualizar la tabla de iconos del módulo del kernel"
 
+msgid "[Parameters]\n"
+msgstr "[Parámetros]\n"
+
 msgid "(Not available)"
 msgstr "(no disponible)"
 
@@ -2853,6 +2856,9 @@ msgstr "Versión del BIOS"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Información del dispositivo"

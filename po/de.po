@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2026-06-04 02:46+0200\n"
 "Last-Translator: Alexander Münch <git@thehacker.biz>\n"
 "Language-Team: German\n"
@@ -1905,6 +1905,9 @@ msgstr "Aufschlüsselung der Seitentabellengrößen bei einer Größe von 1 GB"
 msgid "Update kernel module icon table"
 msgstr "Aktualisiere die Tabelle der Symbole für Kernelmodule"
 
+msgid "[Parameters]\n"
+msgstr "[Parameter]\n"
+
 msgid "(Not available)"
 msgstr "(Nicht verfübar)"
 
@@ -2861,6 +2864,9 @@ msgstr "BIOS-Version"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Geräteinformation"

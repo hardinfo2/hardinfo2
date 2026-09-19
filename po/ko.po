@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2022-09-28\n"
 "Last-Translator: Yunji Lee<yunlisa96@gmail.com>\n"
 "Language-Team: \n"
@@ -1830,6 +1830,9 @@ msgstr "1GB 크기의 페이지 테이블 크기 분석"
 msgid "Update kernel module icon table"
 msgstr "커널 모듈 아이콘 테이블 업데이트"
 
+msgid "[Parameters]\n"
+msgstr "[매개변수]\n"
+
 msgid "(Not available)"
 msgstr "（사용할 수 없습니다）"
 
@@ -2765,6 +2768,9 @@ msgstr "BIOS 버전"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "디바이스 정보"

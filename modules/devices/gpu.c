@@ -42,10 +42,10 @@ void gpu_summary_add(const char *gpu_name) {
 /* format a VRAM size nicely like "8GB" or "3.2GB" */
 static gchar *vram_format_size(guint64 bytes) {
     double val = (double) bytes;
-    const char *unit = _("B");
-    if (bytes >= 1073741824ULL)  { val = bytes / 1073741824.0; unit = _("GB"); }
-    else if (bytes >= 1048576ULL){ val = bytes / 1048576.0;    unit = _("MB"); }
-    else if (bytes >= 1024ULL)   { val = bytes / 1024.0;       unit = _("KB"); }
+    const char *unit = "B";
+    if (bytes >= 1073741824ULL)  { val = bytes / 1073741824.0; unit = "GB"; }
+    else if (bytes >= 1048576ULL){ val = bytes / 1048576.0;    unit = "MB"; }
+    else if (bytes >= 1024ULL)   { val = bytes / 1024.0;       unit = "KB"; }
     return g_strdup_printf("%.1f%s", val, unit);
 }
 

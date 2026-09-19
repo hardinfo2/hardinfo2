@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardinfo2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2025-04-22 14:27+0800\n"
 "Last-Translator: 秦凡东 <qinfandong@kylinos.cn>\n"
 "Language-Team: Chinese\n"
@@ -1819,6 +1819,9 @@ msgstr "1G 页面表大小分布"
 msgid "Update kernel module icon table"
 msgstr "更新内核模块图标表"
 
+msgid "[Parameters]\n"
+msgstr "[参数]\n"
+
 msgid "(Not available)"
 msgstr "（不可用）"
 
@@ -2751,6 +2754,9 @@ msgstr "BIOS 版本"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "显存"
 
 msgid "Device Information"
 msgstr "设备信息"

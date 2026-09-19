@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 21:20+0200\n"
+"POT-Creation-Date: 2026-09-19 16:15+0200\n"
 "PO-Revision-Date: 2025-10-15 16:03+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: \n"
@@ -1845,6 +1845,9 @@ msgstr "Uppdelning av sidtabellstorlekar av 1G-storlek"
 msgid "Update kernel module icon table"
 msgstr "Uppdatera ikontabell för kärnmodul"
 
+msgid "[Parameters]\n"
+msgstr "[Parametrar]\n"
+
 msgid "(Not available)"
 msgstr "(Inte tillgänglig)"
 
@@ -2788,6 +2791,9 @@ msgstr "BIOS-version"
 
 msgid "UUID"
 msgstr "UUID"
+
+msgid "VRAM"
+msgstr "VRAM"
 
 msgid "Device Information"
 msgstr "Enhetsinformation"

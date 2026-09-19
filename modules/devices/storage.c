@@ -24,7 +24,7 @@
 #include "udisks2_util.h"
 #include "storage_util.h"
 
-#define UNKIFNULL_AC(f) (f != NULL) ? f : _("(Unknown)");
+#define UNKIFNULL_AC(f) (f != NULL) ? f : _("(Unknown)")
 
 gchar *storage_icons = NULL;
 
@@ -327,9 +327,9 @@ gboolean __scan_udisks2_devices(void) {
                                     "Size=%s\n"
                                     "Features=%s\n"),
                                     moreinfo,
-                                    disk->revision,
+                                    UNKIFNULL_AC(disk->revision),
                                     disk->block_dev,
-                                    disk->serial,
+                                    UNKIFNULL_AC(disk->serial),
                                     size,
                                     features);
         g_free(size);

@@ -19,6 +19,40 @@
 
 GDBusConnection* udisks2_conn = NULL;
 
+static int utf8_char_len_at(const gchar *p)
+{
+    unsigned char b = (unsigned char)*p;
+
+    if (b < 0x80)
+        return 1;
+    if ((b & 0xE0) == 0xC0)
+        return 2;
+    if ((b & 0xF0) == 0xE0)
+        return 3;
+    if ((b & 0xF8) == 0xF0)
+        return 4;
+    return 1;
+}
+
+static gchar *utf8_strip_invalid(gchar *s)
+{
+    GString *out;
+    const gchar *p;
+
+    out = g_string_new(NULL);
+    for (p = s; *p; ) {
+        int len = utf8_char_len_at(p);
+        if (g_utf8_validate(p, (gsize)len, NULL)) {
+            g_string_append_len(out, p, (gsize)len);
+            p += len;
+        } else {
+            p++;
+        }
+    }
+    g_free(s);
+    return g_string_free(out, FALSE);
+}
+
 GVariant* get_dbus_property(GDBusProxy* proxy, const gchar *interface,
                             const gchar *property) {
     GVariant *result, *v = NULL;
@@ -560,6 +594,8 @@ gpointer get_udisks2_drive_info(const char *blockdev, GDBusProxy *block,
     v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "Serial");
     if (v){
         u->serial = g_variant_dup_string(v, NULL);
+        if (u->serial && !g_utf8_validate(u->serial, -1, NULL))
+            u->serial = utf8_strip_invalid(u->serial);
         g_variant_unref(v);
     }
     v = get_dbus_property(drive, UDISKS2_DRIVE_INTERFACE, "WWN");

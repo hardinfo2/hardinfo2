@@ -944,6 +944,8 @@ void decode_ddr5_module_size(unsigned char *bytes, dmi_mem_size *size) {
   int sdrcap1,sdrcap2;
   int diePerPack1,diePerPack2;
   int iowidth1,iowidth2;
+    unsigned long long cap;
+    unsigned long long ranks;
     switch(bytes[4] & 31) {//gbit
         case 0: sdrcap1=0;break;
         case 1: sdrcap1=4;break;
@@ -1000,7 +1002,10 @@ void decode_ddr5_module_size(unsigned char *bytes, dmi_mem_size *size) {
         case 3: iowidth2=32;break;
         default: iowidth2=32;break;
     }
-    *size = (dmi_mem_size)sdrcap1*8*1024/iowidth1*diePerPack1+sdrcap2*8*1024/iowidth2*diePerPack2;
+    ranks = 1ULL << ((bytes[234] >> 3) & 0x7);   /* JESD400-5: Package Rank Count per Channel, base-1 */
+    cap = (unsigned long long)sdrcap1 * 8 * 1024 / iowidth1 * diePerPack1
+        + (unsigned long long)sdrcap2 * 8 * 1024 / iowidth2 * diePerPack2;
+    *size = (dmi_mem_size)(cap * ranks);
 }
 
 float ddr5_mtb_ftb_calc(unsigned char b1, signed char b2) {

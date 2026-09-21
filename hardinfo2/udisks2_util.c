@@ -42,7 +42,9 @@ static gchar *utf8_strip_invalid(gchar *s)
     out = g_string_new(NULL);
     for (p = s; *p; ) {
         int len = utf8_char_len_at(p);
-        if (g_utf8_validate(p, (gsize)len, NULL)) {
+        if (len > (int)strlen(p))
+            len = (int)strlen(p);
+        if (len > 0 && g_utf8_validate(p, (gsize)len, NULL)) {
             g_string_append_len(out, p, (gsize)len);
             p += len;
         } else {
@@ -469,11 +471,12 @@ gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath,int nvme)
 	    p = udisksa_new();
 	    p->id = id++;
 	    p->identifier = g_strdup(aidenf);
-	    p->worst = 0;
-	    p->threshold = 0;
-	    p->value = 0;
+	    p->worst = -1;
+	    p->threshold = -1;
+	    p->value = -1;
 
 	    p->interpreted = -1;
+	    p->interpreted_unit = UDSK_INTPVAL_DIMENSIONLESS;
 	    if(g_variant_classify(aval)=='q'){
 	        p->interpreted = (gint64)g_variant_get_uint16(aval);
 	    }
@@ -486,20 +489,29 @@ gchar* get_udisks2_smart_attributes(udiskd* dsk, const char *drivepath,int nvme)
 	    if(g_variant_classify(aval)=='t'){
 	        p->interpreted = (gint64)g_variant_get_uint64(aval);
 	    }
-	    //
-	    if(strstr(aidenf,"hour")||strstr(aidenf,"time")) {
-	        p->interpreted_unit = UDSK_INTPVAL_HOURS;
-		if(strstr(aidenf,"time")) p->interpreted = (p->interpreted/60); //Minutes->Hours
-	    } else if(strstr(aidenf,"temp")||strstr(aidenf,"ensor")) {
+	    // udisks2 NVMe smart log units: u16 temperatures in centikelvin relative to
+	    // absolute zero, *_time in minutes, *_latency in microseconds, *_units_* in
+	    // 1000*512 byte sectors, *_reads/*_writes in bytes
+	    if(g_strcmp0(aidenf,"temperature_celsius")==0 || g_strcmp0(aidenf,"critical_composite_temperature")==0) {
 	        p->interpreted_unit=UDSK_INTPVAL_CELSIUS;
-		p->interpreted = (p->interpreted - 273);
-	    } else if(strstr(aidenf,"ercent")||strstr(aidenf,"spare")) {
+		p->interpreted = (p->interpreted/100) - 273;
+	    } else if(strstr(aidenf,"_time") && !strstr(aidenf,"hour")) {
+	        p->interpreted_unit = UDSK_INTPVAL_HOURS;
+		p->interpreted = (p->interpreted/60); //Minutes->Hours
+	    } else if(strstr(aidenf,"hour")) {
+	        p->interpreted_unit = UDSK_INTPVAL_HOURS;
+	    } else if(g_str_has_suffix(aidenf,"_used") || g_str_has_suffix(aidenf,"_spare")
+	        || g_str_has_suffix(aidenf,"_spare_threshold") || g_str_has_suffix(aidenf,"_used_threshold")) {
 	        p->interpreted_unit=UDSK_INTPVAL_PROCENT;
-	    } else if(strstr(aidenf,"ritten")||strstr(aidenf,"ead")) {
+	    } else if(g_str_has_suffix(aidenf,"_reads") || g_str_has_suffix(aidenf,"_writes")) {
 	        p->interpreted_unit = UDSK_INTPVAL_TB;
-		p->interpreted = (p->interpreted>>40);
-	    } else {
-	        p->interpreted_unit=UDSK_INTPVAL_DIMENSIONLESS;
+		p->interpreted = (p->interpreted>>40); //Bytes->TB
+	    } else if(g_str_has_suffix(aidenf,"_units_read") || g_str_has_suffix(aidenf,"_units_written")) {
+	        p->interpreted_unit = UDSK_INTPVAL_TB;
+		p->interpreted = ((p->interpreted*512000)>>40); //1000*512B sectors->TB
+	    } else if(g_strcmp0(aidenf,"worst_case_read_latency")==0 || g_strcmp0(aidenf,"worst_case_write_latency")==0) {
+	        p->interpreted_unit = UDSK_INTPVAL_MILISECONDS;
+		p->interpreted = (p->interpreted/1000); //Microseconds->ms
 	    }
 	    p->next = NULL;
 
@@ -735,17 +747,16 @@ gpointer get_udisks2_drive_info(const char *blockdev, GDBusProxy *block,
                 u->smart_poweron = g_variant_get_uint64(v)*3600;
 		g_variant_unref(v);
 	    }
+	    //SmartTemperature is in centikelvin relative to absolute zero (29315 = 20C)
 	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartTemperature");
 	    if (v){
-	        u->smart_temperature = (gint) (g_variant_get_uint16(v) - 273);
+	        u->smart_temperature = (gint) (g_variant_get_uint16(v)/100 - 273);
 		g_variant_unref(v);
 	    }
 	    v = get_dbus_property(drive, UDISKS2_NVME_CONTROLLER, "SmartCriticalWarning");
 	    if (v){
-	        const gchar **s=g_variant_get_strv(v,NULL);
-	        u->smart_failing = ((s!=NULL) && (*s!=0));
-		g_free(s);
-		//g_variant_unref(v);
+	        u->smart_failing = (g_variant_n_children(v) > 0);
+		g_variant_unref(v);
 	    }
 	    get_udisks2_smart_attributes(u, drivepath, 1);
 	}

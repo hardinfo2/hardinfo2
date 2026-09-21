@@ -241,6 +241,7 @@ gboolean __scan_udisks2_devices(void) {
         devid = g_strdup_printf("UDISKS%d", n++);
 	gchar is_emmc=0;
         if(emmc && g_strcmp0(disk->block_dev,emmc) == 0) is_emmc=1;
+        gboolean is_nvme = (disk->block_dev != NULL) && (strstr(disk->block_dev,"nvme") != NULL);
         icon = NULL;
 
         media_curr = disk->media;
@@ -467,7 +468,7 @@ gboolean __scan_udisks2_devices(void) {
                                         disk->smart_temperature);
 
             if (disk->smart_attributes != NULL) {
-	        if(ext->nvme_controller)
+	        if(is_nvme)
                     moreinfo = h_strdup_cprintf(_("[S.M.A.R.T. Attributes]\nAttribute=<tt>Value</tt>\n"), moreinfo);
 		else
                     moreinfo = h_strdup_cprintf(_("[S.M.A.R.T. Attributes]\nAttribute=<tt>Value      / Normalized / Worst / Threshold</tt>\n"), moreinfo);
@@ -517,7 +518,7 @@ gboolean __scan_udisks2_devices(void) {
                     j = g_utf8_strlen(tmp, -1);
                     if (j < 13) tmp = h_strdup_cprintf("%*c", tmp, 13 - j, ' ');
 
-		    if(!ext->nvme_controller){
+		    if(!is_nvme){
 		        if (attrib->value != -1)
                             tmp = h_strdup_cprintf("%-13d", tmp, attrib->value);
 			else
@@ -542,7 +543,7 @@ gboolean __scan_udisks2_devices(void) {
                         }
                     }
 
-		    if(ext->nvme_controller)
+		    if(is_nvme)
 		        moreinfo = h_strdup_cprintf(_("%s=<tt>%s</tt>\n"), moreinfo, alabel, tmp);
 		    else
 		        moreinfo = h_strdup_cprintf(_("(%d) %s=<tt>%s</tt>\n"), moreinfo, attrib->id, alabel, tmp);

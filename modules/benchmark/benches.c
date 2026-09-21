@@ -167,7 +167,7 @@ static int entries_btimer[] = {
 };
 
 
-static ModuleEntry entries[] = {
+static ModuleEntry entries[BENCHMARK_N_ENTRIES + 1] = {
     [BENCHMARK_BLOWFISH_SINGLE] =
         {
             N_("CPU Blowfish (Single-thread)"),

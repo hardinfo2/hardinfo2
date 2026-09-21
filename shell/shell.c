@@ -974,8 +974,11 @@ static void create_window(void)
     if((color.red+color.green+color.blue)>=1.5) params.darkmode=1;
     //
     g_signal_connect(G_OBJECT(shell->window), "style-updated", stylechange_updated, NULL);
-    if(g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE))
+    GSettingsSchema *sch=g_settings_schema_source_lookup(g_settings_schema_source_get_default(),"org.gnome.desktop.interface",FALSE);
+    if(sch) {
         settings=g_settings_new("org.gnome.desktop.interface");
+        g_settings_schema_unref(sch);
+    }
     if(settings) g_signal_connect_after(settings,"changed",stylechange_signal,NULL);
     const gchar *env=g_getenv("XDG_CURRENT_DESKTOP");
     //Cinnamon has color-scheme but does not update it depending on dark/light/default

@@ -60,12 +60,18 @@ static gchar *vram_used_bar(guint64 used, guint64 total) {
     GString *s = g_string_new(NULL);
     g_string_append(s, "<span font_family=\"monospace\">");
     g_string_append_printf(s, "<span background=\"#2ECC40\">");
-    for (int i = 0; i < fill; i++)
+    int i = 0;
+    while(i < fill){
         g_string_append_c(s, ' ');
+	i++;
+    }
     g_string_append(s, "</span>");
     g_string_append_printf(s, "<span background=\"#B0B0B0\">");
-    for (int i = fill; i < seg; i++)
+    i = fill;
+    while(i < seg){
         g_string_append_c(s, ' ');
+	i++;
+    }
     g_string_append(s, "</span></span>");
 
     return g_string_free(s, FALSE);

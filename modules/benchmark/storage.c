@@ -90,7 +90,8 @@ static bench_value storage_runtest() {
 	if((t==1)&&(ret.elapsed_time<0.2)) t=2; else t=0; //second long run x20 - max 4 sec
     }
 
-    setlocale(LC_NUMERIC,saved_locale);
+    if (saved_locale)
+        setlocale(LC_NUMERIC,saved_locale);
     g_free(saved_locale);
     g_free(cmd_line);
     g_free(cmd_line_long);

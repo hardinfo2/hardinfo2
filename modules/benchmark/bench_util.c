@@ -15,6 +15,12 @@ gchar *get_test_data(gsize min_size) {
         return NULL;
     }
 
+    if (!data || data_size == 0) {
+        g_free(data);
+        g_free(bdata_path);
+        return NULL;
+    }
+
     if (data_size < min_size) {
         DEBUG("expanding %lu bytes of test data to %lu bytes", data_size, min_size);
         exp_data = g_malloc(min_size + 1);

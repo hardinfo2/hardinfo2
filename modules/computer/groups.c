@@ -57,6 +57,10 @@ void scan_groups_do(void)
 				     _("Members"), members);
 
         list=g_list_prepend(list,g_strdup_printf("%s,%s,%d,%s", key, group_->gr_name, group_->gr_gid, val));
+        /* key, val and members were consumed (copied) by g_strdup_printf above */
+        g_free(key);
+        g_free(val);
+        g_free(members);
         group_ = getgrent();
     }
     

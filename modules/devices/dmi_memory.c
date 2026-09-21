@@ -285,7 +285,10 @@ dmi_mem_socket *dmi_mem_socket_new(dmi_handle h) {
         STR_IGNORE(mfgr_id_str, "Unknown");
         if (mfgr_id_str) {
             static const char dmi_mfg_id_fmt[] = "Bank %d, Hex 0x%02X";  /* from dmidecode.c */
-            int mc = sscanf(strstr(mfgr_id_str, "Bank"), dmi_mfg_id_fmt, &s->mfgr_bank, &s->mfgr_index);
+            gchar *bank = strstr(mfgr_id_str, "Bank");
+            int mc = 0;
+            if (bank)
+                mc = sscanf(bank, dmi_mfg_id_fmt, &s->mfgr_bank, &s->mfgr_index);
             if (mc > 0 && !s->mfgr) {
                 s->has_jedec_mfg_id = TRUE;
                 s->mfgr = g_strdup(JEDEC_MFG_STR(s->mfgr_bank, s->mfgr_index));
@@ -381,16 +384,16 @@ static void dmi_fill_from_spd(dmi_mem_socket *s) {
         s->has_jedec_mfg_id = TRUE;
     }
 
-    //Always true - FIXME
-    //if (!s->partno && s->spd->partno)
-    s->partno = g_strdup(s->spd->partno);
+    /* note: spd->partno / spd->type_detail are fixed-size arrays,
+     * so test for non-empty content, not a NULL pointer */
+    if (!s->partno && s->spd->partno[0])
+        s->partno = g_strdup(s->spd->partno);
 
     if (!s->form_factor && s->spd->form_factor)
         s->form_factor = g_strdup(s->spd->form_factor);
 
-    //Always true - FIXME
-    //if (!s->type_detail && s->spd->type_detail)
-    s->type_detail = g_strdup(s->spd->type_detail);
+    if (!s->type_detail && s->spd->type_detail[0])
+        s->type_detail = g_strdup(s->spd->type_detail);
 }
 
 static dmi_mem_size size_of_online_memory_blocks() {

@@ -449,6 +449,7 @@ gchar *monitors_get_info() {
     gchar **edid_files = get_output_lines("find /sys/devices -name edid");
     //gchar **edid_files = get_output_lines("find /home/pburt/github/verbose-spork/junk/testing/.testing/edid2/ -name edid.*");
     int i, found = 0;
+    if (!edid_files) goto out;
     for(i = 0; edid_files[i]; i++) {
         monitor *m = monitor_new_from_sysfs(edid_files[i]);
         //if (m && m->e->std < STD_DISPLAYID) continue;
@@ -482,6 +483,7 @@ gchar *monitors_get_info() {
         }
         monitor_free(m);
     }
+out:
     g_strfreev(edid_files);
 
     no_monitors = FALSE;

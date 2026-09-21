@@ -710,6 +710,9 @@ struct Info *info_unflatten(const gchar *str)
         g_strfreev(keys);
     }
     g_key_file_free(key_file);
+    /* only the array is freed here: the group name strings are either
+     * already freed above or adopted by the groups in the returned info */
+    g_free(groups);
 
     return info;
 }

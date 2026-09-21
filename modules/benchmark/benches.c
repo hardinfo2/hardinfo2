@@ -28,7 +28,8 @@ gchar *CN() { \
     return benchmark_include_results(bench_results[BID], BN); \
 }
 
-static ModuleEntry entries[];
+/* +1 for the NULL terminator element */
+static ModuleEntry entries[BENCHMARK_N_ENTRIES + 1];
 
 #define BENCH_SCAN_SIMPLE(SN, BF, BID, BN)	\
 void SN(gboolean reload) { \

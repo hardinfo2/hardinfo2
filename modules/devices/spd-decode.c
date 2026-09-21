@@ -1433,7 +1433,7 @@ GSList *spd_scan() {
                     if (isdigit(dir_entry[0])) {
                         name_file = g_build_filename(driver->dir_path, dir_entry, "name", NULL);
                         g_file_get_contents(name_file, &name, NULL, NULL);
-			is_spd=g_strcmp0(name, driver->spd_name);
+			is_spd=(g_strcmp0(name, driver->spd_name) == 0);
                         g_free(name_file);
 			g_free(name);
 			//check i2c controller is SMBus for eeprom (eeproms autodection is wild, so we improve)

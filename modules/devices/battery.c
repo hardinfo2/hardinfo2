@@ -262,7 +262,7 @@ __scan_battery_sysfs_add_battery(const gchar *name)
             g_free(status);status=g_strdup("Not attached");
 	}
 	type=read_contents(path, "type");
-	if(strstr(type,"USB")){
+	if(type && strstr(type,"USB")){
 	    chg_voltage_now_txt=read_contents(path, "voltage_now");
 	    chg_voltage_max_txt=read_contents(path, "voltage_max_design");
 	    if(chg_voltage_now_txt) if(sscanf(chg_voltage_now_txt, "%lu", &l)==1) chg_voltage_now=(float)l/1000000.0;

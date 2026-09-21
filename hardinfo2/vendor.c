@@ -95,6 +95,7 @@ static int read_from_vendor_ids(const char *path) {
             if (name_rule_count == 0)
                 ven_file_err("%s:%d: name \"%s\" had no match rules", path, line, name);
             strncpy(name, p + tl, VEN_BUFF_SIZE - 1);
+            name[VEN_BUFF_SIZE - 1] = 0;
             strcpy(name_short, "");
             strcpy(url, "");
             strcpy(url_support, "");
@@ -103,18 +104,30 @@ static int read_from_vendor_ids(const char *path) {
             strcpy(ansi_color, "");
             name_rule_count = 0;
         }
-        if (VEN_CHK("name_short "))
+        if (VEN_CHK("name_short ")) {
             strncpy(name_short, p + tl, VEN_BUFF_SIZE - 1);
-        if (VEN_CHK("url "))
+            name_short[VEN_BUFF_SIZE - 1] = 0;
+        }
+        if (VEN_CHK("url ")) {
             strncpy(url, p + tl, VEN_BUFF_SIZE - 1);
-        if (VEN_CHK("url_support "))
+            url[VEN_BUFF_SIZE - 1] = 0;
+        }
+        if (VEN_CHK("url_support ")) {
             strncpy(url_support, p + tl, VEN_BUFF_SIZE - 1);
-        if (VEN_CHK("wikipedia "))
+            url_support[VEN_BUFF_SIZE - 1] = 0;
+        }
+        if (VEN_CHK("wikipedia ")) {
             strncpy(wikipedia, p + tl, VEN_BUFF_SIZE - 1);
-        if (VEN_CHK("note "))
+            wikipedia[VEN_BUFF_SIZE - 1] = 0;
+        }
+        if (VEN_CHK("note ")) {
             strncpy(note, p + tl, VEN_BUFF_SIZE - 1);
-        if (VEN_CHK("ansi_color "))
+            note[VEN_BUFF_SIZE - 1] = 0;
+        }
+        if (VEN_CHK("ansi_color ")) {
             strncpy(ansi_color, p + tl, VEN_BUFF_SIZE - 1);
+            ansi_color[VEN_BUFF_SIZE - 1] = 0;
+        }
 
 #define dup_if_not_empty(s) (strlen(s) ? g_strdup(s) : NULL)
 

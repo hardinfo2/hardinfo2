@@ -242,6 +242,8 @@ void u2driveext_free(u2driveext *u) {
         g_free(u->wwid_oui.oui);
         g_free(u->wwid_oui.vendor);
         pcid_free(u->nvme_controller);
+        /* list nodes only: elements are Vendor* from the global vendor list */
+        g_slist_free(u->vendors);
         g_free(u);
     }
 }

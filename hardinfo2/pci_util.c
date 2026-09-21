@@ -201,7 +201,7 @@ static void pci_fill_details(pcid *s) {
         gchar *sysfs_path = g_strdup_printf("%s/%s/driver", SYSFS_PCI_ROOT, pci_loc);
         gchar *driver_path = realpath(sysfs_path, NULL);
         if (driver_path) {
-            s->driver = g_strdup(g_path_get_basename(driver_path));
+            s->driver = g_path_get_basename(driver_path);
             g_free(driver_path);
         }
         g_free(sysfs_path);
@@ -217,9 +217,10 @@ static void pci_fill_details(pcid *s) {
             GSList *mods = NULL;
             if (g_file_get_contents(mpath, &mcontents, NULL, NULL)) {
                 gchar **lines = g_strsplit(mcontents, "\n", -1);
-                for (int i = 0; lines[i]; i++) {
-                    gchar *l = lines[i];
-                    if (!g_str_has_prefix(l, "alias pci:")) continue;
+                int i = 0;
+		gchar *l;
+		while( (l=lines[i++]) ) {
+		    if (!g_str_has_prefix(l, "alias pci:")) continue;
                     gchar *p = l + 6, *e = p;
                     while (*e && *e != ' ' && *e != '\t') e++;
                     if (*e) {
@@ -230,14 +231,17 @@ static void pci_fill_details(pcid *s) {
                             mods = g_slist_append(mods, g_strdup(e));
                         g_free(pattern);
                     }
-                }
+		}
                 g_strfreev(lines);
                 g_free(mcontents);
             }
             if (mods) {
                 GString *mlist = g_string_new(NULL);
-                for (GSList *m = mods; m; m = m->next)
+                GSList *m = mods;
+		while (m){
                     g_string_append_printf(mlist, "%s%s", (m == mods) ? "" : ", ", (char *)m->data);
+		    m = m->next;
+		}
                 s->driver_list = g_string_free(mlist, FALSE);
                 g_slist_free_full(mods, g_free);
             }
@@ -247,7 +251,7 @@ static void pci_fill_details(pcid *s) {
             gchar *mod_sysfs = g_strdup_printf("%s/%s/driver/module", SYSFS_PCI_ROOT, pci_loc);
             gchar *mod_path = realpath(mod_sysfs, NULL);
             if (mod_path) {
-                s->driver_list = g_strdup(g_path_get_basename(mod_path));
+                s->driver_list = g_path_get_basename(mod_path);
                 g_free(mod_path);
             }
             g_free(mod_sysfs);
@@ -382,8 +386,10 @@ static pcid_list pci_get_device_list_sysfs(uint32_t class_min, uint32_t class_ma
                 cls = strtoul(cstr, NULL, 16) >> 8;
                 if (cls >= class_min && cls <= class_max) {
                     nd = pci_get_device(dom, bus, dev, func);
-                    pci_fill_details(nd);
-                    dl = g_slist_append(dl, nd);
+                    if (nd) {
+                        pci_fill_details(nd);
+                        dl = g_slist_append(dl, nd);
+                    }
                 }
             }
             g_free(cstr);

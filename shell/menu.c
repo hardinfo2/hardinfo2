@@ -124,9 +124,6 @@ void menu_init(Shell * shell)
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(theme_menu_item), theme_submenu);
     //g_object_set_data(G_OBJECT(shell->toolbar_widget), "theme_menu", theme_menu_item);
 
-    /* Create action_widget_map early so signal handlers can use it */
-    shell->action_widget_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
-
     /* Create radio group for themes */
     GtkWidget *theme_disable = gtk_radio_menu_item_new_with_mnemonic(NULL, _("Disable Theme"));
     shell->theme_radio_group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(theme_disable));

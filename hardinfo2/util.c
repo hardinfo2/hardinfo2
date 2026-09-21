@@ -703,7 +703,7 @@ static ShellModule *module_load(gchar * filename)
 	tmpicon = g_strdup(filename);
 
 	dot = g_strrstr(tmpicon, "." G_MODULE_SUFFIX);
-	*dot = '\0';
+	if (dot) *dot = '\0';
 
 	simple_name = strreplace(tmpicon, "lib", "");
 

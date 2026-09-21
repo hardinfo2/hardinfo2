@@ -285,6 +285,7 @@ void report_details(ReportContext *ctx, gchar *key, gchar *value, gchar *details
 
     g_strfreev(groups);
     g_key_file_free(key_file);
+    g_free(details);
 
     ctx->in_details = FALSE;
     report_details_end(ctx);
@@ -335,6 +336,7 @@ void report_table(ReportContext * ctx, gchar * text)
 
     if (ctx->format == REPORT_FORMAT_SHELL) {
         report_table_shell_dump(ctx, text, 0);
+        g_free(text);
         return;
     }
 
@@ -428,6 +430,7 @@ void report_table(ReportContext * ctx, gchar * text)
 
     g_strfreev(groups);
     g_key_file_free(key_file);
+    g_free(text);
 }
 
 static void report_html_header(ReportContext * ctx)
@@ -731,6 +734,7 @@ static void report_text_key_value(ReportContext * ctx, gchar *key, gchar *value,
       g_strfreev(values);
     }
     g_free(pf);
+    g_free(rjname);
 }
 
 static GSList *report_create_module_list_from_dialog(ReportDialog * rd)

@@ -3613,7 +3613,7 @@ msgid "%lld sector"
 msgid_plural "%lld sectors"
 msgstr[0] "%lld сектор"
 msgstr[1] "%lld секторів"
-msgstr[2] ""
+msgstr[2] "%lld секторів"
 
 #, c-format
 msgid "%s=<tt>%s</tt>\n"

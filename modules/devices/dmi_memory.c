@@ -53,13 +53,14 @@ static const char empty_icon[] = "memory_empty.svg";
 dmi_mem_size dmi_read_memory_str_to_MiB(const char *memstr) {
     dmi_mem_size ret = 0, v = 0;
     char l[7] = "";
-    /* dmidecode units: "bytes", "kB", "MB", "GB", "TB" */
+    /* dmidecode units: "bytes", "kB", "MB", "GB", "TB"
+     * and the binary variants "KiB", "MiB", "GiB", "TiB" (dmidecode >= 3.6) */
     int mc = sscanf(memstr, "%u %6s", &v, l);
     if (mc == 2) {
-        if (SEQ(l, "TB")) ret = v * 1024 * 1024;
-        else if (SEQ(l, "GB")) ret = v * 1024;
-        else if (SEQ(l, "MB")) ret = v;
-        else if (SEQ(l, "kB")) {
+        if (SEQ(l, "TB") || SEQ(l, "TiB")) ret = v * 1024 * 1024;
+        else if (SEQ(l, "GB") || SEQ(l, "GiB")) ret = v * 1024;
+        else if (SEQ(l, "MB") || SEQ(l, "MiB")) ret = v;
+        else if (SEQ(l, "kB") || SEQ(l, "KiB")) {
             ret = v / 1024;
         }
         else if (SEQ(l, "bytes")) {
@@ -398,11 +399,11 @@ static void dmi_fill_from_spd(dmi_mem_socket *s) {
 
 static dmi_mem_size size_of_online_memory_blocks() {
     gchar *block_size_bytes_str = NULL;
-    dmi_mem_size block_size_bytes = 0;
-    dmi_mem_size ret = 0;
+    uint64_t block_size_bytes = 0;
+    uint64_t ret_bytes = 0;
 
     if (g_file_get_contents("/sys/devices/system/memory/block_size_bytes", &block_size_bytes_str, NULL, NULL) ) {
-        block_size_bytes = strtoll(block_size_bytes_str, NULL, 16);
+        block_size_bytes = strtoull(block_size_bytes_str, NULL, 16);
     }
     if (!block_size_bytes)
         return 0;
@@ -416,14 +417,14 @@ static dmi_mem_size size_of_online_memory_blocks() {
         gchar *ol = NULL;
         if (g_file_get_contents(p, &ol, NULL, NULL) ) {
             if (1 == strtol(ol, NULL, 0)) {
-                ret += block_size_bytes;
+                ret_bytes += block_size_bytes;
             }
         }
         g_free(ol);
         g_free(p);
     }
     g_dir_close(d);
-    return ret;
+    return ret_bytes / 1024 / 1024;
 }
 
 dmi_mem *dmi_mem_new() {

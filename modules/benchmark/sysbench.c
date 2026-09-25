@@ -90,22 +90,12 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
         expecting_version = sysbench_version();
     if (expecting_version < 1000000) {
         /* v0.x.x: sysbench [general-options]... --test=<test-name> [test-options]... command */
-        /* quote user-controlled benchmark parameters to prevent shell injection */
-        gchar *test_q = g_shell_quote(ctx->test);
-        gchar *parms_q = g_shell_quote(ctx->parms_test);
         cmd_line = g_strdup_printf("sysbench --num-threads=%d --max-time=%d --test=%s %s run",
-            ctx->threads, ctx->max_time, test_q, parms_q);
-        g_free(test_q);
-        g_free(parms_q);
+            ctx->threads, ctx->max_time, ctx->test, ctx->parms_test);
     } else {
         /* v1.x.x: sysbench [options]... [testname] [command] */
-        /* quote user-controlled benchmark parameters to prevent shell injection */
-        gchar *test_q = g_shell_quote(ctx->test);
-        gchar *parms_q = g_shell_quote(ctx->parms_test);
         cmd_line = g_strdup_printf("sysbench --threads=%d --time=%d %s %s run",
-            ctx->threads, ctx->max_time, parms_q, test_q);
-        g_free(test_q);
-        g_free(parms_q);
+            ctx->threads, ctx->max_time, ctx->parms_test, ctx->test);
     }
 
     spawned = g_spawn_command_line_sync(cmd_line,

@@ -404,7 +404,8 @@ void menu_init(Shell * shell)
     {
         GSList *group = shell->theme_radio_group;
         gint idx = 0;
-        for(GSList *iter = group; iter != NULL; iter = g_slist_next(iter), idx++) {
+	GSList *iter = group;
+        while(iter != NULL) {
             const gchar *name;
             switch(idx) {
                 case 0: name = "DisableThemeAction"; break;
@@ -417,6 +418,8 @@ void menu_init(Shell * shell)
                 default: continue;
             }
             _register_action(shell, name, GTK_WIDGET(iter->data));
+	    iter = g_slist_next(iter);
+	    idx++;
         }
     }
 #endif

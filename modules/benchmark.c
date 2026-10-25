@@ -850,7 +850,6 @@ static gchar *get_benchmark_results(gsize *len)
         ADD_JSON_VALUE(string, "CpuName", this_machine->cpu_name);
         ADD_JSON_VALUE(string, "CpuDesc", this_machine->cpu_desc);
         ADD_JSON_VALUE(string, "CpuConfig", this_machine->cpu_config);
-        ADD_JSON_VALUE(string, "CpuConfig", this_machine->cpu_config);
         ADD_JSON_VALUE(string, "OpenGlRenderer", this_machine->ogl_renderer);
         ADD_JSON_VALUE(string, "GpuDesc", this_machine->gpu_desc);
         ADD_JSON_VALUE(int, "NumCpus", this_machine->processors);

@@ -1,6 +1,7 @@
 
 #include "benchmark.h"
 #include "md5.h"
+#include <stdlib.h>
 
 gchar *get_test_data(gsize min_size) {
     gchar *bdata_path, *data;

@@ -139,6 +139,9 @@ double guibench(double *frameTime, int *frameCount)
 
     frametime=frameTime;
     framecount=frameCount;
+    score = 0.0;
+    count = 0;
+    testnumber = 0;
     
     DEBUG("GUIBENCH");
     pixbufs[0] = icon_cache_get_pixbuf_at_size("hardinfo2.svg",64,64);

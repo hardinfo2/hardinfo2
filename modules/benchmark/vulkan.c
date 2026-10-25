@@ -37,13 +37,22 @@ static bench_value vulkan_bench(int darkmode) {
 
     spawned = g_spawn_command_line_sync(cmd_line, &out, &err, NULL, NULL);
     g_free(cmd_line);
-    if (spawned && (sscanf(out,"Ver=%d, Result:%f\n", &ver, &fps)==2)) {
-            strncpy(ret.extra, out, sizeof(ret.extra)-1);
-	    ret.extra[sizeof(ret.extra)-1]=0;
+    if (spawned && out) {
+        char *ver_pos = strstr(out, "Ver=");
+        if (ver_pos && (sscanf(ver_pos,"Ver=%d, Result:%f", &ver, &fps)==2)) {
+            char *eol;
+
+            strncpy(ret.extra, ver_pos, sizeof(ret.extra)-1);
+            ret.extra[sizeof(ret.extra)-1]=0;
+            eol = strpbrk(ret.extra, "\r\n;|");
+            if (eol)
+                *eol = '\0';
+
             ret.threads_used = 1;
             ret.elapsed_time = 3;//(double)ms/1000;
-	    ret.revision = (BENCH_REVISION*100) + ver;
+            ret.revision = (BENCH_REVISION*100) + ver;
             ret.result = fps;
+        }
     }
     g_free(out);
     g_free(err);

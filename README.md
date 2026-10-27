@@ -65,7 +65,7 @@ NOTE: Please stay on QT5 as long as possible. When distro only has QT6 change al
 - hardinfo2
 
 **Fedora/CentOS/RedHat/Rocky/Alma/Oracle**
-* NOTE: CentOS 7 needs epel-release and cmake3 instead of cmake - use cmake3 instead of cmake
+* NOTE: CentOS 7: install epel-release to enable EPEL, then install cmake3 and libsoup-devel instead of cmake and libsoup3-devel, and use cmake3 for the build commands.
 * NOTE: libdecor.. can be in CRB repo
 - sudo yum install epel-release  (only CentOS 7)
 - sudo yum install git cmake gcc gcc-c++ gettext rpmdevtools curl

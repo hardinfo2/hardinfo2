@@ -50,6 +50,8 @@ computer_get_formatted_uptime()
     gchar *full_fmt = NULL, *ret = NULL;
 
     ui = computer_get_uptime();
+    if (!ui)
+        return g_strdup(_("(Not Available)"));
 
     days_fmt = ngettext("%d day", "%d days", ui->days);
     hours_fmt = ngettext("%d hour", "%d hours", ui->hours);

@@ -522,7 +522,7 @@ void cb_about()
 	    if(buf){
 	        int i=read(fd, buf, st.st_size);
 	        if(i>0){
-		    buf[st.st_size]=0;
+		    buf[i]=0;
 		    char *s=strstr(buf,"\"latest-program-version\"");
 	            if(s && sscanf(s,"\"latest-program-version\":\"%u.%u.%u\"",&u1,&u2,&u3)==3) latest_ver=u1*10000+u2*100+u3;
 	        }

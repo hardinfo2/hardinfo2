@@ -254,8 +254,11 @@ static void sync_dialog_start_sync(SyncDialog *sd)
         fd = open(path,O_RDONLY);
     }
     if(fd>=0){
-        if(read(fd,buf,100))
+        int n = read(fd,buf,sizeof(buf)-1);
+        if(n>0) {
+            buf[n]=0;
             sscanf(buf,"{\"update-version\":\"%u\",",&our_blobs_update_version);
+        }
         close(fd);
     }
     g_free(path);
@@ -322,7 +325,9 @@ static void got_msg(const guint8 *buf,int len, gpointer user_data)
 	if(updateversion){
             fd = open(path,O_RDONLY);
             if(fd >= 0){
-	        if(read(fd,buffer,100)) {
+	        int n = read(fd,buffer,sizeof(buffer)-1);
+	        if(n>0) {
+                   buffer[n]=0;
                    sscanf(buffer,"{\"update-version\":\"%u\",",&server_blobs_update_version);
 		   DEBUG("SERVER_BLOBS_UPDATE_VERSION=%u",server_blobs_update_version);
 	        }
@@ -392,8 +397,8 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
                 DEBUG("got file with len: %u", (unsigned int)len);
                 if(len>0){
                     g_output_stream_write_all(G_OUTPUT_STREAM(output),buf,len,&datawritten,NULL,&sna->error);
-                    soup_buffer_free(soupmsg);
 	        }
+                soup_buffer_free(soupmsg);
 	    }
 #endif
         }
@@ -401,8 +406,11 @@ static void got_response(SoupSession *source, SoupMessage *res, gpointer user_da
 	if(updateversion){
             fd = open(path,O_RDONLY);
             if(fd >= 0){
-	        if(read(fd,buffer,100))
+	        int n = read(fd,buffer,sizeof(buffer)-1);
+	        if(n>0) {
+                    buffer[n]=0;
                     sscanf(buffer,"{\"update-version\":\"%u\",",&server_blobs_update_version);
+                }
 		DEBUG("SERVER_BLOBS_UPDATE_VERSION=%u",server_blobs_update_version);
                 close(fd);
             }
@@ -491,8 +499,11 @@ static gboolean send_request_for_net_action(SyncNetAction *sna)
     } else {//Blocking/Sync sending when no gui
 
 #if SOUP_CHECK_VERSION(3, 0, 0)
-    buf=g_bytes_unref_to_data(soup_session_send_and_read(session, msg, NULL, NULL), &len);
-    got_msg(buf,len,sna);
+    GBytes *bytes = soup_session_send_and_read(session, msg, NULL, NULL);
+    if (bytes) {
+        buf=g_bytes_unref_to_data(bytes, &len);
+        got_msg(buf,len,sna);
+    }
 #else
         soup_session_send_message(session, msg);
         soupmsg=soup_message_body_flatten(msg->response_body);
@@ -980,8 +991,11 @@ void sync_manager_update_on_startup(int send_benchmark)//0:normal only get, 1:se
         fd = open(path,O_RDONLY);
     }
     if(fd>=0){
-        if(read(fd,buf,100))
-	    sscanf(buf,"{\"update-version\":\"%u\",",&our_blobs_update_version);
+        int n = read(fd,buf,sizeof(buf)-1);
+        if(n>0) {
+            buf[n]=0;
+            sscanf(buf,"{\"update-version\":\"%u\",",&our_blobs_update_version);
+        }
         close(fd);
     }
     g_free(path);

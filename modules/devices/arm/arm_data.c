@@ -93,7 +93,11 @@ static struct {
 
 static char all_flags[1024] = "";
 
-#define APPEND_FLAG(f) strcat(all_flags, f); strcat(all_flags, " ");
+#define APPEND_FLAG(f) do { \
+    size_t _len = strlen(all_flags); \
+    if (_len + strlen(f) + 2 <= sizeof(all_flags)) \
+        snprintf(all_flags + _len, sizeof(all_flags) - _len, "%s ", f); \
+} while (0)
 const char *arm_flag_list() {
     int i = 0, built = 0;
     built = strlen(all_flags);

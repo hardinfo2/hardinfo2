@@ -36,7 +36,9 @@ char *appf(char *str, const char *sep, const char *fmt, ...) {
     if (!str) return buf;
     inlen = strlen(str);
     seplen = (inlen && sep) ? strlen(sep) : 0;
-    str = realloc(str, inlen + seplen + len + 1);
+    char *tmp = realloc(str, inlen + seplen + len + 1);
+    if (!tmp) { free(buf); return str; }
+    str = tmp;
     if (seplen) strcpy(str + inlen, sep);
     strcpy(str + inlen + seplen, buf);
     free(buf);
@@ -55,6 +57,7 @@ char *appfdup(const char *str, const char *sep, const char *fmt, ...) {
     inlen = strlen(str);
     seplen = (inlen && sep) ? strlen(sep) : 0;
     ret = malloc(inlen + seplen + len + 1);
+    if (!ret) { free(buf); return NULL; }
     strcpy(ret, str);
     if (seplen) strcpy(ret + inlen, sep);
     strcpy(ret + inlen + seplen, buf);

@@ -533,11 +533,11 @@ gchar *get_storage_home_models(void)
         if(strstr(out,"/dev/") && !strstr(out,"mapper") && !strstr(out,"/dev/root") ) homepath=g_strdup(out+5);
 	if(strstr(out,"mapper")) {
 	    p=strstr(out,"\n");
-	    *p=0;
+	    if (p) *p=0;
 	    /* df outputs the full line: "/dev/mapper/name size used avail use% mountpoint".
 	     * lsblk needs only the device name, so truncate at the first space. */
 	    p=strstr(out," ");
-	    *p=0;
+	    if (p) *p=0;
 	    /* quote device mapper path to prevent shell injection */
 	    gchar *escaped = g_shell_quote(out);
 	    snprintf(cmd_lineblk, sizeof(cmd_lineblk), "sh -c \"lsblk -l -s %s | tail -1\"", escaped);
@@ -574,21 +574,26 @@ gchar *get_storage_home_models(void)
     //printf("Homepath=%s (%u)\n",homepath,(unsigned int)strlen(homepath));
 
     regex = g_regex_new ("<.*?>", 0, 0, NULL);
-    p2=p=g_strdup(storage_list);
+    p2=p=g_strdup(storage_list ? storage_list : "");
     while ( (np=strstr(p,"\n")) ){
       *np=0;
       //printf("name=%s, homepath=%s\n",p,homepath);
       if(strstr(p,homepath)) {
-	  tmp = g_regex_replace(regex, strstr(p,"=")+1, -1, 0, "", 0, NULL); // remove html tags
+	  gchar *eq = strstr(p,"=");
+	  if (!eq) { p = np + 1; continue; }
+	  tmp = g_regex_replace(regex, eq+1, -1, 0, "", 0, NULL); // remove html tags
+	  if (!tmp) { p = np + 1; continue; }
 	  tmp = g_strstrip(strreplace(tmp,"  "," "));
 	  tmp = g_strstrip(strreplace(tmp,"| ","|"));
-	  p=strstr(tmp,"|");
-	  if(strstr(p+1,"|")) p=strstr(p+1,"|");//remove serialnumber
-	  *p=0;
-	  p++;
+	  gchar *bar = strstr(tmp,"|");
+	  if (!bar) { g_free(tmp); p = np + 1; continue; }
+	  if(strstr(bar+1,"|")) bar=strstr(bar+1,"|");//remove serialnumber
+	  *bar=0;
+	  p=bar+1;
           g_regex_unref(regex);
           g_free(homepath);
 	  p=g_strdup(p);
+	  g_free(tmp);
 	  g_free(p2);
           //printf("Homepathmodel=%s\n",g_strdup_printf("%s (%s)",p,tmp));
 	  //return g_strdup_printf("%s (%s)",p,tmp);

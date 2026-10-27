@@ -135,7 +135,9 @@ void get_wireless_info(int fd, NetInfo *netinfo)
   if (ioctl(fd, SIOCGIWESSID, &wi_req) < 0) {
     strcpy(netinfo->wi_essid, "");
   } else {
-    netinfo->wi_essid[wi_req.u.essid.length] = '\0';
+    gsize essid_len = MIN((gsize)wi_req.u.essid.length,
+                          sizeof(netinfo->wi_essid) - 1);
+    netinfo->wi_essid[essid_len] = '\0';
   }
 
   /* obtain bit rate */
@@ -185,7 +187,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     memcpy(netinfo->name, if_name, sizeof(netinfo->name));
 
     /* MTU */
-    strcpy(ifr.ifr_name, if_name);
+    g_strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
     if (ioctl(fd, SIOCGIFMTU, &ifr) < 0) {
         netinfo->mtu = 0;
     } else {
@@ -215,7 +217,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     if(sysfs) fclose(sysfs);
 
     /* HW Address */
-    strcpy(ifr.ifr_name, if_name);
+    g_strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
     if (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0) {
         memset(netinfo->mac, 0, 8);
     } else {
@@ -223,7 +225,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     }
 
     /* IP Address */
-    strcpy(ifr.ifr_name, if_name);
+    g_strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
     if (ioctl(fd, SIOCGIFADDR, &ifr) < 0) {
     netinfo->ip[0] = 0;
     } else {
@@ -233,7 +235,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     }
 
     /* Mask Address */
-    strcpy(ifr.ifr_name, if_name);
+    g_strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
     if (ioctl(fd, SIOCGIFNETMASK, &ifr) < 0) {
     netinfo->mask[0] = 0;
     } else {
@@ -243,7 +245,7 @@ void get_net_info(char *if_name, NetInfo * netinfo)
     }
 
     /* Broadcast Address */
-    strcpy(ifr.ifr_name, if_name);
+    g_strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
     if (ioctl(fd, SIOCGIFBRDADDR, &ifr) < 0) {
     netinfo->broadcast[0] = 0;
     } else {

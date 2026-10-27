@@ -141,7 +141,7 @@ void scan_languages(OperatingSystem * os)
                 curr = g_new0(locale_info, 1);
                 sscanf(p, "locale: %31s", curr->name);
                 /* TODO: 'directory:' and 'archive:' */
-            } else if (strchr(p, '|')) {
+            } else if (curr && strchr(p, '|')) {
                 gchar **tmp = g_strsplit(p, "|", 2);
 		tmp[0] = g_strstrip(tmp[0]);
 		if (tmp[1]) {

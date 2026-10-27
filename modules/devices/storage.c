@@ -768,7 +768,7 @@ void __scan_ide_devices(void)
 	    fclose(proc_ide);
 
 	    if(cc){
-	       buf[strlen(buf) - 1] = 0;
+	       strend(buf, '\n');
 
 	       model = g_strdup(buf);
 	    }
@@ -778,6 +778,7 @@ void __scan_ide_devices(void)
 	    proc_ide = fopen(device, "r");
 	    if (!proc_ide) {
 	        g_free(model);
+	        model = NULL;
 	        g_free(device);
 	        continue;
             }
@@ -785,7 +786,7 @@ void __scan_ide_devices(void)
 	    char *c=fgets(buf, 128, proc_ide);
 	    fclose(proc_ide);
 	    if(c){
-                 buf[strlen(buf) - 1] = 0;
+                 strend(buf, '\n');
 
 	         media = g_strdup(buf);
 	    }
@@ -807,12 +808,14 @@ void __scan_ide_devices(void)
 			if (g_str_has_prefix(buf, "  Does")) {
 			    if (g_str_has_suffix(buf, "media\n")
 				&& !strstr(buf, "speed")) {
-				gchar *media_type = g_strstrip(strstr(buf, "Does "));
-				gchar **ttmp = g_strsplit(media_type, " ", 0);
-
-				capab = h_strdup_cprintf("\nCan %s#%d=%s\n", capab, ttmp[1], ++nn, ttmp[2]);
-
-				g_strfreev(ttmp);
+				gchar *does = strstr(buf, "Does ");
+				if (does) {
+				    gchar *media_type = g_strstrip(does);
+				    gchar **ttmp = g_strsplit(media_type, " ", 0);
+				    if (ttmp[1] && ttmp[2])
+				        capab = h_strdup_cprintf("\nCan %s#%d=%s\n", capab, ttmp[1], ++nn, ttmp[2]);
+				    g_strfreev(ttmp);
+				}
 			    } else if (strstr(buf, "Buffer-Underrun-Free")) {
 				capab =
 				    h_strdup_cprintf
@@ -944,6 +947,9 @@ void __scan_ide_devices(void)
 	    moreinfo_add_with_prefix("DEV", devid, strhash);
 	    g_free(devid);
 	    g_free(model);
+	    model = NULL;
+	    g_free(media);
+	    media = NULL;
 	} else {
 	    g_free(device);
         }

@@ -45,7 +45,10 @@ gchar *get_test_data(gsize min_size) {
 char *digest_to_str(const char *digest, int len) {
     int max = len * 2;
     char *ret = malloc(max+1);
-    char *p = ret;
+    char *p;
+    if (!ret)
+        return NULL;
+    p = ret;
     memset(ret, 0, max+1);
     int i = 0;
     for(; i < len; i++) {

@@ -154,8 +154,13 @@ void scan_modules_do(void) {
         g_free(modname_q);
 
         modi = popen(buf, "r");
-        while (fgets(buffer, 1024, modi) && strlen(buffer)) {
+        while (modi && fgets(buffer, 1024, modi) && strlen(buffer)) {
             gchar **tmp = g_strsplit(buffer, ":", 2);
+
+	    if (!tmp[1]) {
+		g_strfreev(tmp);
+		continue;
+	    }
 
 	    if (!author && strstr(tmp[0], "author")) author = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
 	    else if (!description && strstr(tmp[0], "description")) description = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));
@@ -170,7 +175,8 @@ void scan_modules_do(void) {
 
             g_strfreev(tmp);
         }
-        pclose(modi);
+        if (modi)
+            pclose(modi);
         g_free(buf);
 
         if (description && g_str_equal(description, "&lt;none&gt;")) {

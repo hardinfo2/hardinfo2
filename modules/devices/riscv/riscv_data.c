@@ -59,7 +59,11 @@ static struct {
 
 static char all_extensions[1024] = "";
 
-#define APPEND_EXT(f) strcat(all_extensions, f); strcat(all_extensions, " ");
+#define APPEND_EXT(f) do { \
+    size_t _len = strlen(all_extensions); \
+    if (_len + strlen(f) + 2 <= sizeof(all_extensions)) \
+        snprintf(all_extensions + _len, sizeof(all_extensions) - _len, "%s ", f); \
+} while (0)
 const char *riscv_ext_list() {
     int i = 0, built = 0;
     built = strlen(all_extensions);
@@ -153,8 +157,8 @@ static int riscv_isa_next(const char *isap, char *flag, size_t flag_size) {
     memset(ext_str, 0, 32);
     memset(ver_str, 0, 32);
     if (ver_len) {
-        strncpy(ext_str, p, tag_len);
-        strncpy(ver_str, next_digit, ver_len);
+        strncpy(ext_str, p, sizeof(ext_str) - 1);
+        strncpy(ver_str, next_digit, sizeof(ver_str) - 1);
         snprintf(flag, flag_size, "%s:%s", ext_str, ver_str);
         if (tag_len == 1) {
             RV_FIX_CASE(flag, 0);
@@ -163,7 +167,7 @@ static int riscv_isa_next(const char *isap, char *flag, size_t flag_size) {
         }
         return skip_len + tag_len + ver_len;
     } else {
-        strncpy(ext_str, p, tag_len);
+        strncpy(ext_str, p, sizeof(ext_str) - 1);
         snprintf(flag, flag_size, "%s", ext_str);
         if (tag_len == 1) { RV_FIX_CASE(flag, 0); }
         return skip_len + tag_len;
@@ -172,7 +176,11 @@ static int riscv_isa_next(const char *isap, char *flag, size_t flag_size) {
 
 #define FSTR_SIZE 1024
 #define RV_CHECK_FOR(e) ( strncasecmp(ps, e, 2) == 0 )
-#define ADD_EXT_FLAG(ext,el) memcpy(pd, ext, el); pd[el]=' '; pd[el+1]=0; pd += el + 1;
+#define ADD_EXT_FLAG(ext,el) do { \
+    if ((size_t)(pd - flags) + (size_t)(el) + 2 <= FSTR_SIZE) { \
+        memcpy(pd, ext, el); pd[el]=' '; pd[el+1]=0; pd += el + 1; \
+    } \
+} while (0)
 char *riscv_isa_to_flags(const char *isa) {
     char *flags = NULL, *ps = (char*)isa, *pd = NULL;
     char flag_buf[256] = "";

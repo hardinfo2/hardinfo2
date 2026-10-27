@@ -825,6 +825,11 @@ static gchar *get_benchmark_results(gsize *len)
     }
 
     this_machine = bench_machine_this();
+    if (!this_machine) {
+        if (len)
+            *len = 2;
+        return g_strdup("{}");
+    }
     builder = json_builder_new();
     json_builder_begin_object(builder);
     for (i = 0; i < G_N_ELEMENTS(entries); i++) {

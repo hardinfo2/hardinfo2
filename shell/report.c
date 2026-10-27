@@ -687,19 +687,22 @@ static void report_text_key_value(ReportContext * ctx, gchar *key, gchar *value,
     if (!ctx->in_details)
         indent[0] = 0;
     gchar field_spacer[51];
-    for(i = 0; i < 49; i++)
+    for(i = 0; i < 50; i++)
         field_spacer[i] = ' ';
     field_width = MIN(50, field_width);
     field_spacer[field_width] = 0;
 
+    if (!value)
+        value = "";
     gboolean highlight = key_is_highlighted(key);
-    gboolean multiline = (value && strlen(value) && strchr(value, '\n'));
-    gchar *name = (gchar*)key_get_name(key);
+    gboolean multiline = (strlen(value) && strchr(value, '\n'));
+    const gchar *name = key_get_name(key);
+    if (!name)
+        name = "";
     gchar *pf = g_strdup_printf("%s%s", indent, highlight ? "* " : "  ");
     gchar *rjname = g_strdup(field_spacer);
-    if (strlen(name) > strlen(rjname))
-        name[strlen(rjname)] = 0;
-    strcpy(rjname + strlen(rjname) - strlen(name), name);
+    gchar *short_name = g_strndup(name, strlen(rjname));
+    strcpy(rjname + strlen(rjname) - strlen(short_name), short_name);
 
     if (columns == 2 || ctx->in_details) {
       if (strlen(value)) {
@@ -734,6 +737,7 @@ static void report_text_key_value(ReportContext * ctx, gchar *key, gchar *value,
       g_strfreev(values);
     }
     g_free(pf);
+    g_free(short_name);
     g_free(rjname);
 }
 

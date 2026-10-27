@@ -124,7 +124,7 @@ __scan_input_devices(void)
 		if(name && strstr(name, "Touch")) {d = 11;}         // Touch
 		if(name && strstr(name, "Stylus")) {d = 10;if(stylus) vendor=-1; else stylus=1;}// Stylus
 		if(name && strstr(name, "PC Speaker")) {d = 4;}     // PCSPKR
-		if(name && strstr(name, "UNKNOWN") && strstr(bus_str,"I²C")) {vendor = -1;}     // Remove
+		if(name && strstr(name, "UNKNOWN") && bus_str && strstr(bus_str,"I²C")) {vendor = -1;}     // Remove
 	    }
             if (d == 0){//Phys
 		if(phys && strstr(phys, "ALSA")) {d = 5;}           // INPUT_AUDIO
@@ -133,10 +133,10 @@ __scan_input_devices(void)
 		if(bus_str && strstr(bus_str, "Bluetooth")) {d = 6;}// INPUT_BLUETOOTH
 	    }
 
-            if (vendor > 0 && product > 0 && strstr(bus_str,"USB")) {
+            if (vendor > 0 && product > 0 && bus_str && strstr(bus_str,"USB")) {
                 if(!vendor_str && !product_str) usb_lookup_ids_vendor_product_str(vendor, product, &vendor_str, &product_str);
             }
-            if (vendor > 0 && strstr(bus_str,"I²C")) {
+            if (vendor > 0 && bus_str && strstr(bus_str,"I²C")) {
 	        gchar *st=NULL;
                 if(!vendor_str) usb_lookup_ids_vendor_product_str(vendor, 0, &vendor_str, &st);
 		g_free(st);

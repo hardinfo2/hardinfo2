@@ -10,26 +10,26 @@ typedef struct _Processor Processor;
 #define WALK_UNTIL(x)   while((*buf != '\0') && (*buf != x)) buf++
 
 #define GET_STR(field_name,ptr)      					\
-  if (!ptr && strstr(tmp[0], field_name)) {				\
+  if (!ptr && tmp[1] && strstr(tmp[0], field_name)) {			\
     ptr = g_markup_escape_text(g_strstrip(tmp[1]), strlen(tmp[1]));	\
     g_strfreev(tmp);                 					\
     continue;                        					\
   }
 
 #define get_str(field_name,ptr)               \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
+  if (tmp[1] && g_str_has_prefix(tmp[0], field_name)) { \
     ptr = g_strdup(tmp[1]);                   \
     g_strfreev(tmp);                          \
     continue;                                 \
   }
 #define get_int(field_name,ptr)               \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
+  if (tmp[1] && g_str_has_prefix(tmp[0], field_name)) { \
     ptr = atoi(tmp[1]);                       \
     g_strfreev(tmp);                          \
     continue;                                 \
   }
 #define get_float(field_name,ptr)             \
-  if (g_str_has_prefix(tmp[0], field_name)) { \
+  if (tmp[1] && g_str_has_prefix(tmp[0], field_name)) { \
     ptr = atof(tmp[1]);                       \
     g_strfreev(tmp);                          \
     continue;                                 \

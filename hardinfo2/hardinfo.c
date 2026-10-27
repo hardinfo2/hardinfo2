@@ -190,9 +190,12 @@ int main(int argc, char **argv)
 	    if(io){
 	        report=g_malloc(REPORTSIZE);
 		if(report){
-		  if(fread(report, 1, REPORTSIZE, io)==0) {
+		  size_t n = fread(report, 1, REPORTSIZE - 1, io);
+		  if(n==0) {
 		        g_free(report);
 			report=NULL;
+		    } else {
+		        report[n]=0;
 		    }
 		}
 	        fclose(io);

@@ -118,7 +118,7 @@ void scan_device_resources(gboolean reload)
 	}
         while (fgets(buffer, sizeof(buffer), io)) {
           gchar **temp = g_strsplit(buffer, ":", 2);
-	  if((i!=3) || (temp[1]!=NULL)){//discard CPU numbers for interrupts that has no :
+	  if(temp[1]!=NULL){//discard lines without a name
 	    gchar *name=NULL;
 	    if(i==3){
 	      //Discard irq counts

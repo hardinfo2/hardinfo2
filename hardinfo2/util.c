@@ -1274,6 +1274,8 @@ gboolean g_strv_contains(const gchar * const * strv, const gchar *str) {
 gchar *hardinfo_clean_grpname(const gchar *v, int replacing) {
     gchar *clean, *p;
 
+    if (!v)
+        return g_strdup("");
     p = clean = g_strdup(v);
     while (*p != 0) {
         switch(*p) {
@@ -1297,6 +1299,8 @@ gchar *hardinfo_clean_grpname(const gchar *v, int replacing) {
 gchar *hardinfo_clean_label(const gchar *v, int replacing) {
     gchar *clean, *p;
 
+    if (!v)
+        return g_strdup("");
     p = clean = g_strdup(v);
     while (*p != 0) {
         switch(*p) {

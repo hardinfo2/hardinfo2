@@ -83,32 +83,37 @@ GSList *math_infix_to_postfix(GSList * infix)
     gint t_sp = 0;
 
     GSList *postfix = NULL, *p;
-    MathToken *top;
 
     for (p = infix; p; p = p->next) {
 	MathToken *t = (MathToken *) p->data;
 
 	if (t->type == TOKEN_OPERATOR && t->val.op == '(') {
+	    if (t_sp >= (gint)G_N_ELEMENTS(stack) - 1) {
+		g_slist_free(postfix);
+		return NULL;
+	    }
 	    stack[++t_sp] = t;
 	} else if (t->type == TOKEN_OPERATOR && t->val.op == ')') {
-	    for (top = stack[t_sp]; t_sp != 0 && top->val.op != '(';
-		 top = stack[t_sp]) {
-                postfix = g_slist_append(postfix, stack[t_sp--]);
-            }
-	    t_sp--;
+	    while (t_sp > 0 && stack[t_sp]->val.op != '(') {
+		postfix = g_slist_append(postfix, stack[t_sp--]);
+	    }
+	    if (t_sp > 0)
+		t_sp--;
 	} else if (t->type != TOKEN_OPERATOR) {
 	    postfix = g_slist_append(postfix, t);
-	} else if (t_sp == 0) {
-	    stack[++t_sp] = t;
 	} else {
-	    while (t_sp != 0
+	    while (t_sp > 0
 		   && priority(t->val.op) <= priority(stack[t_sp]->val.op))
 		postfix = g_slist_append(postfix, stack[t_sp--]);
+	    if (t_sp >= (gint)G_N_ELEMENTS(stack) - 1) {
+		g_slist_free(postfix);
+		return NULL;
+	    }
 	    stack[++t_sp] = t;
 	}
     }
 
-    while (t_sp)
+    while (t_sp > 0)
 	postfix = g_slist_append(postfix, stack[t_sp--]);
 	
     return postfix;

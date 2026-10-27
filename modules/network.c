@@ -339,7 +339,7 @@ void scan_route(gboolean reload)
 					     v[8],//gateway
 					     v[2],//interface
 					     "",//flags
-					     sv[1]);//mask
+					     sv[1] ? sv[1] : "");//mask
 			  g_strfreev(sv);
 		       } else {
 			  gchar **sv=g_strsplit(v[0],"/",2);
@@ -348,7 +348,7 @@ void scan_route(gboolean reload)
 					     sv[0],//dest
 					     v[2],//interface
 					     "",//flags
-					     sv[1]);//mask
+					     sv[1] ? sv[1] : "");//mask
 			  g_strfreev(sv);
 		       }
 		    } else {

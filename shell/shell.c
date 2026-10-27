@@ -2111,7 +2111,7 @@ void shell_init(GSList * modules)
 	    if(buf){
 	        int i=read(fd, buf, st.st_size);
 	        if(i>0){
-		    buf[st.st_size]=0;
+		    buf[i]=0;
 		    char *s=strstr(buf,"\"latest-program-version\"");
 	            if(s && sscanf(s,"\"latest-program-version\":\"%u.%u.%u\"",&u1,&u2,&u3)==3) latest_ver=u1*10000+u2*100+u3;
 	        }
@@ -2500,9 +2500,9 @@ static void group_handle_special(GKeyFile *key_file,
         } else if (g_str_equal(key, "ShowColumnHeaders")) {
             headers_visible =
                 g_key_file_get_boolean(key_file, group, key, NULL);
-        } else if (g_str_has_prefix(key, "ColumnTitle")) {
+        } else if (g_str_has_prefix(key, "ColumnTitle$")) {
             GtkTreeViewColumn *column = NULL;
-            gchar *value, *title = g_utf8_strchr(key, -1, '$') + 1;
+            gchar *value, *title = strchr(key, '$') + 1;
 
             value = g_key_file_get_value(key_file, group, key, NULL);
 

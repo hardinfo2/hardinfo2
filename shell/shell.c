@@ -964,6 +964,25 @@ void shell_set_title(Shell *shell, gchar *subtitle)
     g_free(title);
 }
 
+#if GTK_CHECK_VERSION(3, 10, 0)
+static gboolean desktop_has_csd_friendly_wm(const gchar *desktop)
+{
+    gchar **tokens, **iter;
+    gboolean supported = FALSE;
+
+    tokens = g_strsplit(desktop, ":", -1);
+    for (iter = tokens; *iter != NULL && !supported; iter++) {
+        /* accept variants such as GNOME-Classic, GNOME-Flashback, Unity7 */
+        supported = g_ascii_strncasecmp(*iter, "GNOME", 5) == 0 ||
+                    g_ascii_strncasecmp(*iter, "Budgie", 6) == 0 ||
+                    g_ascii_strncasecmp(*iter, "Unity", 5) == 0 ||
+                    g_ascii_strncasecmp(*iter, "Pantheon", 8) == 0;
+    }
+    g_strfreev(tokens);
+    return supported;
+}
+#endif
+
 gboolean shell_window_style_gnome_supported(void)
 {
 #if GTK_CHECK_VERSION(3, 10, 0)
@@ -980,18 +999,13 @@ gboolean shell_window_style_gnome_supported(void)
         return TRUE;
 #endif
 
-    /* X11: GNOME-family desktops render CSD properly; matched case-insensitively
-     * with plain strstr() because g_strdown()/g_utf8_strdown() signatures
-     * changed across glib versions */
+    /* X11: GNOME-family desktops render CSD properly. XDG_CURRENT_DESKTOP is
+     * a colon-separated list; compare tokens case-insensitively so variants
+     * such as GNOME-Classic and Unity7 still match. */
     desktop = g_getenv("XDG_CURRENT_DESKTOP");
     if (!desktop)
         return FALSE;
-    if (strstr(desktop, "GNOME") || strstr(desktop, "gnome") ||
-        strstr(desktop, "Budgie") || strstr(desktop, "budgie") ||
-        strstr(desktop, "Unity") || strstr(desktop, "unity") ||
-        strstr(desktop, "Pantheon") || strstr(desktop, "pantheon"))
-        return TRUE;
-    return FALSE;
+    return desktop_has_csd_friendly_wm(desktop);
 #else
     return FALSE;
 #endif
@@ -1015,36 +1029,31 @@ static void move_menu_items(GtkWidget *from, GtkWidget *to)
     g_list_free(children);
 }
 
-/* Native menus hide mnemonic underlines during pure mouse use (GTK
- * auto-mnemonics is keyboard-mode only). A standalone popup menu window
- * starts with mnemonics-visible=TRUE and GTK's popdown/focus paths keep
- * flip-flopping the property, which draws as flickering underlines. Pin every
- * window of the hamburger menu tree to the native "hidden" state; the notify
- * handler re-forces it synchronously, so the transient TRUE state is never
- * painted. */
-static void menu_mnemonics_forced_hidden(GObject *toplevel, GParamSpec *pspec, gpointer data)
-{
-    if (params.window_style == 1)
-        gtk_window_set_mnemonics_visible(GTK_WINDOW(toplevel), FALSE);
-}
-
+/* Native menus hide mnemonic underlines during pure mouse use. A standalone
+ * popup menu window starts with mnemonics-visible=TRUE; hide them when the
+ * menu is mapped so a mouse-opened hamburger menu looks like the native
+ * menubar. Do not fight later changes: if the user switches to keyboard
+ * navigation, GTK will set the property again and the underlines should show,
+ * just like they do in the native menubar. Also respect the "always show
+ * mnemonics" setting. */
 static void menu_map_hide_mnemonics(GtkWidget *menu, gpointer data)
 {
     GtkWidget *toplevel;
+    GtkSettings *settings;
+    gboolean auto_mnemonics = TRUE;
 
     if (params.window_style != 1)
         return;
 
+    settings = gtk_settings_get_default();
+    if (settings)
+        g_object_get(settings, "gtk-auto-mnemonics", &auto_mnemonics, NULL);
+    if (!auto_mnemonics)
+        return;
+
     toplevel = gtk_widget_get_toplevel(menu);
-    if (toplevel && GTK_IS_WINDOW(toplevel)) {
-        if (!g_object_get_data(G_OBJECT(toplevel), "hardinfo2-mnemonics-hidden")) {
-            g_object_set_data(G_OBJECT(toplevel), "hardinfo2-mnemonics-hidden",
-                              GINT_TO_POINTER(1));
-            g_signal_connect(G_OBJECT(toplevel), "notify::mnemonics-visible",
-                             G_CALLBACK(menu_mnemonics_forced_hidden), NULL);
-        }
+    if (toplevel && GTK_IS_WINDOW(toplevel))
         gtk_window_set_mnemonics_visible(GTK_WINDOW(toplevel), FALSE);
-    }
 }
 
 static void attach_menu_mnemonic_hooks(GtkWidget *menu)
@@ -1070,6 +1079,19 @@ static void attach_menu_mnemonic_hooks(GtkWidget *menu)
 
 static void hamburger_menu_popup(GtkWidget *button, gpointer menu)
 {
+#if GTK_CHECK_VERSION(3, 22, 0)
+    GdkEvent *event = gtk_get_current_event();
+
+    /* anchor the menu to the button; this also works for keyboard activation
+     * and on Wayland, where pointer-based positioning can be wrong */
+    if (event) {
+        gtk_menu_popup_at_widget(GTK_MENU(menu), button,
+                                 GDK_GRAVITY_SOUTH_WEST,
+                                 GDK_GRAVITY_NORTH_WEST, event);
+        return;
+    }
+#endif
+    /* no trigger event (e.g. activation from an accessibility tool) */
     gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, 0,
                    gtk_get_current_event_time());
 }
@@ -1080,11 +1102,13 @@ void shell_window_style_apply(void)
 #if GTK_CHECK_VERSION(3, 10, 0)
     GtkWidget *button;
     gint was_applied;
+    gboolean was_realized;
 
     if (!shell || !shell->window || !shell->menubar)
         return;
 
     was_applied = shell->window_style_applied;
+    was_realized = gtk_widget_get_realized(shell->window);
 
     if (params.window_style == 1 && shell->window_style_applied != 1) {
         if (!shell->headerbar) {
@@ -1120,13 +1144,19 @@ void shell_window_style_apply(void)
         if (shell->headerbar) {
             move_menu_items(shell->menu_popup, shell->menubar);
             gtk_widget_show(shell->menubar);
+            /* GTK warns and unrealizes the window internally when a custom
+             * titlebar is removed from a realized window. Unrealize it first,
+             * then re-map below, so the switch stays warning-free. */
+            if (was_realized)
+                gtk_widget_unrealize(shell->window);
             gtk_window_set_titlebar(GTK_WINDOW(shell->window), NULL);
         }
         shell->window_style_applied = 0;
     }
 
-    /* gtk_window_set_titlebar() on a realized window only takes effect after a re-map */
-    if (shell->window_style_applied != was_applied && gtk_widget_get_realized(shell->window)) {
+    /* Titlebar changes only take effect after a re-map; note that the
+     * GNOME -> native path unrealized the window above. */
+    if (shell->window_style_applied != was_applied && was_realized) {
         gtk_widget_hide(shell->window);
         gtk_widget_show(shell->window);
     }

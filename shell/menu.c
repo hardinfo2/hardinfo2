@@ -168,12 +168,12 @@ void menu_init(Shell * shell)
     GtkWidget *window_style_menu_item = gtk_menu_item_new_with_mnemonic(_("_Window Style"));
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(window_style_menu_item), window_style_submenu);
 
-    GtkWidget *style_native = gtk_radio_menu_item_new_with_mnemonic(NULL, _("Native Style"));
+    GtkWidget *style_native = gtk_radio_menu_item_new_with_mnemonic(NULL, _("_Native Style"));
     g_signal_connect(G_OBJECT(style_native), "toggled", G_CALLBACK(cb_window_style_native), NULL);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_style_submenu), style_native);
     _register_action(shell, "WindowStyleNativeAction", style_native);
 
-    GtkWidget *style_gnome = gtk_radio_menu_item_new_with_mnemonic_from_widget(GTK_RADIO_MENU_ITEM(style_native), _("GNOME Style"));
+    GtkWidget *style_gnome = gtk_radio_menu_item_new_with_mnemonic_from_widget(GTK_RADIO_MENU_ITEM(style_native), _("_GNOME Style"));
     g_signal_connect(G_OBJECT(style_gnome), "toggled", G_CALLBACK(cb_window_style_gnome), NULL);
     gtk_menu_shell_append(GTK_MENU_SHELL(window_style_submenu), style_gnome);
     _register_action(shell, "WindowStyleGnomeAction", style_gnome);

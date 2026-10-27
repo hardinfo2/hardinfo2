@@ -67,6 +67,34 @@ gboolean g2_key_file_save_to_file (GKeyFile *key_file,
 }
 #endif
 
+static GKeyFile *settings_load(void)
+{
+    GKeyFile *key_file = g_key_file_new();
+    gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
+
+    g_key_file_load_from_file(
+        key_file, conf_path,
+        G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+    g_free(conf_path);
+    return key_file;
+}
+
+static void settings_save(GKeyFile *key_file)
+{
+    gchar *config_dir = g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL);
+    gchar *conf_path = g_build_filename(config_dir, "settings.ini", NULL);
+
+    g_mkdir(g_get_user_config_dir(), 0755);
+    g_mkdir(config_dir, 0755);
+#if GLIB_CHECK_VERSION(2,40,0)
+    g_key_file_save_to_file(key_file, conf_path, NULL);
+#else
+    g2_key_file_save_to_file(key_file, conf_path, NULL);
+#endif
+    g_free(conf_path);
+    g_free(config_dir);
+}
+
 void cb_theme1()
 {
   if(shell_action_get_active("Theme1Action")){
@@ -148,7 +176,6 @@ void cb_theme6()
 
 void cb_disable_theme()
 {
-    GKeyFile *key_file = g_key_file_new();
 #if GTK_CHECK_VERSION(3, 0, 0)
     Shell *shell = shell_get_main_shell();
     char theme_st[400];
@@ -170,20 +197,9 @@ void cb_disable_theme()
       if(shell_action_get_active("Theme6Action")) shell_action_set_active("Theme6Action",FALSE);
     }
 
-    g_mkdir(g_get_user_config_dir(),0755);
-    g_mkdir(g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL),0755);
-    gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
-
-    g_key_file_load_from_file(
-        key_file, conf_path,
-        G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+    GKeyFile *key_file = settings_load();
     g_key_file_set_integer(key_file, "Theme", "ThemeNumber", params.theme);
-#if GLIB_CHECK_VERSION(2,40,0)
-    g_key_file_save_to_file(key_file, conf_path, NULL);
-#else
-    g2_key_file_save_to_file(key_file, conf_path, NULL);
-#endif
-    g_free(conf_path);
+    settings_save(key_file);
     g_key_file_free(key_file);
 
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -244,23 +260,40 @@ void cb_disable_theme()
 
 static void window_style_save(gint style)
 {
-    GKeyFile *key_file = g_key_file_new();
-    gchar *conf_path;
+    GKeyFile *key_file = settings_load();
 
-    g_mkdir(g_get_user_config_dir(),0755);
-    g_mkdir(g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL),0755);
-    conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
-    g_key_file_load_from_file(
-        key_file, conf_path,
-        G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
     g_key_file_set_integer(key_file, "Appearance", "WindowStyle", style);
-#if GLIB_CHECK_VERSION(2,40,0)
-    g_key_file_save_to_file(key_file, conf_path, NULL);
-#else
-    g2_key_file_save_to_file(key_file, conf_path, NULL);
-#endif
-    g_free(conf_path);
+    settings_save(key_file);
     g_key_file_free(key_file);
+}
+
+static gboolean window_style_apply_pending = FALSE;
+
+static gboolean window_style_apply_idle(gpointer data)
+{
+    window_style_apply_pending = FALSE;
+    shell_window_style_apply();
+    window_style_save(params.window_style);
+    return G_SOURCE_REMOVE;
+}
+
+static void window_style_apply_and_save(void)
+{
+    Shell *shell = shell_get_main_shell();
+
+    /* Running this from the radio item's "toggled" handler would restructure
+     * the open menu while GTK is still using it. Defer the actual switch until
+     * the menu has been popped down. */
+    if (shell && shell->window && gtk_widget_get_realized(shell->window)) {
+        if (!window_style_apply_pending) {
+            window_style_apply_pending = TRUE;
+            g_idle_add(window_style_apply_idle, NULL);
+        }
+        return;
+    }
+
+    shell_window_style_apply();
+    window_style_save(params.window_style);
 }
 
 void cb_window_style_native()
@@ -268,8 +301,7 @@ void cb_window_style_native()
     if(shell_action_get_active("WindowStyleNativeAction")){
       params.window_style=0;
       if(shell_action_get_active("WindowStyleGnomeAction")) shell_action_set_active("WindowStyleGnomeAction",FALSE);
-      shell_window_style_apply();
-      window_style_save(params.window_style);
+      window_style_apply_and_save();
     }
 }
 
@@ -278,32 +310,17 @@ void cb_window_style_gnome()
     if(shell_action_get_active("WindowStyleGnomeAction")){
       params.window_style=1;
       if(shell_action_get_active("WindowStyleNativeAction")) shell_action_set_active("WindowStyleNativeAction",FALSE);
-      shell_window_style_apply();
-      window_style_save(params.window_style);
+      window_style_apply_and_save();
     }
 }
 
 void cb_sync_on_startup()
 {
     gboolean setting = shell_action_get_active("SyncOnStartupAction");
-    GKeyFile *key_file = g_key_file_new();
+    GKeyFile *key_file = settings_load();
 
-    g_mkdir(g_get_user_config_dir(),0755);
-    g_mkdir(g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL),0755);
-
-    gchar *conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2",
-                                        "settings.ini", NULL);
-
-    g_key_file_load_from_file(
-        key_file, conf_path,
-        G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
     g_key_file_set_boolean(key_file, "Sync", "OnStartup", setting);
-#if GLIB_CHECK_VERSION(2,40,0)
-    g_key_file_save_to_file(key_file, conf_path, NULL);
-#else
-    g2_key_file_save_to_file(key_file, conf_path, NULL);
-#endif
-    g_free(conf_path);
+    settings_save(key_file);
     g_key_file_free(key_file);
 }
 

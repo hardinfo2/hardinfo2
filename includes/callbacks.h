@@ -51,6 +51,8 @@ void cb_theme3();
 void cb_theme4();
 void cb_theme5();
 void cb_theme6();
+void cb_window_style_native();
+void cb_window_style_gnome();
 
 #if GLIB_CHECK_VERSION(2,40,0)
 #else

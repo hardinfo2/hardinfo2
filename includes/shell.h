@@ -111,6 +111,11 @@ struct _Shell {
     /* Theme radio group (GTK 3.20+) */
     GSList            *theme_radio_group;       /* Theme radio button group */
 
+    /* Window style (GTK 3.10+): native menubar vs GNOME headerbar */
+    GtkWidget         *headerbar;               /* GtkHeaderBar used as titlebar */
+    GtkWidget         *menu_popup;              /* hamburger button's GtkMenu */
+    gint              window_style_applied;     /* 0 = native applied, 1 = GNOME applied */
+
     GHashTable        *action_widget_map;       /* action_name -> widget mapping */
 
     ShellViewType	 view_type;
@@ -243,6 +248,10 @@ void		shell_clear_timeouts(Shell *shell);
 void		shell_clear_tree_models(Shell *shell);
 void		shell_clear_field_updates(void);
 void		shell_set_title(Shell *shell, char *subtitle);
+
+/* window style switching (native menubar vs GNOME headerbar) */
+gboolean	shell_window_style_gnome_supported(void);
+void		shell_window_style_apply(void);
 
 void		shell_add_modules_to_gui(gpointer _shell_module, gpointer _shell_tree);
 

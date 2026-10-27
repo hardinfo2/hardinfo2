@@ -242,6 +242,46 @@ void cb_disable_theme()
 #endif
 }
 
+static void window_style_save(gint style)
+{
+    GKeyFile *key_file = g_key_file_new();
+    gchar *conf_path;
+
+    g_mkdir(g_get_user_config_dir(),0755);
+    g_mkdir(g_build_filename(g_get_user_config_dir(), "hardinfo2", NULL),0755);
+    conf_path = g_build_filename(g_get_user_config_dir(), "hardinfo2", "settings.ini", NULL);
+    g_key_file_load_from_file(
+        key_file, conf_path,
+        G_KEY_FILE_KEEP_COMMENTS | G_KEY_FILE_KEEP_TRANSLATIONS, NULL);
+    g_key_file_set_integer(key_file, "Appearance", "WindowStyle", style);
+#if GLIB_CHECK_VERSION(2,40,0)
+    g_key_file_save_to_file(key_file, conf_path, NULL);
+#else
+    g2_key_file_save_to_file(key_file, conf_path, NULL);
+#endif
+    g_free(conf_path);
+    g_key_file_free(key_file);
+}
+
+void cb_window_style_native()
+{
+    if(shell_action_get_active("WindowStyleNativeAction")){
+      params.window_style=0;
+      if(shell_action_get_active("WindowStyleGnomeAction")) shell_action_set_active("WindowStyleGnomeAction",FALSE);
+      shell_window_style_apply();
+      window_style_save(params.window_style);
+    }
+}
+
+void cb_window_style_gnome()
+{
+    if(shell_action_get_active("WindowStyleGnomeAction")){
+      params.window_style=1;
+      if(shell_action_get_active("WindowStyleNativeAction")) shell_action_set_active("WindowStyleNativeAction",FALSE);
+      shell_window_style_apply();
+      window_style_save(params.window_style);
+    }
+}
 
 void cb_sync_on_startup()
 {

@@ -53,6 +53,7 @@ struct _ProgramParameters {
   gint quiet;
   gint theme;
   gint darkmode;
+  gint window_style; /* 0 = native style (default), 1 = GNOME style headerbar */
   gint aborting_benchmarks;
   /*
    * OK to use the common parts of HTML(4.0) and Pango Markup

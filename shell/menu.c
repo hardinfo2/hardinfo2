@@ -162,6 +162,28 @@ void menu_init(Shell * shell)
     _register_action(shell, "Theme6Action", theme6);
 #endif /* GTK_CHECK_VERSION(3, 20, 0) */
 
+#if GTK_CHECK_VERSION(3, 10, 0)
+    /* Window style submenu */
+    GtkWidget *window_style_submenu = gtk_menu_new();
+    GtkWidget *window_style_menu_item = gtk_menu_item_new_with_mnemonic(_("_Window Style"));
+    gtk_menu_item_set_submenu(GTK_MENU_ITEM(window_style_menu_item), window_style_submenu);
+
+    GtkWidget *style_native = gtk_radio_menu_item_new_with_mnemonic(NULL, _("Native Style"));
+    g_signal_connect(G_OBJECT(style_native), "toggled", G_CALLBACK(cb_window_style_native), NULL);
+    gtk_menu_shell_append(GTK_MENU_SHELL(window_style_submenu), style_native);
+    _register_action(shell, "WindowStyleNativeAction", style_native);
+
+    GtkWidget *style_gnome = gtk_radio_menu_item_new_with_mnemonic_from_widget(GTK_RADIO_MENU_ITEM(style_native), _("GNOME Style"));
+    g_signal_connect(G_OBJECT(style_gnome), "toggled", G_CALLBACK(cb_window_style_gnome), NULL);
+    gtk_menu_shell_append(GTK_MENU_SHELL(window_style_submenu), style_gnome);
+    _register_action(shell, "WindowStyleGnomeAction", style_gnome);
+
+    /* GNOME style needs CSD support in the environment, keep it visible but
+     * insensitive when it is not available */
+    if (!shell_window_style_gnome_supported())
+        gtk_widget_set_sensitive(style_gnome, FALSE);
+#endif /* GTK_CHECK_VERSION(3, 10, 0) */
+
     /* Separator */
     gtk_menu_shell_append(GTK_MENU_SHELL(view_submenu), gtk_separator_menu_item_new());
 
@@ -248,6 +270,14 @@ void menu_init(Shell * shell)
 #if GTK_CHECK_VERSION(3, 20, 0)
     /* Theme submenu inside View Menu */
     gtk_menu_shell_insert(GTK_MENU_SHELL(view_submenu), theme_menu_item, 2);
+#endif
+#if GTK_CHECK_VERSION(3, 10, 0)
+    /* Window style submenu inside View Menu (after Theme when present) */
+#if GTK_CHECK_VERSION(3, 20, 0)
+    gtk_menu_shell_insert(GTK_MENU_SHELL(view_submenu), window_style_menu_item, 3);
+#else
+    gtk_menu_shell_insert(GTK_MENU_SHELL(view_submenu), window_style_menu_item, 2);
+#endif
 #endif
 
     /* Help Menu (dropdown) */

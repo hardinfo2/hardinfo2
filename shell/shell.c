@@ -31,6 +31,11 @@
 #if GTK_CHECK_VERSION(3, 0, 0)
 #include <cairo.h>
 #endif
+#if GTK_CHECK_VERSION(3, 10, 0)
+#ifdef GDK_WINDOWING_WAYLAND
+#include <gdk/gdkwayland.h>
+#endif
+#endif
 
 #include "config.h"
 
@@ -942,16 +947,190 @@ static ShellNote *note_new(void)
 
 void shell_set_title(Shell *shell, gchar *subtitle)
 {
+    gchar *title;
+
     if (subtitle) {
-        gchar *tmp;
-
-        tmp = g_strdup_printf(_("%s - System Information and Benchmark"), subtitle);
-        gtk_window_set_title(GTK_WINDOW(shell->window), tmp);
-
-        g_free(tmp);
+        title = g_strdup_printf(_("%s - System Information and Benchmark"), subtitle);
     } else {
-        gtk_window_set_title(GTK_WINDOW(shell->window), _("System Information and Benchmark"));
+        title = g_strdup(_("System Information and Benchmark"));
     }
+    gtk_window_set_title(GTK_WINDOW(shell->window), title);
+#if GTK_CHECK_VERSION(3, 10, 0)
+    /* keep the (possibly dormant) headerbar title in sync so switching the
+     * window style always shows the current title */
+    if (shell->headerbar)
+        gtk_header_bar_set_title(GTK_HEADER_BAR(shell->headerbar), title);
+#endif
+    g_free(title);
+}
+
+gboolean shell_window_style_gnome_supported(void)
+{
+#if GTK_CHECK_VERSION(3, 10, 0)
+    const gchar *csd, *desktop;
+
+    /* GTK_CSD=0 is the documented way for distros/users to opt out of CSD */
+    csd = g_getenv("GTK_CSD");
+    if (csd && strcmp(csd, "0") == 0)
+        return FALSE;
+
+#ifdef GDK_WINDOWING_WAYLAND
+    /* Wayland has no server-side decorations, CSD is always appropriate */
+    if (GDK_IS_WAYLAND_DISPLAY(gdk_display_get_default()))
+        return TRUE;
+#endif
+
+    /* X11: GNOME-family desktops render CSD properly; matched case-insensitively
+     * with plain strstr() because g_strdown()/g_utf8_strdown() signatures
+     * changed across glib versions */
+    desktop = g_getenv("XDG_CURRENT_DESKTOP");
+    if (!desktop)
+        return FALSE;
+    if (strstr(desktop, "GNOME") || strstr(desktop, "gnome") ||
+        strstr(desktop, "Budgie") || strstr(desktop, "budgie") ||
+        strstr(desktop, "Unity") || strstr(desktop, "unity") ||
+        strstr(desktop, "Pantheon") || strstr(desktop, "pantheon"))
+        return TRUE;
+    return FALSE;
+#else
+    return FALSE;
+#endif
+}
+
+#if GTK_CHECK_VERSION(3, 10, 0)
+/* move all menu items between two menu shells, preserving order */
+static void move_menu_items(GtkWidget *from, GtkWidget *to)
+{
+    GList *children, *iter;
+    GtkWidget *item;
+
+    children = gtk_container_get_children(GTK_CONTAINER(from));
+    for (iter = children; iter != NULL; iter = iter->next) {
+        item = GTK_WIDGET(iter->data);
+        g_object_ref(item);
+        gtk_container_remove(GTK_CONTAINER(from), item);
+        gtk_menu_shell_append(GTK_MENU_SHELL(to), item);
+        g_object_unref(item);
+    }
+    g_list_free(children);
+}
+
+/* Native menus hide mnemonic underlines during pure mouse use (GTK
+ * auto-mnemonics is keyboard-mode only). A standalone popup menu window
+ * starts with mnemonics-visible=TRUE and GTK's popdown/focus paths keep
+ * flip-flopping the property, which draws as flickering underlines. Pin every
+ * window of the hamburger menu tree to the native "hidden" state; the notify
+ * handler re-forces it synchronously, so the transient TRUE state is never
+ * painted. */
+static void menu_mnemonics_forced_hidden(GObject *toplevel, GParamSpec *pspec, gpointer data)
+{
+    if (params.window_style == 1)
+        gtk_window_set_mnemonics_visible(GTK_WINDOW(toplevel), FALSE);
+}
+
+static void menu_map_hide_mnemonics(GtkWidget *menu, gpointer data)
+{
+    GtkWidget *toplevel;
+
+    if (params.window_style != 1)
+        return;
+
+    toplevel = gtk_widget_get_toplevel(menu);
+    if (toplevel && GTK_IS_WINDOW(toplevel)) {
+        if (!g_object_get_data(G_OBJECT(toplevel), "hardinfo2-mnemonics-hidden")) {
+            g_object_set_data(G_OBJECT(toplevel), "hardinfo2-mnemonics-hidden",
+                              GINT_TO_POINTER(1));
+            g_signal_connect(G_OBJECT(toplevel), "notify::mnemonics-visible",
+                             G_CALLBACK(menu_mnemonics_forced_hidden), NULL);
+        }
+        gtk_window_set_mnemonics_visible(GTK_WINDOW(toplevel), FALSE);
+    }
+}
+
+static void attach_menu_mnemonic_hooks(GtkWidget *menu)
+{
+    GList *children, *iter;
+    GtkWidget *submenu;
+
+    if (g_object_get_data(G_OBJECT(menu), "hardinfo2-mnemonic-hooks"))
+        return;
+    g_object_set_data(G_OBJECT(menu), "hardinfo2-mnemonic-hooks", GINT_TO_POINTER(1));
+    g_signal_connect(G_OBJECT(menu), "map", G_CALLBACK(menu_map_hide_mnemonics), NULL);
+
+    children = gtk_container_get_children(GTK_CONTAINER(menu));
+    for (iter = children; iter != NULL; iter = iter->next) {
+        if (GTK_IS_MENU_ITEM(iter->data)) {
+            submenu = gtk_menu_item_get_submenu(GTK_MENU_ITEM(iter->data));
+            if (submenu)
+                attach_menu_mnemonic_hooks(submenu);
+        }
+    }
+    g_list_free(children);
+}
+
+static void hamburger_menu_popup(GtkWidget *button, gpointer menu)
+{
+    gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, 0,
+                   gtk_get_current_event_time());
+}
+#endif
+
+void shell_window_style_apply(void)
+{
+#if GTK_CHECK_VERSION(3, 10, 0)
+    GtkWidget *button;
+    gint was_applied;
+
+    if (!shell || !shell->window || !shell->menubar)
+        return;
+
+    was_applied = shell->window_style_applied;
+
+    if (params.window_style == 1 && shell->window_style_applied != 1) {
+        if (!shell->headerbar) {
+            shell->headerbar = gtk_header_bar_new();
+            gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(shell->headerbar), TRUE);
+            if (gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "open-menu-symbolic")) {
+                button = gtk_button_new_from_icon_name("open-menu-symbolic", GTK_ICON_SIZE_BUTTON);
+            } else {
+                button = gtk_button_new_with_label("\xe2\x98\xb0");
+            }
+            gtk_widget_set_tooltip_text(button, _("Menu"));
+            shell->menu_popup = gtk_menu_new();
+            gtk_menu_attach_to_widget(GTK_MENU(shell->menu_popup), button, NULL);
+            g_signal_connect(G_OBJECT(button), "clicked",
+                             G_CALLBACK(hamburger_menu_popup), shell->menu_popup);
+            gtk_header_bar_pack_start(GTK_HEADER_BAR(shell->headerbar), button);
+            /* keep the headerbar alive across the unparent done by set_titlebar(NULL) */
+            g_object_ref_sink(shell->headerbar);
+            gtk_widget_show_all(shell->headerbar);
+            gtk_header_bar_set_title(GTK_HEADER_BAR(shell->headerbar),
+                                     gtk_window_get_title(GTK_WINDOW(shell->window)));
+        }
+        /* the menubar's top-level items become the hamburger menu's items, so
+         * submenus cascade with the regular GtkMenu grab/keyboard handling */
+        move_menu_items(shell->menubar, shell->menu_popup);
+        attach_menu_mnemonic_hooks(shell->menu_popup);
+        gtk_widget_hide(shell->menubar);
+        gtk_window_set_titlebar(GTK_WINDOW(shell->window), shell->headerbar);
+        shell->window_style_applied = 1;
+    }
+
+    if (params.window_style == 0 && shell->window_style_applied != 0) {
+        if (shell->headerbar) {
+            move_menu_items(shell->menu_popup, shell->menubar);
+            gtk_widget_show(shell->menubar);
+            gtk_window_set_titlebar(GTK_WINDOW(shell->window), NULL);
+        }
+        shell->window_style_applied = 0;
+    }
+
+    /* gtk_window_set_titlebar() on a realized window only takes effect after a re-map */
+    if (shell->window_style_applied != was_applied && gtk_widget_get_realized(shell->window)) {
+        gtk_widget_hide(shell->window);
+        gtk_widget_show(shell->window);
+    }
+#endif
 }
 
 static void create_window(void)
@@ -1083,6 +1262,8 @@ static void create_window(void)
     if(params.theme==0) params.theme=1;
     if(params.theme<-1) params.theme=-1;
     if(params.theme>6) params.theme=-1;
+    params.window_style = g_key_file_get_integer(key_file, "Appearance", "WindowStyle", NULL);
+    if(params.window_style!=1) params.window_style=0;
 
     g_free(conf_path);
     g_key_file_free(key_file);
@@ -1094,6 +1275,17 @@ static void create_window(void)
     if(params.theme==4) shell_action_set_active("Theme4Action", TRUE);
     if(params.theme==5) shell_action_set_active("Theme5Action", TRUE);
     if(params.theme==6) shell_action_set_active("Theme6Action", TRUE);
+#endif
+#if GTK_CHECK_VERSION(3, 10, 0)
+    /* activating the radio runs the callback, which applies and persists the style;
+     * fall back to native when the environment does not support CSD */
+    if(params.window_style==1) {
+        if(shell_window_style_gnome_supported()) {
+            shell_action_set_active("WindowStyleGnomeAction", TRUE);
+        } else {
+            params.window_style=0;
+        }
+    }
 #endif
 
     gtk_widget_show(shell->window);

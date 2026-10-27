@@ -15,6 +15,14 @@ else()
 endif()
 project(hardinfo2)
 
+#Install directories must not depend on the umask of the build user
+if(NOT CMAKE_VERSION VERSION_LESS 3.11)
+    set(CMAKE_INSTALL_DEFAULT_DIRECTORY_PERMISSIONS
+        OWNER_READ OWNER_WRITE OWNER_EXECUTE
+        GROUP_READ GROUP_EXECUTE
+        WORLD_READ WORLD_EXECUTE)
+endif()
+
 #Release settings
 set(HARDINFO2_VERSION "2.3.2")
 set(HARDINFO2_RELEASE_DATE "2026-07-03")
@@ -877,6 +885,18 @@ elseif(${RPM})
     SET(CPACK_SOURCE_GENERATOR "RPM;TGZ")
     SET(CPACK_GENERATOR "RPM")
     SET(PACKAGE_GTK2 "libgtk-2-0")
+    #Do not ship directories owned by filesystem/systemd/hicolor-icon-theme etc ...
+    LIST(APPEND CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION
+        /usr/lib/systemd
+        /usr/lib/systemd/system
+        /usr/share/applications
+        /usr/share/icons
+        /usr/share/icons/hicolor
+        /usr/share/icons/hicolor/scalable
+        /usr/share/icons/hicolor/scalable/apps
+        /usr/share/man
+        /usr/share/man/man1
+    )
 else()
     SET(CPACK_SOURCE_IGNORE_FILES "/build/;/.git/;/.github/;.gitignore;.gitmodules;*.po.old;*~;*.mo")
     SET(CPACK_SOURCE_GENERATOR "DEB;TGZ")

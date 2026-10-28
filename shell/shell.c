@@ -1088,6 +1088,7 @@ static void hamburger_menu_popup(GtkWidget *button, gpointer menu)
         gtk_menu_popup_at_widget(GTK_MENU(menu), button,
                                  GDK_GRAVITY_SOUTH_WEST,
                                  GDK_GRAVITY_NORTH_WEST, event);
+        gdk_event_free(event);
         return;
     }
 #endif
@@ -1136,6 +1137,11 @@ void shell_window_style_apply(void)
         move_menu_items(shell->menubar, shell->menu_popup);
         attach_menu_mnemonic_hooks(shell->menu_popup);
         gtk_widget_hide(shell->menubar);
+        /* GTK warns when a custom titlebar is set on a realized window.
+         * Unrealize it first, then re-map below, so the switch stays
+         * warning-free. */
+        if (was_realized)
+            gtk_widget_unrealize(shell->window);
         gtk_window_set_titlebar(GTK_WINDOW(shell->window), shell->headerbar);
         shell->window_style_applied = 1;
     }
@@ -1144,9 +1150,7 @@ void shell_window_style_apply(void)
         if (shell->headerbar) {
             move_menu_items(shell->menu_popup, shell->menubar);
             gtk_widget_show(shell->menubar);
-            /* GTK warns and unrealizes the window internally when a custom
-             * titlebar is removed from a realized window. Unrealize it first,
-             * then re-map below, so the switch stays warning-free. */
+            /* same unrealize as above, for removing the custom titlebar */
             if (was_realized)
                 gtk_widget_unrealize(shell->window);
             gtk_window_set_titlebar(GTK_WINDOW(shell->window), NULL);
@@ -1154,8 +1158,8 @@ void shell_window_style_apply(void)
         shell->window_style_applied = 0;
     }
 
-    /* Titlebar changes only take effect after a re-map; note that the
-     * GNOME -> native path unrealized the window above. */
+    /* Titlebar changes only take effect after a re-map; both runtime switch
+     * paths unrealized the window above. */
     if (shell->window_style_applied != was_applied && was_realized) {
         gtk_widget_hide(shell->window);
         gtk_widget_show(shell->window);

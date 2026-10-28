@@ -1077,6 +1077,32 @@ static void attach_menu_mnemonic_hooks(GtkWidget *menu)
     g_list_free(children);
 }
 
+/* gtk_menu_popup() with a NULL position function places the menu at the
+ * pointer, which is wrong for keyboard activation. Place it under the
+ * hamburger button, derived from the menu's attach widget. */
+static void hamburger_menu_position(GtkMenu *menu, gint *x, gint *y,
+                                    gboolean *push_in, gpointer data)
+{
+    GtkWidget *attach = gtk_menu_get_attach_widget(menu);
+    GtkWidget *toplevel;
+    GtkAllocation alloc;
+
+    *push_in = FALSE;
+    *x = 0;
+    *y = 0;
+    if (!attach)
+        return;
+
+    toplevel = gtk_widget_get_toplevel(attach);
+    if (!gtk_widget_is_toplevel(toplevel))
+        return;
+
+    gtk_widget_get_allocation(attach, &alloc);
+    gdk_window_get_origin(gtk_widget_get_window(toplevel), x, y);
+    *x += alloc.x;
+    *y += alloc.y + alloc.height;
+}
+
 static void hamburger_menu_popup(GtkWidget *button, gpointer menu)
 {
 #if GTK_CHECK_VERSION(3, 22, 0)
@@ -1093,8 +1119,49 @@ static void hamburger_menu_popup(GtkWidget *button, gpointer menu)
     }
 #endif
     /* no trigger event (e.g. activation from an accessibility tool) */
-    gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, 0,
-                   gtk_get_current_event_time());
+    gtk_menu_popup(GTK_MENU(menu), NULL, NULL, hamburger_menu_position, NULL, 0,
+                    gtk_get_current_event_time());
+}
+
+/* Hiding the menubar disables its keyboard entry points: F10 (activate
+ * menubar) and the Alt+letter mnemonics of the top-level items. Provide the
+ * same keys for the hamburger menu: F10 opens it, Alt+letter opens it with
+ * the matching item selected. */
+static gboolean hamburger_key_press(GtkWidget *widget, GdkEventKey *event, gpointer data)
+{
+    GList *children, *iter;
+    GtkWidget *child;
+    gboolean found = FALSE;
+
+    if (!shell || !shell->menu_popup || params.window_style != 1)
+        return FALSE;
+
+    /* bare F10 only, matching the menubar activation it replaces */
+    if (event->keyval == GDK_KEY_F10 &&
+        (event->state & gtk_accelerator_get_default_mod_mask()) == 0) {
+        gtk_menu_popup(GTK_MENU(shell->menu_popup), NULL, NULL,
+                       hamburger_menu_position, NULL, 0, event->time);
+        return TRUE;
+    }
+
+    if (!(event->state & GDK_MOD1_MASK))
+        return FALSE;
+
+    children = gtk_container_get_children(GTK_CONTAINER(shell->menu_popup));
+    for (iter = children; iter != NULL && !found; iter = iter->next) {
+        child = gtk_bin_get_child(GTK_BIN(iter->data));
+        if (GTK_IS_LABEL(child) &&
+            gdk_keyval_to_lower(gtk_label_get_mnemonic_keyval(GTK_LABEL(child))) ==
+            gdk_keyval_to_lower(event->keyval)) {
+            gtk_menu_popup(GTK_MENU(shell->menu_popup), NULL, NULL,
+                           hamburger_menu_position, NULL, 0, event->time);
+            gtk_menu_shell_select_item(GTK_MENU_SHELL(shell->menu_popup),
+                                       GTK_WIDGET(iter->data));
+            found = TRUE;
+        }
+    }
+    g_list_free(children);
+    return found;
 }
 #endif
 
@@ -1131,6 +1198,9 @@ void shell_window_style_apply(void)
             gtk_widget_show_all(shell->headerbar);
             gtk_header_bar_set_title(GTK_HEADER_BAR(shell->headerbar),
                                      gtk_window_get_title(GTK_WINDOW(shell->window)));
+            /* hamburger keyboard entry points; the handler only acts in GNOME style */
+            g_signal_connect(G_OBJECT(shell->window), "key-press-event",
+                             G_CALLBACK(hamburger_key_press), NULL);
         }
         /* the menubar's top-level items become the hamburger menu's items, so
          * submenus cascade with the regular GtkMenu grab/keyboard handling */

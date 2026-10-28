@@ -274,7 +274,7 @@ static gboolean window_style_apply_idle(gpointer data)
     window_style_apply_pending = FALSE;
     shell_window_style_apply();
     window_style_save(params.window_style);
-    return G_SOURCE_REMOVE;
+    return FALSE;
 }
 
 static void window_style_apply_and_save(void)

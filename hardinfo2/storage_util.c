@@ -177,10 +177,20 @@ void set_nvme_controller_info(u2driveext *e){
     g_free(target);
     g_free(pci_addy);
     if (e->nvme_controller) {
-        e->vendors = vendor_list_append(e->vendors,
-            vendor_match(e->nvme_controller->vendor_id_str, NULL));
-        e->vendors = vendor_list_append(e->vendors,
-            vendor_match(e->nvme_controller->sub_vendor_id_str, NULL));
+        if (e->nvme_controller->vendor_id == 0x15b7) {
+            const Vendor *v = vendor_match(
+                ((e->d->model && strstr(e->d->model, "WD")) ||
+                 (e->nvme_controller->sub_device_id_str && strstr(e->nvme_controller->sub_device_id_str, "WD")) ||
+                 (e->nvme_controller->device_id_str && strstr(e->nvme_controller->device_id_str, "WD")))
+                ? "Western Digital" : "SanDisk", NULL);
+            vendor_list_free(e->vendors);
+            e->vendors = v ? vendor_list_append(NULL, v) : NULL;
+        } else {
+            e->vendors = vendor_list_append(e->vendors,
+                vendor_match(e->nvme_controller->vendor_id_str, NULL));
+            e->vendors = vendor_list_append(e->vendors,
+                vendor_match(e->nvme_controller->sub_vendor_id_str, NULL));
+        }
     }
 }
 

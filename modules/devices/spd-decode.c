@@ -1438,6 +1438,7 @@ GSList *spd_scan() {
                     if (isdigit(dir_entry[0])) {
                         name_file = g_build_filename(driver->dir_path, dir_entry, "name", NULL);
                         g_file_get_contents(name_file, &name, NULL, NULL);
+			remove_linefeed(name);
 			is_spd=(g_strcmp0(name, driver->spd_name) == 0);
                         g_free(name_file);
 			g_free(name);

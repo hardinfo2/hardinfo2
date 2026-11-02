@@ -95,6 +95,10 @@ GSList *spd_scan();
 gchar *make_spd_section(spd_data *spd);
 void spd_data_free(spd_data *s);
 
+int spd_ddr5_xmp_profile_speed(const unsigned char *bytes, int spd_size, int index);
+gboolean spd_ddr5_xmp_profile_enabled(const unsigned char *bytes, int spd_size, int index);
+gboolean spd_ddr5_expo_present(const unsigned char *bytes, int spd_size);
+
 
 
 /* from decode-dimms, in the i2c-tools package:

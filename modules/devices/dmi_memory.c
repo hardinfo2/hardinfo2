@@ -620,6 +620,128 @@ static gchar *tag_make_safe_inplace(gchar *tag) {
     return tag;
 }
 
+
+static int dmi_ddr5_xmp3_profile_speed(const spd_data *spd, int base) {
+    unsigned short tck_ps;
+    unsigned int mts;
+
+    if (!spd || !spd->bytes)
+        return 0;
+
+    if (spd->spd_size < base + 7)
+        return 0;
+
+    tck_ps = (unsigned short)spd->bytes[base + 5]
+           | ((unsigned short)spd->bytes[base + 6] << 8);
+
+    if (tck_ps == 0 || tck_ps == 0xffff)
+        return 0;
+
+    mts = (2000000U + tck_ps / 2) / tck_ps;
+
+    return (int)(((mts + 50) / 100) * 100);
+}
+
+static gchar *dmi_mark_active_xmp3_profile(
+        gchar *section,
+        const spd_data *spd,
+        const gchar *configured_speed_str) {
+
+    static const int profile_base[2] = {
+        0x2c0,
+        0x300
+    };
+
+    unsigned char enabled;
+    long configured_speed;
+    int i;
+
+    if (!section || !spd || !configured_speed_str)
+        return section;
+
+    if (spd->type != DDR5_SDRAM)
+        return section;
+
+    if (spd->spd_size <= 0x283)
+        return section;
+
+    if (spd->bytes[0x280] != 0x0c ||
+        spd->bytes[0x281] != 0x4a ||
+        spd->bytes[0x282] != 0x30)
+        return section;
+
+    configured_speed = strtol(configured_speed_str, NULL, 10);
+
+    if (configured_speed <= 0)
+        return section;
+
+    enabled = spd->bytes[0x283];
+
+    for (i = 0; i < 2; i++) {
+        int profile_speed;
+        gchar *needle;
+        gchar *replacement;
+        gchar *hit;
+        GString *out;
+
+        if ((enabled & (1 << i)) == 0)
+            continue;
+
+        profile_speed = dmi_ddr5_xmp3_profile_speed(
+            spd,
+            profile_base[i]
+        );
+
+        if (profile_speed != configured_speed)
+            continue;
+
+        needle = g_strdup_printf(
+            "[XMP 3.0 Profile %d]\n",
+            i + 1
+        );
+
+        hit = strstr(section, needle);
+
+        if (!hit) {
+            g_free(needle);
+            continue;
+        }
+
+        replacement = g_strdup_printf(
+            "[XMP 3.0 Profile %d - speed match]\n",
+            i + 1
+        );
+
+        out = g_string_sized_new(
+            strlen(section) + strlen(replacement) + 32
+        );
+
+        g_string_append_len(
+            out,
+            section,
+            hit - section
+        );
+
+        g_string_append(
+            out,
+            replacement
+        );
+
+        g_string_append(
+            out,
+            hit + strlen(needle)
+        );
+
+        g_free(needle);
+        g_free(replacement);
+        g_free(section);
+
+        return g_string_free(out, FALSE);
+    }
+
+    return section;
+}
+
 gchar *memory_devices_get_info() {
     gchar *icons = g_strdup("");
     gchar *ret = g_strdup_printf("[%s]\n", _("Memory Device List"));
@@ -708,6 +830,14 @@ gchar *memory_devices_get_info() {
                 size_str = g_strdup_printf("%u %s", s->size_MiB, _("MiB") );
 
             gchar *spd = s->spd ? make_spd_section(s->spd) : NULL;
+
+            if (spd && s->spd && s->configured_clock_str) {
+                spd = dmi_mark_active_xmp3_profile(
+                    spd,
+                    s->spd,
+                    s->configured_clock_str
+                );
+            }
 
             gchar *details = g_strdup_printf("[%s]\n"
                             "%s=0x%"PRIx32", 0x%"PRIx32"\n"

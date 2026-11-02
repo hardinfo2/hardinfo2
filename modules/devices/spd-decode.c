@@ -1069,46 +1069,256 @@ void decode_ddr5_module_spd_timings(unsigned char *bytes, float speed, char **st
     }
 }
 
-void detect_ddr5_xmp(unsigned char *bytes, int spd_size, int *majv, int *minv) {
-  /*if (spd_size < 387)
-        return;
+static unsigned short ddr5_xmp_le16(const unsigned char *p) {
+    return (unsigned short)p[0] | ((unsigned short)p[1] << 8);
+}
 
-    *majv = 0; *minv = 0;
+static int ddr5_xmp_speed(unsigned short tck_ps) {
+    unsigned int mts;
 
-    if (bytes[384] != 0x0c || bytes[385] != 0x4a) // XMP magic number
+    if (tck_ps == 0 || tck_ps == 0xffff)
+        return 0;
+
+    mts = (2000000U + tck_ps / 2) / tck_ps;
+
+    return (int)(((mts + 50) / 100) * 100);
+}
+
+static double ddr5_xmp_voltage(unsigned char value) {
+    unsigned int centivolts;
+
+    centivolts = ((value >> 5) * 100)
+               + ((value & 0x1f) * 5);
+
+    return centivolts / 100.0;
+}
+
+static int ddr5_xmp_cycles(unsigned short timing_ps,
+                           unsigned short tck_ps) {
+    if (tck_ps == 0 || tck_ps == 0xffff)
+        return 0;
+
+    return (int)ceil((double)timing_ps / tck_ps - 0.025);
+}
+
+void detect_ddr5_xmp(unsigned char *bytes, int spd_size,
+                     int *majv, int *minv) {
+    if (spd_size <= 0x283)
         return;
 
     if (majv)
-        *majv = bytes[387] >> 4;
+        *majv = 0;
+
     if (minv)
-    *minv = bytes[387] & 0xf;*/
-}
+        *minv = 0;
 
-void decode_ddr5_xmp(unsigned char *bytes, int spd_size, char **str) {
-  /*float ctime;
-    float ddrclk, taa, trcd, trp, tras;
-
-    if (spd_size < 405)
+    if (bytes[0x280] != 0x0c ||
+        bytes[0x281] != 0x4a)
         return;
 
-    ctime = ddr5_mtb_ftb_calc(bytes[396], bytes[431]);
-    ddrclk = 2 * (1000 / ctime);
-    taa = ddr5_mtb_ftb_calc(bytes[401], bytes[430]);
-    trcd = ddr5_mtb_ftb_calc(bytes[402], bytes[429]);
-    trp  = ddr5_mtb_ftb_calc(bytes[403], bytes[428]);
-    tras = (((bytes[404] & 0x0f) << 8) + bytes[405]) * 0.125;
+    if (majv)
+        *majv = bytes[0x282] >> 4;
 
-    *str = g_strdup_printf("[%s]\n"
-               "%s=DDR4 %d MHz\n"
-               "%s=%d.%d V\n"
-               "[%s]\n"
-               "%s",
-               _("XMP Profile"),
-               _("Speed"), (int) ddrclk,
-               _("Voltage"), bytes[393] >> 7, bytes[393] & 0x7f,
-               _("XMP Timings"),
-               ddr5_print_spd_timings((int) ddrclk, ceil(taa/ctime - 0.025), trcd, trp, tras, ctime));
-  */
+    if (minv)
+        *minv = bytes[0x282] & 0x0f;
+}
+
+void decode_ddr5_xmp(unsigned char *bytes,
+                     int spd_size,
+                     char **str) {
+    static const int profile_base[2] = {
+        0x2c0,
+        0x300
+    };
+
+    unsigned char enabled;
+    GString *out;
+    int i;
+
+    if (!str)
+        return;
+
+    *str = NULL;
+
+    if (spd_size <= 0x283)
+        return;
+
+    if (bytes[0x280] != 0x0c ||
+        bytes[0x281] != 0x4a ||
+        bytes[0x282] != 0x30)
+        return;
+
+    enabled = bytes[0x283];
+    out = g_string_new(NULL);
+
+    for (i = 0; i < 2; i++) {
+        const unsigned char *p;
+
+        unsigned short tck_ps;
+        unsigned short taa_ps;
+        unsigned short trcd_ps;
+        unsigned short trp_ps;
+        unsigned short tras_ps;
+
+        int speed;
+        int tcl;
+        int trcd;
+        int trp;
+        int tras;
+
+        if ((enabled & (1 << i)) == 0)
+            continue;
+
+        if (spd_size < profile_base[i] + 64)
+            continue;
+
+        p = &bytes[profile_base[i]];
+
+        tck_ps  = ddr5_xmp_le16(&p[5]);
+        taa_ps  = ddr5_xmp_le16(&p[13]);
+        trcd_ps = ddr5_xmp_le16(&p[15]);
+        trp_ps  = ddr5_xmp_le16(&p[17]);
+        tras_ps = ddr5_xmp_le16(&p[19]);
+
+        speed = ddr5_xmp_speed(tck_ps);
+
+        if (speed == 0)
+            continue;
+
+        tcl  = ddr5_xmp_cycles(taa_ps, tck_ps);
+        trcd = ddr5_xmp_cycles(trcd_ps, tck_ps);
+        trp  = ddr5_xmp_cycles(trp_ps, tck_ps);
+        tras = ddr5_xmp_cycles(tras_ps, tck_ps);
+
+        if (out->len)
+            g_string_append_c(out, '\n');
+
+        g_string_append_printf(
+            out,
+            "[XMP 3.0 Profile %d]\n"
+            "%s=DDR5-%d\n"
+            "VDD=%.2f V\n"
+            "VDDQ=%.2f V\n"
+            "%s=%d-%d-%d-%d\n",
+            i + 1,
+            _("Speed"),
+            speed,
+            ddr5_xmp_voltage(p[1]),
+            ddr5_xmp_voltage(p[2]),
+            _("Timings"),
+            tcl,
+            trcd,
+            trp,
+            tras
+        );
+    }
+
+    if (out->len)
+        *str = g_string_free(out, FALSE);
+    else
+        g_string_free(out, TRUE);
+}
+
+
+static gboolean ddr5_expo_present(unsigned char *bytes, int spd_size) {
+    if (spd_size < 0x34a)
+        return FALSE;
+
+    return bytes[0x340] == 0x45 &&
+           bytes[0x341] == 0x58 &&
+           bytes[0x342] == 0x50 &&
+           bytes[0x343] == 0x4f;
+}
+
+static gchar *decode_ddr5_expo(unsigned char *bytes, int spd_size) {
+    static const int profile_base[2] = {
+        0x34a,
+        0x372
+    };
+
+    GString *out;
+    int i;
+
+    if (!ddr5_expo_present(bytes, spd_size))
+        return NULL;
+
+    out = g_string_new(
+        "[AMD EXPO]\n"
+        "EXPO=Yes\n"
+    );
+
+    for (i = 0; i < 2; i++) {
+        const unsigned char *p;
+        unsigned short tck_ps;
+        unsigned short taa_ps;
+        unsigned short trcd_ps;
+        unsigned short trp_ps;
+        unsigned short tras_ps;
+        int speed;
+        int tcl;
+        int trcd;
+        int trp;
+        int tras;
+
+        if (spd_size < profile_base[i] + 40)
+            continue;
+
+        p = &bytes[profile_base[i]];
+
+        /*
+         * AMD EXPO profile:
+         *
+         * +0  VDD
+         * +1  VDDQ
+         * +2  VPP
+         * +4  tCKmin
+         * +6  tAA
+         * +8  tRCD
+         * +10 tRP
+         * +12 tRAS
+         */
+
+        tck_ps  = ddr5_xmp_le16(&p[4]);
+        taa_ps  = ddr5_xmp_le16(&p[6]);
+        trcd_ps = ddr5_xmp_le16(&p[8]);
+        trp_ps  = ddr5_xmp_le16(&p[10]);
+        tras_ps = ddr5_xmp_le16(&p[12]);
+
+        if (tck_ps == 0 || tck_ps == 0xffff)
+            continue;
+
+        speed = ddr5_xmp_speed(tck_ps);
+
+        if (speed == 0)
+            continue;
+
+        tcl  = ddr5_xmp_cycles(taa_ps, tck_ps);
+        trcd = ddr5_xmp_cycles(trcd_ps, tck_ps);
+        trp  = ddr5_xmp_cycles(trp_ps, tck_ps);
+        tras = ddr5_xmp_cycles(tras_ps, tck_ps);
+
+        g_string_append_printf(
+            out,
+            "\n"
+            "[EXPO Profile %d]\n"
+            "%s=DDR5-%d\n"
+            "VDD=%.2f V\n"
+            "VDDQ=%.2f V\n"
+            "%s=%d-%d-%d-%d\n",
+            i + 1,
+            _("Speed"),
+            speed,
+            ddr5_xmp_voltage(p[0]),
+            ddr5_xmp_voltage(p[1]),
+            _("Timings"),
+            tcl,
+            trcd,
+            trp,
+            tras
+        );
+    }
+
+    return g_string_free(out, FALSE);
 }
 
 void decode_ddr5_module_detail(unsigned char *bytes, char *type_detail) {
@@ -1138,20 +1348,36 @@ gchar *decode_ddr5_sdram_extra(unsigned char *bytes, int spd_size) {
     }
     else {
         xmp = g_strdup_printf("%s (revision %d.%d)", _("Yes"), xmp_majv, xmp_minv);
-        if (xmp_majv == 2 && xmp_minv == 0)
+        if (xmp_majv == 3 && xmp_minv == 0)
             decode_ddr5_xmp(bytes, spd_size, &xmp_profile);
     }
 
     /* expected to continue an [SPD] section */
     out = g_strdup_printf("%s=%s\n"
-                          //"%s=%s\n"
+                          "%s=%s\n"
                           "[%s]\n"
                           "%s\n"
                           "%s",
                           _("Voltage"), bytes[15]==0  ? "1.1 V": _("(Unknown)"),
-                          //_("XMP"), xmp ? xmp : _("(Unknown)"),
+                          _("XMP"), xmp ? xmp : _("(Unknown)"),
                           _("JEDEC Timings"), speed_timings,
                           xmp_profile ? xmp_profile: "");
+
+    {
+        gchar *expo_profile = decode_ddr5_expo(bytes, spd_size);
+
+        if (expo_profile) {
+            gchar *tmp = g_strdup_printf(
+                "%s\n%s",
+                out,
+                expo_profile
+            );
+
+            g_free(out);
+            out = tmp;
+            g_free(expo_profile);
+        }
+    }
 
     g_free(speed_timings);
     g_free(manf_date);

@@ -1219,6 +1219,108 @@ void decode_ddr5_xmp(unsigned char *bytes,
         g_string_free(out, TRUE);
 }
 
+
+static gboolean ddr5_expo_present(unsigned char *bytes, int spd_size) {
+    if (spd_size < 0x34a)
+        return FALSE;
+
+    return bytes[0x340] == 0x45 &&
+           bytes[0x341] == 0x58 &&
+           bytes[0x342] == 0x50 &&
+           bytes[0x343] == 0x4f;
+}
+
+static gchar *decode_ddr5_expo(unsigned char *bytes, int spd_size) {
+    static const int profile_base[2] = {
+        0x34a,
+        0x372
+    };
+
+    GString *out;
+    int i;
+
+    if (!ddr5_expo_present(bytes, spd_size))
+        return NULL;
+
+    out = g_string_new(
+        "[AMD EXPO]\n"
+        "EXPO=Yes\n"
+    );
+
+    for (i = 0; i < 2; i++) {
+        const unsigned char *p;
+        unsigned short tck_ps;
+        unsigned short taa_ps;
+        unsigned short trcd_ps;
+        unsigned short trp_ps;
+        unsigned short tras_ps;
+        int speed;
+        int tcl;
+        int trcd;
+        int trp;
+        int tras;
+
+        if (spd_size < profile_base[i] + 40)
+            continue;
+
+        p = &bytes[profile_base[i]];
+
+        /*
+         * AMD EXPO profile:
+         *
+         * +0  VDD
+         * +1  VDDQ
+         * +2  VPP
+         * +4  tCKmin
+         * +6  tAA
+         * +8  tRCD
+         * +10 tRP
+         * +12 tRAS
+         */
+
+        tck_ps  = ddr5_xmp_le16(&p[4]);
+        taa_ps  = ddr5_xmp_le16(&p[6]);
+        trcd_ps = ddr5_xmp_le16(&p[8]);
+        trp_ps  = ddr5_xmp_le16(&p[10]);
+        tras_ps = ddr5_xmp_le16(&p[12]);
+
+        if (tck_ps == 0 || tck_ps == 0xffff)
+            continue;
+
+        speed = ddr5_xmp_speed(tck_ps);
+
+        if (speed == 0)
+            continue;
+
+        tcl  = ddr5_xmp_cycles(taa_ps, tck_ps);
+        trcd = ddr5_xmp_cycles(trcd_ps, tck_ps);
+        trp  = ddr5_xmp_cycles(trp_ps, tck_ps);
+        tras = ddr5_xmp_cycles(tras_ps, tck_ps);
+
+        g_string_append_printf(
+            out,
+            "\n"
+            "[EXPO Profile %d]\n"
+            "%s=DDR5-%d\n"
+            "VDD=%.2f V\n"
+            "VDDQ=%.2f V\n"
+            "%s=%d-%d-%d-%d\n",
+            i + 1,
+            _("Speed"),
+            speed,
+            ddr5_xmp_voltage(p[0]),
+            ddr5_xmp_voltage(p[1]),
+            _("Timings"),
+            tcl,
+            trcd,
+            trp,
+            tras
+        );
+    }
+
+    return g_string_free(out, FALSE);
+}
+
 void decode_ddr5_module_detail(unsigned char *bytes, char *type_detail) {
     float ddr_clock;
     int pc5_speed;
@@ -1260,6 +1362,22 @@ gchar *decode_ddr5_sdram_extra(unsigned char *bytes, int spd_size) {
                           _("XMP"), xmp ? xmp : _("(Unknown)"),
                           _("JEDEC Timings"), speed_timings,
                           xmp_profile ? xmp_profile: "");
+
+    {
+        gchar *expo_profile = decode_ddr5_expo(bytes, spd_size);
+
+        if (expo_profile) {
+            gchar *tmp = g_strdup_printf(
+                "%s\n%s",
+                out,
+                expo_profile
+            );
+
+            g_free(out);
+            out = tmp;
+            g_free(expo_profile);
+        }
+    }
 
     g_free(speed_timings);
     g_free(manf_date);

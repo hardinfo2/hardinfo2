@@ -708,7 +708,7 @@ static gchar *dmi_mark_active_xmp3_profile(
         }
 
         replacement = g_strdup_printf(
-            "[XMP 3.0 Profile %d - ACTIVE (speed match)]\n",
+            "[XMP 3.0 Profile %d - speed match]\n",
             i + 1
         );
 

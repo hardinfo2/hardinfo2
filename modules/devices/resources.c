@@ -79,9 +79,9 @@ static gchar *_resource_obtain_name(gchar *name)
 void scan_device_resources(gboolean reload)
 {
     SCAN_START();
-    FILE *io,*iotmp;
-    gchar buffer[8192];//512cpus*12=6K
-    guint i,t;
+    gchar *contents = NULL;
+    gchar **lines;
+    guint i,t,l;
     gint zero_to_zero_addr = 0;
 
     struct {
@@ -98,27 +98,27 @@ void scan_device_resources(gboolean reload)
     _resources = g_strdup("");
 
     for (i = 0; i < G_N_ELEMENTS(resources); i++) {
-      if ((io = fopen(resources[i].file, "r"))) {
+      if (g_file_get_contents(resources[i].file, &contents, NULL, NULL)) {
         _resources = h_strconcat(_resources, resources[i].description, NULL);
         t=0;
 	//check /run/hardinfo2/(iomem+ioports) exists and use if not root
         if(getuid() != 0){//not root access
-	  if(i==0) {
-	    if((iotmp = fopen("/run/hardinfo2/ioports", "r"))){
-	      fclose(io);
-	      io = iotmp;iotmp=NULL;
-	    }
-	  }
-	  if(i==1) {
-	    if((iotmp = fopen("/run/hardinfo2/iomem", "r"))){
-	      fclose(io);
-	      io = iotmp;iotmp=NULL;
+	  const gchar *alt = NULL;
+	  if(i==0) alt = "/run/hardinfo2/ioports";
+	  if(i==1) alt = "/run/hardinfo2/iomem";
+	  if(alt) {
+	    gchar *alt_contents = NULL;
+	    if(g_file_get_contents(alt, &alt_contents, NULL, NULL)){
+	      g_free(contents);
+	      contents = alt_contents;
 	    }
 	  }
 	}
-        while (fgets(buffer, sizeof(buffer), io)) {
-          gchar **temp = g_strsplit(buffer, ":", 2);
-	  if(temp[1]!=NULL){//discard lines without a name
+        lines = g_strsplit(contents, "\n", -1);
+        l = 0;
+        while (lines[l]) {
+          gchar **temp = g_strsplit(lines[l], ":", 2);
+	  if(temp[0]!=NULL && temp[1]!=NULL){//discard lines without a name
 	    gchar *name=NULL;
 	    if(i==3){
 	      //Discard irq counts
@@ -130,9 +130,9 @@ void scan_device_resources(gboolean reload)
 	    }
 
             if( ((i==0) && strstr(temp[0], "0000-0000")) || ((i==1) && strstr(temp[0], "000000-000000")) ){
+              char str[512];
               zero_to_zero_addr++;
 	      t++;
-	      char str[512];
 	      snprintf(str, sizeof(str), "%d:%s", t, temp[0]);
 	      g_free(temp[0]);
 	      temp[0]=g_strdup(str);
@@ -145,9 +145,11 @@ void scan_device_resources(gboolean reload)
             g_free(name);
 	  }
           g_strfreev(temp);
+          l++;
         }
-
-        fclose(io);
+        g_strfreev(lines);
+        g_free(contents);
+        contents = NULL;
       }
     }
 

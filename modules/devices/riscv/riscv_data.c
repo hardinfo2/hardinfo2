@@ -78,7 +78,7 @@ const char *riscv_ext_list() {
 
 const char *riscv_ext_meaning(const char *ext) {
     int i = 0, l = 0;
-    char *c = NULL;
+    const char *c = NULL;
     if (ext) {
         c = strchr(ext, ':'); /* allow extension:version, ignore version */
         if (c != NULL)

@@ -18,6 +18,7 @@
  */
 
 #include <stdlib.h>
+#include <locale.h>
 #include "hardinfo.h"
 #include "benchmark.h"
 #include "cpu_util.h"
@@ -81,6 +82,10 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
     if (!ctx->threads) ctx->threads = 1;
     ctx->r.threads_used = ctx->threads;
     if (!ctx->max_time) ctx->max_time = 7;
+
+    /* sysbench output is always in the C locale; parse numbers that way. */
+    gchar *saved_locale = g_strdup(setlocale(LC_ALL, NULL));
+    setlocale(LC_ALL, "C");
 
     gchar *cmd_line = NULL;
     snprintf(ctx->r.extra, 255, "--time=%d %s", ctx->max_time, ctx->parms_test);
@@ -171,9 +176,17 @@ static gboolean sysbench_run(struct sysbench_ctx *ctx, int expecting_version) {
     if (ctx->r.result == -1)
         goto sysbench_failed;
 
+    if (saved_locale)
+        setlocale(LC_ALL, saved_locale);
+    g_free(saved_locale);
+
     return spawned;
 
 sysbench_failed:
+    if (saved_locale)
+        setlocale(LC_ALL, saved_locale);
+    g_free(saved_locale);
+
     g_free(out);
     g_free(err);
     return 0;
